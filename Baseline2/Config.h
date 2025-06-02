@@ -1,22 +1,18 @@
 #ifndef CONFIG
 #define CONFIG
 
-extern const int warmupStep;
-extern const float b1;
-extern const float b2;
-extern const float eps;
+static constexpr int warmupStep = 4000;
+static constexpr float beta1 = 0.9;
+static constexpr float beta2 = 0.98;
+static constexpr float eps = 1e-9;
 
-extern const int dModel;
-extern const int head;
-extern const int sequenceLength;
-extern const int qshape;
-extern const int dFF;
+static constexpr int dModel = 24; // 512
+static constexpr int head = 1; // 8
+static constexpr int sequenceLength = 16;
+static constexpr int qshape = 16;
+static constexpr int dFF = 128; // 256
 
-extern const int epoch;
-extern const int batch;
-
-#define L1_SIZE = 256 * 1024
-#define L2_SIZE = 4 * 1024 * 1024
-#define L3_SIZE = 8 * 1024 * 1024
+static constexpr int epoch = 2;
+static constexpr int batch = 8;
 
 #endif

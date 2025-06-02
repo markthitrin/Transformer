@@ -1,13 +1,14 @@
-#ifndef SOFTMAX
-#define SOFTMAX
+#ifndef LOG_SOFTMAX
+#define LOG_SOFTMAX
 
 #include "Header.h"
 #include "Tensor.h"
+#include "Util.h"
 
 template<int d,int col>
-class Softmax {
+class LogSoftmax {
 public:
-	Softmax() noexcept { ; }
+	LogSoftmax() noexcept { ; }
 
 	void forward() noexcept {
 		IMPORT_CONST(input);
@@ -21,8 +22,9 @@ public:
 			for (int j = 0; j < col; j++) {
 				sumExp += std::exp(input[i * col + j] - maxValue);
 			}
+			float logSumExp = maxValue + std::log(sumExp);
 			for (int j = 0; j < col; j++) {
-				output[i * col + j] = std::exp(input[i * col + j] - maxValue) / sumExp;
+				output[i * col + j] = input[i * col + j] - logSumExp;
 			}
 		}
 	}
@@ -31,25 +33,26 @@ public:
 		forward();
 	}
 
-	void backpropagate() noexcept {
+	void backpropagate() const noexcept {
 		IMPORT_CONST(inGradient);
 		IMPORT_CONST(output);
 		IMPORT(outGradient);
 		for (int i = 0; i < d; i++) {
-			float sumGY = 0.0f;
+			float sum = 0.0f;
 			for (int j = 0; j < col; j++) {
-				sumGY += inGradient[i * col + j] * output[i * col + j];
+				outGradient[i * col + j] = std::exp(output[i * col + j]);
+				sum += inGradient[i * col + j] * outGradient[i * col + j];
 			}
 			for (int j = 0; j < col; j++) {
-				outGradient[i * col + j] = output[i * col + j] * (inGradient[i * col + j] - sumGY);
+				outGradient[i * col + j] = inGradient[i * col + j] - outGradient[i * col + j] * sum;
 			}
 		}
 	}
-	
+
 	Tensor _inGradient;
 	Tensor _outGradient;
 	Tensor _input;
 	Tensor _output;
 };
 
-#endif
+#endif // ! LOG_SOFTMAX
