@@ -67,26 +67,26 @@ public:
 		linear._inGradient = softmax._outGradient = _gradient5;
 	}
 	~Decoder() {
-		_aligned_free(_out1);
-		_aligned_free(_out2);
-		_aligned_free(_out3_1);
-		_aligned_free(_out3_2);
-		_aligned_free(_out3_3);
-		_aligned_free(_out3_4);
-		_aligned_free(_out3_5);
-		_aligned_free(_out3_6);
-		_aligned_free(_out4);
-		_aligned_free(_out5);
+		std::free(_out1);
+		std::free(_out2);
+		std::free(_out3_1);
+		std::free(_out3_2);
+		std::free(_out3_3);
+		std::free(_out3_4);
+		std::free(_out3_5);
+		std::free(_out3_6);
+		std::free(_out4);
+		std::free(_out5);
 
-		_aligned_free(_gradient2);
-		_aligned_free(_gradient3_1);
-		_aligned_free(_gradient3_2);
-		_aligned_free(_gradient3_3);
-		_aligned_free(_gradient3_4);
-		_aligned_free(_gradient3_5);
-		_aligned_free(_gradient3_6);
-		_aligned_free(_gradient4);
-		_aligned_free(_gradient5);
+		std::free(_gradient2);
+		std::free(_gradient3_1);
+		std::free(_gradient3_2);
+		std::free(_gradient3_3);
+		std::free(_gradient3_4);
+		std::free(_gradient3_5);
+		std::free(_gradient3_6);
+		std::free(_gradient4);
+		std::free(_gradient5);
 	}
 
 	void forward() noexcept {

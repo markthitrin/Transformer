@@ -34,12 +34,12 @@ public:
 		dropout._inGradient = linear2._outGradient = _gradient3;
 	}
 	~PositionwiseFeedForward() {
-		_aligned_free(_out1);
-		_aligned_free(_out2);
-		_aligned_free(_out3);
-		_aligned_free(_gradient1);
-		_aligned_free(_gradient2);
-		_aligned_free(_gradient3);
+		std::free(_out1);
+		std::free(_out2);
+		std::free(_out3);
+		std::free(_gradient1);
+		std::free(_gradient2);
+		std::free(_gradient3);
 	}
 
 	void forward() noexcept {

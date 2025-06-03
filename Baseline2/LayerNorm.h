@@ -24,17 +24,17 @@ public:
 		Set<1, col>(_gamma, 1.0f);
 	}
 	~LayerNorm() {
-		_aligned_free(_gamma);
-		_aligned_free(_bias);
-		_aligned_free(_gammaGradient);
-		_aligned_free(_gammaM);
-		_aligned_free(_gammaV);
-		_aligned_free(_biasGradient);
-		_aligned_free(_biasM);
-		_aligned_free(_biasV);
+		std::free(_gamma);
+		std::free(_bias);
+		std::free(_gammaGradient);
+		std::free(_gammaM);
+		std::free(_gammaV);
+		std::free(_biasGradient);
+		std::free(_biasM);
+		std::free(_biasV);
 
-		_aligned_free(_xHat);
-		_aligned_free(_o);
+		std::free(_xHat);
+		std::free(_o);
 	}
 
 	void forward() noexcept {

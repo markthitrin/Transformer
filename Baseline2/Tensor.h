@@ -24,14 +24,14 @@ constexpr int GetSizeBytes(int d, int col) {
 template<int d, int col>
 Tensor Create() {
     constexpr int realSize = GetSizeBytes(d, col);
-    void* data = _aligned_malloc(realSize, 32);
+    void* data = std::aligned_alloc(32, realSize);
     return (float*)data;
 }
 
 template<int d, int col>
 Tensor Create0() {
     constexpr int realSize = GetSizeBytes(d, col);
-    void* data = _aligned_malloc(realSize, 32);
+    void* data = std::aligned_alloc(32, realSize);
     std::memset(data, 0, realSize);
     return (float*)data;
 }

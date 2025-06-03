@@ -22,7 +22,7 @@ public:
 			for (int j = 0; j < col; j++) {
 				sumExp += std::exp(input[i * col + j] - maxValue);
 			}
-			float logSumExp = maxValue + std::log(sumExp);
+			float logSumExp = maxValue + fast_logf(sumExp);
 			for (int j = 0; j < col; j++) {
 				output[i * col + j] = input[i * col + j] - logSumExp;
 			}

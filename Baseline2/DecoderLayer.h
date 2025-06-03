@@ -6,7 +6,7 @@
 #include "LayerNorm.h"
 #include "Linear.h"
 #include "MultiheadAttention.h"
-#include "Dropout.h"
+#include "DropOut.h"
 #include "PositionwiseFeedForward.h"
 #include "Util.h"
 
@@ -46,16 +46,16 @@ public:
 
 	}
 	~DecoderLayer() {
-		_aligned_free(_out1);
-		_aligned_free(_out2);
-		_aligned_free(_out3);
-		_aligned_free(_out4);
-		_aligned_free(_out5);
-		_aligned_free(_gradient1);
-		_aligned_free(_gradient2);
-		_aligned_free(_gradient3);
-		_aligned_free(_gradient4);
-		_aligned_free(_gradient5);
+		std::free(_out1);
+		std::free(_out2);
+		std::free(_out3);
+		std::free(_out4);
+		std::free(_out5);
+		std::free(_gradient1);
+		std::free(_gradient2);
+		std::free(_gradient3);
+		std::free(_gradient4);
+		std::free(_gradient5);
 	}
 
 	void forward() noexcept {
@@ -109,10 +109,10 @@ public:
 
 	LayerNorm<d * l, col>							norm1;
 	MultiheadAttention<head, d, l, col, col, col>	mulAtt;
-	DropOut<d* l, col, 0.1>							dropout1;
+	DropOut<d* l, col, 0.1f>						dropout1;
 	LayerNorm<d* l, col>							norm2;
 	PositionwiseFeedForward<d* l, col, dFF, col>	pff;
-	DropOut<d* l, col, 0.1>							dropout2;
+	DropOut<d* l, col, 0.1f>						dropout2;
 
 	Tensor& _input;
 	Tensor& _output;

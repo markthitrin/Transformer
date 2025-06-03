@@ -23,15 +23,15 @@ public:
 		HeNormalInit<1, out, out>(_bias);
 	}
 	~Linear() {
-		_aligned_free(_weight);
-		_aligned_free(_bias);
+		std::free(_weight);
+		std::free(_bias);
 
-		_aligned_free(_weightGradient);
-		_aligned_free(_weightM);
-		_aligned_free(_weightV);
-		_aligned_free(_biasGradient);
-		_aligned_free(_biasM);
-		_aligned_free(_biasV);
+		std::free(_weightGradient);
+		std::free(_weightM);
+		std::free(_weightV);
+		std::free(_biasGradient);
+		std::free(_biasM);
+		std::free(_biasV);
 	}
 
 	void forward() noexcept {

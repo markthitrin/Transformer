@@ -87,4 +87,11 @@ void HeNormalInit(Tensor _param) {
     }
 }
 
+float fast_logf(float x) {
+    union { float f; uint32_t i; } vx = { x };
+    float y = vx.i;
+    y *= 1.1920928955078125e-7f;
+    return y - 127.0f;
+}
+
 #endif

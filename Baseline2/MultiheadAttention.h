@@ -53,37 +53,37 @@ public:
 		softmax._outGradient = _AGradient;
 	}
 	~MultiheadAttention() {
-		_aligned_free(_WQ);
-		_aligned_free(_WK);
-		_aligned_free(_WV);
-		_aligned_free(_WO);
+		std::free(_WQ);
+		std::free(_WK);
+		std::free(_WV);
+		std::free(_WO);
 
-		_aligned_free(_WQGradient);
-		_aligned_free(_WQM);
-		_aligned_free(_WQV);
-		_aligned_free(_WKGradient);
-		_aligned_free(_WKM);
-		_aligned_free(_WKV);
-		_aligned_free(_WVGradient);
-		_aligned_free(_WVM);
-		_aligned_free(_WVV);
-		_aligned_free(_WOGradient);
-		_aligned_free(_WOM);
-		_aligned_free(_WOV);
+		std::free(_WQGradient);
+		std::free(_WQM);
+		std::free(_WQV);
+		std::free(_WKGradient);
+		std::free(_WKM);
+		std::free(_WKV);
+		std::free(_WVGradient);
+		std::free(_WVM);
+		std::free(_WVV);
+		std::free(_WOGradient);
+		std::free(_WOM);
+		std::free(_WOV);
 
-		_aligned_free(_QT);
-		_aligned_free(_KT);
-		_aligned_free(_VT);
-		_aligned_free(_A);
-		_aligned_free(_As);
-		_aligned_free(_OT);
+		std::free(_QT);
+		std::free(_KT);
+		std::free(_VT);
+		std::free(_A);
+		std::free(_As);
+		std::free(_OT);
 
-		_aligned_free(_QTGradient);
-		_aligned_free(_KTGradient);
-		_aligned_free(_VTGradient);
-		_aligned_free(_AGradient);
-		_aligned_free(_AsGradient);
-		_aligned_free(_OTGradient);
+		std::free(_QTGradient);
+		std::free(_KTGradient);
+		std::free(_VTGradient);
+		std::free(_AGradient);
+		std::free(_AsGradient);
+		std::free(_OTGradient);
 	}
 
 	void forward() noexcept {
@@ -122,7 +122,7 @@ public:
 			}
 		}
 		Div<d * head * l, l>(Tensor(A), std::sqrt(float(qPerHead)), Tensor(A));
-		ApplyLookAheadMask<d * head, l, -1e9>(Tensor(A));
+		ApplyLookAheadMask<d * head, l, -1e9f>(Tensor(A));
 		softmax.forward();
 		for (int i = 0; i < d; i++) {
 			for (int j = 0; j < head; j++) {
@@ -200,7 +200,7 @@ public:
 			}
 		}
 		softmax.backpropagate();
-		ApplyLookAheadMask<d* head, l, 0>((Tensor)AGradient);
+		ApplyLookAheadMask<d* head, l, 0f>((Tensor)AGradient);
 		Div<d* head* l, l>((Tensor)AGradient, std::sqrt(float(qPerHead)), (Tensor)AGradient);
 		for (int i = 0; i < d; i++) {
 			for (int j = 0; j < head; j++) {

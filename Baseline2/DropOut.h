@@ -6,16 +6,22 @@
 
 template<float dropoutRate>
 void GenerateDropoutMask(float* mask, int size) {
-    static thread_local std::mt19937 rng{
-        static_cast<unsigned>(
-            std::chrono::steady_clock::now().time_since_epoch().count() +
-            reinterpret_cast<uintptr_t>(&rng))
+    static thread_local uint32_t state = static_cast<uint32_t>(
+        std::chrono::steady_clock::now().time_since_epoch().count() +
+        reinterpret_cast<uintptr_t>(&state));
+
+    auto fast_rand = [&]() {
+        // Xorshift32
+        state ^= state << 13;
+        state ^= state >> 17;
+        state ^= state << 5;
+        return state;
     };
 
-    std::uniform_real_distribution<float> dist(0.0f, 1.0f);
+    const uint32_t threshold = static_cast<uint32_t>((1.0f - dropoutRate) * 0xFFFFFFFFu);
 
     for (int i = 0; i < size; ++i) {
-        mask[i] = (dist(rng) < (1.0f - dropoutRate)) ? 1.0f : 0.0f;
+        mask[i] = (fast_rand() < threshold) ? 1.0f : 0.0f;
     }
 }
 
@@ -26,7 +32,7 @@ public:
         _mask(Create<d,col>()) { 
     }
     ~DropOut() {
-        _aligned_free(_mask);
+        std::free(_mask);
     }
 
     void forward() noexcept {
