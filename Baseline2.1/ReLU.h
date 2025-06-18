@@ -7,7 +7,15 @@
 template<int row, int col>
 class ReLU {
 public:
-	ReLU() noexcept { ; }
+	ReLU(
+		Tensor<row, col>& input,
+		Tensor<row, col>& output,
+		Tensor<row, col>& inGradient,
+		Tensor<row, col>& outGradient) noexcept:
+		_input(input),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradient(outGradient)  { ; }
 
 	void forward() noexcept {
 		IMPORT_CONST(input);
@@ -22,7 +30,7 @@ public:
 		forward();
 	}
 
-	void backward() const noexcept {
+	void backward() noexcept {
 		IMPORT_CONST(inGradient);
 		IMPORT_CONST(input);
 		IMPORT(outGradient);
@@ -32,10 +40,10 @@ public:
 		}
 	}
 
-	Tensor<row, col> _inGradient;
-	Tensor<row, col> _outGradient;
-	Tensor<row, col> _input;
-	Tensor<row, col> _output;
+	Tensor<row, col>& _input;
+	Tensor<row, col>& _output;
+	Tensor<row, col>& _inGradient;
+	Tensor<row, col>& _outGradient;
 };
 
 #endif // ! LOG_SOFTMAX

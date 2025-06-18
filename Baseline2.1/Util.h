@@ -7,11 +7,7 @@
 template<int row, int col>
 class AdamOptGradient {
 public:
-    AdamOptGradient() : t(1) {
-        gradient.init();
-        accM.init();
-        accV.init();
-    }
+    AdamOptGradient() : t(1) {;}
 
     Tensor<row, col> gradient;
     Tensor<row, col> accM;

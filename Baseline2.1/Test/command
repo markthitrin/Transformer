@@ -1,10 +1,31 @@
-clang++ -g ./DecoderLayerTest.cpp  -lcnpy -lz --std=c++20 -o ./DecoderLayerTest
-clang++ -g ./DecoderTest.cpp  -lcnpy -lz --std=c++20 -o ./DecoderTest
-clang++ -g ./EmbeddingTest.cpp  -lcnpy -lz --std=c++20 -o ./EmbeddingTest
-clang++ -g ./EncoderLayerTest.cpp  -lcnpy -lz --std=c++20 -o ./EncoderLayerTest
-clang++ -g ./EncoderTest.cpp  -lcnpy -lz --std=c++20 -o ./EncoderTest
-clang++ -g ./LayerNormTest.cpp  -lcnpy -lz --std=c++20 -o ./LayerNormTest
-clang++ -g ./MultiheadAttentionTest.cpp  -lcnpy -lz --std=c++20 -o ./MultiheadAttentionTest
-clang++ -g ./PositionalEncoderTest.cpp  -lcnpy -lz --std=c++20 -o ./PositionalEncoderTest
-clang++ -g ./PositionwiseFeedForwardTest.cpp  -lcnpy -lz --std=c++20 -o ./PositionwiseFeedForwardTest
+clang++ -g ./DecoderLayerTest.cpp  -lcnpy -lz --std=c++20 -o ./DecoderLayerTest &
+clang++ -g ./DecoderTest.cpp  -lcnpy -lz --std=c++20 -o ./DecoderTest &
+clang++ -g ./EmbeddingTest.cpp  -lcnpy -lz --std=c++20 -o ./EmbeddingTest &
+clang++ -g ./EncoderLayerTest.cpp  -lcnpy -lz --std=c++20 -o ./EncoderLayerTest &
+clang++ -g ./EncoderTest.cpp  -lcnpy -lz --std=c++20 -o ./EncoderTest &
+clang++ -g ./LayerNormTest.cpp  -lcnpy -lz --std=c++20 -o ./LayerNormTest &
+clang++ -g ./MultiheadAttentionTest.cpp  -lcnpy -lz --std=c++20 -o ./MultiheadAttentionTest &
+clang++ -g ./PositionalEncoderTest.cpp  -lcnpy -lz --std=c++20 -o ./PositionalEncoderTest &
+clang++ -g ./PositionwiseFeedForwardTest.cpp  -lcnpy -lz --std=c++20 -o ./PositionwiseFeedForwardTest &
 clang++ -g ./TransformerTest.cpp  -lcnpy -lz --std=c++20 -o ./TransformerTest
+
+echo "DecoderLayerTest===================================================" >> out
+./DecoderLayerTest >> out
+echo "DecoderTest===================================================" >> out
+./DecoderTest >> out
+echo "EmbeddingTest===================================================" >> out
+./EmbeddingTest >> out
+echo "EncoderLayerTest===================================================" >> out
+./EncoderLayerTest >> out
+echo "EncoderTest===================================================" >> out
+./EncoderTest >> out
+echo "LayerNormTest===================================================" >> out
+./LayerNormTest >> out
+echo "MultiheadAttentionTest===================================================" >> out
+./MultiheadAttentionTest >> out
+echo "PositionalEncoderTest===================================================" >> out
+./PositionalEncoderTest >> out
+echo "PositionwiseFeedForwardTest===================================================" >> out
+./PositionwiseFeedForwardTest >> out
+echo "TransformerTest===================================================" >> out
+./TransformerTest >> out

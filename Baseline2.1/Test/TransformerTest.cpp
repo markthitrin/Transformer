@@ -8,7 +8,11 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    Transformer model;
+    Tensor<1, batch * sequenceLength> inputEncoder;
+    Tensor<1, batch * sequenceLength> inputDecoder;
+	Tensor<batch * sequenceLength, tgtVocab> output;
+	Tensor<batch * sequenceLength, tgtVocab> inGradient;
+    Transformer model(inputEncoder, inputDecoder, output, inGradient);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");

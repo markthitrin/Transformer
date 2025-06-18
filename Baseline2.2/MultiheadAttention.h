@@ -46,6 +46,9 @@ public:
 		dropout._inGradient = _AsGradient;
 		dropout._outGradient = _AsGradient;
 	}
+	~MultiheadAttention() {
+		
+	}
 
 	void forward(int npd[batch]) noexcept {
 		constexpr int colPerhead = col / head;

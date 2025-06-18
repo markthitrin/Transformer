@@ -9,11 +9,16 @@
 template<int row,int col>
 class LayerNorm {
 public:
-	LayerNorm() {
-		_alpha.init();
-		_bias.init();
-		_xHat.init();
-		_o.init();
+	LayerNorm(
+		Tensor<row, col>& input,
+		Tensor<row, col>& output,
+		Tensor<row, col>& inGradient,
+		Tensor<row, col>& outGradient) noexcept:
+		_input(input),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradient(outGradient) {
+		
 		Set<1, col>(_alpha, 1.0f);
 	}
 	~LayerNorm() {
@@ -102,8 +107,6 @@ public:
 	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
 		Tensor<1, col> alphaUpdated;
 		Tensor<1, col> biasUpdated;
-		alphaUpdated.init();
-		biasUpdated.init();
 		alphaUpdated.loadNp(npFile, prefix + ".updated_alpha");
 		biasUpdated.loadNp(npFile, prefix + ".updated_bias");
 
@@ -113,10 +116,7 @@ public:
 
 
 	void forwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_input.init();
-		_output.init();
 		Tensor<row, col> target;
-		target.init();
 
 		_input.loadNp(npFile, prefix + ".input");
 		target.loadNp(npFile, prefix + ".output");
@@ -126,10 +126,8 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_inGradient.init();
 		Set(_inGradient,1.0f / row / col);
-		_outGradient.init();
-		_input.init();
+
 		_input.loadNp(npFile, prefix + ".input");
 
 		forward();
@@ -139,10 +137,10 @@ public:
 		checkUpdatedParam(npFile, prefix);
 	}
 
-	Tensor<row, col> _input;
-	Tensor<row, col> _output;
-	Tensor<row, col> _inGradient;
-	Tensor<row, col> _outGradient;
+	Tensor<row, col>& _input;
+	Tensor<row, col>& _output;
+	Tensor<row, col>& _inGradient;
+	Tensor<row, col>& _outGradient;
 
 	Tensor<1, col> _alpha;
 	Tensor<1, col> _bias;

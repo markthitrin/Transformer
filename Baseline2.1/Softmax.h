@@ -7,7 +7,15 @@
 template<int row,int col>
 class Softmax {
 public:
-	Softmax() noexcept { ; }
+	Softmax(
+		Tensor<row, col>& input,
+		Tensor<row, col>& output,
+		Tensor<row, col>& inGradient,
+		Tensor<row, col>& outGradient) noexcept:
+		_input(input),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradient(outGradient) { ; }
 
 	void forward() noexcept {
         IMPORT_CONST(input);
@@ -52,11 +60,11 @@ public:
 			}
 		}
 	}
-	
-	Tensor<row, col> _inGradient;
-	Tensor<row, col> _outGradient;
-	Tensor<row, col> _input;
-	Tensor<row, col> _output;
+
+	Tensor<row, col>& _input;
+	Tensor<row, col>& _output;
+	Tensor<row, col>& _inGradient;
+	Tensor<row, col>& _outGradient;
 };
 
 #endif

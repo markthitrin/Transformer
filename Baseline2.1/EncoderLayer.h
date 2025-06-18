@@ -13,38 +13,32 @@
 template<int batch,int len,int col>
 class EncoderLayer {
 public:
-	EncoderLayer() :
-		_input		(norm1._input),
-		_output		(dropout2._output),
-		_inGradient (dropout2._inGradient),
-		_outGradient(norm1._outGradient) {
-
-        _out1.init();
-		_out2.init();
-		_out3.init();
-		_out4.init();
-		_out5.init();
-		_gradient1.init(); 
-		_gradient2.init();
-		_gradient3.init();
-		_gradient4.init();
-		_gradient5.init();
-
-		mulAtt._inputQ = mulAtt._inputK = mulAtt._inputV = norm1._output = _out1;
-		norm1._inGradient = mulAtt._outGradientQ = mulAtt._outGradientK = mulAtt._outGradientV = _gradient1;
-		
-		dropout1._input = mulAtt._output = _out2;
-		mulAtt._inGradient = dropout1._outGradient = _gradient2;
-
-		norm2._input = dropout1._output = _out3;
-		dropout1._inGradient = norm2._outGradient = _gradient3;
-
-		pff._input = norm2._output = _out4;
-		norm2._inGradient = pff._outGradient = _gradient4;
-
-		dropout2._input = pff._output = _out5;
-		pff._inGradient = dropout2._outGradient = _gradient5;
-
+	EncoderLayer(
+		Tensor<batch * len, col>& input,
+		Tensor<batch * len, col>& output,
+		Tensor<batch * len, col>& inGradient,
+		Tensor<batch * len, col>& outGradient) noexcept:
+		norm1(input, _out1, _gradient1, outGradient),
+		mulAtt(_out1, _out1, _out1, _out2, _gradient2, _gradient1, _gradient1, _gradient1),
+		dropout1(_out2, _out3, _gradient3, _gradient2),
+		norm2(_out3, _out4, _gradient4, _gradient3),
+		pff(_out4, _out5, _gradient5, _gradient4),
+		dropout2(_out5, output, inGradient, _gradient5),
+		_input(input),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradient(outGradient) {;}
+	~EncoderLayer() {
+		_out1.free();
+		_out2.free();
+		_out3.free();
+		_out4.free();
+		_out5.free();
+		_gradient1.free();
+		_gradient2.free();
+		_gradient3.free();
+		_gradient4.free();
+		_gradient5.free();
 	}
 
 	void forward(int npd) noexcept {
@@ -105,12 +99,8 @@ public:
 	}
 
 	void forwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_input.init();
-		_output.init();
 		Tensor<batch * len, col> target;
 		Tensor<1,1> npdLoad;
-		target.init();
-		npdLoad.init();
 
 		_input.loadNp(npFile, prefix + ".input");
 		target.loadNp(npFile, prefix + ".output");
@@ -121,15 +111,10 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_inGradient.init();
 		Set(_inGradient,1.0f / batch / len / col);
-		_outGradient.init();
-		_input.init();
 		_input.loadNp(npFile, prefix + ".input");
-		_output.init();
 		
 		Tensor<1, 1> npdLoader;
-		npdLoader.init();
 		npdLoader.loadNp(npFile, prefix + ".npd");
 
 		forward(npdLoader.data[0]);

@@ -16,35 +16,52 @@ enum MaskType {
 template<int head, int maskType, int batch,int len,int col>
 class MultiheadAttention {
 public:
-	MultiheadAttention() {
+	MultiheadAttention(
+		Tensor<batch * len, col>& inputQ,
+		Tensor<batch * len, col>& inputK,
+		Tensor<batch * len, col>& inputV,
+		Tensor<batch * len, col>& output,
+		Tensor<batch * len, col>& inGradient,
+		Tensor<batch * len, col>& outGradientQ,
+		Tensor<batch * len, col>& outGradientK,
+		Tensor<batch * len, col>& outGradientV) noexcept:
+		softmax(_A, _As, _AsGradient, _AGradient),
+		dropout(_As, _Ad, _AdGradient, _AsGradient),
+		_inputQ(inputQ),
+		_inputK(inputK),
+		_inputV(inputV),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradientQ(outGradientQ),
+		_outGradientK(outGradientK),
+		_outGradientV(outGradientV) {
+
 		_WQ.XavierUniformInit();
 		_WK.XavierUniformInit();
 		_WV.XavierUniformInit();
 		_WO.XavierUniformInit();
+	}
+	~MultiheadAttention() {
+		_WQ.free();
+		_WK.free();
+		_WV.free();
+		_WO.free();
 
-		_QT.init();
-		_KT.init();
-		_VT.init();
-		_A.init();
-		_As.init();
-		_OT.init();
+		_QT.free();
+		_KT.free();
+		_VT.free();
+		_A.free();
+		_As.free();
+		_Ad.free();
+		_OT.free();
 
-		_QTGradient.init();
-		_KTGradient.init();
-		_VTGradient.init();
-		_AGradient.init();
-		_AsGradient.init();
-		_OTGradient.init();
-
-		softmax._input = _A;
-		softmax._output = _As;
-		softmax._inGradient = _AsGradient;
-		softmax._outGradient = _AGradient;
-
-		dropout._input = _As;
-		dropout._output = _As;
-		dropout._inGradient = _AsGradient;
-		dropout._outGradient = _AsGradient;
+		_QTGradient.free();
+		_KTGradient.free();
+		_VTGradient.free();
+		_AGradient.free();
+		_AsGradient.free();
+		_AdGradient.free();
+		_OTGradient.free();
 	}
 
 	void forward(int npd) noexcept {
@@ -54,7 +71,7 @@ public:
 		Reset(_KT);
 		Reset(_VT);
 		Reset(_A);
-		Reset(_As);
+		Reset(_Ad);
 		Reset(_OT);
 		Reset(_output);
 		for (int i = 0; i < batch; i++) {
@@ -79,7 +96,7 @@ public:
 		for (int i = 0; i < batch * head; i++) {
 			MatMulPlusABT(
 				_VT.template sliceRow<colPerhead>(i * colPerhead), 
-				_As.template sliceRow<len>(i * len), 
+				_Ad.template sliceRow<len>(i * len), 
 				_OT.template sliceRow<colPerhead>(i * colPerhead));
 		}
 		for (int i = 0; i < batch; i++) {
@@ -99,7 +116,7 @@ public:
 		Reset(_KTGradient);
 		Reset(_VTGradient);
 		Reset(_AGradient);
-		Reset(_AsGradient);
+		Reset(_AdGradient);
 		Reset(_OTGradient);
 		Reset(_outGradientQ);
 		Reset(_outGradientK);
@@ -112,10 +129,10 @@ public:
 			MatMulPlusATB(
 				_OTGradient.template sliceRow<colPerhead>(i * colPerhead),
 				_VT.template sliceRow<colPerhead>(i * colPerhead),
-				_AsGradient.template sliceRow<len>(i * len));
+				_AdGradient.template sliceRow<len>(i * len));
 			MatMulPlusAB(
 				_OTGradient.template sliceRow<colPerhead>(i * colPerhead),
-				_As.template sliceRow<len>(i * len),
+				_Ad.template sliceRow<len>(i * len),
 				_VTGradient.template sliceRow<colPerhead>(i * colPerhead));
 		}
 		dropout.backward();
@@ -173,10 +190,6 @@ public:
 		Tensor<col, col> WKUpdated;
 		Tensor<col, col> WVUpdated;
 		Tensor<col, col> WOUpdated;
-		WQUpdated.init();
-		WKUpdated.init();
-		WVUpdated.init();
-		WOUpdated.init();
 		WQUpdated.loadNp(npFile, prefix + ".original_w_q");
 		WKUpdated.loadNp(npFile, prefix + ".original_w_k");
 		WVUpdated.loadNp(npFile, prefix + ".original_w_v");
@@ -193,14 +206,8 @@ public:
 	}
 
 	void forwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_inputQ.init();
-		_inputK.init();
-		_inputV.init();
-		_output.init();
 		Tensor<batch * sequenceLength, col> target;
 		Tensor<1, 1> npdLoader;
-		npdLoader.init();
-		target.init();
 
 		_inputQ.loadNp(npFile, prefix + ".q");
 		_inputK.loadNp(npFile, prefix + ".k");
@@ -218,11 +225,6 @@ public:
 		// Tensor<batch * sequenceLength, col> value;
 		// Tensor<batch * head * sequenceLength, sequenceLength> att;
 		// Tensor<batch * sequenceLength, col> x;
-		// query.init();
-		// key.init();
-		// value.init();
-		// att.init();
-		// x.init();
 		// query.loadNp(npFile, prefix + ".query");
 		// key.loadNp(npFile, prefix + ".key");
 		// value.loadNp(npFile, prefix + ".value");
@@ -232,25 +234,16 @@ public:
 		// PrintTestResultT<batch, col, sequenceLength>("forward query",_QT, query);
 		// PrintTestResultT<batch, col, sequenceLength>("forward key", _KT, key);
 		// PrintTestResultT<batch, col, sequenceLength>("forward value",_VT, value);
-		// PrintTestResult("forward att",_As, att);
+		// PrintTestResult("forward att",_Ad, att);
 		// PrintTestResultT<batch, col, sequenceLength>("forward out", _OT, x);
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_inGradient.init();
-		_outGradientK.init();
-		_outGradientQ.init();
-		_outGradientV.init();
 		Set(_inGradient, 1.0f / sequenceLength / col);
-		_inputQ.init();
-		_inputK.init();
-		_inputV.init();
-		_output.init();
 		_inputQ.loadNp(npFile, prefix + ".q");
 		_inputK.loadNp(npFile, prefix + ".k");
 		_inputV.loadNp(npFile, prefix + ".v");
 		Tensor<1, 1> npdLoader;
-		npdLoader.init();
 		npdLoader.loadNp(npFile, prefix + ".npd");
 
 		forward(npdLoader.data[0]);
@@ -260,14 +253,14 @@ public:
 		checkUpdatedParam(npFile, prefix);
 	}
 
-	Tensor<batch * len, col> _inputQ;
-	Tensor<batch * len, col> _inputK;
-	Tensor<batch * len, col> _inputV;
-	Tensor<batch * len, col> _output;
-	Tensor<batch * len, col> _inGradient;
-	Tensor<batch * len, col> _outGradientQ;
-	Tensor<batch * len, col> _outGradientK;
-	Tensor<batch * len, col> _outGradientV;
+	Tensor<batch * len, col>& _inputQ;
+	Tensor<batch * len, col>& _inputK;
+	Tensor<batch * len, col>& _inputV;
+	Tensor<batch * len, col>& _output;
+	Tensor<batch * len, col>& _inGradient;
+	Tensor<batch * len, col>& _outGradientQ;
+	Tensor<batch * len, col>& _outGradientK;
+	Tensor<batch * len, col>& _outGradientV;
 
 	Tensor<col, col> _WQ;
 	Tensor<col, col> _WK;
@@ -284,7 +277,8 @@ public:
 	Tensor<batch * col, len> _KT;
 	Tensor<batch * col, len> _VT;
 	Tensor<batch * head * len, len> _A;
-	Tensor<batch * head * len, len>  _As;
+	Tensor<batch * head * len, len> _As;
+	Tensor<batch * head * len, len> _Ad;
 	Tensor<batch * col, len>  _OT;
 
 	Tensor<batch * col, len>  _QTGradient;
@@ -292,6 +286,7 @@ public:
 	Tensor<batch * col, len>  _VTGradient;
 	Tensor<batch * head * len, len> _AGradient;
 	Tensor<batch * head * len, len> _AsGradient;
+	Tensor<batch * head * len, len> _AdGradient;
 	Tensor<batch * col, len>  _OTGradient;
 
 	Softmax<batch * head * len, len> softmax;

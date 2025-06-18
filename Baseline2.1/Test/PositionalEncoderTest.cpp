@@ -8,13 +8,16 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
+    Tensor<batch * sequenceLength, dModel> input;
+    Tensor<batch * sequenceLength, dModel> output;
+    Tensor<batch * sequenceLength, dModel> inGradient;
+    Tensor<batch * sequenceLength, dModel> outGradient;
+    PositionalEncoder<batch, sequenceLength, dModel> model(input, output, inGradient, outGradient);
     // param
     // forwardTest
     for(int i = 0; i < feedTest;i++) {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_forward" + std::to_string(i) + ".npz");
-        PositionalEncoder<batch, sequenceLength, dModel> model;
-        float err = model.forwardTest(npFile, "positionalEncoding");
-        std::cout << "forward err : " << err << std::endl << std::endl;
+        model.forwardTest(npFile, "positionalEncoding");
     }
     // backwardTest
     return 0;

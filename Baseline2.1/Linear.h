@@ -8,9 +8,22 @@
 template<int row,int in,int out>
 class Linear {
 public:
-	Linear() noexcept {
+	Linear(
+		Tensor<row, in>& input,
+		Tensor<row, out>& output,
+		Tensor<row, out>& inGradient,
+		Tensor<row, in>& outGradient) noexcept:
+		_input(input),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradient(outGradient) {
+
 		_weight.HeNormalInit();
 		_bias.HeNormalInit();
+	}
+	~Linear() {
+		_weight.free();
+		_bias.free();
 	}
 
 	void forward() noexcept {
@@ -45,8 +58,6 @@ public:
 	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
 		Tensor<tgtVocab, dModel> weightUpdated;
 		Tensor<1, tgtVocab> biasUpdated;
-		weightUpdated.init();
-		biasUpdated.init();
 		weightUpdated.loadNp(npFile, prefix + ".updated_weight");
 		biasUpdated.loadNp(npFile, prefix + ".updated_bias");
 
@@ -54,10 +65,10 @@ public:
 		PrintTestResult("backward " + prefix + ".bias", _bias, biasUpdated);
 	}
 
-	Tensor<row, in> _input;
-	Tensor<row, out> _output;
-	Tensor<row, out> _inGradient;
-	Tensor<row, in> _outGradient;
+	Tensor<row, in>& _input;
+	Tensor<row, out>& _output;
+	Tensor<row, out>& _inGradient;
+	Tensor<row, in>& _outGradient;
 
 	Tensor<out, in> _weight;
 	Tensor<1, out> _bias;

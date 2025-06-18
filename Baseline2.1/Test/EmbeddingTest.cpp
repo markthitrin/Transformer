@@ -8,7 +8,10 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    Embedding<batch * sequenceLength, 6, dModel> model;
+    Tensor<1, batch * sequenceLength> input;
+	Tensor<batch * sequenceLength, dModel> output;
+	Tensor<batch * sequenceLength, dModel> inGradient;
+    Embedding<batch * sequenceLength, 6, dModel> model(input, output, inGradient);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");

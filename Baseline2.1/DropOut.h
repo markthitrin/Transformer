@@ -28,8 +28,17 @@ void GenerateDropoutMask(Tensor<row, col> _mask) {
 template<int row,int col, float dropoutRate>
 class DropOut {
 public:
-    DropOut() {
-        _mask.init(); 
+    DropOut(
+        Tensor<row, col>& input,
+		Tensor<row, col>& output,
+		Tensor<row, col>& inGradient,
+		Tensor<row, col>& outGradient) noexcept:
+		_input(input),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradient(outGradient) { ; }
+    ~DropOut() {
+        _mask.free();
     }
 
     void forward() noexcept {
@@ -53,10 +62,10 @@ public:
         Div(_inGradient, corrector, _outGradient);
     }
 
-    Tensor<row, col> _input;
-    Tensor<row, col> _output;
-    Tensor<row, col> _inGradient;
-    Tensor<row, col> _outGradient;
+    Tensor<row, col>& _input;
+    Tensor<row, col>& _output;
+    Tensor<row, col>& _inGradient;
+    Tensor<row, col>& _outGradient;
 
     Tensor<row, col> _mask;
 };

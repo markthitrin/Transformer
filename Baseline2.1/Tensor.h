@@ -19,7 +19,7 @@ float* Create() {
 template<int row,int col>
 class Tensor {
 public:
-    Tensor() : data(nullptr) {;}
+    Tensor() { data = Create<row, col>(); }
     Tensor(Tensor<row, col>& other) : data(other.data) {;}
     Tensor(float* ptr) : data(ptr) {;}
 
@@ -27,19 +27,9 @@ public:
         std::free(data);
     }
 
-    void set(float* ptr) {
-        if(data) std::free(data);
-        data = ptr;
-    }
-
     void loadNp(cnpy::npz_t npFile, std::string name) {
         cnpy::NpyArray arr = npFile[name];
         std::memcpy(data, arr.data<float>(), sizeof(float) * row * col);
-    }
-
-    void init() {
-        if(data) std::free(data);
-        data = Create<row, col>();
     }
 
     template<int _row>
@@ -48,7 +38,6 @@ public:
     }
 
     void XavierUniformInit() {
-        init();
         float limit = std::sqrt(6.0f / (row + col));
         std::random_device rd;
         std::mt19937 gen(rd());
@@ -60,7 +49,6 @@ public:
     }
 
     void UniformInit(const float limit) {
-        init();
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_real_distribution<float> dist(-limit, limit);
@@ -71,7 +59,6 @@ public:
     }
 
     void HeNormalInit() {
-        init();
         std::random_device rd;
         std::mt19937 gen(rd());
         float stddev = std::sqrt(2.0f / row);

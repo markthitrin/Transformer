@@ -12,28 +12,19 @@
 template<int row,int col,int hid>
 class PositionwiseFeedForward {
 public:
-	PositionwiseFeedForward() noexcept :
-		_input		(linear1._input),
-		_output		(linear2._output),
-		_inGradient (linear2._inGradient),
-		_outGradient(linear1._outGradient) {
-		
-		_out1.init();
-		_out2.init();
-		_out3.init();
-		_gradient1.init();
-		_gradient2.init();
-		_gradient3.init();
-
-		relu._input = linear1._output = _out1;
-		linear1._inGradient = relu._outGradient = _gradient1;
-
-		dropout._input = relu._output = _out2;
-		relu._inGradient = dropout._outGradient = _gradient2;
-
-		linear2._input = dropout._output = _out3;
-		dropout._inGradient = linear2._outGradient = _gradient3;
-	}
+	PositionwiseFeedForward(
+		Tensor<row, col>& input,
+		Tensor<row, col>& output,
+		Tensor<row, col>& inGradient,
+		Tensor<row, col>& outGradient) noexcept:
+		linear1(input, _out1, _gradient1, outGradient),
+		relu(_out1, _out2, _gradient2, _gradient1),
+		dropout(_out2, _out3, _gradient3, _gradient2),
+		linear2(_out3, output, inGradient, _gradient3),
+		_input(input),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradient(outGradient) { ; }
 	~PositionwiseFeedForward() noexcept {
 		_out1.free();
 		_out2.free();
@@ -81,10 +72,6 @@ public:
 		Tensor<1, hid> b1Updated;
 		Tensor<col, hid> w2Updated;
 		Tensor<1, col> b2Updated;
-		w1Updated.init();
-		b1Updated.init();
-		w2Updated.init();
-		b2Updated.init();
 		w1Updated.loadNp(npFile, prefix + ".updated_w1");
 		b1Updated.loadNp(npFile, prefix + ".updated_b1");
 		w2Updated.loadNp(npFile, prefix + ".updated_w2");
@@ -97,10 +84,7 @@ public:
 	}
 
 	void forwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_input.init();
-		_output.init();
 		Tensor<row, col> target;
-		target.init();
 
 		_input.loadNp(npFile, prefix + ".input");
 		target.loadNp(npFile, prefix + ".output");
@@ -110,12 +94,9 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_inGradient.init();
 		Set(_inGradient,1.0f / row / col);
-		_outGradient.init();
-		_input.init();
+
 		_input.loadNp(npFile, prefix + ".input");
-		_output.init();
 		
 		forward();
 		backward();

@@ -13,62 +13,29 @@
 template<int batch,int len,int col>
 class DecoderLayer {
 public:
-	DecoderLayer() :
-		_input		(norm1._input),
-		_output		(dropout3._output),
-		_inGradient (dropout3._inGradient),
-		_outGradient(norm1._outGradient) {
-
-        _out1.init();
-		_out2.init();
-		_out3.init();
-		_out4.init();
-		_out5.init();
-		_out6.init();
-		_out7.init();
-		_out8.init();
-		_gradient1.init();
-		_gradient2.init();
-		_gradient3.init();
-		_gradient4.init();
-		_gradient5.init();
-		_gradient6.init();
-		_gradient7.init();
-		_gradient8.init();
-
-
-
-		mulAtt1._inputQ = mulAtt1._inputK = mulAtt1._inputV = norm1._output = _out1;
-		norm1._inGradient = mulAtt1._outGradientQ = mulAtt1._outGradientK = mulAtt1._outGradientV = _gradient1;
-		
-		dropout1._input = mulAtt1._output = _out2;
-		mulAtt1._inGradient = dropout1._outGradient = _gradient2;
-        
-
-
-		norm2._input = dropout1._output = _out3;
-		dropout1._inGradient = norm2._outGradient = _gradient3;
-
-		mulAtt2._inputQ = norm2._output = _out4;
-        // mulAtt2._inputV, mulAtt2._inputK need manual set
-		norm2._inGradient = mulAtt2._outGradientQ = _gradient4;
-        // mulAtt1._outGradientK, mulAtt1._outGradientV need manual set
-        
-        dropout2._input = mulAtt2._output = _out5;
-		mulAtt2._inGradient = dropout2._outGradient = _gradient5;
-
-
-
-        norm3._input = dropout2._output = _out6;
-		dropout2._inGradient = norm3._outGradient = _gradient6;
-
-        pff._input = norm3._output = _out7;
-		norm3._inGradient = pff._outGradient = _gradient7;
-
-		dropout3._input = pff._output = _out8;
-		pff._inGradient = dropout3._outGradient = _gradient8;
-	}
-    ~DecoderLayer() {
+	DecoderLayer(
+		Tensor<batch * len, col>& input,
+		Tensor<batch * len, col>& encoderOut,
+		Tensor<batch * len, col>& output,
+		Tensor<batch * len, col>& inGradient,
+		Tensor<batch * len, col>& outGradient,
+		Tensor<batch * len, col>& encoderGradient) noexcept:
+		norm1(input, _out1, _gradient1, outGradient),
+		mulAtt1(_out1, _out1, _out1, _out2, _gradient2, _gradient1, _gradient1, _gradient1),
+		dropout1(_out2, _out3, _gradient3, _gradient2),
+		norm2(_out3, _out4, _gradient4, _gradient3),
+		mulAtt2(_out4, encoderOut, encoderOut, _out5, _gradient5, _gradient4, encoderGradient, encoderGradient),
+		dropout2(_out5, _out6, _gradient6, _gradient5),
+		norm3(_out6, _out7, _gradient7, _gradient6),
+		pff(_out7, _out8, _gradient8, _gradient7),
+		dropout3(_out8, output, inGradient, _gradient8),
+		_input(input),
+		_encoderOut(encoderOut),
+		_output(output),
+		_inGradient(inGradient),
+		_outGradient(outGradient),
+		_encoderGradient(encoderGradient) {;}
+	~DecoderLayer() {
         _out1.free();
         _out2.free();
         _out3.free();
@@ -147,11 +114,6 @@ public:
 		pff.updateParameter();
 	}
 
-    void setEncodePtrTo(Tensor<batch * len, col> input, Tensor<batch * len, col> outGradient) {
-        mulAtt2._inputK = mulAtt2._inputV = input;
-        mulAtt2._outGradientK = mulAtt2._outGradientV = outGradient;
-    }
-
 	void loadParam(cnpy::npz_t npFile, std::string prefix) {
 		norm1.loadParam(npFile, prefix + ".sub1.layerNorm");
 		mulAtt1.loadParam(npFile, prefix + ".sub1.sublayer");
@@ -171,48 +133,30 @@ public:
 	}
 
 	void forwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_input.init();
-        mulAtt2._inputK.init();
-        mulAtt2._inputV = mulAtt2._inputK;
-        mulAtt2._outGradientK.init();
-        mulAtt2._outGradientV = mulAtt2._outGradientK;
-		_output.init();
 		Tensor<batch * len, col> target;
-		// Tensor<batch * len, col> target1;
-		// Tensor<batch * len, col> target2;
+		Tensor<batch * len, col> target1;
+		Tensor<batch * len, col> target2;
 		Tensor<1,2> npdLoad;
-		target.init();
-		// target1.init();
-		// target2.init();
-		npdLoad.init();
 
 		_input.loadNp(npFile, prefix + ".input1");
         mulAtt2._inputK.loadNp(npFile, prefix + ".input2");
 		target.loadNp(npFile, prefix + ".output");
-		// target1.loadNp(npFile, prefix + ".output1");
-		// target2.loadNp(npFile, prefix + ".output2");
+		target1.loadNp(npFile, prefix + ".output1");
+		target2.loadNp(npFile, prefix + ".output2");
 		npdLoad.loadNp(npFile, prefix + ".npd");
 		forward(npdLoad.data[0], npdLoad.data[1]);
 
 		PrintTestResult("forward", _output, target);
-		// PrintTestResult("forward", _out3, target1);
-		// PrintTestResult("forward", _out6, target2);
+		PrintTestResult("forward1", _out3, target1);
+		PrintTestResult("forward2", _out6, target2);
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_inGradient.init();
 		Set(_inGradient,1.0f / batch / len / col);
-		_outGradient.init();
-		_input.init();
-        mulAtt2._inputK.init();
         mulAtt2._inputV = mulAtt2._inputK;
-        mulAtt2._outGradientK.init();
         mulAtt2._outGradientV = mulAtt2._outGradientK;
-		_output.init();
 		Tensor<batch * len, col> target;
 		Tensor<1,2> npdLoad;
-		target.init();
-		npdLoad.init();
 
 		_input.loadNp(npFile, prefix + ".input1");
         mulAtt2._inputK.loadNp(npFile, prefix + ".input2");
@@ -238,9 +182,11 @@ public:
 	DropOut<batch * len, col, dropoutRate>	dropout3;
 
 	Tensor<batch * len, col>& _input;
+	Tensor<batch * len, col>& _encoderOut;
 	Tensor<batch * len, col>& _output;
 	Tensor<batch * len, col>& _inGradient;
 	Tensor<batch * len, col>& _outGradient;
+	Tensor<batch * len, col>& _encoderGradient;
 
 	Tensor<batch * len, col> _out1;
 	Tensor<batch * len, col> _out2;

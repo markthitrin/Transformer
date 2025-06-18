@@ -8,7 +8,15 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    MultiheadAttention<head, 0, batch,  sequenceLength, dModel> model;
+    Tensor<batch * sequenceLength, dModel> inputQ;
+	Tensor<batch * sequenceLength, dModel> inputK;
+	Tensor<batch * sequenceLength, dModel> inputV;
+	Tensor<batch * sequenceLength, dModel> output;
+	Tensor<batch * sequenceLength, dModel> inGradient;
+	Tensor<batch * sequenceLength, dModel> outGradientQ;
+	Tensor<batch * sequenceLength, dModel> outGradientK;
+	Tensor<batch * sequenceLength, dModel> outGradientV;
+    MultiheadAttention<head, 0, batch,  sequenceLength, dModel> model(inputQ, inputK, inputV, output, inGradient, outGradientQ, outGradientK, outGradientV);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");

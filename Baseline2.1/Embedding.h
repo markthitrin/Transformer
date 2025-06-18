@@ -8,10 +8,22 @@
 template<int row,int token,int col>
 class Embedding {
 public:
-	Embedding() {
+	Embedding(
+		Tensor<1, row>& input,
+		Tensor<row, col>& output,
+		Tensor<row, col>& inGradient) noexcept :
+		_input(input),
+		_output(output),
+		_inGradient(inGradient) {
+
 		for(int i = 0;i < token;i++) {
 			_table[i].UniformInit(0.1f);
 			feedCount[i] = 0;
+		}
+	}
+	~Embedding() {
+		for(int i = 0;i < token;i++) {
+			_table[i].free();
 		}
 	}
 
@@ -49,7 +61,6 @@ public:
 
 	void loadParam(cnpy::npz_t npFile, std::string prefix) {
 		Tensor<token, col> loadRR;
-		loadRR.init();
 		loadRR.loadNp(npFile, prefix + ".weight");
 		for (int i = 0;i < token;i++) {
 			Copy(loadRR.template sliceRow<1>(i), _table[i]);
@@ -57,10 +68,7 @@ public:
 	}
 
 	void forwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_input.init();
-		_output.init();
 		Tensor<row, col> target;
-		target.init();
 
 		_input.loadNp(npFile, prefix + ".input");
 		target.loadNp(npFile, prefix + ".output");
@@ -71,11 +79,8 @@ public:
 
 	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
 		Tensor<1, col> _tableUpdated[token];
-		for(int i = 0;i < token;i ++) {
-			_tableUpdated[i].init();
-		}
+
 		Tensor<token, col> loadRR;
-		loadRR.init();
 		loadRR.loadNp(npFile, prefix + ".updated_weights");
 		for (int i = 0;i < token;i++) {
 			Copy(loadRR.template sliceRow<1>(i), _tableUpdated[i]);
@@ -87,10 +92,8 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		_output.init();
-		_inGradient.init();
 		Set(_inGradient,1.0f / row / col);
-		_input.init();
+
 		_input.loadNp(npFile, prefix + ".input");
 
 		forward();
@@ -100,9 +103,9 @@ public:
 		checkUpdatedParam(npFile, prefix);
 	}
 
-	Tensor<1, row> _input;
-	Tensor<row, col> _output;
-	Tensor<row, col> _inGradient;
+	Tensor<1, row>& _input;
+	Tensor<row, col>& _output;
+	Tensor<row, col>& _inGradient;
 
 	int feedCount[token];
 	Tensor<1, col> _table[token];

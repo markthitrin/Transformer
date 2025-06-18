@@ -8,7 +8,13 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    DecoderLayer<batch, sequenceLength, dModel> model;
+    Tensor<batch * sequenceLength, dModel> input;
+	Tensor<batch * sequenceLength, dModel> output;
+    Tensor<batch * sequenceLength, dModel> encoderOut;
+	Tensor<batch * sequenceLength, dModel> inGradient;
+	Tensor<batch * sequenceLength, dModel> outGradient;
+    Tensor<batch * sequenceLength, dModel> encoderGradient;
+    DecoderLayer<batch, sequenceLength, dModel> model(input, encoderOut, output, inGradient, outGradient, encoderGradient);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");
