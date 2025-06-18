@@ -76,26 +76,26 @@ int main() {
         std::cout << "Iteration : " << q + 1 << " / 1000 --- Loss : " << loss << std::endl;
     }
 
-    int outputToken[batch * sequenceLength];
-    for(int q = 0;q < 10;q++) {
-        datsetTesting.get(encoderInput, decoderInput, decoderTarget, npdSrc, npdTgt);
-        model.predict(npdSrc, npdTgt);
-        GetAnswer(output, outputToken);
-        for(int i = 0;i < batch;i++) {
-            float* rowTar = decoderTarget.data + i * sequenceLength;
-            int* rowOut = outputToken + i * sequenceLength;
-            std::cout << "===========================================================\n";
-            std::cout << "target : ";
-            for(int j = 0; j < sequenceLength;j++) {
-                std::cout << translator[(int)rowTar[j]] << " ";
-            }
-            std::cout << std::endl;
-            std::cout << "output : ";
-            for(int j = 0;j < sequenceLength;j++) {
-                std::cout << translator[rowOut[j]] << " ";
-            }
-            std::cout << std::endl;
-            std::cout << std::endl;
-        }
-    }
+    // int outputToken[batch * sequenceLength];
+    // for(int q = 0;q < 10;q++) {
+    //     datsetTesting.get(encoderInput, decoderInput, decoderTarget, npdSrc, npdTgt);
+    //     model.predict(npdSrc, npdTgt);
+    //     GetAnswer(output, outputToken);
+    //     for(int i = 0;i < batch;i++) {
+    //         float* rowTar = decoderTarget.data + i * sequenceLength;
+    //         int* rowOut = outputToken + i * sequenceLength;
+    //         std::cout << "===========================================================\n";
+    //         std::cout << "target : ";
+    //         for(int j = 0; j < sequenceLength;j++) {
+    //             std::cout << translator[(int)rowTar[j]] << " ";
+    //         }
+    //         std::cout << std::endl;
+    //         std::cout << "output : ";
+    //         for(int j = 0;j < sequenceLength;j++) {
+    //             std::cout << translator[rowOut[j]] << " ";
+    //         }
+    //         std::cout << std::endl;
+    //         std::cout << std::endl;
+    //     }
+    // }
 }

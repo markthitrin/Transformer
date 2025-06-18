@@ -11,7 +11,7 @@ def get_config():
         "d_model": 32,
         "d_ff": 256,
         "head": 8,
-        
+        "eps": 1e-9,
         "datasource": 'opus_books',
         "lang_src": "en",
         "lang_tgt": "it",

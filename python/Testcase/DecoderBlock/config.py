@@ -10,6 +10,7 @@ def get_config():
         "seq": 35,
         "d_model": 32,
         "d_ff": 256,
+        "head": 8,
         "datasource": 'opus_books',
         "lang_src": "en",
         "lang_tgt": "it",

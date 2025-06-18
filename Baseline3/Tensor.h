@@ -97,9 +97,7 @@ void Plus(Tensor<row, col> _A, Tensor<row, col> _B, Tensor<row, col> _C) {
     IMPORT_CONST(B);
     IMPORT(C);
     
-    for (int i = 0; i < row * col; i++) {
-        C[i] = A[i] + B[i];
-    }
+    vsAdd(row * col, A, B, C);
 }
 
 template<int row, int col>
@@ -118,9 +116,7 @@ void Sub(Tensor<row, col> _A, Tensor<row, col> _B, Tensor<row, col> _C) {
     IMPORT_CONST(B);
     IMPORT(C);
 
-    for (int i = 0; i < row * col; i++) {
-        C[i] = A[i] - B[i];
-    }
+    vsSub(row * col, A, B, C);
 }
 
 template<int row, int col>
@@ -139,9 +135,7 @@ void Mul(Tensor<row, col> _A, Tensor<row, col> _B, Tensor<row, col> _C) {
     IMPORT_CONST(B);
     IMPORT(C);
 
-    for (int i = 0; i < row * col; i++) {
-        C[i] = A[i] * B[i];
-    }
+    vsMul(row * col, A, B, C);
 }
 
 template<int row, int col>
@@ -160,9 +154,7 @@ void Div(Tensor<row, col> _A, Tensor<row, col> _B, Tensor<row, col> _C) {
     IMPORT_CONST(B);
     IMPORT(C);
 
-    for (int i = 0; i < row * col; i++) {
-        C[i] = A[i] / B[i];
-    }
+    vsDiv(row * col, A, B, C);
 }
 
 template<int row, int col>
