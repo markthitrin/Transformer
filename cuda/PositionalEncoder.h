@@ -13,13 +13,13 @@ public:
 	PositionalEncoder(
 		Tensor<batch * len, col>& input,
 		Tensor<batch * len, col>& output,
-		Tensor<batch * len, col>& inGradient,
-		Tensor<batch * len, col>& outGradient) noexcept:
-		dropout(output, output, inGradient, outGradient),
+		Tensor<batch * len, col>& outputGradient,
+		Tensor<batch * len, col>& inputGradient) noexcept:
+		dropout(output, output, outputGradient, inputGradient),
 		_input(input),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradient(outGradient) {
+		_outputGradient(outputGradient),
+		_inputGradient(inputGradient) {
 
 		GetPositionalEncode<batch, len, col>(_positionEncode);
 	}
@@ -55,8 +55,8 @@ public:
 	
 	Tensor<batch * len, col>& _input;
 	Tensor<batch * len, col>& _output;
-	Tensor<batch * len, col>& _inGradient;
-	Tensor<batch * len, col>& _outGradient;
+	Tensor<batch * len, col>& _outputGradient;
+	Tensor<batch * len, col>& _inputGradient;
 
 	Tensor<batch * len, col> _positionEncode;
 };

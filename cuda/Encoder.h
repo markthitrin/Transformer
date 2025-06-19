@@ -17,15 +17,15 @@ public:
 	Encoder(
 		Tensor<batch * len, col>& input,
 		Tensor<batch * len, col>& output,
-		Tensor<batch * len, col>& inGradient,
-		Tensor<batch * len, col>& outGradient) noexcept:
-		norm(_out[N - 1], output, inGradient, _gradient[N - 1]),
+		Tensor<batch * len, col>& outputGradient,
+		Tensor<batch * len, col>& inputGradient) noexcept:
+		norm(_out[N - 1], output, outputGradient, _gradient[N - 1]),
 		_input(input),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradient(outGradient) {
+		_outputGradient(outputGradient),
+		_inputGradient(inputGradient) {
 		
-		layers[0] = new EncoderLayer<batch, len, col>(input, _out[0], _gradient[0], _outGradient);
+		layers[0] = new EncoderLayer<batch, len, col>(input, _out[0], _gradient[0], _inputGradient);
 		for(int i = 0;i < N - 1;i++) {
             layers[i + 1] = new EncoderLayer<batch, len, col>(_out[i], _out[i + 1], _gradient[i + 1], _gradient[i]);
         }
@@ -93,7 +93,7 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_inGradient,1.0f / batch / len / col);
+		Set(_outputGradient,1.0f / batch / len / col);
 
 		_input.loadNp(npFile, prefix + ".input");
 		
@@ -112,8 +112,8 @@ public:
 
 	Tensor<batch * len, col>& _input;
 	Tensor<batch * len, col>& _output;
-	Tensor<batch * len, col>& _inGradient;
-    Tensor<batch * len, col>& _outGradient;
+	Tensor<batch * len, col>& _outputGradient;
+    Tensor<batch * len, col>& _inputGradient;
 
 	Tensor<batch * len, col> _out[N];
 	

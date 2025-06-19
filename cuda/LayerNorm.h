@@ -12,12 +12,12 @@ public:
 	LayerNorm(
 		Tensor<row, col>& input,
 		Tensor<row, col>& output,
-		Tensor<row, col>& inGradient,
-		Tensor<row, col>& outGradient) noexcept:
+		Tensor<row, col>& outputGradient,
+		Tensor<row, col>& inputGradient) noexcept:
 		_input(input),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradient(outGradient) {
+		_outputGradient(outputGradient),
+		_inputGradient(inputGradient) {
 		
 		Set<1, col>(_alpha, 1.0f);
 	}
@@ -63,11 +63,11 @@ public:
 	}
 
 	void backward() noexcept {
-		IMPORT_CONST(inGradient);
+		IMPORT_CONST(outputGradient);
 		IMPORT_CONST(alpha);
 		IMPORT_CONST(o);
 		IMPORT_CONST(xHat);
-		IMPORT(outGradient);
+		IMPORT(inputGradient);
 		IMPORTA(alphaGradient, _alphaOpt.gradient);
 		IMPORTA(biasGradient, _biasOpt.gradient);
 
@@ -78,16 +78,16 @@ public:
 			float sumG = 0;
 			float sumGXHat = 0;
 			for (int j = 0; j < col; j++) {
-				float gxH = inGradient[i * col + j] * xHat[i * col + j];
+				float gxH = outputGradient[i * col + j] * xHat[i * col + j];
 				alphaGradient[j] += gxH;
-				biasGradient[j] += inGradient[i * col + j];
-				sumG += inGradient[i * col + j];
+				biasGradient[j] += outputGradient[i * col + j];
+				sumG += outputGradient[i * col + j];
 				sumGXHat += gxH;
 			}
 			float a = invCol * sumG;
 			float b = invCol * sumGXHat;
 			for (int j = 0; j < col; j++) {
-				outGradient[i * col + j] = invO * (inGradient[i * col + j] - a - xHat[i * col + j] * b) * alpha[j];
+				inputGradient[i * col + j] = invO * (outputGradient[i * col + j] - a - xHat[i * col + j] * b) * alpha[j];
 			}
 		}
 	}
@@ -126,7 +126,7 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_inGradient,1.0f / row / col);
+		Set(_outputGradient,1.0f / row / col);
 
 		_input.loadNp(npFile, prefix + ".input");
 
@@ -139,8 +139,8 @@ public:
 
 	Tensor<row, col>& _input;
 	Tensor<row, col>& _output;
-	Tensor<row, col>& _inGradient;
-	Tensor<row, col>& _outGradient;
+	Tensor<row, col>& _outputGradient;
+	Tensor<row, col>& _inputGradient;
 
 	Tensor<1, col> _alpha;
 	Tensor<1, col> _bias;

@@ -17,10 +17,10 @@ public:
 		Tensor<batch * len, col>& input,
 		Tensor<batch * len, col>& encoderOut,
 		Tensor<batch * len, col>& output,
-		Tensor<batch * len, col>& inGradient,
-		Tensor<batch * len, col>& outGradient,
+		Tensor<batch * len, col>& outputGradient,
+		Tensor<batch * len, col>& inputGradient,
 		Tensor<batch * len, col>& encoderGradient) noexcept:
-		norm1(input, _out1, _gradient1, outGradient),
+		norm1(input, _out1, _gradient1, inputGradient),
 		mulAtt1(_out1, _out1, _out1, _out2, _gradient2, _gradient1, _gradient1, _gradient1),
 		dropout1(_out2, _out3, _gradient3, _gradient2),
 		norm2(_out3, _out4, _gradient4, _gradient3),
@@ -28,12 +28,12 @@ public:
 		dropout2(_out5, _out6, _gradient6, _gradient5),
 		norm3(_out6, _out7, _gradient7, _gradient6),
 		pff(_out7, _out8, _gradient8, _gradient7),
-		dropout3(_out8, output, inGradient, _gradient8),
+		dropout3(_out8, output, outputGradient, _gradient8),
 		_input(input),
 		_encoderOut(encoderOut),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradient(outGradient),
+		_outputGradient(outputGradient),
+		_inputGradient(inputGradient),
 		_encoderGradient(encoderGradient) {;}
 	~DecoderLayer() {
         _out1.free();
@@ -92,7 +92,7 @@ public:
 		dropout3.backward();
 		pff.backward();
 		norm3.backward();
-		Plus(_inGradient, _gradient6, _gradient6);
+		Plus(_outputGradient, _gradient6, _gradient6);
 
         dropout2.backward();
 		mulAtt2.backward(npdSrc);
@@ -102,7 +102,7 @@ public:
 		dropout1.backward();
 		mulAtt1.backward(npdTgt);
 		norm1.backward();
-		Plus(_gradient3, _outGradient, _outGradient);
+		Plus(_gradient3, _inputGradient, _inputGradient);
 	}
 
 	void updateParameter() noexcept {
@@ -152,9 +152,9 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_inGradient,1.0f / batch / len / col);
+		Set(_outputGradient,1.0f / batch / len / col);
         mulAtt2._inputV = mulAtt2._inputK;
-        mulAtt2._outGradientV = mulAtt2._outGradientK;
+        mulAtt2._inputGradientV = mulAtt2._inputGradientK;
 		Tensor<batch * len, col> target;
 		Tensor<1,2> npdLoad;
 
@@ -184,8 +184,8 @@ public:
 	Tensor<batch * len, col>& _input;
 	Tensor<batch * len, col>& _encoderOut;
 	Tensor<batch * len, col>& _output;
-	Tensor<batch * len, col>& _inGradient;
-	Tensor<batch * len, col>& _outGradient;
+	Tensor<batch * len, col>& _outputGradient;
+	Tensor<batch * len, col>& _inputGradient;
 	Tensor<batch * len, col>& _encoderGradient;
 
 	Tensor<batch * len, col> _out1;

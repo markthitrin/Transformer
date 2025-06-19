@@ -15,16 +15,16 @@ public:
 	PositionwiseFeedForward(
 		Tensor<row, col>& input,
 		Tensor<row, col>& output,
-		Tensor<row, col>& inGradient,
-		Tensor<row, col>& outGradient) noexcept:
-		linear1(input, _out1, _gradient1, outGradient),
+		Tensor<row, col>& outputGradient,
+		Tensor<row, col>& inputGradient) noexcept:
+		linear1(input, _out1, _gradient1, inputGradient),
 		relu(_out1, _out2, _gradient2, _gradient1),
 		dropout(_out2, _out3, _gradient3, _gradient2),
-		linear2(_out3, output, inGradient, _gradient3),
+		linear2(_out3, output, outputGradient, _gradient3),
 		_input(input),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradient(outGradient) { ; }
+		_outputGradient(outputGradient),
+		_inputGradient(inputGradient) { ; }
 	~PositionwiseFeedForward() noexcept {
 		_out1.free();
 		_out2.free();
@@ -94,7 +94,7 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_inGradient,1.0f / row / col);
+		Set(_outputGradient,1.0f / row / col);
 
 		_input.loadNp(npFile, prefix + ".input");
 		
@@ -112,8 +112,8 @@ public:
 
 	Tensor<row, col>& _input;
 	Tensor<row, col>& _output;
-	Tensor<row, col>& _inGradient;
-	Tensor<row, col>& _outGradient;
+	Tensor<row, col>& _outputGradient;
+	Tensor<row, col>& _inputGradient;
 
 	Tensor<row, hid> _out1;
 	Tensor<row, hid> _out2;

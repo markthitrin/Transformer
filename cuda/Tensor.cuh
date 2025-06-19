@@ -4,6 +4,7 @@
 #include "Header.h"
 #include "cnpy.h"
 #include "UtilKernel.cuh"
+#include "Util.cuh"
 
 class Tensor{
 public:
@@ -73,8 +74,33 @@ public:
     std::size_t col;
 };
 
-void Copy(Tensor A, Tensor B) {
-   cudaMemcpy2D(A.data, A.pitch, B.data, B.pitch, sizeof(float) * A.col, A.row, cudaMemcpyDeviceToDevice);
+void CopyAsync(Tensor A, Tensor B) {
+    cudaMemcpy2DAsync(B.data, B.pitch, A.data, A.pitch, sizeof(float) * B.col, B.row, cudaMemcpyDeviceToDevice);
+}
+void CopyBatchAsync(Tensor A, Tensor B, const std::size_t batch) {
+    const int sr = B.row / batch;
+    for(int i = 0;i < batch;i++) {
+        cudaMemcpy2DAsync((void*)B.data + i * sr * B.pitch, B.pitch, A.data, A.pitch, sizeof(float) * A.col, A.row, cudaMemcpyDeviceToDevice);
+    }
+}
+cudaGraphNode_t AppendCopyBatchNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {},
+    Tensor A, Tensor B, const std::size_t batch) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+
+    const int sr = B.row / batch;
+    std::vector<cudaGraphNode_t> nodes(batch);
+    for(int i = 0;i < batch;i++) {
+        cudaMemcpy3DParms params = {0};
+        params.srcPtr = make_cudaPitchedPtr(A.data, A.pitch, sizeof(float) * A.col, A.row);
+        params.dstPtr = make_cudaPitchedPtr((void*)B.data + i * sr * B.pitch, B.pitch, sizeof(float) * A.col, A.row);
+        params.extent = make_cudaExtent(sizeof(float) * A.col, A.row, 1);
+        params.kind = cudaMemcpyDeviceToDevice;
+        cudaGraphAddMemcpyNode(&nodes[i], graph, &dependency, 1, &params);
+    }
+
+    return SyncDependency(graph, nodes);
 }
 
 __global__ void PlusKernel(
@@ -149,7 +175,7 @@ __global__ void SubKernel(
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) - x;
     }
 }
-void SubKernel(Tensor A, const float x, Tensor C) {
+void Sub(Tensor A, const float x, Tensor C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -247,7 +273,7 @@ void Set(Tensor A, const float x) {
 }
 
 void Reset(Tensor A) {
-   cudaMemset2D(A.data, A.pitch, 0, sizeof(float) * A.col, A.row);
+   cudaMemset2DAsync(A.data, A.pitch, 0, sizeof(float) * A.col, A.row);
 }
 
 __global__ void ReduceMaxKernel(
@@ -262,7 +288,7 @@ void ReduceMax(Tensor A, Tensor C) {
     }
     else {
         Tensor temp(ceil(A.col, 1024), A.row);
-
+        ReduceMax()
         temp.free();
     }
 }
@@ -272,7 +298,7 @@ void ReduceMax(Tensor A, Tensor C) {
 __global__ void ApplyLookAheadMaskBatchKernel(
     const float* A, const int seq, const float x,
     const std::size_t pitchA, 
-    const int batch, const std::size_t row, const std::size_t col) {
+    const std::size_t batch, const std::size_t row, const std::size_t col) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
@@ -282,7 +308,7 @@ __global__ void ApplyLookAheadMaskBatchKernel(
         *Get(A, r, c, pitchA) = x;
     }
 }
-void ApplyLookAheadMaskBatch(Tensor A, const int batch, const int seq, const float x) {
+void ApplyLookAheadMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -298,7 +324,7 @@ void ApplyLookAheadMaskBatch(Tensor A, const int batch, const int seq, const flo
 __global__ void ApplyPaddingMaskBatchKernel(
     const float* A, const int seq, const float x,
     const std::size_t pitchA, 
-    const int batch, const std::size_t row, const std::size_t col) {
+    const std::size_t batch, const std::size_t row, const std::size_t col) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
@@ -308,7 +334,7 @@ __global__ void ApplyPaddingMaskBatchKernel(
         *Get(A, r, c, pitchA) = x;
     }
 }
-void ApplyPaddingMaskBatch(Tensor A, const int batch, const int seq, const float x) {
+void ApplyPaddingMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -324,7 +350,7 @@ void ApplyPaddingMaskBatch(Tensor A, const int batch, const int seq, const float
 __global__ void ApplyCrossPaddingMaskBatchKernel(
     const float* A, const int seq, const float x,
     const std::size_t pitchA, 
-    const int batch, const std::size_t row, const std::size_t col) {
+    const std::size_t batch, const std::size_t row, const std::size_t col) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
@@ -333,7 +359,7 @@ __global__ void ApplyCrossPaddingMaskBatchKernel(
         *Get(A, r, c, pitchA) = x;
     }
 }
-void ApplyCrossPaddingMaskBatch(Tensor A, const int batch, const int seq, const float x) {
+void ApplyCrossPaddingMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -507,25 +533,64 @@ __global__ void MatMulKernelABT(
 }
 
 
-void MatMulPlusAsync(const Tensor a,const Tensor b, const Tensor c, bool ATransposed, bool BTransposed) {
+void MatMulPlus(Tensor A,Tensor B, Tensor C, bool ATransposed, bool BTransposed) {
     if(!ATransposed && !BTransposed) {
         dim3 blockDim(MATMUL_BLOCKSIZE, MATMUL_BLOCKSIZE);
-        dim3 gridDim(ceil(c.col, MATMUL_BLOCKSIZE), ceil(c.row, MATMUL_BLOCKSIZE));
-        MatMulKernelAB<<<gridDim, blockDim>>>(a.data, b.data, c.data, a.pitch, b.pitch, c.pitch, c.row, a.col, b.col);
+        dim3 gridDim(ceil(C.col, MATMUL_BLOCKSIZE), ceil(C.row, MATMUL_BLOCKSIZE));
+        MatMulKernelAB<<<gridDim, blockDim>>>(A.data, B.data, C.data, A.pitch, B.pitch, C.pitch, C.row, A.col, B.col);
     }
     else if(ATransposed && !BTransposed) {
         dim3 blockDim(MATMUL_BLOCKSIZE, MATMUL_BLOCKSIZE);
-        dim3 gridDim(ceil(c.col, MATMUL_BLOCKSIZE), ceil(c.row, MATMUL_BLOCKSIZE));
-        MatMulKernelATB<<<gridDim, blockDim>>>(a.data, b.data, c.data, a.pitch, b.pitch, c.pitch, c.row, a.row, c.col);
+        dim3 gridDim(ceil(C.col, MATMUL_BLOCKSIZE), ceil(C.row, MATMUL_BLOCKSIZE));
+        MatMulKernelATB<<<gridDim, blockDim>>>(A.data, B.data, C.data, A.pitch, B.pitch, C.pitch, C.row, A.row, C.col);
     }
     else if (!ATransposed && BTransposed) {
         dim3 blockDim(MATMUL_BLOCKSIZE, MATMUL_BLOCKSIZE);
-        dim3 gridDim(ceil(c.col, MATMUL_BLOCKSIZE), ceil(c.row, MATMUL_BLOCKSIZE));
-        MatMulKernelABT<<<gridDim, blockDim>>>(a.data, b.data, c.data, a.pitch, b.pitch, c.pitch, c.row, a.col, c.col);
+        dim3 gridDim(ceil(C.col, MATMUL_BLOCKSIZE), ceil(C.row, MATMUL_BLOCKSIZE));
+        MatMulKernelABT<<<gridDim, blockDim>>>(A.data, B.data, C.data, A.pitch, B.pitch, C.pitch, C.row, A.col, C.col);
     }
     else {
         // nothing implemented here.
     }
+}
+cudaGraphNode_t AppendMatMulPlus(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {},
+    Tensor A, Tensor B, Tensor C, bool ATransposed, bool BTransposed) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+
+    dim3 blockDim(MATMUL_BLOCKSIZE, MATMUL_BLOCKSIZE);
+    dim3 gridDim(ceil(C.col, MATMUL_BLOCKSIZE), ceil(C.row, MATMUL_BLOCKSIZE));
+
+    cudaKernelNodeParams params = {};
+    params.gridDim = gridDim;
+    params.blockDim = blockDim;
+    params.sharedMemBytes = MATMUL_BLOCKSIZE * MATMUL_BLOCKSIZE * sizeof(float) * 2;
+    params.extra = nullptr;
+
+    if(!ATransposed && !BTransposed) {
+        void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &A.col, &B.col};
+        params.func = MatMulKernelAB;
+        params.kernelParams = kernelArgs;
+    }
+    else if(ATransposed && !BTransposed) {
+        void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &A.row, &C.col};
+        params.func = MatMulKernelAB;
+        params.kernelParams = kernelArgs;
+    }
+    else if (!ATransposed && BTransposed) {
+        void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &A.col, &C.col};
+        params.func = MatMulKernelAB;
+        params.kernelParams = kernelArgs;
+    }
+    else {
+        // nothing implemented here.
+    }
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, 1, &params);
+
+    return kernelNode;
 }
 
 #endif

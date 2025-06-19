@@ -16,18 +16,18 @@ public:
 	EncoderLayer(
 		Tensor<batch * len, col>& input,
 		Tensor<batch * len, col>& output,
-		Tensor<batch * len, col>& inGradient,
-		Tensor<batch * len, col>& outGradient) noexcept:
-		norm1(input, _out1, _gradient1, outGradient),
+		Tensor<batch * len, col>& outputGradient,
+		Tensor<batch * len, col>& inputGradient) noexcept:
+		norm1(input, _out1, _gradient1, inputGradient),
 		mulAtt(_out1, _out1, _out1, _out2, _gradient2, _gradient1, _gradient1, _gradient1),
 		dropout1(_out2, _out3, _gradient3, _gradient2),
 		norm2(_out3, _out4, _gradient4, _gradient3),
 		pff(_out4, _out5, _gradient5, _gradient4),
-		dropout2(_out5, output, inGradient, _gradient5),
+		dropout2(_out5, output, outputGradient, _gradient5),
 		_input(input),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradient(outGradient) {;}
+		_outputGradient(outputGradient),
+		_inputGradient(inputGradient) {;}
 	~EncoderLayer() {
 		_out1.free();
 		_out2.free();
@@ -69,12 +69,12 @@ public:
 		dropout2.backward();
 		pff.backward();
 		norm2.backward();
-		Plus(_inGradient, _gradient3, _gradient3);
+		Plus(_outputGradient, _gradient3, _gradient3);
 
 		dropout1.backward();
 		mulAtt.backward(npd);
 		norm1.backward();
-		Plus(_gradient3, _outGradient, _outGradient);
+		Plus(_gradient3, _inputGradient, _inputGradient);
 	}
 
 	void updateParameter() noexcept {
@@ -111,7 +111,7 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_inGradient,1.0f / batch / len / col);
+		Set(_outputGradient,1.0f / batch / len / col);
 		_input.loadNp(npFile, prefix + ".input");
 		
 		Tensor<1, 1> npdLoader;
@@ -133,8 +133,8 @@ public:
 
 	Tensor<batch * len, col>& _input;
 	Tensor<batch * len, col>& _output;
-	Tensor<batch * len, col>& _inGradient;
-	Tensor<batch * len, col>& _outGradient;
+	Tensor<batch * len, col>& _outputGradient;
+	Tensor<batch * len, col>& _inputGradient;
 
 	Tensor<batch * len, col> _out1;
 	Tensor<batch * len, col> _out2;

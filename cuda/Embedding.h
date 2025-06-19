@@ -11,10 +11,10 @@ public:
 	Embedding(
 		Tensor<1, row>& input,
 		Tensor<row, col>& output,
-		Tensor<row, col>& inGradient) noexcept :
+		Tensor<row, col>& outputGradient) noexcept :
 		_input(input),
 		_output(output),
-		_inGradient(inGradient) {
+		_outputGradient(outputGradient) {
 
 		for(int i = 0;i < token;i++) {
 			_table[i].UniformInit(0.1f);
@@ -42,13 +42,13 @@ public:
 
 	void backward() noexcept {
 		IMPORT_CONST(input);
-		IMPORT_CONST(inGradient);
+		IMPORT_CONST(outputGradient);
 
 		const float sqrtCol = std::sqrt(col);
-		Mul(_inGradient, sqrtCol, _inGradient);
+		Mul(_outputGradient, sqrtCol, _outputGradient);
 		for (int i = 0; i < row; i++) {
 			feedCount[int(input[i])]++;
-			Plus(_tableOpt[int(input[i])].gradient, _inGradient.template sliceRow<1>(i), _tableOpt[int(input[i])].gradient);
+			Plus(_tableOpt[int(input[i])].gradient, _outputGradient.template sliceRow<1>(i), _tableOpt[int(input[i])].gradient);
 		}
 	}
 
@@ -92,7 +92,7 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_inGradient,1.0f / row / col);
+		Set(_outputGradient,1.0f / row / col);
 
 		_input.loadNp(npFile, prefix + ".input");
 
@@ -105,7 +105,7 @@ public:
 
 	Tensor<1, row>& _input;
 	Tensor<row, col>& _output;
-	Tensor<row, col>& _inGradient;
+	Tensor<row, col>& _outputGradient;
 
 	int feedCount[token];
 	Tensor<1, col> _table[token];

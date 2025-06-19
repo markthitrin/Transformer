@@ -2,40 +2,52 @@
 #define LINEAR
 
 #include "Header.h"
-#include "Tensor.h"
-#include "Util.h"
+#include "Tensor.cuh"
+#include "Util.cuh"
 
-template<int row,int in,int out>
 class Linear {
 public:
 	Linear(
 		Tensor input,
 		Tensor output,
 		Tensor outputGradient,
-		Tensor inputGradient) noexcept:
-		_input(input),
-		_output(output),
-		_outputGradient(outputGradient),
-		_inputGradient(inputGradient) {
+		Tensor inputGradient,
+		const std::size_t in,
+		const std::size_t out) noexcept:
 
-		_weight.HeNormalInit();
-		_bias.HeNormalInit();
+		input(input),
+		output(output),
+		outputGradient(outputGradient),
+		inputGradient(inputGradient),
+		weight(in, out),
+		bias(1, out),
+		weightOpt(in, out),
+		biasOpt(1, out) {
+
+		weight.HeNormalFill();
+		bias.HeNormalFill();
 	}
 	~Linear() {
-		_weight.free();
-		_bias.free();
+		weight.free();
+		bias.free();
 	}
 
-	void forward() noexcept {
-		Reset(_output);
-		MatMulPlusABT(_input, _weight, _output);
-		for (int i = 0; i < row; i++) {
-			Plus(_output.template sliceRow<1>(i), _bias, _output.template sliceRow<1>(i));
-		}
+	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
+		cudaGraphNode_t k1 = AppendCopyBatchNode(graph, dependencyNodes, bias, input, batch);
+		cudaGraphNode_t k2 = AppendMatMulPlus(graph, {k1}, input, weight, output, false, false);
+		return k2;
 	}
 
-	void predict() noexcept {
-		forward();
+	cudaGraphNode_t AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
+		return AppendGraphForward(graph, dependencyNodes);
+	}
+
+	cudaGraphNode_t AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
+		
+	}
+
+	cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
+		
 	}
 
 	void backward() noexcept {
@@ -65,17 +77,17 @@ public:
 		PrintTestResult("backward " + prefix + ".bias", _bias, biasUpdated);
 	}
 
-	Tensor _input;
-	Tensor _output;
-	Tensor _outputGradient;
-	Tensor<row, in>& _inputGradient;
+	Tensor& input;
+	Tensor& output;
+	Tensor& outputGradient;
+	Tensor& inputGradient;
 
-	Tensor<out, in> _weight;
-	Tensor<1, out> _bias;
+	Tensor weight;
+	Tensor bias;
 
 	int feedCount = 0;
-	AdamOptGradient<out, in> _weightOpt;
-	AdamOptGradient<1, out> _biasOpt;
+	AdamOptimizer weightOpt;
+	AdamOptimizer biasOpt;
 };
 
 #endif // !LINEAR

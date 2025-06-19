@@ -31,12 +31,12 @@ public:
     DropOut(
         Tensor<row, col>& input,
 		Tensor<row, col>& output,
-		Tensor<row, col>& inGradient,
-		Tensor<row, col>& outGradient) noexcept:
+		Tensor<row, col>& outputGradient,
+		Tensor<row, col>& inputGradient) noexcept:
 		_input(input),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradient(outGradient) { ; }
+		_outputGradient(outputGradient),
+		_inputGradient(inputGradient) { ; }
     ~DropOut() {
         _mask.free();
     }
@@ -56,16 +56,16 @@ public:
     }
 
     void backward() noexcept {
-        // Mul(_inGradient, _mask, _outGradient);
+        // Mul(_outputGradient, _mask, _inputGradient);
 
         constexpr float corrector = (1.0f - dropoutRate);
-        Div(_inGradient, corrector, _outGradient);
+        Div(_outputGradient, corrector, _inputGradient);
     }
 
     Tensor<row, col>& _input;
     Tensor<row, col>& _output;
-    Tensor<row, col>& _inGradient;
-    Tensor<row, col>& _outGradient;
+    Tensor<row, col>& _outputGradient;
+    Tensor<row, col>& _inputGradient;
 
     Tensor<row, col> _mask;
 };

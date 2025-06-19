@@ -12,6 +12,11 @@ public:
         accM(param.row, param.col),
         accV(param.row, param.col),
         t(1) {;}
+    AdamOptimizer(const std::size_t row, const std::size_t col) : 
+        gradient(row, col),
+        accM(row, col),
+        accV(row, col),
+        t(1) {;}
     AdamOptimizer(AdamOptimizer& other) :
         gradient(other.gradient),
         accM(other.accM),
@@ -117,6 +122,18 @@ void PrintTestResultT(std::string text, Tensor A, Tensor B) {
         if(count == 6) break;
     }
     std::cout << std::endl;
+}
+
+cudaGraphNode_t SyncDependency(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
+    if(dependencyNodes.size() > 1) {
+        cudaGraphNode_t dependency = nullptr;
+        cudaGraphAddEmptyNode(&dependency, graph, dependencyNodes.data(), dependencyNodes.size());
+        return dependency;
+    }
+    else {
+        return dependencyNodes[0];
+    }
+    return nullptr;
 }
 
 

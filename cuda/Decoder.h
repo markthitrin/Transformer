@@ -18,19 +18,19 @@ public:
         Tensor<batch * len, col>& input,
         Tensor<batch * len, col>& encoderOut,
 		Tensor<batch * len, col>& output,
-		Tensor<batch * len, col>& inGradient,
-		Tensor<batch * len, col>& outGradient,
+		Tensor<batch * len, col>& outputGradient,
+		Tensor<batch * len, col>& inputGradient,
         Tensor<batch * len, col>& encoderGradient) noexcept:
-		norm(_out[N - 1], output, inGradient, _gradient[N - 1]),
+		norm(_out[N - 1], output, outputGradient, _gradient[N - 1]),
 		_input(input),
 		_encoderOut(encoderOut),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradient(outGradient),
+		_outputGradient(outputGradient),
+		_inputGradient(inputGradient),
 		_encoderGradient(encoderGradient)  {
 		
 
-        layers[0] = new DecoderLayer<batch, len, col>(input, encoderOut, _out[0], _gradient[0], _outGradient, encoderGradient);
+        layers[0] = new DecoderLayer<batch, len, col>(input, encoderOut, _out[0], _gradient[0], _inputGradient, encoderGradient);
 		for(int i = 0;i < N - 1;i++) {
             layers[i + 1] = new DecoderLayer<batch, len, col>(_out[i], encoderOut, _out[i + 1], _gradient[i + 1], _gradient[i], encoderGradient);
         }
@@ -86,7 +86,7 @@ public:
 	}
 
 	void forwardTest(cnpy::npz_t npFile, std::string prefix) {
-        Tensor<batch * len, col> outGradient;
+        Tensor<batch * len, col> inputGradient;
 
 		Tensor<batch * len, col> target;
 		Tensor<batch * len, col> targetsub;
@@ -104,8 +104,8 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_inGradient,1.0f / batch / len / col);
-        Tensor<batch * len, col> outGradient;
+		Set(_outputGradient,1.0f / batch / len / col);
+        Tensor<batch * len, col> inputGradient;
 
 		Tensor<1,2> npdLoad;
 
@@ -126,8 +126,8 @@ public:
 	Tensor<batch * len, col>& _input;
 	Tensor<batch * len, col>& _encoderOut;
 	Tensor<batch * len, col>& _output;
-	Tensor<batch * len, col>& _inGradient;
-	Tensor<batch * len, col>& _outGradient;
+	Tensor<batch * len, col>& _outputGradient;
+	Tensor<batch * len, col>& _inputGradient;
 	Tensor<batch * len, col>& _encoderGradient;
 
 	Tensor<batch * len, col> _out[N];

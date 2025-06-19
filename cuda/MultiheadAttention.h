@@ -21,20 +21,20 @@ public:
 		Tensor<batch * len, col>& inputK,
 		Tensor<batch * len, col>& inputV,
 		Tensor<batch * len, col>& output,
-		Tensor<batch * len, col>& inGradient,
-		Tensor<batch * len, col>& outGradientQ,
-		Tensor<batch * len, col>& outGradientK,
-		Tensor<batch * len, col>& outGradientV) noexcept:
+		Tensor<batch * len, col>& outputGradient,
+		Tensor<batch * len, col>& inputGradientQ,
+		Tensor<batch * len, col>& inputGradientK,
+		Tensor<batch * len, col>& inputGradientV) noexcept:
 		softmax(_A, _As, _AsGradient, _AGradient),
 		dropout(_As, _Ad, _AdGradient, _AsGradient),
 		_inputQ(inputQ),
 		_inputK(inputK),
 		_inputV(inputV),
 		_output(output),
-		_inGradient(inGradient),
-		_outGradientQ(outGradientQ),
-		_outGradientK(outGradientK),
-		_outGradientV(outGradientV) {
+		_outputGradient(outputGradient),
+		_inputGradientQ(inputGradientQ),
+		_inputGradientK(inputGradientK),
+		_inputGradientV(inputGradientV) {
 
 		_WQ.XavierUniformInit();
 		_WK.XavierUniformInit();
@@ -118,12 +118,12 @@ public:
 		Reset(_AGradient);
 		Reset(_AdGradient);
 		Reset(_OTGradient);
-		Reset(_outGradientQ);
-		Reset(_outGradientK);
-		Reset(_outGradientV);
+		Reset(_inputGradientQ);
+		Reset(_inputGradientK);
+		Reset(_inputGradientV);
 		for (int i = 0; i < batch; i++) {
-			MatMulPlusAB(_OT.template sliceRow<col>(i * col),_inGradient.template sliceRow<len>(i * len), _WOOpt.gradient);
-			MatMulPlusABT(_WO, _inGradient.template sliceRow<len>(i * len), _OTGradient.template sliceRow<col>(i * col));
+			MatMulPlusAB(_OT.template sliceRow<col>(i * col),_outputGradient.template sliceRow<len>(i * len), _WOOpt.gradient);
+			MatMulPlusABT(_WO, _outputGradient.template sliceRow<len>(i * len), _OTGradient.template sliceRow<col>(i * col));
 		}
 		for (int i = 0; i < batch * head; i++) {
 			MatMulPlusATB(
@@ -158,9 +158,9 @@ public:
 			MatMulPlusAB(_QTGradient.template sliceRow<col>(i * col), _inputQ.template sliceRow<len>(i * len), _WQOpt.gradient);
 			MatMulPlusAB(_KTGradient.template sliceRow<col>(i * col), _inputK.template sliceRow<len>(i * len), _WKOpt.gradient);
 			MatMulPlusAB(_VTGradient.template sliceRow<col>(i * col),  _inputV.template sliceRow<len>(i * len), _WVOpt.gradient);
-			MatMulPlusATB(_QTGradient.template sliceRow<col>(i * col), _WQ, _outGradientQ.template sliceRow<len>(i * len));
-			MatMulPlusATB(_KTGradient.template sliceRow<col>(i * col), _WK, _outGradientK.template sliceRow<len>(i * len));
-			MatMulPlusATB(_VTGradient.template sliceRow<col>(i * col), _WV, _outGradientV.template sliceRow<len>(i * len));
+			MatMulPlusATB(_QTGradient.template sliceRow<col>(i * col), _WQ, _inputGradientQ.template sliceRow<len>(i * len));
+			MatMulPlusATB(_KTGradient.template sliceRow<col>(i * col), _WK, _inputGradientK.template sliceRow<len>(i * len));
+			MatMulPlusATB(_VTGradient.template sliceRow<col>(i * col), _WV, _inputGradientV.template sliceRow<len>(i * len));
 		}
 	}
 
@@ -239,7 +239,7 @@ public:
 	}
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_inGradient, 1.0f / sequenceLength / col);
+		Set(_outputGradient, 1.0f / sequenceLength / col);
 		_inputQ.loadNp(npFile, prefix + ".q");
 		_inputK.loadNp(npFile, prefix + ".k");
 		_inputV.loadNp(npFile, prefix + ".v");
@@ -257,10 +257,10 @@ public:
 	Tensor<batch * len, col>& _inputK;
 	Tensor<batch * len, col>& _inputV;
 	Tensor<batch * len, col>& _output;
-	Tensor<batch * len, col>& _inGradient;
-	Tensor<batch * len, col>& _outGradientQ;
-	Tensor<batch * len, col>& _outGradientK;
-	Tensor<batch * len, col>& _outGradientV;
+	Tensor<batch * len, col>& _outputGradient;
+	Tensor<batch * len, col>& _inputGradientQ;
+	Tensor<batch * len, col>& _inputGradientK;
+	Tensor<batch * len, col>& _inputGradientV;
 
 	Tensor<col, col> _WQ;
 	Tensor<col, col> _WK;
