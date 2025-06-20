@@ -19,4 +19,8 @@ static constexpr int tgtVocab = 128;
 static constexpr int epoch = 2;
 static constexpr int batch = 8;
 
+
+
+static constexpr int MATMUL_BLOCKSIZE = 16;
+
 #endif

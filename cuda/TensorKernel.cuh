@@ -1,0 +1,95 @@
+#ifndef TENSOR_KERNEL
+#define TENSOR_KERNEL
+
+#include "Header.cuh"
+#include "Tensor.cuh"
+
+__global__ void PlusKernel(
+    const float* A, const float* B, float* C,
+    const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t row, const std::size_t col);
+__global__ void PlusKernel(
+    const float* A, const float x, float* C,
+    const std::size_t pitchA, const std::size_t pitchC,
+    const std::size_t row, const std::size_t col);
+
+__global__ void PlusBatchKernel(
+    const float* A, const float* B, const float* C,
+    const std::size_t pitchA,const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t batch, const std::size_t row, const std::size_t col);
+__global__ void PlusInplaceBatchKernel(
+    const float* A, const float* C,
+    const std::size_t pitchA, const std::size_t pitchC,
+    const std::size_t batch, const std::size_t row, const std::size_t col);
+
+__global__ void SubKernel(
+    const float* A, const float* B, float* C,
+    const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t row, const std::size_t col);
+__global__ void SubKernel(
+    const float* A, const float x, float* C,
+    const std::size_t pitchA, const std::size_t pitchC,
+    const std::size_t row, const std::size_t col);
+
+__global__ void MulKernel(
+    const float* A, const float* B, float* C,
+    const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t row, const std::size_t col);
+__global__ void MulKernel(
+    const float* A, const float x, float* C,
+    const std::size_t pitchA, const std::size_t pitchC,
+    const std::size_t row, const std::size_t col);
+
+__global__ void DivKernel(
+    const float* A, const float* B, float* C,
+    const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t row, const std::size_t col);
+
+__global__ void SetKernel(
+    const float* A, const float x,
+    const std::size_t pitchA,
+    const std::size_t row, const std::size_t col);
+
+__global__ void ReduceMaxKernel(
+    const float* A, const float* C,
+    const std::size_t pitchA, const std::size_t pitchC,
+    const std::size_t row, const std::size_t col);
+
+__global__ void ApplyLookAheadMaskBatchKernel(
+    const float* A, const int seq, const float x,
+    const std::size_t pitchA, 
+    const std::size_t batch, const std::size_t row, const std::size_t col);
+__global__ void ApplyPaddingMaskBatchKernel(
+    const float* A, const int seq, const float x,
+    const std::size_t pitchA, 
+    const std::size_t batch, const std::size_t row, const std::size_t col);
+__global__ void ApplyCrossPaddingMaskBatchKernel(
+    const float* A, const int seq, const float x,
+    const std::size_t pitchA, 
+    const std::size_t batch, const std::size_t row, const std::size_t col);
+
+// Need -use_fast_math
+__global__ void GetPositionalEncodeKernel(
+    const float* A, const std::size_t pitchA, 
+    const std::size_t row, const std::size_t col);
+
+// A : d1 * d2
+// B : d2 * d3
+// C : d1 * d3
+__global__ void MatMulKernelAB(
+    const float* A, const float* B, const float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t d1, const std::size_t d2, const std::size_t d3);
+// A : d2 * d1
+// B : d2 * d3
+// C : d1 * d3
+__global__ void MatMulKernelATB(
+    const float* A, const float* B, const float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t d1, const std::size_t d2, const std::size_t d3);
+// A : d1 * d2
+// B : d3 * d2
+// C : d1 * d3
+__global__ void MatMulKernelABT(
+    const float* A, const float* B, const float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t d1, const std::size_t d2, const std::size_t d3);
+
+#endif

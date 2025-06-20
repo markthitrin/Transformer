@@ -1,33 +1,51 @@
-#ifndef EMBEDDING
-#define EMBEDDING
+#include "Header.cuh"
+#include "Tensor.cuh"
+#include "Util.cuh"
+#include "Embedding.cuh"
 
-#include "Header.h"
-#include "Tensor.h"
-#include "Util.h"
+Embedding::Embedding(
+    Tensor input,
+    Tensor output,
+    Tensor outputGradient,
+    const std::size_t token) noexcept :
+    input(input),
+    output(output),
+    outputGradient(outputGradient),
+    feedCount(token, 0),
+    table(token, {1, dModel}),
+    tableOpt(token, {1, dModel}),
+    node(nullptr) {
 
-template<int row,int token,int col>
-class Embedding {
-public:
-	Embedding(
-		Tensor<1, row>& input,
-		Tensor<row, col>& output,
-		Tensor<row, col>& outputGradient) noexcept :
-		_input(input),
-		_output(output),
-		_outputGradient(outputGradient) {
+    for(int i = 0;i < token;i++) {
+        table[i].UniformFill(0.1f);
+    }
+}
+Embedding::~Embedding() {
+    for(int i = 0;i < table.size();i++) {
+        table[i].free();
+    }
+}
 
-		for(int i = 0;i < token;i++) {
-			_table[i].UniformInit(0.1f);
-			feedCount[i] = 0;
-		}
-	}
-	~Embedding() {
-		for(int i = 0;i < token;i++) {
-			_table[i].free();
-		}
-	}
+cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
 
-	void forward() noexcept {
+}
+void UpdateGraphForward(cudaGraphExec_t graphExec) {
+
+}
+
+cudaGraphNode_t AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
+
+}
+
+cudaGraphNode_t AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
+
+}
+
+cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}){
+    
+}
+
+	void Embedding::forward() noexcept {
 		IMPORT_CONST(input);
 
 		const float sqrtCol = std::sqrt(col);
@@ -36,11 +54,11 @@ public:
 		}
 	}
 
-	void predict() noexcept {
+	void Embedding::predict() noexcept {
 		forward();
 	}
 
-	void backward() noexcept {
+	void Embedding::backward() noexcept {
 		IMPORT_CONST(input);
 		IMPORT_CONST(outputGradient);
 
@@ -52,7 +70,7 @@ public:
 		}
 	}
 
-	void updateParameter() noexcept {
+	void Embedding::updateParameter() noexcept {
 		for (int i = 0;i < token;i++) {
 			AdamOpt(_table[i], _tableOpt[i], std::max(1, feedCount[i]));
 			feedCount[i] = 0;
@@ -111,5 +129,3 @@ public:
 	Tensor<1, col> _table[token];
 	AdamOptGradient<1, col> _tableOpt[token];
 };
-
-#endif
