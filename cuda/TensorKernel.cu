@@ -26,8 +26,20 @@ __global__ void PlusKernel(
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) + x;
     }
 }
+__global__ void PlusInplaceKernel(
+    float* A, const float* B,
+    const std::size_t pitchA, const std::size_t pitchB,
+    const std::size_t row, const std::size_t col) {
+
+    const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if(r < row && c < col) {
+        *Get(A, r, c, pitchA) += *Get(B, r, c, pitchB);
+    }
+}
 __global__ void PlusBatchKernel(
-    const float* A, const float* B, const float* C,
+    const float* A, const float* B, float* C,
     const std::size_t pitchA,const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t batch, const std::size_t row, const std::size_t col) {
     
@@ -37,24 +49,24 @@ __global__ void PlusBatchKernel(
     if(r < row && c < col) {
         float b = *Get(B, r, c, pitchB);
         for(int i = 0;i < batch;i++) {
-            *Get(A, r + i * row, c, pitchA) = *Get(C, r + i * row, c, pitchC) + b;
+            *Get(C, r + i * row, c, pitchC) = *Get(A, r + i * row, c, pitchA) + b;
         }
     }
 }
 __global__ void PlusInplaceBatchKernel(
-    const float* A, const float* C,
-    const std::size_t pitchA, const std::size_t pitchC,
+    float* A, const float* B,
+    const std::size_t pitchA, const std::size_t pitchB,
     const std::size_t batch, const std::size_t row, const std::size_t col) {
     
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
-        float c = *Get(C, r, c, pitchC);
+        float aValue = *Get(A, r, c, pitchA);
         for(int i = 0;i < batch;i++) {
-            c += *Get(A, r, c, pitchA);
+            aValue += *Get(B, r, c, pitchB);
         }
-        *Get(C, r, c, pitchC) = c;
+        *Get(A, r, c, pitchA) = aValue;
     }
 }
 
@@ -111,6 +123,18 @@ __global__ void MulKernel(
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) * x;
     }
 }
+__global__ void MulInplaceKernel(
+    float* A, const float x,
+    const std::size_t pitchA,
+    const std::size_t row, const std::size_t col) {
+
+    const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if(r < row && c < col) {
+        *Get(A, r, c, pitchA) *= x;
+    }
+}
 
 
 
@@ -130,7 +154,7 @@ __global__ void DivKernel(
 
 
 __global__ void SetKernel(
-    const float* A, const float x,
+    float* A, const float x,
     const std::size_t pitchA,
     const std::size_t row, const std::size_t col) {
 
@@ -153,7 +177,7 @@ __global__ void ReduceMaxKernel(
 
 
 __global__ void ApplyLookAheadMaskBatchKernel(
-    const float* A, const int seq, const float x,
+    float* A, const int seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
@@ -166,7 +190,7 @@ __global__ void ApplyLookAheadMaskBatchKernel(
     }
 }
 __global__ void ApplyPaddingMaskBatchKernel(
-    const float* A, const int seq, const float x,
+    float* A, const int seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
@@ -179,7 +203,7 @@ __global__ void ApplyPaddingMaskBatchKernel(
     }
 }
 __global__ void ApplyCrossPaddingMaskBatchKernel(
-    const float* A, const int seq, const float x,
+    float* A, const int seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
@@ -195,7 +219,7 @@ __global__ void ApplyCrossPaddingMaskBatchKernel(
 
 // Need -use_fast_math
 __global__ void GetPositionalEncodeKernel(
-    const float* A, const std::size_t pitchA, 
+    float* A, const std::size_t pitchA, 
     const std::size_t row, const std::size_t col) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
@@ -217,7 +241,7 @@ __global__ void GetPositionalEncodeKernel(
 // B : d2 * d3
 // C : d1 * d3
 __global__ void MatMulKernelAB(
-    const float* A, const float* B, const float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const float* A, const float* B, float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t d1, const std::size_t d2, const std::size_t d3) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
@@ -258,7 +282,7 @@ __global__ void MatMulKernelAB(
 // B : d2 * d3
 // C : d1 * d3
 __global__ void MatMulKernelATB(
-    const float* A, const float* B, const float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const float* A, const float* B, float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t d1, const std::size_t d2, const std::size_t d3) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
@@ -275,8 +299,8 @@ __global__ void MatMulKernelATB(
             float b0 = blockIdx.x * blockDim.x;
             float loadIdxY = i * MATMUL_BLOCKSIZE + threadIdx.y;
             if(loadIdxY < d2) {
-                As[threadIdx.y][threadIdx.x] = Get(A,loadIdxY,a0 + threadIdx.x,pitchA)[0];
-                Bs[threadIdx.y][threadIdx.x] = Get(B,loadIdxY,b0 + threadIdx.x,pitchB)[0];
+                As[threadIdx.y][threadIdx.x] = *Get(A,loadIdxY,a0 + threadIdx.x,pitchA);
+                Bs[threadIdx.y][threadIdx.x] = *Get(B,loadIdxY,b0 + threadIdx.x,pitchB);
             }
             else {
                 As[threadIdx.y][threadIdx.x] = 0.0f;
@@ -288,14 +312,14 @@ __global__ void MatMulKernelATB(
             }
             __syncthreads();
         }
-        Get(C,r,c,pitchC)[0] = CValue;
+        *Get(C,r,c,pitchC) = CValue;
     }
 }
 // A : d1 * d2
 // B : d3 * d2
 // C : d1 * d3
 __global__ void MatMulKernelABT(
-    const float* A, const float* B, const float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const float* A, const float* B, float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t d1, const std::size_t d2, const std::size_t d3) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
@@ -312,8 +336,8 @@ __global__ void MatMulKernelABT(
             float b0 = blockIdx.x * blockDim.x;
             float loadIdxX = i * MATMUL_BLOCKSIZE + threadIdx.x;
             if(loadIdxX < d2) {
-                As[threadIdx.y][threadIdx.x] = Get(A,a0 + threadIdx.y,loadIdxX,pitchA)[0];
-                Bs[threadIdx.y][threadIdx.x] = Get(B,b0 + threadIdx.y,loadIdxX,pitchB)[0];
+                As[threadIdx.y][threadIdx.x] = *Get(A,a0 + threadIdx.y,loadIdxX,pitchA);
+                Bs[threadIdx.y][threadIdx.x] = *Get(B,b0 + threadIdx.y,loadIdxX,pitchB);
             }
             else {
                 As[threadIdx.y][threadIdx.x] = 0.0f;
@@ -325,6 +349,6 @@ __global__ void MatMulKernelABT(
             }
             __syncthreads();
         }
-        Get(C,r,c,pitchC)[0] = CValue;
+        *Get(C,r,c,pitchC) = CValue;
     }
 }

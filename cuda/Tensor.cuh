@@ -7,20 +7,20 @@
 class Tensor{
 public:
     Tensor() noexcept;
-    Tensor(Tensor& other) noexcept;
+    Tensor(const Tensor& other) noexcept;
     Tensor(const std::size_t row,const std::size_t col) noexcept;
 
-    void free();
+    void free() noexcept;
 
-    void toFloat(float* _data);
+    void toFloat(float* _data) noexcept;
 
-    void loadNp(cnpy::npz_t npFile, std::string name);
+    void loadNp(const cnpy::npz_t& npFile, const std::string& name) noexcept;
 
-    void XavierUniformFill();
+    void XavierUniformFill() noexcept;
 
-    void UniformFill(const float limit);
+    void UniformFill(const float limit) noexcept;
 
-    void HeNormalFill();
+    void HeNormalFill() noexcept;
     
     float* data;
     std::size_t pitch;

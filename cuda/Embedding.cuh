@@ -8,30 +8,64 @@
 class Embedding {
 public:
 	Embedding(
-		Tensor input,
+		std::size_t* input,
 		Tensor output,
 		Tensor outputGradient,
 		const std::size_t token) noexcept;
 	~Embedding();
 
-	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {});
-	void UpdateGraphForward(cudaGraphExec_t graphExec);
+	void UpdateGraph(cudaGraphExec_t graphExec);
 
-	cudaGraphNode_t AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {});
+	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
-	cudaGraphNode_t AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {});
+	cudaGraphNode_t AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
-	cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {});
+	cudaGraphNode_t AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
-	Tensor input;
+	cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
+
+	void loadParam(cnpy::npz_t npFile, std::string prefix);
+
+	void forwardTest(cnpy::npz_t npFile, std::string prefix);
+
+	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
+
+	void backwardTest(cnpy::npz_t npFile, std::string prefix);
+
+	std::size_t* input;
 	Tensor output;
 	Tensor outputGradient;
 
-	std::vector<int> feedCount;
+	std::vector<std::size_t> feedCount;
 	std::vector<Tensor> table;
 	std::vector<AdamOptimizer> tableOpt;
 
-	cudaGraphNode_t node;
+	std::vector<float*> entries;
+	std::vector<cudaGraphNode_t> forwardNodes;
+	std::vector<cudaMemcpy3DParms> forwardNodeParams;
+	std::vector<cudaGraphNode_t> backwardNodes;
+	std::vector<cudaKernelNodeParams> backwardNodeParams;
+	std::vector<cudaGraphNode_t> updateParameterNodes;
+	std::vector<cudaKernelNodeParams> updateParameterParams;
 };
+
+cudaGraphNode_t AppendEmbeddingNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    std::vector<cudaMemcpy3DParms>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
+    Tensor output);
+
+cudaGraphNode_t AppendEmbeddingBackwardNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    std::vector<cudaKernelNodeParams>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
+    Tensor output);
+cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    std::vector<cudaKernelNodeParams>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
+    Tensor output);
+
+void UpdateEmbeddingNode(
+    cudaGraphExec_t graphExec,
+	std::vector<cudaMemcpy3DParms>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
+	int* input, std::vector<Tensor>& table);
 
 #endif

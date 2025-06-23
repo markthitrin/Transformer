@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "Header.cuh"
 #include "Tensor.cuh"
 #include "TensorGraph.cuh"
 #include "Util.cuh"
@@ -28,31 +28,7 @@ cudaGraphNode_t ReLU::AppendGraphBackward(cudaGraph_t graph, const std::vector<c
     cudaGraphNode_t k1 = AppendReLUBackwardNode(graph, dependencyNodes, input, output);
 }
 
-__global__ void ReLUKernel(
-	const float* A, const float* C,
-	const std::size_t pitchA, const std::size_t pitchC,
-	const std::size_t row, const std::size_t col) {
 
-	const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
-
-	if(r < row && c < col) {
-		*Get(C, r, c, pitchC) = fmaxf(*Get(A, r, c, pitchA), 0.0f); 
-	}
-}
-
-__global__ void ReLUBackwardKernel(
-	const float* A, const float* B, const float* C,
-	const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
-	const std::size_t row, const std::size_t col) {
-	
-	const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
-
-	if(r < row && c < col) {
-		*Get(C, r, c, pitchC) = float(*Get(B, r, c, pitchB) > 0) * *Get(A, r, c, pitchA); 
-	}
-}
 
 cudaGraphNode_t AppendReLUNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {},
@@ -104,4 +80,32 @@ cudaGraphNode_t AppendReLUBackwardNode(
     cudaGraphAddKernelNode(&kernelNode, graph, &dependency, 1, &kernelParams);
 
     return kernelNode;
+}
+
+
+
+__global__ void ReLUKernel(
+	const float* A, const float* C,
+	const std::size_t pitchA, const std::size_t pitchC,
+	const std::size_t row, const std::size_t col) {
+
+	const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+
+	if(r < row && c < col) {
+		*Get(C, r, c, pitchC) = fmaxf(*Get(A, r, c, pitchA), 0.0f); 
+	}
+}
+
+__global__ void ReLUBackwardKernel(
+	const float* A, const float* B, const float* C,
+	const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+	const std::size_t row, const std::size_t col) {
+	
+	const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+
+	if(r < row && c < col) {
+		*Get(C, r, c, pitchC) = float(*Get(B, r, c, pitchB) > 0) * *Get(A, r, c, pitchA); 
+	}
 }

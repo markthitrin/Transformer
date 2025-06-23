@@ -3,7 +3,7 @@
 
 Tensor::Tensor() noexcept {;}
 
-Tensor::Tensor(Tensor& other) noexcept : data(other.data), pitch(other.pitch), row(other.row), col(other.col) {;}
+Tensor::Tensor(const Tensor& other) noexcept : data(other.data), pitch(other.pitch), row(other.row), col(other.col) {;}
     
 Tensor::Tensor(const std::size_t row,const std::size_t col) noexcept : row(row), col(col)  {
     cudaMallocPitch(&data, &pitch, col * sizeof(float), row);
@@ -17,8 +17,8 @@ void Tensor::toFloat(float* _data) noexcept {
     cudaMemcpy2D(_data, sizeof(float) * col, data, pitch, sizeof(float) * col, row, cudaMemcpyDeviceToHost);
 }
 
-void Tensor::loadNp(cnpy::npz_t npFile, std::string name) noexcept {
-    cnpy::NpyArray arr = npFile[name];
+void Tensor::loadNp(const cnpy::npz_t& npFile, const std::string& name) noexcept {
+    cnpy::NpyArray arr = npFile.at(name);
     cudaMemcpy2D(data, pitch, arr.data<float>(), sizeof(float) * col, sizeof(float) * col, row, cudaMemcpyHostToDevice);
 }
 

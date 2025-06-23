@@ -12,6 +12,9 @@
 #include "Util.h"
 #include "Decoder.h"
 
+
+// Important~~~ Currently memory are leaking from build a graph node with single float as parameter
+
 class Transformer {
 public:
 	Transformer(

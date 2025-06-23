@@ -16,7 +16,7 @@ AdamOptimizer::AdamOptimizer(const std::size_t row, const std::size_t col) :
     accM(row, col),
     accV(row, col),
     t(1) {;}
-AdamOptimizer::AdamOptimizer(AdamOptimizer& other) :
+AdamOptimizer::AdamOptimizer(const AdamOptimizer& other) :
     gradient(other.gradient),
     accM(other.accM),
     accV(other.accV),
@@ -28,35 +28,36 @@ AdamOptimizer::~AdamOptimizer() {
 }
 
 
-void AdamOpt(Tensor param, AdamOptimizer opt, const int feedCount = 1) {
+void AdamOpt(Tensor param, AdamOptimizer opt, const std::size_t feedCount) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(param.col, BLOCKSIZE), ceil(param.row, BLOCKSIZE));
     AdamOptKernel<<<gridDim, blockDim>>>(
         param.data, opt.gradient.data, opt.accM.data, opt.accV.data, opt.t,
         param.pitch, opt.gradient.pitch, opt.accM.pitch, opt.accV.pitch,
-        param.row, param.col);
-    Reset(param);
-    opt.t++;
+        feedCount, param.row, param.col);
 }
 cudaGraphNode_t AppendAdamOptNode(
-    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {},
-    Tensor param, AdamOptimizer opt, int feedCount = 1) {
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor param, AdamOptimizer opt, std::size_t feedCount) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
 
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(param.col, BLOCKSIZE), ceil(param.row, BLOCKSIZE));
 
+    std::size_t* feedCountPtr = new std::size_t(feedCount);
+
     void* kernelArgs[] = { 
         &param.data, &opt.gradient.data, &opt.accM.data, &opt.accV.data, &opt.t,
         &param.pitch, &opt.gradient.pitch, &opt.accM.pitch, &opt.accV.pitch,
-        &param.row, &param.col
+        &feedCountPtr, &param.row, &param.col
     };
 
     cudaKernelNodeParams kernelParams = {};
-    kernelParams.func = (void*)PlusInplaceBatchKernel;
+    kernelParams.func = (void*)AdamOptKernel;
     kernelParams.gridDim = gridDim;
     kernelParams.blockDim = blockDim;
     kernelParams.sharedMemBytes = 0;
@@ -64,19 +65,33 @@ cudaGraphNode_t AppendAdamOptNode(
     kernelParams.extra = nullptr;
 
     cudaGraphNode_t kernelNode;
-    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, 1, &kernelParams);
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
 
     return kernelNode;
 }
 
 float CrossEntropy(Tensor logits, Tensor target, Tensor gradient, int npd[batch]) {
     // not implemented
+    return 0.0f;
 }
 float fast_logf(float x) {
     union { float f; uint32_t i; } vx = { x };
     float y = vx.i;
     y *= 1.1920928955078125e-7f;
     return y - 127.0f;
+}
+
+void Print(Tensor A, const std::size_t r0, const std::size_t c0, const std::size_t r, const std::size_t c) {
+    float* _A = (float*)malloc(sizeof(float) * A.row * A.col);
+	A.toFloat(_A);
+
+    for(int i = 0;i < r;i++) {
+        for(int j = 0;j < c;j++) {
+            std::cout << _A[i * A.col + j] << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
 }
 
 void PrintTestResult(std::string text, Tensor A, Tensor B) {
@@ -134,13 +149,13 @@ void PrintTestResultT(std::string text, Tensor A, Tensor B) {
     std::cout << std::endl;
 }
 
-cudaGraphNode_t SyncDependency(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {}) {
+cudaGraphNode_t SyncDependency(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
     if(dependencyNodes.size() > 1) {
         cudaGraphNode_t dependency = nullptr;
         cudaGraphAddEmptyNode(&dependency, graph, dependencyNodes.data(), dependencyNodes.size());
         return dependency;
     }
-    else {
+    else if(dependencyNodes.size()) {
         return dependencyNodes[0];
     }
     return nullptr;

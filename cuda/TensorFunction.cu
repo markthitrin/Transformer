@@ -12,7 +12,7 @@ void CopyAsync(Tensor A, Tensor B) {
 void CopyBatchAsync(Tensor A, Tensor B, const std::size_t batch) {
     const int sr = B.row / batch;
     for(int i = 0;i < batch;i++) {
-        cudaMemcpy2DAsync((void*)B.data + i * sr * B.pitch, B.pitch, A.data, A.pitch, sizeof(float) * A.col, A.row, cudaMemcpyDeviceToDevice);
+        cudaMemcpy2DAsync(Get(B.data, i * sr, 0, B.pitch), B.pitch, A.data, A.pitch, sizeof(float) * A.col, A.row, cudaMemcpyDeviceToDevice);
     }
 }
 

@@ -18,6 +18,7 @@
 #include <cstring>
 #include <cfloat>
 #include <cuda_runtime.h>
+#include <curand_kernel.h>
 
 #include "Config.h"
 
