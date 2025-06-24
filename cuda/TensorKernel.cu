@@ -252,30 +252,33 @@ __global__ void MatMulKernelAB(
     __shared__ float As[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
     __shared__ float Bs[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
 
-    if(r < d1 && c < d3) {
-        for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
+    for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
            
-            float loadIdxX = i * MATMUL_BLOCKSIZE + threadIdx.x;
-            float loadIdxY = i * MATMUL_BLOCKSIZE + threadIdx.y;
-            if(loadIdxX < d2) {
-                As[threadIdx.y][threadIdx.x] = Get(A,r,loadIdxX,pitchA)[0];
-            }
-            else {
-                As[threadIdx.y][threadIdx.x] = 0.0f;
-            }
-            if(loadIdxY < d2) {
-                Bs[threadIdx.y][threadIdx.x] = Get(B,loadIdxY,c,pitchB)[0];
-            }
-            else {
-                Bs[threadIdx.y][threadIdx.x] = 0.0f;
-            }
-            __syncthreads();
+        const std::size_t loadIdxX = i * MATMUL_BLOCKSIZE + threadIdx.x;
+        const std::size_t loadIdxY = i * MATMUL_BLOCKSIZE + threadIdx.y;
+
+        if(r < d1 && loadIdxX < d2) {
+            As[threadIdx.y][threadIdx.x] = Get(A,r,loadIdxX,pitchA)[0];
+        }
+        else {
+            As[threadIdx.y][threadIdx.x] = 0.0f;
+        }
+        if(loadIdxY < d2 && c < d3) {
+            Bs[threadIdx.y][threadIdx.x] = Get(B,loadIdxY,c,pitchB)[0];
+        }
+        else {
+            Bs[threadIdx.y][threadIdx.x] = 0.0f;
+        }
+        __syncthreads();
+        if(r < d1 && c < d3) {
             for(int j = 0;j < MATMUL_BLOCKSIZE;j++) {
                 CValue += As[threadIdx.y][j] * Bs[j][threadIdx.x];
             }
-            __syncthreads();
         }
-        Get(C,r,c,pitchC)[0] = CValue;
+        __syncthreads();
+    }
+    if(r < d1 && c < d3) {
+        Get(C,r,c,pitchC)[0] += CValue;
     }
 }
 // A : d2 * d1
@@ -293,26 +296,34 @@ __global__ void MatMulKernelATB(
     __shared__ float As[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
     __shared__ float Bs[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
 
-    if(r < d1 && c < d3) {
-        for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
-            float a0 = blockIdx.y * blockDim.y;
-            float b0 = blockIdx.x * blockDim.x;
-            float loadIdxY = i * MATMUL_BLOCKSIZE + threadIdx.y;
-            if(loadIdxY < d2) {
-                As[threadIdx.y][threadIdx.x] = *Get(A,loadIdxY,a0 + threadIdx.x,pitchA);
-                Bs[threadIdx.y][threadIdx.x] = *Get(B,loadIdxY,b0 + threadIdx.x,pitchB);
-            }
-            else {
-                As[threadIdx.y][threadIdx.x] = 0.0f;
-                Bs[threadIdx.y][threadIdx.x] = 0.0f;
-            }
-            __syncthreads();
+    for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
+
+        const std::size_t a0 = blockIdx.y * blockDim.y;
+        const std::size_t b0 = blockIdx.x * blockDim.x;
+        const std::size_t loadIdxY = i * MATMUL_BLOCKSIZE + threadIdx.y;
+
+        if(loadIdxY < d2 && a0 + threadIdx.x < d1) {
+            As[threadIdx.y][threadIdx.x] = *Get(A,loadIdxY,a0 + threadIdx.x,pitchA);
+        }
+        else {
+            As[threadIdx.y][threadIdx.x] = 0.0f;
+        }
+        if(loadIdxY < d2 && b0 + threadIdx.x < d3) {
+            Bs[threadIdx.y][threadIdx.x] = *Get(B,loadIdxY,b0 + threadIdx.x,pitchB);
+        }
+        else {
+            Bs[threadIdx.y][threadIdx.x] = 0.0f;
+        }
+        __syncthreads();
+        if(r < d1 && c < d3) { 
             for(int j = 0;j < MATMUL_BLOCKSIZE;j++) {
                 CValue += As[j][threadIdx.y] * Bs[j][threadIdx.x];
             }
-            __syncthreads();
         }
-        *Get(C,r,c,pitchC) = CValue;
+        __syncthreads();
+    }
+    if(r < d1 && c < d3) {
+        *Get(C,r,c,pitchC) += CValue;
     }
 }
 // A : d1 * d2
@@ -330,25 +341,33 @@ __global__ void MatMulKernelABT(
     __shared__ float As[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
     __shared__ float Bs[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
 
-    if(r < d1 && c < d3) {
-        for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
-            float a0 = blockIdx.y * blockDim.y;
-            float b0 = blockIdx.x * blockDim.x;
-            float loadIdxX = i * MATMUL_BLOCKSIZE + threadIdx.x;
-            if(loadIdxX < d2) {
-                As[threadIdx.y][threadIdx.x] = *Get(A,a0 + threadIdx.y,loadIdxX,pitchA);
-                Bs[threadIdx.y][threadIdx.x] = *Get(B,b0 + threadIdx.y,loadIdxX,pitchB);
-            }
-            else {
-                As[threadIdx.y][threadIdx.x] = 0.0f;
-                Bs[threadIdx.y][threadIdx.x] = 0.0f;
-            }
-            __syncthreads();
+    for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
+
+        const std::size_t a0 = blockIdx.y * blockDim.y;
+        const std::size_t b0 = blockIdx.x * blockDim.x;
+        const std::size_t loadIdxX = i * MATMUL_BLOCKSIZE + threadIdx.x;
+
+        if(a0 + threadIdx.y < d1 && loadIdxX < d2) {
+            As[threadIdx.y][threadIdx.x] = *Get(A,a0 + threadIdx.y,loadIdxX,pitchA);
+        }
+        else {
+            As[threadIdx.y][threadIdx.x] = 0.0f;
+        }
+        if(b0 + threadIdx.y < d3 && loadIdxX < d2) {
+            Bs[threadIdx.y][threadIdx.x] = *Get(B,b0 + threadIdx.y,loadIdxX,pitchB);
+        }
+        else {
+            Bs[threadIdx.y][threadIdx.x] = 0.0f;
+        }
+        __syncthreads();
+        if(r < d1 && c < d3) {
             for(int j = 0;j < MATMUL_BLOCKSIZE;j++) {
                 CValue += As[threadIdx.y][j] * Bs[threadIdx.x][j];
             }
-            __syncthreads();
         }
-        *Get(C,r,c,pitchC) = CValue;
+        __syncthreads();
+    }
+    if(r < d1 && c < d3) {
+        *Get(C,r,c,pitchC) += CValue;
     }
 }

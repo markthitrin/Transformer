@@ -5,22 +5,6 @@ __host__ __device__ int ceil(const int a, const int b) {
     return (a + b - 1) / b;
 }
 
-__host__ __device__ float* GetRow(float* a, const std::size_t i, const std::size_t pitch) {
-    return (float*)((char*)a + i * pitch);
-}
-
-__host__ __device__ const float* GetRow(const float* a, const std::size_t i, const std::size_t pitch) {
-    return (float*)((char*)a + i * pitch);
-}
-
-__host__ __device__ float* Get(float* a, const std::size_t i, const std::size_t j, const std::size_t pitch) {
-    return GetRow(a,i,pitch) + j;
-}
-
-__host__ __device__ const float* Get(const float* a, const std::size_t i, const std::size_t j, const std::size_t pitch) {
-    return GetRow(a,i,pitch) + j;
-}
-
 __global__ void AdamOptKernel(
     float* param, float* gradient, float* accM, float* accV, const std::size_t t,
     const std::size_t pitchParam, const std::size_t pitchGrad, const std::size_t pitchAccM, const std::size_t pitchAccV,

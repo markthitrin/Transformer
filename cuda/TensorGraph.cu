@@ -4,21 +4,41 @@
 #include "Util.cuh"
 #include "UtilKernel.cuh"
 
-cudaGraphNode_t AppendCopyBatchNode(
+cudaGraphNode_t AppendCopyNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B, const std::size_t batch) {
+    Tensor A, Tensor C) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
 
-    const int sr = B.row / batch;
+    cudaMemcpy3DParms copyParams = {};
+    copyParams.srcPtr = make_cudaPitchedPtr(A.data, A.pitch, A.col, A.row);
+    copyParams.dstPtr = make_cudaPitchedPtr(C.data, C.pitch, C.col, C.row);
+    copyParams.extent = make_cudaExtent(sizeof(float) * A.col, A.row, 1);
+    copyParams.kind = cudaMemcpyDeviceToDevice;
+
+    cudaGraphNode_t copyNode;
+    cudaGraphAddMemcpyNode(&copyNode, graph, &dependency, numDependency, &copyParams);
+
+    return copyNode;
+}
+
+cudaGraphNode_t AppendCopyBatchNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor C, const std::size_t batch) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    const int sr = C.row / batch;
     std::vector<cudaGraphNode_t> nodes(batch);
     for(int i = 0;i < batch;i++) {
-        cudaMemcpy3DParms params = {0};
-        params.srcPtr = make_cudaPitchedPtr(A.data, A.pitch, sizeof(float) * A.col, A.row);
-        params.dstPtr = make_cudaPitchedPtr(Get(B.data, i * sr, 0, B.pitch), B.pitch, sizeof(float) * A.col, A.row);
+        cudaMemcpy3DParms params = {};
+        params.srcPtr = make_cudaPitchedPtr(A.data, A.pitch, A.col, A.row);
+        params.dstPtr = make_cudaPitchedPtr(GetRow(C.data, i * sr, C.pitch), C.pitch, A.col, A.row);
         params.extent = make_cudaExtent(sizeof(float) * A.col, A.row, 1);
         params.kind = cudaMemcpyDeviceToDevice;
-        cudaGraphAddMemcpyNode(&nodes[i], graph, &dependency, 1, &params);
+        cudaGraphAddMemcpyNode(&nodes[i], graph, &dependency, numDependency, &params);
     }
 
     return SyncDependency(graph, nodes);
@@ -31,6 +51,7 @@ cudaGraphNode_t AppendPlusBatchNode(
     std::size_t batch) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
 
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
@@ -47,7 +68,7 @@ cudaGraphNode_t AppendPlusBatchNode(
     kernelParams.extra = nullptr;
 
     cudaGraphNode_t kernelNode;
-    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, 1, &kernelParams);
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
 
     return kernelNode;
 }
@@ -57,6 +78,7 @@ cudaGraphNode_t AppendPlusInplceBatchNode(
     std::size_t batch) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
 
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
@@ -73,7 +95,7 @@ cudaGraphNode_t AppendPlusInplceBatchNode(
     kernelParams.extra = nullptr;
 
     cudaGraphNode_t kernelNode;
-    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, 1, &kernelParams);
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
 
     return kernelNode;
 }
@@ -163,11 +185,12 @@ cudaGraphNode_t AppendResetNode(
 
 
 
-cudaGraphNode_t AppendMatMulPlus(
+cudaGraphNode_t AppendMatMulPlusNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor A, Tensor B, Tensor C, bool ATransposed, bool BTransposed) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
 
     dim3 blockDim(MATMUL_BLOCKSIZE, MATMUL_BLOCKSIZE);
     dim3 gridDim(ceil(C.col, MATMUL_BLOCKSIZE), ceil(C.row, MATMUL_BLOCKSIZE));
@@ -175,7 +198,7 @@ cudaGraphNode_t AppendMatMulPlus(
     cudaKernelNodeParams kernelParams = {};
     kernelParams.gridDim = gridDim;
     kernelParams.blockDim = blockDim;
-    kernelParams.sharedMemBytes = MATMUL_BLOCKSIZE * MATMUL_BLOCKSIZE * sizeof(float) * 2;
+    kernelParams.sharedMemBytes = 0;
     kernelParams.extra = nullptr;
 
     if(!ATransposed && !BTransposed) {
@@ -185,12 +208,12 @@ cudaGraphNode_t AppendMatMulPlus(
     }
     else if(ATransposed && !BTransposed) {
         void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &A.row, &C.col};
-        kernelParams.func = (void*)MatMulKernelAB;
+        kernelParams.func = (void*)MatMulKernelATB;
         kernelParams.kernelParams = kernelArgs;
     }
     else if (!ATransposed && BTransposed) {
         void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &A.col, &C.col};
-        kernelParams.func = (void*)MatMulKernelAB;
+        kernelParams.func = (void*)MatMulKernelABT;
         kernelParams.kernelParams = kernelArgs;
     }
     else {
@@ -198,7 +221,7 @@ cudaGraphNode_t AppendMatMulPlus(
     }
 
     cudaGraphNode_t kernelNode;
-    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, 1, &kernelParams);
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
 
     return kernelNode;
 }

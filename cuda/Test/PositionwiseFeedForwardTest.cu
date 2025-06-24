@@ -1,5 +1,5 @@
-#include "../Header.h"
-#include "../PositionwiseFeedForward.h"
+#include "../Header.cuh"
+#include "../PositionwiseFeedForward.cuh"
 #include "cnpy.h"
 
 const std::string testCaseDir = "../../python/Testcase/FeedForwardBlock";
@@ -8,11 +8,11 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    Tensor<batch * sequenceLength, dModel> input;
-    Tensor<batch * sequenceLength, dModel> output;
-    Tensor<batch * sequenceLength, dModel> inGradient;
-    Tensor<batch * sequenceLength, dModel> outGradient;
-    PositionwiseFeedForward<batch * sequenceLength, dModel, dFF> model(input, output, inGradient, outGradient);
+    Tensor input(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+    Tensor inGradient(batch * sequenceLength, dModel);
+    Tensor outGradient(batch * sequenceLength, dModel);
+    PositionwiseFeedForward model(input, output, inGradient, outGradient);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");

@@ -9,8 +9,8 @@
 
 Embedding::Embedding(
     std::size_t* input,
-    Tensor output,
-    Tensor outputGradient,
+    Tensor& output,
+    Tensor& outputGradient,
     const std::size_t token) noexcept :
 
     input(input),
@@ -65,20 +65,23 @@ void Embedding::UpdateGraph(cudaGraphExec_t graphExec) {
     for(int i = 0;i < batch * sequenceLength;i++) {
         if(ss.count(input[i]) != 0) { // working node
             tableOpt[input[i]].t++;
-            std::cout << feedCount[input[i]] << std::endl;
+
             void* kernelArgsUpdate[] = {
                 &table[input[i]].data, &tableOpt[input[i]].gradient.data, &tableOpt[input[i]].accM.data, &tableOpt[input[i]].accV.data, &tableOpt[input[i]].t,
                 &table[input[i]].pitch, &tableOpt[input[i]].gradient.pitch, &tableOpt[input[i]].accM.pitch, &tableOpt[input[i]].accV.pitch,
                 &feedCount[input[i]], &table[input[i]].row, &table[input[i]].col};
+
             constexpr int BLOCKSIZE = 16;
             dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
             dim3 gridDim(ceil(table[input[i]].col, BLOCKSIZE), ceil(table[input[i]].row, BLOCKSIZE));
+            
             updateParameterParams[i].gridDim = gridDim;
             updateParameterParams[i].blockDim = blockDim;
             updateParameterParams[i].kernelParams = kernelArgsUpdate;
+
             cudaGraphExecKernelNodeSetParams(graphExec, updateParameterNodes[i], &updateParameterParams[i]);
+
             ss.erase(input[i]);
-            std::cout << "doing < " << i << std::endl;
         }
         else { // empty node
             updateParameterParams[i].gridDim = dim3(0, 0, 0);
@@ -166,7 +169,6 @@ void Embedding::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
 
 void Embedding::backwardTest(cnpy::npz_t npFile, std::string prefix) {
     Set(outputGradient, 1.0f / output.row / output.col);
-    Print(outputGradient, 0, 0, 1, 5);
     cudaDeviceSynchronize();
 
     // load input
@@ -187,14 +189,8 @@ void Embedding::backwardTest(cnpy::npz_t npFile, std::string prefix) {
     this->AppendGraphUpdateParameter(graph, {k2});
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
     this->UpdateGraph(instance);
-    for(int i = 0;i < 6;i++) {
-        std::cout << feedCount[i] << std::endl;
-    }
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
-    for(int i = 0;i < 6;i++) {
-        Print(tableOpt[i].gradient,0,0,1,7);
-    }
 
     checkUpdatedParam(npFile, prefix);
 }

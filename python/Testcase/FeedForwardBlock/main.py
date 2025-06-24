@@ -26,9 +26,9 @@ class FeedForwardBlock(nn.Module):
         return self.linear_2(self.dropout(torch.relu(self.linear_1(x))))
     
     def getParam(self, prefix, dict) :
-        w1 = self.linear_1.weight.detach().cpu().numpy()
+        w1 = self.linear_1.weight.detach().cpu().numpy().T.copy() # (out, in)
         b1 = self.linear_1.bias.detach().cpu().numpy()
-        w2 = self.linear_2.weight.detach().cpu().numpy()
+        w2 = self.linear_2.weight.detach().cpu().numpy().T.copy()
         b2 = self.linear_2.bias.detach().cpu().numpy()
         dict[prefix + ".w1"] = w1
         dict[prefix + ".b1"] = b1
@@ -43,8 +43,10 @@ class FeedForwardBlock(nn.Module):
         x = torch.randn(batch_size, seq, d_model)
         with torch.no_grad():
             y = self.forward(x)
+
         dict[prefix + ".input"] = x.detach().numpy()
         dict[prefix + ".output"] = y.detach().numpy()
+        dict[prefix + ".output1"] = self.linear_1(x).detach().cpu().numpy()
 
     def getOriginalParam(self, prefix, dict) :
         original_w1 = self.linear_1.weight.detach().clone().cpu().numpy()

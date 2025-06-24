@@ -9,8 +9,8 @@ class Embedding {
 public:
 	Embedding(
 		std::size_t* input,
-		Tensor output,
-		Tensor outputGradient,
+		Tensor& output,
+		Tensor& outputGradient,
 		const std::size_t token) noexcept;
 	~Embedding();
 
@@ -33,8 +33,8 @@ public:
 	void backwardTest(cnpy::npz_t npFile, std::string prefix);
 
 	std::size_t* input;
-	Tensor output;
-	Tensor outputGradient;
+	Tensor& output;
+	Tensor& outputGradient;
 
 	std::vector<std::size_t> feedCount;
 	std::vector<Tensor> table;
@@ -58,14 +58,10 @@ cudaGraphNode_t AppendEmbeddingBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     std::vector<cudaKernelNodeParams>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
     Tensor output);
+	
 cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     std::vector<cudaKernelNodeParams>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
-    Tensor output);
-
-void UpdateEmbeddingNode(
-    cudaGraphExec_t graphExec,
-	std::vector<cudaMemcpy3DParms>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
-	int* input, std::vector<Tensor>& table);
+    Tensor outputGradient);
 
 #endif

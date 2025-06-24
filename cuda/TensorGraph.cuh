@@ -4,6 +4,9 @@
 #include "Header.cuh"
 #include "Tensor.cuh"
 
+cudaGraphNode_t AppendCopyNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor C);
 cudaGraphNode_t AppendCopyBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor A, Tensor B, const std::size_t batch);
