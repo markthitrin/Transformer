@@ -73,7 +73,6 @@ void PositionwiseFeedForward::loadParam(cnpy::npz_t npFile, std::string prefix) 
 
 void PositionwiseFeedForward::forwardTest(cnpy::npz_t npFile, std::string prefix) {
     Tensor target(output.row, output.col);
-    Tensor target1(out1.row, out1.col);
 
     target.loadNp(npFile, prefix + ".output");
     input.loadNp(npFile, prefix + ".input");

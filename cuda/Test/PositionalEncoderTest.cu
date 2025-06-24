@@ -1,5 +1,5 @@
-#include "../Header.h"
-#include "../PositionalEncoder.h"
+#include "../Header.cuh"
+#include "../PositionalEncoder.cuh"
 #include "cnpy.h"
 
 const std::string testCaseDir = "../../python/Testcase/PositionalEncoding";
@@ -8,11 +8,11 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    Tensor<batch * sequenceLength, dModel> input;
-    Tensor<batch * sequenceLength, dModel> output;
-    Tensor<batch * sequenceLength, dModel> inGradient;
-    Tensor<batch * sequenceLength, dModel> outGradient;
-    PositionalEncoder<batch, sequenceLength, dModel> model(input, output, inGradient, outGradient);
+    Tensor input(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+    Tensor inGradient(batch * sequenceLength, dModel);
+    Tensor outGradient(batch * sequenceLength, dModel);
+    PositionalEncoder model(input, output, inGradient, outGradient);
     // param
     // forwardTest
     for(int i = 0; i < feedTest;i++) {

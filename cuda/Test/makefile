@@ -1,11 +1,11 @@
 # NVCC and settings
 NVCC := nvcc
-CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o PositionwiseFeedForwardTest
+CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o PositionalEncoderTest
 
 # Files
-SRCS := ../PositionwiseFeedForward.cu ../DropOut.cu ../Linear.cu ../ReLU.cu ../Embedding.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu PositionwiseFeedForwardTest.cu
+SRCS := ../PositionalEncoder.cu ../DropOut.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu PositionalEncoderTest.cu
 OBJS := $(SRCS:.cu=.o)
-TARGET := PositionwiseFeedForwardTest
+TARGET := PositionalEncoderTest
 
 all: $(TARGET)
 

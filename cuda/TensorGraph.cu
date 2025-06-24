@@ -72,9 +72,9 @@ cudaGraphNode_t AppendPlusBatchNode(
 
     return kernelNode;
 }
-cudaGraphNode_t AppendPlusInplceBatchNode(
+cudaGraphNode_t AppendPlusInplaceBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor C,
+    Tensor A, Tensor B,
     std::size_t batch) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -82,12 +82,40 @@ cudaGraphNode_t AppendPlusInplceBatchNode(
 
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
-    dim3 gridDim(ceil(C.col, BLOCKSIZE), ceil(C.row, BLOCKSIZE));
+    dim3 gridDim(ceil(B.col, BLOCKSIZE), ceil(B.row, BLOCKSIZE));
 
-    void* kernelArgs[] = { &A.data, &C.data, &A.pitch, &C.pitch, &batch, &C.row, &C.col};
+    void* kernelArgs[] = { &A.data, &B.data, &A.pitch, &B.pitch, &batch, &B.row, &B.col };
 
     cudaKernelNodeParams kernelParams = {};
     kernelParams.func = (void*)PlusInplaceBatchKernel;
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
+cudaGraphNode_t AppendPlusReduceInplceBatchNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B,
+    std::size_t batch) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    constexpr int BLOCKSIZE = 16;
+    dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
+    dim3 gridDim(ceil(B.col, BLOCKSIZE), ceil(B.row, BLOCKSIZE));
+
+    std::size_t* batchPtr = new std::size_t(batch);
+    void* kernelArgs[] = { &A.data, &B.data, &A.pitch, &B.pitch, &batchPtr, &B.row, &B.col};
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)PlusReduceInplaceBatchKernel;
     kernelParams.gridDim = gridDim;
     kernelParams.blockDim = blockDim;
     kernelParams.sharedMemBytes = 0;

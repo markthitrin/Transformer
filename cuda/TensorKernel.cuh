@@ -24,6 +24,10 @@ __global__ void PlusInplaceBatchKernel(
     float* A, const float* B,
     const std::size_t pitchA, const std::size_t pitchB,
     const std::size_t batch, const std::size_t row, const std::size_t col);
+__global__ void PlusReduceInplaceBatchKernel(
+    float* A, const float* B,
+    const std::size_t pitchA, const std::size_t pitchB,
+    const std::size_t batch, const std::size_t row, const std::size_t col);
 
 __global__ void SubKernel(
     const float* A, const float* B, float* C,

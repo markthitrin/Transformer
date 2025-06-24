@@ -62,9 +62,24 @@ __global__ void PlusInplaceBatchKernel(
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
+        float bValue = *Get(B, r, c, pitchB);
+        for(int i = 0;i < batch;i++) {
+            *Get(A, r + i * row, c, pitchA) += bValue;
+        }
+    }
+}
+__global__ void PlusReduceInplaceBatchKernel(
+    float* A, const float* B,
+    const std::size_t pitchA, const std::size_t pitchB,
+    const std::size_t batch, const std::size_t row, const std::size_t col) {
+    
+    const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if(r < row && c < col) {
         float aValue = *Get(A, r, c, pitchA);
         for(int i = 0;i < batch;i++) {
-            aValue += *Get(B, r, c, pitchB);
+            aValue += *Get(B, r + i * row , c, pitchB);
         }
         *Get(A, r, c, pitchA) = aValue;
     }
@@ -230,7 +245,7 @@ __global__ void GetPositionalEncodeKernel(
             *Get(A, r, c, pitchA) = __sinf(r * __frcp_rn(powf(10000.0f, float(c) / col)));
         }
         else {
-            *Get(A, r, c, pitchA) = __sinf(r * __frcp_rn(powf(10000.0f, float(c - 1) / col)));
+            *Get(A, r, c, pitchA) = __cosf(r * __frcp_rn(powf(10000.0f, float(c - 1) / col)));
         }
     }
 }
