@@ -45,7 +45,7 @@ cudaGraphNode_t Linear::AppendGraphBackward(cudaGraph_t graph, const std::vector
     cudaGraphNode_t k3 = AppendMatMulPlusNode(graph, {k1}, input, outputGradient, weightOpt.gradient, true, false);
     cudaGraphNode_t k4 = AppendMatMulPlusNode(graph, {k1}, outputGradient, weight, inputGradient, false, true);
     cudaGraphNode_t k5 = SyncDependency(graph, {k2, k3, k4});
-    return k2;
+    return k5;
 }
 
 cudaGraphNode_t Linear::AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {

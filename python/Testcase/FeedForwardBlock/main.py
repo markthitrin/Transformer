@@ -49,9 +49,9 @@ class FeedForwardBlock(nn.Module):
         dict[prefix + ".output1"] = self.linear_1(x).detach().cpu().numpy()
 
     def getOriginalParam(self, prefix, dict) :
-        original_w1 = self.linear_1.weight.detach().clone().cpu().numpy()
+        original_w1 = self.linear_1.weight.detach().clone().cpu().numpy().T.copy()
         original_b1 = self.linear_1.bias.detach().clone().cpu().numpy()
-        original_w2 = self.linear_2.weight.detach().clone().cpu().numpy()
+        original_w2 = self.linear_2.weight.detach().clone().cpu().numpy().T.copy()
         original_b2 = self.linear_2.bias.detach().clone().cpu().numpy()
         dict[prefix + ".original_w1"] = original_w1
         dict[prefix + ".original_b1"] = original_b1
@@ -59,9 +59,9 @@ class FeedForwardBlock(nn.Module):
         dict[prefix + ".original_b2"] = original_b2
     
     def getUpdatedParam(self, prefix, dict) :
-        updated_w1 = self.linear_1.weight.detach().clone().cpu().numpy()
+        updated_w1 = self.linear_1.weight.detach().clone().cpu().numpy().T.copy()
         updated_b1 = self.linear_1.bias.detach().clone().cpu().numpy()
-        updated_w2 = self.linear_2.weight.detach().clone().cpu().numpy()
+        updated_w2 = self.linear_2.weight.detach().clone().cpu().numpy().T.copy()
         updated_b2 = self.linear_2.bias.detach().clone().cpu().numpy()
         dict[prefix + ".updated_w1"] = updated_w1
         dict[prefix + ".updated_b1"] = updated_b1

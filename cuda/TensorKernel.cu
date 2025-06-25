@@ -319,6 +319,7 @@ __global__ void MatMulKernelATB(
 
         if(loadIdxY < d2 && a0 + threadIdx.x < d1) {
             As[threadIdx.y][threadIdx.x] = *Get(A,loadIdxY,a0 + threadIdx.x,pitchA);
+            
         }
         else {
             As[threadIdx.y][threadIdx.x] = 0.0f;

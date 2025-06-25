@@ -21,12 +21,12 @@
 
 
 NVCC := nvcc
-CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o EmbeddingTest
+CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o PositionwiseFeedForwardTest
 
 # Files
-SRCS := ../Embedding.cu ../Embedding.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu EmbeddingTest.cu
+SRCS := ../PositionwiseFeedForward.cu ../ReLU.cu ../Linear.cu ../DropOut.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu PositionwiseFeedForwardTest.cu
 OBJS := $(SRCS:.cu=.o)
-TARGET := EmbeddingTest
+TARGET := PositionwiseFeedForwardTest
 
 all: $(TARGET)
 

@@ -10,13 +10,11 @@ __global__ void AdamOptKernel(
     const std::size_t pitchParam, const std::size_t pitchGrad, const std::size_t pitchAccM, const std::size_t pitchAccV,
     const std::size_t row, const std::size_t col) {
    
-
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
-    printf("%p thread %d %d ",(void*)t,r,c);
 
     const float invPowBeta1 = __frcp_rn(1.0f - powf(beta1, *t));
-    const float invPowBeta2 = __frcp_rn(1.0f - powf(beta2, 1));
+    const float invPowBeta2 = __frcp_rn(1.0f - powf(beta2, *t));
     if(r < row && c < col) {
         const float g = *Get(gradient, r, c, pitchGrad);
         *Get(gradient, r, c, pitchGrad) = 0;
@@ -27,7 +25,7 @@ __global__ void AdamOptKernel(
         *Get(param, r, c, pitchParam) -= lr * mHat / (sqrtf(vHat) + eps);
     }
     __syncthreads();
-    // if(r == 0 && c == 0) {
-    //     (*t)++; 
-    // }
+    if(r == 0 && c == 0) {
+        (*t)++; 
+    }
 }

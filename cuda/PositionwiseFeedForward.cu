@@ -61,7 +61,7 @@ cudaGraphNode_t PositionwiseFeedForward::AppendGraphBackward(cudaGraph_t graph, 
     cudaGraphNode_t k2 = dropout.AppendGraphBackward(graph, {k1});
     cudaGraphNode_t k3 = relu.AppendGraphBackward(graph, {k2});
     cudaGraphNode_t k4 = linear1.AppendGraphBackward(graph, {k3});
-    return k1;
+    return k4;
 }
 
 cudaGraphNode_t PositionwiseFeedForward::AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
@@ -118,7 +118,6 @@ void PositionwiseFeedForward::backwardTest(cnpy::npz_t npFile, std::string prefi
 
     // load input
     input.loadNp(npFile, prefix + ".input");
-    
 
     // Forward, backward, update
     cudaGraph_t graph;
@@ -127,14 +126,14 @@ void PositionwiseFeedForward::backwardTest(cnpy::npz_t npFile, std::string prefi
     cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
     cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
     this->AppendGraphUpdateParameter(graph, {k2});
+    cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
+    // Print(gradient1, 0, 0, 10, 10);
+    // Print(gradient2, 0, 0, 10, 10);
+    // Print(gradient3, 0, 0, 10, 10);
+    // Print(linear1.biasOpt.gradient, 0, 0, 10 ,10);
     
-    linear1.weightOpt.t++;
-    linear1.biasOpt.t++;
-    linear2.weightOpt.t++;
-    linear2.biasOpt.t++;
-
     checkUpdatedParam(npFile, prefix);
 }
