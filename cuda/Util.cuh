@@ -15,13 +15,13 @@ public:
     Tensor gradient;
     Tensor accM;
     Tensor accV;
-    std::size_t t;
+    std::size_t* t;
 };
 
-void AdamOpt(Tensor param, AdamOptimizer opt, const std::size_t feedCount = 1);
+void AdamOpt(Tensor param, AdamOptimizer opt);
 cudaGraphNode_t AppendAdamOptNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor param, AdamOptimizer opt, std::size_t feedCount = 1);
+    Tensor param, AdamOptimizer opt);
 
 float CrossEntropy(Tensor logits, Tensor target, Tensor gradient, int npd[batch]);
 float fast_logf(float x);

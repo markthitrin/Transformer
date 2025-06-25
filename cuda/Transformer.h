@@ -14,7 +14,7 @@
 
 
 // Important~~~ Currently memory are leaking from build a graph node with single float as parameter
-
+// FEed count and opt.t must be increased manually
 class Transformer {
 public:
 	Transformer(

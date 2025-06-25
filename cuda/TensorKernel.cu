@@ -79,7 +79,7 @@ __global__ void PlusReduceInplaceBatchKernel(
     if(r < row && c < col) {
         float aValue = *Get(A, r, c, pitchA);
         for(int i = 0;i < batch;i++) {
-            aValue += *Get(B, r + i * row , c, pitchB);
+            aValue += *Get(B, r + i * row, c, pitchB);
         }
         *Get(A, r, c, pitchA) = aValue;
     }

@@ -19,8 +19,6 @@ static constexpr std::size_t tgtVocab = 6;
 static constexpr std::size_t epoch = 2;
 static constexpr std::size_t batch = 8;
 
-
-
 static constexpr std::size_t MATMUL_BLOCKSIZE = 16;
 
 #endif

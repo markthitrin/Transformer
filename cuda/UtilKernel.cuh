@@ -16,8 +16,8 @@ __host__ __device__ T* Get(T* a, const std::size_t i, const std::size_t j, const
 }
 
 __global__ void AdamOptKernel(
-    float* param, float* gradient, float* accM, float* accV, const std::size_t t,
+    float* param, float* gradient, float* accM, float* accV, std::size_t* t,
     const std::size_t pitchParam, const std::size_t pitchGrad, const std::size_t pitchAccM, const std::size_t pitchAccV,
-    const std::size_t feedCount, const std::size_t row, const std::size_t col);
+    const std::size_t row, const std::size_t col);
 
 #endif

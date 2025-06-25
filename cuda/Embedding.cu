@@ -17,7 +17,6 @@ Embedding::Embedding(
     output(output),
     outputGradient(outputGradient),
     
-    feedCount(token, 0),
     entries(batch * sequenceLength, nullptr),
     forwardNodes(batch * sequenceLength, nullptr),
     forwardNodeParams(batch * sequenceLength),
@@ -33,7 +32,6 @@ Embedding::Embedding(
         table[i].UniformFill(0.1f);
 
         tableOpt.emplace_back(1, dModel);
-        tableOpt.back().t = 0;
     }
 
     for(int i = 0;i < batch * sequenceLength;i++) {
@@ -48,45 +46,48 @@ Embedding::~Embedding() {
 
 void Embedding::UpdateGraph(cudaGraphExec_t graphExec) {
     std::set<std::size_t> ss;
-    for(std::size_t i = 0 ;i < batch * sequenceLength;i++) {
-        feedCount[input[i]] = 0;
-    }
     for(std::size_t i = 0;i < batch * sequenceLength;i++) {
-        feedCount[input[i]]++;
         ss.insert(input[i]);
 
-        forwardNodeParams[i].srcPtr = make_cudaPitchedPtr(table[input[i]].data, table[input[i]].pitch, table[input[i]].col, table[input[i]].row);
-        cudaGraphExecMemcpyNodeSetParams(graphExec, forwardNodes[i], &forwardNodeParams[i]);
+        forwardNodeParams[i].srcPtr = make_cudaPitchedPtr(
+            table[input[i]].data, table[input[i]].pitch,
+            table[input[i]].col, table[input[i]].row);
+        cudaError_t err =cudaGraphExecMemcpyNodeSetParams(graphExec, forwardNodes[i], &forwardNodeParams[i]);
+        PRINT_CUDA_ERR(err);
         
-        void* kernelArgsBackward[] = { &tableOpt[input[i]].gradient, &entries[i], &tableOpt[input[i]].gradient.pitch, &outputGradient.pitch, &tableOpt[input[i]].gradient.row, &tableOpt[input[i]].gradient.col}; 
+        void* kernelArgsBackward[] = { 
+            &tableOpt[input[i]].gradient, &entries[i], 
+            &tableOpt[input[i]].gradient.pitch, &outputGradient.pitch, 
+            &tableOpt[input[i]].gradient.row, &tableOpt[input[i]].gradient.col}; 
         backwardNodeParams[i].kernelParams = kernelArgsBackward;
         cudaGraphExecKernelNodeSetParams(graphExec, backwardNodes[i], &backwardNodeParams[i]);
     }
     for(int i = 0;i < batch * sequenceLength;i++) {
+        
         if(ss.count(input[i]) != 0) { // working node
-            tableOpt[input[i]].t++;
+            // void* kernelArgsUpdate[] = {
+            //     &table[input[i]].data, &tableOpt[input[i]].gradient.data, &tableOpt[input[i]].accM.data, &tableOpt[input[i]].accV.data, &tableOpt[input[i]].t,
+            //     &table[input[i]].pitch, &tableOpt[input[i]].gradient.pitch, &tableOpt[input[i]].accM.pitch, &tableOpt[input[i]].accV.pitch,
+            //     &table[input[i]].row, &table[input[i]].col};
 
-            void* kernelArgsUpdate[] = {
-                &table[input[i]].data, &tableOpt[input[i]].gradient.data, &tableOpt[input[i]].accM.data, &tableOpt[input[i]].accV.data, &tableOpt[input[i]].t,
-                &table[input[i]].pitch, &tableOpt[input[i]].gradient.pitch, &tableOpt[input[i]].accM.pitch, &tableOpt[input[i]].accV.pitch,
-                &feedCount[input[i]], &table[input[i]].row, &table[input[i]].col};
-
-            constexpr int BLOCKSIZE = 16;
-            dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
-            dim3 gridDim(ceil(table[input[i]].col, BLOCKSIZE), ceil(table[input[i]].row, BLOCKSIZE));
+            // constexpr int BLOCKSIZE = 16;
+            // dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
+            // dim3 gridDim(ceil(table[input[i]].col, BLOCKSIZE), ceil(table[input[i]].row, BLOCKSIZE));
             
-            updateParameterParams[i].gridDim = gridDim;
-            updateParameterParams[i].blockDim = blockDim;
-            updateParameterParams[i].kernelParams = kernelArgsUpdate;
+            // updateParameterParams[i].gridDim = gridDim;
+            // updateParameterParams[i].blockDim = blockDim;
+            // updateParameterParams[i].kernelParams = kernelArgsUpdate;
 
-            cudaGraphExecKernelNodeSetParams(graphExec, updateParameterNodes[i], &updateParameterParams[i]);
+            cudaError_t err = cudaGraphExecKernelNodeSetParams(graphExec, updateParameterNodes[i], &updateParameterParams[i]);
+            PRINT_CUDA_ERR(err);
 
             ss.erase(input[i]);
         }
         else { // empty node
             updateParameterParams[i].gridDim = dim3(0, 0, 0);
             updateParameterParams[i].blockDim = dim3(0, 0, 0);
-            cudaGraphExecKernelNodeSetParams(graphExec, updateParameterNodes[i], &updateParameterParams[i]);
+            cudaError_t err = cudaGraphExecKernelNodeSetParams(graphExec, updateParameterNodes[i], &updateParameterParams[i]);
+            PRINT_CUDA_ERR(err);
         }
     }
 }
@@ -107,7 +108,7 @@ cudaGraphNode_t Embedding::AppendGraphBackward(cudaGraph_t graph, const std::vec
     return k2;
 }
 
-cudaGraphNode_t Embedding::AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes){
+cudaGraphNode_t Embedding::AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
     cudaGraphNode_t k1 = AppendEmbeddingUpdateParameterNode(graph, dependencyNodes, updateParameterParams, updateParameterNodes, outputGradient);
     return k1;
 }
@@ -198,28 +199,35 @@ void Embedding::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
 cudaGraphNode_t AppendEmbeddingNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::vector<cudaMemcpy3DParms>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
+    std::vector<cudaMemcpy3DParms>& forwardNodeParams, std::vector<cudaGraphNode_t>& forwardNodes,
     Tensor output) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
 
     for(std::size_t i = 0;i < output.row;i++) {
-        nodeParams[i].srcArray = nullptr;
-        nodeParams[i].dstArray = nullptr;
-        nodeParams[i].srcPtr = make_cudaPitchedPtr(output.data, output.pitch, output.col, 1);
-        nodeParams[i].dstPtr = make_cudaPitchedPtr(GetRow(output.data, i, output.pitch), output.pitch, output.col, 1);
-        nodeParams[i].extent = make_cudaExtent(sizeof(float) * output.col, 1, 1);
-        nodeParams[i].kind = cudaMemcpyDeviceToDevice;
-        cudaGraphAddMemcpyNode(&nodes[i], graph, &dependency, numDependency, &nodeParams[i]);
+        cudaMemcpy3DParms copyParams = {};
+        copyParams.srcArray = nullptr;
+        copyParams.dstArray = nullptr;
+        copyParams.srcPtr = make_cudaPitchedPtr(output.data, output.pitch, output.col, 1);
+        copyParams.dstPtr = make_cudaPitchedPtr(GetRow(output.data, i, output.pitch), output.pitch, output.col, 1);
+        copyParams.extent = make_cudaExtent(sizeof(float) * output.col, 1, 1);
+        copyParams.kind = cudaMemcpyDeviceToDevice;
+
+        cudaGraphNode_t copyNode;
+        cudaError_t err = cudaGraphAddMemcpyNode(&copyNode, graph, &dependency, numDependency, &copyParams);
+        PRINT_CUDA_ERR(err);
+
+        forwardNodes[i] = copyNode;
+        forwardNodeParams[i] = copyParams;
     }
     
-    return SyncDependency(graph, nodes);
+    return SyncDependency(graph, forwardNodes);
 }
 
 cudaGraphNode_t AppendEmbeddingBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::vector<cudaKernelNodeParams>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
+    std::vector<cudaKernelNodeParams>& backwardNodeParams, std::vector<cudaGraphNode_t>& backwardNodes,
     Tensor outputGradient) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -232,26 +240,34 @@ cudaGraphNode_t AppendEmbeddingBackwardNode(
     for(std::size_t i = 0;i < batch * sequenceLength;i++) {
         float* dummyFloatPtr = nullptr;
         std::size_t dummySize = 0;
+
+        cudaKernelNodeParams kernelParams = {};
         void* kernelArgs[] = { &dummyFloatPtr, &dummyFloatPtr, &dummySize, &dummySize, &dummySize, &dummySize}; 
 
-        nodeParams[i].func = (void*)PlusInplaceKernel;
-        nodeParams[i].gridDim = gridDim;
-        nodeParams[i].blockDim = blockDim;
-        nodeParams[i].sharedMemBytes = 0;
-        nodeParams[i].kernelParams = kernelArgs;
-        nodeParams[i].extra = nullptr;
+        kernelParams.func = (void*)PlusInplaceKernel;
+        kernelParams.gridDim = gridDim;
+        kernelParams.blockDim = blockDim;
+        kernelParams.sharedMemBytes = 0;
+        kernelParams.kernelParams = kernelArgs;
+        kernelParams.extra = nullptr;
 
-        cudaGraphAddKernelNode(&nodes[i], graph, &dependency, numDependency, &nodeParams[i]);
-        dependency = nodes[i];
+        cudaGraphNode_t kernelNode;
+        cudaError_t err = cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+        PRINT_CUDA_ERR(err);
+
+        backwardNodes[i] = kernelNode;
+        backwardNodeParams[i] = kernelParams;
+
+        dependency = backwardNodes[i];
         numDependency = 1;
     }
 
-    return nodes.back();
+    return backwardNodes.back();
 }
 
 cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::vector<cudaKernelNodeParams>& nodeParams, std::vector<cudaGraphNode_t>& nodes,
+    std::vector<cudaKernelNodeParams>& updateParameterParams, std::vector<cudaGraphNode_t>& updateParameterNodes,
     Tensor outputGradient) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -261,24 +277,31 @@ cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(outputGradient.col, BLOCKSIZE), ceil(1, BLOCKSIZE));
 
-   for(int i = 0;i < batch * sequenceLength;i++) {
+    for(int i = 0;i < batch * sequenceLength;i++) {
         float* dummyFloatPtr = nullptr;
-        float dummyFloat = 0.0f;
+        std::size_t* dummySizePtr = nullptr;
         std::size_t dummySize = 0;
+
+        cudaKernelNodeParams kernelParams;
         void* kernelArgs[] = {
-            &dummyFloatPtr, &dummyFloatPtr, &dummyFloatPtr, &dummyFloatPtr, &dummyFloat,
+            &dummyFloatPtr, &dummyFloatPtr, &dummyFloatPtr, &dummyFloatPtr, &dummySizePtr,
             &dummySize, &dummySize, &dummySize, &dummySize,
-            &dummySize, &dummySize, &dummySize}; 
+            &dummySize, &dummySize}; 
 
-        nodeParams[i].func = (void*)AdamOptKernel;
-        nodeParams[i].gridDim = gridDim;
-        nodeParams[i].blockDim = blockDim;
-        nodeParams[i].sharedMemBytes = 0;
-        nodeParams[i].kernelParams = kernelArgs;
-        nodeParams[i].extra = nullptr;
+        kernelParams.func = (void*)AdamOptKernel;
+        kernelParams.gridDim = gridDim;
+        kernelParams.blockDim = blockDim;
+        kernelParams.sharedMemBytes = 0;
+        kernelParams.kernelParams = kernelArgs;
+        kernelParams.extra = nullptr;
 
-        cudaGraphAddKernelNode(&nodes[i], graph, &dependency, numDependency, &nodeParams[i]);
+        cudaGraphNode_t kernelNode;
+        cudaError_t err = cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+        PRINT_CUDA_ERR(err);
+
+        updateParameterNodes[i] = kernelNode;
+        updateParameterParams[i] = kernelParams;
     }
 
-    return SyncDependency(graph, nodes);
+    return SyncDependency(graph, updateParameterNodes);
 }

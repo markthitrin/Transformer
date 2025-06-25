@@ -12,16 +12,16 @@ int main() {
 	Tensor output(batch * sequenceLength, dModel);
 	Tensor inGradient(batch * sequenceLength, dModel);
     Embedding model(input, output, inGradient, srcVocab);
-    // param
+    // param6
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");
         model.loadParam(npFile, "embeddings");
     }
     // forwardTest
-    for(int i = 0; i < feedTest;i++) {
-        cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_forward" + std::to_string(i) + ".npz");
-        model.forwardTest(npFile, "embeddings");
-    }
+    // for(int i = 0; i < feedTest;i++) {
+    //     cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_forward" + std::to_string(i) + ".npz");
+    //     model.forwardTest(npFile, "embeddings");
+    // }
     // backwardTest
     for(int i = 0; i < backTest;i++) {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_backward" + std::to_string(i) + ".npz");

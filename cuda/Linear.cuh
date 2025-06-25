@@ -34,7 +34,6 @@ public:
 	Tensor weight;
 	Tensor bias;
 
-	int feedCount = 0;
 	AdamOptimizer weightOpt;
 	AdamOptimizer biasOpt;
 };

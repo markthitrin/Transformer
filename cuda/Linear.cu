@@ -40,19 +40,18 @@ cudaGraphNode_t Linear::AppendGraphPredict(cudaGraph_t graph, const std::vector<
 }
 
 cudaGraphNode_t Linear::AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
-    feedCount++;
     cudaGraphNode_t k1 = AppendResetNode(graph, dependencyNodes, inputGradient);
-    cudaGraphNode_t k2 = AppendPlusInplceBatchNode(graph, {k1}, outputGradient, biasOpt.gradient, outputGradient.row);
-    cudaGraphNode_t k3 = AppendMatMulPlusNode(graph, {k2}, outputGradient, input, weightOpt.gradient, true, false);
-    cudaGraphNode_t k4 = AppendMatMulPlusNode(graph, {k2}, outputGradient, weight, inputGradient, false, false);
-    cudaGraphNode_t k5 = SyncDependency(graph, {k3, k4});
-    return k5;
+    cudaGraphNode_t k2 = AppendPlusReduceInplceBatchNode(graph, {k1}, biasOpt.gradient, outputGradient, outputGradient.row);
+    cudaGraphNode_t k3 = AppendMatMulPlusNode(graph, {k1}, input, outputGradient, weightOpt.gradient, true, false);
+    cudaGraphNode_t k4 = AppendMatMulPlusNode(graph, {k1}, outputGradient, weight, inputGradient, false, true);
+    cudaGraphNode_t k5 = SyncDependency(graph, {k2, k3, k4});
+    return k2;
 }
 
 cudaGraphNode_t Linear::AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
     cudaGraphNode_t k1 = SyncDependency(graph, dependencyNodes);
-    cudaGraphNode_t k2 = AppendAdamOptNode(graph, {k1}, weight, weightOpt, feedCount);
-    cudaGraphNode_t k3 = AppendAdamOptNode(graph, {k1}, bias, biasOpt, feedCount);
+    cudaGraphNode_t k2 = AppendAdamOptNode(graph, {k1}, weight, weightOpt);
+    cudaGraphNode_t k3 = AppendAdamOptNode(graph, {k1}, bias, biasOpt);
     cudaGraphNode_t k4 = SyncDependency(graph, {k2, k3});
     return k4;
 }

@@ -33,12 +33,12 @@ cudaGraphNode_t AppendCopyBatchNode(
     const int sr = C.row / batch;
     std::vector<cudaGraphNode_t> nodes(batch);
     for(int i = 0;i < batch;i++) {
-        cudaMemcpy3DParms params = {};
-        params.srcPtr = make_cudaPitchedPtr(A.data, A.pitch, A.col, A.row);
-        params.dstPtr = make_cudaPitchedPtr(GetRow(C.data, i * sr, C.pitch), C.pitch, A.col, A.row);
-        params.extent = make_cudaExtent(sizeof(float) * A.col, A.row, 1);
-        params.kind = cudaMemcpyDeviceToDevice;
-        cudaGraphAddMemcpyNode(&nodes[i], graph, &dependency, numDependency, &params);
+        cudaMemcpy3DParms copyParams = {};
+        copyParams.srcPtr = make_cudaPitchedPtr(A.data, A.pitch, A.col, A.row);
+        copyParams.dstPtr = make_cudaPitchedPtr(GetRow(C.data, i * sr, C.pitch), C.pitch, A.col, A.row);
+        copyParams.extent = make_cudaExtent(sizeof(float) * A.col, A.row, 1);
+        copyParams.kind = cudaMemcpyDeviceToDevice;
+        cudaGraphAddMemcpyNode(&nodes[i], graph, &dependency, numDependency, &copyParams);
     }
 
     return SyncDependency(graph, nodes);
@@ -109,10 +109,10 @@ cudaGraphNode_t AppendPlusReduceInplceBatchNode(
 
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
-    dim3 gridDim(ceil(B.col, BLOCKSIZE), ceil(B.row, BLOCKSIZE));
+    dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
 
     std::size_t* batchPtr = new std::size_t(batch);
-    void* kernelArgs[] = { &A.data, &B.data, &A.pitch, &B.pitch, &batchPtr, &B.row, &B.col};
+    void* kernelArgs[] = { &A.data, &B.data, &A.pitch, &B.pitch, batchPtr, &A.row, &A.col};
 
     cudaKernelNodeParams kernelParams = {};
     kernelParams.func = (void*)PlusReduceInplaceBatchKernel;
@@ -196,6 +196,7 @@ cudaGraphNode_t AppendResetNode(
     Tensor A) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
 
     cudaGraphNode_t memsetNode;
     cudaMemsetParams memsetParams = {};
@@ -206,7 +207,7 @@ cudaGraphNode_t AppendResetNode(
     memsetParams.width = A.col;
     memsetParams.height = A.row;
 
-    cudaGraphAddMemsetNode(&memsetNode, graph, nullptr, 0, &memsetParams);
+    cudaGraphAddMemsetNode(&memsetNode, graph, &dependency, numDependency, &memsetParams);
 
     return memsetNode;
 }

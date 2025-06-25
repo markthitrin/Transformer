@@ -9,37 +9,55 @@
 AdamOptimizer::AdamOptimizer(Tensor param) : 
     gradient(param.row, param.col),
     accM(param.row, param.col),
-    accV(param.row, param.col),
-    t(1) {;}
+    accV(param.row, param.col) {
+    
+    cudaMalloc(&t, sizeof(std::size_t));
+    Reset(gradient);
+    Reset(accM);
+    Reset(accV);
+    std::size_t _t = 1;
+    cudaMemcpy(t, &_t, sizeof(std::size_t), cudaMemcpyHostToDevice);
+}
+
 AdamOptimizer::AdamOptimizer(const std::size_t row, const std::size_t col) : 
     gradient(row, col),
     accM(row, col),
-    accV(row, col),
-    t(1) {;}
+    accV(row, col) {
+    
+    cudaMalloc(&t, sizeof(std::size_t));
+    Reset(gradient);
+    Reset(accM);
+    Reset(accV);
+    std::size_t _t = 1;
+    cudaMemcpy(t, &_t, sizeof(std::size_t),cudaMemcpyHostToDevice);
+}
+
 AdamOptimizer::AdamOptimizer(const AdamOptimizer& other) :
     gradient(other.gradient),
     accM(other.accM),
     accV(other.accV),
-    t(1) {;}
+    t(other.t) {;}
+
 AdamOptimizer::~AdamOptimizer() {
     gradient.free();
     accM.free();
     accV.free();
+    cudaFree(t);
 }
 
 
-void AdamOpt(Tensor param, AdamOptimizer opt, const std::size_t feedCount) {
+void AdamOpt(Tensor param, AdamOptimizer opt) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(param.col, BLOCKSIZE), ceil(param.row, BLOCKSIZE));
     AdamOptKernel<<<gridDim, blockDim>>>(
         param.data, opt.gradient.data, opt.accM.data, opt.accV.data, opt.t,
         param.pitch, opt.gradient.pitch, opt.accM.pitch, opt.accV.pitch,
-        feedCount, param.row, param.col);
+        param.row, param.col);
 }
 cudaGraphNode_t AppendAdamOptNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor param, AdamOptimizer opt, std::size_t feedCount) {
+    Tensor param, AdamOptimizer opt) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -48,12 +66,10 @@ cudaGraphNode_t AppendAdamOptNode(
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(param.col, BLOCKSIZE), ceil(param.row, BLOCKSIZE));
 
-    std::size_t* feedCountPtr = new std::size_t(feedCount);
-
     void* kernelArgs[] = { 
         &param.data, &opt.gradient.data, &opt.accM.data, &opt.accV.data, &opt.t,
         &param.pitch, &opt.gradient.pitch, &opt.accM.pitch, &opt.accV.pitch,
-        &feedCountPtr, &param.row, &param.col
+        &param.row, &param.col
     };
 
     cudaKernelNodeParams kernelParams = {};

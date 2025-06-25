@@ -8,10 +8,10 @@
 #include "PositionwiseFeedForward.cuh"
 
 PositionwiseFeedForward::PositionwiseFeedForward(
-    Tensor input,
-    Tensor output,
-    Tensor outputGradient,
-    Tensor inputGradient) noexcept:
+    Tensor& input,
+    Tensor& output,
+    Tensor& outputGradient,
+    Tensor& inputGradient) noexcept:
 
     linear1(input, out1, gradient1, inputGradient, dModel, dFF),
     relu(out1, out2, gradient2, gradient1),
@@ -61,7 +61,14 @@ cudaGraphNode_t PositionwiseFeedForward::AppendGraphBackward(cudaGraph_t graph, 
     cudaGraphNode_t k2 = dropout.AppendGraphBackward(graph, {k1});
     cudaGraphNode_t k3 = relu.AppendGraphBackward(graph, {k2});
     cudaGraphNode_t k4 = linear1.AppendGraphBackward(graph, {k3});
-    return k4;
+    return k1;
+}
+
+cudaGraphNode_t PositionwiseFeedForward::AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
+    cudaGraphNode_t k1 = linear1.AppendGraphUpdateParameter(graph, dependencyNodes);
+    cudaGraphNode_t k2 = linear2.AppendGraphUpdateParameter(graph, dependencyNodes);
+    cudaGraphNode_t k3 = SyncDependency(graph, {k1,k2});
+    return k3;
 }
 
 void PositionwiseFeedForward::loadParam(cnpy::npz_t npFile, std::string prefix) {
@@ -90,47 +97,44 @@ void PositionwiseFeedForward::forwardTest(cnpy::npz_t npFile, std::string prefix
 }
 
 void PositionwiseFeedForward::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    // std::vector<Tensor> updatedTable;
-    // for(int i = 0;i < table.size();i++) updatedTable.emplace_back(1, dModel);
+    Tensor updatedW1(dModel, dFF);
+    Tensor updatedB1(1, dFF);
+    Tensor updatedW2(dFF, dModel);
+    Tensor updatedB2(1, dModel);
+    updatedW1.loadNp(npFile, prefix + ".updated_w1");
+    updatedB1.loadNp(npFile, prefix + ".updated_b1");
+    updatedW2.loadNp(npFile, prefix + ".updated_w2");
+    updatedB2.loadNp(npFile, prefix + ".updated_b2");
 
-    // Tensor loadRR(table.size(), table[0].col);
-    // loadRR.loadNp(npFile, prefix + ".updated_weights");
-    // for(int i = 0;i < updatedTable.size();i++) {
-    //     cudaMemcpy2D(
-    //         updatedTable[i].data, updatedTable[i].pitch, Get(loadRR.data, i, 0, loadRR.pitch), loadRR.pitch,
-    //         sizeof(float) * updatedTable[i].col, 1, cudaMemcpyDeviceToDevice);
-    // }
-    // cudaDeviceSynchronize();
-
-    // for(int i = 0;i < updatedTable.size();i++) {
-    //     PrintTestResult("backward table:" + std::to_string(i), table[i], updatedTable[i]);
-    // }
+    PrintTestResult("backward [" + prefix + ".updated_w1" + "]", linear1.weight,updatedW1);
+    PrintTestResult("backward [" + prefix + ".updated_b1" + "]", linear1.bias,updatedB1);
+    PrintTestResult("backward [" + prefix + ".updated_w2" + "]", linear2.weight,updatedW2);
+    PrintTestResult("backward [" + prefix + ".updated_b2" + "]", linear2.bias,updatedB2);
 }
 
 void PositionwiseFeedForward::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-    // Set(outputGradient, 1.0f / output.row / output.col);
-    // cudaDeviceSynchronize();
+    Set(outputGradient, 1.0f / output.row / output.col);
+    cudaDeviceSynchronize();
 
-    // // load input
-    // float* temp = new float[batch * sequenceLength];
-    // Tensor loadInput(1, batch * sequenceLength);
-    // loadInput.loadNp(npFile, prefix + ".input");
-    // loadInput.toFloat(temp);
-    // for(int i = 0;i < batch * sequenceLength;i++) {
-    //     input[i] = (std::size_t)temp[i];
-    // }
+    // load input
+    input.loadNp(npFile, prefix + ".input");
+    
 
-    // // Forward, backward, update
-    // cudaGraph_t graph;
-    // cudaGraphExec_t instance;
-    // cudaGraphCreate(&graph, 0);
-    // cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
-    // cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
-    // this->AppendGraphUpdateParameter(graph, {k2});
-    // cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    // this->UpdateGraph(instance);
-    // cudaGraphLaunch(instance, 0);
-    // cudaDeviceSynchronize();
+    // Forward, backward, update
+    cudaGraph_t graph;
+    cudaGraphExec_t instance;
+    cudaGraphCreate(&graph, 0);
+    cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
+    cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
+    this->AppendGraphUpdateParameter(graph, {k2});
+    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
+    cudaGraphLaunch(instance, 0);
+    cudaDeviceSynchronize();
+    
+    linear1.weightOpt.t++;
+    linear1.biasOpt.t++;
+    linear2.weightOpt.t++;
+    linear2.biasOpt.t++;
 
-    // checkUpdatedParam(npFile, prefix);
+    checkUpdatedParam(npFile, prefix);
 }

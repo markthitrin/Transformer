@@ -10,10 +10,10 @@
 class PositionwiseFeedForward {
 public:
 	PositionwiseFeedForward(
-		Tensor input,
-		Tensor output,
-		Tensor outputGradient,
-		Tensor inputGradient) noexcept;
+		Tensor& input,
+		Tensor& output,
+		Tensor& outputGradient,
+		Tensor& inputGradient) noexcept;
 	~PositionwiseFeedForward() noexcept;
 
 	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
@@ -21,6 +21,8 @@ public:
 	cudaGraphNode_t AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
 	cudaGraphNode_t AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
+
+	cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
 	void loadParam(cnpy::npz_t npFile, std::string prefix);
 
@@ -35,10 +37,10 @@ public:
 	DropOut dropout;
 	Linear linear2;
 
-	Tensor input;
-	Tensor output;
-	Tensor outputGradient;
-	Tensor inputGradient;
+	Tensor& input;
+	Tensor& output;
+	Tensor& outputGradient;
+	Tensor& inputGradient;
 
 	Tensor out1;
 	Tensor out2;
