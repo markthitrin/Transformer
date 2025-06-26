@@ -21,7 +21,7 @@ public:
 void AdamOpt(Tensor param, AdamOptimizer opt);
 cudaGraphNode_t AppendAdamOptNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor param, AdamOptimizer opt);
+    Tensor param, AdamOptimizer& opt);
 
 float CrossEntropy(Tensor logits, Tensor target, Tensor gradient, int npd[batch]);
 float fast_logf(float x);

@@ -57,7 +57,7 @@ void AdamOpt(Tensor param, AdamOptimizer opt) {
 }
 cudaGraphNode_t AppendAdamOptNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor param, AdamOptimizer opt) {
+    Tensor param, AdamOptimizer& opt) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;

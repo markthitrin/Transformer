@@ -117,13 +117,10 @@ void LayerNorm::backwardTest(cnpy::npz_t npFile, std::string prefix) {
     cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
     
     this->AppendGraphUpdateParameter(graph, {k2});
-    Print(alphaOpt.accM,0,0,1,10);
     cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
-   
-    Print(xHat,0,0,10,10);
     
     checkUpdatedParam(npFile, prefix);
 }
