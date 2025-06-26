@@ -20,5 +20,7 @@ static constexpr std::size_t epoch = 2;
 static constexpr std::size_t batch = 8;
 
 static constexpr std::size_t MATMUL_BLOCKSIZE = 16;
+static constexpr std::size_t REDUCTION_BLOCKSIZE_X = 32; // must be power of 2
+static constexpr std::size_t REDUCTION_BLOCKSIZE_Y = 16;
 
 #endif

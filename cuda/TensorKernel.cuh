@@ -28,6 +28,10 @@ __global__ void PlusReduceInplaceBatchKernel(
     float* A, const float* B,
     const std::size_t pitchA, const std::size_t pitchB,
     const std::size_t batch, const std::size_t row, const std::size_t col);
+__global__ void PlusProductReduceInplaceBatchKernel(
+    float* A, const float* B, const float* C, 
+    const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t batch, const std::size_t row, const std::size_t col);
 
 __global__ void SubKernel(
     const float* A, const float* B, float* C,
@@ -60,6 +64,24 @@ __global__ void SetKernel(
     float* A, const float x,
     const std::size_t pitchA,
     const std::size_t row, const std::size_t col);
+
+__global__ void ReduceSumOfProductKernel(
+	const float* A, const float* B, float* C,
+	const std::size_t pitchA, const std::size_t pitchB,
+	const std::size_t row, const std::size_t col);
+__global__ void ReduceSumKernel(
+	const float* A, float* C,
+	const std::size_t pitchA,
+	const std::size_t row, const std::size_t col);
+
+__global__ void MeanKernel(
+	const float* A, float* C,
+	const std::size_t pitchA,
+	const std::size_t row, const std::size_t col);
+__global__ void StdKernel(
+	const float* A, const float* mean, float* C,
+	const std::size_t pitchA,
+	const std::size_t row, const std::size_t col);
 
 __global__ void ReduceMaxKernel(
     const float* A, const float* C,

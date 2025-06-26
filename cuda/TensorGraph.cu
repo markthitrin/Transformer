@@ -127,6 +127,34 @@ cudaGraphNode_t AppendPlusReduceInplceBatchNode(
 
     return kernelNode;
 }
+cudaGraphNode_t AppendPlusProductReduceInplceBatchNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B, Tensor C,
+    std::size_t batch) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    constexpr int BLOCKSIZE = 16;
+    dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
+    dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
+
+    std::size_t* batchPtr = new std::size_t(batch);
+    void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, batchPtr, &A.row, &A.col};
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)PlusProductReduceInplaceBatchKernel;
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
 
 
 cudaGraphNode_t AppendMulNode(
@@ -212,6 +240,109 @@ cudaGraphNode_t AppendResetNode(
     return memsetNode;
 }
 
+
+cudaGraphNode_t AppendReduceSumOfProductNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B, Tensor sumOfProduct) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    dim3 blockDim(REDUCTION_BLOCKSIZE_X, REDUCTION_BLOCKSIZE_Y);
+    dim3 gridDim(ceil(1, REDUCTION_BLOCKSIZE_X), ceil(A.row, REDUCTION_BLOCKSIZE_Y));
+
+    void* kernelArgs[] = { &A.data, &B.data, &sumOfProduct.data, &A.pitch, &B.pitch, &A.row, &A.col };
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)ReduceSumOfProductKernel;
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
+cudaGraphNode_t AppendReduceSumNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor input, Tensor sum) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    dim3 blockDim(REDUCTION_BLOCKSIZE_X, REDUCTION_BLOCKSIZE_Y);
+    dim3 gridDim(ceil(1, REDUCTION_BLOCKSIZE_X), ceil(input.row, REDUCTION_BLOCKSIZE_Y));
+
+    void* kernelArgs[] = { &input.data, &sum.data, &input.pitch, &input.row, &input.col };
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)ReduceSumKernel;
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
+
+
+cudaGraphNode_t AppendMeanNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor input, Tensor mean) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    dim3 blockDim(REDUCTION_BLOCKSIZE_X, REDUCTION_BLOCKSIZE_Y);
+    dim3 gridDim(ceil(1, REDUCTION_BLOCKSIZE_X), ceil(input.row, REDUCTION_BLOCKSIZE_Y));
+
+    void* kernelArgs[] = { &input.data, &mean.data, &input.pitch, &input.row, &input.col };
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)MeanKernel;
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
+cudaGraphNode_t AppendStdNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor input, Tensor mean, Tensor std) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    dim3 blockDim(REDUCTION_BLOCKSIZE_X, REDUCTION_BLOCKSIZE_Y);
+    dim3 gridDim(ceil(1, REDUCTION_BLOCKSIZE_X), ceil(input.row, REDUCTION_BLOCKSIZE_Y));
+
+    void* kernelArgs[] = { &input.data, &mean.data, &std.data, &input.pitch, &input.row, &input.col };
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)StdKernel;
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
 
 
 cudaGraphNode_t AppendMatMulPlusNode(

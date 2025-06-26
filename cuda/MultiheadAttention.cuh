@@ -266,7 +266,7 @@ public:
 	Tensor WO;
 
 	int feedCount = 0;
-	 WQOpt;
+	AdamOptimizer WQOpt;
 	AdamOptGradient WKOpt;
 	AdamOptGradient WVOpt;
 	AdamOptGradient WOOpt;

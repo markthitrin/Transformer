@@ -21,12 +21,12 @@
 
 
 NVCC := nvcc
-CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o PositionwiseFeedForwardTest
+CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o LayerNormTest
 
 # Files
-SRCS := ../PositionwiseFeedForward.cu ../ReLU.cu ../Linear.cu ../DropOut.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu PositionwiseFeedForwardTest.cu
+SRCS := ../LayerNorm.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu LayerNormTest.cu
 OBJS := $(SRCS:.cu=.o)
-TARGET := PositionwiseFeedForwardTest
+TARGET := LayerNormTest
 
 all: $(TARGET)
 

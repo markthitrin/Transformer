@@ -23,6 +23,10 @@ cudaGraphNode_t AppendPlusReduceInplceBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor A, Tensor C,
     std::size_t batch);
+cudaGraphNode_t AppendPlusProductReduceInplceBatchNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B, Tensor C,
+    std::size_t batch);
 
 cudaGraphNode_t AppendMulNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
@@ -34,6 +38,20 @@ cudaGraphNode_t AppendMulInplaceNode(
 cudaGraphNode_t AppendResetNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor A);
+
+cudaGraphNode_t AppendReduceSumOfProductNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B, Tensor sumOfProduct);
+cudaGraphNode_t AppendReduceSumNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor input, Tensor sum);
+
+cudaGraphNode_t AppendMeanNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor input, Tensor mean);
+cudaGraphNode_t AppendStdNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor input, Tensor mean, Tensor std);
 
 cudaGraphNode_t AppendMatMulPlusNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,

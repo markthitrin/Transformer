@@ -1,5 +1,5 @@
-#include "../Header.h"
-#include "../LayerNorm.h"
+#include "../Header.cuh"
+#include "../LayerNorm.cuh"
 #include "cnpy.h"
 
 const std::string testCaseDir = "../../python/Testcase/LayerNorm";
@@ -8,17 +8,16 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    Tensor<batch * sequenceLength, dModel> input;
-	Tensor<batch * sequenceLength, dModel> output;
-	Tensor<batch * sequenceLength, dModel> inGradient;
-	Tensor<batch * sequenceLength, dModel> outGradient;
-    LayerNorm<batch * sequenceLength, dModel> model(input, output, inGradient, outGradient);
+    Tensor input(batch * sequenceLength, dModel);
+	Tensor output(batch * sequenceLength, dModel);
+	Tensor inGradient(batch * sequenceLength, dModel);
+	Tensor outGradient(batch * sequenceLength, dModel);
+    LayerNorm model(input, output, inGradient, outGradient);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");
         model.loadParam(npFile, "layerNorm");
     }
-   
     // forwardTest
     for(int i = 0; i < feedTest;i++) {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_forward" + std::to_string(i) + ".npz");

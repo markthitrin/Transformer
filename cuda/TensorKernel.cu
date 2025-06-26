@@ -84,6 +84,22 @@ __global__ void PlusReduceInplaceBatchKernel(
         *Get(A, r, c, pitchA) = aValue;
     }
 }
+__global__ void PlusProductReduceInplaceBatchKernel(
+    float* A, const float* B, const float* C, 
+    const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
+    const std::size_t batch, const std::size_t row, const std::size_t col) {
+    
+    const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if(r < row && c < col) {
+        float aValue = *Get(A, r, c, pitchA);
+        for(int i = 0;i < batch;i++) {
+            aValue += *Get(B, r + i * row, c, pitchB) * *Get(C, r + i * row, c, pitchC);
+        }
+        *Get(A, r, c, pitchA) = aValue;
+    }
+}
 
 
 
@@ -183,10 +199,146 @@ __global__ void SetKernel(
 
 
 
+__global__ void ReduceSumOfProductKernel(
+	const float* A, const float* B, float* C,
+	const std::size_t pitchA, const std::size_t pitchB,
+	const std::size_t row, const std::size_t col) {
+
+	const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = threadIdx.x;
+
+	__shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
+
+	float acc = 0.0f;
+	for(std::size_t i = 0;i < ceil(col, REDUCTION_BLOCKSIZE_X);i++) {
+		if(r < row && c + i * REDUCTION_BLOCKSIZE_X < col) {
+			acc += *Get(A, r, c + i * REDUCTION_BLOCKSIZE_X, pitchA) * *Get(B, r, c + i * REDUCTION_BLOCKSIZE_X, pitchB);
+		}
+	}
+	buffer[threadIdx.y][threadIdx.x] = acc;
+	for(std::size_t i = REDUCTION_BLOCKSIZE_X / 2;i > 0;i /= 2) {
+		__syncthreads();
+		if(c < i) {
+			buffer[threadIdx.y][threadIdx.x] += buffer[threadIdx.y][threadIdx.x + i];
+		}
+	}
+	if(r < row && c == 0) {
+		*Get(C, 0, r, 0) = buffer[threadIdx.y][0];
+	}
+}
+
+__global__ void ReduceSumKernel(
+	const float* A, float* C,
+	const std::size_t pitchA,
+	const std::size_t row, const std::size_t col) {
+
+	const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = threadIdx.x;
+
+	__shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
+
+	float acc = 0.0f;
+	for(std::size_t i = 0;i < ceil(col, REDUCTION_BLOCKSIZE_X);i++) {
+		if(r < row && c + i * REDUCTION_BLOCKSIZE_X < col) {
+			acc += *Get(A, r, c + i * REDUCTION_BLOCKSIZE_X, pitchA);
+		}
+	}
+	buffer[threadIdx.y][threadIdx.x] = acc;
+	for(std::size_t i = REDUCTION_BLOCKSIZE_X / 2;i > 0;i /= 2) {
+		__syncthreads();
+		if(c < i) {
+			buffer[threadIdx.y][threadIdx.x] += buffer[threadIdx.y][threadIdx.x + i];
+		}
+	}
+	if(r < row && c == 0) {
+		*Get(C, 0, r, 0) = buffer[threadIdx.y][0];
+	}
+}
+
 __global__ void ReduceMaxKernel(
-    const float* A, const float* C,
-    const std::size_t pitchA, const std::size_t pitchC,
+    const float* A, float* C,
+    const std::size_t pitchA,
     const std::size_t row, const std::size_t col) {
+
+    const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = threadIdx.x;
+
+    __shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
+
+	float acc = -FLT_MAX;
+	for(std::size_t i = 0;i < ceil(col, REDUCTION_BLOCKSIZE_X);i++) {
+		if(r < row && c + i * REDUCTION_BLOCKSIZE_X < col) {
+			acc = fmaxf(acc, *Get(A, r, c + i * REDUCTION_BLOCKSIZE_X, pitchA));
+		}
+	}
+	buffer[threadIdx.y][threadIdx.x] = acc;
+	for(std::size_t i = REDUCTION_BLOCKSIZE_X / 2;i > 0;i /= 2) {
+		__syncthreads();
+		if(c < i) {
+			buffer[threadIdx.y][threadIdx.x] = fmaxf(buffer[threadIdx.y][threadIdx.x], buffer[threadIdx.y][threadIdx.x + i]);
+		}
+	}
+	if(r < row && c == 0) {
+		*Get(C, 0, r, 0) = buffer[r][0];
+	}
+}
+
+
+__global__ void MeanKernel(
+	const float* A, float* C,
+	const std::size_t pitchA,
+	const std::size_t row, const std::size_t col) {
+
+	const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = threadIdx.x;
+
+	__shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
+
+	float acc = 0.0f;
+	for(std::size_t i = 0;i < ceil(col, REDUCTION_BLOCKSIZE_X);i++) {
+		if(r < row && c + i * REDUCTION_BLOCKSIZE_X < col) {
+			acc += *Get(A, r, c + i * REDUCTION_BLOCKSIZE_X, pitchA);
+		}
+	}
+	buffer[threadIdx.y][threadIdx.x] = acc;
+	for(std::size_t i = REDUCTION_BLOCKSIZE_X / 2;i > 0;i /= 2) {
+		__syncthreads();
+		if(c < i) {
+			buffer[threadIdx.y][threadIdx.x] += buffer[threadIdx.y][threadIdx.x + i];
+		}
+	}
+	if(r < row && c == 0) {
+		*Get(C, 0, r, 0) = buffer[threadIdx.y][0] * __frcp_rn(col);
+	}
+}
+__global__ void StdKernel(
+	const float* A, const float* mean, float* C,
+	const std::size_t pitchA,
+	const std::size_t row, const std::size_t col) {
+
+	const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = threadIdx.x;
+
+	__shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
+
+	float acc = 0.0f;
+	float m = mean[r];
+	for(std::size_t i = 0;i < ceil(col, REDUCTION_BLOCKSIZE_X);i++) {
+		if(r < row && c + i * REDUCTION_BLOCKSIZE_X < col) {
+			float x = *Get(A, r, c + i * REDUCTION_BLOCKSIZE_X, pitchA) - m;
+			acc += x * x;
+		}
+	}
+	buffer[threadIdx.y][threadIdx.x] = acc;
+	for(std::size_t i = REDUCTION_BLOCKSIZE_X / 2;i > 0;i /= 2) {
+		__syncthreads();
+		if(c < i) {
+			buffer[threadIdx.y][threadIdx.x] += buffer[threadIdx.y][threadIdx.x + i];
+		}
+	}
+	if(r < row && c == 0) {
+		*Get(C, 0, r, 0) = sqrtf(buffer[threadIdx.y][0] * __frcp_rn(col - 1));
+	}
 }
 
 
