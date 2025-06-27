@@ -1,5 +1,5 @@
-#include "../Header.h"
-#include "../DecoderLayer.h"
+#include "../Header.cuh"
+#include "../DecoderLayer.cuh"
 #include "cnpy.h"
 
 const std::string testCaseDir = "../../python/Testcase/DecoderBlock";
@@ -8,13 +8,15 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    Tensor<batch * sequenceLength, dModel> input;
-	Tensor<batch * sequenceLength, dModel> output;
-    Tensor<batch * sequenceLength, dModel> encoderOut;
-	Tensor<batch * sequenceLength, dModel> inGradient;
-	Tensor<batch * sequenceLength, dModel> outGradient;
-    Tensor<batch * sequenceLength, dModel> encoderGradient;
-    DecoderLayer<batch, sequenceLength, dModel> model(input, encoderOut, output, inGradient, outGradient, encoderGradient);
+    Tensor input(batch * sequenceLength, dModel);
+	Tensor output(batch * sequenceLength, dModel);
+    Tensor encoderOut(batch * sequenceLength, dModel);
+	Tensor inGradient(batch * sequenceLength, dModel);
+	Tensor outGradient(batch * sequenceLength, dModel);
+    Tensor encoderGradient(batch * sequenceLength, dModel);
+    std::size_t* seq1 = new std::size_t[batch];
+    std::size_t* seq2 = new std::size_t[batch];
+    DecoderLayer model(input, encoderOut, output, inGradient, outGradient, encoderGradient, seq1, seq2);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");
