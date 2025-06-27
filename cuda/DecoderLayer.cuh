@@ -22,7 +22,7 @@ public:
 		std::size_t* srcSeqH,
     	std::size_t* tgtSeqH) noexcept;	
 
-	void UpdateGraph(cudaGraphExec_t graphExec);
+	void UpdateGraph();
 
 	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 

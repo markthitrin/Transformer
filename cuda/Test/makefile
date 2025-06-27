@@ -21,12 +21,12 @@
 
 
 NVCC := nvcc
-CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o EncoderTest
+CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o DecoderTest
 
 # Files
-SRCS := ../Encoder.cu ../EncoderLayer.cu ../PositionwiseFeedForward.cu ../MultiheadAttention.cu ../LayerNorm.cu ../Softmax.cu ../Linear.cu ../ReLU.cu ../DropOut.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu EncoderTest.cu
+SRCS := ../Decoder.cu ../DecoderLayer.cu ../PositionwiseFeedForward.cu ../MultiheadAttention.cu ../LayerNorm.cu ../Softmax.cu ../Linear.cu ../ReLU.cu ../DropOut.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu DecoderTest.cu
 OBJS := $(SRCS:.cu=.o)
-TARGET := EncoderTest
+TARGET := DecoderTest
 
 all: $(TARGET)
 

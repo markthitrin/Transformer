@@ -56,7 +56,7 @@ DecoderLayer::DecoderLayer(
     gradient7(batch * sequenceLength, dModel),
     gradient8(batch * sequenceLength, dModel) {;}
 
-void DecoderLayer::UpdateGraph(cudaGraphExec_t graphExec) {
+void DecoderLayer::UpdateGraph() {
     mulAtt1.UpdateGraph();
     mulAtt2.UpdateGraph();
 }
@@ -162,7 +162,7 @@ void DecoderLayer::forwardTest(cnpy::npz_t npFile, std::string prefix) {
     cudaGraphCreate(&graph, 0);
     this->AppendGraphForward(graph, {});
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph(instance);
+	this->UpdateGraph();
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
 
@@ -196,7 +196,7 @@ void DecoderLayer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
     this->AppendGraphUpdateParameter(graph, {k2});
     cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    this->UpdateGraph(instance);
+    this->UpdateGraph();
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
     // Print(gradient1, 0, 0, 10, 10);

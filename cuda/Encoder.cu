@@ -160,7 +160,6 @@ void Encoder::backwardTest(cnpy::npz_t npFile, std::string prefix) {
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
 
-    PrintTestResult("output : ", output, target);
     // Print(gradient1, 0, 0, 10, 10);
     // Print(gradient2, 0, 0, 10, 10);
     // Print(gradient3, 0, 0, 10, 10);
