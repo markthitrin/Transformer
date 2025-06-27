@@ -48,7 +48,7 @@ cudaGraphNode_t DropOut::AppendGraphBackward(cudaGraph_t graph, const std::vecto
 
 cudaGraphNode_t AppendDropoutNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor mask, Tensor output, curandStatePhilox4_32_10_t* states, float dropoutRate,
+    Tensor& input, Tensor& mask, Tensor& output, curandStatePhilox4_32_10_t* states, float dropoutRate,
     std::size_t pitchState) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -79,7 +79,7 @@ cudaGraphNode_t AppendDropoutNode(
 
 cudaGraphNode_t AppendDropoutBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor outputGradient, Tensor mask, Tensor inputGradient) {
+    Tensor& outputGradient, Tensor& mask, Tensor& inputGradient) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;

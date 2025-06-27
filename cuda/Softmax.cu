@@ -41,7 +41,7 @@ cudaGraphNode_t Softmax::AppendGraphBackward(cudaGraph_t graph, const std::vecto
 
 cudaGraphNode_t AppendSoftmaxNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor maxValue, Tensor sumExp, Tensor output) {
+    Tensor& input, Tensor& maxValue, Tensor& sumExp, Tensor& output) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -71,7 +71,7 @@ cudaGraphNode_t AppendSoftmaxNode(
 
 cudaGraphNode_t AppendReduceSumExpNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor maxValue, Tensor sumExp) {
+    Tensor& input, Tensor& maxValue, Tensor& sumExp) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -100,7 +100,7 @@ cudaGraphNode_t AppendReduceSumExpNode(
 
 cudaGraphNode_t AppendSoftmaxBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor output, Tensor outputGradient, Tensor sumGY, Tensor inputGradient) {
+    Tensor& output, Tensor& outputGradient, Tensor& sumGY, Tensor& inputGradient) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;

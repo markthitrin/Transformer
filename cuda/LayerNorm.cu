@@ -127,7 +127,7 @@ void LayerNorm::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
 cudaGraphNode_t AppendLayerNormNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor mean, Tensor std, Tensor alpha, Tensor bias, Tensor xHat, Tensor output) {
+    Tensor& input, Tensor& mean, Tensor& std, Tensor& alpha, Tensor& bias, Tensor& xHat, Tensor& output) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -154,10 +154,9 @@ cudaGraphNode_t AppendLayerNormNode(
 
     return kernelNode;
 }
-
 cudaGraphNode_t AppendLayerNormBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor outputGradient, Tensor xHat, Tensor std, Tensor sumG, Tensor sumGXhat, Tensor alpha, Tensor inputGradient) {
+    Tensor& outputGradient, Tensor& xHat, Tensor& std, Tensor& sumG, Tensor& sumGXhat, Tensor& alpha, Tensor& inputGradient) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -198,7 +197,6 @@ __global__ void LayerNormKernel(
 		*Get(D, r, c, pitchD) = *Get(alpha, 0, c, 0) * *Get(C, r, c, pitchC) + *Get(bias, 0, c, 0);
 	}
 }
-
 __global__ void LayerNormBackwardKernel(
 	const float* A, const float* B, const float* std, const float* sumG, const float* sumGXHat, const float* alpha, float* C,
 	const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,

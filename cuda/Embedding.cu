@@ -200,7 +200,7 @@ void Embedding::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 cudaGraphNode_t AppendEmbeddingNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     std::vector<cudaMemcpy3DParms>& forwardNodeParams, std::vector<cudaGraphNode_t>& forwardNodes,
-    Tensor output) {
+    Tensor& output) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -228,7 +228,7 @@ cudaGraphNode_t AppendEmbeddingNode(
 cudaGraphNode_t AppendEmbeddingBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     std::vector<cudaKernelNodeParams>& backwardNodeParams, std::vector<cudaGraphNode_t>& backwardNodes,
-    Tensor outputGradient) {
+    Tensor& outputGradient) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -268,7 +268,7 @@ cudaGraphNode_t AppendEmbeddingBackwardNode(
 cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     std::vector<cudaKernelNodeParams>& updateParameterParams, std::vector<cudaGraphNode_t>& updateParameterNodes,
-    Tensor outputGradient) {
+    Tensor& outputGradient) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;

@@ -8,7 +8,9 @@ class Tensor{
 public:
     Tensor() noexcept;
     Tensor(const Tensor& other) noexcept;
+    Tensor(Tensor&& other) noexcept;
     Tensor(const std::size_t row,const std::size_t col) noexcept;
+    ~Tensor() noexcept;
 
     void free() noexcept;
 

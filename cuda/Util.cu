@@ -6,7 +6,7 @@
 #include "Util.cuh"
 #include "UtilKernel.cuh"
 
-AdamOptimizer::AdamOptimizer(Tensor param) : 
+AdamOptimizer::AdamOptimizer(const Tensor& param) : 
     gradient(param.row, param.col),
     accM(param.row, param.col),
     accV(param.row, param.col) {
@@ -38,6 +38,12 @@ AdamOptimizer::AdamOptimizer(const AdamOptimizer& other) :
     accV(other.accV),
     t(other.t) {;}
 
+AdamOptimizer::AdamOptimizer(AdamOptimizer&& other) :
+    gradient(std::move(other.gradient)),
+    accM(std::move(other.accM)),
+    accV(std::move(other.accV)),
+    t(std::move(other.t)) {;}
+
 AdamOptimizer::~AdamOptimizer() {
     gradient.free();
     accM.free();
@@ -46,7 +52,7 @@ AdamOptimizer::~AdamOptimizer() {
 }
 
 
-void AdamOpt(Tensor param, AdamOptimizer opt) {
+void AdamOpt(Tensor& param, AdamOptimizer opt) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(param.col, BLOCKSIZE), ceil(param.row, BLOCKSIZE));
@@ -57,7 +63,7 @@ void AdamOpt(Tensor param, AdamOptimizer opt) {
 }
 cudaGraphNode_t AppendAdamOptNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor param, AdamOptimizer& opt) {
+    Tensor& param, AdamOptimizer& opt) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -86,7 +92,7 @@ cudaGraphNode_t AppendAdamOptNode(
     return kernelNode;
 }
 
-float CrossEntropy(Tensor logits, Tensor target, Tensor gradient, int npd[batch]) {
+float CrossEntropy(Tensor& logits, Tensor& target, Tensor& gradient, int npd[batch]) {
     // not implemented
     return 0.0f;
 }
@@ -97,7 +103,7 @@ float fast_logf(float x) {
     return y - 127.0f;
 }
 
-void Print(Tensor A, const std::size_t r0, const std::size_t c0, const std::size_t r, const std::size_t c) {
+void Print(Tensor& A, const std::size_t r0, const std::size_t c0, const std::size_t r, const std::size_t c) {
     float* _A = (float*)malloc(sizeof(float) * A.row * A.col);
 	A.toFloat(_A);
 
@@ -110,7 +116,7 @@ void Print(Tensor A, const std::size_t r0, const std::size_t c0, const std::size
     std::cout << std::endl;
 }
 
-void PrintTestResult(std::string text, Tensor A, Tensor B) {
+void PrintTestResult(std::string text, Tensor& A, Tensor& B) {
     float* _A = (float*)malloc(sizeof(float) * A.row * A.col);
     float* _B = (float*)malloc(sizeof(float) * B.row * B.col);
 	A.toFloat(_A);
@@ -138,7 +144,7 @@ void PrintTestResult(std::string text, Tensor A, Tensor B) {
 }
 
 
-void PrintTestResultT(std::string text, Tensor A, Tensor B) {
+void PrintTestResultT(std::string text, Tensor& A, Tensor& B) {
     float* _A = (float*)malloc(sizeof(float) * A.row * A.col);
     float* _B = (float*)malloc(sizeof(float) * B.row * B.col);
 	A.toFloat(_A);

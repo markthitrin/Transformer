@@ -53,16 +53,16 @@ public:
 
 cudaGraphNode_t AppendLayerNormNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor mean, Tensor std, Tensor alpha, Tensor bias, Tensor xHat, Tensor output);
+    Tensor& input, Tensor& mean, Tensor& std, Tensor& alpha, Tensor& bias, Tensor& xHat, Tensor& output);
 cudaGraphNode_t AppendMeanNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor mean);
+    Tensor& input, Tensor& mean);
 cudaGraphNode_t AppendStdNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor mean, Tensor std);
+    Tensor& input, Tensor& mean, Tensor& std);
 cudaGraphNode_t AppendLayerNormBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor outputGradient, Tensor xHat, Tensor std, Tensor sumG, Tensor sumGXhat, Tensor alpha, Tensor inputGradient);
+    Tensor& outputGradient, Tensor& xHat, Tensor& std, Tensor& sumG, Tensor& sumGXhat, Tensor& alpha, Tensor& inputGradient);
 
 __global__ void LayerNormKernel(
 	const float* A, const float* mean, const float* std, const float* alpha, const float* bias, float* C, float* D,

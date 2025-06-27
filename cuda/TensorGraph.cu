@@ -6,7 +6,7 @@
 
 cudaGraphNode_t AppendCopyNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor C) {
+    Tensor& A, Tensor& C) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -22,10 +22,9 @@ cudaGraphNode_t AppendCopyNode(
 
     return copyNode;
 }
-
 cudaGraphNode_t AppendCopyBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor C, const std::size_t batch) {
+    Tensor& A, Tensor& C, const std::size_t batch) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -46,7 +45,7 @@ cudaGraphNode_t AppendCopyBatchNode(
 
 cudaGraphNode_t AppendPlusNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B, Tensor C) {
+    Tensor& A, Tensor& B, Tensor& C) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -75,7 +74,7 @@ cudaGraphNode_t AppendPlusNode(
 }
 cudaGraphNode_t AppendPlusInplaceNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B) {
+    Tensor& A, Tensor& B) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -104,7 +103,7 @@ cudaGraphNode_t AppendPlusInplaceNode(
 }
 cudaGraphNode_t AppendPlusBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B, Tensor C,
+    Tensor& A, Tensor& B, Tensor& C,
     std::size_t batch) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -131,7 +130,7 @@ cudaGraphNode_t AppendPlusBatchNode(
 }
 cudaGraphNode_t AppendPlusInplaceBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B,
+    Tensor& A, Tensor& B,
     std::size_t batch) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -158,7 +157,7 @@ cudaGraphNode_t AppendPlusInplaceBatchNode(
 }
 cudaGraphNode_t AppendPlusReduceInplceBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B,
+    Tensor& A, Tensor& B,
     std::size_t batch) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -186,7 +185,7 @@ cudaGraphNode_t AppendPlusReduceInplceBatchNode(
 }
 cudaGraphNode_t AppendPlusProductReduceInplceBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B, Tensor C,
+    Tensor& A, Tensor& B, Tensor& C,
     std::size_t batch) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -216,7 +215,7 @@ cudaGraphNode_t AppendPlusProductReduceInplceBatchNode(
 
 cudaGraphNode_t AppendMulNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, const float x, Tensor C) {
+    Tensor& A, const float x, Tensor& C) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -247,7 +246,7 @@ cudaGraphNode_t AppendMulNode(
 }
 cudaGraphNode_t AppendMulInplaceNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, const float x) {
+    Tensor& A, const float x) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -279,7 +278,7 @@ cudaGraphNode_t AppendMulInplaceNode(
 
 cudaGraphNode_t AppendDivNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, const float x, Tensor C) {
+    Tensor& A, const float x, Tensor& C) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -310,7 +309,7 @@ cudaGraphNode_t AppendDivNode(
 }
 cudaGraphNode_t AppendDivInplaceNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, const float x) {
+    Tensor& A, const float x) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -342,7 +341,7 @@ cudaGraphNode_t AppendDivInplaceNode(
 
 cudaGraphNode_t AppendResetNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A) {
+    Tensor& A) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -364,7 +363,7 @@ cudaGraphNode_t AppendResetNode(
 
 cudaGraphNode_t AppendReduceSumOfProductNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B, Tensor sumOfProduct) {
+    Tensor& A, Tensor& B, Tensor& sumOfProduct) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -389,7 +388,7 @@ cudaGraphNode_t AppendReduceSumOfProductNode(
 }
 cudaGraphNode_t AppendReduceSumNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor sum) {
+    Tensor& input, Tensor& sum) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -414,7 +413,7 @@ cudaGraphNode_t AppendReduceSumNode(
 }
 cudaGraphNode_t AppendReduceMaxNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor maxValue) {
+    Tensor& input, Tensor& maxValue) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -441,7 +440,7 @@ cudaGraphNode_t AppendReduceMaxNode(
 
 cudaGraphNode_t AppendMeanNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor mean) {
+    Tensor& input, Tensor& mean) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -466,7 +465,7 @@ cudaGraphNode_t AppendMeanNode(
 }
 cudaGraphNode_t AppendStdNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor mean, Tensor std) {
+    Tensor& input, Tensor& mean, Tensor& std) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -493,7 +492,7 @@ cudaGraphNode_t AppendStdNode(
 
 cudaGraphNode_t AppendLookAheadMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor Attention, const std::size_t batch, std::size_t* seq, const float x) {
+    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -521,7 +520,7 @@ cudaGraphNode_t AppendLookAheadMaskBatchNode(
 }
 cudaGraphNode_t AppendPaddingMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor Attention, const std::size_t batch, std::size_t* seq, const float x) {
+    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -549,7 +548,7 @@ cudaGraphNode_t AppendPaddingMaskBatchNode(
 }
 cudaGraphNode_t AppendCrossPaddingMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor Attention, const std::size_t batch, std::size_t* seq, const float x) {
+    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -579,7 +578,7 @@ cudaGraphNode_t AppendCrossPaddingMaskBatchNode(
 
 cudaGraphNode_t AppendMatMulPlusNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B, Tensor C, bool ATransposed, bool BTransposed) {
+    Tensor& A, Tensor& B, Tensor& C, bool ATransposed, bool BTransposed) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -620,7 +619,7 @@ cudaGraphNode_t AppendMatMulPlusNode(
 
 cudaGraphNode_t AppendMatMulPlusBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor A, Tensor B, Tensor C, const bool ATransposed, const bool BTransposed,
+    Tensor& A, Tensor& B, Tensor& C, const bool ATransposed, const bool BTransposed,
     const std::size_t batch, const bool ABroadcast, const bool BBroadcast, const bool CBroadcast) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);

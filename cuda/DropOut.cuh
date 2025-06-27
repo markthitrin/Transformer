@@ -34,18 +34,16 @@ public:
 
 cudaGraphNode_t AppendDropoutNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor mask, Tensor output, curandStatePhilox4_32_10_t* states, float dropoutRate,
+    Tensor& input, Tensor& mask, Tensor& output, curandStatePhilox4_32_10_t* states, float dropoutRate,
     std::size_t pitchState);
-
 cudaGraphNode_t AppendDropoutBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor outputGradient, Tensor mask, Tensor inputGradient);
+    Tensor& outputGradient, Tensor& mask, Tensor& inputGradient);
 
 __global__ void setupState(
     curandStatePhilox4_32_10_t* states, unsigned long long seed,
     const std::size_t pitchState,
     const std::size_t row, const std::size_t col);
-
 __global__ void dropoutKernel(
     const float* A, float* B, float* C, curandStatePhilox4_32_10_t* states, const float dropoutRate,
     const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC, const std::size_t pitchState,

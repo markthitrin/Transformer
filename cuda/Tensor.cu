@@ -1,13 +1,26 @@
 #include "Header.cuh"
 #include "Tensor.cuh"
+#include "TensorFunction.cuh"
 
 Tensor::Tensor() noexcept {;}
 
-Tensor::Tensor(const Tensor& other) noexcept : data(other.data), pitch(other.pitch), row(other.row), col(other.col) {;}
+Tensor::Tensor(const Tensor& other) noexcept : pitch(other.pitch), row(other.row), col(other.col) {
+    cudaError_t err = cudaMallocPitch(&data, &pitch, col * sizeof(float), row);
+    PRINT_CUDA_ERR(err);
+    cudaMemcpy2D(data, pitch, other.data, other.pitch, sizeof(float) * col, row, cudaMemcpyDeviceToDevice);
+}
+
+Tensor::Tensor(Tensor&& other) noexcept : data(other.data), pitch(other.pitch), row(other.row), col(other.col) {
+    other.data = nullptr;
+}
     
 Tensor::Tensor(const std::size_t row,const std::size_t col) noexcept : row(row), col(col)  {
     cudaError_t err = cudaMallocPitch(&data, &pitch, col * sizeof(float), row);
     PRINT_CUDA_ERR(err);
+}
+
+Tensor::~Tensor() {
+    cudaFree(data);
 }
 
 void Tensor::free() noexcept {

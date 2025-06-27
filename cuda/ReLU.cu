@@ -33,7 +33,7 @@ cudaGraphNode_t ReLU::AppendGraphBackward(cudaGraph_t graph, const std::vector<c
 
 cudaGraphNode_t AppendReLUNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor input, Tensor output) {
+    Tensor& input, Tensor& output) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -60,7 +60,7 @@ cudaGraphNode_t AppendReLUNode(
 
 cudaGraphNode_t AppendReLUBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor outputGradient, Tensor input, Tensor inputGradient) {
+    Tensor& outputGradient, Tensor& input, Tensor& inputGradient) {
     
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;

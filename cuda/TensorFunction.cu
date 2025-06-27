@@ -6,10 +6,10 @@
 
 
 
-void CopyAsync(Tensor A, Tensor B) {
+void CopyAsync(Tensor& A, Tensor& B) {
     cudaMemcpy2DAsync(B.data, B.pitch, A.data, A.pitch, sizeof(float) * B.col, B.row, cudaMemcpyDeviceToDevice);
 }
-void CopyBatchAsync(Tensor A, Tensor B, const std::size_t batch) {
+void CopyBatchAsync(Tensor& A, Tensor& B, const std::size_t batch) {
     const int sr = B.row / batch;
     for(int i = 0;i < batch;i++) {
         cudaMemcpy2DAsync(Get(B.data, i * sr, 0, B.pitch), B.pitch, A.data, A.pitch, sizeof(float) * A.col, A.row, cudaMemcpyDeviceToDevice);
@@ -18,25 +18,25 @@ void CopyBatchAsync(Tensor A, Tensor B, const std::size_t batch) {
 
 
 
-void Plus(Tensor A, Tensor B, Tensor C) {
+void Plus(Tensor& A, Tensor& B, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
     PlusKernel<<<gridDim, blockDim>>>(A.data, B.data, C.data, A.pitch, B.pitch, C.pitch, A.row, A.col);
 }
-void Plus(Tensor A, const float x, Tensor C) {
+void Plus(Tensor& A, const float x, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
     PlusKernel<<<gridDim, blockDim>>>(A.data, x, C.data, A.pitch, C.pitch, A.row, A.col);
 }
-void PlusBatch(Tensor A, Tensor B, Tensor C, const std::size_t batch) { // C = A + b
+void PlusBatch(Tensor& A, Tensor& B, Tensor& C, const std::size_t batch) { // C = A + b
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(B.col, BLOCKSIZE), ceil(B.row, BLOCKSIZE));
     PlusBatchKernel<<<gridDim, blockDim>>>(A.data, B.data, C.data, A.pitch, B.pitch, C.pitch, batch, B.row, B.col);
 }
-void PlusInplaceBatchReduce(Tensor A, Tensor C, const std::size_t batch) { // C += a
+void PlusInplaceBatchReduce(Tensor& A, Tensor& C, const std::size_t batch) { // C += a
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(C.col, BLOCKSIZE), ceil(C.row, BLOCKSIZE));
@@ -45,13 +45,13 @@ void PlusInplaceBatchReduce(Tensor A, Tensor C, const std::size_t batch) { // C 
 
 
 
-void Sub(Tensor A, Tensor B, Tensor C) {
+void Sub(Tensor& A, Tensor& B, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
     SubKernel<<<gridDim, blockDim>>>(A.data, B.data, C.data, A.pitch, B.pitch, C.pitch, A.row, A.col);
 }
-void Sub(Tensor A, const float x, Tensor C) {
+void Sub(Tensor& A, const float x, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -61,13 +61,13 @@ void Sub(Tensor A, const float x, Tensor C) {
 
 
 
-void Mul(Tensor A, Tensor B, Tensor C) {
+void Mul(Tensor& A, Tensor& B, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
     MulKernel<<<gridDim, blockDim>>>(A.data, B.data, C.data, A.pitch, B.pitch, C.pitch, A.row, A.col);
 }
-void Mul(Tensor A, const float x, Tensor C) {
+void Mul(Tensor& A, const float x, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -76,13 +76,13 @@ void Mul(Tensor A, const float x, Tensor C) {
 
 
 
-void Div(Tensor A, Tensor B, Tensor C) {
+void Div(Tensor& A, Tensor& B, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
     DivKernel<<<gridDim, blockDim>>>(A.data, B.data, C.data, A.pitch, B.pitch, C.pitch, A.row, A.col);
 }
-void Div(Tensor A, const float x, Tensor C) {
+void Div(Tensor& A, const float x, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -91,7 +91,7 @@ void Div(Tensor A, const float x, Tensor C) {
 
 
 
-void Set(Tensor A, const float x) {
+void Set(Tensor& A, const float x) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -100,13 +100,13 @@ void Set(Tensor A, const float x) {
 
 
 
-void Reset(Tensor A) {
+void Reset(Tensor& A) {
    cudaMemset2DAsync(A.data, A.pitch, 0, sizeof(float) * A.col, A.row);
 }
 
 
 
-void GetPositionalEncode(Tensor A) {
+void GetPositionalEncode(Tensor& A) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
@@ -115,7 +115,7 @@ void GetPositionalEncode(Tensor A) {
 
 
 
-void Print(Tensor A) {
+void Print(Tensor& A) {
     float* _data = (float*)malloc(sizeof(float) * A.row * A.col);
     cudaMemcpy2D(_data, sizeof(float) * A.col, A.data, A.pitch, sizeof(float) * A.col, A.row, cudaMemcpyDeviceToHost);
 
@@ -129,7 +129,7 @@ void Print(Tensor A) {
 
 
 
-void MatMulPlus(Tensor A,Tensor B, Tensor C, bool ATransposed, bool BTransposed) {
+void MatMulPlus(Tensor& A,Tensor& B, Tensor& C, bool ATransposed, bool BTransposed) {
     if(!ATransposed && !BTransposed) {
         dim3 blockDim(MATMUL_BLOCKSIZE, MATMUL_BLOCKSIZE);
         dim3 gridDim(ceil(C.col, MATMUL_BLOCKSIZE), ceil(C.row, MATMUL_BLOCKSIZE));

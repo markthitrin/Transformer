@@ -7,8 +7,8 @@ __global__ void PlusKernel(
     const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) + *Get(B, r, c, pitchB);
@@ -19,8 +19,8 @@ __global__ void PlusKernel(
     const std::size_t pitchA, const std::size_t pitchC,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) + x;
@@ -31,8 +31,8 @@ __global__ void PlusInplaceKernel(
     const std::size_t pitchA, const std::size_t pitchB,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(A, r, c, pitchA) += *Get(B, r, c, pitchB);
@@ -43,12 +43,12 @@ __global__ void PlusBatchKernel(
     const std::size_t pitchA,const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t batch, const std::size_t row, const std::size_t col) {
     
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         float b = *Get(B, r, c, pitchB);
-        for(int i = 0;i < batch;i++) {
+        for(std::size_t i = 0;i < batch;i++) {
             *Get(C, r + i * row, c, pitchC) = *Get(A, r + i * row, c, pitchA) + b;
         }
     }
@@ -58,12 +58,12 @@ __global__ void PlusInplaceBatchKernel(
     const std::size_t pitchA, const std::size_t pitchB,
     const std::size_t batch, const std::size_t row, const std::size_t col) {
     
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         float bValue = *Get(B, r, c, pitchB);
-        for(int i = 0;i < batch;i++) {
+        for(std::size_t i = 0;i < batch;i++) {
             *Get(A, r + i * row, c, pitchA) += bValue;
         }
     }
@@ -73,12 +73,12 @@ __global__ void PlusReduceInplaceBatchKernel(
     const std::size_t pitchA, const std::size_t pitchB,
     const std::size_t batch, const std::size_t row, const std::size_t col) {
     
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         float aValue = *Get(A, r, c, pitchA);
-        for(int i = 0;i < batch;i++) {
+        for(std::size_t i = 0;i < batch;i++) {
             aValue += *Get(B, r + i * row, c, pitchB);
         }
         *Get(A, r, c, pitchA) = aValue;
@@ -89,12 +89,12 @@ __global__ void PlusProductReduceInplaceBatchKernel(
     const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t batch, const std::size_t row, const std::size_t col) {
     
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         float aValue = *Get(A, r, c, pitchA);
-        for(int i = 0;i < batch;i++) {
+        for(std::size_t i = 0;i < batch;i++) {
             aValue += *Get(B, r + i * row, c, pitchB) * *Get(C, r + i * row, c, pitchC);
         }
         *Get(A, r, c, pitchA) = aValue;
@@ -108,8 +108,8 @@ __global__ void SubKernel(
     const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) - *Get(B, r, c, pitchB);
@@ -120,8 +120,8 @@ __global__ void SubKernel(
     const std::size_t pitchA, const std::size_t pitchC,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) - x;
@@ -135,8 +135,8 @@ __global__ void MulKernel(
     const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) * *Get(B, r, c, pitchB);
@@ -147,8 +147,8 @@ __global__ void MulKernel(
     const std::size_t pitchA, const std::size_t pitchC,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) * x;
@@ -159,8 +159,8 @@ __global__ void MulInplaceKernel(
     const std::size_t pitchA,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(A, r, c, pitchA) *= x;
@@ -174,8 +174,8 @@ __global__ void DivKernel(
     const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(C, r, c, pitchC) = *Get(A, r, c, pitchA) * __frcp_rn(*Get(B, r, c, pitchB));
@@ -189,8 +189,8 @@ __global__ void SetKernel(
     const std::size_t pitchA,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         *Get(A, r, c, pitchA) = x;
@@ -204,8 +204,8 @@ __global__ void ReduceSumOfProductKernel(
 	const std::size_t pitchA, const std::size_t pitchB,
 	const std::size_t row, const std::size_t col) {
 
-	const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = threadIdx.x;
+	const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = threadIdx.x;
 
 	__shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
 
@@ -232,8 +232,8 @@ __global__ void ReduceSumKernel(
 	const std::size_t pitchA,
 	const std::size_t row, const std::size_t col) {
 
-	const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = threadIdx.x;
+	const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = threadIdx.x;
 
 	__shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
 
@@ -259,8 +259,8 @@ __global__ void ReduceMaxKernel(
     const std::size_t pitchA,
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = threadIdx.x;
 
     __shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
 
@@ -288,8 +288,8 @@ __global__ void MeanKernel(
 	const std::size_t pitchA,
 	const std::size_t row, const std::size_t col) {
 
-	const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = threadIdx.x;
+	const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = threadIdx.x;
 
 	__shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
 
@@ -315,8 +315,8 @@ __global__ void StdKernel(
 	const std::size_t pitchA,
 	const std::size_t row, const std::size_t col) {
 
-	const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = threadIdx.x;
+	const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = threadIdx.x;
 
 	__shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
 
@@ -347,11 +347,11 @@ __global__ void ApplyLookAheadMaskBatchKernel(
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
-    const int s = row / batch;
-    const int i = r / s;
-    const int sr = r - i * s;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t s = row / batch;
+    const std::size_t i = r / s;
+    const std::size_t sr = r - i * s;
 
     if((c > sr || sr >= seq[i]) && (r < row && c < col)) {
         *Get(A, r, c, pitchA) = x;
@@ -362,11 +362,11 @@ __global__ void ApplyPaddingMaskBatchKernel(
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
-    const int s = row / batch;
-    const int i = r / s;
-    const int sr = r - i * s;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t s = row / batch;
+    const std::size_t i = r / s;
+    const std::size_t sr = r - i * s;
 
     if((c >= seq[i] || sr >= seq[i]) && (r < row && c < col)) {
         *Get(A, r, c, pitchA) = x;
@@ -377,10 +377,10 @@ __global__ void ApplyCrossPaddingMaskBatchKernel(
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
-    const int s = row / batch;
-    const int i = r / s;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t s = row / batch;
+    const std::size_t i = r / s;
 
     if(c >= seq[i] && (r < row && c < col)) {
         *Get(A, r, c, pitchA) = x;
@@ -394,8 +394,8 @@ __global__ void GetPositionalEncodeKernel(
     float* A, const std::size_t pitchA, 
     const std::size_t row, const std::size_t col) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(r < row && c < col) {
         if(c % 2 == 0) {
@@ -416,15 +416,15 @@ __global__ void MatMulKernelAB(
     const float* A, const float* B, float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t d1, const std::size_t d2, const std::size_t d3) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     float CValue = 0.0f;
 
     __shared__ float As[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
     __shared__ float Bs[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
 
-    for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
+    for(std::size_t i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
            
         const std::size_t loadIdxX = i * MATMUL_BLOCKSIZE + threadIdx.x;
         const std::size_t loadIdxY = i * MATMUL_BLOCKSIZE + threadIdx.y;
@@ -443,7 +443,7 @@ __global__ void MatMulKernelAB(
         }
         __syncthreads();
         if(r < d1 && c < d3) {
-            for(int j = 0;j < MATMUL_BLOCKSIZE;j++) {
+            for(std::size_t j = 0;j < MATMUL_BLOCKSIZE;j++) {
                 CValue += As[threadIdx.y][j] * Bs[j][threadIdx.x];
             }
         }
@@ -460,15 +460,15 @@ __global__ void MatMulKernelATB(
     const float* A, const float* B, float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t d1, const std::size_t d2, const std::size_t d3) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     float CValue = 0.0f;
 
     __shared__ float As[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
     __shared__ float Bs[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
 
-    for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
+    for(std::size_t i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
 
         const std::size_t a0 = blockIdx.y * blockDim.y;
         const std::size_t b0 = blockIdx.x * blockDim.x;
@@ -489,7 +489,7 @@ __global__ void MatMulKernelATB(
         }
         __syncthreads();
         if(r < d1 && c < d3) { 
-            for(int j = 0;j < MATMUL_BLOCKSIZE;j++) {
+            for(std::size_t j = 0;j < MATMUL_BLOCKSIZE;j++) {
                 CValue += As[j][threadIdx.y] * Bs[j][threadIdx.x];
             }
         }
@@ -506,15 +506,15 @@ __global__ void MatMulKernelABT(
     const float* A, const float* B, float* C, const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t d1, const std::size_t d2, const std::size_t d3) {
 
-    const int r = blockIdx.y * blockDim.y + threadIdx.y;
-    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const std::size_t r = blockIdx.y * blockDim.y + threadIdx.y;
+    const std::size_t c = blockIdx.x * blockDim.x + threadIdx.x;
 
     float CValue = 0.0f;
 
     __shared__ float As[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
     __shared__ float Bs[MATMUL_BLOCKSIZE][MATMUL_BLOCKSIZE];
 
-    for(int i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
+    for(std::size_t i = 0;i < ceil(d2, MATMUL_BLOCKSIZE);i++) {
 
         const std::size_t a0 = blockIdx.y * blockDim.y;
         const std::size_t b0 = blockIdx.x * blockDim.x;
@@ -534,7 +534,7 @@ __global__ void MatMulKernelABT(
         }
         __syncthreads();
         if(r < d1 && c < d3) {
-            for(int j = 0;j < MATMUL_BLOCKSIZE;j++) {
+            for(std::size_t j = 0;j < MATMUL_BLOCKSIZE;j++) {
                 CValue += As[threadIdx.y][j] * Bs[threadIdx.x][j];
             }
         }
