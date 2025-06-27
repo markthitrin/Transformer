@@ -60,6 +60,7 @@ __global__ void DivKernel(
     const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
     const std::size_t row, const std::size_t col);
 
+
 __global__ void SetKernel(
     float* A, const float x,
     const std::size_t pitchA,
@@ -73,6 +74,10 @@ __global__ void ReduceSumKernel(
 	const float* A, float* C,
 	const std::size_t pitchA,
 	const std::size_t row, const std::size_t col);
+__global__ void ReduceMaxKernel(
+    const float* A, float* C,
+    const std::size_t pitchA,
+    const std::size_t row, const std::size_t col);
 
 __global__ void MeanKernel(
 	const float* A, float* C,
@@ -83,21 +88,16 @@ __global__ void StdKernel(
 	const std::size_t pitchA,
 	const std::size_t row, const std::size_t col);
 
-__global__ void ReduceMaxKernel(
-    const float* A, const float* C,
-    const std::size_t pitchA, const std::size_t pitchC,
-    const std::size_t row, const std::size_t col);
-
 __global__ void ApplyLookAheadMaskBatchKernel(
-    float* A, const int seq, const float x,
+    float* A, const std::size_t* seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col);
 __global__ void ApplyPaddingMaskBatchKernel(
-    float* A, const int seq, const float x,
+    float* A, const std::size_t* seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col);
 __global__ void ApplyCrossPaddingMaskBatchKernel(
-    float* A, const int seq, const float x,
+    float* A, const std::size_t* seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col);
 

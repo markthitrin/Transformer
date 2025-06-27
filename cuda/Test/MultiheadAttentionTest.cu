@@ -1,5 +1,5 @@
-#include "../Header.h"
-#include "../MultiheadAttention.h"
+#include "../Header.cuh"
+#include "../MultiheadAttention.cuh"
 #include "cnpy.h"
 
 const std::string testCaseDir = "../../python/Testcase/MultiheadAttention";
@@ -8,15 +8,16 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    Tensor<batch * sequenceLength, dModel> inputQ;
-	Tensor<batch * sequenceLength, dModel> inputK;
-	Tensor<batch * sequenceLength, dModel> inputV;
-	Tensor<batch * sequenceLength, dModel> output;
-	Tensor<batch * sequenceLength, dModel> inGradient;
-	Tensor<batch * sequenceLength, dModel> outGradientQ;
-	Tensor<batch * sequenceLength, dModel> outGradientK;
-	Tensor<batch * sequenceLength, dModel> outGradientV;
-    MultiheadAttention<head, 0, batch,  sequenceLength, dModel> model(inputQ, inputK, inputV, output, inGradient, outGradientQ, outGradientK, outGradientV);
+    Tensor inputQ(batch * sequenceLength, dModel);
+	Tensor inputK(batch * sequenceLength, dModel);
+	Tensor inputV(batch * sequenceLength, dModel);
+	Tensor output(batch * sequenceLength, dModel);
+	Tensor inGradient(batch * sequenceLength, dModel);
+	Tensor outGradientQ(batch * sequenceLength, dModel);
+	Tensor outGradientK(batch * sequenceLength, dModel);
+	Tensor outGradientV(batch * sequenceLength, dModel);
+    std::size_t* seq = new std::size_t[batch];
+    MultiheadAttention model(inputQ, inputK, inputV, output, inGradient, outGradientQ, outGradientK, outGradientV, LOOK_AHEAD, seq);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");

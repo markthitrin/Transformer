@@ -81,7 +81,7 @@ class MultiHeadAttentionBlock(nn.Module):
         w_q = self.w_q.weight.detach().cpu().numpy()
         w_k = self.w_k.weight.detach().cpu().numpy()
         w_v = self.w_v.weight.detach().cpu().numpy()
-        w_o = self.w_o.weight.detach().cpu().numpy()
+        w_o = self.w_o.weight.detach().cpu().numpy().T.copy()
         dict[prefix + ".w_q"] = w_q
         dict[prefix + ".w_k"] = w_k
         dict[prefix + ".w_v"] = w_v
@@ -114,7 +114,7 @@ class MultiHeadAttentionBlock(nn.Module):
         original_w_q = self.w_q.weight.detach().clone().cpu().numpy()
         original_w_k = self.w_k.weight.detach().clone().cpu().numpy()
         original_w_v = self.w_v.weight.detach().clone().cpu().numpy()
-        original_w_o = self.w_o.weight.detach().clone().cpu().numpy()
+        original_w_o = self.w_o.weight.detach().clone().cpu().numpy().T.copy()
         dict[prefix + ".original_w_q"] = original_w_q
         dict[prefix + ".original_w_k"] = original_w_k
         dict[prefix + ".original_w_v"] = original_w_v
@@ -124,7 +124,7 @@ class MultiHeadAttentionBlock(nn.Module):
         updated_w_q = self.w_q.weight.detach().clone().cpu().numpy()
         updated_w_k = self.w_k.weight.detach().clone().cpu().numpy()
         updated_w_v = self.w_v.weight.detach().clone().cpu().numpy()
-        updated_w_o = self.w_o.weight.detach().clone().cpu().numpy()
+        updated_w_o = self.w_o.weight.detach().clone().cpu().numpy().T.copy()
         dict[prefix + ".updated_w_q"] = updated_w_q
         dict[prefix + ".updated_w_k"] = updated_w_k
         dict[prefix + ".updated_w_v"] = updated_w_v
@@ -154,6 +154,7 @@ class MultiHeadAttentionBlock(nn.Module):
         self.optimizer.step()
 
         self.getUpdatedParam(prefix, dict)
+        print(self.w_q.weight.detach().clone().cpu().numpy())
         
         dict[prefix + ".q"] = q.detach().numpy()
         dict[prefix + ".k"] = k.detach().numpy()

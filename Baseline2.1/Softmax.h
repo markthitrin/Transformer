@@ -48,7 +48,7 @@ public:
 		IMPORT_CONST(output);
 		IMPORT(outGradient);
 
-		for (int i = 0; i < col; i++) {
+		for (int i = 0; i < row; i++) {
 			float sumGY = 0.0f;
 
 			for (int j = 0; j < col; j++) {

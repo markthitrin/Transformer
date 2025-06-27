@@ -106,55 +106,6 @@ void Reset(Tensor A) {
 
 
 
-
-void ReduceMax(Tensor A, Tensor C) {
-    if(A.col <= 1024) {
-
-    }
-    else {
-        
-    }
-}
-
-
-
-void ApplyLookAheadMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x) {
-    constexpr int BLOCKSIZE = 16;
-    dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
-    dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
-    ApplyLookAheadMaskBatchKernel<<<gridDim, blockDim>>>(A.data, seq, x, A.pitch, batch, A.row, A.col);
-//     1 x x x x
-//     1 1 x x x
-//     1 1 1 x x <- seq
-//     x x x x x
-//     x x x x x
-}
-void ApplyPaddingMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x) {
-    constexpr int BLOCKSIZE = 16;
-    dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
-    dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
-    ApplyPaddingMaskBatchKernel<<<gridDim, blockDim>>>(A.data, seq, x, A.pitch, batch, A.row, A.col);
-    // 1 1 1 x x x
-    // 1 1 1 x x x
-    // 1 1 1 x x x <- seq
-    // x x x x x x 
-    // x x x x x x
-}
-void ApplyCrossPaddingMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x) {
-    constexpr int BLOCKSIZE = 16;
-    dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
-    dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
-    ApplyCrossPaddingMaskBatchKernel<<<gridDim, blockDim>>>(A.data, seq, x, A.pitch, batch, A.row, A.col);
-    // 1 1 1 x x
-    // 1 1 1 x x
-    // 1 1 1 x x
-    // 1 1 1 x x
-    // 1 1 1 x x
-    //     ^seq
-}
-
-
-
 void GetPositionalEncode(Tensor A) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);

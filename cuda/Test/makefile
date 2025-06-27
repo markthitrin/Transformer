@@ -21,12 +21,12 @@
 
 
 NVCC := nvcc
-CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o LayerNormTest
+CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o MultiheadAttentionTest
 
 # Files
-SRCS := ../LayerNorm.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu LayerNormTest.cu
+SRCS := ../MultiheadAttention.cu ../Softmax.cu ../DropOut.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu MultiheadAttentionTest.cu
 OBJS := $(SRCS:.cu=.o)
-TARGET := LayerNormTest
+TARGET := MultiheadAttentionTest
 
 all: $(TARGET)
 

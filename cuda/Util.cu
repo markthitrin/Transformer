@@ -101,8 +101,8 @@ void Print(Tensor A, const std::size_t r0, const std::size_t c0, const std::size
     float* _A = (float*)malloc(sizeof(float) * A.row * A.col);
 	A.toFloat(_A);
 
-    for(int i = 0;i < r;i++) {
-        for(int j = 0;j < c;j++) {
+    for(int i = r0;i < r0 + r;i++) {
+        for(int j = c0;j < c0 + c;j++) {
             std::cout << _A[i * A.col + j] << " ";
         }
         std::cout << std::endl;
@@ -126,7 +126,7 @@ void PrintTestResult(std::string text, Tensor A, Tensor B) {
 	std::cout << "Test result [" << text << "] : " << result / A.row / A.col << "\n";
     int count = 0;
 	for(int i  = 0;count < 6 && i < A.row * A.col;i++) {
-        if(std::abs(_A[i] - _B[i]) < 0.001) {continue;}
+        if(std::abs(_A[i] - _B[i]) < 0.0001) {continue;}
 		std::cout << "\t\t" << _A[i] << " :: " << _B[i];
         std::cout << "\t(" << i / A.col << ", " << i % A.col << ")" << std::endl;
         count++;
@@ -155,7 +155,7 @@ void PrintTestResultT(std::string text, Tensor A, Tensor B) {
     int count = 0;
     for(int i = 0;i < A.row;i++) {
         for(int j = 0;j < A.col;j++) {
-            if(std::abs(_A[i * A.col + j] - _B[j * A.row + i]) < 0.001) {continue;}
+            if(std::abs(_A[i * A.col + j] - _B[j * A.row + i]) < 0.0001) {continue;}
             std::cout << "\t\t" << _A[i * A.col + j] << " :: " << _B[j * A.row + i];
             std::cout << "\t()" << i << ", " << j << ")" << std::endl;
             if(count == 6) break;

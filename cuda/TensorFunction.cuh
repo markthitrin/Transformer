@@ -27,10 +27,6 @@ void Reset(Tensor A);
 
 void ReduceMax(Tensor A, Tensor C);
 
-void ApplyLookAheadMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x);
-void ApplyPaddingMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x);
-void ApplyCrossPaddingMaskBatch(Tensor A, const std::size_t batch, const int seq, const float x);
-
 void GetPositionalEncode(Tensor A);
 
 void Print(Tensor A);

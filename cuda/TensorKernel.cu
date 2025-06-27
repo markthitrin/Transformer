@@ -254,7 +254,6 @@ __global__ void ReduceSumKernel(
 		*Get(C, 0, r, 0) = buffer[threadIdx.y][0];
 	}
 }
-
 __global__ void ReduceMaxKernel(
     const float* A, float* C,
     const std::size_t pitchA,
@@ -279,7 +278,7 @@ __global__ void ReduceMaxKernel(
 		}
 	}
 	if(r < row && c == 0) {
-		*Get(C, 0, r, 0) = buffer[r][0];
+		*Get(C, 0, r, 0) = buffer[threadIdx.y][0];
 	}
 }
 
@@ -344,40 +343,46 @@ __global__ void StdKernel(
 
 
 __global__ void ApplyLookAheadMaskBatchKernel(
-    float* A, const int seq, const float x,
+    float* A, const std::size_t* seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
-    const int sr = r % batch;
+    const int s = row / batch;
+    const int i = r / s;
+    const int sr = r - i * s;
 
-    if((c > sr || sr >= seq) && (r < row && c < col)) {
+    if((c > sr || sr >= seq[i]) && (r < row && c < col)) {
         *Get(A, r, c, pitchA) = x;
     }
 }
 __global__ void ApplyPaddingMaskBatchKernel(
-    float* A, const int seq, const float x,
+    float* A, const std::size_t* seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
-    const int sr = r % batch;
+    const int s = row / batch;
+    const int i = r / s;
+    const int sr = r - i * s;
 
-    if((c >= seq || sr >= seq) && (r < row && c < col)) {
+    if((c >= seq[i] || sr >= seq[i]) && (r < row && c < col)) {
         *Get(A, r, c, pitchA) = x;
     }
 }
 __global__ void ApplyCrossPaddingMaskBatchKernel(
-    float* A, const int seq, const float x,
+    float* A, const std::size_t* seq, const float x,
     const std::size_t pitchA, 
     const std::size_t batch, const std::size_t row, const std::size_t col) {
 
     const int r = blockIdx.y * blockDim.y + threadIdx.y;
     const int c = blockIdx.x * blockDim.x + threadIdx.x;
+    const int s = row / batch;
+    const int i = r / s;
 
-    if(c >= seq && (r < row && c < col)) {
+    if(c >= seq[i] && (r < row && c < col)) {
         *Get(A, r, c, pitchA) = x;
     }
 }

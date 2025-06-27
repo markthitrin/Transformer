@@ -1,296 +1,278 @@
-#ifndef MULTIHEAD_ATTENTION
-#define MULTIHEAD_ATTENTION
+#include "Header.cuh"
+#include "Tensor.cuh"
+#include "TensorFunction.cuh"
+#include "TensorGraph.cuh"
+#include "Util.cuh"
+#include "Softmax.cuh"
+#include "DropOut.cuh"
+#include "MultiheadAttention.cuh"
 
-#include "Header.h"
-#include "Tensor.h"
-#include "Util.h"
-#include "Softmax.h"
-#include "DropOut.h"
+MultiheadAttention::MultiheadAttention(
+	Tensor& inputQ,
+	Tensor& inputK,
+	Tensor& inputV,
+	Tensor& output,
+	Tensor& outputGradient,
+	Tensor& inputGradientQ,
+	Tensor& inputGradientK,
+	Tensor& inputGradientV,
+	MaskType maskType,
+	std::size_t* seqH) noexcept:
 
-enum MaskType {
-	LOOK_AHEAD,
-	PADDING,
-	CROSS_PADDING
-};
+	softmax(A, As, AsGradient, AGradient, batch * head * sequenceLength, sequenceLength),
+	dropout(As, Ad, AdGradient, AsGradient, batch * head * sequenceLength, sequenceLength),
 
-template<int head, int maskType, int batch,int len,int col>
-class MultiheadAttention {
-public:
-	MultiheadAttention(
-		Tensor<batch * len, col>& inputQ,
-		Tensor<batch * len, col>& inputK,
-		Tensor<batch * len, col>& inputV,
-		Tensor<batch * len, col>& output,
-		Tensor<batch * len, col>& outputGradient,
-		Tensor<batch * len, col>& inputGradientQ,
-		Tensor<batch * len, col>& inputGradientK,
-		Tensor<batch * len, col>& inputGradientV) noexcept:
-		softmax(_A, _As, _AsGradient, _AGradient),
-		dropout(_As, _Ad, _AdGradient, _AsGradient),
-		_inputQ(inputQ),
-		_inputK(inputK),
-		_inputV(inputV),
-		_output(output),
-		_outputGradient(outputGradient),
-		_inputGradientQ(inputGradientQ),
-		_inputGradientK(inputGradientK),
-		_inputGradientV(inputGradientV) {
+	inputQ(inputQ),
+	inputK(inputK),
+	inputV(inputV),
+	output(output),
+	outputGradient(outputGradient),
+	inputGradientQ(inputGradientQ),
+	inputGradientK(inputGradientK),
+	inputGradientV(inputGradientV),
+	maskType(maskType),
+	seqH(seqH),
+	
+	WQ(dModel, dModel),
+	WK(dModel, dModel),
+	WV(dModel, dModel),
+	WO(dModel, dModel),
 
-		_WQ.XavierUniformInit();
-		_WK.XavierUniformInit();
-		_WV.XavierUniformInit();
-		_WO.XavierUniformInit();
-	}
-	~MultiheadAttention() {
-		_WQ.free();
-		_WK.free();
-		_WV.free();
-		_WO.free();
+	WQOpt(dModel, dModel),
+	WKOpt(dModel, dModel),
+	WVOpt(dModel, dModel),
+	WOOpt(dModel, dModel),
 
-		_QT.free();
-		_KT.free();
-		_VT.free();
-		_A.free();
-		_As.free();
-		_Ad.free();
-		_OT.free();
+	QT(batch * dModel, sequenceLength),
+	KT(batch * dModel, sequenceLength),
+	VT(batch * dModel, sequenceLength),
+	A(batch * head * sequenceLength, sequenceLength),
+	As(batch * head * sequenceLength, sequenceLength),
+	Ad(batch * head * sequenceLength, sequenceLength),
+	OT(batch * dModel, sequenceLength),
 
-		_QTGradient.free();
-		_KTGradient.free();
-		_VTGradient.free();
-		_AGradient.free();
-		_AsGradient.free();
-		_AdGradient.free();
-		_OTGradient.free();
-	}
+	QTGradient(batch * dModel, sequenceLength),
+	KTGradient(batch * dModel, sequenceLength),
+	VTGradient(batch * dModel, sequenceLength),
+	AGradient(batch * head * sequenceLength, sequenceLength),
+	AsGradient(batch * head * sequenceLength, sequenceLength),
+	AdGradient(batch * head * sequenceLength, sequenceLength),
+	OTGradient(batch * dModel, sequenceLength),
+	
+	forwardMaskNode(nullptr),
+	forwardMaskParams({}),
+	backwardMaskNode(nullptr),
+	backwardMaskParams({}) {
 
-	void forward(int npd) noexcept {
-		constexpr int colPerhead = col / head;
+	WQ.XavierUniformFill();
+	WK.XavierUniformFill();
+	WV.XavierUniformFill();
+	WO.XavierUniformFill();
 
-		Reset(_QT);
-		Reset(_KT);
-		Reset(_VT);
-		Reset(_A);
-		Reset(_Ad);
-		Reset(_OT);
-		Reset(_output);
-		for (int i = 0; i < batch; i++) {
-			MatMulPlusABT(_WQ, _inputQ.template sliceRow<len>(i * len), _QT.template sliceRow<col>(i * col));
-			MatMulPlusABT(_WK, _inputK.template sliceRow<len>(i * len), _KT.template sliceRow<col>(i * col));
-			MatMulPlusABT(_WV, _inputV.template sliceRow<len>(i * len), _VT.template sliceRow<col>(i * col));
-		}
-		for (int i = 0; i < batch * head; i++) {
-			MatMulPlusATB(
-				_QT.template sliceRow<colPerhead>(i * colPerhead), 
-				_KT.template sliceRow<colPerhead>(i * colPerhead), 
-				_A.template sliceRow<len>(i * len));
-		}
-		Div(_A, std::sqrt(float(colPerhead)), _A);
-		switch(maskType) {
-			case LOOK_AHEAD : ApplyLookAheadMask<batch * head, len>(_A, npd, -1e9); break;
-			case PADDING: ApplyPaddingMask<batch * head, len>(_A, npd, -1e9); break;
-			case CROSS_PADDING: ApplyCrossPaddingMask<batch * head, len>(_A, npd, -1e9); break;
-		}
-		softmax.forward();
-		dropout.forward();
-		for (int i = 0; i < batch * head; i++) {
-			MatMulPlusABT(
-				_VT.template sliceRow<colPerhead>(i * colPerhead), 
-				_Ad.template sliceRow<len>(i * len), 
-				_OT.template sliceRow<colPerhead>(i * colPerhead));
-		}
-		for (int i = 0; i < batch; i++) {
-			MatMulPlusATB(_OT.template sliceRow<col>(i * col), _WO, _output.template sliceRow<len>(i * len));
-		}
-	}
+	cudaMalloc(&seq, sizeof(std::size_t) * batch * head);
+}
+MultiheadAttention::~MultiheadAttention() {
+	WQ.free();
+	WK.free();
+	WV.free();
+	WO.free();
 
-	void predict(int npd) noexcept {
-		forward(npd);
-	}
+	QT.free();
+	KT.free();
+	VT.free();
+	A.free();
+	As.free();
+	Ad.free();
+	OT.free();
 
-	void backward(int npd) noexcept {
-		feedCount++;
-		constexpr int colPerhead = col / head;
+	QTGradient.free();
+	KTGradient.free();
+	VTGradient.free();
+	AGradient.free();
+	AsGradient.free();
+	AdGradient.free();
+	OTGradient.free();
 
-		Reset(_QTGradient);
-		Reset(_KTGradient);
-		Reset(_VTGradient);
-		Reset(_AGradient);
-		Reset(_AdGradient);
-		Reset(_OTGradient);
-		Reset(_inputGradientQ);
-		Reset(_inputGradientK);
-		Reset(_inputGradientV);
-		for (int i = 0; i < batch; i++) {
-			MatMulPlusAB(_OT.template sliceRow<col>(i * col),_outputGradient.template sliceRow<len>(i * len), _WOOpt.gradient);
-			MatMulPlusABT(_WO, _outputGradient.template sliceRow<len>(i * len), _OTGradient.template sliceRow<col>(i * col));
-		}
-		for (int i = 0; i < batch * head; i++) {
-			MatMulPlusATB(
-				_OTGradient.template sliceRow<colPerhead>(i * colPerhead),
-				_VT.template sliceRow<colPerhead>(i * colPerhead),
-				_AdGradient.template sliceRow<len>(i * len));
-			MatMulPlusAB(
-				_OTGradient.template sliceRow<colPerhead>(i * colPerhead),
-				_Ad.template sliceRow<len>(i * len),
-				_VTGradient.template sliceRow<colPerhead>(i * colPerhead));
-		}
-		dropout.backward();
-		softmax.backward();
-		switch(maskType) {
-			case LOOK_AHEAD : ApplyLookAheadMask<batch * head, len>(_AGradient, npd, 0); break;
-			case PADDING: ApplyPaddingMask<batch * head, len>(_AGradient, npd, 0); break;
-			case CROSS_PADDING: ApplyCrossPaddingMask<batch * head, len>(_AGradient, npd, 0); break;
-		}
-		Div(_AGradient, std::sqrt(float(colPerhead)), _AGradient);
-		for (int i = 0; i < batch * head; i++) {
-			MatMulPlusAB(
-				_QT.template sliceRow<colPerhead>(i * colPerhead),
-				_AGradient.template sliceRow<len>(i * len),
-				_KTGradient.template sliceRow<colPerhead>(i * colPerhead));
-			MatMulPlusABT(
-				_KT.template sliceRow<colPerhead>(i * colPerhead),
-				_AGradient.template sliceRow<len>(i * len),
-				_QTGradient.template sliceRow<colPerhead>(i * colPerhead));
-		}
+	cudaFree(seq);
+}
 
-		for (int i = 0; i < batch; i++) {
-			MatMulPlusAB(_QTGradient.template sliceRow<col>(i * col), _inputQ.template sliceRow<len>(i * len), _WQOpt.gradient);
-			MatMulPlusAB(_KTGradient.template sliceRow<col>(i * col), _inputK.template sliceRow<len>(i * len), _WKOpt.gradient);
-			MatMulPlusAB(_VTGradient.template sliceRow<col>(i * col),  _inputV.template sliceRow<len>(i * len), _WVOpt.gradient);
-			MatMulPlusATB(_QTGradient.template sliceRow<col>(i * col), _WQ, _inputGradientQ.template sliceRow<len>(i * len));
-			MatMulPlusATB(_KTGradient.template sliceRow<col>(i * col), _WK, _inputGradientK.template sliceRow<len>(i * len));
-			MatMulPlusATB(_VTGradient.template sliceRow<col>(i * col), _WV, _inputGradientV.template sliceRow<len>(i * len));
+void MultiheadAttention::UpdateGraph(cudaGraphExec_t graphExec) {
+	std::size_t buffer[batch][head];
+	for(int i = 0;i < batch;i++) {
+		for(int j = 0;j < head;j++) {
+			buffer[i][j] = seqH[i];
 		}
 	}
+	cudaMemcpy(seq, buffer, sizeof(std::size_t) * batch * head,  cudaMemcpyHostToDevice);
+}
 
-	void updateParameter() noexcept {
-		AdamOpt(_WQ, _WQOpt, feedCount);
-		AdamOpt(_WK, _WKOpt, feedCount);
-		AdamOpt(_WV, _WVOpt, feedCount);
-		AdamOpt(_WO, _WOOpt, feedCount);
+cudaGraphNode_t MultiheadAttention::AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
+	cudaGraphNode_t k1 = SyncDependency(graph, dependencyNodes);
+	cudaGraphNode_t k2 = AppendResetNode(graph, { k1 }, QT);
+	cudaGraphNode_t k3 = AppendResetNode(graph, { k1 }, KT);
+	cudaGraphNode_t k4 = AppendResetNode(graph, { k1 }, VT);
+	cudaGraphNode_t k5 = AppendResetNode(graph, { k1 }, A);
+	cudaGraphNode_t k6 = AppendResetNode(graph, { k1 }, As);
+	cudaGraphNode_t k7 = AppendResetNode(graph, { k1 }, Ad);
+	cudaGraphNode_t k8 = AppendResetNode(graph, { k1 }, OT);
+	cudaGraphNode_t k9 = AppendResetNode(graph, { k1 }, output);
 
-		feedCount = 0;
+	cudaGraphNode_t k10 = AppendMatMulPlusBatchNode(graph, { k2 }, WQ, inputQ, QT, false, true, batch, true, false, false);
+	cudaGraphNode_t k11 = AppendMatMulPlusBatchNode(graph, { k3 }, WK, inputK, KT, false, true, batch, true, false, false);
+	cudaGraphNode_t k12 = AppendMatMulPlusBatchNode(graph, { k4 }, WV, inputV, VT, false, true, batch, true, false, false);
+
+	cudaGraphNode_t k13 = AppendMatMulPlusBatchNode(graph, { k5, k10, k11 }, QT, KT, A, true, false, batch * head, false, false, false);
+	cudaGraphNode_t k14 = AppendDivInplaceNode(graph, { k13 }, A, std::sqrt(dModel / head));
+	cudaGraphNode_t k15;
+	switch(maskType) {
+		case LOOK_AHEAD : k15 = AppendLookAheadMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
+		case PADDING: k15 = AppendPaddingMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
+		case CROSS_PADDING: k15 = AppendCrossPaddingMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
 	}
 
-	void loadParam(cnpy::npz_t npFile, std::string prefix) {
-		_WQ.loadNp(npFile, prefix + ".w_q");
-		_WK.loadNp(npFile, prefix + ".w_k");
-		_WV.loadNp(npFile, prefix + ".w_v");
-		_WO.loadNp(npFile, prefix + ".w_o");
-		for(int i = 0;i  < col;i++) {
-			for(int j = 0;j < i;j++) {
-				std::swap(_WO.data[i*col + j],_WO.data[j*col + i]);
-			}
-		}
+	cudaGraphNode_t k16 = softmax.AppendGraphForward(graph, { k6, k15 });
+	cudaGraphNode_t k17 = dropout.AppendGraphForward(graph, { k7, k16 });
+	cudaGraphNode_t k18 = AppendMatMulPlusBatchNode(graph, { k8, k12, k17 }, VT, Ad, OT, false, true, batch * head, false, false, false);
+	cudaGraphNode_t k19 = AppendMatMulPlusBatchNode(graph, { k9, k18 }, OT, WO, output, true, false, batch, false, true, false);
+	return k19;
+}
+
+cudaGraphNode_t MultiheadAttention::AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
+	return AppendGraphForward(graph, dependencyNodes);
+}
+
+cudaGraphNode_t MultiheadAttention::AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
+	cudaGraphNode_t k1 = SyncDependency(graph, dependencyNodes);
+	cudaGraphNode_t k2 = AppendResetNode(graph, { k1 }, QTGradient);
+	cudaGraphNode_t k3 = AppendResetNode(graph, { k1 }, KTGradient);
+	cudaGraphNode_t k4 = AppendResetNode(graph, { k1 }, VTGradient);
+	cudaGraphNode_t k5 = AppendResetNode(graph, { k1 }, AGradient);
+	cudaGraphNode_t k6 = AppendResetNode(graph, { k1 }, AsGradient);
+	cudaGraphNode_t k7 = AppendResetNode(graph, { k1 }, AdGradient);
+	cudaGraphNode_t k8 = AppendResetNode(graph, { k1 }, OTGradient);
+	cudaGraphNode_t k9 = AppendResetNode(graph, { k1 }, inputGradientQ);
+	cudaGraphNode_t k10 = AppendResetNode(graph, { k1 }, inputGradientK);
+	cudaGraphNode_t k11 = AppendResetNode(graph, { k1 }, inputGradientV);
+
+	cudaGraphNode_t k12 = AppendMatMulPlusBatchNode(graph, { k1 }, OT, outputGradient, WOOpt.gradient, false, false, batch, false, false, true);
+	cudaGraphNode_t k13 = AppendMatMulPlusBatchNode(graph, { k8 }, WO, outputGradient, OTGradient, false, true, batch, true, false, false);
+
+	cudaGraphNode_t k14 = AppendMatMulPlusBatchNode(graph, { k7, k13 }, OTGradient, VT, AdGradient, true, false, batch * head, false, false, false);
+	cudaGraphNode_t k15 = AppendMatMulPlusBatchNode(graph, { k4, k13 }, OTGradient, Ad, VTGradient, false, false, batch * head, false, false, false);
+
+	cudaGraphNode_t k16 = dropout.AppendGraphBackward(graph, { k6, k14 });
+	cudaGraphNode_t k17 = softmax.AppendGraphBackward(graph, { k5, k16 });
+	cudaGraphNode_t k18;
+	switch(maskType) {
+		case LOOK_AHEAD : k18 = AppendLookAheadMaskBatchNode(graph, { k17 }, AGradient, batch * head, seq, 0.0f); break;
+		case PADDING: k18 = AppendPaddingMaskBatchNode(graph, { k17 }, AGradient, batch * head, seq, 0.0f); break;
+		case CROSS_PADDING: k18 = AppendCrossPaddingMaskBatchNode(graph, { k17 }, AGradient, batch * head, seq, 0.0f); break;
+	}
+	cudaGraphNode_t k19 = AppendDivInplaceNode(graph, { k18 }, AGradient, std::sqrt(dModel / head));
+
+	cudaGraphNode_t k20 = AppendMatMulPlusBatchNode(graph, { k2, k19 }, KT, AGradient, QTGradient, false, true, batch * head, false, false, false);
+	cudaGraphNode_t k21 = AppendMatMulPlusBatchNode(graph, { k3, k19 }, QT, AGradient, KTGradient, false, false, batch * head, false, false, false);
+
+	cudaGraphNode_t k22 = AppendMatMulPlusBatchNode(graph, { k20 }, QTGradient, inputQ, WQOpt.gradient, false, false, batch, false, false, true);
+	cudaGraphNode_t k23 = AppendMatMulPlusBatchNode(graph, { k21 }, KTGradient, inputK, WKOpt.gradient, false, false, batch, false, false, true);
+	cudaGraphNode_t k24 = AppendMatMulPlusBatchNode(graph, { k15 }, VTGradient, inputV, WVOpt.gradient, false, false, batch, false, false, true);
+	cudaGraphNode_t k25 = AppendMatMulPlusBatchNode(graph, { k9, k20 }, QTGradient, WQ, inputGradientQ, true, false, batch, false, true, false);
+	cudaGraphNode_t k26 = AppendMatMulPlusBatchNode(graph, { k10, k21 }, KTGradient, WK, inputGradientK, true, false, batch, false, true, false);
+	cudaGraphNode_t k27 = AppendMatMulPlusBatchNode(graph, { k11, k15 }, VTGradient, WV, inputGradientV, true, false, batch, false, true, false);
+
+	cudaGraphNode_t k28 = SyncDependency(graph, { k12, k22, k23, k24, k25, k26, k27 });
+	return k28;
+}
+
+cudaGraphNode_t MultiheadAttention::AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
+	cudaGraphNode_t k1 = SyncDependency(graph, dependencyNodes);
+	cudaGraphNode_t k2 = AppendAdamOptNode(graph, { k1 }, WQ, WQOpt);
+	cudaGraphNode_t k3 = AppendAdamOptNode(graph, { k1 }, WK, WKOpt);
+	cudaGraphNode_t k4 = AppendAdamOptNode(graph, { k1 }, WV, WVOpt);
+	cudaGraphNode_t k5 = AppendAdamOptNode(graph, { k1 }, WO, WOOpt);
+	cudaGraphNode_t k6 = SyncDependency(graph, { k2, k3, k4, k5 });
+	return k6;
+}
+
+void MultiheadAttention::loadParam(cnpy::npz_t npFile, std::string prefix) {
+	WQ.loadNp(npFile, prefix + ".w_q");
+	WK.loadNp(npFile, prefix + ".w_k");
+	WV.loadNp(npFile, prefix + ".w_v");
+	WO.loadNp(npFile, prefix + ".w_o");
+}
+
+void MultiheadAttention::forwardTest(cnpy::npz_t npFile, std::string prefix) {
+	Tensor target(output.row, output.col);
+
+    target.loadNp(npFile, prefix + ".output");
+    inputQ.loadNp(npFile, prefix + ".q");
+    inputK.loadNp(npFile, prefix + ".k");
+    inputV.loadNp(npFile, prefix + ".v");
+	Tensor npdLoader(1, 1);
+	npdLoader.loadNp(npFile, prefix + ".npd");
+	float* _seqH = new float[batch];
+	npdLoader.toFloat((float*)_seqH);
+	for(int i = 0;i < batch;i++) {
+		seqH[i] = _seqH[0];
 	}
 
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-		Tensor<col, col> WQUpdated;
-		Tensor<col, col> WKUpdated;
-		Tensor<col, col> WVUpdated;
-		Tensor<col, col> WOUpdated;
-		WQUpdated.loadNp(npFile, prefix + ".original_w_q");
-		WKUpdated.loadNp(npFile, prefix + ".original_w_k");
-		WVUpdated.loadNp(npFile, prefix + ".original_w_v");
-		WOUpdated.loadNp(npFile, prefix + ".original_w_o");
-		for(int i = 0;i  < col;i++) {
-			for(int j = 0;j < i;j++) {
-				std::swap(WOUpdated.data[i*col + j],WOUpdated.data[j*col + i]);
-			}
-		}
-		PrintTestResult("backward " + prefix + ".wq", _WQ, WQUpdated);
-		PrintTestResult("backward " + prefix + ".wk", _WK, WKUpdated);
-		PrintTestResult("backward " + prefix + ".wv", _WV, WVUpdated);
-		PrintTestResult("backward " + prefix + ".wo", _WO, WOUpdated);
+    // Forward
+    cudaGraph_t graph;
+    cudaGraphExec_t instance;
+    cudaGraphCreate(&graph, 0);
+    this->AppendGraphForward(graph, {});
+    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
+	this->UpdateGraph(instance);
+    cudaGraphLaunch(instance, 0);
+    cudaDeviceSynchronize();
+
+    PrintTestResult("forward", output, target);
+}
+
+void MultiheadAttention::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
+	Tensor updatedWQ(dModel, dModel);
+    Tensor updatedWK(dModel, dModel);
+    Tensor updatedWV(dModel, dModel);
+    Tensor updatedWO(dModel, dModel);
+    updatedWQ.loadNp(npFile, prefix + ".updated_w_q");
+    updatedWK.loadNp(npFile, prefix + ".updated_w_k");
+    updatedWV.loadNp(npFile, prefix + ".updated_w_v");
+    updatedWO.loadNp(npFile, prefix + ".updated_w_o");
+
+    PrintTestResult("backward " + prefix + ".updated_w_q", WQ, updatedWQ);
+    PrintTestResult("backward " + prefix + ".updated_w_k", WK, updatedWK);
+    PrintTestResult("backward " + prefix + ".updated_w_v", WV, updatedWV);
+    PrintTestResult("backward " + prefix + ".updated_w_o", WO, updatedWO);
+}
+
+void MultiheadAttention::backwardTest(cnpy::npz_t npFile, std::string prefix) {
+	Set(outputGradient, 1.0f / output.row / output.col);
+    cudaDeviceSynchronize();
+
+    // load input
+    inputQ.loadNp(npFile, prefix + ".q");
+    inputK.loadNp(npFile, prefix + ".k");
+    inputV.loadNp(npFile, prefix + ".v");
+	Tensor npdLoader(1, 1);
+	npdLoader.loadNp(npFile, prefix + ".npd");
+	float* _seqH = new float[batch];
+	npdLoader.toFloat((float*)_seqH);
+	for(int i = 0;i < batch;i++) {
+		seqH[i] = _seqH[0];
 	}
 
-	void forwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Tensor<batch * sequenceLength, col> target;
-		Tensor<1, 1> npdLoader;
+    // Forward, backward, update
+    cudaGraph_t graph;
+    cudaGraphExec_t instance;
+    cudaGraphCreate(&graph, 0);
+    cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
+    cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
+    this->AppendGraphUpdateParameter(graph, {k2});
+    cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
+    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
+	this->UpdateGraph(instance);
+    cudaGraphLaunch(instance, 0);
+    cudaDeviceSynchronize();
 
-		_inputQ.loadNp(npFile, prefix + ".q");
-		_inputK.loadNp(npFile, prefix + ".k");
-		_inputV.loadNp(npFile, prefix + ".v");
-		npdLoader.loadNp(npFile, prefix + ".npd");
-		target.loadNp(npFile, prefix + ".output");
-
-		forward(npdLoader.data[0]);
-		PrintTestResult("forward",_output, target);
-
-
-		
-		// Tensor<batch * sequenceLength, col> query;
-		// Tensor<batch * sequenceLength, col> key;
-		// Tensor<batch * sequenceLength, col> value;
-		// Tensor<batch * head * sequenceLength, sequenceLength> att;
-		// Tensor<batch * sequenceLength, col> x;
-		// query.loadNp(npFile, prefix + ".query");
-		// key.loadNp(npFile, prefix + ".key");
-		// value.loadNp(npFile, prefix + ".value");
-		// att.loadNp(npFile, prefix + ".att");
-		// x.loadNp(npFile, prefix + ".x");
-		
-		// PrintTestResultT<batch, col, sequenceLength>("forward query",_QT, query);
-		// PrintTestResultT<batch, col, sequenceLength>("forward key", _KT, key);
-		// PrintTestResultT<batch, col, sequenceLength>("forward value",_VT, value);
-		// PrintTestResult("forward att",_Ad, att);
-		// PrintTestResultT<batch, col, sequenceLength>("forward out", _OT, x);
-	}
-
-	void backwardTest(cnpy::npz_t npFile, std::string prefix) {
-		Set(_outputGradient, 1.0f / sequenceLength / col);
-		_inputQ.loadNp(npFile, prefix + ".q");
-		_inputK.loadNp(npFile, prefix + ".k");
-		_inputV.loadNp(npFile, prefix + ".v");
-		Tensor<1, 1> npdLoader;
-		npdLoader.loadNp(npFile, prefix + ".npd");
-
-		forward(npdLoader.data[0]);
-		backward(npdLoader.data[0]);
-		updateParameter();
-
-		checkUpdatedParam(npFile, prefix);
-	}
-
-	Tensor<batch * len, col>& _inputQ;
-	Tensor<batch * len, col>& _inputK;
-	Tensor<batch * len, col>& _inputV;
-	Tensor<batch * len, col>& _output;
-	Tensor<batch * len, col>& _outputGradient;
-	Tensor<batch * len, col>& _inputGradientQ;
-	Tensor<batch * len, col>& _inputGradientK;
-	Tensor<batch * len, col>& _inputGradientV;
-
-	Tensor<col, col> _WQ;
-	Tensor<col, col> _WK;
-	Tensor<col, col> _WV;
-	Tensor<col, col> _WO;
-
-	int feedCount = 0;
-	AdamOptGradient<col, col> _WQOpt;
-	AdamOptGradient<col, col> _WKOpt;
-	AdamOptGradient<col, col> _WVOpt;
-	AdamOptGradient<col, col> _WOOpt;
-
-	Tensor<batch * col, len> _QT;
-	Tensor<batch * col, len> _KT;
-	Tensor<batch * col, len> _VT;
-	Tensor<batch * head * len, len> _A;
-	Tensor<batch * head * len, len> _As;
-	Tensor<batch * head * len, len> _Ad;
-	Tensor<batch * col, len>  _OT;
-
-	Tensor<batch * col, len>  _QTGradient;
-	Tensor<batch * col, len>  _KTGradient;
-	Tensor<batch * col, len>  _VTGradient;
-	Tensor<batch * head * len, len> _AGradient;
-	Tensor<batch * head * len, len> _AsGradient;
-	Tensor<batch * head * len, len> _AdGradient;
-	Tensor<batch * col, len>  _OTGradient;
-
-	Softmax<batch * head * len, len> softmax;
-	DropOut<batch * head * len, len, dropoutRate> dropout;
-};
-
-#endif // !MULTIHEAD_ATTENTION
+    checkUpdatedParam(npFile, prefix);
+}
