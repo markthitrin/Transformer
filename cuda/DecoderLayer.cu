@@ -57,8 +57,8 @@ DecoderLayer::DecoderLayer(
     gradient8(batch * sequenceLength, dModel) {;}
 
 void DecoderLayer::UpdateGraph(cudaGraphExec_t graphExec) {
-    mulAtt1.UpdateGraph(graphExec);
-    mulAtt2.UpdateGraph(graphExec);
+    mulAtt1.UpdateGraph();
+    mulAtt2.UpdateGraph();
 }
 
 cudaGraphNode_t DecoderLayer::AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {

@@ -75,7 +75,7 @@ MultiheadAttention::~MultiheadAttention() {
 	cudaFree(seq);
 }
 
-void MultiheadAttention::UpdateGraph(cudaGraphExec_t graphExec) {
+void MultiheadAttention::UpdateGraph() {
 	std::size_t buffer[batch][head];
 	for(int i = 0;i < batch;i++) {
 		for(int j = 0;j < head;j++) {
@@ -228,7 +228,7 @@ void MultiheadAttention::forwardTest(cnpy::npz_t npFile, std::string prefix) {
     cudaGraphCreate(&graph, 0);
     this->AppendGraphForward(graph, {});
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph(instance);
+	this->UpdateGraph();
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
 
@@ -276,7 +276,7 @@ void MultiheadAttention::backwardTest(cnpy::npz_t npFile, std::string prefix) {
     this->AppendGraphUpdateParameter(graph, {k2});
     cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph(instance);
+	this->UpdateGraph();
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
 

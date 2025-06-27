@@ -14,12 +14,14 @@
 class Encoder {
 public:
 	Encoder(
-		Tensor input,
-		Tensor output,
-		Tensor outputGradient,
-		Tensor inputGradient) noexcept;
+		Tensor& input,
+		Tensor& output,
+		Tensor& outputGradient,
+		Tensor& inputGradient,
+		std::size_t* srcSeqH) noexcept;
+	~Encoder() noexcept;
 
-	void UpdateGraph(cudaGraphExec_t graphExec);
+	void UpdateGraph();
 
 	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
@@ -37,17 +39,18 @@ public:
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix);
 
-	EncoderLayer layers[N];
-	LayerNorm norm;
+	EncoderLayer* layers[N]; // using pointer as copy anad move constructor isn't implemented.
+	LayerNorm* norm;
 
-	Tensor input;
-	Tensor output;
-	Tensor outputGradient;
-    Tensor inputGradient;
+	Tensor& input;
+	Tensor& output;
+	Tensor& outputGradient;
+    Tensor& inputGradient;
+	std::size_t* srcSeqH;
 
-	Tensor out[N];
+	std::vector<Tensor> out;
 	
-	Tensor gradient[N];
+	std::vector<Tensor> gradient;
 };
 
 #endif 

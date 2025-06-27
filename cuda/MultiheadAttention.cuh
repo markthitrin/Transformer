@@ -28,7 +28,7 @@ public:
 		std::size_t* seqH) noexcept;
 	~MultiheadAttention();
 
-	void UpdateGraph(cudaGraphExec_t graphExec);
+	void UpdateGraph();
 
 	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 

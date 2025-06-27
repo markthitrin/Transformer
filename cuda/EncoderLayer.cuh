@@ -17,9 +17,9 @@ public:
 		Tensor& output,
 		Tensor& outputGradient,
 		Tensor& inputGradient,
-		std::size_t* seqH) noexcept;
+		std::size_t* srcSeqH) noexcept;
 
-	void UpdateGraph(cudaGraphExec_t graphExec);
+	void UpdateGraph();
 
 	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
@@ -48,7 +48,7 @@ public:
 	Tensor& output;
 	Tensor& outputGradient;
 	Tensor& inputGradient;
-	std::size_t* seqH;
+	std::size_t* srcSeqH;
 
 	Tensor out1;
 	Tensor out2;

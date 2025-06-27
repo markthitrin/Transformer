@@ -26,9 +26,9 @@ class FeedForwardBlock(nn.Module):
         return self.linear_2(self.dropout(torch.relu(self.linear_1(x))))
     
     def getParam(self, prefix, dict) :
-        w1 = self.linear_1.weight.detach().cpu().numpy()
+        w1 = self.linear_1.weight.detach().cpu().numpy().T.copy()
         b1 = self.linear_1.bias.detach().cpu().numpy()
-        w2 = self.linear_2.weight.detach().cpu().numpy()
+        w2 = self.linear_2.weight.detach().cpu().numpy().T.copy()
         b2 = self.linear_2.bias.detach().cpu().numpy()
         dict[prefix + ".w1"] = w1
         dict[prefix + ".b1"] = b1
@@ -47,9 +47,9 @@ class FeedForwardBlock(nn.Module):
         dict[prefix + ".output"] = y.detach().numpy()
 
     def getOriginalParam(self, prefix, dict) :
-        original_w1 = self.linear_1.weight.detach().clone().cpu().numpy()
+        original_w1 = self.linear_1.weight.detach().clone().cpu().numpy().T.copy()
         original_b1 = self.linear_1.bias.detach().clone().cpu().numpy()
-        original_w2 = self.linear_2.weight.detach().clone().cpu().numpy()
+        original_w2 = self.linear_2.weight.detach().clone().cpu().numpy().T.copy()
         original_b2 = self.linear_2.bias.detach().clone().cpu().numpy()
         dict[prefix + ".original_w1"] = original_w1
         dict[prefix + ".original_b1"] = original_b1
@@ -57,9 +57,9 @@ class FeedForwardBlock(nn.Module):
         dict[prefix + ".original_b2"] = original_b2
     
     def getUpdatedParam(self, prefix, dict) :
-        updated_w1 = self.linear_1.weight.detach().clone().cpu().numpy()
+        updated_w1 = self.linear_1.weight.detach().clone().cpu().numpy().T.copy()
         updated_b1 = self.linear_1.bias.detach().clone().cpu().numpy()
-        updated_w2 = self.linear_2.weight.detach().clone().cpu().numpy()
+        updated_w2 = self.linear_2.weight.detach().clone().cpu().numpy().T.copy()
         updated_b2 = self.linear_2.bias.detach().clone().cpu().numpy()
         dict[prefix + ".updated_w1"] = updated_w1
         dict[prefix + ".updated_b1"] = updated_b1

@@ -15,10 +15,10 @@ EncoderLayer::EncoderLayer(
     Tensor& output,
     Tensor& outputGradient,
     Tensor& inputGradient,
-    std::size_t* seqH) noexcept :
+    std::size_t* srcSeqH) noexcept :
 
     norm1(input, out1, gradient1, inputGradient),
-    mulAtt(out1, out1, out1, out2, gradient2, gradient1, gradient1, gradient1, MaskType::PADDING, seqH),
+    mulAtt(out1, out1, out1, out2, gradient2, gradient1, gradient1, gradient1, MaskType::PADDING, srcSeqH),
     dropout1(out2, out3, gradient3, gradient2, batch * sequenceLength, dModel),
     norm2(out3, out4, gradient4, gradient3),
     pff(out4, out5, gradient5, gradient4),
@@ -28,7 +28,7 @@ EncoderLayer::EncoderLayer(
     output(output),
     outputGradient(outputGradient),
     inputGradient(inputGradient),
-    seqH(seqH),
+    srcSeqH(srcSeqH),
 
     out1(batch * sequenceLength, dModel),
     out2(batch * sequenceLength, dModel),
@@ -42,8 +42,8 @@ EncoderLayer::EncoderLayer(
     gradient4(batch * sequenceLength, dModel),
     gradient5(batch * sequenceLength, dModel) {;}
 
-void EncoderLayer::UpdateGraph(cudaGraphExec_t graphExec) {
-	mulAtt.UpdateGraph(graphExec);
+void EncoderLayer::UpdateGraph() {
+	mulAtt.UpdateGraph();
 }
 
 cudaGraphNode_t EncoderLayer::AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
@@ -116,7 +116,7 @@ void EncoderLayer::forwardTest(cnpy::npz_t npFile, std::string prefix) {
 	float* _seqH = new float[batch];
 	npdLoader.toFloat((float*)_seqH);
 	for(int i = 0;i < batch;i++) {
-		seqH[i] = _seqH[0];
+		srcSeqH[i] = _seqH[0];
 	}
 
     // Forward
@@ -125,7 +125,7 @@ void EncoderLayer::forwardTest(cnpy::npz_t npFile, std::string prefix) {
     cudaGraphCreate(&graph, 0);
     this->AppendGraphForward(graph, {});
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph(instance);
+	this->UpdateGraph();
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
 
@@ -143,7 +143,7 @@ void EncoderLayer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 	float* _seqH = new float[batch];
 	npdLoader.toFloat((float*)_seqH);
 	for(int i = 0;i < batch;i++) {
-		seqH[i] = _seqH[0];
+		srcSeqH[i] = _seqH[0];
 	}
 
     // Forward, backward, update
@@ -155,7 +155,7 @@ void EncoderLayer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
     this->AppendGraphUpdateParameter(graph, {k2});
     cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
     cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    this->UpdateGraph(instance);
+    this->UpdateGraph();
     cudaGraphLaunch(instance, 0);
     cudaDeviceSynchronize();
     // Print(gradient1, 0, 0, 10, 10);

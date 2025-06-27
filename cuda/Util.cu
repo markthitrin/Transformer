@@ -45,9 +45,6 @@ AdamOptimizer::AdamOptimizer(AdamOptimizer&& other) :
     t(std::move(other.t)) {;}
 
 AdamOptimizer::~AdamOptimizer() {
-    gradient.free();
-    accM.free();
-    accV.free();
     cudaFree(t);
 }
 

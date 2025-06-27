@@ -25,8 +25,6 @@ void Set(Tensor& A, const float x);
 
 void Reset(Tensor& A);
 
-void ReduceMax(Tensor& A, Tensor& C);
-
 void GetPositionalEncode(Tensor& A);
 
 void Print(Tensor& A);

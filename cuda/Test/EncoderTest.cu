@@ -1,5 +1,5 @@
-#include "../Header.h"
-#include "../Encoder.h"
+#include "../Header.cuh"
+#include "../Encoder.cuh"
 #include "cnpy.h"
 
 const std::string testCaseDir = "../../python/Testcase/Encoder";
@@ -8,11 +8,12 @@ const int feedTest = 5;
 const int backTest = 5;
 
 int main() {
-    Tensor<batch * sequenceLength, dModel> input;
-	Tensor<batch * sequenceLength, dModel> output;
-	Tensor<batch * sequenceLength, dModel> inGradient;
-    Tensor<batch * sequenceLength, dModel> outGradient;
-    Encoder<batch, sequenceLength, dModel, 6> model(input, output, inGradient, outGradient);
+    Tensor input(batch * sequenceLength, dModel);
+	Tensor output(batch * sequenceLength, dModel);
+	Tensor inGradient(batch * sequenceLength, dModel);
+    Tensor outGradient(batch * sequenceLength, dModel);
+    std::size_t* seq = new std::size_t(batch);
+    Encoder model(input, output, inGradient, outGradient, seq);
     // param
     {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_param.npz");
@@ -28,6 +29,7 @@ int main() {
     for(int i = 0; i < backTest;i++) {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_backward" + std::to_string(i) + ".npz");
         model.backwardTest(npFile, "encoder");
+        std::cout << "ffffffffffffffffffffffffffffffffffffff ::: " << i << std::endl;
     }
     return 0;
 }

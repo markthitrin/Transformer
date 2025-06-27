@@ -26,7 +26,6 @@ DropOut::DropOut(
 }
 
 DropOut::~DropOut() {
-    mask.free();
     cudaFree(states);
 }
 
