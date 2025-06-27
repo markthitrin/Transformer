@@ -14,7 +14,6 @@ public:
 		Tensor& inputGradient,
 		const std::size_t in,
 		const std::size_t out) noexcept;
-	~Linear();
 
 	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 

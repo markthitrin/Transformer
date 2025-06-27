@@ -42,19 +42,6 @@ EncoderLayer::EncoderLayer(
     gradient4(batch * sequenceLength, dModel),
     gradient5(batch * sequenceLength, dModel) {;}
 
-EncoderLayer::~EncoderLayer() {
-    out1.free();
-    out2.free();
-    out3.free();
-    out4.free();
-    out5.free();
-    gradient1.free();
-    gradient2.free();
-    gradient3.free();
-    gradient4.free();
-    gradient5.free();
-}
-
 void EncoderLayer::UpdateGraph(cudaGraphExec_t graphExec) {
 	mulAtt.UpdateGraph(graphExec);
 }

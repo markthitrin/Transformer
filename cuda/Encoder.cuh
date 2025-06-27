@@ -18,7 +18,6 @@ public:
 		Tensor output,
 		Tensor outputGradient,
 		Tensor inputGradient) noexcept;
-	~Encoder();
 
 	void UpdateGraph(cudaGraphExec_t graphExec);
 

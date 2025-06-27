@@ -24,10 +24,6 @@ Linear::Linear(
     weight.HeNormalFill();
     bias.HeNormalFill();
 }
-Linear::~Linear() {
-    weight.free();
-    bias.free();
-}
 
 cudaGraphNode_t Linear::AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
     cudaGraphNode_t k1 = AppendCopyBatchNode(graph, dependencyNodes, bias, output, batch * sequenceLength);

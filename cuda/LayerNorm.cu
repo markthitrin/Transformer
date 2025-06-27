@@ -33,12 +33,6 @@ LayerNorm::LayerNorm(
 	Set(alpha, 1.0f);
 	Reset(bias);
 }
-LayerNorm::~LayerNorm() {
-	alpha.free();
-	bias.free();
-	xHat.free();
-	std.free();
-}
 
 cudaGraphNode_t LayerNorm::AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
 	cudaGraphNode_t k1 = AppendMeanNode(graph, dependencyNodes, input, mean);

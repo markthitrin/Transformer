@@ -14,7 +14,6 @@ public:
 		Tensor& output,
 		Tensor& outputGradient,
 		Tensor& inputGradient) noexcept;
-	~LayerNorm();
 
 	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 

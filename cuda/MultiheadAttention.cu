@@ -72,27 +72,6 @@ MultiheadAttention::MultiheadAttention(
 	cudaMalloc(&seq, sizeof(std::size_t) * batch * head);
 }
 MultiheadAttention::~MultiheadAttention() {
-	WQ.free();
-	WK.free();
-	WV.free();
-	WO.free();
-
-	QT.free();
-	KT.free();
-	VT.free();
-	A.free();
-	As.free();
-	Ad.free();
-	OT.free();
-
-	QTGradient.free();
-	KTGradient.free();
-	VTGradient.free();
-	AGradient.free();
-	AsGradient.free();
-	AdGradient.free();
-	OTGradient.free();
-
 	cudaFree(seq);
 }
 

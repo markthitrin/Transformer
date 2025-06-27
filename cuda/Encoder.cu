@@ -17,7 +17,7 @@ Encoder::Encoder(
     Tensor inputGradient) noexcept :
 
     input()
-Encoder::~Encoder();
+
 
 void Encoder::UpdateGraph(cudaGraphExec_t graphExec);
 

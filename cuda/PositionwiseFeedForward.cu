@@ -31,15 +31,6 @@ PositionwiseFeedForward::PositionwiseFeedForward(
     gradient2(batch * sequenceLength, dFF),
     gradient3(batch * sequenceLength, dFF) { ; }
 
-PositionwiseFeedForward::~PositionwiseFeedForward() noexcept {
-    out1.free();
-    out2.free();
-    out3.free();
-    gradient1.free();
-    gradient2.free();
-    gradient3.free();
-}
-
 cudaGraphNode_t PositionwiseFeedForward::AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
     cudaGraphNode_t k1 = linear1.AppendGraphForward(graph, dependencyNodes);
     cudaGraphNode_t k2 = relu.AppendGraphForward(graph, {k1});

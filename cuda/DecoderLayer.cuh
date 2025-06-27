@@ -20,8 +20,7 @@ public:
 		Tensor& inputGradient,
 		Tensor& encoderGradient,
 		std::size_t* srcSeqH,
-    	std::size_t* tgtSeqH) noexcept;
-	~DecoderLayer();	
+    	std::size_t* tgtSeqH) noexcept;	
 
 	void UpdateGraph(cudaGraphExec_t graphExec);
 

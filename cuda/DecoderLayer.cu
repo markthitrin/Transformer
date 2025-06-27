@@ -55,26 +55,6 @@ DecoderLayer::DecoderLayer(
     gradient6(batch * sequenceLength, dModel),
     gradient7(batch * sequenceLength, dModel),
     gradient8(batch * sequenceLength, dModel) {;}
-    
-DecoderLayer::~DecoderLayer() {
-    out1.free();
-    out2.free();
-    out3.free();
-    out4.free();
-    out5.free();
-    out6.free();
-    out7.free();
-    out8.free();
-
-    gradient1.free();
-    gradient2.free();
-    gradient3.free();
-    gradient4.free();
-    gradient5.free();
-    gradient6.free();
-    gradient7.free();
-    gradient8.free();
-}
 
 void DecoderLayer::UpdateGraph(cudaGraphExec_t graphExec) {
     mulAtt1.UpdateGraph(graphExec);
