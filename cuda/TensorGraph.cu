@@ -44,7 +44,64 @@ cudaGraphNode_t AppendCopyBatchNode(
     return SyncDependency(graph, nodes);
 }
 
+cudaGraphNode_t AppendPlusNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B, Tensor C) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
 
+    constexpr int BLOCKSIZE = 16;
+    dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
+    dim3 gridDim(ceil(C.col, BLOCKSIZE), ceil(C.row, BLOCKSIZE));
+
+    void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &C.col};
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)static_cast<void(*)(
+                                const float*, const float*, float*,
+                                const std::size_t, const std::size_t, const std::size_t,
+                                const std::size_t, const std::size_t)>(PlusKernel);
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
+cudaGraphNode_t AppendPlusInplaceNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B) {
+
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    constexpr int BLOCKSIZE = 16;
+    dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
+    dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
+
+    void* kernelArgs[] = { &A.data, &B.data, &A.pitch, &B.pitch, &A.row, &A.col};
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)static_cast<void(*)(
+                                float*, const float*,
+                                const std::size_t, const std::size_t,
+                                const std::size_t, const std::size_t)>(PlusInplaceKernel);
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
 cudaGraphNode_t AppendPlusBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor A, Tensor B, Tensor C,

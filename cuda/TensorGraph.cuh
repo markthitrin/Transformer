@@ -11,6 +11,12 @@ cudaGraphNode_t AppendCopyBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor A, Tensor B, const std::size_t batch);
 
+cudaGraphNode_t AppendPlusNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B, Tensor C);
+cudaGraphNode_t AppendPlusInplaceNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor A, Tensor B);
 cudaGraphNode_t AppendPlusBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor A, Tensor B, Tensor C,

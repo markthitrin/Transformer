@@ -1,3 +1,6 @@
+#ifndef MULTIHEAD_ATTENTION
+#define MULTIHEAD_ATTENTION
+
 #include "Header.cuh"
 #include "Tensor.cuh"
 #include "Softmax.cuh"
@@ -46,14 +49,14 @@ public:
 	Softmax softmax;
 	DropOut dropout;
 
-	Tensor inputQ;
-	Tensor inputK;
-	Tensor inputV;
-	Tensor output;
-	Tensor outputGradient;
-	Tensor inputGradientQ;
-	Tensor inputGradientK;
-	Tensor inputGradientV;
+	Tensor& inputQ;
+	Tensor& inputK;
+	Tensor& inputV;
+	Tensor& output;
+	Tensor& outputGradient;
+	Tensor& inputGradientQ;
+	Tensor& inputGradientK;
+	Tensor& inputGradientV;
 	MaskType maskType;
 	std::size_t* seqH;
 	std::size_t* seq;
@@ -90,3 +93,4 @@ public:
 	cudaGraphNodeParams backwardMaskParams;
 };
 
+#endif

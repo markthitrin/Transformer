@@ -138,7 +138,34 @@ cudaGraphNode_t MultiheadAttention::AppendGraphForward(cudaGraph_t graph, const 
 }
 
 cudaGraphNode_t MultiheadAttention::AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
-	return AppendGraphForward(graph, dependencyNodes);
+	cudaGraphNode_t k1 = SyncDependency(graph, dependencyNodes);
+	cudaGraphNode_t k2 = AppendResetNode(graph, { k1 }, QT);
+	cudaGraphNode_t k3 = AppendResetNode(graph, { k1 }, KT);
+	cudaGraphNode_t k4 = AppendResetNode(graph, { k1 }, VT);
+	cudaGraphNode_t k5 = AppendResetNode(graph, { k1 }, A);
+	cudaGraphNode_t k6 = AppendResetNode(graph, { k1 }, As);
+	cudaGraphNode_t k7 = AppendResetNode(graph, { k1 }, Ad);
+	cudaGraphNode_t k8 = AppendResetNode(graph, { k1 }, OT);
+	cudaGraphNode_t k9 = AppendResetNode(graph, { k1 }, output);
+
+	cudaGraphNode_t k10 = AppendMatMulPlusBatchNode(graph, { k2 }, WQ, inputQ, QT, false, true, batch, true, false, false);
+	cudaGraphNode_t k11 = AppendMatMulPlusBatchNode(graph, { k3 }, WK, inputK, KT, false, true, batch, true, false, false);
+	cudaGraphNode_t k12 = AppendMatMulPlusBatchNode(graph, { k4 }, WV, inputV, VT, false, true, batch, true, false, false);
+
+	cudaGraphNode_t k13 = AppendMatMulPlusBatchNode(graph, { k5, k10, k11 }, QT, KT, A, true, false, batch * head, false, false, false);
+	cudaGraphNode_t k14 = AppendDivInplaceNode(graph, { k13 }, A, std::sqrt(dModel / head));
+	cudaGraphNode_t k15;
+	switch(maskType) {
+		case LOOK_AHEAD : k15 = AppendLookAheadMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
+		case PADDING: k15 = AppendPaddingMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
+		case CROSS_PADDING: k15 = AppendCrossPaddingMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
+	}
+
+	cudaGraphNode_t k16 = softmax.AppendGraphForward(graph, { k6, k15 });
+	cudaGraphNode_t k17 = dropout.AppendGraphPredict(graph, { k7, k16 });
+	cudaGraphNode_t k18 = AppendMatMulPlusBatchNode(graph, { k8, k12, k17 }, VT, Ad, OT, false, true, batch * head, false, false, false);
+	cudaGraphNode_t k19 = AppendMatMulPlusBatchNode(graph, { k9, k18 }, OT, WO, output, true, false, batch, false, true, false);
+	return k19;
 }
 
 cudaGraphNode_t MultiheadAttention::AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
@@ -177,8 +204,8 @@ cudaGraphNode_t MultiheadAttention::AppendGraphBackward(cudaGraph_t graph, const
 	cudaGraphNode_t k23 = AppendMatMulPlusBatchNode(graph, { k21 }, KTGradient, inputK, WKOpt.gradient, false, false, batch, false, false, true);
 	cudaGraphNode_t k24 = AppendMatMulPlusBatchNode(graph, { k15 }, VTGradient, inputV, WVOpt.gradient, false, false, batch, false, false, true);
 	cudaGraphNode_t k25 = AppendMatMulPlusBatchNode(graph, { k9, k20 }, QTGradient, WQ, inputGradientQ, true, false, batch, false, true, false);
-	cudaGraphNode_t k26 = AppendMatMulPlusBatchNode(graph, { k10, k21 }, KTGradient, WK, inputGradientK, true, false, batch, false, true, false);
-	cudaGraphNode_t k27 = AppendMatMulPlusBatchNode(graph, { k11, k15 }, VTGradient, WV, inputGradientV, true, false, batch, false, true, false);
+	cudaGraphNode_t k26 = AppendMatMulPlusBatchNode(graph, { k10, k21, k25 }, KTGradient, WK, inputGradientK, true, false, batch, false, true, false); // in case all inputGradient point to the same place
+	cudaGraphNode_t k27 = AppendMatMulPlusBatchNode(graph, { k11, k15, k26 }, VTGradient, WV, inputGradientV, true, false, batch, false, true, false);
 
 	cudaGraphNode_t k28 = SyncDependency(graph, { k12, k22, k23, k24, k25, k26, k27 });
 	return k28;

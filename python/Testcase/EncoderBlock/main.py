@@ -93,7 +93,7 @@ class EncoderBlock(nn.Module):
         self.optimizer = torch.optim.Adam(self.parameters(), lr=get_config()["lr"], betas=(get_config()["beta1"], get_config()["beta2"]))
 
     def forward(self, x, src_mask, prefix = None, dict = None):
-        x = self.residual_connections[0](x, lambda x: self.self_attention_block(x, x, x, src_mask),prefix + "sub1",dict)
+        x = self.residual_connections[0](x, lambda x: self.self_attention_block(x, x, x, src_mask, prefix + ".sub1.sublayer", dict),prefix + "sub1",dict)
         if(prefix != None) :
             dict[prefix + ".output1"] = x.detach().numpy()
         x = self.residual_connections[1](x, self.feed_forward_block,prefix + "sub2",dict)

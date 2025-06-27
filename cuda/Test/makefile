@@ -21,12 +21,12 @@
 
 
 NVCC := nvcc
-CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o MultiheadAttentionTest
+CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o EncoderLayerTest
 
 # Files
-SRCS := ../MultiheadAttention.cu ../Softmax.cu ../DropOut.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu MultiheadAttentionTest.cu
+SRCS := ../EncoderLayer.cu ../PositionwiseFeedForward.cu ../MultiheadAttention.cu ../LayerNorm.cu ../Softmax.cu ../Linear.cu ../ReLU.cu ../DropOut.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu EncoderLayerTest.cu
 OBJS := $(SRCS:.cu=.o)
-TARGET := MultiheadAttentionTest
+TARGET := EncoderLayerTest
 
 all: $(TARGET)
 

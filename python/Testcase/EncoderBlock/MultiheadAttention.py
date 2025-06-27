@@ -48,7 +48,7 @@ class MultiHeadAttentionBlock(nn.Module):
         # return attention scores which can be used for visualization
         return (attention_scores @ value), attention_scores
 
-    def forward(self, q, k, v, mask):
+    def forward(self, q, k, v, mask, prefix=None, dict=None):
         query = self.w_q(q) # (batch, seq, d_model) --> (batch, seq, d_model)
         key = self.w_k(k) # (batch, seq, d_model) --> (batch, seq, d_model)
         value = self.w_v(v) # (batch, seq, d_model) --> (batch, seq, d_model)
@@ -65,6 +65,12 @@ class MultiHeadAttentionBlock(nn.Module):
         # (batch, h, seq, d_k) --> (batch, seq, h, d_k) --> (batch, seq, d_model)
         x = x.transpose(1, 2).contiguous().view(x.shape[0], -1, self.h * self.d_k)
 
+        if(prefix != None) :
+            dict[prefix + ".att"] = self.attention_scores.detach().numpy()
+            print(prefix + ".att")
+            dict[prefix + ".x"] = x.detach().numpy()
+            dict[prefix + ".output"] = self.w_o(x).detach().numpy()
+
         # Multiply by Wo
         # (batch, seq, d_model) --> (batch, seq, d_model)  
         return self.w_o(x)
@@ -73,7 +79,7 @@ class MultiHeadAttentionBlock(nn.Module):
         w_q = self.w_q.weight.detach().cpu().numpy()
         w_k = self.w_k.weight.detach().cpu().numpy()
         w_v = self.w_v.weight.detach().cpu().numpy()
-        w_o = self.w_o.weight.detach().cpu().numpy()
+        w_o = self.w_o.weight.detach().cpu().numpy().T.copy()
         dict[prefix + ".w_q"] = w_q
         dict[prefix + ".w_k"] = w_k
         dict[prefix + ".w_v"] = w_v
@@ -101,7 +107,7 @@ class MultiHeadAttentionBlock(nn.Module):
         original_w_q = self.w_q.weight.detach().clone().cpu().numpy()
         original_w_k = self.w_k.weight.detach().clone().cpu().numpy()
         original_w_v = self.w_v.weight.detach().clone().cpu().numpy()
-        original_w_o = self.w_o.weight.detach().clone().cpu().numpy()
+        original_w_o = self.w_o.weight.detach().clone().cpu().numpy().T.copy()
         dict[prefix + ".original_w_q"] = original_w_q
         dict[prefix + ".original_w_k"] = original_w_k
         dict[prefix + ".original_w_v"] = original_w_v
@@ -111,7 +117,7 @@ class MultiHeadAttentionBlock(nn.Module):
         updated_w_q = self.w_q.weight.detach().clone().cpu().numpy()
         updated_w_k = self.w_k.weight.detach().clone().cpu().numpy()
         updated_w_v = self.w_v.weight.detach().clone().cpu().numpy()
-        updated_w_o = self.w_o.weight.detach().clone().cpu().numpy()
+        updated_w_o = self.w_o.weight.detach().clone().cpu().numpy().T.copy()
         dict[prefix + ".updated_w_q"] = updated_w_q
         dict[prefix + ".updated_w_k"] = updated_w_k
         dict[prefix + ".updated_w_v"] = updated_w_v
