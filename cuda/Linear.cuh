@@ -25,6 +25,8 @@ public:
 
 	void loadParam(cnpy::npz_t npFile, std::string prefix);
 
+	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
+
 	Tensor& input;
 	Tensor& output;
 	Tensor& outputGradient;

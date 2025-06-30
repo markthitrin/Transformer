@@ -8,7 +8,7 @@
 #include "Embedding.cuh"
 
 Embedding::Embedding(
-    std::size_t* inputH,
+    std::size_t*& inputH,
     Tensor& output,
     Tensor& outputGradient,
     const std::size_t numToken) noexcept :
@@ -47,6 +47,9 @@ void Embedding::UpdateGraph(cudaGraphExec_t instance) {
             table.col, 1);
         cudaError_t err = cudaGraphExecMemcpyNodeSetParams(instance, forwardNodes[i], &forwardParams[i]);
         PRINT_CUDA_ERR(err);
+        if(err != cudaSuccess) {
+            std::cout << "df";
+        }
     }
 }
 

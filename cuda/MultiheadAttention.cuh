@@ -25,7 +25,7 @@ public:
 		Tensor& inputGradientK,
 		Tensor& inputGradientV,
 		MaskType maskType,
-		std::size_t* seqH) noexcept;
+		std::size_t*& seqH) noexcept;
 	~MultiheadAttention();
 
 	void UpdateGraph();
@@ -58,7 +58,7 @@ public:
 	Tensor& inputGradientK;
 	Tensor& inputGradientV;
 	MaskType maskType;
-	std::size_t* seqH;
+	std::size_t*& seqH;
 	std::size_t* seq;
 
 	Tensor WQ;

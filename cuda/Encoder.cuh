@@ -18,7 +18,7 @@ public:
 		Tensor& output,
 		Tensor& outputGradient,
 		Tensor& inputGradient,
-		std::size_t* srcSeqH) noexcept;
+		std::size_t*& srcSeqH) noexcept;
 	~Encoder() noexcept;
 
 	void UpdateGraph();
@@ -46,7 +46,7 @@ public:
 	Tensor& output;
 	Tensor& outputGradient;
     Tensor& inputGradient;
-	std::size_t* srcSeqH;
+	std::size_t*& srcSeqH;
 
 	std::vector<Tensor> out;
 	

@@ -16,8 +16,8 @@ DecoderLayer::DecoderLayer(
     Tensor& outputGradient,
     Tensor& inputGradient,
     Tensor& encoderGradient,
-    std::size_t* srcSeqH,
-    std::size_t* tgtSeqH) noexcept :
+    std::size_t*& srcSeqH,
+    std::size_t*& tgtSeqH) noexcept :
     
     norm1(input, out1, gradient1, inputGradient),
     mulAtt1(out1, out1, out1, out2, gradient2, gradient1, gradient1, gradient1, MaskType::LOOK_AHEAD, tgtSeqH),

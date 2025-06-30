@@ -29,7 +29,6 @@ int main() {
     for(int i = 0; i < backTest;i++) {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_backward" + std::to_string(i) + ".npz");
         model.backwardTest(npFile, "encoder");
-        std::cout << "ffffffffffffffffffffffffffffffffffffff ::: " << i << std::endl;
     }
     return 0;
 }

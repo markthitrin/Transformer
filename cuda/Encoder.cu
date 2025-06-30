@@ -15,7 +15,7 @@ Encoder::Encoder(
     Tensor& output,
     Tensor& outputGradient,
     Tensor& inputGradient,
-    std::size_t* srcSeqH) noexcept :
+    std::size_t*& srcSeqH) noexcept :
     
     input(input),
     output(output),

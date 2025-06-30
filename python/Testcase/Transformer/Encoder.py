@@ -18,9 +18,16 @@ class Encoder(nn.Module):
         self.norm = LayerNormalization(features)
         self.optimizer = torch.optim.Adam(self.parameters(), lr=get_config()["lr"], betas=(get_config()["beta1"], get_config()["beta2"]))
 
-    def forward(self, x, mask):
+    def forward(self, x, mask, prefix=None, dict=None):
+        i = 0
         for layer in self.layers:
-            x = layer(x, mask)
+            if(prefix != None) :
+                x = layer(x, mask, prefix + f".layer{i}", dict)
+            else :
+                x = layer(x, mask)
+            if(prefix != None) :
+                dict[prefix + f".encoderAfterlayer{i}"] = x.detach().numpy()
+            i += 1
         return self.norm(x)
     
     def getParam(self, prefix, dict) :
@@ -81,4 +88,3 @@ class Encoder(nn.Module):
         dict[prefix + ".input"] = x.detach().numpy()
         dict[prefix + ".output"] = y.detach().numpy()
         dict[prefix + ".loss"] = loss.item()
-    

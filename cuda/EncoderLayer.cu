@@ -15,7 +15,7 @@ EncoderLayer::EncoderLayer(
     Tensor& output,
     Tensor& outputGradient,
     Tensor& inputGradient,
-    std::size_t* srcSeqH) noexcept :
+    std::size_t*& srcSeqH) noexcept :
 
     norm1(input, out1, gradient1, inputGradient),
     mulAtt(out1, out1, out1, out2, gradient2, gradient1, gradient1, gradient1, MaskType::PADDING, srcSeqH),

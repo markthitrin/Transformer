@@ -8,7 +8,7 @@
 class Embedding {
 public:
 	Embedding(
-		std::size_t* inputH,
+		std::size_t*& inputH,
 		Tensor& output,
 		Tensor& outputGradient,
 		const std::size_t numToken) noexcept;
@@ -32,7 +32,7 @@ public:
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix);
 
-	std::size_t* inputH;
+	std::size_t*& inputH;
 	std::size_t* input;
 	Tensor& output;
 	Tensor& outputGradient;

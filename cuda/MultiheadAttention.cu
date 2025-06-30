@@ -17,7 +17,7 @@ MultiheadAttention::MultiheadAttention(
 	Tensor& inputGradientK,
 	Tensor& inputGradientV,
 	MaskType maskType,
-	std::size_t* seqH) noexcept:
+	std::size_t*& seqH) noexcept:
 
 	softmax(A, As, AsGradient, AGradient, batch * head * sequenceLength, sequenceLength),
 	dropout(As, Ad, AdGradient, AsGradient, batch * head * sequenceLength, sequenceLength),

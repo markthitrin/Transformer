@@ -4,6 +4,7 @@ import math
 import numpy as np
 from config import get_config
 
+
 class LayerNormalization(nn.Module):
     def __init__(self, features: int, eps: float = 1e-6) -> None:
         super().__init__()

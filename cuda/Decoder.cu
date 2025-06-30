@@ -16,8 +16,8 @@ Decoder::Decoder(
     Tensor& outputGradient,
     Tensor& inputGradient,
     Tensor& encoderGradient,
-    std::size_t* srcSeqH,
-	std::size_t* tgtSeqH) noexcept :
+    std::size_t*& srcSeqH,
+	std::size_t*& tgtSeqH) noexcept :
 
     input(input),
     encoderOut(encoderOut),

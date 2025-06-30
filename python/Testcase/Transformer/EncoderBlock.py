@@ -81,8 +81,10 @@ class EncoderBlock(nn.Module):
         self.residual_connections = nn.ModuleList([ResidualConnection(features, dropout) for _ in range(2)])
         self.optimizer = torch.optim.Adam(self.parameters(), lr=get_config()["lr"], betas=(get_config()["beta1"], get_config()["beta2"]))
 
-    def forward(self, x, src_mask):
+    def forward(self, x, src_mask, prefix=None, dict=None):
         x = self.residual_connections[0](x, lambda x: self.self_attention_block(x, x, x, src_mask))
+        if(prefix != None) :
+            dict[prefix + ".sub1.output"] = x.detach().numpy()
         x = self.residual_connections[1](x, self.feed_forward_block)
         return x
     

@@ -28,15 +28,15 @@ class ProjectionLayer(nn.Module):
         return self.proj(x)
 
     def getParam(self, prefix, dict) :
-        dict[prefix + ".weight"] = self.proj.weight.detach().numpy()
+        dict[prefix + ".weight"] = self.proj.weight.detach().numpy().T.copy()
         dict[prefix + ".bias"] = self.proj.bias.detach().numpy()
 
     def getOriginalParam(self, prefix, dict) :
-        dict[prefix + ".original_weight"] = self.proj.weight.detach().numpy()
+        dict[prefix + ".original_weight"] = self.proj.weight.detach().numpy().T.copy()
         dict[prefix + ".original_bias"] = self.proj.bias.detach().numpy()
 
     def getUpdatedParam(self, prefix, dict) :
-        dict[prefix + ".updated_weight"] = self.proj.weight.detach().numpy()
+        dict[prefix + ".updated_weight"] = self.proj.weight.detach().numpy().T.copy()
         dict[prefix + ".updated_bias"] = self.proj.bias.detach().numpy()
 
 class Transformer(nn.Module):
@@ -52,11 +52,14 @@ class Transformer(nn.Module):
         self.projection_layer = projection_layer
         self.optimizer = torch.optim.Adam(self.parameters(), lr=get_config()["lr"], betas=(get_config()["beta1"], get_config()["beta2"]))
 
-    def encode(self, src, src_mask):
+    def encode(self, src, src_mask, prefix=None, dict=None):
         # (batch, seq, d_model)
-        src = self.src_embed(src)
-        src = self.src_pos(src)
-        return self.encoder(src, src_mask)
+        x1 = self.src_embed(src)
+        x2 = self.src_pos(x1)
+        if(prefix != None) :
+            dict[prefix + ".embedOut"] = x1.detach().numpy()
+            dict[prefix + ".posOut"] = x2.detach().numpy()
+        return self.encoder(x2, src_mask, prefix, dict)
     
     def decode(self, encoder_output: torch.Tensor, src_mask: torch.Tensor, tgt: torch.Tensor, tgt_mask: torch.Tensor):
         # (batch, seq, d_model)
@@ -91,7 +94,7 @@ class Transformer(nn.Module):
         encoder_mask = padding_mask.view(1, -1) & padding_mask.view(-1, 1)
 
         with torch.no_grad():
-            encoder_output = self.encode(xs, encoder_mask)
+            encoder_output = self.encode(xs, encoder_mask, prefix, dict)
             decoder_output = self.decode(encoder_output, src_mask, xt, tgt_mask)
             y = self.project(decoder_output)
 
@@ -99,6 +102,7 @@ class Transformer(nn.Module):
         dict[prefix + ".input1"] = xs.detach().numpy().astype(np.float32)
         dict[prefix + ".input2"] = xt.detach().numpy().astype(np.float32)
         dict[prefix + ".outpute"] = encoder_output.detach().numpy()
+        dict[prefix + ".outputd"] = decoder_output.detach().numpy()
         dict[prefix + ".output"] = y.detach().numpy()
 
     def getOriginalParam(self, prefix, dict) :

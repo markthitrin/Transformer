@@ -21,12 +21,12 @@
 
 
 NVCC := nvcc
-CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o EmbeddingTest
+CXXFLAGS := -g -G -std=c++17 -rdc=true -lineinfo -lcnpy -lz -o TransformerTest
 
 # Files
-SRCS := ../Embedding.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu EmbeddingTest.cu
+SRCS := ../Transformer.cu ../PositionalEncoder.cu ../Embedding.cu ../MultiheadAttention.cu ../Decoder.cu ../Encoder.cu ../DropOut.cu ../Encoder.cu ../EncoderLayer.cu ../DecoderLayer.cu ../LayerNorm.cu ../Linear.cu ../PositionwiseFeedForward.cu ../ReLU.cu ../Softmax.cu ../UtilKernel.cu ../Util.cu ../Tensor.cu ../TensorFunction.cu ../TensorGraph.cu ../TensorKernel.cu TransformerTest.cu
 OBJS := $(SRCS:.cu=.o)
-TARGET := EmbeddingTest
+TARGET := TransformerTest
 
 all: $(TARGET)
 
