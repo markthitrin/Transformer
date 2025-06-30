@@ -18,10 +18,10 @@ int main() {
         model.loadParam(npFile, "embeddings");
     }
     // forwardTest
-    // for(int i = 0; i < feedTest;i++) {
-    //     cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_forward" + std::to_string(i) + ".npz");
-    //     model.forwardTest(npFile, "embeddings");
-    // }
+    for(int i = 0; i < feedTest;i++) {
+        cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_forward" + std::to_string(i) + ".npz");
+        model.forwardTest(npFile, "embeddings");
+    }
     // backwardTest
     for(int i = 0; i < backTest;i++) {
         cnpy::npz_t npFile = cnpy::npz_load(testCaseDir + "/" + modelName + "_backward" + std::to_string(i) + ".npz");

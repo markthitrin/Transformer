@@ -8,13 +8,13 @@
 class Embedding {
 public:
 	Embedding(
-		std::size_t* input,
+		std::size_t* inputH,
 		Tensor& output,
 		Tensor& outputGradient,
-		const std::size_t token) noexcept;
+		const std::size_t numToken) noexcept;
 	~Embedding();
 
-	void UpdateGraph(cudaGraphExec_t graphExec);
+	void UpdateGraph(cudaGraphExec_t instance);
 
 	cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
@@ -32,33 +32,40 @@ public:
 
 	void backwardTest(cnpy::npz_t npFile, std::string prefix);
 
+	std::size_t* inputH;
 	std::size_t* input;
 	Tensor& output;
 	Tensor& outputGradient;
+	const std::size_t numToken;
 
-	std::vector<Tensor> table;
-	std::vector<AdamOptimizer> tableOpt;
+	Tensor table;
+	AdamOptimizer tableOpt;
+	std::size_t* t;
 
-	std::vector<float*> entries;
 	std::vector<cudaGraphNode_t> forwardNodes;
-	std::vector<cudaMemcpy3DParms> forwardNodeParams;
-	std::vector<cudaGraphNode_t> backwardNodes;
-	std::vector<cudaKernelNodeParams> backwardNodeParams;
-	std::vector<cudaGraphNode_t> updateParameterNodes;
-	std::vector<cudaKernelNodeParams> updateParameterParams;
+	std::vector<cudaMemcpy3DParms> forwardParams;
 };
 
 cudaGraphNode_t AppendEmbeddingNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::vector<cudaMemcpy3DParms>& forwardNodeParams, std::vector<cudaGraphNode_t>& forwardNodes,
-    Tensor& output);
+    std::size_t* input, std::vector<cudaGraphNode_t>& forwardNodes, std::vector<cudaMemcpy3DParms>& forwardParams,
+    Tensor& table, Tensor& output);
 cudaGraphNode_t AppendEmbeddingBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::vector<cudaKernelNodeParams>& backwardNodeParams, std::vector<cudaGraphNode_t>& backwardNodes,
-    Tensor& outputGradient);
+    std::size_t* input,
+    AdamOptimizer& tableOpt, Tensor& outputGradient);
 cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::vector<cudaKernelNodeParams>& updateParameterParams, std::vector<cudaGraphNode_t>& updateParameterNodes,
-    Tensor& outputGradient);
+    std::size_t* input,
+    Tensor& table, AdamOptimizer& tableOpt, std::size_t*& t, Tensor& outputGradient);
+
+__global__ void EmbeddingBackwardKernel(
+    const float* outputGradient, const std::size_t* input, float* gradient,
+	const std::size_t pitchGradient,
+    const std::size_t col);
+__global__ void EmbeddingAdamOptKernel(
+    const std::size_t* input, float* param, float* gradient, float* accM, float* accV, std::size_t* t,
+    const std::size_t pitchParam, const std::size_t pitchGrad, const std::size_t pitchAccM, const std::size_t pitchAccV,
+    const std::size_t row, const std::size_t col);
 
 #endif
