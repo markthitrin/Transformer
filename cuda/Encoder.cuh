@@ -31,14 +31,6 @@ public:
 
 	cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
-    void loadParam(cnpy::npz_t npFile, std::string prefix);
-
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
-
-	void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
-	void backwardTest(cnpy::npz_t npFile, std::string prefix);
-
 	EncoderLayer* layers[N]; // using pointer as copy anad move constructor isn't implemented.
 	LayerNorm* norm;
 

@@ -49,6 +49,9 @@ AdamOptimizer::~AdamOptimizer() {
 }
 
 
+
+
+
 void AdamOpt(Tensor& param, AdamOptimizer opt) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
@@ -89,15 +92,47 @@ cudaGraphNode_t AppendAdamOptNode(
     return kernelNode;
 }
 
-float CrossEntropy(Tensor& logits, Tensor& target, Tensor& gradient, int npd[batch]) {
-    // not implemented
-    return 0.0f;
-}
-float fast_logf(float x) {
-    union { float f; uint32_t i; } vx = { x };
-    float y = vx.i;
-    y *= 1.1920928955078125e-7f;
-    return y - 127.0f;
+float CrossEntropy(Tensor& logits, const std::size_t* targetH, Tensor& gradient, std::size_t* tgtSeqH) {
+    Reset(gradient);
+
+    std::size_t sumCase = 0;
+
+    static float* lossH = new float[logits.row];
+    static bool* tgtSeqHotH = new bool[logits.row];
+    
+    static Tensor loss(1, logits.row);
+    static Tensor maxValue(1, logits.row);
+    static Tensor sumExp(1, logits.row);
+    static bool init = false; 
+    std::size_t* target = nullptr;
+    bool* tgtSeqHot = nullptr;
+    if(!init) {
+        cudaMalloc(&target, sizeof(std::size_t) * logits.row);
+        cudaMalloc(&tgtSeqHot, sizeof(bool) * logits.row);
+    }
+    for(int i = 0;i < batch;i++) {
+        sumCase += tgtSeqH[i];
+        for(int j = 0;j < sequenceLength;j++) {
+            tgtSeqHotH[i * sequenceLength + j] = j < tgtSeqH[i];
+        }
+    }
+    cudaMemcpy(target, targetH, sizeof(std::size_t) * logits.row, cudaMemcpyHostToDevice);
+    cudaMemcpy(tgtSeqHot, tgtSeqHotH, sizeof(bool) * logits.row, cudaMemcpyHostToDevice);
+
+    ReduceMax(logits, maxValue);
+    ReduceSumExp(logits, maxValue, sumExp);
+    SoftmaxF(logits, sumExp, maxValue, gradient, tgtSeqHot);
+    CrossEntropyF(logits, sumExp, maxValue, gradient, target, tgtSeqHot, loss);
+    cudaDeviceSynchronize();
+    
+    loss.toFloat(lossH);
+    float totalLoss = 0.0f;
+    for(int i = 0;i < logits.row;i++) {
+        totalLoss += lossH[i];
+    }
+    
+    if(sumCase != 0) totalLoss /= sumCase;
+    return totalLoss;
 }
 
 void Print(Tensor& A, const std::size_t r0, const std::size_t c0, const std::size_t r, const std::size_t c) {
@@ -111,61 +146,7 @@ void Print(Tensor& A, const std::size_t r0, const std::size_t c0, const std::siz
         std::cout << std::endl;
     }
     std::cout << std::endl;
-}
-
-void PrintTestResult(std::string text, Tensor& A, Tensor& B) {
-    float* _A = (float*)malloc(sizeof(float) * A.row * A.col);
-    float* _B = (float*)malloc(sizeof(float) * B.row * B.col);
-	A.toFloat(_A);
-    B.toFloat(_B);
-
-    float result = 0.0f;
-    for(int i = 0;i < A.row;i++) {
-        for(int j = 0;j < A.col;j++) {
-            result += std::abs(_A[i * A.col + j] - _B[i * B.col + j]);
-        }
-    }
-
-	std::cout << "Test result [" << text << "] : " << result / A.row / A.col << "\n";
-    int count = 0;
-	for(int i  = 0;count < 6 && i < A.row * A.col;i++) {
-        if(std::abs(_A[i] - _B[i]) <= 0.00005) {continue;}
-		std::cout << "\t\t" << _A[i] << " :: " << _B[i];
-        std::cout << "\t(" << i / A.col << ", " << i % A.col << ")" << std::endl;
-        count++;
-	}
-	std::cout << std::endl;
-
-    std::free(_A);
-    std::free(_B);
-}
-
-
-void PrintTestResultT(std::string text, Tensor& A, Tensor& B) {
-    float* _A = (float*)malloc(sizeof(float) * A.row * A.col);
-    float* _B = (float*)malloc(sizeof(float) * B.row * B.col);
-	A.toFloat(_A);
-    B.toFloat(_B);
-    
-	float result = 0.0f;
-    for(int i = 0;i < A.row;i++) {
-        for(int j = 0;j < A.col;j++) {
-            result += std::abs(_A[i * A.col + j] - _B[j * A.row + i]);
-        }
-    }
-
-	std::cout << "Test result [" << text << "] : " << result / A.row / A.col / batch << "\n";
-    int count = 0;
-    for(int i = 0;i < A.row;i++) {
-        for(int j = 0;j < A.col;j++) {
-            if(std::abs(_A[i * A.col + j] - _B[j * A.row + i]) <= 0.00005) {continue;}
-            std::cout << "\t\t" << _A[i * A.col + j] << " :: " << _B[j * A.row + i];
-            std::cout << "\t()" << i << ", " << j << ")" << std::endl;
-            if(count == 6) break;
-        }
-        if(count == 6) break;
-    }
-    std::cout << std::endl;
+    delete[] _A;
 }
 
 cudaGraphNode_t SyncDependency(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
@@ -179,3 +160,23 @@ cudaGraphNode_t SyncDependency(cudaGraph_t graph, const std::vector<cudaGraphNod
     }
     return nullptr;
 }
+
+void CrossEntropyF(Tensor& logits, Tensor& sumExp, Tensor& maxValue, Tensor& gradient, const std::size_t* target, const bool* tgtSeqHot, Tensor& loss) {
+    constexpr int BLOCKSIZE = 16;
+    dim3 blockDim(BLOCKSIZE);
+    dim3 gridDim(ceil(logits.row, BLOCKSIZE));
+    CrossEntropyKernel<<<gridDim, blockDim>>>(
+        logits.data, sumExp.data, maxValue.data, gradient.data, target, tgtSeqHot, loss.data,
+        logits.pitch, gradient.pitch,
+        logits.row); 
+}
+
+void SoftmaxF(Tensor& input, Tensor& sumExp, Tensor& maxValue, Tensor& output, const bool* tgtSeqHot) {
+    const int BLOCK_SIZE = 16;
+    dim3 blockDim(BLOCK_SIZE, BLOCK_SIZE);
+    dim3 gridDim(ceil(input.col, BLOCK_SIZE), ceil(input.row, BLOCK_SIZE));
+    SoftmaxFKernel<<<gridDim, blockDim>>>(input.data, maxValue.data, sumExp.data, output.data, tgtSeqHot,
+        input.pitch, output.pitch,
+        input.row, input.col);
+}
+

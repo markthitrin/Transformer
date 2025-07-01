@@ -19,19 +19,20 @@ public:
     std::size_t* t;
 };
 
+
+
 void AdamOpt(Tensor& param, AdamOptimizer opt);
 cudaGraphNode_t AppendAdamOptNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& param, AdamOptimizer& opt);
 
-float CrossEntropy(Tensor& logits, Tensor& target, Tensor& gradient, int npd[batch]);
-float fast_logf(float x);
+float CrossEntropy(Tensor& logits, const std::size_t* targetH, Tensor& gradient, std::size_t* tgtSeqH);
 
 void Print(Tensor& A, const std::size_t r0, const std::size_t c0, const std::size_t r, const std::size_t c);
 
-void PrintTestResult(std::string text, Tensor& A, Tensor& B);
+void CrossEntropyF(Tensor& logits, Tensor& sumExp, Tensor& maxValue, Tensor& gradient, const std::size_t* target, const bool* tgtSeqHot, Tensor& loss);
 
-void PrintTestResultT(std::string text, Tensor& A, Tensor& B);
+void SoftmaxF(Tensor& input, Tensor& sumExp, Tensor& maxValue, Tensor& output, const bool* tgtSeqHot);
 
 cudaGraphNode_t SyncDependency(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes = {});
 

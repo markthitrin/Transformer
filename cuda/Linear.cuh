@@ -23,10 +23,6 @@ public:
 
 	cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
-	void loadParam(cnpy::npz_t npFile, std::string prefix);
-
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
-
 	Tensor& input;
 	Tensor& output;
 	Tensor& outputGradient;

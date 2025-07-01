@@ -226,7 +226,6 @@ __global__ void ReduceSumOfProductKernel(
 		*Get(C, 0, r, 0) = buffer[threadIdx.y][0];
 	}
 }
-
 __global__ void ReduceSumKernel(
 	const float* A, float* C,
 	const std::size_t pitchA,
@@ -281,6 +280,34 @@ __global__ void ReduceMaxKernel(
 		*Get(C, 0, r, 0) = buffer[threadIdx.y][0];
 	}
 }
+__global__ void ReduceSumExpKernel(
+    const float* input, const float* maxValue, float* sumExp,
+    const std::size_t pitchInput,
+    const std::size_t row, const std::size_t col) {
+
+    const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = threadIdx.x;
+
+    __shared__ float buffer[REDUCTION_BLOCKSIZE_Y][REDUCTION_BLOCKSIZE_X];
+
+	float acc = 0.0;
+	for(std::size_t i = 0;i < ceil(col, REDUCTION_BLOCKSIZE_X);i++) {
+		if(r < row && c + i * REDUCTION_BLOCKSIZE_X < col) {
+			acc += expf(*Get(input, r, c + i * REDUCTION_BLOCKSIZE_X, pitchInput) - maxValue[r]);
+		}
+	}
+	buffer[threadIdx.y][threadIdx.x] = acc;
+	for(std::size_t i = REDUCTION_BLOCKSIZE_X / 2;i > 0;i /= 2) {
+		__syncthreads();
+		if(c < i) {
+			buffer[threadIdx.y][threadIdx.x] += buffer[threadIdx.y][threadIdx.x + i];
+		}
+	}
+	if(r < row && c == 0) {
+		sumExp[r] = buffer[threadIdx.y][0];
+	}
+}
+
 
 
 __global__ void MeanKernel(

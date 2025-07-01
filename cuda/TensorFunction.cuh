@@ -22,8 +22,10 @@ void Div(Tensor& A, Tensor& B, Tensor& C);
 void Div(Tensor& A, const float x, Tensor& C);
 
 void Set(Tensor& A, const float x);
-
 void Reset(Tensor& A);
+
+void ReduceMax(Tensor& A, Tensor& C);
+void ReduceSumExp(Tensor& input, Tensor& maxValue, Tensor& sumExp);
 
 void GetPositionalEncode(Tensor& A);
 

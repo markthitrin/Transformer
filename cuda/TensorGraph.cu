@@ -43,6 +43,8 @@ cudaGraphNode_t AppendCopyBatchNode(
     return SyncDependency(graph, nodes);
 }
 
+
+
 cudaGraphNode_t AppendPlusNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& A, Tensor& B, Tensor& C) {
@@ -213,6 +215,7 @@ cudaGraphNode_t AppendPlusProductReduceInplceBatchNode(
 }
 
 
+
 cudaGraphNode_t AppendMulNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& A, const float x, Tensor& C) {
@@ -275,6 +278,8 @@ cudaGraphNode_t AppendMulInplaceNode(
 
     return kernelNode;
 }
+
+
 
 cudaGraphNode_t AppendDivNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
@@ -339,6 +344,8 @@ cudaGraphNode_t AppendDivInplaceNode(
     return kernelNode;
 }
 
+
+
 cudaGraphNode_t AppendResetNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& A) {
@@ -359,6 +366,7 @@ cudaGraphNode_t AppendResetNode(
 
     return memsetNode;
 }
+
 
 
 cudaGraphNode_t AppendReduceSumOfProductNode(
@@ -436,6 +444,35 @@ cudaGraphNode_t AppendReduceMaxNode(
 
     return kernelNode;
 }
+cudaGraphNode_t AppendReduceSumExpNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor& input, Tensor& maxValue, Tensor& sumExp) {
+    
+    cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
+    std::size_t numDependency = dependency == nullptr ? 0 : 1;
+
+    dim3 blockDim(REDUCTION_BLOCKSIZE_X, REDUCTION_BLOCKSIZE_Y);
+    dim3 gridDim(ceil(1, REDUCTION_BLOCKSIZE_X), ceil(input.row, REDUCTION_BLOCKSIZE_Y));
+
+    void* kernelArgs[] = {
+		&input.data, &maxValue, &sumExp,
+		&input.pitch,
+		&input.row, &input.col};
+
+    cudaKernelNodeParams kernelParams = {};
+    kernelParams.func = (void*)ReduceSumExpKernel;
+    kernelParams.gridDim = gridDim;
+    kernelParams.blockDim = blockDim;
+    kernelParams.sharedMemBytes = 0;
+    kernelParams.kernelParams = kernelArgs;
+    kernelParams.extra = nullptr;
+
+    cudaGraphNode_t kernelNode;
+    cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+
+    return kernelNode;
+}
+
 
 
 cudaGraphNode_t AppendMeanNode(
@@ -490,9 +527,10 @@ cudaGraphNode_t AppendStdNode(
 }
 
 
+
 cudaGraphNode_t AppendLookAheadMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x) {
+    Tensor& Attention, const std::size_t batch, std::size_t*& seq, const float x) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -520,7 +558,7 @@ cudaGraphNode_t AppendLookAheadMaskBatchNode(
 }
 cudaGraphNode_t AppendPaddingMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x) {
+    Tensor& Attention, const std::size_t batch, std::size_t*& seq, const float x) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -548,7 +586,7 @@ cudaGraphNode_t AppendPaddingMaskBatchNode(
 }
 cudaGraphNode_t AppendCrossPaddingMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x) {
+    Tensor& Attention, const std::size_t batch, std::size_t*& seq, const float x) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
     std::size_t numDependency = dependency == nullptr ? 0 : 1;
@@ -574,6 +612,7 @@ cudaGraphNode_t AppendCrossPaddingMaskBatchNode(
 
     return kernelNode;
 }
+
 
 
 cudaGraphNode_t AppendMatMulPlusNode(
@@ -616,7 +655,6 @@ cudaGraphNode_t AppendMatMulPlusNode(
 
     return kernelNode;
 }
-
 cudaGraphNode_t AppendMatMulPlusBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& A, Tensor& B, Tensor& C, const bool ATransposed, const bool BTransposed,
@@ -634,6 +672,13 @@ cudaGraphNode_t AppendMatMulPlusBatchNode(
     std::vector<cudaGraphNode_t> nodes(batch);
 
     for(std::size_t i = 0;i < batch;i++) {
+        float** APtr = new float*(ABroadcast ? A.data : GetRow(A.data, *Asr * i, A.pitch));
+        float** BPtr = new float*(BBroadcast ? B.data : GetRow(B.data, *Bsr * i, B.pitch));
+        float** CPtr = new float*(CBroadcast ? C.data : GetRow(C.data, *Csr * i, C.pitch));
+        void* kernelArgs[] = {
+                APtr, BPtr, CPtr,
+                &A.pitch, &B.pitch, &C.pitch, 
+                nullptr, nullptr, nullptr};
 
         cudaKernelNodeParams kernelParams = {};
         kernelParams.gridDim = gridDim;
@@ -642,35 +687,23 @@ cudaGraphNode_t AppendMatMulPlusBatchNode(
         kernelParams.extra = nullptr;
 
         if(!ATransposed && !BTransposed) {
-            float** APtr = new float*(ABroadcast ? A.data : GetRow(A.data, *Asr * i, A.pitch));
-            float** BPtr = new float*(BBroadcast ? B.data : GetRow(B.data, *Bsr * i, B.pitch));
-            float** CPtr = new float*(CBroadcast ? C.data : GetRow(C.data, *Csr * i, C.pitch));
-            void* kernelArgs[] = { 
-                APtr, BPtr, CPtr,
-                &A.pitch, &B.pitch, &C.pitch, 
-                CBroadcast ? &C.row : Csr, &A.col, &C.col};
+            kernelArgs[6] = CBroadcast ? &C.row : Csr;
+            kernelArgs[7] = &A.col;
+            kernelArgs[8] = &C.col;
             kernelParams.func = (void*)MatMulKernelAB;
             kernelParams.kernelParams = kernelArgs;
         }
         else if(ATransposed && !BTransposed) {
-            float** APtr = new float*(ABroadcast ? A.data : GetRow(A.data, *Asr * i, A.pitch));
-            float** BPtr = new float*(BBroadcast ? B.data : GetRow(B.data, *Bsr * i, B.pitch));
-            float** CPtr = new float*(CBroadcast ? C.data : GetRow(C.data, *Csr * i, C.pitch));
-            void* kernelArgs[] = { 
-                APtr, BPtr, CPtr,
-                &A.pitch, &B.pitch, &C.pitch, 
-                CBroadcast ? &C.row : Csr, ABroadcast ? &A.row : Asr, &C.col};
+            kernelArgs[6] = CBroadcast ? &C.row : Csr;
+            kernelArgs[7] = ABroadcast ? &A.row : Asr;
+            kernelArgs[8] = &C.col;
             kernelParams.func = (void*)MatMulKernelATB;
             kernelParams.kernelParams = kernelArgs;
         }
         else if (!ATransposed && BTransposed) {
-            float** APtr = new float*(ABroadcast ? A.data : GetRow(A.data, *Asr * i, A.pitch));
-            float** BPtr = new float*(BBroadcast ? B.data : GetRow(B.data, *Bsr * i, B.pitch));
-            float** CPtr = new float*(CBroadcast ? C.data : GetRow(C.data, *Csr * i, C.pitch));
-            void* kernelArgs[] = { 
-                APtr, BPtr, CPtr,
-                &A.pitch, &B.pitch, &C.pitch, 
-                CBroadcast ? &C.row : Csr, &A.col, &C.col};
+            kernelArgs[6] = CBroadcast ? &C.row : Csr;
+            kernelArgs[7] = &A.col;
+            kernelArgs[8] = &C.col;
             kernelParams.func = (void*)MatMulKernelABT;
             kernelParams.kernelParams = kernelArgs;
         }
@@ -679,7 +712,9 @@ cudaGraphNode_t AppendMatMulPlusBatchNode(
         }
 
         cudaGraphNode_t kernelNode;
+        
         cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
+        
         nodes[i] = kernelNode;
 
         if(CBroadcast) {

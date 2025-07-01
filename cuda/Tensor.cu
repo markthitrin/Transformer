@@ -5,8 +5,7 @@
 Tensor::Tensor() noexcept {;}
 
 Tensor::Tensor(const Tensor& other) noexcept : pitch(other.pitch), row(other.row), col(other.col) {
-    cudaError_t err = cudaMallocPitch(&data, &pitch, col * sizeof(float), row);
-    PRINT_CUDA_ERR(err);
+    cudaMallocPitch(&data, &pitch, col * sizeof(float), row);
     cudaMemcpy2D(data, pitch, other.data, other.pitch, sizeof(float) * col, row, cudaMemcpyDeviceToDevice);
 }
 
@@ -15,8 +14,7 @@ Tensor::Tensor(Tensor&& other) noexcept : data(other.data), pitch(other.pitch), 
 }
     
 Tensor::Tensor(const std::size_t row,const std::size_t col) noexcept : row(row), col(col)  {
-    cudaError_t err = cudaMallocPitch(&data, &pitch, col * sizeof(float), row);
-    PRINT_CUDA_ERR(err);
+    cudaMallocPitch(&data, &pitch, col * sizeof(float), row);
 }
 
 Tensor::~Tensor() {
@@ -28,13 +26,7 @@ void Tensor::free() noexcept {
 }
 
 void Tensor::toFloat(float* _data) noexcept {
-    cudaError_t err = cudaMemcpy2D(_data, sizeof(float) * col, data, pitch, sizeof(float) * col, row, cudaMemcpyDeviceToHost);
-    PRINT_CUDA_ERR(err);
-}
-
-void Tensor::loadNp(const cnpy::npz_t& npFile, const std::string& name) noexcept {
-    cnpy::NpyArray arr = npFile.at(name);
-    cudaMemcpy2D(data, pitch, arr.data<float>(), sizeof(float) * col, sizeof(float) * col, row, cudaMemcpyHostToDevice);
+    cudaMemcpy2D(_data, sizeof(float) * col, data, pitch, sizeof(float) * col, row, cudaMemcpyDeviceToHost);
 }
 
 void Tensor::XavierUniformFill() noexcept {

@@ -35,9 +35,6 @@ public:
 cudaGraphNode_t AppendSoftmaxNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& input, Tensor& maxValue, Tensor& sumExp, Tensor& output);
-cudaGraphNode_t AppendReduceSumExpNode(
-    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& input, Tensor& maxValue, Tensor& sumExp);
 cudaGraphNode_t AppendSoftmaxBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& output, Tensor& outputGradient, Tensor& sumGY, Tensor& inputGradient);
@@ -46,10 +43,6 @@ __global__ void SoftmaxKernel (
 	const float* input, const float* maxValue, const float* sumExp, float* output,
 	const std::size_t pitchInput, const std::size_t pitchOutput,
 	const std::size_t row, const std::size_t col);
-__global__ void ReduceSumExpKernel(
-    const float* input, const float* maxValue, float* sumExp,
-    const std::size_t pitchInput,
-    const std::size_t row, const std::size_t col);
 __global__ void SoftmaxBackwardKernel(
 	const float* output, const float* outputGradient, const float* sumGY, float* inputGradient,
 	const std::size_t pitchOutput, const std::size_t pitchOutputGradient, const std::size_t pitchInputGradient,

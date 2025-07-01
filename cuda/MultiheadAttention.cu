@@ -103,11 +103,13 @@ cudaGraphNode_t MultiheadAttention::AppendGraphForward(cudaGraph_t graph, const 
 	cudaGraphNode_t k13 = AppendMatMulPlusBatchNode(graph, { k5, k10, k11 }, QT, KT, A, true, false, batch * head, false, false, false);
 	cudaGraphNode_t k14 = AppendDivInplaceNode(graph, { k13 }, A, std::sqrt(dModel / head));
 	cudaGraphNode_t k15;
+
 	switch(maskType) {
 		case LOOK_AHEAD : k15 = AppendLookAheadMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
 		case PADDING: k15 = AppendPaddingMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
 		case CROSS_PADDING: k15 = AppendCrossPaddingMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
 	}
+
 
 	cudaGraphNode_t k16 = softmax.AppendGraphForward(graph, { k6, k15 });
 	cudaGraphNode_t k17 = dropout.AppendGraphForward(graph, { k7, k16 });
@@ -198,87 +200,4 @@ cudaGraphNode_t MultiheadAttention::AppendGraphUpdateParameter(cudaGraph_t graph
 	cudaGraphNode_t k5 = AppendAdamOptNode(graph, { k1 }, WO, WOOpt);
 	cudaGraphNode_t k6 = SyncDependency(graph, { k2, k3, k4, k5 });
 	return k6;
-}
-
-void MultiheadAttention::loadParam(cnpy::npz_t npFile, std::string prefix) {
-	WQ.loadNp(npFile, prefix + ".w_q");
-	WK.loadNp(npFile, prefix + ".w_k");
-	WV.loadNp(npFile, prefix + ".w_v");
-	WO.loadNp(npFile, prefix + ".w_o");
-}
-
-void MultiheadAttention::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-	Tensor target(output.row, output.col);
-
-    target.loadNp(npFile, prefix + ".output");
-    inputQ.loadNp(npFile, prefix + ".q");
-    inputK.loadNp(npFile, prefix + ".k");
-    inputV.loadNp(npFile, prefix + ".v");
-	Tensor npdLoader(1, 1);
-	npdLoader.loadNp(npFile, prefix + ".npd");
-	float* _seqH = new float[batch];
-	npdLoader.toFloat((float*)_seqH);
-	for(int i = 0;i < batch;i++) {
-		seqH[i] = _seqH[0];
-	}
-
-    // Forward
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    this->AppendGraphForward(graph, {});
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph();
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    PrintTestResult("forward", output, target);
-}
-
-void MultiheadAttention::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-	Tensor updatedWQ(dModel, dModel);
-    Tensor updatedWK(dModel, dModel);
-    Tensor updatedWV(dModel, dModel);
-    Tensor updatedWO(dModel, dModel);
-    updatedWQ.loadNp(npFile, prefix + ".updated_w_q");
-    updatedWK.loadNp(npFile, prefix + ".updated_w_k");
-    updatedWV.loadNp(npFile, prefix + ".updated_w_v");
-    updatedWO.loadNp(npFile, prefix + ".updated_w_o");
-
-    PrintTestResult("backward " + prefix + ".updated_w_q", WQ, updatedWQ);
-    PrintTestResult("backward " + prefix + ".updated_w_k", WK, updatedWK);
-    PrintTestResult("backward " + prefix + ".updated_w_v", WV, updatedWV);
-    PrintTestResult("backward " + prefix + ".updated_w_o", WO, updatedWO);
-}
-
-void MultiheadAttention::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-	Set(outputGradient, 1.0f / output.row / output.col);
-    cudaDeviceSynchronize();
-
-    // load input
-    inputQ.loadNp(npFile, prefix + ".q");
-    inputK.loadNp(npFile, prefix + ".k");
-    inputV.loadNp(npFile, prefix + ".v");
-	Tensor npdLoader(1, 1);
-	npdLoader.loadNp(npFile, prefix + ".npd");
-	float* _seqH = new float[batch];
-	npdLoader.toFloat((float*)_seqH);
-	for(int i = 0;i < batch;i++) {
-		seqH[i] = _seqH[0];
-	}
-
-    // Forward, backward, update
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
-    cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
-    this->AppendGraphUpdateParameter(graph, {k2});
-    cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph();
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    checkUpdatedParam(npFile, prefix);
 }

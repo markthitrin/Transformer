@@ -18,23 +18,30 @@ public:
 	Transformer() noexcept;
     ~Transformer();
 
+    float Train(const std::size_t* encoderInput, const std::size_t* srcSeq,
+        const std::size_t* decoderInput, const std::size_t* tgtSeq,
+        const std::size_t* tragetOutput);
+
+    void Encode(const std::size_t* encoderInput, const std::size_t* srcSeq);
+
+    void Decode(const std::size_t* decoderInput, const std::size_t* tgtSeq);
+
+    void ResetGraph();
+
+    void SetTrainGraph();
+
+    void SetPredictGraph();
+
     void UpdateGraph(cudaGraphExec_t instance);
 
     cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
-	cudaGraphNode_t AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
+	cudaGraphNode_t AppendGraphPredictEncode(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
+	cudaGraphNode_t AppendGraphPredictDecode(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
 	cudaGraphNode_t AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
 	cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
-
-    void loadParam(cnpy::npz_t npFile, std::string prefix);
-
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
-
-	void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
-	void backwardTest(cnpy::npz_t npFile, std::string prefix);
 
     Embedding srcEmbed;
     Embedding tgtEmbed;
@@ -63,6 +70,15 @@ public:
     Tensor gradient3;
     Tensor gradient4;
     Tensor gradient5;
+
+    cudaGraph_t graphTrain;
+    cudaGraphExec_t graphExecTrain;
+    cudaGraph_t graphEncode;
+    cudaGraphExec_t graphExecEncode;
+    cudaGraph_t graphDecode;
+    cudaGraphExec_t graphExecDecode;
+
+    int graphState = 0;
 };
 
 #endif // !TRANSFORMER

@@ -22,8 +22,4 @@
 
 #include "Config.h"
 
-#define PRINT_CUDA_ERR(err) if(err != cudaSuccess) {\
-        std::cout << cudaGetErrorString(err) << std::endl;\
-    }\
-
 #endif

@@ -34,22 +34,3 @@ cudaGraphNode_t PositionalEncoder::AppendGraphBackward(cudaGraph_t graph, const 
     cudaGraphNode_t k1 = dropout.AppendGraphBackward(graph, dependencyNodes);
     return k1;
 }
-
-void PositionalEncoder::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(output.row, output.col);
-
-    target.loadNp(npFile, prefix + ".output");
-    input.loadNp(npFile, prefix + ".input");
-
-    // Forward
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    this->AppendGraphForward(graph, {});
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    PrintTestResult("forward", output, target);
-}
-

@@ -60,7 +60,6 @@ void Sub(Tensor& A, const float x, Tensor& C) {
 
 
 
-
 void Mul(Tensor& A, Tensor& B, Tensor& C) {
     constexpr int BLOCKSIZE = 16;
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
@@ -97,11 +96,22 @@ void Set(Tensor& A, const float x) {
     dim3 gridDim(ceil(A.col, BLOCKSIZE), ceil(A.row, BLOCKSIZE));
     SetKernel<<<gridDim, blockDim>>>(A.data, x, A.pitch, A.row, A.col);
 }
-
-
-
 void Reset(Tensor& A) {
    cudaMemset2DAsync(A.data, A.pitch, 0, sizeof(float) * A.col, A.row);
+}
+
+
+void ReduceMax(Tensor& A, Tensor& C) {
+    dim3 blockDim(REDUCTION_BLOCKSIZE_X, REDUCTION_BLOCKSIZE_Y);
+    dim3 gridDim(ceil(1, REDUCTION_BLOCKSIZE_X), ceil(A.row, REDUCTION_BLOCKSIZE_Y));
+    ReduceMaxKernel<<<gridDim,blockDim>>>( A.data, C.data, A.pitch, A.row, A.col );
+}
+void ReduceSumExp(Tensor& input, Tensor& maxValue, Tensor& sumExp) {
+    dim3 blockDim(REDUCTION_BLOCKSIZE_X, REDUCTION_BLOCKSIZE_Y);
+    dim3 gridDim(ceil(1, REDUCTION_BLOCKSIZE_X), ceil(input.row, REDUCTION_BLOCKSIZE_Y));
+    ReduceSumExpKernel<<<gridDim, blockDim>>>(input.data, maxValue.data, sumExp.data,
+        input.pitch,
+        input.row, input.col);
 }
 
 

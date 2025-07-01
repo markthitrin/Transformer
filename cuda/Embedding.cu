@@ -45,11 +45,7 @@ void Embedding::UpdateGraph(cudaGraphExec_t instance) {
         forwardParams[i].srcPtr = make_cudaPitchedPtr(
             GetRow(table.data, inputToken, table.pitch), table.pitch,
             table.col, 1);
-        cudaError_t err = cudaGraphExecMemcpyNodeSetParams(instance, forwardNodes[i], &forwardParams[i]);
-        PRINT_CUDA_ERR(err);
-        if(err != cudaSuccess) {
-            std::cout << "df";
-        }
+        cudaGraphExecMemcpyNodeSetParams(instance, forwardNodes[i], &forwardParams[i]);
     }
 }
 
@@ -74,70 +70,11 @@ cudaGraphNode_t Embedding::AppendGraphUpdateParameter(cudaGraph_t graph, const s
     return k1;
 }
 
-void Embedding::loadParam(cnpy::npz_t npFile, std::string prefix) {
-    table.loadNp(npFile, prefix + ".weight");
-}
-
-void Embedding::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(output.row, output.col);
-    Tensor inputLoader(1, batch * sequenceLength);
-
-    target.loadNp(npFile, prefix + ".output");
-    inputLoader.loadNp(npFile, prefix + ".input");
-    float* _inputH = new float[batch * sequenceLength];
-    inputLoader.toFloat(_inputH);
-    for(int i = 0;i < batch * sequenceLength;i++) inputH[i] = _inputH[i];
-
-    // Forward
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    this->AppendGraphForward(graph, {});
-    cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    this->UpdateGraph(instance);
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    PrintTestResult("forward", output, target);
-}
-
-void Embedding::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    Tensor targetTable(table.row, table.col);
-    targetTable.loadNp(npFile, prefix + ".updated_weights");
-
-    PrintTestResult("backward table " ,table, targetTable);
-}
-
-void Embedding::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Set(outputGradient, 1.0f / output.row / output.col);
-    
-    Tensor inputLoader(1, batch * sequenceLength);
-
-    inputLoader.loadNp(npFile, prefix + ".input");
-    float* _inputH = new float[batch * sequenceLength];
-    inputLoader.toFloat(_inputH);
-    for(int i = 0;i < batch * sequenceLength;i++) inputH[i] = _inputH[i];
-
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
-    cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
-    this->AppendGraphUpdateParameter(graph, {k2});
-    cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    this->UpdateGraph(instance);
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    checkUpdatedParam(npFile, prefix);
-}
 
 
 cudaGraphNode_t AppendEmbeddingNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::size_t* input, std::vector<cudaGraphNode_t>& forwardNodes, std::vector<cudaMemcpy3DParms>& forwardParams,
+    std::size_t*& input, std::vector<cudaGraphNode_t>& forwardNodes, std::vector<cudaMemcpy3DParms>& forwardParams,
     Tensor& table, Tensor& output) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -153,8 +90,7 @@ cudaGraphNode_t AppendEmbeddingNode(
         copyParams.kind = cudaMemcpyDeviceToDevice;
 
         cudaGraphNode_t copyNode;
-        cudaError_t err = cudaGraphAddMemcpyNode(&copyNode, graph, &dependency, numDependency, &copyParams);
-        PRINT_CUDA_ERR(err);
+        cudaGraphAddMemcpyNode(&copyNode, graph, &dependency, numDependency, &copyParams);
 
         forwardNodes[i] = copyNode;
         forwardParams[i] = copyParams;
@@ -165,7 +101,7 @@ cudaGraphNode_t AppendEmbeddingNode(
 
 cudaGraphNode_t AppendEmbeddingBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::size_t* input,
+    std::size_t*& input,
     AdamOptimizer& tableOpt, Tensor& outputGradient) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -196,8 +132,7 @@ cudaGraphNode_t AppendEmbeddingBackwardNode(
         kernelParams.extra = nullptr;
 
         cudaGraphNode_t kernelNode;
-        cudaError_t err = cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
-        PRINT_CUDA_ERR(err);
+        cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
         nodes[i] = kernelNode;
 
         dependency = nodes[i];
@@ -241,8 +176,7 @@ cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
         kernelParams.extra = nullptr;
 
         cudaGraphNode_t kernelNode;
-        cudaError_t err = cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
-        PRINT_CUDA_ERR(err);
+        cudaGraphAddKernelNode(&kernelNode, graph, &dependency, numDependency, &kernelParams);
 
         nodes[i] = kernelNode;
         dependency = nodes[i];
@@ -251,6 +185,8 @@ cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
 
     return nodes.back();
 }
+
+
 
 __global__ void EmbeddingBackwardKernel(
     const float* outputGradient, const std::size_t* input, float* gradient,

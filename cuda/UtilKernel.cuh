@@ -20,4 +20,14 @@ __global__ void AdamOptKernel(
     const std::size_t pitchParam, const std::size_t pitchGrad, const std::size_t pitchAccM, const std::size_t pitchAccV,
     const std::size_t row, const std::size_t col);
 
+__global__ void CrossEntropyKernel(
+    const float* logits, const float* sumExp, const float* maxValue, float* softmax, const std::size_t* target, const bool* tgtSeqhot, float* loss,
+    const std::size_t pitchLogits, const std::size_t pitchSoftmax,
+    const std::size_t row);
+__global__ void SoftmaxFKernel(
+	const float* input, const float* maxValue, const float* sumExp, float* output, const bool* tgtSeqhot,
+	const std::size_t pitchInput, const std::size_t pitchOutput,
+	const std::size_t row, const std::size_t col);
+
+
 #endif

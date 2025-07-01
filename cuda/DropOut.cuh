@@ -15,6 +15,8 @@ public:
         const std::size_t col) noexcept;
     ~DropOut();
 
+    void setupState();
+
     cudaGraphNode_t AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
     
 	cudaGraphNode_t AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
@@ -34,13 +36,13 @@ public:
 
 cudaGraphNode_t AppendDropoutNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& input, Tensor& mask, Tensor& output, curandStatePhilox4_32_10_t* states, float dropoutRate,
+    Tensor& input, Tensor& mask, Tensor& output, curandStatePhilox4_32_10_t*& states, float dropoutRate,
     std::size_t pitchState);
 cudaGraphNode_t AppendDropoutBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& outputGradient, Tensor& mask, Tensor& inputGradient);
 
-__global__ void setupState(
+__global__ void setupStateKernel(
     curandStatePhilox4_32_10_t* states, unsigned long long seed,
     const std::size_t pitchState,
     const std::size_t row, const std::size_t col);

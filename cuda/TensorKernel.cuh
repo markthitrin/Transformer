@@ -78,6 +78,10 @@ __global__ void ReduceMaxKernel(
     const float* A, float* C,
     const std::size_t pitchA,
     const std::size_t row, const std::size_t col);
+__global__ void ReduceSumExpKernel(
+    const float* input, const float* maxValue, float* sumExp,
+    const std::size_t pitchInput,
+    const std::size_t row, const std::size_t col);
 
 __global__ void MeanKernel(
 	const float* A, float* C,

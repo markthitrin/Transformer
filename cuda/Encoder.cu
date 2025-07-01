@@ -9,7 +9,6 @@
 #include "Util.cuh"
 #include "Encoder.cuh"
 
-
 Encoder::Encoder(
     Tensor& input,
     Tensor& output,
@@ -89,81 +88,4 @@ cudaGraphNode_t Encoder::AppendGraphUpdateParameter(cudaGraph_t graph, const std
     cudaGraphNode_t k4 = SyncDependency(graph, k3);
     cudaGraphNode_t k5 = SyncDependency(graph, { k2, k4 });
     return k5;
-}
-
-void Encoder::loadParam(cnpy::npz_t npFile, std::string prefix) {
-    for(int i = 0;i < N;i++) {
-        layers[i]->loadParam(npFile, prefix + ".layer" + std::to_string(i));
-    }
-    norm->loadParam(npFile, prefix + ".norm");
-}
-
-void Encoder::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    for(int i = 0;i < N;i++) {
-        layers[i]->checkUpdatedParam(npFile, prefix + ".layer" + std::to_string(i));
-    }
-    norm->checkUpdatedParam(npFile, prefix + ".norm");
-}
-
-void Encoder::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(output.row, output.col);
-
-    target.loadNp(npFile, prefix + ".output");
-    input.loadNp(npFile, prefix + ".input");
-	Tensor npdLoader(1, 1);
-	npdLoader.loadNp(npFile, prefix + ".npd");
-	float* _seqH = new float[batch];
-	npdLoader.toFloat((float*)_seqH);
-	for(int i = 0;i < batch;i++) {
-		srcSeqH[i] = _seqH[0];
-	}
-
-    // Forward
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    this->AppendGraphForward(graph, {});
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph();
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    PrintTestResult("forward", output, target);
-}
-
-void Encoder::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(output.row, output.col);
-    Set(outputGradient, 1.0f / output.row / output.col);
-    cudaDeviceSynchronize();
-
-    // load input
-    input.loadNp(npFile, prefix + ".input");
-    Tensor npdLoader(1, 1);
-	npdLoader.loadNp(npFile, prefix + ".npd");
-	float* _seqH = new float[batch];
-	npdLoader.toFloat((float*)_seqH);
-	for(int i = 0;i < batch;i++) {
-		srcSeqH[i] = _seqH[0];
-	}
-    target.loadNp(npFile, prefix + ".output");
-
-    // Forward, backward, update
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
-    cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
-    this->AppendGraphUpdateParameter(graph, {k2});
-    cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    this->UpdateGraph();
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    // Print(gradient1, 0, 0, 10, 10);
-    // Print(gradient2, 0, 0, 10, 10);
-    // Print(gradient3, 0, 0, 10, 10);
-    // Print(linear1.biasOpt.gradient, 0, 0, 10 ,10);
-    
-    checkUpdatedParam(npFile, prefix);
 }

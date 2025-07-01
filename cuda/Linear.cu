@@ -51,18 +51,3 @@ cudaGraphNode_t Linear::AppendGraphUpdateParameter(cudaGraph_t graph, const std:
     cudaGraphNode_t k4 = SyncDependency(graph, {k2, k3});
     return k4;
 }
-
-void Linear::loadParam(cnpy::npz_t npFile, std::string prefix) {
-    weight.loadNp(npFile, prefix + ".weight");
-    bias.loadNp(npFile, prefix + ".bias");
-}
-
-void Linear::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    Tensor weightUpdated(weight.row, weight.col);
-    Tensor biasUpdated(bias.row, bias.col);
-    weightUpdated.loadNp(npFile, prefix + ".updated_weight");
-    biasUpdated.loadNp(npFile, prefix + ".updated_bias");
-
-    PrintTestResult("backward " + prefix + ".weight", weight, weightUpdated);
-    PrintTestResult("backward " + prefix + ".bias", bias, biasUpdated);
-}

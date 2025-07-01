@@ -19,8 +19,6 @@ public:
 
 	cudaGraphNode_t AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
-	void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
 	DropOut dropout;
 	
 	Tensor& input;

@@ -40,12 +40,111 @@ Transformer::Transformer() noexcept :
     gradient3(batch * sequenceLength, dModel),
     gradient4(batch * sequenceLength, dModel),
     gradient5(batch * sequenceLength, dModel) {;}
-
 Transformer::~Transformer() {
+    ResetGraph();
     delete[] inputEncoderH;
     delete[] inputDecoderH;
     delete[] srcSeqH;
     delete[] tgtSeqH;
+}
+
+float Transformer::Train(const std::size_t* encoderInput, const std::size_t* srcSeq,
+    const std::size_t* decoderInput, const std::size_t* tgtSeq,
+    const std::size_t* targetOutput) {
+
+    for(int i = 0;i < batch * sequenceLength;i++) {
+        this->inputEncoderH[i] = encoderInput[i];
+        this->inputDecoderH[i] = decoderInput[i];
+    }
+    for(int i = 0;i < batch;i++) {
+        this->srcSeqH[i] = srcSeq[i];
+        this->tgtSeqH[i] = tgtSeq[i];
+    }
+    
+    SetTrainGraph();
+    UpdateGraph(graphExecTrain);
+    cudaGraphLaunch(graphExecTrain, 0);
+    cudaStreamSynchronize(0);
+
+    float loss = CrossEntropy(output, targetOutput, outputGradient, tgtSeqH);
+
+    return loss;
+}
+
+void Transformer::Encode(const std::size_t* encoderInput, const std::size_t* srcSeq) {
+    for(int i = 0;i < batch * sequenceLength;i++) {
+        this->inputEncoderH[i] = encoderInput[i];
+    }
+    for(int i = 0;i < batch;i++) {
+        this->srcSeqH[i] = srcSeq[i];
+    }
+
+    SetPredictGraph();
+    UpdateGraph(graphExecEncode);
+    cudaGraphLaunch(graphExecEncode, 0);
+    cudaStreamSynchronize(0);
+}
+
+void Transformer::Decode(const std::size_t* decoderInput, const std::size_t* tgtSeq) {
+    for(int i = 0;i < batch * sequenceLength;i++) {
+        this->inputDecoderH[i] = decoderInput[i];
+    }
+    for(int i = 0;i < batch;i++) {
+        this->tgtSeqH[i] = tgtSeq[i];
+    }
+
+    SetPredictGraph();
+    UpdateGraph(graphExecDecode);
+    cudaGraphLaunch(graphExecDecode, 0);
+    cudaStreamSynchronize(0);
+}
+
+void Transformer::ResetGraph() {
+    if(graphState == 1) {
+        cudaGraphDestroy(graphTrain);
+        cudaGraphExecDestroy(graphExecTrain);
+    }
+    if(graphState == 2) {
+        cudaGraphDestroy(graphEncode);
+        cudaGraphExecDestroy(graphExecEncode);
+        cudaGraphDestroy(graphDecode);
+        cudaGraphExecDestroy(graphExecDecode);
+    }
+}
+
+void Transformer::SetTrainGraph() {
+    if(graphState != 1) {
+        std::cout << "Transformer : Changing to training graph...\n";
+        ResetGraph();
+        std::cout << "Transformer : Building graph...\n";
+        cudaError_t err = cudaGraphCreate(&graphTrain, 0);
+        cudaGraphNode_t k1 = AppendGraphForward(graphTrain, {});
+        cudaGraphNode_t k2 = AppendGraphBackward(graphTrain, {k1});
+        cudaGraphNode_t k3 = AppendGraphUpdateParameter(graphTrain, {k2});
+        std::cout << "Transformer : Instantiating graphexec...\n";
+        cudaGraphInstantiate(&graphExecTrain, graphTrain, nullptr, nullptr, 0);
+        graphState = 1;
+    } 
+}
+
+void Transformer::SetPredictGraph() {
+    if(graphState != 2) {
+        std::cout << "Transformer : Changing to evaluation graph...\n";
+        ResetGraph();
+
+        std::cout << "Transformer : Building encode graph...\n";
+        cudaGraphCreate(&graphEncode, 0);
+        cudaGraphNode_t k1 = AppendGraphPredictEncode(graphTrain, {});
+        std::cout << "Transformer : Instantiating graphexec...\n";
+        cudaGraphInstantiate(&graphExecEncode, graphEncode, nullptr, nullptr, 0);
+
+        std::cout << "Transformer : Building decode graph...\n";
+        cudaGraphCreate(&graphDecode, 0);
+        cudaGraphNode_t k2 = AppendGraphPredictDecode(graphDecode, {});
+        std::cout << "Transformer : Instantiating graphexec...\n";
+        cudaGraphInstantiate(&graphExecDecode, graphDecode, nullptr, nullptr, 0);
+        graphState = 2;
+    }
 }
 
 void Transformer::UpdateGraph(cudaGraphExec_t instance) {
@@ -66,15 +165,19 @@ cudaGraphNode_t Transformer::AppendGraphForward(cudaGraph_t graph, const std::ve
     return k7;
 }
 
-cudaGraphNode_t Transformer::AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
+cudaGraphNode_t Transformer::AppendGraphPredictEncode(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
     cudaGraphNode_t k1 = srcEmbed.AppendGraphPredict(graph, dependencyNodes);
-    cudaGraphNode_t k2 = tgtEmbed.AppendGraphPredict(graph, dependencyNodes);
-    cudaGraphNode_t k3 = srcPos.AppendGraphPredict(graph, { k1 });
-    cudaGraphNode_t k4 = tgtPos.AppendGraphPredict(graph, { k2 });
-    cudaGraphNode_t k5 = encoder.AppendGraphPredict(graph, { k3 });
-    cudaGraphNode_t k6 = decoder.AppendGraphPredict(graph, { k4, k5 });
-    cudaGraphNode_t k7 = linear.AppendGraphPredict(graph, { k6 });
-    return k7;
+    cudaGraphNode_t k2 = srcPos.AppendGraphPredict(graph, { k1 });
+    cudaGraphNode_t k3 = encoder.AppendGraphPredict(graph, { k2 });
+    return k3;
+}
+
+cudaGraphNode_t Transformer::AppendGraphPredictDecode(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
+    cudaGraphNode_t k1 = tgtEmbed.AppendGraphPredict(graph, dependencyNodes);
+    cudaGraphNode_t k2 = tgtPos.AppendGraphPredict(graph, { k1 });
+    cudaGraphNode_t k3 = decoder.AppendGraphPredict(graph, { k2 });
+    cudaGraphNode_t k4 = linear.AppendGraphForward(graph, { k3 });
+    return k4;
 }
 
 cudaGraphNode_t Transformer::AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
@@ -98,121 +201,4 @@ cudaGraphNode_t Transformer::AppendGraphUpdateParameter(cudaGraph_t graph, const
     cudaGraphNode_t k6 = srcEmbed.AppendGraphUpdateParameter(graph, { k1 });
     cudaGraphNode_t k7 = SyncDependency(graph, { k2, k3, k4, k5, k6 });
     return k7;
-}
-
-void Transformer::loadParam(cnpy::npz_t npFile, std::string prefix) {
-    encoder.loadParam(npFile, prefix + ".encoder");
-    decoder.loadParam(npFile, prefix + ".decoder");
-    srcEmbed.loadParam(npFile, prefix + ".src_embed");
-    tgtEmbed.loadParam(npFile, prefix + ".tgt_embed");
-    linear.weight.loadNp(npFile, prefix + ".projection_layer.weight");
-    linear.bias.loadNp(npFile, prefix + ".projection_layer.bias");
-}
-
-void Transformer::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    encoder.checkUpdatedParam(npFile, prefix + ".encoder");
-    decoder.checkUpdatedParam(npFile, prefix + ".decoder");
-    srcEmbed.checkUpdatedParam(npFile, prefix + ".src_embed");
-    tgtEmbed.checkUpdatedParam(npFile, prefix + ".tgt_embed");
-    linear.checkUpdatedParam(npFile, prefix + ".projection_layer");
-}
-
-void Transformer::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(batch * sequenceLength, tgtVocab);
-    Tensor targetd(batch * sequenceLength, dModel);
-    Tensor ttt(batch * sequenceLength, dModel);
-    Tensor _inputEncoderH(1, batch * sequenceLength);
-    Tensor _inputDecoderH(1, batch * sequenceLength);
-    Tensor npdLoader(1, 2);
-
-    _inputEncoderH.loadNp(npFile, prefix + ".input1");
-    _inputDecoderH.loadNp(npFile, prefix + ".input2");
-    target.loadNp(npFile, prefix + ".output");
-    targetd.loadNp(npFile, prefix + ".outputd");
-    ttt.loadNp(npFile, prefix + ".layer0.sub1.output");
-    npdLoader.loadNp(npFile, prefix + ".npd");
-
-    float* encoderH = new float[batch * sequenceLength];
-    float* decoderH = new float[batch * sequenceLength];
-    float* _seqH = new float[batch];
-    _inputEncoderH.toFloat(encoderH);
-    _inputDecoderH.toFloat(decoderH);
-	npdLoader.toFloat((float*)_seqH);
-
-	for(int i = 0;i < batch;i++) {
-		srcSeqH[i] = _seqH[0];
-	}
-    for(int i = 0;i < batch;i++) {
-		tgtSeqH[i] = _seqH[1];
-	}
-    for(int i = 0;i < batch * sequenceLength;i++) {
-        inputEncoderH[i] = encoderH[i];
-        inputDecoderH[i] = decoderH[i];
-    }
-
-    // Forward
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    this->AppendGraphForward(graph, {});
-    cudaError_t err = cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph(instance);
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    PrintTestResult("forward", output, target);
-
-    cudaGraphDestroy(graph);
-    cudaGraphExecDestroy(instance);
-}
-
-void Transformer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Set(outputGradient, 1.0f / batch / sequenceLength / tgtVocab);
-    Tensor target(batch * sequenceLength, tgtVocab);
-    Tensor targete(batch * sequenceLength, dModel);
-    Tensor _inputEncoderH(1, batch * sequenceLength);
-    Tensor _inputDecoderH(1, batch * sequenceLength);
-    Tensor npdLoader(1, 2);
-
-    _inputEncoderH.loadNp(npFile, prefix + ".input1");
-    _inputDecoderH.loadNp(npFile, prefix + ".input2");
-    target.loadNp(npFile, prefix + ".output");
-    targete.loadNp(npFile, prefix + ".outpute");
-    npdLoader.loadNp(npFile, prefix + ".npd");
-
-    float* encoderH = new float[batch * sequenceLength];
-    float* decoderH = new float[batch * sequenceLength];
-    float* _seqH = new float[batch];
-    _inputEncoderH.toFloat(encoderH);
-    _inputDecoderH.toFloat(decoderH);
-	npdLoader.toFloat((float*)_seqH);
-
-	for(int i = 0;i < batch;i++) {
-		srcSeqH[i] = _seqH[0];
-	}
-    for(int i = 0;i < batch;i++) {
-		tgtSeqH[i] = _seqH[1];
-	}
-    for(int i = 0;i < batch * sequenceLength;i++) {
-        inputEncoderH[i] = encoderH[i];
-        inputDecoderH[i] = decoderH[i];
-    }
-
-    // Forward, backward, update
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
-    cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
-    this->AppendGraphUpdateParameter(graph, {k2});
-    // cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-	this->UpdateGraph(instance);
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    checkUpdatedParam(npFile, prefix);
-
-    cudaGraphDestroy(graph);
-    cudaGraphExecDestroy(instance);
 }

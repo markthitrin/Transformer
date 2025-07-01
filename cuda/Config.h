@@ -13,10 +13,10 @@ static constexpr std::size_t sequenceLength = 35;
 static constexpr std::size_t dFF = 256; // 256
 static constexpr float dropoutRate = 0.1;
 static constexpr std::size_t N = 6;
-static constexpr std::size_t srcVocab = 128;
-static constexpr std::size_t tgtVocab = 128;
+static constexpr std::size_t srcVocab = 15700;
+static constexpr std::size_t tgtVocab = 22465;
 
-static constexpr std::size_t epoch = 2;
+static constexpr std::size_t trainingIteration = 10000;
 static constexpr std::size_t batch = 8;
 
 static constexpr std::size_t MATMUL_BLOCKSIZE = 16;

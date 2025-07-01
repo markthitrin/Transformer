@@ -61,6 +61,9 @@ cudaGraphNode_t AppendReduceSumNode(
 cudaGraphNode_t AppendReduceMaxNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
     Tensor& input, Tensor& maxValue);
+cudaGraphNode_t AppendReduceSumExpNode(
+    cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
+    Tensor& input, Tensor& maxValue, Tensor& sumExp);
 
 cudaGraphNode_t AppendMeanNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
@@ -71,13 +74,13 @@ cudaGraphNode_t AppendStdNode(
 
 cudaGraphNode_t AppendLookAheadMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x);
+    Tensor& Attention, const std::size_t batch, std::size_t*& seq, const float x);
 cudaGraphNode_t AppendPaddingMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x);
+    Tensor& Attention, const std::size_t batch, std::size_t*& seq, const float x);
 cudaGraphNode_t AppendCrossPaddingMaskBatchNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& Attention, const std::size_t batch, std::size_t* seq, const float x);
+    Tensor& Attention, const std::size_t batch, std::size_t*& seq, const float x);
 
 cudaGraphNode_t AppendMatMulPlusNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,

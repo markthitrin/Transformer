@@ -16,8 +16,6 @@ public:
 
     void toFloat(float* _data) noexcept;
 
-    void loadNp(const cnpy::npz_t& npFile, const std::string& name) noexcept;
-
     void XavierUniformFill() noexcept;
 
     void UniformFill(const float limit) noexcept;

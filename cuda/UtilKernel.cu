@@ -29,3 +29,34 @@ __global__ void AdamOptKernel(
         (*t)++; 
     }
 }
+
+__global__ void CrossEntropyKernel(
+    const float* logits, const float* sumExp, const float* maxValue, float* softmax, const std::size_t* target, const bool* tgtSeqhot, float* loss,
+    const std::size_t pitchLogits, const std::size_t pitchSoftmax,
+    const std::size_t row) {
+
+    const int r = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if(r < row) {
+        if(tgtSeqhot[r] == 1) {
+            std::size_t targetToken = target[r];
+            *Get(softmax, r, targetToken, pitchSoftmax) -= 1;
+            loss[r] = __logf(sumExp[r]) + maxValue[r] - *Get(logits, r, targetToken, pitchLogits);
+        }
+        else {
+            loss[r] = 0.0f;
+        }
+    }
+}
+__global__ void SoftmaxFKernel(
+	const float* input, const float* maxValue, const float* sumExp, float* output, const bool* tgtSeqhot,
+	const std::size_t pitchInput, const std::size_t pitchOutput,
+	const std::size_t row, const std::size_t col) {
+
+	const int r = blockIdx.y * blockDim.y + threadIdx.y;
+    const int c = blockIdx.x * blockDim.x + threadIdx.x;
+
+	if(r < row && c < col && tgtSeqhot[r]) {
+		*Get(output, r, c, pitchOutput) = expf(*Get(input, r, c, pitchInput) - maxValue[r]) / (sumExp[r] + eps);
+	}
+}

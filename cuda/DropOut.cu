@@ -7,7 +7,6 @@
 #include "Util.cuh"
 #include "UtilKernel.cuh"
 
-
 DropOut::DropOut(
     Tensor& input,
     Tensor& output,
@@ -22,16 +21,22 @@ DropOut::DropOut(
     inputGradient(inputGradient),
     mask(row, col) {
         
-    cudaMallocPitch((void**)&states, &pitchState, sizeof(float) * col, row);
+    cudaMallocPitch((void**)&states, &pitchState, sizeof(curandStatePhilox4_32_10_t) * col, row);
+    setupState();
 }
-
 DropOut::~DropOut() {
     cudaFree(states);
 }
 
+void DropOut::setupState() {
+    constexpr int BLOCKSIZE = 16;
+    dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
+    dim3 gridDim(ceil(mask.col, BLOCKSIZE), ceil(mask.row, BLOCKSIZE));
+    setupStateKernel<<<gridDim, blockDim>>>(states, 0, pitchState, input.row, input.col);
+}
+
 cudaGraphNode_t DropOut::AppendGraphForward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
-    // cudaGraphNode_t k1 = AppendDropoutNode(graph, dependencyNodes, input, mask, output, states, dropoutRate, pitchState);
-    cudaGraphNode_t k1 = AppendMulNode(graph, dependencyNodes, input, 1 / (1.0f - dropoutRate), output);
+    cudaGraphNode_t k1 = AppendDropoutNode(graph, dependencyNodes, input, mask, output, states, dropoutRate, pitchState);
     return k1;
 }
 
@@ -40,14 +45,15 @@ cudaGraphNode_t DropOut::AppendGraphPredict(cudaGraph_t graph, const std::vector
 }
 
 cudaGraphNode_t DropOut::AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
-    // cudaGraphNode_t k1 = AppendDropoutBackwardNode(graph, dependencyNodes, outputGradient, mask, inputGradient);
-    cudaGraphNode_t k1 = AppendMulNode(graph, dependencyNodes, outputGradient, 1 / (1.0f - dropoutRate), inputGradient);
+    cudaGraphNode_t k1 = AppendDropoutBackwardNode(graph, dependencyNodes, outputGradient, mask, inputGradient);
     return k1;
 }
 
+
+
 cudaGraphNode_t AppendDropoutNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    Tensor& input, Tensor& mask, Tensor& output, curandStatePhilox4_32_10_t* states, float dropoutRate,
+    Tensor& input, Tensor& mask, Tensor& output, curandStatePhilox4_32_10_t*& states, float dropoutRate,
     std::size_t pitchState) {
 
     cudaGraphNode_t dependency = SyncDependency(graph, dependencyNodes);
@@ -57,9 +63,12 @@ cudaGraphNode_t AppendDropoutNode(
     dim3 blockDim(BLOCKSIZE, BLOCKSIZE);
     dim3 gridDim(ceil(input.col, BLOCKSIZE), ceil(input.row, BLOCKSIZE));
 
+    float* dropouteRatePtr = new float(dropoutRate);
+    std::size_t* pitchStatePtr = new std::size_t(pitchState);
+
     void* kernelArgs[] = {
-        &input.data, &mask.data, &output.data, &states, &dropoutRate,
-        &input.pitch, &mask.pitch, &output.pitch, &pitchState,
+        &input.data, &mask.data, &output.data, &states, dropouteRatePtr,
+        &input.pitch, &mask.pitch, &output.pitch, pitchStatePtr,
         &input.row, &input.col }; 
 
     cudaKernelNodeParams kernelParams;
@@ -110,7 +119,8 @@ cudaGraphNode_t AppendDropoutBackwardNode(
 }
 
 
-__global__ void setupState(
+
+__global__ void setupStateKernel(
     curandStatePhilox4_32_10_t* states, unsigned long long seed,
     const std::size_t pitchState,
     const std::size_t row, const std::size_t col) {

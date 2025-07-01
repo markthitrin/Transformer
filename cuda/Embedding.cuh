@@ -24,14 +24,6 @@ public:
 
 	cudaGraphNode_t AppendGraphUpdateParameter(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes);
 
-	void loadParam(cnpy::npz_t npFile, std::string prefix);
-
-	void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
-
-	void backwardTest(cnpy::npz_t npFile, std::string prefix);
-
 	std::size_t*& inputH;
 	std::size_t* input;
 	Tensor& output;
@@ -48,11 +40,11 @@ public:
 
 cudaGraphNode_t AppendEmbeddingNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::size_t* input, std::vector<cudaGraphNode_t>& forwardNodes, std::vector<cudaMemcpy3DParms>& forwardParams,
+    std::size_t*& input, std::vector<cudaGraphNode_t>& forwardNodes, std::vector<cudaMemcpy3DParms>& forwardParams,
     Tensor& table, Tensor& output);
 cudaGraphNode_t AppendEmbeddingBackwardNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
-    std::size_t* input,
+    std::size_t*& input,
     AdamOptimizer& tableOpt, Tensor& outputGradient);
 cudaGraphNode_t AppendEmbeddingUpdateParameterNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,

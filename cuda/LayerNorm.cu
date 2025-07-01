@@ -63,61 +63,7 @@ cudaGraphNode_t LayerNorm::AppendGraphUpdateParameter(cudaGraph_t graph, const s
     return k4;
 }
 
-void LayerNorm::loadParam(cnpy::npz_t npFile, std::string prefix) {
-	alpha.loadNp(npFile, prefix + ".alpha");
-	bias.loadNp(npFile, prefix + ".bias");
-}
 
-void LayerNorm::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(output.row, output.col);
-
-    target.loadNp(npFile, prefix + ".output");
-    input.loadNp(npFile, prefix + ".input");
-
-    // Forward
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    this->AppendGraphForward(graph, {});
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-
-    PrintTestResult("forward", output, target);
-}
-
-void LayerNorm::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-	Tensor updatedAlpha(1, dModel);
-	Tensor updatedBias(1, dModel);
-    updatedAlpha.loadNp(npFile, prefix + ".updated_alpha");
-    updatedBias.loadNp(npFile, prefix + ".updated_bias");
-
-    PrintTestResult("backward " + prefix + ".updated_alpha", alpha, updatedAlpha);
-	PrintTestResult("backward " + prefix + ".updated_bias", bias, updatedBias);
-}
-
-void LayerNorm::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Set(outputGradient, 1.0f / output.row / output.col);
-    cudaDeviceSynchronize();
-
-    // load input
-    input.loadNp(npFile, prefix + ".input");
-
-    // Forward, backward, update
-    cudaGraph_t graph;
-    cudaGraphExec_t instance;
-    cudaGraphCreate(&graph, 0);
-    cudaGraphNode_t k1 = this->AppendGraphForward(graph, {});
-    cudaGraphNode_t k2 = this->AppendGraphBackward(graph, {k1});
-    
-    this->AppendGraphUpdateParameter(graph, {k2});
-    cudaGraphDebugDotPrint(graph, "graph.dot", cudaGraphDebugDotFlagsVerbose);
-    cudaGraphInstantiate(&instance, graph, nullptr, nullptr, 0);
-    cudaGraphLaunch(instance, 0);
-    cudaDeviceSynchronize();
-    
-    checkUpdatedParam(npFile, prefix);
-}
 
 cudaGraphNode_t AppendLayerNormNode(
     cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes,
@@ -178,6 +124,8 @@ cudaGraphNode_t AppendLayerNormBackwardNode(
     return kernelNode;
 }
 
+
+
 __global__ void LayerNormKernel(
 	const float* A, const float* mean, const float* std, const float* alpha, const float* bias, float* C, float* D,
 	const std::size_t pitchA, const std::size_t pitchC, const std::size_t pitchD,
@@ -191,6 +139,7 @@ __global__ void LayerNormKernel(
 		*Get(D, r, c, pitchD) = *Get(alpha, 0, c, 0) * *Get(C, r, c, pitchC) + *Get(bias, 0, c, 0);
 	}
 }
+
 __global__ void LayerNormBackwardKernel(
 	const float* A, const float* B, const float* std, const float* sumG, const float* sumGXHat, const float* alpha, float* C,
 	const std::size_t pitchA, const std::size_t pitchB, const std::size_t pitchC,
