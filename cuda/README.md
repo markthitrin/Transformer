@@ -6,6 +6,9 @@ make -j$(nproc)
 ```
 You will get one executable program name "BitcoinMiner" in this directory.
 
+# Config
+The model is fixed and can only be configured in the **./config.h**
+
 # Test
 I have done some test on the model to ensure the correctness of the model.
 The test code is in the **./Test** directory which only works with previous commit
