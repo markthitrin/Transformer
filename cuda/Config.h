@@ -1,7 +1,7 @@
 #ifndef CONFIG
 #define CONFIG
 
-static constexpr float lr = 1e-4;
+static constexpr float lr = 1e-3;
 static constexpr std::size_t warmupStep = 4000;
 static constexpr float beta1 = 0.9;
 static constexpr float beta2 = 0.999;
@@ -17,6 +17,7 @@ static constexpr std::size_t srcVocab = 15700;
 static constexpr std::size_t tgtVocab = 22465;
 
 static constexpr std::size_t trainingIteration = 10000;
+static constexpr std::size_t testingIteration = 10;
 static constexpr std::size_t batch = 8;
 
 static constexpr std::size_t MATMUL_BLOCKSIZE = 16;

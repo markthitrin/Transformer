@@ -142,7 +142,7 @@ cudaGraphNode_t MultiheadAttention::AppendGraphPredict(cudaGraph_t graph, const 
 		case CROSS_PADDING: k15 = AppendCrossPaddingMaskBatchNode(graph, { k14 }, A, batch * head, seq, -1e9); break;
 	}
 
-	cudaGraphNode_t k16 = softmax.AppendGraphForward(graph, { k6, k15 });
+	cudaGraphNode_t k16 = softmax.AppendGraphPredict(graph, { k6, k15 });
 	cudaGraphNode_t k17 = dropout.AppendGraphPredict(graph, { k7, k16 });
 	cudaGraphNode_t k18 = AppendMatMulPlusBatchNode(graph, { k8, k12, k17 }, VT, Ad, OT, false, true, batch * head, false, false, false);
 	cudaGraphNode_t k19 = AppendMatMulPlusBatchNode(graph, { k9, k18 }, OT, WO, output, true, false, batch, false, true, false);

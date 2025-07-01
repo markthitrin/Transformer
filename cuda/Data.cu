@@ -51,6 +51,6 @@ void Data::get(std::size_t* encoderInput, std::size_t* srcSeq,
         }
 
         srcSeq[i] = srclen;
-        tgtSeq[i] = tgtlen;
+        tgtSeq[i] = tgtlen + 1;
     }
 }

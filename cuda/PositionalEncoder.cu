@@ -27,7 +27,9 @@ cudaGraphNode_t PositionalEncoder::AppendGraphForward(cudaGraph_t graph, const s
 }
 
 cudaGraphNode_t PositionalEncoder::AppendGraphPredict(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {
-    return AppendGraphForward(graph, dependencyNodes);
+    cudaGraphNode_t k1 = AppendPlusInplaceBatchNode(graph, dependencyNodes, input, positionEncode, batch);
+    cudaGraphNode_t k2 = dropout.AppendGraphPredict(graph, {k1});
+    return k2;
 }
 
 cudaGraphNode_t PositionalEncoder::AppendGraphBackward(cudaGraph_t graph, const std::vector<cudaGraphNode_t>& dependencyNodes) {

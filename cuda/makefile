@@ -27,7 +27,7 @@ SRCS := \
 
 OBJS := $(patsubst %.cu,build/%.o,$(SRCS))
 
-TARGET := program
+TARGET := BitcoinMiner
 
 all: $(TARGET)
 

@@ -62,11 +62,12 @@ float Transformer::Train(const std::size_t* encoderInput, const std::size_t* src
     }
     
     SetTrainGraph();
-    UpdateGraph(graphExecTrain);
-    cudaGraphLaunch(graphExecTrain, 0);
+    UpdateGraph(graphExecForward);
+    cudaGraphLaunch(graphExecForward, 0);
     cudaStreamSynchronize(0);
-
     float loss = CrossEntropy(output, targetOutput, outputGradient, tgtSeqH);
+    cudaGraphLaunch(graphExecBackward, 0);
+    cudaStreamSynchronize(0);
 
     return loss;
 }
@@ -101,8 +102,10 @@ void Transformer::Decode(const std::size_t* decoderInput, const std::size_t* tgt
 
 void Transformer::ResetGraph() {
     if(graphState == 1) {
-        cudaGraphDestroy(graphTrain);
-        cudaGraphExecDestroy(graphExecTrain);
+        cudaGraphDestroy(graphForward);
+        cudaGraphExecDestroy(graphExecForward);
+        cudaGraphDestroy(graphBackward);
+        cudaGraphExecDestroy(graphExecBackward);
     }
     if(graphState == 2) {
         cudaGraphDestroy(graphEncode);
@@ -116,13 +119,19 @@ void Transformer::SetTrainGraph() {
     if(graphState != 1) {
         std::cout << "Transformer : Changing to training graph...\n";
         ResetGraph();
-        std::cout << "Transformer : Building graph...\n";
-        cudaError_t err = cudaGraphCreate(&graphTrain, 0);
-        cudaGraphNode_t k1 = AppendGraphForward(graphTrain, {});
-        cudaGraphNode_t k2 = AppendGraphBackward(graphTrain, {k1});
-        cudaGraphNode_t k3 = AppendGraphUpdateParameter(graphTrain, {k2});
+
+        std::cout << "Transformer : Building Forward graph...\n";
+        cudaGraphCreate(&graphForward, 0);
+        cudaGraphNode_t k1 = AppendGraphForward(graphForward, {});
         std::cout << "Transformer : Instantiating graphexec...\n";
-        cudaGraphInstantiate(&graphExecTrain, graphTrain, nullptr, nullptr, 0);
+        cudaGraphInstantiate(&graphExecForward, graphForward, nullptr, nullptr, 0);
+
+        std::cout << "Transformer : Building Backward graph...\n";
+        cudaGraphCreate(&graphBackward, 0);
+        cudaGraphNode_t k2 = AppendGraphBackward(graphBackward, {});
+        cudaGraphNode_t k3 = AppendGraphUpdateParameter(graphBackward, {k2});
+        std::cout << "Transformer : Instantiating graphexec...\n";
+        cudaGraphInstantiate(&graphExecBackward, graphBackward, nullptr, nullptr, 0);
         graphState = 1;
     } 
 }
@@ -134,7 +143,7 @@ void Transformer::SetPredictGraph() {
 
         std::cout << "Transformer : Building encode graph...\n";
         cudaGraphCreate(&graphEncode, 0);
-        cudaGraphNode_t k1 = AppendGraphPredictEncode(graphTrain, {});
+        cudaGraphNode_t k1 = AppendGraphPredictEncode(graphEncode, {});
         std::cout << "Transformer : Instantiating graphexec...\n";
         cudaGraphInstantiate(&graphExecEncode, graphEncode, nullptr, nullptr, 0);
 

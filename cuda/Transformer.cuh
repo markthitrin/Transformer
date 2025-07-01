@@ -71,8 +71,10 @@ public:
     Tensor gradient4;
     Tensor gradient5;
 
-    cudaGraph_t graphTrain;
-    cudaGraphExec_t graphExecTrain;
+    cudaGraph_t graphForward;
+    cudaGraphExec_t graphExecForward;
+    cudaGraph_t graphBackward;
+    cudaGraphExec_t graphExecBackward;
     cudaGraph_t graphEncode;
     cudaGraphExec_t graphExecEncode;
     cudaGraph_t graphDecode;
