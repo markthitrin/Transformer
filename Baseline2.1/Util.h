@@ -26,7 +26,7 @@ void AdamOpt(Tensor<row, col>& _param, AdamOptGradient<row, col>& _opt, int feed
     const float learningRate = lr;
     const float invPowBeta1 = 1.0f / (1.0f - std::pow(beta1,_opt.t));
     const float invPowBeta2 = 1.0f / (1.0f - std::pow(beta2,_opt.t));
-        for(int i = 0;i < row * col;i++) {
+    for(int i = 0;i < row * col;i++) {
         accM[i] = accM[i] * beta1 + gradient[i] * (1.0f - beta1);
         accV[i] = accV[i] * beta2 + gradient[i] * gradient[i] * (1.0f - beta2);
         float mHat = accM[i] * invPowBeta1;

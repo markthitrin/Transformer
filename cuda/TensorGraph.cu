@@ -635,16 +635,19 @@ cudaGraphNode_t AppendMatMulPlusNode(
         void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &A.col, &C.col};
         kernelParams.func = (void*)MatMulKernelAB;
         kernelParams.kernelParams = kernelArgs;
+        std::cout << "AB : " << C.row << " " << A.col << " " << C.col << std::endl;
     }
     else if(ATransposed && !BTransposed) {
         void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &A.row, &C.col};
         kernelParams.func = (void*)MatMulKernelATB;
         kernelParams.kernelParams = kernelArgs;
+        std::cout << "ATB : " << C.row << " " << A.row << " " << C.col << std::endl;
     }
     else if (!ATransposed && BTransposed) {
         void* kernelArgs[] = { &A.data, &B.data, &C.data, &A.pitch, &B.pitch, &C.pitch, &C.row, &A.col, &C.col};
         kernelParams.func = (void*)MatMulKernelABT;
         kernelParams.kernelParams = kernelArgs;
+        std::cout << "ABT : " << C.row << " " << A.col << " " << C.col << std::endl;
     }
     else {
         // nothing implemented here.
@@ -692,6 +695,7 @@ cudaGraphNode_t AppendMatMulPlusBatchNode(
             kernelArgs[8] = &C.col;
             kernelParams.func = (void*)MatMulKernelAB;
             kernelParams.kernelParams = kernelArgs;
+            std::cout << "AB : " << (CBroadcast ? C.row : *Csr) << " " << A.col << " " << C.col << std::endl;
         }
         else if(ATransposed && !BTransposed) {
             kernelArgs[6] = CBroadcast ? &C.row : Csr;
@@ -699,6 +703,7 @@ cudaGraphNode_t AppendMatMulPlusBatchNode(
             kernelArgs[8] = &C.col;
             kernelParams.func = (void*)MatMulKernelATB;
             kernelParams.kernelParams = kernelArgs;
+            std::cout << "ATB : " << (CBroadcast ? C.row : *Csr) << " " << (ABroadcast ? A.row : *Asr) << " " << C.col << std::endl;
         }
         else if (!ATransposed && BTransposed) {
             kernelArgs[6] = CBroadcast ? &C.row : Csr;
@@ -706,6 +711,7 @@ cudaGraphNode_t AppendMatMulPlusBatchNode(
             kernelArgs[8] = &C.col;
             kernelParams.func = (void*)MatMulKernelABT;
             kernelParams.kernelParams = kernelArgs;
+            std::cout << "ABT : " << (CBroadcast ? C.row : *Csr) << " " << A.col << " " << C.col << std::endl;
         }
         else {
             // nothing implemented here.

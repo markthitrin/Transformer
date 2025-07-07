@@ -1,5 +1,5 @@
 NVCC := nvcc
-NVCCFLAGS := -O2 -rdc=true -std=c++17
+NVCCFLAGS := -g -rdc=true -std=c++17
 
 SRCS := \
 	Data.cu \
