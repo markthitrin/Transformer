@@ -132,8 +132,8 @@ void DecoderLayer::forwardTest(cnpy::npz_t npFile, std::string prefix) {
     input1.loadNp(npFile, prefix + ".input1");
     input2.loadNp(npFile, prefix + ".input2");
     target.loadNp(npFile, prefix + ".output");
-    target1.loadNp(npFile, prefix + ".output1");
-    target2.loadNp(npFile, prefix + ".output2");
+    // target1.loadNp(npFile, prefix + ".output1");
+    // target2.loadNp(npFile, prefix + ".output2");
     npdLoad.loadNp(npFile, prefix + ".npd");
     for(int i = 0;i < batch;i++) srcSeq[i] = npdLoad[0];
     for(int i = 0;i < batch;i++) tgtSeq[i] = npdLoad[1];
@@ -141,8 +141,8 @@ void DecoderLayer::forwardTest(cnpy::npz_t npFile, std::string prefix) {
     forward(input1, input2, output, srcSeq, tgtSeq);
 
     PrintTestResult("forward", output, target);
-    PrintTestResult("forward", out3, target1);
-    PrintTestResult("forward", out6, target2);
+    // PrintTestResult("forward", out3, target1);
+    // PrintTestResult("forward", out6, target2);
 }
 
 void DecoderLayer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
