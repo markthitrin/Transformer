@@ -45,3 +45,54 @@ void FeedForwardBlock::updateParameter() {
     linear1.updateParameter();
     linear2.updateParameter();
 }
+
+void FeedForwardBlock::loadParam(cnpy::npz_t npFile, std::string prefix) {
+    linear1.weight.loadNp(npFile, prefix + ".w1");
+    linear1.bias.loadNp(npFile, prefix + ".b1");
+    linear2.weight.loadNp(npFile, prefix + ".w2");
+    linear2.bias.loadNp(npFile, prefix + ".b2");
+}
+
+void FeedForwardBlock::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
+    Tensor w1Updated(dModel, dFF);
+    Tensor b1Updated(1, dFF);
+    Tensor w2Updated(dFF, dModel);
+    Tensor b2Updated(1, dModel);
+    w1Updated.loadNp(npFile, prefix + ".updated_w1");
+    b1Updated.loadNp(npFile, prefix + ".updated_b1");
+    w2Updated.loadNp(npFile, prefix + ".updated_w2");
+    b2Updated.loadNp(npFile, prefix + ".updated_b2");
+
+    PrintTestResult("backward " + prefix + ".w1", linear1.weight, w1Updated);
+    PrintTestResult("backward " + prefix + ".b1", linear1.bias, b1Updated);
+    PrintTestResult("backward " + prefix + ".w2", linear2.weight, w2Updated);
+    PrintTestResult("backward " + prefix + ".b2", linear2.bias, b2Updated);
+}
+
+void FeedForwardBlock::forwardTest(cnpy::npz_t npFile, std::string prefix) {
+    Tensor input(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+    Tensor target(batch * sequenceLength, dModel);
+
+    input.loadNp(npFile, prefix + ".input");
+    target.loadNp(npFile, prefix + ".output");
+
+    forward(input, output);
+    PrintTestResult("forward", output, target);
+}
+
+void FeedForwardBlock::backwardTest(cnpy::npz_t npFile, std::string prefix) {
+    Tensor input(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+    Tensor outputGradient(batch * sequenceLength, dModel);
+    Tensor inputGradient(batch * sequenceLength, dModel);
+    outputGradient = 1.0f / outputGradient.row / outputGradient.col;
+
+    input.loadNp(npFile, prefix + ".input");
+    
+    forward(input, output);
+    backward(outputGradient, inputGradient, input);
+    updateParameter();
+
+    checkUpdatedParam(npFile, prefix);
+}

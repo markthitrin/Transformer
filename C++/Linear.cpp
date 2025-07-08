@@ -11,10 +11,10 @@ Linear::Linear(const int in, const int out) :
 }
 
 void Linear::forward(TensorView input, TensorView output) {
-    MatMulPlusAB(input, weight, output);
     for(int i = 0;i < batch * sequenceLength;i++) {
-        Plus(input.sliceRow(i,1), bias, output.sliceRow(i,1));
+        output.sliceRow(i,1) = bias;
     }
+    MatMulPlusAB(input, weight, output);
 }
 
 void Linear::predict(TensorView input, TensorView output) {
@@ -33,4 +33,15 @@ void Linear::backward(TensorView outputGradient, TensorView inputGradient, Tenso
 void Linear::updateParameter() {
     AdamOpt(weight, weightOpt);
     AdamOpt(bias, biasOpt);
+}
+
+void Linear::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
+    Tensor weightUpdated(weight.row, weight.col);
+    Tensor biasUpdated(1, weight.col);
+
+    weightUpdated.loadNp(npFile, prefix + ".updated_weight");
+    biasUpdated.loadNp(npFile, prefix + ".updated_bias");
+
+    PrintTestResult("backward " + prefix + ".weight", weight, weightUpdated);
+    PrintTestResult("backward " + prefix + ".bias", bias, biasUpdated);
 }

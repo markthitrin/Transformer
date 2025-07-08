@@ -88,7 +88,7 @@ void MultiheadAttention::process(
     for (int i = 0; i < batch * head; i++) {
         MatMulPlusABT(
             VT.sliceRow(i * dPerHead, dPerHead), 
-            As.sliceRow(i * sequenceLength, sequenceLength), 
+            Ad.sliceRow(i * sequenceLength, sequenceLength), 
             OT.sliceRow(i * dPerHead, dPerHead));
     }
     for (int i = 0; i < batch; i++) {
@@ -129,16 +129,16 @@ void MultiheadAttention::backward(
 
     for (int i = 0; i < batch; i++) {
         MatMulPlusAB(OT.sliceRow(i * dModel, dModel),outputGradient.sliceRow(i * sequenceLength, sequenceLength), WOOpt.gradient);
-        MatMulPlusABT(WO, outputGradient.sliceRow(i *  sequenceLength, sequenceLength), OTGradient.sliceRow(i * dModel, dModel));
+        MatMulPlusABT(WO, outputGradient.sliceRow(i * sequenceLength, sequenceLength), OTGradient.sliceRow(i * dModel, dModel));
     }
     for (int i = 0; i < batch * head; i++) {
         MatMulPlusATB(
             OTGradient.sliceRow(i * dPerHead, dPerHead),
             VT.sliceRow(i * dPerHead, dPerHead),
-            AsGradient.sliceRow(i * sequenceLength, sequenceLength));
+            AdGradient.sliceRow(i * sequenceLength, sequenceLength));
         MatMulPlusAB(
             OTGradient.sliceRow(i * dPerHead, dPerHead),
-            As.sliceRow(i * sequenceLength, sequenceLength),
+            Ad.sliceRow(i * sequenceLength, sequenceLength),
             VTGradient.sliceRow(i * dPerHead, dPerHead));
     }
     dropout.backward(AdGradient, AsGradient);
@@ -176,4 +176,91 @@ void MultiheadAttention::updateParameter() {
     AdamOpt(WK, WKOpt);
     AdamOpt(WV, WVOpt);
     AdamOpt(WO, WOOpt);
+}
+
+void MultiheadAttention::loadParam(cnpy::npz_t npFile, std::string prefix) {
+    WQ.loadNp(npFile, prefix + ".w_q");
+    WK.loadNp(npFile, prefix + ".w_k");
+    WV.loadNp(npFile, prefix + ".w_v");
+    WO.loadNp(npFile, prefix + ".w_o");
+}
+
+void MultiheadAttention::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
+    Tensor WQUpdated(dModel, dModel);
+    Tensor WKUpdated(dModel, dModel);;
+    Tensor WVUpdated(dModel, dModel);;
+    Tensor WOUpdated(dModel, dModel);;
+    WQUpdated.loadNp(npFile, prefix + ".updated_w_q");
+    WKUpdated.loadNp(npFile, prefix + ".updated_w_k");
+    WVUpdated.loadNp(npFile, prefix + ".updated_w_v");
+    WOUpdated.loadNp(npFile, prefix + ".updated_w_o");
+
+    PrintTestResult("backward " + prefix + ".wq", WQ, WQUpdated);
+    PrintTestResult("backward " + prefix + ".wk", WK, WKUpdated);
+    PrintTestResult("backward " + prefix + ".wv", WV, WVUpdated);
+    PrintTestResult("backward " + prefix + ".wo", WO, WOUpdated);
+}
+
+void MultiheadAttention::forwardTest(cnpy::npz_t npFile, std::string prefix) {
+    Tensor inputQ(batch * sequenceLength, dModel);
+    Tensor inputK(batch * sequenceLength, dModel);
+    Tensor inputV(batch * sequenceLength, dModel);
+    Tensor target(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+    Tensor npdLoader(1,1);
+    int seq[batch];
+
+    inputQ.loadNp(npFile, prefix + ".q");
+    inputK.loadNp(npFile, prefix + ".k");
+    inputV.loadNp(npFile, prefix + ".v");
+    npdLoader.loadNp(npFile, prefix + ".npd");
+    for(int i = 0;i < batch;i++) seq[i] = npdLoader[0];
+    target.loadNp(npFile, prefix + ".output");
+
+    forward(inputQ, inputK, inputV, output, LOOK_AHEAD, seq);
+    PrintTestResult("forward", output, target);
+
+
+    
+    // Tensor query;
+    // Tensor key;
+    // Tensor value;
+    // Tensor att;
+    // Tensor x;
+    // query.loadNp(npFile, prefix + ".query");
+    // key.loadNp(npFile, prefix + ".key");
+    // value.loadNp(npFile, prefix + ".value");
+    // att.loadNp(npFile, prefix + ".att");
+    // x.loadNp(npFile, prefix + ".x");
+    
+    // PrintTestResultT("forward query",QT, query);
+    // PrintTestResultT("forward key", KT, key);
+    // PrintTestResultT("forward value",VT, value);
+    // PrintTestResult("forward att",Ad, att);
+    // PrintTestResultT("forward out", OT, x);
+}
+
+void MultiheadAttention::backwardTest(cnpy::npz_t npFile, std::string prefix) {
+    Tensor inputQ(batch * sequenceLength, dModel);
+    Tensor inputK(batch * sequenceLength, dModel);
+    Tensor inputV(batch * sequenceLength, dModel);
+    Tensor target(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+    Tensor outputGradient(batch * sequenceLength, dModel);
+    Tensor inputGradient(batch * sequenceLength, dModel);
+    Tensor npdLoader(1,1);
+    int seq[batch];
+
+    outputGradient = 1.0f / outputGradient.row / outputGradient.col;
+    inputQ.loadNp(npFile, prefix + ".q");
+    inputK.loadNp(npFile, prefix + ".k");
+    inputV.loadNp(npFile, prefix + ".v");
+    npdLoader.loadNp(npFile, prefix + ".npd");
+    for(int i = 0;i < batch;i++) seq[i] = npdLoader[0];
+
+    forward(inputQ, inputK, inputV, output, LOOK_AHEAD, seq);
+    backward(outputGradient, inputGradient, inputGradient, inputGradient, inputQ, inputK, inputV, output, LOOK_AHEAD, seq);
+    updateParameter();
+
+    checkUpdatedParam(npFile, prefix);
 }

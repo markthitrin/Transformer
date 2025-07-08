@@ -32,13 +32,14 @@ public:
     Tensor(const int row, const int col);
     ~Tensor();
 
-    float& Tensor::operator[](const int idx);
+    float& operator[](const int idx);
     const float& operator[](const int idx) const;
     Tensor& operator=(const float x);
     Tensor& operator=(const TensorView other);
     Tensor& operator+=(const TensorView other);
 
     TensorView sliceRow(int r0,int r);
+    void loadNp(cnpy::npz_t npFile, std::string name);
 
     float* data;
     int row;
@@ -64,9 +65,9 @@ void Div(TensorView A, TensorView B, TensorView C);
 void Div(TensorView A, const float B, TensorView C);
 
 
-void ApplyLookAheadMask(TensorView A, const int seq, const int x);
-void ApplyPaddingMask(TensorView A, const int seq, const int x);
-void ApplyCrossPaddingMask(TensorView A, const int seqv, const int x);
+void ApplyLookAheadMask(TensorView A, const int seq, const float x);
+void ApplyPaddingMask(TensorView A, const int seq, const float x);
+void ApplyCrossPaddingMask(TensorView A, const int seqv, const float x);
 
 void GetPositionalEncode(TensorView A);
 

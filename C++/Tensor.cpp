@@ -38,9 +38,7 @@ Tensor& Tensor::operator+=(const TensorView other) {
 }
 
 
-
-
-TensorView Tensor::sliceRow(int r0,int r) {
+TensorView TensorView::sliceRow(int r0,int r) {
     return TensorView(data + r0 * col, r, col);
 }
 
@@ -89,7 +87,10 @@ TensorView Tensor::sliceRow(int r0, int r) {
     return TensorView(data + r0 * col, r, col);
 }
 
-
+void Tensor::loadNp(cnpy::npz_t npFile, std::string name) {
+    cnpy::NpyArray arr = npFile[name];
+    std::memcpy(data, arr.data<float>(), sizeof(float) * row * col);
+}
 
 
 void XavierUniformInit(TensorView A) {
@@ -126,7 +127,7 @@ void HeNormalInit(TensorView A) {
 
 void Plus(TensorView A, TensorView B, TensorView C) {
     for(int i = 0;i < C.row * C.col;i++) {
-        C[i] = A[i] * B[i];
+        C[i] = A[i] + B[i];
     }
 }
 
@@ -154,7 +155,7 @@ void Div(TensorView A, const float B, TensorView C) {
 }
 
 
-void ApplyLookAheadMask(TensorView A, const int seq, const int x) {
+void ApplyLookAheadMask(TensorView A, const int seq, const float x) {
     for(int i = 0;i < seq;i++) {
         for(int j = i + 1;j < sequenceLength;j++) {
             A[i * sequenceLength + j] = x;
@@ -166,7 +167,7 @@ void ApplyLookAheadMask(TensorView A, const int seq, const int x) {
         }
     }
 }
-void ApplyPaddingMask(TensorView A, const int seq, const int x) {
+void ApplyPaddingMask(TensorView A, const int seq, const float x) {
     for(int i= 0 ;i < seq;i++) {
         for(int j = seq;j < sequenceLength;j++) {
             A[i * sequenceLength + j] = x;
@@ -178,9 +179,9 @@ void ApplyPaddingMask(TensorView A, const int seq, const int x) {
         }
     }
 }
-void ApplyCrossPaddingMask(TensorView A, const int seq, const int x) {
+void ApplyCrossPaddingMask(TensorView A, const int seq, const float x) {
     for(int i = 0;i < sequenceLength;i++) {
-        for(int j = seq;i < sequenceLength;j++) {
+        for(int j = seq;j < sequenceLength;j++) {
             A[i * sequenceLength + j] = x;
         }
     }

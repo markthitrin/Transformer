@@ -17,6 +17,8 @@ public:
 
     void updateParameter();
 
+	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
+
 	Tensor weight;
 	Tensor bias;
 

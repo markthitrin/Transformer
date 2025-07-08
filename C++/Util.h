@@ -23,4 +23,8 @@ float ComputCrossEntropy(const float* logits, int target_token, float* grad);
 
 float fast_logf(float x);
 
+void PrintTestResult(std::string text, TensorView A, TensorView B);
+
+void PrintTestResultT(std::string text, TensorView A, TensorView B);
+
 #endif

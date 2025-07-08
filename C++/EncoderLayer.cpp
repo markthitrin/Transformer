@@ -4,7 +4,6 @@
 #include "Linear.h"
 #include "MultiheadAttention.h"
 #include "DropOut.h"
-#include "PositionwiseFeedForward.h"
 #include "Util.h"
 #include "EncoderLayer.h"
 
@@ -65,4 +64,57 @@ void EncoderLayer::updateParameter() {
     mulAtt.updateParameter();
     norm2.updateParameter();
     pff.updateParameter();
+}
+
+void EncoderLayer::loadParam(cnpy::npz_t npFile, std::string prefix) {
+    norm1.loadParam(npFile, prefix + ".sub1.layerNorm");
+    mulAtt.loadParam(npFile, prefix + ".sub1.sublayer");
+    norm2.loadParam(npFile, prefix + ".sub2.layerNorm");
+    pff.loadParam(npFile,prefix + ".sub2.sublayer");
+}
+
+void EncoderLayer::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
+    norm1.checkUpdatedParam(npFile, prefix + ".sub1.layerNorm");
+    mulAtt.checkUpdatedParam(npFile, prefix + ".sub1.sublayer");
+    norm2.checkUpdatedParam(npFile, prefix + ".sub2.layerNorm");
+    pff.checkUpdatedParam(npFile, prefix + ".sub2.sublayer");
+}
+
+void EncoderLayer::forwardTest(cnpy::npz_t npFile, std::string prefix) {
+    Tensor input(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+    Tensor target(batch * sequenceLength, dModel);
+    Tensor npdLoad(1,1);
+    int seq[batch];
+
+    input.loadNp(npFile, prefix + ".input");
+    target.loadNp(npFile, prefix + ".output");
+    npdLoad.loadNp(npFile, prefix + ".npd");
+    for(int i = 0;i < batch;i++) seq[i] = npdLoad[0];
+
+    forward(input, output, seq);
+
+    PrintTestResult("forward", output, target);
+}
+
+void EncoderLayer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
+    Tensor input(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+    Tensor target(batch * sequenceLength, dModel);
+    Tensor outputGradient(batch * sequenceLength, dModel);
+    Tensor inputGradient(batch * sequenceLength, dModel);
+    Tensor npdLoad(1,1);
+    int seq[batch];
+
+
+    outputGradient = 1.0f / outputGradient.row / outputGradient.col;
+    input.loadNp(npFile, prefix + ".input");
+    npdLoad.loadNp(npFile, prefix + ".npd");
+    for(int i = 0;i < batch;i++) seq[i] = npdLoad[0];
+
+    forward(input, output, seq);
+    backward(outputGradient, inputGradient, seq);
+    updateParameter();
+
+    checkUpdatedParam(npFile, prefix);
 }

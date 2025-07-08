@@ -6,7 +6,7 @@
 
 class ReLU {
 public:
-	ReLU() { ; }
+	ReLU();
 
 	void forward(TensorView input, TensorView output);
 

@@ -8,7 +8,9 @@
 #include "PositionalEncoder.h"
 
 PositionalEncoder::PositionalEncoder() :
-    dropout(batch * sequenceLength, dModel) {
+    dropout(batch * sequenceLength, dModel),
+    
+    positionEncode(sequenceLength, dModel) {
 
     GetPositionalEncode(positionEncode);
 }
@@ -28,4 +30,17 @@ void PositionalEncoder::predict(TensorView input, TensorView output) {
 
 void PositionalEncoder::backward(TensorView outputGradient, TensorView inputGradient) {
     dropout.backward(outputGradient, inputGradient);
+}
+
+void PositionalEncoder::forwardTest(cnpy::npz_t npFile, std::string prefix) {
+    Tensor target(batch * sequenceLength, dModel);
+    Tensor input(batch * sequenceLength, dModel);
+    Tensor output(batch * sequenceLength, dModel);
+
+    input.loadNp(npFile, prefix + ".input");
+    target.loadNp(npFile, prefix + ".output");
+
+    forward(input, output);
+
+    PrintTestResult("forward " + prefix, output, target);
 }
