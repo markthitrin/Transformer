@@ -19,7 +19,7 @@ public:
 
 void AdamOpt(TensorView param, AdamOptimizer& opt);
 
-float ComputCrossEntropy(const float* logits, int target_token, float* grad);
+float CrossEntropy(TensorView logits, const int* target_token, const int* tgtSeq, TensorView grad);
 
 float fast_logf(float x);
 

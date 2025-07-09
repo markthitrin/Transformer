@@ -48,8 +48,8 @@ void LayerNorm::predict(TensorView input, TensorView output) {
 }
 
 void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
-    const int row =  inputGradient.row;
-    const int col =  inputGradient.col;
+    const int row = inputGradient.row;
+    const int col = inputGradient.col;
 
     const float invCol = 1.0f / col;
     for (int i = 0; i < row; i++) {

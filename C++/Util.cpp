@@ -26,9 +26,50 @@ void AdamOpt(TensorView param, AdamOptimizer& opt) {
     opt.t++;
 }
 
-float ComputCrossEntropy(const float* logits, int target_token, float* grad) {
-    return 0;
+float ComputCrossEntropy(TensorView logits, int target_token, TensorView grad) {
+    float max_logit = logits[0];
+    for (int i = 1; i < tgtVocab; ++i) {
+        max_logit = std::max(max_logit, logits[i]);
+    }
+
+    float sum_exp = 0.0f;
+    for (int i = 0; i < tgtVocab; ++i) {
+        sum_exp += std::exp(logits[i] - max_logit);
+    }
+
+    float loss = 0.0f;
+    for (int i = 0; i < tgtVocab; ++i) {
+        float prob = std::exp(logits[i] - max_logit) / sum_exp;
+        grad[i] = prob;
+        if (i == target_token) {
+            loss = -std::log(prob + 1e-9f);
+            grad[i] -= 1.0f;
+        }
+    }
+
+    return loss;
 }
+
+float _CrossEntropy(TensorView logits, const int* targetToken, int tgtSeq, TensorView grad) {
+    float loss = 0.0f;
+    for(int i = 0;i < tgtSeq;i++) {
+        loss += ComputCrossEntropy(logits.sliceRow(i, 1), targetToken[i], grad.sliceRow(i, 1));
+    }
+    return loss / tgtSeq;
+}
+
+float CrossEntropy(TensorView logits, const int* target_token, const int* tgtSeq, TensorView grad) {
+    float loss = 0.0f;
+    for(int i = 0;i < batch;i++) {
+        loss += _CrossEntropy(
+            logits.sliceRow(i * sequenceLength, sequenceLength),
+            target_token + i * sequenceLength,
+            tgtSeq[i],
+            grad.sliceRow(i * sequenceLength, sequenceLength));
+    }
+    return loss / batch;
+}
+
 
 float fast_logf(float x) {
     union { float f; uint32_t i; } vx = { x };
