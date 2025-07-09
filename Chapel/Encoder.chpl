@@ -8,38 +8,35 @@ use LayerNorm;
 
 class Encoder {
     proc init() {
-        domLayer = {0..#N};
-        for i in 0..#N {
-            layers[i] = new EncoderLayer();
-        }
+        domLayers = {0..#N};
+        layers = [i in 0..#N] new EncoderLayer();
         norm = new LayerNorm();
 
-        domOut = {0..#(batch * sequenceLength * dModel)};
-        domGradient = {0..#(batch * sequenceLength * dModel)};
+        domOG = {0..#(batch * sequenceLength * dModel)};
     }
 
-    proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        layers[0].forward(input, outT[0]);
+    proc forward(ref input: [?D] real(32), ref output: [D] real(32), ref srcSeq: [?Ds] int) : void {
+        layers[0].forward(input, outi[0], srcSeq);
         for i in 1..<N {
-            layers[i].forward(outT[i - 1],outT[i]);
+            layers[i].forward(outi[i - 1], outi[i], srcSeq);
         }
-        norm.forward(outT[N - 1, output]);
+        norm.forward(outi[N - 1], output);
     }
 
-    proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        layers[0].predict(input, outT[0]);
+    proc predict(ref input: [?D] real(32), ref output: [D] real(32), ref srcSeq: [?Ds] int) : void {
+        layers[0].predict(input, outi[0], srcSeq);
         for i in 1..<N {
-            layers[i].predict(outT[i - 1],outT[i]);
+            layers[i].predict(outi[i - 1], outi[i], srcSeq);
         }
-        norm.predict(outT[N - 1, output]);
+        norm.predict(outi[N - 1], output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
-        norm.backward(outputGradient, gradientT[N - 1]);
-        for i in (N - 1)..1 by -1 {
-            layers[i].backward(gradientT[i], gradientT[i - 1]);
+    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref srcSeq: [?Ds] int) : void {
+        norm.backward(outputGradient, gradienti[N - 1]);
+        for i in 1..(N - 1) by -1 {
+            layers[i].backward(gradienti[i], gradienti[i - 1], srcSeq);
         }
-        layers[0].backward(gradientT[0], inputGradient);
+        layers[0].backward(gradienti[0], inputGradient, srcSeq);
     }
 
     proc updateParameter() {
@@ -47,14 +44,72 @@ class Encoder {
             layers[i].updateParameter();
         }
         norm.updateParameter();
-     }
+    }
+
+    proc loadParam() {
+        for i in 0..#N {
+            layers[i].loadParam();
+        }
+        norm.loadParam();
+    }
+
+    proc forwardTest() {
+        var input: [0..#(batch * sequenceLength * dModel)] real(32);
+        var output: [0..#(batch * sequenceLength * dModel)] real(32);
+        var target: [0..#(batch * sequenceLength * dModel)] real(32);
+        var npdLoader: [0..#1] real(32);
+        var seq: [0..#batch] int;
+
+        loadM(input);
+        loadM(target);
+        loadM(npdLoader);
+        for i in 0..#batch do seq[i] = npdLoader[0]:int;
+
+        forward(input, output, seq);
+
+        PrintTestResult("forward", output, target);
+    }
+
+    proc checkUpdateParam() {
+        for i in 0..#N {
+            layers[i].checkUpdateParam();
+        }
+        norm.checkUpdateParam();
+    }
+
+    proc backwardTest() {
+        var input: [0..#(batch * sequenceLength * dModel)] real(32);
+        var output: [0..#(batch * sequenceLength * dModel)] real(32);
+        var target: [0..#(batch * sequenceLength * dModel)] real(32);
+        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
+        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
+        var npdLoader: [0..#1] real(32);
+        var seq: [0..#batch] int;
+        
+        outputGradient = (1.0 / outputGradient.domain.size):real(32);
+
+        loadM(input);
+        loadM(npdLoader);
+        for i in 0..#batch do seq[i] = npdLoader[0]:int;
+
+        forward(input, output, seq);
+        backward(outputGradient, inputGradient, seq);
+        updateParameter();
+
+        checkUpdateParam();
+    }
     
-    var domLayer: domain(1);
+    var domLayers: domain(1);
     var layers: [domLayers] owned EncoderLayer;
     var norm: owned LayerNorm;
 
-    var domOut: domain(1);
-    var domGradient: domain(1);
-    var outT: [domLayer][domOut] real(32);
-    var gradientT: [domLayer][domOut] real(32);
+    var domOG: domain(1);
+    var outi: [domLayers][domOG] real(32);
+    var gradienti: [domLayers][domOG] real(32);
 }
+
+// Test code
+// var model = new Encoder();
+// model.loadParam();
+// for i in 0..4 do model.forwardTest();
+// for i in 0..4 do model.backwardTest();

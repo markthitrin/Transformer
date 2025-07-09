@@ -1,14 +1,15 @@
+use Config;
 use Util;
 use Matrix;
 
 class ReLU {
     proc init() {
-        domMask = {0..#(dModel)};
+        domMask = {0..#(batch * sequenceLength * dFF)};
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        for j in D {
-            mask = if input[i] >= 0 then 1.0 else 0.0;
+        for i in D {
+            mask[i] = if input[i] >= 0 then 1.0:real(32) else 0.0:real(32);
         }
         Mul(input, mask, output);
     }   

@@ -5,15 +5,18 @@ use LayerNorm;
 use MultiheadAttention;
 use DropOut;
 use FeedForwardBlock;
+use Matrix;
 
 class EncoderLayer {
     proc init() {
         norm1 = new LayerNorm();
         mulAtt = new MultiheadAttention();
-        dropout1 = new DropOut(batch * sequenceLength * dModel, dropoutRate);
+        dropout1 = new DropOut(batch * sequenceLength * dModel);
         norm2 = new LayerNorm();
         pff = new FeedForwardBlock();
-        dropout2 = new DropOut(batch * sequenceLength * dModel, dropoutRate);
+        dropout2 = new DropOut(batch * sequenceLength * dModel);
+        
+        domOG = {0..#(batch * sequenceLength * dModel)};
     }
 
     proc forward(ref input: [?Di] real(32), ref output: [?Do] real(32), ref srcSeq: [?Ds] int) : void {
@@ -24,7 +27,7 @@ class EncoderLayer {
 
         norm2.forward(out3, out4);
         pff.forward(out4, out5);
-        dropout2.forward(out5, out6);
+        dropout2.forward(out5, output);
         Plus(out3, output, output);
     }
 
@@ -36,18 +39,18 @@ class EncoderLayer {
 
         norm2.predict(out3, out4);
         pff.predict(out4, out5);
-        dropout2.predict(out5, out6);
+        dropout2.predict(out5, output);
         Plus(out3, output, output);
     }
 
-    proc backward(ref outputGradient: [?Do] real(32), ref inputGradient: [?Di] real(32)) : void {
+    proc backward(ref outputGradient: [?Do] real(32), ref inputGradient: [?Di] real(32), ref srcSeq: [?Ds] int) : void {
         dropout2.backward(outputGradient, gradient5);
-        pff.backward(gradient5, gradient4);
+        pff.backward(gradient5, gradient4, out4);
         norm2.backward(gradient4, gradient3);
         Plus(outputGradient, gradient3, gradient3);
 
         dropout1.backward(gradient3, gradient2);
-        mulAtt.backward(gradient2, gradient1, MaskType.PADDING, srcSeq);
+        mulAtt.backward(gradient2, gradient1, gradient1, gradient1, out1, out1, out2, out2, MaskType.PADDING, srcSeq);
         norm1.backward(gradient1, inputGradient);
         Plus(gradient3, inputGradient, inputGradient);
     }
@@ -59,6 +62,59 @@ class EncoderLayer {
         pff.updateParameter();
     }
 
+    proc loadParam() {
+        norm1.loadParam();
+        mulAtt.loadParam();
+        norm2.loadParam();
+        pff.loadParam();
+    }
+
+    proc forwardTest() {
+        var input: [0..#(batch * sequenceLength * dModel)] real(32);
+        var output: [0..#(batch * sequenceLength * dModel)] real(32);
+        var target: [0..#(batch * sequenceLength * dModel)] real(32);
+        var npdLoader: [0..#1] real(32);
+        var seq: [0..#batch] int;
+
+        loadM(input);
+        loadM(target);
+        loadM(npdLoader);
+        for i in 0..#batch do seq[i] = npdLoader[0]:int;
+
+        forward(input, output, seq);
+
+        PrintTestResult("forward", output, target);
+    }
+
+    proc checkUpdateParam() {
+        norm1.checkUpdateParam();
+        mulAtt.checkUpdateParam();
+        norm2.checkUpdateParam();
+        pff.checkUpdateParam();
+    }
+
+    proc backwardTest() {
+        var input: [0..#(batch * sequenceLength * dModel)] real(32);
+        var output: [0..#(batch * sequenceLength * dModel)] real(32);
+        var target: [0..#(batch * sequenceLength * dModel)] real(32);
+        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
+        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
+        var npdLoader: [0..#1] real(32);
+        var seq: [0..#batch] int;
+        
+        outputGradient = (1.0 / outputGradient.domain.size):real(32);
+
+        loadM(input);
+        loadM(npdLoader);
+        for i in 0..#batch do seq[i] = npdLoader[0]:int;
+
+        forward(input, output, seq);
+        backward(outputGradient, inputGradient, seq);
+        updateParameter();
+
+        checkUpdateParam();
+    }
+
     var norm1: owned LayerNorm;
     var mulAtt: owned MultiheadAttention;
     var dropout1: owned DropOut;
@@ -66,16 +122,21 @@ class EncoderLayer {
     var pff: owned FeedForwardBlock;
     var dropout2: owned DropOut;
 
-    var domOut: domain(1);
-    var domGradient: domain(1);
-    var out1: [domOut] real(32);
-    var out2: [domOut] real(32);
-    var out3: [domOut] real(32);
-    var out4: [domOut] real(32);
-    var out5: [domOut] real(32);
-    var gradient1: [domOut] real(32);
-    var gradient2: [domOut] real(32);
-    var gradient3: [domOut] real(32);
-    var gradient4: [domOut] real(32);
-    var gradient5: [domOut] real(32);
+    var domOG: domain(1);
+    var out1: [domOG] real(32);
+    var out2: [domOG] real(32);
+    var out3: [domOG] real(32);
+    var out4: [domOG] real(32);
+    var out5: [domOG] real(32);
+    var gradient1: [domOG] real(32);
+    var gradient2: [domOG] real(32);
+    var gradient3: [domOG] real(32);
+    var gradient4: [domOG] real(32);
+    var gradient5: [domOG] real(32);
 }
+
+// Test code
+// var model = new EncoderLayer();
+// model.loadParam();
+// for i in 0..4 do model.forwardTest();
+// for i in 0..4 do model.backwardTest();

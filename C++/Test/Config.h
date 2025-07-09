@@ -13,8 +13,8 @@ static constexpr int sequenceLength = 35;
 static constexpr int dFF = 256; // 256
 static constexpr float dropoutRate = 0.1;
 static constexpr int N = 6;
-static constexpr int srcVocab = 128;
-static constexpr int tgtVocab = 128;
+static constexpr int srcVocab = 6;
+static constexpr int tgtVocab = 6;
 
 static constexpr int epoch = 2;
 static constexpr int batch = 8;

@@ -73,7 +73,7 @@ void DecoderLayer::predict(
 
 void DecoderLayer::backward(
     TensorView outputGradient, TensorView encoderGradient, TensorView inputGradient,
-    TensorView encoderOutput, const int srcSeq[batch], const int tgtSeq[batch]) {
+    TensorView encoderOut, const int srcSeq[batch], const int tgtSeq[batch]) {
 
     dropout3.backward(outputGradient, gradient8);
     pff.backward(gradient8, gradient7, out7);
@@ -81,7 +81,7 @@ void DecoderLayer::backward(
     Plus(outputGradient, gradient6, gradient6);
 
     dropout2.backward(gradient6, gradient5);
-    mulAtt2.backward(gradient5, gradient4, encoderGradient, encoderGradient, out4, encoderOutput, encoderOutput, out5, CROSS_PADDING, srcSeq);
+    mulAtt2.backward(gradient5, gradient4, encoderGradient, encoderGradient, out4, encoderOut, encoderOut, out5, CROSS_PADDING, srcSeq);
     norm2.backward(gradient4, gradient3);
     Plus(gradient6, gradient3, gradient3);
 

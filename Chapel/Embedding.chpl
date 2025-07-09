@@ -4,42 +4,101 @@ use Matrix;
 use Config;
 
 class Embedding {
-    proc init(in numTokens: int) {
-        domTable = {0..#(numTokens * ..#dModel)};
-        UniformInit(table, 0.1);
 
-        domTableOpt = {0..#numTokens};
-        tableOpt = new AdamOptGradient(domTable);
+    proc init(in numTokens: int) {
+        domTable = {0..#(numTokens * dModel)};
+        table = 0;
+        
+        domTableOpt = {0..#(numTokens)};
+        tableOpt = [i in domTableOpt] new AdamOptimizer({0..#dModel});
+
+        UniformInit(table, 0.1);
     }
 
-    proc forward(ref input: [?Di] real(32), ref output: [?Do] real(32)) : void {
+    proc forward(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
         for i in 0..#(batch * sequenceLength) {
-            output[(i * dModel)..#dMoe] = table[(input[i] * dModel)..#dModel];
+            output[(i * dModel)..#dModel] = table[(input[i] * dModel)..#dModel];
         }
         Mul(output, sqrt(dModel), output);
     }
 
-    proc predict(ref input: [?Di] real(32), ref output: [?Do] real(32)) : void {
+    proc predict(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
         return forward(input, output);
     }
 
-    proc backward(ref input: [?Di] real(32), ref outputGradient: [?Do] real(32)) : void {
+    proc backward(ref outputGradient: [?Do] real(32), ref input: [?Di] int) : void {
         Mul(outputGradient, sqrt(dModel), outputGradient);
         for i in 0..#(batch * sequenceLength) {
-            Plus(tableOpt.gradient[(input[i] * dModel)..#dModel], outputGradient[(i * dModel)..#dModel], tableOpt.gradient[(input[i] * dModel)..#dModel]);
+            needUpdate[input[i]] = true;
+            Plus(tableOpt[input[i]].gradient,
+                outputGradient[(i * dModel)..#dModel],
+                tableOpt[input[i]].gradient);
         }
     }
 
-    proc updateParameter(ref input: [?Di] real(32)) {
-        for i in 0..#(batch * sequenceLength) {
-            if tableOpt.gradient[input[i] * dModel] != 0 then
-                AdamOpt(table, tableOpt);
+    proc updateParameter() {
+        for i in domTableOpt {
+            if needUpdate[i] {
+                AdamOpt(table[(i * dModel)..#dModel], tableOpt[i]);
+                needUpdate[i] = false;
+            }
         }
+    }
+
+    proc loadParam() {
+        loadM(table);
+    }
+
+    proc forwardTest() {
+        var input: [0..#(batch * sequenceLength)] int;
+        var output: [0..#(batch * sequenceLength * dModel)] real(32);
+        var target: [0..#(batch * sequenceLength * dModel)] real(32);
+
+        loadM(input);
+        loadM(target);
+
+        forward(input, output);
+
+        PrintTestResult("forward", output, target);
+    }
+
+    proc checkUpdateParam() {
+        var tableUpdated: [domTable] real(32);
+
+        loadM(tableUpdated);
+
+        PrintTestResult("backward table", table, tableUpdated);
+    }
+
+    proc backwardTest() {
+        var input: [0..#(batch * sequenceLength)] int;
+        var output: [0..#(batch * sequenceLength * dModel)] real(32);
+        var target: [0..#(batch * sequenceLength * dModel)] real(32);
+        var outputGradient: [0..(batch * sequenceLength * dModel)] real(32);
+
+        outputGradient = (1.0 / outputGradient.domain.size):real(32);
+
+        loadM(input);
+
+        forward(input, output);
+        backward(outputGradient, input);
+        updateParameter();
+
+        checkUpdateParam();
     }
 
     var domTable: domain(1);
     var table: [domTable] real(32);
     
     var domTableOpt: domain(1);
-    var tableOpt: AdamOptGradient;
+    var needUpdate: [domTableOpt] bool;
+    var tableOpt: [domTableOpt] AdamOptimizer;
 }
+
+
+// Test code
+
+// var model = new Embedding(srcVocab);
+// model.loadParam();
+// for i in 0..4 do model.forwardTest();
+// for i in 0..4 do model.backwardTest();

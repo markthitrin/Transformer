@@ -17,30 +17,27 @@ class Softmax {
             ExpPlusReduce(input[(i * shape)..#shape], maxValue, sumExp);
             
             for j in 0..#shape {
-                output[i * col + j] = exp(input[i * col + j] - maxValue) / sumExp;
+                output[i * shape + j] = exp(input[i * shape + j] - maxValue) / sumExp;
             }
         }
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        return forward(input, output);
+        forward(input, output);
     }
 
-    proc backward(ref outputGradient: [?D] real, ref inputGradient: [D] real,
-        ref output: [D] real) : void {
+    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32),
+        ref output: [D] real(32)) : void {
 
         for i in 0..#batch {
             var sumGY: real(32);
             ProductPlusReduce(outputGradient[(i * shape)..#shape], output[(i * shape)..#shape], sumGY);
             
             for j in 0..#shape {
-                inputGradient[i * shape + j] = output[i * shape + j] * (outputGradient[i * col + j] - sumGY);
+                inputGradient[i * shape + j] = output[i * shape + j] * (outputGradient[i * shape + j] - sumGY);
             }
         }
     }
-
-    var domOutput: domain(2);
-    var output: [domOutput] real;
 
     var batch: int;
     var shape: int;

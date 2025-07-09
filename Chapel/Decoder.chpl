@@ -6,45 +6,44 @@ use DecoderLayer;
 use LayerNorm;
 
 class Decoder {
+
     proc init() {
-        domLayer = {0..#N};
-        for i in 0..#N {
-            layers[i] = new DecodeLayer();
-        }
+        domLayers = {0..#N};
+        layers = [i in 0..#N] new DecoderLayer();
         norm = new LayerNorm();
 
-        domOut = {0..#(batch * sequenceLength * dModel)};
-        domGradient = {0..#(batch * sequenceLength * dModel)};
+        domOG = {0..#(batch * sequenceLength * dModel)};
     }
 
     proc forward(
-        ref inputd: [?D] real(32), ref inpute:[D] real(32),
-        ref srcSeq: [?Ds] real(32), ref tgtSeq: [Ds] real(32),
-        ref output: [D] real(32)) : void {
-        layers[0].forward(input, inputeoutT[0]);
+        ref input: [?D] real(32), ref encoderOut:[D] real(32), ref output: [D] real(32),
+        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
+        layers[0].forward(input, encoderOut, outi[0], srcSeq, tgtSeq);
         for i in 1..<N {
-            layers[i].forward(outT[i - 1],outT[i]);
+            layers[i].forward(outi[i - 1], encoderOut, outi[i], srcSeq, tgtSeq);
         }
-        norm.forward(outT[N - 1, output]);
+        norm.forward(outi[N - 1], output);
     }
 
     proc predict(
-        ref inputd: [?D] real(32), ref inpute:[D] real(32),
-        ref srcSeq: [?Ds] real(32), ref tgtSeq: [Ds] real(32),
-        ref output: [D] real(32)) : void {
-        layers[0].predict(input, outT[0]);
+        ref input: [?D] real(32), ref encoderOut:[D] real(32), ref output: [D] real(32),
+        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
+        layers[0].predict(input, encoderOut, outi[0], srcSeq, tgtSeq);
         for i in 1..<N {
-            layers[i].predict(outT[i - 1],outT[i]);
+            layers[i].predict(outi[i - 1], encoderOut, outi[i], srcSeq, tgtSeq);
         }
-        norm.predict(outT[N - 1, output]);
+        norm.predict(outi[N - 1], output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
-        norm.backward(outputGradient, gradientT[N - 1]);
-        for i in (N - 1)..1 by -1 {
-            layers[i].backward(gradientT[i], gradientT[i - 1]);
+    proc backward(
+        ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref encoderGradient: [D] real(32), ref encoderOut: [D] real(32),
+        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
+        
+        norm.backward(outputGradient, gradienti[N - 1]);
+        for i in 1..(N - 1) by -1 {
+            layers[i].backward(gradienti[i], encoderGradient, gradienti[i - 1], encoderOut, srcSeq, tgtSeq);
         }
-        layers[0].backward(gradientT[0], inputGradient);
+        layers[0].backward(gradienti[0], encoderGradient, inputGradient, encoderOut, srcSeq, tgtSeq);
     }
 
     proc updateParameter() {
@@ -52,14 +51,81 @@ class Decoder {
             layers[i].updateParameter();
         }
         norm.updateParameter();
-     }
+    }
+
+    proc loadParam() {
+        for i in 0..#N {
+            layers[i].loadParam();
+        }
+        norm.loadParam();
+    }
+
+    proc forwardTest() {
+        var input1: [0..#(batch * sequenceLength * dModel)] real(32);
+        var input2: [0..#(batch * sequenceLength * dModel)] real(32);
+        var output: [0..#(batch * sequenceLength * dModel)] real(32);
+        var target: [0..#(batch * sequenceLength * dModel)] real(32);
+        var npdLoader: [0..#2] real(32);
+        var srcSeq: [0..#batch] int;
+        var tgtSeq: [0..#batch] int;
+
+        loadM(input1);
+        loadM(input2);
+        loadM(target);
+        loadM(npdLoader);
+        for i in 0..#batch do srcSeq[i] = npdLoader[0]:int;
+        for i in 0..#batch do tgtSeq[i] = npdLoader[1]:int;
+
+        forward(input1, input2, output, srcSeq, tgtSeq);
+
+        PrintTestResult("forward", output, target);
+    }
+
+    proc checkUpdateParam() {
+        for i in 0..#N {
+            layers[i].checkUpdateParam();
+        }
+        norm.checkUpdateParam();
+    }
+
+    proc backwardTest() {
+        var input1: [0..#(batch * sequenceLength * dModel)] real(32);
+        var input2: [0..#(batch * sequenceLength * dModel)] real(32);
+        var output: [0..#(batch * sequenceLength * dModel)] real(32);
+        var target: [0..#(batch * sequenceLength * dModel)] real(32);
+        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
+        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
+        var npdLoader: [0..#2] real(32);
+        var srcSeq: [0..#batch] int;
+        var tgtSeq: [0..#batch] int;
+        
+        outputGradient = (1.0 / outputGradient.domain.size):real(32);
+
+        loadM(input1);
+        loadM(input2);
+        loadM(target);
+        loadM(npdLoader);
+        for i in 0..#batch do srcSeq[i] = npdLoader[0]:int;
+        for i in 0..#batch do tgtSeq[i] = npdLoader[1]:int;
+
+        forward(input1, input2, output, srcSeq, tgtSeq);
+        backward(outputGradient, inputGradient, inputGradient, input2, srcSeq, tgtSeq);
+        updateParameter();
+
+        checkUpdateParam();
+    }
     
-    var domLayer: domain(1);
-    var layers: [domLayers] owned DecodeLayer;
+    var domLayers: domain(1);
+    var layers: [domLayers] owned DecoderLayer;
     var norm: owned LayerNorm;
 
-    var domOut: domain(1);
-    var domGradient: domain(1);
-    var outT: [domLayer][domOut] real(32);
-    var gradientT: [domLayer][domOut] real(32);
+    var domOG: domain(1);
+    var outi: [domLayers][domOG] real(32);
+    var gradienti: [domLayers][domOG] real(32);
 }
+
+// Test code
+// var model = new Decoder();
+// model.loadParam();
+// for i in 0..4 do model.forwardTest();
+// for i in 0..4 do model.backwardTest();

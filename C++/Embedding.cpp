@@ -34,6 +34,7 @@ void Embedding::updateParameter() {
     for(int i = 0;i < tableOpt.size();i++) {
         if(needUpdate[i]) {
             AdamOpt(table.sliceRow(i, 1), tableOpt[i]);
+            needUpdate[i] = false;
         }
     }
 }

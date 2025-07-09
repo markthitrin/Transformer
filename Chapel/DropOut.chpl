@@ -1,3 +1,4 @@
+use Config;
 use Util;
 use Math;
 use Random;
@@ -13,30 +14,29 @@ proc GenerateDropoutMask(ref mask: [?D] real(32), in dropoutRate : real(32)) {
 }
 
 class DropOut {
-    proc init(in size: int, in dropoutRate: real) {
-        this.dropoutRate = dropoutRate;
-        this.size = size;
+    proc init(in size: int) {
+        domMask = {0..#(size)};
     }
 
-    proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : [D] real {
-        GenerateDropoutMask(mask, dropoutRate);
-        Mul(input, mask, output);
-        Div(output, 1.0 - dropoutRate, output);
+    proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+        // GenerateDropoutMask(mask, dropoutRate);
+        // Mul(input, mask, output);
+        // Div(output, 1.0 - dropoutRate, output);
+
+        Div(input, 1.0 - dropoutRate, output);
     }
 
-    proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : [D] real {
+    proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         output = input;
     }
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
-        Mul(outputGradient, mask, inputGradient);
-        Div(inputGradient, 1.0 - dropoutRate, inputGradient);
-    }    
+        // Mul(outputGradient, mask, inputGradient);
+        // Div(inputGradient, 1.0 - dropoutRate, inputGradient);
 
-    var dropoutRate: real(32);
+        Div(outputGradient, 1.0 - dropoutRate, inputGradient);
+    }
 
     var domMask: domain(1);
     var mask: [domMask] real(32);
-
-    var size: int;
 }

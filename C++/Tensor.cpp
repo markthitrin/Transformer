@@ -93,11 +93,11 @@ void Tensor::loadNp(cnpy::npz_t npFile, std::string name) {
     std::memcpy(data, arr.data<float>(), sizeof(float) * row * col);
     for(int i = 0;i < row;i++) {
         for(int j = 0;j < col;j++) {
-            paramOutFile << data[i * col + j] << " ";
+            paramOutFile << std::setprecision(9) << data[i * col + j] << " ";
         }
-        paramOutFile << std::endl;
+        paramOutFile << std::setprecision(9) <<  std::endl;
     }
-    paramOutFile << std::endl;
+    paramOutFile << std::setprecision(9) << std::endl;
 }
 
 
@@ -199,10 +199,10 @@ void ApplyCrossPaddingMask(TensorView A, const int seq, const float x) {
 void GetPositionalEncode(TensorView A) {
     for (int i = 0; i < sequenceLength; i++) {
         for (int j = 0; j < dModel; j += 2) {
-            A[i*(dModel) + j] = std::sin(i / std::pow(10000, float(j) / dModel));
+            A[i*(dModel) + j] = std::sin(float(i) / std::pow(10000, float(j) / dModel));
         }
         for (int j = 1; j < dModel; j += 2) {
-            A[i*(dModel) + j] = std::cos(i / std::pow(10000, float(j - 1) / dModel));
+            A[i*(dModel) + j] = std::cos(float(i) / std::pow(10000, float(j - 1) / dModel));
         }
     }
 }
