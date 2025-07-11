@@ -1,6 +1,5 @@
 use Config;
 use Math;
-use Timer;
 
 record AdamOptimizer {
     proc init(ref parameter: [?D] real(32)) {

@@ -81,10 +81,10 @@ class MultiheadAttention {
         forall i in 0..#(batch * head) {
             MatMulPlusABT(dPerHead, sequenceLength, sequenceLength, VT[(i * blockPerHead)..#blockPerHead], Ad[(i * blockAtt)..#blockAtt], OT[(i * blockPerHead)..#blockPerHead]);
         }
-        CheckPoint();
         forall i in 0..#batch {
             MatMulPlusATB(sequenceLength, dModel, dModel, OT[(i * block)..#block], WO, output[(i * block)..#block]);
         }
+        CheckPoint();
     }
 
     proc forward(ref inputQ: [?D] real(32), ref inputK: [D] real(32), ref inputV: [D] real(32), ref output: [D] real(32),

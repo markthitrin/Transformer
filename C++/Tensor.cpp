@@ -10,14 +10,6 @@ Tensor::~Tensor() {
     delete[] data;
 }
 
-float& Tensor::operator[](const int idx) {
-    return *(data + idx);
-}
-
-const float& Tensor::operator[](const int idx) const {
-    return *(data + idx);
-}
-
 Tensor& Tensor::operator=(const float x) {
     for(int i = 0;i < row * col;i++) {
         data[i] = x;
@@ -54,14 +46,6 @@ TensorView::TensorView(Tensor& t)
 
 TensorView::TensorView(float* data, int row, int col)
     : data(data), row(row), col(col) {}
-
-float& TensorView::operator[](const int idx) {
-    return *(data + idx);
-}
-
-const float& TensorView::operator[](const int idx) const {
-    return *(data + idx);
-}
 
 TensorView& TensorView::operator=(const float x) {
     for(int i = 0;i < row * col;i++) {

@@ -13,8 +13,12 @@ public:
     TensorView(Tensor& t);
     TensorView(float* data, const int row, const int col);
 
-    float& operator[](const int idx);
-    const float& operator[](const int idx) const;
+    inline float& operator[](const int idx) {
+        return *(data + idx);   
+    }
+    inline const float& operator[](const int idx) const {
+        return *(data + idx);
+    }
     TensorView& operator=(const float x);
     TensorView& operator=(const TensorView other);
     TensorView& operator+=(const TensorView other);
@@ -32,8 +36,12 @@ public:
     Tensor(const int row, const int col);
     ~Tensor();
 
-    float& operator[](const int idx);
-    const float& operator[](const int idx) const;
+    inline float& operator[](const int idx) {
+        return *(data + idx);
+    }
+    inline const float& operator[](const int idx) const {
+        return *(data + idx);
+    }
     Tensor& operator=(const float x);
     Tensor& operator=(const TensorView other);
     Tensor& operator+=(const TensorView other);

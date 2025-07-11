@@ -1,3141 +1,2477 @@
-Test result [forward] : 4.81952e-07
+read data
+split data
+Create the model
+Start Training
+Iteration [0 / 1000] loss : 14.4565
+Iteration [1 / 1000] loss : 14.4495
+Iteration [2 / 1000] loss : 14.4513
+Iteration [3 / 1000] loss : 14.4488
+Iteration [4 / 1000] loss : 14.4482
+Iteration [5 / 1000] loss : 14.443
+Iteration [6 / 1000] loss : 14.4436
+Iteration [7 / 1000] loss : 14.4412
+Iteration [8 / 1000] loss : 14.4328
+Iteration [9 / 1000] loss : 14.4257
+Iteration [10 / 1000] loss : 14.4257
+Iteration [11 / 1000] loss : 14.4212
+Iteration [12 / 1000] loss : 14.4293
+Iteration [13 / 1000] loss : 14.4124
+Iteration [14 / 1000] loss : 14.4111
+Iteration [15 / 1000] loss : 14.414
+Iteration [16 / 1000] loss : 14.4051
+Iteration [17 / 1000] loss : 14.4003
+Iteration [18 / 1000] loss : 14.3992
+Iteration [19 / 1000] loss : 14.3948
+Iteration [20 / 1000] loss : 14.3667
+Iteration [21 / 1000] loss : 14.3796
+Iteration [22 / 1000] loss : 14.3781
+Iteration [23 / 1000] loss : 14.3732
+Iteration [24 / 1000] loss : 14.3582
+Iteration [25 / 1000] loss : 14.3857
+Iteration [26 / 1000] loss : 14.3687
+Iteration [27 / 1000] loss : 14.3496
+Iteration [28 / 1000] loss : 14.3538
+Iteration [29 / 1000] loss : 14.3304
+Iteration [30 / 1000] loss : 14.3037
+Iteration [31 / 1000] loss : 14.3187
+Iteration [32 / 1000] loss : 14.3221
+Iteration [33 / 1000] loss : 14.3236
+Iteration [34 / 1000] loss : 14.3123
+Iteration [35 / 1000] loss : 14.3183
+Iteration [36 / 1000] loss : 14.2769
+Iteration [37 / 1000] loss : 14.2703
+Iteration [38 / 1000] loss : 14.2843
+Iteration [39 / 1000] loss : 14.2702
+Iteration [40 / 1000] loss : 14.2853
+Iteration [41 / 1000] loss : 14.2683
+Iteration [42 / 1000] loss : 14.2578
+Iteration [43 / 1000] loss : 14.2214
+Iteration [44 / 1000] loss : 14.2572
+Iteration [45 / 1000] loss : 14.2187
+Iteration [46 / 1000] loss : 14.2245
+Iteration [47 / 1000] loss : 14.2915
+Iteration [48 / 1000] loss : 14.2176
+Iteration [49 / 1000] loss : 14.2103
+Iteration [50 / 1000] loss : 14.2136
+Iteration [51 / 1000] loss : 14.1725
+Iteration [52 / 1000] loss : 14.162
+Iteration [53 / 1000] loss : 14.2082
+Iteration [54 / 1000] loss : 14.1991
+Iteration [55 / 1000] loss : 14.1834
+Iteration [56 / 1000] loss : 14.1842
+Iteration [57 / 1000] loss : 14.2033
+Iteration [58 / 1000] loss : 14.1268
+Iteration [59 / 1000] loss : 14.1176
+Iteration [60 / 1000] loss : 14.1383
+Iteration [61 / 1000] loss : 14.1523
+Iteration [62 / 1000] loss : 14.0835
+Iteration [63 / 1000] loss : 14.0928
+Iteration [64 / 1000] loss : 14.0998
+Iteration [65 / 1000] loss : 14.1396
+Iteration [66 / 1000] loss : 14.082
+Iteration [67 / 1000] loss : 14.1234
+Iteration [68 / 1000] loss : 14.0487
+Iteration [69 / 1000] loss : 14.0553
+Iteration [70 / 1000] loss : 14.0725
+Iteration [71 / 1000] loss : 14.1605
+Iteration [72 / 1000] loss : 14.0561
+Iteration [73 / 1000] loss : 14.0023
+Iteration [74 / 1000] loss : 14.0465
+Iteration [75 / 1000] loss : 14.0129
+Iteration [76 / 1000] loss : 13.9866
+Iteration [77 / 1000] loss : 14.0691
+Iteration [78 / 1000] loss : 13.9996
+Iteration [79 / 1000] loss : 13.9982
+Iteration [80 / 1000] loss : 14.0368
+Iteration [81 / 1000] loss : 14.03
+Iteration [82 / 1000] loss : 13.9794
+Iteration [83 / 1000] loss : 13.9843
+Iteration [84 / 1000] loss : 13.9965
+Iteration [85 / 1000] loss : 13.9517
+Iteration [86 / 1000] loss : 13.9411
+Iteration [87 / 1000] loss : 13.9555
+Iteration [88 / 1000] loss : 13.938
+Iteration [89 / 1000] loss : 13.9535
+Iteration [90 / 1000] loss : 14.0648
+Iteration [91 / 1000] loss : 13.8873
+Iteration [92 / 1000] loss : 13.8668
+Iteration [93 / 1000] loss : 13.8863
+Iteration [94 / 1000] loss : 13.879
+Iteration [95 / 1000] loss : 13.8808
+Iteration [96 / 1000] loss : 13.8558
+Iteration [97 / 1000] loss : 13.912
+Iteration [98 / 1000] loss : 13.943
+Iteration [99 / 1000] loss : 13.8224
+Iteration [100 / 1000] loss : 13.8844
+Iteration [101 / 1000] loss : 13.7801
+Iteration [102 / 1000] loss : 13.9484
+Iteration [103 / 1000] loss : 13.8715
+Iteration [104 / 1000] loss : 13.8898
+Iteration [105 / 1000] loss : 13.8285
+Iteration [106 / 1000] loss : 13.8547
+Iteration [107 / 1000] loss : 13.8901
+Iteration [108 / 1000] loss : 13.9279
+Iteration [109 / 1000] loss : 13.8749
+Iteration [110 / 1000] loss : 13.811
+Iteration [111 / 1000] loss : 13.7886
+Iteration [112 / 1000] loss : 13.7531
+Iteration [113 / 1000] loss : 13.8455
+Iteration [114 / 1000] loss : 13.7719
+Iteration [115 / 1000] loss : 13.8448
+Iteration [116 / 1000] loss : 13.8137
+Iteration [117 / 1000] loss : 13.7129
+Iteration [118 / 1000] loss : 13.8289
+Iteration [119 / 1000] loss : 13.6977
+Iteration [120 / 1000] loss : 13.8005
+Iteration [121 / 1000] loss : 13.8279
+Iteration [122 / 1000] loss : 13.738
+Iteration [123 / 1000] loss : 13.7141
+Iteration [124 / 1000] loss : 13.6857
+Iteration [125 / 1000] loss : 13.7124
+Iteration [126 / 1000] loss : 13.7214
+Iteration [127 / 1000] loss : 13.674
+Iteration [128 / 1000] loss : 13.6336
+Iteration [129 / 1000] loss : 13.6649
+Iteration [130 / 1000] loss : 13.5846
+Iteration [131 / 1000] loss : 13.767
+Iteration [132 / 1000] loss : 13.6573
+Iteration [133 / 1000] loss : 13.6458
+Iteration [134 / 1000] loss : 13.5955
+Iteration [135 / 1000] loss : 13.7736
+Iteration [136 / 1000] loss : 13.6777
+Iteration [137 / 1000] loss : 13.5809
+Iteration [138 / 1000] loss : 13.621
+Iteration [139 / 1000] loss : 13.6813
+Iteration [140 / 1000] loss : 13.5042
+Iteration [141 / 1000] loss : 13.5459
+Iteration [142 / 1000] loss : 13.6441
+Iteration [143 / 1000] loss : 13.5991
+Iteration [144 / 1000] loss : 13.5055
+Iteration [145 / 1000] loss : 13.4807
+Iteration [146 / 1000] loss : 13.409
+Iteration [147 / 1000] loss : 13.5963
+Iteration [148 / 1000] loss : 13.5657
+Iteration [149 / 1000] loss : 13.6349
+Iteration [150 / 1000] loss : 13.625
+Iteration [151 / 1000] loss : 13.4903
+Iteration [152 / 1000] loss : 13.7076
+Iteration [153 / 1000] loss : 13.469
+Iteration [154 / 1000] loss : 13.5305
+Iteration [155 / 1000] loss : 13.4915
+Iteration [156 / 1000] loss : 13.3603
+Iteration [157 / 1000] loss : 13.3513
+Iteration [158 / 1000] loss : 13.5881
+Iteration [159 / 1000] loss : 13.5396
+Iteration [160 / 1000] loss : 13.53
+Iteration [161 / 1000] loss : 13.4775
+Iteration [162 / 1000] loss : 13.5867
+Iteration [163 / 1000] loss : 13.4977
+Iteration [164 / 1000] loss : 13.4812
+Iteration [165 / 1000] loss : 13.5544
+Iteration [166 / 1000] loss : 13.4247
+Iteration [167 / 1000] loss : 13.5705
+Iteration [168 / 1000] loss : 13.5432
+Iteration [169 / 1000] loss : 13.5472
+Iteration [170 / 1000] loss : 13.4788
+Iteration [171 / 1000] loss : 13.3666
+Iteration [172 / 1000] loss : 13.4222
+Iteration [173 / 1000] loss : 13.5782
+Iteration [174 / 1000] loss : 13.4678
+Iteration [175 / 1000] loss : 13.4436
+Iteration [176 / 1000] loss : 13.4134
+Iteration [177 / 1000] loss : 13.4224
+Iteration [178 / 1000] loss : 13.2472
+Iteration [179 / 1000] loss : 13.4281
+Iteration [180 / 1000] loss : 13.409
+Iteration [181 / 1000] loss : 13.3868
+Iteration [182 / 1000] loss : 13.5664
+Iteration [183 / 1000] loss : 13.5523
+Iteration [184 / 1000] loss : 13.3067
+Iteration [185 / 1000] loss : 13.3082
+Iteration [186 / 1000] loss : 13.3669
+Iteration [187 / 1000] loss : 13.5402
+Iteration [188 / 1000] loss : 13.2701
+Iteration [189 / 1000] loss : 13.3098
+Iteration [190 / 1000] loss : 13.1858
+Iteration [191 / 1000] loss : 13.2232
+Iteration [192 / 1000] loss : 13.3595
+Iteration [193 / 1000] loss : 13.2179
+Iteration [194 / 1000] loss : 13.1629
+Iteration [195 / 1000] loss : 13.2419
+Iteration [196 / 1000] loss : 13.1662
+Iteration [197 / 1000] loss : 13.193
+Iteration [198 / 1000] loss : 13.3013
+Iteration [199 / 1000] loss : 13.2995
+Iteration [200 / 1000] loss : 13.2556
+Iteration [201 / 1000] loss : 13.1771
+Iteration [202 / 1000] loss : 13.3553
+Iteration [203 / 1000] loss : 13.2891
+Iteration [204 / 1000] loss : 13.1461
+Iteration [205 / 1000] loss : 13.2121
+Iteration [206 / 1000] loss : 13.2164
+Iteration [207 / 1000] loss : 13.2133
+Iteration [208 / 1000] loss : 13.2758
+Iteration [209 / 1000] loss : 13.308
+Iteration [210 / 1000] loss : 13.1378
+Iteration [211 / 1000] loss : 13.1439
+Iteration [212 / 1000] loss : 13.3213
+Iteration [213 / 1000] loss : 13.1973
+Iteration [214 / 1000] loss : 13.0015
+Iteration [215 / 1000] loss : 13.2234
+Iteration [216 / 1000] loss : 13.1914
+Iteration [217 / 1000] loss : 13.1381
+Iteration [218 / 1000] loss : 13.2592
+Iteration [219 / 1000] loss : 13.2079
+Iteration [220 / 1000] loss : 13.112
+Iteration [221 / 1000] loss : 13.1752
+Iteration [222 / 1000] loss : 13.0804
+Iteration [223 / 1000] loss : 13.213
+Iteration [224 / 1000] loss : 13.3142
+Iteration [225 / 1000] loss : 13.0836
+Iteration [226 / 1000] loss : 13.0718
+Iteration [227 / 1000] loss : 13.3402
+Iteration [228 / 1000] loss : 13.1326
+Iteration [229 / 1000] loss : 12.9891
+Iteration [230 / 1000] loss : 13.0672
+Iteration [231 / 1000] loss : 13.3113
+Iteration [232 / 1000] loss : 13.0748
+Iteration [233 / 1000] loss : 13.1483
+Iteration [234 / 1000] loss : 12.9565
+Iteration [235 / 1000] loss : 13.1747
+Iteration [236 / 1000] loss : 13.0019
+Iteration [237 / 1000] loss : 13.023
+Iteration [238 / 1000] loss : 12.9216
+Iteration [239 / 1000] loss : 13.018
+Iteration [240 / 1000] loss : 13.0391
+Iteration [241 / 1000] loss : 13.0343
+Iteration [242 / 1000] loss : 13.0587
+Iteration [243 / 1000] loss : 13.0159
+Iteration [244 / 1000] loss : 13.0106
+Iteration [245 / 1000] loss : 12.8221
+Iteration [246 / 1000] loss : 12.9741
+Iteration [247 / 1000] loss : 13.3872
+Iteration [248 / 1000] loss : 13.0457
+Iteration [249 / 1000] loss : 12.9974
+Iteration [250 / 1000] loss : 12.9194
+Iteration [251 / 1000] loss : 12.9232
+Iteration [252 / 1000] loss : 12.865
+Iteration [253 / 1000] loss : 12.9553
+Iteration [254 / 1000] loss : 12.8573
+Iteration [255 / 1000] loss : 12.7988
+Iteration [256 / 1000] loss : 12.8592
+Iteration [257 / 1000] loss : 13.0662
+Iteration [258 / 1000] loss : 13.0714
+Iteration [259 / 1000] loss : 13.0948
+Iteration [260 / 1000] loss : 12.6462
+Iteration [261 / 1000] loss : 13.167
+Iteration [262 / 1000] loss : 12.9291
+Iteration [263 / 1000] loss : 12.8052
+Iteration [264 / 1000] loss : 13.043
+Iteration [265 / 1000] loss : 12.8284
+Iteration [266 / 1000] loss : 12.8975
+Iteration [267 / 1000] loss : 12.8152
+Iteration [268 / 1000] loss : 12.7542
+Iteration [269 / 1000] loss : 12.7004
+Iteration [270 / 1000] loss : 12.8041
+Iteration [271 / 1000] loss : 12.7247
+Iteration [272 / 1000] loss : 12.7601
+Iteration [273 / 1000] loss : 12.6363
+Iteration [274 / 1000] loss : 12.8616
+Iteration [275 / 1000] loss : 13.108
+Iteration [276 / 1000] loss : 12.9391
+Iteration [277 / 1000] loss : 12.891
+Iteration [278 / 1000] loss : 12.8664
+Iteration [279 / 1000] loss : 12.918
+Iteration [280 / 1000] loss : 12.8646
+Iteration [281 / 1000] loss : 12.9421
+Iteration [282 / 1000] loss : 12.8482
+Iteration [283 / 1000] loss : 12.8979
+Iteration [284 / 1000] loss : 12.9635
+Iteration [285 / 1000] loss : 12.7667
+Iteration [286 / 1000] loss : 12.768
+Iteration [287 / 1000] loss : 13.1531
+Iteration [288 / 1000] loss : 12.5919
+Iteration [289 / 1000] loss : 12.6698
+Iteration [290 / 1000] loss : 12.7442
+Iteration [291 / 1000] loss : 12.7703
+Iteration [292 / 1000] loss : 12.6795
+Iteration [293 / 1000] loss : 12.6193
+Iteration [294 / 1000] loss : 12.7724
+Iteration [295 / 1000] loss : 12.6525
+Iteration [296 / 1000] loss : 12.6628
+Iteration [297 / 1000] loss : 12.6455
+Iteration [298 / 1000] loss : 12.5444
+Iteration [299 / 1000] loss : 12.5757
+Iteration [300 / 1000] loss : 12.7841
+Iteration [301 / 1000] loss : 12.8788
+Iteration [302 / 1000] loss : 12.6477
+Iteration [303 / 1000] loss : 12.741
+Iteration [304 / 1000] loss : 12.7201
+Iteration [305 / 1000] loss : 12.6001
+Iteration [306 / 1000] loss : 12.5827
+Iteration [307 / 1000] loss : 12.5397
+Iteration [308 / 1000] loss : 12.4305
+Iteration [309 / 1000] loss : 12.6083
+Iteration [310 / 1000] loss : 12.5175
+Iteration [311 / 1000] loss : 12.5643
+Iteration [312 / 1000] loss : 12.7151
+Iteration [313 / 1000] loss : 12.4297
+Iteration [314 / 1000] loss : 12.6319
+Iteration [315 / 1000] loss : 12.6169
+Iteration [316 / 1000] loss : 12.535
+Iteration [317 / 1000] loss : 12.486
+Iteration [318 / 1000] loss : 12.7225
+Iteration [319 / 1000] loss : 12.6786
+Iteration [320 / 1000] loss : 12.6247
+Iteration [321 / 1000] loss : 12.5344
+Iteration [322 / 1000] loss : 12.557
+Iteration [323 / 1000] loss : 12.6849
+Iteration [324 / 1000] loss : 13.0432
+Iteration [325 / 1000] loss : 12.7348
+Iteration [326 / 1000] loss : 12.3888
+Iteration [327 / 1000] loss : 12.6794
+Iteration [328 / 1000] loss : 12.3037
+Iteration [329 / 1000] loss : 12.3842
+Iteration [330 / 1000] loss : 12.6014
+Iteration [331 / 1000] loss : 12.4529
+Iteration [332 / 1000] loss : 12.54
+Iteration [333 / 1000] loss : 12.5778
+Iteration [334 / 1000] loss : 12.8477
+Iteration [335 / 1000] loss : 12.5844
+Iteration [336 / 1000] loss : 12.5416
+Iteration [337 / 1000] loss : 12.3384
+Iteration [338 / 1000] loss : 12.2526
+Iteration [339 / 1000] loss : 12.3372
+Iteration [340 / 1000] loss : 12.4522
+Iteration [341 / 1000] loss : 12.4404
+Iteration [342 / 1000] loss : 12.4274
+Iteration [343 / 1000] loss : 12.3856
+Iteration [344 / 1000] loss : 12.1151
+Iteration [345 / 1000] loss : 12.3981
+Iteration [346 / 1000] loss : 12.5094
+Iteration [347 / 1000] loss : 12.415
+Iteration [348 / 1000] loss : 12.6893
+Iteration [349 / 1000] loss : 12.469
+Iteration [350 / 1000] loss : 12.3474
+Iteration [351 / 1000] loss : 12.3808
+Iteration [352 / 1000] loss : 12.343
+Iteration [353 / 1000] loss : 12.3766
+Iteration [354 / 1000] loss : 12.2675
+Iteration [355 / 1000] loss : 12.4518
+Iteration [356 / 1000] loss : 12.2766
+Iteration [357 / 1000] loss : 12.3426
+Iteration [358 / 1000] loss : 12.5239
+Iteration [359 / 1000] loss : 12.822
+Iteration [360 / 1000] loss : 11.9075
+Iteration [361 / 1000] loss : 12.376
+Iteration [362 / 1000] loss : 12.212
+Iteration [363 / 1000] loss : 12.5557
+Iteration [364 / 1000] loss : 12.2339
+Iteration [365 / 1000] loss : 12.1743
+Iteration [366 / 1000] loss : 12.3408
+Iteration [367 / 1000] loss : 12.4505
+Iteration [368 / 1000] loss : 12.2442
+Iteration [369 / 1000] loss : 12.4011
+Iteration [370 / 1000] loss : 12.1962
+Iteration [371 / 1000] loss : 12.2323
+Iteration [372 / 1000] loss : 12.2377
+Iteration [373 / 1000] loss : 12.4963
+Iteration [374 / 1000] loss : 12.3667
+Iteration [375 / 1000] loss : 12.1872
+Iteration [376 / 1000] loss : 12.179
+Iteration [377 / 1000] loss : 12.0081
+Iteration [378 / 1000] loss : 12.2441
+Iteration [379 / 1000] loss : 11.7675
+Iteration [380 / 1000] loss : 12.4216
+Iteration [381 / 1000] loss : 12.207
+Iteration [382 / 1000] loss : 12.2641
+Iteration [383 / 1000] loss : 12.2528
+Iteration [384 / 1000] loss : 12.1188
+Iteration [385 / 1000] loss : 12.2453
+Iteration [386 / 1000] loss : 12.4406
+Iteration [387 / 1000] loss : 12.3775
+Iteration [388 / 1000] loss : 12.3774
+Iteration [389 / 1000] loss : 12.4315
+Iteration [390 / 1000] loss : 12.0974
+Iteration [391 / 1000] loss : 12.0383
+Iteration [392 / 1000] loss : 12.0659
+Iteration [393 / 1000] loss : 12.0316
+Iteration [394 / 1000] loss : 12.0223
+Iteration [395 / 1000] loss : 12.003
+Iteration [396 / 1000] loss : 12.1342
+Iteration [397 / 1000] loss : 12.2185
+Iteration [398 / 1000] loss : 12.18
+Iteration [399 / 1000] loss : 12.1427
+Iteration [400 / 1000] loss : 12.0905
+Iteration [401 / 1000] loss : 12.2606
+Iteration [402 / 1000] loss : 12.1796
+Iteration [403 / 1000] loss : 12.0231
+Iteration [404 / 1000] loss : 12.4824
+Iteration [405 / 1000] loss : 12.3538
+Iteration [406 / 1000] loss : 12.1832
+Iteration [407 / 1000] loss : 12.336
+Iteration [408 / 1000] loss : 11.7933
+Iteration [409 / 1000] loss : 11.9548
+Iteration [410 / 1000] loss : 11.7549
+Iteration [411 / 1000] loss : 12.2904
+Iteration [412 / 1000] loss : 11.9289
+Iteration [413 / 1000] loss : 11.8985
+Iteration [414 / 1000] loss : 12.2875
+Iteration [415 / 1000] loss : 12.3774
+Iteration [416 / 1000] loss : 12.027
+Iteration [417 / 1000] loss : 12.2501
+Iteration [418 / 1000] loss : 11.995
+Iteration [419 / 1000] loss : 11.9131
+Iteration [420 / 1000] loss : 12.3247
+Iteration [421 / 1000] loss : 12.5435
+Iteration [422 / 1000] loss : 12.5895
+Iteration [423 / 1000] loss : 11.8589
+Iteration [424 / 1000] loss : 12.2507
+Iteration [425 / 1000] loss : 11.9265
+Iteration [426 / 1000] loss : 11.956
+Iteration [427 / 1000] loss : 11.6815
+Iteration [428 / 1000] loss : 12.0587
+Iteration [429 / 1000] loss : 11.9657
+Iteration [430 / 1000] loss : 11.87
+Iteration [431 / 1000] loss : 11.9156
+Iteration [432 / 1000] loss : 11.9739
+Iteration [433 / 1000] loss : 11.8322
+Iteration [434 / 1000] loss : 11.8111
+Iteration [435 / 1000] loss : 12.1785
+Iteration [436 / 1000] loss : 11.735
+Iteration [437 / 1000] loss : 11.6958
+Iteration [438 / 1000] loss : 11.6694
+Iteration [439 / 1000] loss : 12.6066
+Iteration [440 / 1000] loss : 11.5893
+Iteration [441 / 1000] loss : 11.9797
+Iteration [442 / 1000] loss : 12.0633
+Iteration [443 / 1000] loss : 11.6332
+Iteration [444 / 1000] loss : 12.1849
+Iteration [445 / 1000] loss : 12.3431
+Iteration [446 / 1000] loss : 11.9749
+Iteration [447 / 1000] loss : 11.9072
+Iteration [448 / 1000] loss : 12.8611
+Iteration [449 / 1000] loss : 11.6395
+Iteration [450 / 1000] loss : 11.9439
+Iteration [451 / 1000] loss : 11.5222
+Iteration [452 / 1000] loss : 11.5361
+Iteration [453 / 1000] loss : 12.2334
+Iteration [454 / 1000] loss : 11.8665
+Iteration [455 / 1000] loss : 12.3091
+Iteration [456 / 1000] loss : 11.7934
+Iteration [457 / 1000] loss : 11.7026
+Iteration [458 / 1000] loss : 11.8918
+Iteration [459 / 1000] loss : 11.9341
+Iteration [460 / 1000] loss : 12.0171
+Iteration [461 / 1000] loss : 11.7681
+Iteration [462 / 1000] loss : 11.9451
+Iteration [463 / 1000] loss : 11.8901
+Iteration [464 / 1000] loss : 11.7585
+Iteration [465 / 1000] loss : 11.7559
+Iteration [466 / 1000] loss : 11.8761
+Iteration [467 / 1000] loss : 11.7868
+Iteration [468 / 1000] loss : 11.5454
+Iteration [469 / 1000] loss : 12.0447
+Iteration [470 / 1000] loss : 11.8211
+Iteration [471 / 1000] loss : 11.9313
+Iteration [472 / 1000] loss : 12.1088
+Iteration [473 / 1000] loss : 11.7015
+Iteration [474 / 1000] loss : 11.9391
+Iteration [475 / 1000] loss : 11.5159
+Iteration [476 / 1000] loss : 11.94
+Iteration [477 / 1000] loss : 11.655
+Iteration [478 / 1000] loss : 11.8818
+Iteration [479 / 1000] loss : 11.926
+Iteration [480 / 1000] loss : 12.227
+Iteration [481 / 1000] loss : 11.4501
+Iteration [482 / 1000] loss : 11.7017
+Iteration [483 / 1000] loss : 11.8707
+Iteration [484 / 1000] loss : 11.6929
+Iteration [485 / 1000] loss : 11.7226
+Iteration [486 / 1000] loss : 12.2763
+Iteration [487 / 1000] loss : 11.5261
+Iteration [488 / 1000] loss : 12.0351
+Iteration [489 / 1000] loss : 11.9714
+Iteration [490 / 1000] loss : 11.9325
+Iteration [491 / 1000] loss : 12.0762
+Iteration [492 / 1000] loss : 11.2262
+Iteration [493 / 1000] loss : 11.8586
+Iteration [494 / 1000] loss : 11.4716
+Iteration [495 / 1000] loss : 11.6419
+Iteration [496 / 1000] loss : 11.6619
+Iteration [497 / 1000] loss : 11.8352
+Iteration [498 / 1000] loss : 11.6974
+Iteration [499 / 1000] loss : 11.8139
+Iteration [500 / 1000] loss : 11.5049
+Iteration [501 / 1000] loss : 12.1461
+Iteration [502 / 1000] loss : 11.5728
+Iteration [503 / 1000] loss : 12.2558
+Iteration [504 / 1000] loss : 11.6057
+Iteration [505 / 1000] loss : 11.3794
+Iteration [506 / 1000] loss : 11.5934
+Iteration [507 / 1000] loss : 11.8092
+Iteration [508 / 1000] loss : 11.7078
+Iteration [509 / 1000] loss : 11.7831
+Iteration [510 / 1000] loss : 11.9917
+Iteration [511 / 1000] loss : 11.4681
+Iteration [512 / 1000] loss : 11.2659
+Iteration [513 / 1000] loss : 11.5463
+Iteration [514 / 1000] loss : 11.6583
+Iteration [515 / 1000] loss : 11.5817
+Iteration [516 / 1000] loss : 11.2965
+Iteration [517 / 1000] loss : 12.0103
+Iteration [518 / 1000] loss : 11.4795
+Iteration [519 / 1000] loss : 11.8031
+Iteration [520 / 1000] loss : 11.6154
+Iteration [521 / 1000] loss : 11.8418
+Iteration [522 / 1000] loss : 11.146
+Iteration [523 / 1000] loss : 11.3012
+Iteration [524 / 1000] loss : 11.7801
+Iteration [525 / 1000] loss : 11.4488
+Iteration [526 / 1000] loss : 11.5082
+Iteration [527 / 1000] loss : 11.3885
+Iteration [528 / 1000] loss : 11.5837
+Iteration [529 / 1000] loss : 11.8049
+Iteration [530 / 1000] loss : 11.7053
+Iteration [531 / 1000] loss : 11.9503
+Iteration [532 / 1000] loss : 11.9253
+Iteration [533 / 1000] loss : 11.3732
+Iteration [534 / 1000] loss : 11.0685
+Iteration [535 / 1000] loss : 11.2741
+Iteration [536 / 1000] loss : 11.4968
+Iteration [537 / 1000] loss : 11.3467
+Iteration [538 / 1000] loss : 11.658
+Iteration [539 / 1000] loss : 11.2563
+Iteration [540 / 1000] loss : 11.6685
+Iteration [541 / 1000] loss : 11.5027
+Iteration [542 / 1000] loss : 11.5388
+Iteration [543 / 1000] loss : 11.4714
+Iteration [544 / 1000] loss : 11.0578
+Iteration [545 / 1000] loss : 11.5608
+Iteration [546 / 1000] loss : 11.4659
+Iteration [547 / 1000] loss : 11.331
+Iteration [548 / 1000] loss : 11.4441
+Iteration [549 / 1000] loss : 11.6321
+Iteration [550 / 1000] loss : 11.4181
+Iteration [551 / 1000] loss : 11.325
+Iteration [552 / 1000] loss : 11.4186
+Iteration [553 / 1000] loss : 11.4752
+Iteration [554 / 1000] loss : 12.0794
+Iteration [555 / 1000] loss : 11.5587
+Iteration [556 / 1000] loss : 11.2537
+Iteration [557 / 1000] loss : 11.3265
+Iteration [558 / 1000] loss : 11.427
+Iteration [559 / 1000] loss : 11.4398
+Iteration [560 / 1000] loss : 11.2324
+Iteration [561 / 1000] loss : 11.735
+Iteration [562 / 1000] loss : 11.4511
+Iteration [563 / 1000] loss : 12.2372
+Iteration [564 / 1000] loss : 11.2437
+Iteration [565 / 1000] loss : 11.4618
+Iteration [566 / 1000] loss : 11.6863
+Iteration [567 / 1000] loss : 11.0403
+Iteration [568 / 1000] loss : 11.5936
+Iteration [569 / 1000] loss : 11.1925
+Iteration [570 / 1000] loss : 10.9848
+Iteration [571 / 1000] loss : 11.478
+Iteration [572 / 1000] loss : 11.4519
+Iteration [573 / 1000] loss : 11.4777
+Iteration [574 / 1000] loss : 11.2564
+Iteration [575 / 1000] loss : 11.7551
+Iteration [576 / 1000] loss : 11.1932
+Iteration [577 / 1000] loss : 11.4693
+Iteration [578 / 1000] loss : 11.3029
+Iteration [579 / 1000] loss : 11.8133
+Iteration [580 / 1000] loss : 10.8613
+Iteration [581 / 1000] loss : 11.307
+Iteration [582 / 1000] loss : 11.6002
+Iteration [583 / 1000] loss : 11.2547
+Iteration [584 / 1000] loss : 11.4234
+Iteration [585 / 1000] loss : 11.6655
+Iteration [586 / 1000] loss : 11.1909
+Iteration [587 / 1000] loss : 11.4353
+Iteration [588 / 1000] loss : 10.9732
+Iteration [589 / 1000] loss : 11.5235
+Iteration [590 / 1000] loss : 11.1918
+Iteration [591 / 1000] loss : 11.5505
+Iteration [592 / 1000] loss : 11.0624
+Iteration [593 / 1000] loss : 11.6093
+Iteration [594 / 1000] loss : 11.0829
+Iteration [595 / 1000] loss : 11.2078
+Iteration [596 / 1000] loss : 11.4526
+Iteration [597 / 1000] loss : 10.7958
+Iteration [598 / 1000] loss : 11.2618
+Iteration [599 / 1000] loss : 11.4449
+Iteration [600 / 1000] loss : 11.216
+Iteration [601 / 1000] loss : 11.1698
+Iteration [602 / 1000] loss : 10.6135
+Iteration [603 / 1000] loss : 11.3831
+Iteration [604 / 1000] loss : 11.7922
+Iteration [605 / 1000] loss : 11.115
+Iteration [606 / 1000] loss : 11.0329
+Iteration [607 / 1000] loss : 11.1559
+Iteration [608 / 1000] loss : 10.8704
+Iteration [609 / 1000] loss : 11.1819
+Iteration [610 / 1000] loss : 11.065
+Iteration [611 / 1000] loss : 11.369
+Iteration [612 / 1000] loss : 11.1772
+Iteration [613 / 1000] loss : 11.2219
+Iteration [614 / 1000] loss : 11.4392
+Iteration [615 / 1000] loss : 11.1806
+Iteration [616 / 1000] loss : 11.2634
+Iteration [617 / 1000] loss : 11.0511
+Iteration [618 / 1000] loss : 11.4706
+Iteration [619 / 1000] loss : 12.223
+Iteration [620 / 1000] loss : 11.1376
+Iteration [621 / 1000] loss : 10.8862
+Iteration [622 / 1000] loss : 11.3917
+Iteration [623 / 1000] loss : 10.6433
+Iteration [624 / 1000] loss : 10.7647
+Iteration [625 / 1000] loss : 10.6966
+Iteration [626 / 1000] loss : 11.2494
+Iteration [627 / 1000] loss : 10.7466
+Iteration [628 / 1000] loss : 11.1649
+Iteration [629 / 1000] loss : 10.6977
+Iteration [630 / 1000] loss : 10.9655
+Iteration [631 / 1000] loss : 11.8497
+Iteration [632 / 1000] loss : 10.8305
+Iteration [633 / 1000] loss : 10.5354
+Iteration [634 / 1000] loss : 11.3094
+Iteration [635 / 1000] loss : 10.5356
+Iteration [636 / 1000] loss : 11.0339
+Iteration [637 / 1000] loss : 11.8415
+Iteration [638 / 1000] loss : 11.1877
+Iteration [639 / 1000] loss : 11.1146
+Iteration [640 / 1000] loss : 10.7847
+Iteration [641 / 1000] loss : 11.028
+Iteration [642 / 1000] loss : 11.3675
+Iteration [643 / 1000] loss : 11.1917
+Iteration [644 / 1000] loss : 11.2877
+Iteration [645 / 1000] loss : 11.2189
+Iteration [646 / 1000] loss : 10.8836
+Iteration [647 / 1000] loss : 11.1484
+Iteration [648 / 1000] loss : 11.0708
+Iteration [649 / 1000] loss : 11.4365
+Iteration [650 / 1000] loss : 11.0222
+Iteration [651 / 1000] loss : 11.4297
+Iteration [652 / 1000] loss : 11.4367
+Iteration [653 / 1000] loss : 11.1784
+Iteration [654 / 1000] loss : 11.3061
+Iteration [655 / 1000] loss : 11.2362
+Iteration [656 / 1000] loss : 10.7676
+Iteration [657 / 1000] loss : 10.6752
+Iteration [658 / 1000] loss : 10.7221
+Iteration [659 / 1000] loss : 11.7932
+Iteration [660 / 1000] loss : 10.9073
+Iteration [661 / 1000] loss : 10.7242
+Iteration [662 / 1000] loss : 11.1579
+Iteration [663 / 1000] loss : 10.6792
+Iteration [664 / 1000] loss : 11.4796
+Iteration [665 / 1000] loss : 11.0641
+Iteration [666 / 1000] loss : 10.7879
+Iteration [667 / 1000] loss : 11.5433
+Iteration [668 / 1000] loss : 10.7415
+Iteration [669 / 1000] loss : 11.4321
+Iteration [670 / 1000] loss : 10.7581
+Iteration [671 / 1000] loss : 10.8794
+Iteration [672 / 1000] loss : 10.7598
+Iteration [673 / 1000] loss : 10.4193
+Iteration [674 / 1000] loss : 10.6659
+Iteration [675 / 1000] loss : 11.1813
+Iteration [676 / 1000] loss : 11.0173
+Iteration [677 / 1000] loss : 10.6775
+Iteration [678 / 1000] loss : 11.3362
+Iteration [679 / 1000] loss : 11.0035
+Iteration [680 / 1000] loss : 11.1956
+Iteration [681 / 1000] loss : 11.2134
+Iteration [682 / 1000] loss : 10.6747
+Iteration [683 / 1000] loss : 11.0382
+Iteration [684 / 1000] loss : 11.3959
+Iteration [685 / 1000] loss : 10.6077
+Iteration [686 / 1000] loss : 10.468
+Iteration [687 / 1000] loss : 10.6726
+Iteration [688 / 1000] loss : 11.7969
+Iteration [689 / 1000] loss : 10.8088
+Iteration [690 / 1000] loss : 10.7327
+Iteration [691 / 1000] loss : 10.9099
+Iteration [692 / 1000] loss : 10.9041
+Iteration [693 / 1000] loss : 10.8371
+Iteration [694 / 1000] loss : 10.9705
+Iteration [695 / 1000] loss : 10.6633
+Iteration [696 / 1000] loss : 10.8206
+Iteration [697 / 1000] loss : 11.0317
+Iteration [698 / 1000] loss : 10.8952
+Iteration [699 / 1000] loss : 10.6649
+Iteration [700 / 1000] loss : 10.8329
+Iteration [701 / 1000] loss : 10.5815
+Iteration [702 / 1000] loss : 10.3443
+Iteration [703 / 1000] loss : 10.6727
+Iteration [704 / 1000] loss : 11.0407
+Iteration [705 / 1000] loss : 10.9174
+Iteration [706 / 1000] loss : 10.5687
+Iteration [707 / 1000] loss : 11.0614
+Iteration [708 / 1000] loss : 10.7319
+Iteration [709 / 1000] loss : 10.6639
+Iteration [710 / 1000] loss : 10.8373
+Iteration [711 / 1000] loss : 11.0902
+Iteration [712 / 1000] loss : 11.2009
+Iteration [713 / 1000] loss : 11.0434
+Iteration [714 / 1000] loss : 10.8328
+Iteration [715 / 1000] loss : 11.1529
+Iteration [716 / 1000] loss : 10.5678
+Iteration [717 / 1000] loss : 11.402
+Iteration [718 / 1000] loss : 11.3995
+Iteration [719 / 1000] loss : 10.9242
+Iteration [720 / 1000] loss : 11.2508
+Iteration [721 / 1000] loss : 11.6312
+Iteration [722 / 1000] loss : 10.5167
+Iteration [723 / 1000] loss : 11.2756
+Iteration [724 / 1000] loss : 11.0289
+Iteration [725 / 1000] loss : 10.5551
+Iteration [726 / 1000] loss : 10.0172
+Iteration [727 / 1000] loss : 11.0478
+Iteration [728 / 1000] loss : 10.6814
+Iteration [729 / 1000] loss : 10.208
+Iteration [730 / 1000] loss : 10.8446
+Iteration [731 / 1000] loss : 11.5519
+Iteration [732 / 1000] loss : 10.7358
+Iteration [733 / 1000] loss : 11.3891
+Iteration [734 / 1000] loss : 11.0763
+Iteration [735 / 1000] loss : 10.2325
+Iteration [736 / 1000] loss : 10.5048
+Iteration [737 / 1000] loss : 10.5427
+Iteration [738 / 1000] loss : 11.2211
+Iteration [739 / 1000] loss : 11.1426
+Iteration [740 / 1000] loss : 10.9963
+Iteration [741 / 1000] loss : 10.8708
+Iteration [742 / 1000] loss : 10.6292
+Iteration [743 / 1000] loss : 10.8589
+Iteration [744 / 1000] loss : 10.7901
+Iteration [745 / 1000] loss : 11.353
+Iteration [746 / 1000] loss : 11.1102
+Iteration [747 / 1000] loss : 10.6461
+Iteration [748 / 1000] loss : 10.7926
+Iteration [749 / 1000] loss : 10.9328
+Iteration [750 / 1000] loss : 10.7103
+Iteration [751 / 1000] loss : 10.714
+Iteration [752 / 1000] loss : 10.8802
+Iteration [753 / 1000] loss : 10.4357
+Iteration [754 / 1000] loss : 10.6118
+Iteration [755 / 1000] loss : 10.5275
+Iteration [756 / 1000] loss : 11.3588
+Iteration [757 / 1000] loss : 10.6458
+Iteration [758 / 1000] loss : 10.4575
+Iteration [759 / 1000] loss : 10.6045
+Iteration [760 / 1000] loss : 10.6418
+Iteration [761 / 1000] loss : 10.4849
+Iteration [762 / 1000] loss : 11.4476
+Iteration [763 / 1000] loss : 10.8124
+Iteration [764 / 1000] loss : 10.5952
+Iteration [765 / 1000] loss : 10.3682
+Iteration [766 / 1000] loss : 10.6282
+Iteration [767 / 1000] loss : 10.4852
+Iteration [768 / 1000] loss : 11.1255
+Iteration [769 / 1000] loss : 10.8016
+Iteration [770 / 1000] loss : 11.4835
+Iteration [771 / 1000] loss : 10.4795
+Iteration [772 / 1000] loss : 11.0068
+Iteration [773 / 1000] loss : 10.535
+Iteration [774 / 1000] loss : 11.1558
+Iteration [775 / 1000] loss : 11.2187
+Iteration [776 / 1000] loss : 10.6053
+Iteration [777 / 1000] loss : 10.9564
+Iteration [778 / 1000] loss : 11.092
+Iteration [779 / 1000] loss : 10.3608
+Iteration [780 / 1000] loss : 10.6511
+Iteration [781 / 1000] loss : 10.4655
+Iteration [782 / 1000] loss : 10.0783
+Iteration [783 / 1000] loss : 10.2571
+Iteration [784 / 1000] loss : 11.1075
+Iteration [785 / 1000] loss : 10.7454
+Iteration [786 / 1000] loss : 10.5692
+Iteration [787 / 1000] loss : 10.2083
+Iteration [788 / 1000] loss : 11.2578
+Iteration [789 / 1000] loss : 10.8753
+Iteration [790 / 1000] loss : 10.8171
+Iteration [791 / 1000] loss : 10.6987
+Iteration [792 / 1000] loss : 10.2968
+Iteration [793 / 1000] loss : 10.994
+Iteration [794 / 1000] loss : 11.0804
+Iteration [795 / 1000] loss : 10.8831
+Iteration [796 / 1000] loss : 10.7111
+Iteration [797 / 1000] loss : 10.8459
+Iteration [798 / 1000] loss : 10.9854
+Iteration [799 / 1000] loss : 10.6565
+Iteration [800 / 1000] loss : 10.4754
+Iteration [801 / 1000] loss : 10.764
+Iteration [802 / 1000] loss : 10.1057
+Iteration [803 / 1000] loss : 10.1734
+Iteration [804 / 1000] loss : 10.9377
+Iteration [805 / 1000] loss : 10.7268
+Iteration [806 / 1000] loss : 10.2236
+Iteration [807 / 1000] loss : 10.5142
+Iteration [808 / 1000] loss : 10.6799
+Iteration [809 / 1000] loss : 9.94692
+Iteration [810 / 1000] loss : 10.6212
+Iteration [811 / 1000] loss : 10.6362
+Iteration [812 / 1000] loss : 10.1869
+Iteration [813 / 1000] loss : 10.809
+Iteration [814 / 1000] loss : 10.6384
+Iteration [815 / 1000] loss : 10.7961
+Iteration [816 / 1000] loss : 10.4631
+Iteration [817 / 1000] loss : 9.86238
+Iteration [818 / 1000] loss : 10.9763
+Iteration [819 / 1000] loss : 10.4961
+Iteration [820 / 1000] loss : 10.4695
+Iteration [821 / 1000] loss : 10.3964
+Iteration [822 / 1000] loss : 11.1102
+Iteration [823 / 1000] loss : 10.1591
+Iteration [824 / 1000] loss : 10.8681
+Iteration [825 / 1000] loss : 10.5764
+Iteration [826 / 1000] loss : 10.0588
+Iteration [827 / 1000] loss : 10.9126
+Iteration [828 / 1000] loss : 10.3885
+Iteration [829 / 1000] loss : 10.5727
+Iteration [830 / 1000] loss : 10.0512
+Iteration [831 / 1000] loss : 10.0122
+Iteration [832 / 1000] loss : 10.4329
+Iteration [833 / 1000] loss : 11.2896
+Iteration [834 / 1000] loss : 10.2622
+Iteration [835 / 1000] loss : 11.4259
+Iteration [836 / 1000] loss : 10.338
+Iteration [837 / 1000] loss : 9.78555
+Iteration [838 / 1000] loss : 10.6449
+Iteration [839 / 1000] loss : 10.443
+Iteration [840 / 1000] loss : 10.4555
+Iteration [841 / 1000] loss : 10.9582
+Iteration [842 / 1000] loss : 10.6257
+Iteration [843 / 1000] loss : 10.4619
+Iteration [844 / 1000] loss : 10.6159
+Iteration [845 / 1000] loss : 11.8602
+Iteration [846 / 1000] loss : 10.1635
+Iteration [847 / 1000] loss : 10.0957
+Iteration [848 / 1000] loss : 10.3824
+Iteration [849 / 1000] loss : 10.8454
+Iteration [850 / 1000] loss : 10.8543
+Iteration [851 / 1000] loss : 10.2772
+Iteration [852 / 1000] loss : 10.582
+Iteration [853 / 1000] loss : 11.3637
+Iteration [854 / 1000] loss : 10.7034
+Iteration [855 / 1000] loss : 10.3133
+Iteration [856 / 1000] loss : 10.5901
+Iteration [857 / 1000] loss : 11.016
+Iteration [858 / 1000] loss : 10.3602
+Iteration [859 / 1000] loss : 10.0858
+Iteration [860 / 1000] loss : 10.9715
+Iteration [861 / 1000] loss : 10.9446
+Iteration [862 / 1000] loss : 11.0753
+Iteration [863 / 1000] loss : 10.7333
+Iteration [864 / 1000] loss : 10.5197
+Iteration [865 / 1000] loss : 10.7209
+Iteration [866 / 1000] loss : 10.497
+Iteration [867 / 1000] loss : 10.6392
+Iteration [868 / 1000] loss : 10.6244
+Iteration [869 / 1000] loss : 10.6092
+Iteration [870 / 1000] loss : 10.5524
+Iteration [871 / 1000] loss : 10.1443
+Iteration [872 / 1000] loss : 10.2784
+Iteration [873 / 1000] loss : 10.7915
+Iteration [874 / 1000] loss : 10.6386
+Iteration [875 / 1000] loss : 10.1011
+Iteration [876 / 1000] loss : 10.7215
+Iteration [877 / 1000] loss : 10.0413
+Iteration [878 / 1000] loss : 10.6073
+Iteration [879 / 1000] loss : 11.3397
+Iteration [880 / 1000] loss : 10.5081
+Iteration [881 / 1000] loss : 9.94951
+Iteration [882 / 1000] loss : 10.2239
+Iteration [883 / 1000] loss : 10.3635
+Iteration [884 / 1000] loss : 10.5292
+Iteration [885 / 1000] loss : 10.3809
+Iteration [886 / 1000] loss : 10.5357
+Iteration [887 / 1000] loss : 10.439
+Iteration [888 / 1000] loss : 9.89609
+Iteration [889 / 1000] loss : 10.891
+Iteration [890 / 1000] loss : 9.89612
+Iteration [891 / 1000] loss : 11.1412
+Iteration [892 / 1000] loss : 10.5724
+Iteration [893 / 1000] loss : 10.6291
+Iteration [894 / 1000] loss : 10.7049
+Iteration [895 / 1000] loss : 10.2293
+Iteration [896 / 1000] loss : 10.0491
+Iteration [897 / 1000] loss : 9.82765
+Iteration [898 / 1000] loss : 10.5957
+Iteration [899 / 1000] loss : 10.0918
+Iteration [900 / 1000] loss : 10.7258
+Iteration [901 / 1000] loss : 10.6794
+Iteration [902 / 1000] loss : 11.7621
+Iteration [903 / 1000] loss : 10.7114
+Iteration [904 / 1000] loss : 10.6919
+Iteration [905 / 1000] loss : 10.7877
+Iteration [906 / 1000] loss : 11.3478
+Iteration [907 / 1000] loss : 10.17
+Iteration [908 / 1000] loss : 10.6359
+Iteration [909 / 1000] loss : 10.4842
+Iteration [910 / 1000] loss : 10.5325
+Iteration [911 / 1000] loss : 10.4173
+Iteration [912 / 1000] loss : 11.0923
+Iteration [913 / 1000] loss : 10.3089
+Iteration [914 / 1000] loss : 11.1756
+Iteration [915 / 1000] loss : 10.5104
+Iteration [916 / 1000] loss : 10.6824
+Iteration [917 / 1000] loss : 11.3072
+Iteration [918 / 1000] loss : 10.5316
+Iteration [919 / 1000] loss : 10.9407
+Iteration [920 / 1000] loss : 10.6988
+Iteration [921 / 1000] loss : 9.9567
+Iteration [922 / 1000] loss : 10.5929
+Iteration [923 / 1000] loss : 10.1128
+Iteration [924 / 1000] loss : 10.2824
+Iteration [925 / 1000] loss : 10.3329
+Iteration [926 / 1000] loss : 10.1519
+Iteration [927 / 1000] loss : 10.6124
+Iteration [928 / 1000] loss : 10.9742
+Iteration [929 / 1000] loss : 10.3269
+Iteration [930 / 1000] loss : 9.99687
+Iteration [931 / 1000] loss : 11.0374
+Iteration [932 / 1000] loss : 10.0337
+Iteration [933 / 1000] loss : 11.1652
+Iteration [934 / 1000] loss : 10.2931
+Iteration [935 / 1000] loss : 10.2831
+Iteration [936 / 1000] loss : 10.3383
+Iteration [937 / 1000] loss : 9.93902
+Iteration [938 / 1000] loss : 10.1368
+Iteration [939 / 1000] loss : 9.68261
+Iteration [940 / 1000] loss : 10.2197
+Iteration [941 / 1000] loss : 11.1138
+Iteration [942 / 1000] loss : 9.85973
+Iteration [943 / 1000] loss : 10.008
+Iteration [944 / 1000] loss : 10.4187
+Iteration [945 / 1000] loss : 10.5673
+Iteration [946 / 1000] loss : 10.4782
+Iteration [947 / 1000] loss : 10.8772
+Iteration [948 / 1000] loss : 10.437
+Iteration [949 / 1000] loss : 10.1638
+Iteration [950 / 1000] loss : 10.2506
+Iteration [951 / 1000] loss : 10.1186
+Iteration [952 / 1000] loss : 10.4937
+Iteration [953 / 1000] loss : 10.7805
+Iteration [954 / 1000] loss : 10.6994
+Iteration [955 / 1000] loss : 9.97043
+Iteration [956 / 1000] loss : 10.3409
+Iteration [957 / 1000] loss : 10.5032
+Iteration [958 / 1000] loss : 11.0284
+Iteration [959 / 1000] loss : 10.2546
+Iteration [960 / 1000] loss : 10.4384
+Iteration [961 / 1000] loss : 11.4188
+Iteration [962 / 1000] loss : 9.91944
+Iteration [963 / 1000] loss : 9.86042
+Iteration [964 / 1000] loss : 10.9977
+Iteration [965 / 1000] loss : 10.4198
+Iteration [966 / 1000] loss : 10.0948
+Iteration [967 / 1000] loss : 10.6721
+Iteration [968 / 1000] loss : 10.7175
+Iteration [969 / 1000] loss : 9.79999
+Iteration [970 / 1000] loss : 9.95476
+Iteration [971 / 1000] loss : 10.4792
+Iteration [972 / 1000] loss : 9.72559
+Iteration [973 / 1000] loss : 9.92263
+Iteration [974 / 1000] loss : 10.2028
+Iteration [975 / 1000] loss : 9.65314
+Iteration [976 / 1000] loss : 10.4905
+Iteration [977 / 1000] loss : 10.5165
+Iteration [978 / 1000] loss : 10.7783
+Iteration [979 / 1000] loss : 10.1438
+Iteration [980 / 1000] loss : 10.9427
+Iteration [981 / 1000] loss : 10.5975
+Iteration [982 / 1000] loss : 10.7346
+Iteration [983 / 1000] loss : 10.9271
+Iteration [984 / 1000] loss : 10.5335
+Iteration [985 / 1000] loss : 10.9689
+Iteration [986 / 1000] loss : 10.6889
+Iteration [987 / 1000] loss : 10.3374
+Iteration [988 / 1000] loss : 9.35282
+Iteration [989 / 1000] loss : 11.4172
+Iteration [990 / 1000] loss : 10.47
+Iteration [991 / 1000] loss : 10.1486
+Iteration [992 / 1000] loss : 10.1287
+Iteration [993 / 1000] loss : 10.3122
+Iteration [994 / 1000] loss : 10.4915
+Iteration [995 / 1000] loss : 10.3123
+Iteration [996 / 1000] loss : 9.83757
+Iteration [997 / 1000] loss : 9.71306
+Iteration [998 / 1000] loss : 10.3121
+Iteration [999 / 1000] loss : 10.5382
+Time Recorded ====================================
+
+
+118.072
+18.2659
+251.278
+171.824
+3681.62
+9989.32
+5912.86
+1260.81
+191.325
+186.385
+690.989
+149.124
+1501.19
+927.712
+177.789
+186.348
+3640.85
+9993.79
+5824.55
+1259.14
+189.572
+186.192
+678.381
+149.283
+1499.38
+933.1
+177.756
+186.262
+3647.62
+9993.67
+6008.9
+1261.64
+189.867
+186.535
+695.928
+152.649
+1494.6
+936.665
+176.425
+186.977
+3687.78
+9981.77
+5968.87
+1281.64
+186.611
+186.949
+689.96
+147.789
+1500.58
+934.588
+174.948
+186.953
+3934.41
+9981.61
+6099.47
+1334.19
+178.252
+183.536
+684.79
+149.765
+1493.77
+935.135
+173.821
+185.948
+4083.41
+9980.04
+6131.78
+1344.53
+179.424
+183.85
+697.142
+149.137
+1490.62
+932.335
+172.319
+184.836
+110.161
+18.2211
+158.838
+170.559
+3676.55
+9690.7
+5852.66
+1257.76
+189.116
+188.08
+3681.74
+13726.0
+5969.47
+1258.4
+188.222
+188.054
+690.686
+149.898
+1475.4
+930.201
+177.581
+187.262
+3645.93
+9696.33
+5960.4
+1259.7
+190.179
+187.559
+3649.82
+13723.9
+5941.89
+1266.6
+188.199
+187.145
+689.704
+153.072
+1480.77
+929.512
+176.039
+187.22
+3638.74
+9697.36
+5997.35
+1258.98
+189.215
+187.518
+3656.32
+13726.6
+5944.03
+1259.2
+188.754
+186.631
+681.001
+149.554
+1510.39
+931.091
+176.726
+186.409
+3630.66
+9695.98
+6008.97
+1253.39
+190.089
+188.172
+3648.18
+13728.0
+5911.07
+1257.94
+188.169
+185.878
+682.896
+148.291
+1476.76
+932.295
+177.229
+187.206
+3620.54
+9695.02
+5999.05
+1252.76
+189.652
+187.206
+3651.52
+13727.3
+5954.87
+1258.07
+188.567
+187.147
+686.335
+149.27
+1480.7
+930.443
+178.601
+186.881
+3571.12
+9692.19
+5816.25
+1258.72
+188.748
+187.21
+3643.55
+13724.0
+5951.53
+1259.97
+187.918
+186.899
+702.502
+148.458
+1493.6
+933.401
+176.739
+187.491
+86998.9
+Start evaluation
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Oh , if you wish it we will stay at home to - morrow ,' replied Levin with particular amiability . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Ah , se vuoi domani [UNK] — rispose Levin , con 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They were all assembled and about to enter the little dining - room , when Tushkevich arrived with a message for Anna from the Princess Betsy . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Tutti si erano riuniti per passare nella piccola sala da pranzo 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+As one always seems to knock a sore place , so that day Oblonsky felt that unfortunately the conversation kept striking Karenin ' s sore place . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Come sempre pare che la lingua batte dove il dente duole , anche ora Stepan Arkad ’ ic sentiva che , disgraziatamente , quel giorno il discorso cadeva ogni momento 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I thought he had it already .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Pensavo che l ’ 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' And you call me a Nihilist ! 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Non se ne può fare 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Yes , and such a charming one .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Già , e così deliziosa . 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I am not angry with you ,' he said just as gloomily , ' but I am doubly pained . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Io non sono arrabbiato con te — egli disse sempre cupo — 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I am so glad ... 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Sono felice ... 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+CHAPTER XXVIII 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+XXVIII [EOS] 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Now good - bye to all , good - bye !... 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Ora addio a tutti , addio !... 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I will be another ten minutes ,' he said to himself , coughing and wiping away his tears . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+“ [UNK] ancora 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Her rigid tail was outstretched , only its very tip twitching . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+La coda diritta era allungata , e tremava soltanto alla 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' He was lucky and won seventeen thousand . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Era in 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] it up a little longer , Agatha Mikhaylovna .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] ancora , Agaf ’ ja Michajlovna . 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Look at the uniforms ! They tell the tale : this is an assembly of Justices of the Peace , permanent officials , and so on , but not of nobles !' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Guardate le divise , anche quelle vi parlano : questa è un ’ assemblea di giudici di pace , di consiglieri effettivi e via di 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Left alone , Dolly said her prayers and got into bed . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Rimasta sola , Dolly 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Yes , but how should I set about it ? 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Sì , come glielo darò ? 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He was told that , soon after he left , a lady came to see her and they went away together . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Gli dissero che , subito dopo di lui , era 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Altogether ,' she thought , looking back at the whole of her life during those fifteen years of wedlock , ' pregnancy , sickness , dullness of mind , indifference to everything , and above all [UNK] . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+“ Già , così sempre — pensava Dar ’ ja Aleksandrovna , dopo aver dato uno sguardo a tutta la sua vita di quei quindici anni di matrimonio : — [UNK] , [UNK] , confusione mentale , indifferenza 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Don ' t come here ,' muttered the sick man angrily . ' I can myself ...' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Ma non 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+One regrets Miss [UNK] a thousand times – this one does not look after the children ; she ' s only a machine ... 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] mille volte miss Elliot . 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+And if both agree about that , the details and formalities become unimportant , and at the same time it is the simplest and surest method .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+E se tutti e due sono in questo d ’ accordo , allora i particolari 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Natural science has just as great an educational and mind - developing influence ,' Pestsov joined in . ' Take [UNK] , take botany , or [UNK] with its system of general laws !' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Quelle 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He will draw that tooth for you so that you will scarcely feel it .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Ti [UNK] questo 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Of course , and that is what offends me ...' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Certo , 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I ?... Three days ,' answered Vronsky , still attentively scrutinizing his friend ' s face . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Io , da tre giorni — rispose Vronskij , esaminando ancora una volta con intenzione il viso del compagno 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' How nice it would be for us to meet there ! 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Come sarebbe 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+His sadness touched Serezha . He did not feel guilty for not having learned his lesson , for try as he would he positively could not do it . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Si sentiva colpevole perché non aveva studiato la lezione ; per quanto si sforzasse 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The house on her own estate was quite dilapidated , so Levin and his wife persuaded her to spend the summer with them . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Nella sua proprietà la casa era crollata del tutto . Levin e sua moglie 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He knew that his father and mother had had a quarrel which separated them ; knew that it was his fate to remain with his father , and he tried to accustom himself to that thought . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Sapeva che fra il padre e la madre c ’ era stato 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' All right , later ; but certainly tell me ! 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Bene , dopo , ma me lo direte : 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Sergius Ivanich wrote that he could not come personally , but , in touching words , asked his brother ' s pardon . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Sergej Ivanovic scriveva che non poteva 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+How can they help considering that the fate of the people and the Slavs – and all the rest of it ?' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+E come non devono ritenere che le sorti del popolo e degli 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+From that moment , without thinking about it and though he continued living as he had done heretofore , Levin never ceased to feel afraid of his ignorance . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Da quel momento , pur senza rendersene conto e continuando a vivere come prima , 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' He has been congratulated !' remarked the Colonel . ' It ' s the second time he ' s won the Imperial prize . If only I had the luck at cards that he has with horses !... 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Gli han fatto i complimenti — disse il colonnello alto . — Il secondo premio imperiale ; avessi io tanta fortuna alle carte , 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' What can you be thinking of , since men do not exist for me ? They don ' t ! 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Quando 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Every effort has been made , but the [UNK] have given way ... 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Tutti i tentativi sono stati fatti , la vite s ’ 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Should I then have believed that I should descend to such humiliation ? 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Avrei creduto , allora , di poter arrivare a tanta umiliazione ? 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Yes , of course she is much to be pitied ,' said Kitty when he had finished . ' From whom were your letters ?' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Già , s ’ intende , è molto da compatire — disse Kitty , quando egli ebbe finito . — 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+A man must be manly ,' said Oblonsky , opening the door . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+L ’ 
 
-Test result [forward] : 4.27535e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [forward] : 4.93947e-07
+, , 
 
-Test result [forward] : 4.33864e-07
 
-Test result [forward] : 4.56458e-07
 
-Check =========================================
-Test result [backward alpha] : 0.0
 
-Test result [backward bias] : 3.88127e-10
 
-Test result [backward wQ] : 9.70833e-07
-		-0.0342358 :: -0.0340362	(123)
-		0.119944 :: 0.119763	(240)
-		0.132614 :: 0.132414	(754)
-		-0.0966649 :: -0.096864	(822)
-		0.085465 :: 0.0852655	(880)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 3.97731e-07
-		0.189954 :: 0.19015	(274)
-		-0.0980414 :: -0.0978418	(978)
+Oh , but it will be bad for her , for my little girl ! 
 
-Test result [backward wV] : 7.45537e-10
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 1.96072e-07
-		-0.244236 :: -0.244436	(402)
+Ah , ma questo 
 
-Test result [backward alpha] : 0.0
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 9.25183e-10
+, , , , 
 
-Test result [backward w1] : 6.51838e-07
-		-0.0750001 :: -0.0748004	(95)
-		0.0298478 :: 0.0297089	(161)
-		-0.0939836 :: -0.0937843	(534)
-		-0.0907417 :: -0.0905418	(549)
-		-0.0659686 :: -0.066168	(895)
-		0.0143801 :: 0.0141803	(1289)
 
-Test result [backward b1] : 9.15315e-09
 
-Test result [backward w2] : 4.46667e-07
-		0.136411 :: 0.136211	(1284)
-		-0.0616191 :: -0.0618177	(1835)
-		-0.0520929 :: -0.0522923	(2479)
-		-0.00198728 :: -0.00178896	(2900)
-		0.0807035 :: 0.0808868	(3259)
-		-0.113097 :: -0.113297	(4111)
 
-Test result [backward b2] : 8.51287e-10
 
-Test result [backward alpha] : 3.72529e-09
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 9.93623e-10
+' But why do you imagine ,' said she , irritated at his intimating to her so obviously , by this change of subject , that he saw she was losing her temper , ' that this news interests me so much that it is necessary to conceal it ? 
 
-Test result [backward wQ] : 1.33371e-06
-		0.186443 :: 0.186295	(748)
-		-0.135207 :: -0.135007	(852)
-		-0.227864 :: -0.228063	(855)
-		0.267585 :: 0.267385	(857)
-		0.286507 :: 0.286308	(929)
-		-0.286048 :: -0.286247	(970)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 1.54947e-06
-		-0.0560648 :: -0.0562635	(110)
-		-0.119528 :: -0.119727	(160)
-		-0.201302 :: -0.201104	(202)
-		-0.118537 :: -0.118731	(321)
-		0.23742 :: 0.237592	(591)
-		0.139238 :: 0.139039	(711)
+— No — 
 
-Test result [backward wV] : 4.81873e-08
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 5.00364e-09
+, , , 
 
-Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 2.00794e-09
 
-Test result [backward w1] : 2.23136e-07
-		0.0589541 :: 0.0591503	(163)
-		0.0345895 :: 0.0347865	(650)
-		-0.096764 :: -0.0965642	(1104)
-		0.0367406 :: 0.0365408	(1417)
-		0.0705687 :: 0.0703693	(5733)
-		0.138227 :: 0.138028	(6547)
 
-Test result [backward b1] : 7.9094e-07
-		0.100803 :: 0.100603	(147)
 
-Test result [backward w2] : 2.97357e-07
-		-0.0940835 :: -0.0942167	(2037)
-		-0.0466237 :: -0.046443	(2662)
-		-0.0478509 :: -0.0480496	(2984)
-		0.0885291 :: 0.0887285	(4283)
-		-0.0421489 :: -0.0419502	(5307)
-		-0.0143515 :: -0.0145501	(5677)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 1.46974e-09
+And once more the cruel memory rose that always weighed on her mother - heart : the death of her last baby , a boy who died of [UNK] ; his funeral , the general indifference shown to the little pink coffin , and her own [UNK] , lonely grief at the sight of that pale little forehead with the curly locks on the temples , and of the open , surprised little mouth visible in the coffin at the instant before they covered it with the pink lid ornamented with a gold lace cross . 
 
-Test result [backward alpha] : 6.25104e-06
-		1.0001 :: 0.9999	(11)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 1.03728e-09
+E di nuovo nella sua mente si sollevò il ricordo crudele che sempre opprimeva il suo cuore di mamma , la morte dell ’ ultima bambina lattante , morta di [UNK] , il 
 
-Test result [backward wQ] : 2.31152e-07
-		-0.233736 :: -0.233541	(17)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 4.38675e-07
-		-0.0201495 :: -0.0199512	(951)
-		-0.102097 :: -0.102295	(956)
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward wV] : 7.9001e-07
-		0.0452747 :: 0.0450748	(300)
-		-0.175512 :: -0.175312	(301)
-		0.0672722 :: 0.0670723	(308)
-		-0.149075 :: -0.148875	(313)
 
-Test result [backward wO] : 1.91638e-09
 
-Test result [backward alpha] : 1.86265e-09
 
-Test result [backward bias] : 2.45041e-09
 
-Test result [backward w1] : 3.52851e-07
-		0.000853898 :: 0.000993878	(474)
-		-0.00805492 :: -0.00785899	(686)
-		0.102561 :: 0.102759	(1187)
-		0.0631943 :: 0.0629996	(1841)
-		-0.0408791 :: -0.0410788	(4101)
-		0.0186509 :: 0.0184511	(4493)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 7.95841e-07
-		0.047358 :: 0.0471588	(141)
+She knew he would never be able to appreciate the depth of her anguish , and that his coldness if the matter were mentioned would make her hate him . 
 
-Test result [backward w2] : 4.52553e-07
-		0.0877226 :: 0.0875235	(2225)
-		-0.0769568 :: -0.0767569	(2715)
-		0.101903 :: 0.102103	(3611)
-		-0.0332284 :: -0.0330333	(3867)
-		0.0358684 :: 0.0356716	(4925)
-		-0.137883 :: -0.137704	(5819)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 1.1496e-09
+Sapeva che mai egli avrebbe avuto la forza di capire tutta la profondità della sua pena ; sapeva che per quel tono freddo , col quale egli accennava alla cosa , avrebbe 
 
-Test result [backward alpha] : 0.0
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 9.74069e-10
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward wQ] : 4.56955e-08
 
-Test result [backward wK] : 4.20388e-07
-		-0.0782065 :: -0.0780124	(263)
-		0.297483 :: 0.297309	(405)
 
-Test result [backward wV] : 1.97381e-07
-		-0.23783 :: -0.23803	(957)
 
-Test result [backward wO] : 1.56267e-06
-		0.0465452 :: 0.0467448	(114)
-		-0.129373 :: -0.129175	(227)
-		-0.299854 :: -0.300052	(284)
-		-0.206488 :: -0.206288	(508)
-		-0.0440752 :: -0.044275	(530)
-		-0.00543431 :: -0.00523449	(594)
 
-Test result [backward alpha] : 2.98023e-08
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.43585e-09
+' There is a way out of every situation ,' said Oblonsky , rising and growing excited . ' There was a time when you wished to break with her ... 
 
-Test result [backward w1] : 4.0507e-07
-		0.114317 :: 0.114122	(471)
-		-0.0596822 :: -0.059881	(967)
-		0.00832316 :: 0.00851101	(1569)
-		0.0606745 :: 0.0605749	(2391)
-		-0.126386 :: -0.126186	(3348)
-		0.129849 :: 0.12966	(3390)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 3.07984e-08
+— In qualsiasi situazione c ’ è sempre una via d ’ uscita — disse , alzandosi e [UNK] , Stepan Arkad ’ ic . — Vi 
 
-Test result [backward w2] : 6.05536e-07
-		-0.0660699 :: -0.066263	(52)
-		0.0287122 :: 0.0289119	(1063)
-		-0.0454407 :: -0.0452422	(1650)
-		0.0700449 :: 0.070243	(2183)
-		-0.0123989 :: -0.0125269	(4993)
-		-0.076265 :: -0.0761606	(4998)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 2.00453e-09
+, , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward alpha] : 1.86265e-09
 
-Test result [backward bias] : 1.40312e-09
 
-Test result [backward wQ] : 1.90839e-07
 
-Test result [backward wK] : 4.82073e-07
-		0.151621 :: 0.151441	(383)
-		-0.187327 :: -0.187523	(472)
 
-Test result [backward wV] : 1.18548e-06
-		0.0473063 :: 0.0475059	(54)
-		0.217148 :: 0.217348	(56)
-		0.133759 :: 0.133959	(170)
-		-0.196351 :: -0.196551	(173)
-		0.304157 :: 0.304357	(184)
-		-0.151418 :: -0.151618	(185)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 1.99719e-07
-		0.0812441 :: 0.0810452	(158)
+Yet it could not at all be said that he was an incapable boy . 
 
-Test result [backward alpha] : 1.30385e-08
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 4.81919e-09
+Ma non si 
 
-Test result [backward w1] : 3.91209e-07
-		-0.129975 :: -0.130174	(1259)
-		-0.0457648 :: -0.0459645	(2739)
-		-0.0283661 :: -0.0285657	(3339)
-		-0.0172167 :: -0.0174101	(3642)
-		0.124092 :: 0.124292	(3742)
-		-0.122611 :: -0.122413	(5834)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 2.13244e-08
+, , , 
 
-Test result [backward w2] : 3.32332e-07
-		-0.0246506 :: -0.0247529	(2430)
-		-0.0041044 :: -0.00396672	(3984)
-		-0.0423209 :: -0.0421949	(5170)
-		-0.0405162 :: -0.0407158	(5399)
-		0.0217503 :: 0.0218727	(7056)
-		-0.00275398 :: -0.00255909	(7417)
 
-Test result [backward b2] : 2.12822e-09
 
-Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 1.17075e-09
 
-Test result [backward wQ] : 4.30189e-07
-		-0.284881 :: -0.285078	(983)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 1.99436e-07
+[ They were charming .] Fancy ! 
 
-Test result [backward wV] : 3.5725e-09
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 3.63636e-09
+Figuratevi , mi han dato da bere , da 
 
-Test result [backward alpha] : 1.86265e-09
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.41903e-09
+, , , , , , , , , 
 
-Test result [backward w1] : 2.61835e-07
-		-0.0778855 :: -0.0780827	(287)
-		0.0765659 :: 0.0763682	(938)
-		0.121222 :: 0.121419	(962)
-		0.126495 :: 0.126298	(3614)
-		0.0818592 :: 0.0816596	(4445)
-		0.031087 :: 0.0309152	(7168)
 
-Test result [backward b1] : 2.40966e-08
 
-Test result [backward w2] : 3.23542e-07
-		0.0505067 :: 0.0506896	(787)
-		0.0428711 :: 0.0430665	(1522)
-		-0.0364526 :: -0.0362599	(3187)
-		-0.0415969 :: -0.0414592	(7248)
 
-Test result [backward b2] : 1.41881e-09
 
-Test result [backward alpha] : 1.86265e-09
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 1.95996e-10
+' Supposing now that the children were left alone to procure or make cups for themselves and to milk the cows and so on . 
 
-Test result [backward alpha] : 0.0
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 5.43423e-10
+Ma , lasciamo soli i bambini , che si [UNK] , che si facciano da loro stessi 
 
-Test result [backward wQ] : 0.0
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 0.0
+, , , , , , , , , , , , , , , , , 
 
-Test result [backward wV] : 1.97094e-07
-		-0.0251143 :: -0.0253141	(900)
 
-Test result [backward wO] : 1.98908e-07
-		0.0288972 :: 0.0290957	(393)
 
-Test result [backward alpha] : 6.49877e-06
-		1.0001 :: 0.999906	(29)
 
-Test result [backward bias] : 5.72629e-08
 
-Test result [backward wQ] : 1.42024e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 3.7586e-07
-		-0.0132028 :: -0.0133879	(20)
+' [UNK] ! What ' s that ?' 
 
-Test result [backward wV] : 6.77929e-09
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 1.15344e-09
+— Come ? 
 
-Test result [backward alpha] : 7.45058e-09
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 1.87174e-09
+, , , 
 
-Test result [backward w1] : 3.05408e-07
-		-0.0262275 :: -0.026427	(1147)
-		0.0517133 :: 0.051526	(1295)
-		0.138481 :: 0.13868	(1915)
-		-0.0369831 :: -0.0367935	(2416)
-		-0.0925396 :: -0.0923409	(2425)
-		-0.0331902 :: -0.0329905	(2683)
 
-Test result [backward b1] : 2.68489e-08
 
-Test result [backward w2] : 2.50912e-07
-		-0.010128 :: -0.00999873	(4514)
-		0.0141804 :: 0.0139857	(5252)
-		-0.0988201 :: -0.0986244	(5470)
-		-0.0594417 :: -0.0596279	(6340)
-		-0.05969 :: -0.0598893	(6916)
 
-Test result [backward b2] : 2.7685e-09
 
-Test result [backward alpha] : 5.58794e-09
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 1.3431e-09
+Oh , yes ! Do you know , Dolly ' s situation is becoming quite impossible ! 
 
-Test result [backward wQ] : 0.0
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 0.0
+Ah , già , lo sai che la situazione di Dolly 
 
-Test result [backward wV] : 5.58836e-09
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 3.77348e-09
+, , , , , , , , , , , 
 
-Test result [backward alpha] : 6.14673e-08
 
-Test result [backward bias] : 2.08047e-08
 
-Test result [backward wQ] : 3.34221e-07
-		0.188237 :: 0.188056	(488)
 
-Test result [backward wK] : 1.73652e-07
 
-Test result [backward wV] : 1.99275e-07
-		0.25237 :: 0.252171	(786)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 5.00523e-09
+It was not the past when he lived happily with his wife that perplexed him , the [UNK] from that past to the consciousness of his wife ' s infidelity he had already painfully passed through ; that had been trying , but it was comprehensible . 
 
-Test result [backward alpha] : 3.72529e-09
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 1.68507e-09
+Non quel passato in cui egli aveva vissuto felice con la moglie lo sconvolgeva . Il passaggio da quello alla conoscenza dell ’ 
 
-Test result [backward w1] : 5.78294e-07
-		-0.0306935 :: -0.0308914	(16)
-		0.137536 :: 0.137731	(158)
-		-0.0480849 :: -0.0482808	(407)
-		-0.108415 :: -0.108614	(528)
-		-0.0495424 :: -0.049739	(610)
-		0.115155 :: 0.114956	(688)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 1.55434e-06
-		0.00060708 :: 0.000801735	(8)
-		-0.0931144 :: -0.0929187	(98)
+, , , , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward w2] : 2.73293e-07
-		-0.0400856 :: -0.0399669	(5332)
-		-0.0471695 :: -0.0470063	(6334)
-		0.135248 :: 0.135409	(7060)
 
-Test result [backward b2] : 1.06229e-09
 
-Test result [backward alpha] : 1.86265e-09
 
-Test result [backward bias] : 1.04023e-09
 
-Test result [backward wQ] : 0.0
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 0.0
+' Oh , but all the same , tell me !... 
 
-Test result [backward wV] : 2.78444e-09
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 1.98875e-07
-		0.272034 :: 0.272232	(922)
+— Ma dimmi comunque ... [EOS] 
 
-Test result [backward alpha] : 9.12696e-08
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 6.1158e-06
-		-9.95594e-05 :: 9.55602e-05	(23)
+, , , , , , 
 
-Test result [backward wQ] : 3.88438e-07
-		-0.292452 :: -0.292569	(239)
-		-0.144407 :: -0.144529	(688)
 
-Test result [backward wK] : 3.66258e-07
-		0.113729 :: 0.11354	(798)
 
-Test result [backward wV] : 1.73729e-08
 
-Test result [backward wO] : 3.90581e-07
-		-0.301849 :: -0.30204	(215)
-		-0.136655 :: -0.136455	(659)
 
-Test result [backward alpha] : 3.72529e-09
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 1.53887e-09
+Karenin followed her . 
 
-Test result [backward w1] : 2.83907e-07
-		0.11181 :: 0.111612	(608)
-		-0.0496203 :: -0.0497559	(1447)
-		-0.129871 :: -0.129682	(1585)
-		-0.0464035 :: -0.0465268	(4076)
-		0.132396 :: 0.132592	(5028)
-		-0.0495141 :: -0.0493147	(5942)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 5.90046e-08
+Aleksej Aleksandrovic 
 
-Test result [backward w2] : 8.8875e-07
-		0.061339 :: 0.0611391	(73)
-		0.0814088 :: 0.0812165	(937)
-		-0.0836262 :: -0.0838261	(1065)
-		-0.00394763 :: -0.00414634	(1513)
-		0.0108271 :: 0.0106273	(1801)
-		0.0964175 :: 0.0966114	(2004)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 3.74553e-09
+, , 
 
-Test result [backward alpha] : 7.45058e-09
 
-Test result [backward bias] : 2.45814e-09
 
-Test result [backward wQ] : 0.0
 
-Test result [backward wK] : 0.0
 
-Test result [backward wV] : 4.5369e-09
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 2.01034e-07
-		0.13967 :: 0.139868	(243)
+' Do you wish to get out ?' 
 
-Test result [backward alpha] : 9.68575e-08
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.95413e-08
+— Desiderate uscire ? [EOS] 
 
-Test result [backward wQ] : 5.2207e-07
-		-0.0462172 :: -0.0463925	(20)
-		-0.265256 :: -0.265065	(560)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 1.90751e-07
+, , , , , 
 
-Test result [backward wV] : 6.67068e-09
 
-Test result [backward wO] : 2.06861e-07
-		0.295925 :: 0.295732	(573)
 
-Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 5.90694e-09
 
-Test result [backward w1] : 2.9223e-07
-		0.109928 :: 0.109802	(655)
-		-0.0384698 :: -0.0382833	(3983)
-		0.0194208 :: 0.0192245	(5502)
-		-0.0393487 :: -0.0395334	(7708)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 7.80182e-07
-		0.175055 :: 0.175241	(143)
+But I , and all her relatives , who all love her , beg and implore you ! 
 
-Test result [backward w2] : 5.05793e-07
-		-0.0631811 :: -0.0630468	(669)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 2.32831e-09
+Ma 
 
-Test result [backward alpha] : 0.0
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 8.46967e-10
+, 
 
-Test result [backward wQ] : 0.0
 
-Test result [backward wK] : 0.0
 
-Test result [backward wV] : 5.04986e-09
 
-Test result [backward wO] : 7.75694e-07
-		0.0302403 :: 0.0304399	(416)
-		0.0613561 :: 0.061164	(512)
-		0.0169396 :: 0.0171391	(916)
-		0.254062 :: 0.254256	(936)
 
-Test result [backward alpha] : 8.56817e-08
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.67605e-08
+' How is your wife ? 
 
-Test result [backward wQ] : 1.13369e-06
-		-0.125786 :: -0.125977	(213)
-		-0.108148 :: -0.108332	(218)
-		-0.227724 :: -0.227917	(223)
-		-0.0756547 :: -0.075825	(684)
-		0.241168 :: 0.241325	(716)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 4.35013e-07
-		0.247115 :: 0.247254	(683)
+— Come va la 
 
-Test result [backward wV] : 1.00737e-08
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 1.36022e-06
-		-0.281003 :: -0.281202	(20)
-		-0.217787 :: -0.217986	(96)
-		0.297935 :: 0.297735	(264)
-		-0.0544179 :: -0.0542303	(404)
-		0.278915 :: 0.278717	(532)
-		0.0821794 :: 0.0823789	(660)
+, , , , 
 
-Test result [backward alpha] : 1.11759e-08
 
-Test result [backward bias] : 2.62207e-09
 
-Test result [backward w1] : 4.55934e-07
-		0.13551 :: 0.135683	(557)
-		0.106467 :: 0.106314	(1294)
-		0.12697 :: 0.126834	(4812)
-		-0.031455 :: -0.0316393	(5165)
-		-0.0477448 :: -0.0479107	(5390)
-		-0.129811 :: -0.129613	(6938)
 
-Test result [backward b1] : 1.61651e-07
 
-Test result [backward w2] : 5.93498e-07
-		-0.106891 :: -0.106984	(5120)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 1.81353e-09
+I speak frankly . 
 
-Test result [backward alpha] : 3.72529e-09
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 9.7134e-10
+Io parlo sinceramente 
 
-Test result [backward wQ] : 0.0
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 0.0
+, , , 
 
-Test result [backward wV] : 4.3132e-09
 
-Test result [backward wO] : 3.9891e-07
-		-0.0578874 :: -0.0576891	(837)
-		-0.283446 :: -0.283645	(965)
 
-Test result [backward alpha] : 1.30385e-07
 
-Test result [backward bias] : 5.70765e-08
 
-Test result [backward wQ] : 7.54258e-07
-		0.263463 :: 0.263292	(47)
-		0.174845 :: 0.175022	(535)
-		0.241548 :: 0.241746	(833)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 7.3697e-07
-		-0.19306 :: -0.193254	(800)
+' WELL , HERE ' S DOLLY FOR YOU , Princess ! You wanted so much to see her ,' said Anna as she and Dolly came out onto the large stone verandah where in the shade , before an embroidery frame , the Princess Barbara sat embroidering a cover for an easy - chair for Count Vronsky . ' She says she won ' t have anything before dinner , but will you order lunch ? I ' ll go and find Alexis and bring them all here .' 
 
-Test result [backward wV] : 5.11724e-09
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 4.15466e-07
-		0.140553 :: 0.140752	(116)
-		0.291612 :: 0.291413	(517)
+— Eccovi anche Dolly , principessa , volevate tanto vederla — disse Anna , uscendo insieme con Dar ’ ja Aleksandrovna su di una grande terrazza in muratura , 
 
-Test result [backward alpha] : 7.45058e-09
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 3.06432e-09
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward w1] : 2.90261e-07
-		0.00885191 :: 0.00865206	(2605)
-		0.0545449 :: 0.0543497	(3177)
-		-0.0346036 :: -0.0347386	(4640)
-		0.0587896 :: 0.0586799	(6985)
-		-0.0737439 :: -0.0739437	(7213)
-		-0.12 :: -0.120199	(7725)
 
-Test result [backward b1] : 4.56847e-08
 
-Test result [backward w2] : 7.47173e-07
-		-0.0639523 :: -0.0637577	(7200)
 
-Test result [backward b2] : 2.44836e-09
 
-Test result [backward alpha] : 1.04308e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 3.60524e-09
+' I am very pleased to see you , especially to - day ,' said the Countess Lydia Ivanovna , pointing to a seat beside Karenin . 
 
-Test result [backward table] : 6.9052e-07
-		0.0766051 :: 0.0768048	(627)
-		0.106545 :: 0.106346	(654)
-		0.0648356 :: 0.0650351	(1177)
-		-0.149482 :: -0.149282	(1364)
-		-0.0384989 :: -0.0382991	(1549)
-		-0.0277361 :: -0.0275377	(1568)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward table] : 5.14729e-07
-		-0.0962306 :: -0.0960312	(831)
-		0.0877049 :: 0.087507	(1206)
-		-0.141335 :: -0.141136	(1340)
-		-0.148076 :: -0.148276	(2051)
-		-0.0937686 :: -0.0939667	(2294)
-		0.146608 :: 0.146802	(2748)
+— Sono molto contenta di vedervi , in particolar modo oggi — disse la 
 
-Test result [backward weight] : 4.26676e-10
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 4.77485e-12
+, , , , , , , , , , , , , , 
 
-Check =========================================
-Test result [backward alpha] : 3.33413e-07
 
-Test result [backward bias] : 4.40381e-07
 
-Test result [backward wQ] : 1.86051e-06
-		-0.0341679 :: -0.0339574	(123)
-		0.120018 :: 0.119838	(240)
-		0.132542 :: 0.132338	(754)
-		-0.0967386 :: -0.0969389	(822)
-		0.0853915 :: 0.085186	(880)
 
-Test result [backward wK] : 1.10736e-06
-		0.189879 :: 0.190076	(274)
-		-0.0981173 :: -0.0979151	(978)
 
-Test result [backward wV] : 3.58993e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 5.99355e-07
-		-0.24431 :: -0.244511	(402)
+No , not breaks it , but [UNK] it . 
 
-Test result [backward alpha] : 6.6869e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 3.41215e-07
+Ammettiamo che non la 
 
-Test result [backward w1] : 1.46766e-06
-		-0.0749273 :: -0.0747225	(95)
-		0.0299225 :: 0.0297833	(161)
-		-0.0940596 :: -0.0938566	(534)
-		-0.0906725 :: -0.0904594	(549)
-		-0.066042 :: -0.0662427	(895)
-		0.0143104 :: 0.0140968	(1289)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 8.23805e-07
+, , , , 
 
-Test result [backward w2] : 9.66051e-07
-		0.136486 :: 0.136284	(1284)
-		-0.0615439 :: -0.0617439	(1835)
-		-0.0520154 :: -0.0522195	(2479)
-		-0.00206511 :: -0.00186201	(2900)
-		0.0807774 :: 0.0809613	(3259)
-		-0.113021 :: -0.113224	(4111)
 
-Test result [backward b2] : 5.23964e-07
 
-Test result [backward alpha] : 1.39326e-06
 
-Test result [backward bias] : 8.51244e-07
 
-Test result [backward wQ] : 2.1457e-06
-		0.186369 :: 0.186221	(748)
-		-0.135285 :: -0.135065	(852)
-		-0.227787 :: -0.227998	(855)
-		0.267664 :: 0.267454	(857)
-		0.286433 :: 0.286233	(929)
-		-0.285968 :: -0.286181	(970)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 2.20496e-06
-		-0.0559908 :: -0.0561893	(110)
-		-0.1196 :: -0.119802	(160)
-		-0.201377 :: -0.201178	(202)
-		-0.118463 :: -0.11866	(321)
-		0.237346 :: 0.237519	(591)
-		0.139165 :: 0.138964	(711)
+Wishing to clear up his own perplexity by hearing other people ' s impressions , Levin went to look for the experts , and was pleased to find a celebrated one chatting with his own acquaintance , Pestsov . 
 
-Test result [backward wV] : 4.86315e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 3.60707e-07
+[UNK] di chiarire la propria perplessità 
 
-Test result [backward alpha] : 2.06754e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 3.25802e-07
+, , , , , , 
 
-Test result [backward w1] : 8.35235e-07
-		0.0589747 :: 0.0592267	(163)
-		0.034528 :: 0.0348681	(650)
-		-0.0966957 :: -0.0964843	(1104)
-		0.0368159 :: 0.0366105	(1417)
-		0.0704949 :: 0.0702936	(5733)
-		0.0444214 :: 0.0445386	(6392)
 
-Test result [backward b1] : 1.46371e-06
-		0.10073 :: 0.100527	(147)
 
-Test result [backward w2] : 6.15273e-07
-		-0.0940085 :: -0.0941425	(2037)
-		-0.0465503 :: -0.0463653	(2662)
-		-0.0479206 :: -0.0481266	(2984)
-		0.0886028 :: 0.0888064	(4283)
-		-0.0420795 :: -0.0418748	(5307)
-		-0.0144252 :: -0.0146247	(5677)
 
-Test result [backward b2] : 1.25823e-07
 
-Test result [backward alpha] : 6.70739e-06
-		1.00003 :: 0.99982	(11)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.63348e-06
+She came back to her bed , put out the candle , lay down , and remained quiet . 
 
-Test result [backward wQ] : 6.68057e-07
-		-0.233721 :: -0.233445	(17)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 8.2859e-07
-		-0.0200777 :: -0.0198756	(951)
-		-0.102021 :: -0.102222	(956)
+E , avvicinatasi al letto , spense la candela , si coricò e si 
 
-Test result [backward wV] : 1.23539e-06
-		0.0453507 :: 0.0451483	(300)
-		-0.175589 :: -0.175386	(301)
-		0.067349 :: 0.0671456	(308)
-		-0.149153 :: -0.14895	(313)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 2.19027e-07
+, , , , , , , , , , , , , , 
 
-Test result [backward alpha] : 1.67638e-07
 
-Test result [backward bias] : 2.68502e-07
 
-Test result [backward w1] : 7.78453e-07
-		0.000915891 :: 0.00106814	(474)
-		-0.00813496 :: -0.0079333	(686)
-		0.102486 :: 0.102685	(1187)
-		0.0631204 :: 0.0629251	(1841)
-		-0.0409524 :: -0.0411717	(4101)
-		0.0187276 :: 0.018524	(4493)
 
-Test result [backward b1] : 1.11299e-06
-		0.0474368 :: 0.0472329	(141)
 
-Test result [backward w2] : 1.03877e-06
-		0.0877992 :: 0.0875955	(2225)
-		-0.076889 :: -0.0766764	(2715)
-		0.101975 :: 0.102183	(3611)
-		-0.0331563 :: -0.0329576	(3867)
-		0.0357979 :: 0.0355895	(4925)
-		-0.137815 :: -0.137629	(5819)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 4.38653e-07
+His face , which was aged and full of suffering , seemed petrified . 
 
-Test result [backward alpha] : 3.81842e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 6.39207e-08
+Il suo viso invecchiato , che esprimeva la sofferenza , pareva [UNK] 
 
-Test result [backward wQ] : 4.08608e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 7.54337e-07
-		-0.0781331 :: -0.0779377	(263)
-		0.297409 :: 0.297235	(405)
+, , , , , , , , , , , , 
 
-Test result [backward wV] : 7.05231e-07
-		-0.237756 :: -0.237957	(957)
 
-Test result [backward wO] : 2.00513e-06
-		0.0464703 :: 0.0466715	(114)
-		-0.1293 :: -0.129101	(227)
-		-0.299776 :: -0.299977	(284)
-		-0.206562 :: -0.206358	(508)
-		-0.0440001 :: -0.0442015	(530)
-		-0.00550919 :: -0.00530801	(594)
 
-Test result [backward alpha] : 4.06057e-07
 
-Test result [backward bias] : 2.57922e-07
 
-Test result [backward w1] : 8.1614e-07
-		0.114244 :: 0.114047	(471)
-		-0.0596047 :: -0.0598085	(967)
-		0.00824738 :: 0.00843694	(1569)
-		0.0606006 :: 0.0605008	(2391)
-		-0.12648 :: -0.126214	(3348)
-		0.129924 :: 0.129734	(3390)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 5.43721e-07
+The other horses , also alarmed , splashed through the water with their hobbled feet , making a sound of slapping as they drew their hoofs out of the thick [UNK] mud , and began floundering their way out of the marsh . 
 
-Test result [backward w2] : 1.05689e-06
-		-0.0661394 :: -0.0663398	(52)
-		0.028632 :: 0.0288429	(1063)
-		-0.0455162 :: -0.045316	(1650)
-		0.122294 :: 0.122194	(2033)
-		0.0699624 :: 0.0701744	(2183)
-		-0.0123518 :: -0.0125527	(4993)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 7.43566e-08
+Gli altri cavalli si spaventarono anch ’ essi e , sguazzando per l ’ acquitrino con le zampe [UNK] e producendo con gli zoccoli tirati su dall ’ argilla 
 
-Test result [backward alpha] : 6.18398e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 4.19276e-07
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward wQ] : 5.22604e-07
 
-Test result [backward wK] : 8.62085e-07
-		0.151696 :: 0.151515	(383)
-		-0.187252 :: -0.187452	(472)
 
-Test result [backward wV] : 1.66586e-06
-		0.0472312 :: 0.0474325	(54)
-		0.217071 :: 0.217275	(56)
-		0.133684 :: 0.133886	(170)
-		-0.196275 :: -0.196477	(173)
-		0.304083 :: 0.304286	(184)
-		-0.151342 :: -0.151544	(185)
 
-Test result [backward wO] : 3.95245e-07
-		0.0813189 :: 0.0811184	(158)
 
-Test result [backward alpha] : 1.00397e-06
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 3.43824e-07
+' Annie is very ill . 
 
-Test result [backward w1] : 7.54514e-07
-		-0.129897 :: -0.130102	(1259)
-		-0.0456907 :: -0.0458932	(2739)
-		-0.0282902 :: -0.0284918	(3339)
-		-0.0172907 :: -0.0174849	(3642)
-		0.12401 :: 0.124232	(3742)
-		-0.122539 :: -0.122338	(5834)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 2.83797e-07
+“ 
 
-Test result [backward w2] : 8.19664e-07
-		0.0192075 :: 0.0191173	(2300)
-		-0.0247121 :: -0.0248172	(2430)
-		-0.00416406 :: -0.00394156	(3984)
-		-0.0423972 :: -0.0422531	(5170)
-		-0.0405889 :: -0.040791	(5399)
-		0.0217072 :: 0.0219009	(7056)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 7.62484e-08
+, 
 
-Test result [backward alpha] : 1.67638e-07
 
-Test result [backward bias] : 1.03858e-07
 
-Test result [backward wQ] : 7.53385e-07
-		-0.284954 :: -0.285153	(983)
 
-Test result [backward wK] : 5.25914e-07
 
-Test result [backward wV] : 1.29854e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 1.57233e-07
+He stooped and took her resisting hand ; he kissed her hand , her hair , and again her hand , but she remained silent . 
 
-Test result [backward alpha] : 3.61353e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.95452e-07
+Egli si chinò verso di lei e le prese 
 
-Test result [backward w1] : 6.34291e-07
-		-0.0779595 :: -0.0781575	(287)
-		0.0764921 :: 0.076291	(938)
-		0.121296 :: 0.121496	(962)
-		0.126422 :: 0.126223	(3614)
-		0.0818713 :: 0.081561	(4445)
-		0.0310156 :: 0.0308408	(7168)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 3.10932e-07
+, , , , , , , , , 
 
-Test result [backward w2] : 6.04613e-07
-		0.0504322 :: 0.0506171	(787)
-		0.042797 :: 0.0429924	(1522)
-		-0.0365351 :: -0.0363291	(3187)
-		-0.0416777 :: -0.0415271	(7248)
 
-Test result [backward b2] : 6.19475e-08
 
-Test result [backward alpha] : 1.32248e-07
 
-Test result [backward bias] : 5.48989e-08
 
-Test result [backward alpha] : 2.34693e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 1.72205e-07
+Oh , what I have endured !' she repeated when Koznyshev had entered and taken a seat beside her . ' You cannot imagine it ! 
 
-Test result [backward wQ] : 6.19588e-07
-		0.100738 :: 0.100881	(507)
-		-0.181803 :: -0.181948	(671)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 4.85734e-07
-		-0.250785 :: -0.250932	(777)
+Ah , cosa ho passato ! — ella ripeté , quando Sergej Ivanovic entrò e sedette accanto a lei sul divano . — Non si può immaginare ! [EOS] 
 
-Test result [backward wV] : 5.22895e-07
-		-0.0251876 :: -0.02539	(900)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 4.61686e-07
-		0.0288229 :: 0.0290214	(393)
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward alpha] : 6.72415e-06
-		1.00003 :: 0.999831	(29)
 
-Test result [backward bias] : 3.5649e-07
 
-Test result [backward wQ] : 4.60392e-07
 
-Test result [backward wK] : 6.63135e-07
-		-0.0132766 :: -0.0134624	(20)
 
-Test result [backward wV] : 1.4099e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 2.05566e-07
+Two couples – Anna with Sviyazhsky and Dolly with Vronsky walked down a garden path . 
 
-Test result [backward alpha] : 3.27826e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.71414e-07
+Si misero in 
 
-Test result [backward w1] : 6.93481e-07
-		-0.0261533 :: -0.0263531	(1147)
-		0.0516393 :: 0.0514516	(1295)
-		0.138555 :: 0.138755	(1915)
-		-0.0370587 :: -0.0368678	(2416)
-		-0.092467 :: -0.0922665	(2425)
-		-0.0332663 :: -0.0330623	(2683)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 3.89361e-07
+, , , 
 
-Test result [backward w2] : 6.40102e-07
-		0.0833516 :: 0.0832068	(3076)
-		-0.0100539 :: -0.00992433	(4514)
-		0.0142681 :: 0.0140563	(5252)
-		-0.0988946 :: -0.0986975	(5470)
-		-0.0593671 :: -0.0595537	(6340)
-		-0.0597634 :: -0.0599647	(6916)
 
-Test result [backward b2] : 3.65937e-07
 
-Test result [backward alpha] : 3.50177e-07
 
-Test result [backward bias] : 2.72923e-07
 
-Test result [backward wQ] : 7.61071e-07
-		0.229839 :: 0.229693	(444)
-		0.0958842 :: 0.0960221	(607)
-		0.174881 :: 0.174739	(862)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 7.90349e-07
-		0.144458 :: 0.144334	(431)
-		-0.232024 :: -0.231877	(773)
-		0.0344855 :: 0.0343389	(780)
+That feeling was so joyous that it seemed questionable to him . 
 
-Test result [backward wV] : 2.0526e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 2.57158e-07
+Questa sensazione era così gioiosa che gli sembrava [UNK] 
 
-Test result [backward alpha] : 3.31551e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.30206e-07
+, , , , , , , , , 
 
-Test result [backward wQ] : 5.63377e-07
-		0.188311 :: 0.188126	(488)
 
-Test result [backward wK] : 4.57247e-07
 
-Test result [backward wV] : 3.72819e-07
-		0.252297 :: 0.252096	(786)
 
-Test result [backward wO] : 1.7791e-07
 
-Test result [backward alpha] : 3.01749e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 1.76614e-07
+But , not to seem to be making up to Vronsky , he immediately added a slightly condemnatory remark . ' But I am surprised , Count , that you , who are doing so much for the people from a [UNK] point of view , should be so indifferent to the schools !' 
 
-Test result [backward w1] : 1.03688e-06
-		-0.0306191 :: -0.0308171	(16)
-		0.13761 :: 0.137806	(158)
-		-0.047987 :: -0.0483617	(407)
-		-0.108489 :: -0.108689	(528)
-		-0.0496162 :: -0.0498135	(610)
-		0.115081 :: 0.114881	(688)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 1.97044e-06
-		0.000525493 :: 0.000740306	(8)
-		-0.0930405 :: -0.0928441	(98)
+Ma poi per non mostrarsi [UNK] [UNK] di 
 
-Test result [backward w2] : 5.85433e-07
-		-0.0401597 :: -0.0400411	(5332)
-		-0.0470966 :: -0.0469319	(6334)
-		0.135309 :: 0.135483	(7060)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 6.73754e-08
+, , , , , , , , 
 
-Test result [backward alpha] : 3.33413e-07
 
-Test result [backward bias] : 2.09081e-07
 
-Test result [backward wQ] : 8.64956e-07
-		0.00519343 :: 0.0053063	(147)
-		0.107134 :: 0.107011	(334)
-		-0.253885 :: -0.254029	(452)
-		0.0728991 :: 0.0727565	(644)
 
-Test result [backward wK] : 4.21734e-07
 
-Test result [backward wV] : 2.90794e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 6.51847e-07
-		0.272108 :: 0.272307	(922)
+' That word is never ,' she said , ' but it is not true .' 
 
-Test result [backward alpha] : 3.33413e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 6.39723e-06
-		-2.71287e-05 :: 0.000171333	(23)
+— Questa parola significa “ mai ” — ella disse — ma non 
 
-Test result [backward wQ] : 6.55478e-07
-		-0.292377 :: -0.292495	(239)
-		-0.14448 :: -0.144603	(688)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 6.42974e-07
-		0.113804 :: 0.113575	(798)
+, , , , , , , , , , , , , 
 
-Test result [backward wV] : 2.5928e-07
 
-Test result [backward wO] : 8.04238e-07
-		-0.301919 :: -0.302114	(215)
-		-0.136583 :: -0.136377	(659)
 
-Test result [backward alpha] : 2.29105e-07
 
-Test result [backward bias] : 1.74127e-07
 
-Test result [backward w1] : 6.27496e-07
-		0.111736 :: 0.111537	(608)
-		-0.0495463 :: -0.0496815	(1447)
-		-0.129945 :: -0.129756	(1585)
-		-0.0464776 :: -0.0466014	(4076)
-		0.132301 :: 0.132549	(5028)
-		-0.0494419 :: -0.0492385	(5942)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 2.675e-07
+A fine fellow ! 
 
-Test result [backward w2] : 1.46451e-06
-		0.0614166 :: 0.0611768	(73)
-		0.081484 :: 0.0812741	(937)
-		-0.0835441 :: -0.0837538	(1065)
-		-0.00396374 :: -0.00422698	(1513)
-		0.0109028 :: 0.0106836	(1801)
-		0.0964898 :: 0.0966892	(2004)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 2.79948e-07
+Ecco 
 
-Test result [backward alpha] : 3.59491e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 8.26717e-07
+, 
 
-Test result [backward wQ] : 3.38589e-07
 
-Test result [backward wK] : 3.36466e-07
 
-Test result [backward wV] : 2.21534e-07
 
-Test result [backward wO] : 5.12589e-07
-		0.139595 :: 0.139795	(243)
 
-Test result [backward alpha] : 2.55182e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.17086e-07
+In front of the hives , flickering before his eyes and circling and fluttering over the same spot , played bees and [UNK] , and between them flew the working bees always to or from the wood with the [UNK] lime trees , fetching and bringing back their loads . 
 
-Test result [backward wQ] : 7.21634e-07
-		-0.0462907 :: -0.046467	(20)
-		-0.265182 :: -0.264991	(560)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 4.24306e-07
+Dinanzi alle [UNK] delle arnie le api e i [UNK] , che giravano e si urtavano nello stesso posto 
 
-Test result [backward wV] : 1.07499e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 4.04971e-07
-		0.296003 :: 0.295806	(573)
+, , , , , , , , , , , , , , , , , , , 
 
-Test result [backward alpha] : 2.14204e-07
 
-Test result [backward bias] : 1.88527e-07
 
-Test result [backward w1] : 5.92417e-07
-		0.109927 :: 0.109729	(655)
-		0.0519811 :: 0.0520748	(3348)
-		-0.0385445 :: -0.0383545	(3983)
-		0.0194949 :: 0.0192988	(5502)
-		-0.0392745 :: -0.0394592	(7708)
 
-Test result [backward b1] : 1.00287e-06
-		0.175128 :: 0.175327	(143)
 
-Test result [backward w2] : 8.307e-07
-		-0.0632472 :: -0.0630279	(669)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 8.75225e-08
+Not at all dismayed by the disappointment he caused by appearing instead of the old Prince , Veslovsky gaily greeted Levin , reminding him that they had met before , and lifting Grisha he caught him up into the vehicle over the pointer Oblonsky had brought with him . 
 
-Test result [backward alpha] : 1.35973e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 6.75541e-08
+Per nulla sconcertato dalla delusione provocata per essersi sostituito al vecchio principe 
 
-Test result [backward wQ] : 7.7849e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 5.29291e-07
+, , , , , , , , , , , , 
 
-Test result [backward wV] : 2.50721e-07
 
-Test result [backward wO] : 1.28493e-06
-		0.0301651 :: 0.0303661	(416)
-		0.0614302 :: 0.0612371	(512)
-		0.0170109 :: 0.0172145	(916)
-		0.253982 :: 0.254181	(936)
 
-Test result [backward alpha] : 2.42144e-07
 
-Test result [backward bias] : 2.38381e-07
 
-Test result [backward wQ] : 1.75313e-06
-		-0.125987 :: -0.126138	(193)
-		-0.125711 :: -0.125904	(213)
-		-0.10822 :: -0.108408	(218)
-		-0.227792 :: -0.227996	(223)
-		-0.0757281 :: -0.0759001	(684)
-		0.241094 :: 0.241251	(716)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 7.02653e-07
-		0.247188 :: 0.247328	(683)
+NEARLY TWO MONTHS HAD GONE BY . 
 
-Test result [backward wV] : 2.99302e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 1.78111e-06
-		-0.280925 :: -0.281131	(20)
-		-0.217712 :: -0.217912	(96)
-		0.29801 :: 0.297805	(264)
-		-0.0545018 :: -0.0543043	(404)
-		0.278992 :: 0.278791	(532)
-		0.0821026 :: 0.0823078	(660)
+Erano passati quasi due mesi . [EOS] 
 
-Test result [backward alpha] : 2.38419e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 5.65414e-07
+, , , , , , , 
 
-Test result [backward w1] : 9.63406e-07
-		0.135436 :: 0.135609	(557)
-		0.106393 :: 0.10624	(1294)
-		0.127051 :: 0.12688	(4812)
-		-0.0313808 :: -0.0315652	(5165)
-		-0.0476697 :: -0.0478366	(5390)
-		0.125573 :: 0.125479	(5716)
 
-Test result [backward b1] : 5.51351e-07
 
-Test result [backward w2] : 1.0107e-06
-		-0.106817 :: -0.10691	(5120)
 
-Test result [backward b2] : 3.99541e-08
 
-Test result [backward alpha] : 1.99303e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 6.52235e-08
+' It ' s a pity it does not bind the sheaves . 
 
-Test result [backward wQ] : 6.78655e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wK] : 7.1995e-07
+— Peccato che non [UNK] 
 
-Test result [backward wV] : 3.01593e-07
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 7.71334e-07
-		-0.0579803 :: -0.0577455	(837)
-		-0.283369 :: -0.283573	(965)
+, , , , , 
 
-Test result [backward alpha] : 3.31551e-07
 
-Test result [backward bias] : 3.55461e-07
 
-Test result [backward wQ] : 1.05803e-06
-		0.263542 :: 0.263353	(47)
-		0.174918 :: 0.175096	(535)
-		0.241474 :: 0.241673	(833)
 
-Test result [backward wK] : 1.01095e-06
-		-0.192984 :: -0.19318	(800)
 
-Test result [backward wV] : 1.12061e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 8.69779e-07
-		0.140476 :: 0.140678	(116)
-		0.291542 :: 0.291314	(517)
+His mother and his sister - in - law received him just as usual , asked him about his trip abroad and spoke of mutual acquaintances , but did not say a single word about his union with Anna . 
 
-Test result [backward alpha] : 3.96743e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 2.23245e-07
+La madre e la cognata lo accolsero come se nulla fosse ; lo interrogarono sul suo viaggio all ’ estero 
 
-Test result [backward w1] : 6.19929e-07
-		0.00893058 :: 0.00872373	(2605)
-		0.0544745 :: 0.0542676	(3177)
-		-0.0346769 :: -0.0348128	(4640)
-		0.0587159 :: 0.0586061	(6985)
-		-0.0736674 :: -0.0738765	(7213)
-		-0.119925 :: -0.120125	(7725)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 2.62147e-07
+, , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward w2] : 1.335e-06
-		0.0310604 :: 0.0311753	(4404)
-		-0.0638784 :: -0.0636824	(7200)
 
-Test result [backward b2] : 1.16765e-07
 
-Test result [backward alpha] : 2.6077e-07
 
-Test result [backward bias] : 3.30665e-08
 
-Test result [backward table] : 1.07074e-05
-		0.0765211 :: 0.0768948	(627)
-		0.10662 :: 0.106421	(654)
-		0.0647683 :: 0.0651017	(1177)
-		-0.149416 :: -0.149202	(1364)
-		-0.038425 :: -0.0382214	(1549)
-		-0.0276625 :: -0.0274413	(1568)
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward table] : 9.38963e-06
-		-0.0961608 :: -0.095954	(831)
-		0.0876311 :: 0.0874325	(1206)
-		-0.141261 :: -0.141061	(1340)
-		-0.148 :: -0.148205	(2051)
-		0.167394 :: 0.167221	(2179)
-		-0.0936934 :: -0.0938925	(2294)
+He is an expert , and says it is a remarkable work . 
 
-Test result [backward weight] : 1.34245e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 9.54969e-12
+Lui se ne intende , 
 
-Check =========================================
-Test result [backward alpha] : 1.02259e-06
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 7.67116e-07
+, , , , , 
 
-Test result [backward wQ] : 2.70435e-06
-		-0.0341146 :: -0.0338913	(123)
-		0.120094 :: 0.119915	(240)
-		0.132457 :: 0.13225	(754)
-		-0.0968088 :: -0.0970113	(822)
-		0.0853085 :: 0.0850987	(880)
 
-Test result [backward wK] : 1.80445e-06
-		0.189795 :: 0.189992	(274)
-		-0.098158 :: -0.0979492	(978)
 
-Test result [backward wV] : 7.18156e-07
 
-Test result [backward wO] : 1.04687e-06
-		-0.244332 :: -0.244537	(402)
 
-Test result [backward alpha] : 9.77889e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 7.33337e-07
+Instead of the foul smell there was an odour of vinegar and of scent , which Kitty – [UNK] her lips and puffing out her rosy cheeks – was blowing through a little glass [UNK] . 
 
-Test result [backward w1] : 2.16454e-06
-		-0.0749767 :: -0.0747685	(95)
-		0.0300044 :: 0.0298656	(161)
-		-0.0941334 :: -0.0939304	(534)
-		-0.0905954 :: -0.0903768	(549)
-		-0.0661259 :: -0.0663276	(895)
-		0.0142395 :: 0.0140229	(1289)
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 1.42473e-06
+Il lezzo greve si era cambiato in un profumo d ’ aceto che Kitty , sporgendo le labbra e [UNK] le 
 
-Test result [backward w2] : 1.47887e-06
-		0.136568 :: 0.136365	(1284)
-		-0.0614839 :: -0.0616874	(1835)
-		-0.0519395 :: -0.0521444	(2479)
-		-0.00215242 :: -0.00194723	(2900)
-		0.0807269 :: 0.0809092	(3259)
-		-0.11294 :: -0.113145	(4111)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b2] : 8.61939e-07
+, , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward alpha] : 2.61329e-06
 
-Test result [backward bias] : 1.43781e-06
 
-Test result [backward wQ] : 2.9453e-06
-		0.186288 :: 0.18614	(748)
-		-0.135355 :: -0.135094	(852)
-		-0.227789 :: -0.228019	(855)
-		0.267752 :: 0.267537	(857)
-		0.286351 :: 0.28615	(929)
-		-0.286021 :: -0.286238	(970)
 
-Test result [backward wK] : 2.84542e-06
-		-0.0559343 :: -0.0561333	(110)
-		-0.11968 :: -0.119884	(160)
-		-0.20139 :: -0.201189	(202)
-		-0.11845 :: -0.118652	(321)
-		0.237263 :: 0.237436	(591)
-		0.139086 :: 0.138885	(711)
 
-Test result [backward wV] : 8.92474e-07
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward wO] : 6.81289e-07
+But the child ' s loud ringing laughter and a movement of her eyebrows reminded Anna so vividly of Vronsky , that , repressing her sobs , she rose hurriedly and left the room . 
 
-Test result [backward alpha] : 6.46338e-07
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward bias] : 8.38811e-07
+Ma il riso forte e sonoro della bambina e un movimento ch ’ ella fece con un sopracciglio le ricordarono con tanta vivezza Vronskij che , trattenendo i singhiozzi , si alzò in fretta e 
 
-Test result [backward w1] : 1.37313e-06
-		0.0589125 :: 0.0591685	(163)
-		0.034461 :: 0.03481	(650)
-		-0.0966359 :: -0.0964099	(1104)
-		0.0369019 :: 0.0366941	(1417)
-		0.0704121 :: 0.0702097	(5733)
-		0.0444674 :: 0.0446108	(6392)
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-Test result [backward b1] : 2.13033e-06
-		0.10065 :: 0.100445	(147)
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
-Test result [backward w2] : 9.48618e-07
-		-0.0939256 :: -0.0940593	(2037)
-		-0.0465722 :: -0.0463775	(2662)
-		-0.0479963 :: -0.0482048	(2984)
-		0.0886583 :: 0.0888638	(4283)
-		-0.0420001 :: -0.0417921	(5307)
-		-0.0145091 :: -0.0147092	(5677)
 
-Test result [backward b2] : 2.5022e-07
 
-Test result [backward alpha] : 7.12276e-06
-		1.00007 :: 0.999849	(11)
 
-Test result [backward bias] : 3.00149e-06
-		0.000235603 :: 0.000145478	(11)
-
-Test result [backward wQ] : 1.06251e-06
-		-0.233784 :: -0.233495	(17)
-
-Test result [backward wK] : 1.19193e-06
-		-0.0199933 :: -0.019789	(951)
-		-0.101943 :: -0.102145	(956)
-
-Test result [backward wV] : 1.66902e-06
-		0.045429 :: 0.045224	(300)
-		-0.175667 :: -0.175461	(301)
-		0.0674312 :: 0.0672247	(308)
-		-0.149235 :: -0.149028	(313)
-
-Test result [backward wO] : 5.36439e-07
-
-Test result [backward alpha] : 2.73809e-07
-
-Test result [backward bias] : 4.77608e-07
-
-Test result [backward w1] : 1.17706e-06
-		0.000981568 :: 0.00113477	(474)
-		-0.00821438 :: -0.0080115	(686)
-		0.102401 :: 0.1026	(1187)
-		0.0630369 :: 0.0628412	(1841)
-		-0.0408964 :: -0.0411169	(4101)
-		0.0188143 :: 0.0186091	(4493)
-
-Test result [backward b1] : 1.47109e-06
-		0.0475232 :: 0.0473175	(141)
-
-Test result [backward w2] : 1.55923e-06
-		0.0878822 :: 0.0876751	(2225)
-		-0.0769277 :: -0.0767076	(2715)
-		0.101987 :: 0.102204	(3611)
-		-0.0330814 :: -0.0328804	(3867)
-		0.0357189 :: 0.0355054	(4925)
-		-0.137733 :: -0.137544	(5819)
-
-Test result [backward b2] : 7.43981e-07
-
-Test result [backward alpha] : 6.48201e-07
-
-Test result [backward bias] : 2.36046e-07
-
-Test result [backward wQ] : 6.32575e-07
-
-Test result [backward wK] : 1.04206e-06
-		-0.0780555 :: -0.0778592	(263)
-		0.297379 :: 0.297204	(405)
-
-Test result [backward wV] : 1.1329e-06
-		-0.237672 :: -0.237874	(957)
-
-Test result [backward wO] : 2.48404e-06
-		0.0463845 :: 0.0465862	(114)
-		-0.129309 :: -0.12911	(227)
-		-0.299692 :: -0.299894	(284)
-		-0.206646 :: -0.20644	(508)
-		-0.0439141 :: -0.044116	(530)
-		-0.00559493 :: -0.00539328	(594)
-
-Test result [backward alpha] : 7.52509e-07
-
-Test result [backward bias] : 5.73646e-07
-
-Test result [backward w1] : 1.17999e-06
-		0.114161 :: 0.113963	(471)
-		-0.0595269 :: -0.059732	(967)
-		0.008169 :: 0.00835839	(1569)
-		0.0605432 :: 0.0604435	(2391)
-		-0.126576 :: -0.126273	(3348)
-		0.130005 :: 0.129814	(3390)
-
-Test result [backward b1] : 9.78983e-07
-		-0.0283909 :: -0.0282849	(116)
-
-Test result [backward w2] : 1.39947e-06
-		-0.0660991 :: -0.0663027	(52)
-		0.0285573 :: 0.0287701	(1063)
-		-0.0456024 :: -0.0454017	(1650)
-		0.122328 :: 0.122189	(2033)
-		0.0698757 :: 0.0700935	(2183)
-		-0.0123169 :: -0.01257	(4993)
-
-Test result [backward b2] : 1.80753e-07
-
-Test result [backward alpha] : 1.43051e-06
-
-Test result [backward bias] : 6.00766e-07
-
-Test result [backward wQ] : 7.99991e-07
-
-Test result [backward wK] : 1.20685e-06
-		0.151782 :: 0.151601	(383)
-		-0.187195 :: -0.1874	(472)
-
-Test result [backward wV] : 2.03874e-06
-		0.0471452 :: 0.0473472	(54)
-		0.216985 :: 0.21719	(56)
-		0.133598 :: 0.133801	(170)
-		-0.19619 :: -0.196393	(173)
-		0.303998 :: 0.304203	(184)
-		-0.151257 :: -0.151459	(185)
-
-Test result [backward wO] : 6.52005e-07
-		0.0812631 :: 0.0810619	(158)
-
-Test result [backward alpha] : 1.38208e-06
-
-Test result [backward bias] : 5.57714e-07
-
-Test result [backward w1] : 1.0399e-06
-		-0.129813 :: -0.13002	(1259)
-		-0.045607 :: -0.0458105	(2739)
-		-0.0282046 :: -0.0284068	(3339)
-		-0.0173305 :: -0.017525	(3642)
-		0.123935 :: 0.124161	(3742)
-		-0.122472 :: -0.122268	(5834)
-
-Test result [backward b1] : 5.14222e-07
-
-Test result [backward w2] : 1.15178e-06
-		0.0191817 :: 0.0190818	(2300)
-		-0.0247596 :: -0.0248654	(2430)
-		-0.00881703 :: -0.00891002	(2743)
-		-0.00420921 :: -0.0039245	(3984)
-		-0.0424617 :: -0.0423178	(5170)
-		-0.0406067 :: -0.0408111	(5399)
-
-Test result [backward b2] : 1.71291e-07
-
-Test result [backward alpha] : 3.48315e-07
-
-Test result [backward bias] : 2.96475e-07
-
-Test result [backward wQ] : 1.04245e-06
-		-0.284983 :: -0.285183	(983)
-
-Test result [backward wK] : 8.34176e-07
-
-Test result [backward wV] : 2.76768e-07
-
-Test result [backward wO] : 3.74191e-07
-
-Test result [backward alpha] : 6.92904e-07
-
-Test result [backward bias] : 5.9923e-07
-
-Test result [backward w1] : 9.44046e-07
-		-0.0780355 :: -0.0782341	(287)
-		0.0764264 :: 0.0762248	(938)
-		0.12137 :: 0.121571	(962)
-		0.126374 :: 0.126173	(3614)
-		0.0819347 :: 0.0816217	(4445)
-		0.0309728 :: 0.0307912	(7168)
-
-Test result [backward b1] : 5.65782e-07
-
-Test result [backward w2] : 8.81531e-07
-		0.0503594 :: 0.0505454	(787)
-		0.0427135 :: 0.0429088	(1522)
-		-0.036623 :: -0.0364099	(3187)
-		-0.0416782 :: -0.041516	(7248)
-
-Test result [backward b2] : 1.48313e-07
-
-Test result [backward alpha] : 2.84985e-07
-
-Test result [backward bias] : 1.44221e-07
-
-Test result [backward alpha] : 4.37722e-07
-
-Test result [backward bias] : 2.3597e-07
-
-Test result [backward wQ] : 9.60434e-07
-		0.100674 :: 0.100817	(507)
-		-0.181737 :: -0.181887	(671)
-
-Test result [backward wK] : 8.67817e-07
-		-0.250849 :: -0.250996	(777)
-
-Test result [backward wV] : 8.60422e-07
-		-0.0252722 :: -0.0254763	(900)
-
-Test result [backward wO] : 6.79971e-07
-		0.0287472 :: 0.028946	(393)
-
-Test result [backward alpha] : 6.90855e-06
-		1.00002 :: 0.999821	(29)
-
-Test result [backward bias] : 4.9565e-07
-
-Test result [backward wQ] : 7.2709e-07
-
-Test result [backward wK] : 9.59718e-07
-		-0.0133561 :: -0.0135425	(20)
-
-Test result [backward wV] : 2.39163e-07
-
-Test result [backward wO] : 3.54633e-07
-
-Test result [backward alpha] : 5.84871e-07
-
-Test result [backward bias] : 4.38971e-07
-
-Test result [backward w1] : 1.05528e-06
-		0.0588162 :: 0.058718	(789)
-		-0.0260678 :: -0.0262675	(1147)
-		0.0515538 :: 0.0513657	(1295)
-		0.138622 :: 0.138822	(1915)
-		-0.037129 :: -0.0369369	(2416)
-		-0.0924332 :: -0.0922312	(2425)
-
-Test result [backward b1] : 6.71111e-07
-
-Test result [backward w2] : 1.05612e-06
-		0.0435179 :: 0.043425	(100)
-		0.0832928 :: 0.0831422	(3076)
-		-0.00996889 :: -0.00983895	(4514)
-		0.014208 :: 0.0139938	(5252)
-		-0.0989442 :: -0.0987457	(5470)
-		-0.0866175 :: -0.0867364	(6112)
-
-Test result [backward b2] : 6.26231e-07
-
-Test result [backward alpha] : 6.53788e-07
-
-Test result [backward bias] : 4.59463e-07
-
-Test result [backward wQ] : 1.22666e-06
-		0.229776 :: 0.229628	(444)
-		0.0958194 :: 0.0959584	(607)
-		0.174946 :: 0.174802	(862)
-
-Test result [backward wK] : 1.28557e-06
-		0.144396 :: 0.14427	(431)
-		-0.23209 :: -0.231938	(773)
-		0.0344245 :: 0.0342725	(780)
-
-Test result [backward wV] : 4.71612e-07
-
-Test result [backward wO] : 5.33094e-07
-
-Test result [backward alpha] : 5.66244e-07
-
-Test result [backward bias] : 3.66553e-07
-
-Test result [backward wQ] : 8.27148e-07
-		0.18838 :: 0.188195	(488)
-
-Test result [backward wK] : 7.15153e-07
-
-Test result [backward wV] : 6.67495e-07
-		0.252275 :: 0.25207	(786)
-
-Test result [backward wO] : 2.97754e-07
-
-Test result [backward alpha] : 6.55651e-07
-
-Test result [backward bias] : 2.89691e-07
-
-Test result [backward w1] : 1.4405e-06
-		-0.030582 :: -0.0307804	(16)
-		0.137695 :: 0.137893	(158)
-		-0.0480283 :: -0.0484301	(407)
-		-0.108571 :: -0.108772	(528)
-		-0.049646 :: -0.0498456	(610)
-		0.115041 :: 0.11484	(688)
-
-Test result [backward b1] : 2.28098e-06
-		0.000585962 :: 0.000801982	(8)
-		-0.0929961 :: -0.0927982	(98)
-
-Test result [backward w2] : 8.7853e-07
-		-0.0402437 :: -0.040125	(5332)
-		-0.0471472 :: -0.0469809	(6334)
-		0.135377 :: 0.13555	(7060)
-
-Test result [backward b2] : 1.40397e-07
-
-Test result [backward alpha] : 6.0536e-07
-
-Test result [backward bias] : 3.94964e-07
-
-Test result [backward wQ] : 1.25228e-06
-		0.00512914 :: 0.00524271	(147)
-		0.107071 :: 0.106947	(334)
-		-0.253821 :: -0.253966	(452)
-		0.072844 :: 0.0726868	(644)
-
-Test result [backward wK] : 8.1961e-07
-
-Test result [backward wV] : 6.16894e-07
-
-Test result [backward wO] : 1.03221e-06
-		0.272191 :: 0.272391	(922)
-
-Test result [backward alpha] : 6.25849e-07
-
-Test result [backward bias] : 6.63994e-06
-		5.20986e-05 :: 0.000253338	(23)
-
-Test result [backward wQ] : 9.28776e-07
-		-0.292293 :: -0.292411	(239)
-		-0.144493 :: -0.144616	(688)
-
-Test result [backward wK] : 9.3044e-07
-		0.113885 :: 0.113629	(798)
-
-Test result [backward wV] : 4.78584e-07
-
-Test result [backward wO] : 1.16559e-06
-		-0.302 :: -0.302198	(215)
-		-0.136599 :: -0.136388	(659)
-
-Test result [backward alpha] : 4.1537e-07
-
-Test result [backward bias] : 3.79271e-07
-
-Test result [backward w1] : 9.74431e-07
-		0.111671 :: 0.111469	(608)
-		-0.0494637 :: -0.0495986	(1447)
-		-0.129978 :: -0.129788	(1585)
-		-0.0465629 :: -0.0466872	(4076)
-		0.132358 :: 0.132611	(5028)
-		-0.0493773 :: -0.0491707	(5942)
-
-Test result [backward b1] : 5.43269e-07
-
-Test result [backward w2] : 1.8876e-06
-		0.0614894 :: 0.0612444	(73)
-		0.0815538 :: 0.081343	(937)
-		-0.0834632 :: -0.0836758	(1065)
-		-0.00390255 :: -0.00417177	(1513)
-		0.0109754 :: 0.0107534	(1801)
-		0.0965522 :: 0.0967547	(2004)
-
-Test result [backward b2] : 6.55425e-07
-
-Test result [backward alpha] : 6.38887e-07
-
-Test result [backward bias] : 1.03526e-06
-
-Test result [backward wQ] : 6.35288e-07
-
-Test result [backward wK] : 6.64324e-07
-
-Test result [backward wV] : 4.87072e-07
-
-Test result [backward wO] : 7.64083e-07
-		0.139531 :: 0.139731	(243)
-
-Test result [backward alpha] : 4.67524e-07
-
-Test result [backward bias] : 3.85642e-07
-
-Test result [backward wQ] : 9.40392e-07
-		-0.0462896 :: -0.0464669	(20)
-		-0.265097 :: -0.264905	(560)
-
-Test result [backward wK] : 6.70782e-07
-
-Test result [backward wV] : 2.51419e-07
-
-Test result [backward wO] : 6.24294e-07
-		0.29608 :: 0.295883	(573)
-
-Test result [backward alpha] : 4.1537e-07
-
-Test result [backward bias] : 3.53045e-07
-
-Test result [backward w1] : 8.96204e-07
-		0.0486278 :: 0.0485307	(3)
-		-0.117833 :: -0.117723	(259)
-		0.109991 :: 0.10979	(655)
-		-0.0951022 :: -0.0952099	(3077)
-		0.0519499 :: 0.0520701	(3348)
-		-0.0386244 :: -0.0384333	(3983)
-
-Test result [backward b1] : 1.24785e-06
-		0.175069 :: 0.17527	(143)
-
-Test result [backward w2] : 1.18317e-06
-		-0.0631593 :: -0.0630562	(172)
-		-0.00310677 :: -0.00300808	(190)
-		-0.0157516 :: -0.0158536	(668)
-		-0.0632983 :: -0.0630154	(669)
-
-Test result [backward b2] : 2.54979e-07
-
-Test result [backward alpha] : 3.46452e-07
-
-Test result [backward bias] : 1.89992e-07
-
-Test result [backward wQ] : 1.07224e-06
-
-Test result [backward wK] : 7.64566e-07
-
-Test result [backward wV] : 5.19022e-07
-
-Test result [backward wO] : 1.70249e-06
-		0.0300955 :: 0.0302985	(416)
-		0.0615049 :: 0.0613105	(512)
-		0.017095 :: 0.017301	(916)
-		0.253898 :: 0.2541	(936)
-
-Test result [backward alpha] : 4.5076e-07
-
-Test result [backward bias] : 4.44924e-07
-
-Test result [backward wQ] : 2.24242e-06
-		-0.126045 :: -0.126203	(193)
-		-0.125632 :: -0.125827	(213)
-		-0.108296 :: -0.108486	(218)
-		-0.227775 :: -0.227987	(223)
-		-0.0756732 :: -0.0758449	(684)
-		0.241009 :: 0.241166	(716)
-
-Test result [backward wK] : 9.28597e-07
-		0.247128 :: 0.247267	(683)
-
-Test result [backward wV] : 4.867e-07
-
-Test result [backward wO] : 2.13019e-06
-		-0.280844 :: -0.281052	(20)
-		-0.217641 :: -0.217843	(96)
-		0.298095 :: 0.297889	(264)
-		-0.0545841 :: -0.0543838	(404)
-		0.279079 :: 0.278876	(532)
-		0.0820157 :: 0.0822237	(660)
-
-Test result [backward alpha] : 5.02914e-07
-
-Test result [backward bias] : 7.57641e-07
-
-Test result [backward w1] : 1.39632e-06
-		-0.0118151 :: -0.011927	(84)
-		0.135355 :: 0.135528	(557)
-		0.106321 :: 0.106167	(1294)
-		0.102968 :: 0.102853	(1364)
-		-0.128325 :: -0.128436	(1876)
-		0.0418334 :: 0.0417288	(3924)
-
-Test result [backward b1] : 8.88139e-07
-
-Test result [backward w2] : 1.41718e-06
-		0.0986652 :: 0.0987727	(4755)
-		-0.106742 :: -0.106835	(5120)
-		0.131547 :: 0.131638	(5227)
-		-0.124666 :: -0.124761	(5746)
-
-Test result [backward b2] : 1.19346e-07
-
-Test result [backward alpha] : 4.37722e-07
-
-Test result [backward bias] : 2.24915e-07
-
-Test result [backward wQ] : 9.98154e-07
-
-Test result [backward wK] : 1.00634e-06
-
-Test result [backward wV] : 7.77571e-07
-
-Test result [backward wO] : 1.21573e-06
-		-0.0580487 :: -0.0578105	(837)
-		-0.283288 :: -0.283495	(965)
-
-Test result [backward alpha] : 5.60656e-07
-
-Test result [backward bias] : 7.20647e-07
-
-Test result [backward wQ] : 1.36422e-06
-		0.263484 :: 0.263294	(47)
-		0.174983 :: 0.175162	(535)
-		0.241405 :: 0.241605	(833)
-
-Test result [backward wK] : 1.29965e-06
-		-0.192932 :: -0.193129	(800)
-
-Test result [backward wV] : 2.67065e-07
-
-Test result [backward wO] : 1.20461e-06
-		0.14039 :: 0.140593	(116)
-		0.291604 :: 0.29137	(517)
-
-Test result [backward alpha] : 6.48201e-07
-
-Test result [backward bias] : 4.28415e-07
-
-Test result [backward w1] : 9.29803e-07
-		0.00901316 :: 0.00880393	(2605)
-		0.0545335 :: 0.054328	(3177)
-		-0.0146606 :: -0.0147737	(3690)
-		-0.0346769 :: -0.0348157	(4640)
-		0.0586347 :: 0.0585254	(6985)
-		-0.0735894 :: -0.0738009	(7213)
-
-Test result [backward b1] : 5.08412e-07
-
-Test result [backward w2] : 1.91918e-06
-		-0.100373 :: -0.100262	(992)
-		-0.103071 :: -0.103161	(1007)
-		-0.0257419 :: -0.0258332	(1311)
-		0.0310141 :: 0.0312137	(4404)
-		-0.0638768 :: -0.0636776	(7200)
-		-0.0700699 :: -0.0701778	(7744)
-
-Test result [backward b2] : 3.25683e-07
-
-Test result [backward alpha] : 4.20958e-07
-
-Test result [backward bias] : 9.01173e-08
-
-Test result [backward table] : 1.58366e-05
-		0.0765791 :: 0.0769628	(627)
-		0.106705 :: 0.106505	(654)
-		0.0647017 :: 0.0650388	(1177)
-		-0.149418 :: -0.149194	(1364)
-		-0.0384522 :: -0.0382494	(1549)
-		-0.0275952 :: -0.0273732	(1568)
-
-Test result [backward table] : 1.52814e-05
-		-0.0961978 :: -0.0959851	(831)
-		0.0875701 :: 0.0873716	(1206)
-		-0.141208 :: -0.141008	(1340)
-		-0.147914 :: -0.148122	(2051)
-		0.167322 :: 0.167155	(2179)
-		-0.0936183 :: -0.0938182	(2294)
-
-Test result [backward weight] : 2.71007e-07
-
-Test result [backward bias] : 1.40972e-11
-
-Check =========================================
-Test result [backward alpha] : 1.68569e-06
-
-Test result [backward bias] : 1.18976e-06
-
-Test result [backward wQ] : 3.3541e-06
-		-0.0341707 :: -0.0339477	(123)
-		0.120179 :: 0.12	(240)
-		0.132383 :: 0.132175	(754)
-		-0.0968042 :: -0.0970066	(822)
-		0.0853506 :: 0.0851385	(880)
-
-Test result [backward wK] : 2.35827e-06
-		0.189716 :: 0.189913	(274)
-		-0.098224 :: -0.0980136	(978)
-
-Test result [backward wV] : 1.13999e-06
-
-Test result [backward wO] : 1.50073e-06
-		-0.244286 :: -0.244491	(402)
-
-Test result [backward alpha] : 1.38581e-06
-
-Test result [backward bias] : 1.06613e-06
-
-Test result [backward w1] : 2.72157e-06
-		-0.0750254 :: -0.0748129	(95)
-		0.0300929 :: 0.0299546	(161)
-		-0.0942072 :: -0.0940047	(534)
-		-0.0905109 :: -0.0902888	(549)
-		-0.0662118 :: -0.0664146	(895)
-		0.0141598 :: 0.0139409	(1289)
-
-Test result [backward b1] : 1.9517e-06
-
-Test result [backward w2] : 1.97662e-06
-		0.136618 :: 0.136416	(1284)
-		0.137879 :: 0.13799	(1482)
-		-0.0614093 :: -0.0616136	(1835)
-		-0.051856 :: -0.0520613	(2479)
-		-0.00223757 :: -0.00203168	(2900)
-		0.0806822 :: 0.0808633	(3259)
-
-Test result [backward b2] : 1.27876e-06
-
-Test result [backward alpha] : 3.38815e-06
-
-Test result [backward bias] : 2.15741e-06
-
-Test result [backward wQ] : 3.4894e-06
-		0.18624 :: 0.186092	(748)
-		-0.135312 :: -0.135041	(852)
-		-0.227736 :: -0.227972	(855)
-		0.267749 :: 0.267526	(857)
-		0.286273 :: 0.286071	(929)
-		-0.286041 :: -0.286263	(970)
-
-Test result [backward wK] : 3.29403e-06
-		-0.0558652 :: -0.0560644	(110)
-		-0.119755 :: -0.11996	(160)
-		-0.201362 :: -0.20116	(202)
-		-0.118392 :: -0.118594	(321)
-		0.237194 :: 0.237368	(591)
-		0.139036 :: 0.138834	(711)
-
-Test result [backward wV] : 1.23215e-06
-
-Test result [backward wO] : 1.00855e-06
-
-Test result [backward alpha] : 1.25542e-06
-
-Test result [backward bias] : 1.55908e-06
-
-Test result [backward w1] : 1.94358e-06
-		-0.0545095 :: -0.0546249	(75)
-		0.0588531 :: 0.0591111	(163)
-		0.0345145 :: 0.0348651	(650)
-		-0.0965948 :: -0.0963557	(1104)
-		0.0369591 :: 0.0367484	(1417)
-		0.0516191 :: 0.0517345	(5707)
-
-Test result [backward b1] : 2.58992e-06
-		0.100565 :: 0.100358	(147)
-
-Test result [backward w2] : 1.29152e-06
-		-0.0938512 :: -0.0939839	(2037)
-		-0.0466312 :: -0.0464363	(2662)
-		-0.0480808 :: -0.0482912	(2984)
-		0.0887225 :: 0.0889293	(4283)
-		-0.0419176 :: -0.0417084	(5307)
-		-0.0145983 :: -0.014799	(5677)
-
-Test result [backward b2] : 5.3953e-07
-
-Test result [backward alpha] : 7.49715e-06
-		1.00013 :: 0.999904	(11)
-
-Test result [backward bias] : 3.28123e-06
-		0.000311133 :: 0.000218658	(11)
-
-Test result [backward wQ] : 1.38437e-06
-		-0.233729 :: -0.233438	(17)
-
-Test result [backward wK] : 1.47837e-06
-		-0.0199437 :: -0.0197378	(951)
-		-0.101862 :: -0.102064	(956)
-
-Test result [backward wV] : 2.1117e-06
-		0.0455088 :: 0.045302	(300)
-		-0.175741 :: -0.175532	(301)
-		0.0674859 :: 0.0672754	(308)
-		-0.149287 :: -0.149074	(313)
-
-Test result [backward wO] : 7.82579e-07
-
-Test result [backward alpha] : 5.30854e-07
-
-Test result [backward bias] : 8.43529e-07
-
-Test result [backward w1] : 1.55849e-06
-		0.0503377 :: 0.0504385	(421)
-		0.00105498 :: 0.00120917	(474)
-		-0.00829664 :: -0.00809382	(686)
-		0.102438 :: 0.102638	(1187)
-		0.0630714 :: 0.0628767	(1841)
-		-0.0408237 :: -0.041044	(4101)
-
-Test result [backward b1] : 1.7989e-06
-		0.0476144 :: 0.0474079	(141)
-
-Test result [backward w2] : 1.93084e-06
-		0.0879407 :: 0.0877302	(2225)
-		-0.076992 :: -0.0767684	(2715)
-		0.101997 :: 0.102223	(3611)
-		-0.0330953 :: -0.0328949	(3867)
-		0.0357111 :: 0.0354928	(4925)
-		-0.137662 :: -0.137472	(5819)
-
-Test result [backward b2] : 1.00188e-06
-
-Test result [backward alpha] : 9.10833e-07
-
-Test result [backward bias] : 4.3749e-07
-
-Test result [backward wQ] : 8.78544e-07
-
-Test result [backward wK] : 1.30515e-06
-		-0.0779708 :: -0.0777738	(263)
-		0.297416 :: 0.297241	(405)
-
-Test result [backward wV] : 1.54023e-06
-		-0.237667 :: -0.237872	(957)
-
-Test result [backward wO] : 3.03217e-06
-		0.046313 :: 0.0465143	(114)
-		-0.129255 :: -0.129055	(227)
-		-0.299604 :: -0.299806	(284)
-		-0.206732 :: -0.206525	(508)
-		-0.0438431 :: -0.044046	(530)
-		-0.00566595 :: -0.00546323	(594)
-
-Test result [backward alpha] : 9.94653e-07
-
-Test result [backward bias] : 8.1721e-07
-
-Test result [backward w1] : 1.56041e-06
-		0.114101 :: 0.113901	(471)
-		-0.0594728 :: -0.0596794	(967)
-		0.00808477 :: 0.00827397	(1569)
-		0.0605978 :: 0.0604988	(2391)
-		-0.126619 :: -0.126259	(3348)
-		0.13007 :: 0.129878	(3390)
-
-Test result [backward b1] : 1.31492e-06
-		-0.0284534 :: -0.0283407	(116)
-
-Test result [backward w2] : 1.75773e-06
-		-0.0661535 :: -0.0663583	(52)
-		0.0284821 :: 0.0286949	(1063)
-		-0.0456926 :: -0.0454918	(1650)
-		0.122354 :: 0.122185	(2033)
-		0.0698126 :: 0.0700302	(2183)
-		-0.0122892 :: -0.0125829	(4993)
-
-Test result [backward b2] : 4.35095e-07
-
-Test result [backward alpha] : 1.98931e-06
-
-Test result [backward bias] : 7.00787e-07
-
-Test result [backward wQ] : 1.08597e-06
-
-Test result [backward wK] : 1.59982e-06
-		0.151845 :: 0.151664	(383)
-		-0.187131 :: -0.187336	(472)
-
-Test result [backward wV] : 2.50095e-06
-		0.0470544 :: 0.0472564	(54)
-		0.217016 :: 0.217223	(56)
-		0.133515 :: 0.13372	(170)
-		-0.19612 :: -0.196325	(173)
-		0.303908 :: 0.304114	(184)
-		-0.151184 :: -0.15139	(185)
-
-Test result [backward wO] : 1.02749e-06
-		0.0813052 :: 0.0811046	(158)
-
-Test result [backward alpha] : 1.54786e-06
-
-Test result [backward bias] : 7.33382e-07
-
-Test result [backward w1] : 1.39107e-06
-		-0.129736 :: -0.129945	(1259)
-		-0.045529 :: -0.0457334	(2739)
-		-0.0281157 :: -0.0283184	(3339)
-		-0.0173633 :: -0.0175578	(3642)
-		0.123851 :: 0.124079	(3742)
-		-0.122514 :: -0.122311	(5834)
-
-Test result [backward b1] : 8.23077e-07
-
-Test result [backward w2] : 1.50625e-06
-		0.134251 :: 0.134366	(1680)
-		0.019124 :: 0.0190232	(2300)
-		-0.0247987 :: -0.0249038	(2430)
-		-0.0087597 :: -0.00885198	(2743)
-		-0.143091 :: -0.142996	(3857)
-		-0.00424557 :: -0.00391184	(3984)
-
-Test result [backward b2] : 3.47989e-07
-
-Test result [backward alpha] : 6.72415e-07
-
-Test result [backward bias] : 6.95824e-07
-
-Test result [backward wQ] : 1.32161e-06
-		-0.284985 :: -0.285187	(983)
-
-Test result [backward wK] : 1.12274e-06
-
-Test result [backward wV] : 6.32666e-07
-
-Test result [backward wO] : 6.61305e-07
-
-Test result [backward alpha] : 1.06543e-06
-
-Test result [backward bias] : 1.04876e-06
-
-Test result [backward w1] : 1.30465e-06
-		-0.078112 :: -0.0783116	(287)
-		0.0764362 :: 0.0762353	(938)
-		0.121343 :: 0.121542	(962)
-		0.126316 :: 0.126114	(3614)
-		0.0820114 :: 0.0816978	(4445)
-		0.0309791 :: 0.0307912	(7168)
-
-Test result [backward b1] : 9.80276e-07
-
-Test result [backward w2] : 1.22893e-06
-		0.0502877 :: 0.0504738	(787)
-		0.0426272 :: 0.0428222	(1522)
-		-0.0366953 :: -0.0364761	(3187)
-		0.142247 :: 0.142357	(7152)
-		-0.0416786 :: -0.0415069	(7248)
-
-Test result [backward b2] : 4.12765e-07
-
-Test result [backward alpha] : 5.68107e-07
-
-Test result [backward bias] : 3.92565e-07
-
-Test result [backward alpha] : 7.37607e-07
-
-Test result [backward bias] : 3.35121e-07
-
-Test result [backward wQ] : 1.19986e-06
-		0.100615 :: 0.100758	(507)
-		-0.18167 :: -0.181818	(671)
-
-Test result [backward wK] : 1.15827e-06
-		-0.250871 :: -0.251018	(777)
-
-Test result [backward wV] : 1.22726e-06
-		-0.0252892 :: -0.0254941	(900)
-
-Test result [backward wO] : 9.60312e-07
-		0.0287303 :: 0.0289294	(393)
-
-Test result [backward alpha] : 7.0855e-06
-		1.00006 :: 0.999868	(29)
-
-Test result [backward bias] : 5.65908e-07
-
-Test result [backward wQ] : 9.98876e-07
-
-Test result [backward wK] : 1.27571e-06
-		-0.0134359 :: -0.0136224	(20)
-
-Test result [backward wV] : 4.64042e-07
-
-Test result [backward wO] : 6.12032e-07
-
-Test result [backward alpha] : 9.07108e-07
-
-Test result [backward bias] : 7.35009e-07
-
-Test result [backward w1] : 1.44532e-06
-		0.0588735 :: 0.0587761	(789)
-		-0.0259825 :: -0.0261825	(1147)
-		0.0514662 :: 0.0512778	(1295)
-		0.138698 :: 0.1389	(1915)
-		-0.0371986 :: -0.0370072	(2416)
-		-0.0924736 :: -0.0922713	(2425)
-
-Test result [backward b1] : 1.07117e-06
-
-Test result [backward w2] : 1.54613e-06
-		-0.107388 :: -0.107296	(64)
-		0.0435831 :: 0.0434837	(100)
-		0.0832306 :: 0.0830755	(3076)
-		-0.00989864 :: -0.00976878	(4514)
-		0.0141578 :: 0.0139417	(5252)
-		-0.0990127 :: -0.0988139	(5470)
-
-Test result [backward b2] : 1.06887e-06
-
-Test result [backward alpha] : 9.94653e-07
-
-Test result [backward bias] : 8.05467e-07
-
-Test result [backward wQ] : 1.61799e-06
-		0.229709 :: 0.22956	(444)
-		0.0957424 :: 0.0958813	(607)
-		0.175023 :: 0.174878	(862)
-
-Test result [backward wK] : 1.69694e-06
-		0.144382 :: 0.144253	(431)
-		-0.23206 :: -0.231904	(773)
-		0.0343547 :: 0.0341985	(780)
-
-Test result [backward wV] : 8.28851e-07
-
-Test result [backward wO] : 8.22796e-07
-
-Test result [backward alpha] : 8.04663e-07
-
-Test result [backward bias] : 6.39934e-07
-
-Test result [backward wQ] : 1.18756e-06
-		0.188347 :: 0.188161	(488)
-
-Test result [backward wK] : 1.05885e-06
-
-Test result [backward wV] : 1.02635e-06
-		0.252252 :: 0.252045	(786)
-
-Test result [backward wO] : 6.28903e-07
-
-Test result [backward alpha] : 8.90344e-07
-
-Test result [backward bias] : 4.78906e-07
-
-Test result [backward w1] : 1.79397e-06
-		-0.0305489 :: -0.0307477	(16)
-		0.137766 :: 0.137965	(158)
-		-0.0479944 :: -0.0484003	(407)
-		-0.108651 :: -0.108852	(528)
-		-0.049661 :: -0.0498621	(610)
-		0.115029 :: 0.114827	(688)
-
-Test result [backward b1] : 2.60149e-06
-		0.000661595 :: 0.000878954	(8)
-		-0.0929616 :: -0.092763	(98)
-
-Test result [backward w2] : 1.18164e-06
-		-0.0403181 :: -0.040199	(5332)
-		-0.0472171 :: -0.0470504	(6334)
-		0.135342 :: 0.135525	(7060)
-
-Test result [backward b2] : 2.89845e-07
-
-Test result [backward alpha] : 9.70438e-07
-
-Test result [backward bias] : 7.40549e-07
-
-Test result [backward wQ] : 1.45877e-06
-		0.00509682 :: 0.00521224	(147)
-		0.106996 :: 0.106871	(334)
-		-0.253749 :: -0.253894	(452)
-		0.072776 :: 0.0726163	(644)
-
-Test result [backward wK] : 1.12527e-06
-
-Test result [backward wV] : 8.9732e-07
-
-Test result [backward wO] : 1.39014e-06
-		0.272272 :: 0.272472	(922)
-
-Test result [backward alpha] : 8.79169e-07
-
-Test result [backward bias] : 6.97997e-06
-		6.97586e-05 :: 0.000275209	(23)
-
-Test result [backward wQ] : 1.256e-06
-		-0.292211 :: -0.292328	(239)
-		-0.144492 :: -0.144616	(688)
-
-Test result [backward wK] : 1.24042e-06
-		0.113946 :: 0.113689	(798)
-
-Test result [backward wV] : 7.81647e-07
-
-Test result [backward wO] : 1.51491e-06
-		-0.30206 :: -0.302258	(215)
-		-0.136647 :: -0.136433	(659)
-
-Test result [backward alpha] : 5.90459e-07
-
-Test result [backward bias] : 5.58097e-07
-
-Test result [backward w1] : 1.35314e-06
-		0.111725 :: 0.111523	(608)
-		-0.0493779 :: -0.0495121	(1447)
-		-0.130015 :: -0.129825	(1585)
-		0.102069 :: 0.101956	(1915)
-		-0.0466254 :: -0.0467495	(4076)
-		0.132406 :: 0.132662	(5028)
-
-Test result [backward b1] : 8.91839e-07
-
-Test result [backward w2] : 2.37629e-06
-		0.0615692 :: 0.0613223	(73)
-		0.0816253 :: 0.0814147	(937)
-		-0.0833832 :: -0.0835965	(1065)
-		-0.00383516 :: -0.00410483	(1513)
-		0.0110495 :: 0.0108273	(1801)
-		0.0964956 :: 0.0966973	(2004)
-
-Test result [backward b2] : 9.51144e-07
-
-Test result [backward alpha] : 9.48086e-07
-
-Test result [backward bias] : 1.23682e-06
-
-Test result [backward wQ] : 8.54775e-07
-
-Test result [backward wK] : 8.90097e-07
-
-Test result [backward wV] : 8.28861e-07
-
-Test result [backward wO] : 1.08249e-06
-		0.139571 :: 0.139773	(243)
-
-Test result [backward alpha] : 6.59376e-07
-
-Test result [backward bias] : 6.46967e-07
-
-Test result [backward wQ] : 1.22123e-06
-		-0.046259 :: -0.046437	(20)
-		-0.265022 :: -0.26483	(560)
-
-Test result [backward wK] : 8.8956e-07
-
-Test result [backward wV] : 5.7873e-07
-
-Test result [backward wO] : 9.20887e-07
-		0.296152 :: 0.295956	(573)
-
-Test result [backward alpha] : 8.41916e-07
-
-Test result [backward bias] : 7.37433e-07
-
-Test result [backward w1] : 1.28179e-06
-		0.0485706 :: 0.0484731	(3)
-		-0.117775 :: -0.117665	(259)
-		0.110066 :: 0.109865	(655)
-		-0.0950449 :: -0.0951521	(3077)
-		0.0520072 :: 0.0521281	(3348)
-		-0.0387098 :: -0.038518	(3983)
-
-Test result [backward b1] : 1.60002e-06
-		0.174994 :: 0.175195	(143)
-
-Test result [backward w2] : 1.60302e-06
-		-0.0631073 :: -0.0630123	(172)
-		-0.0390879 :: -0.0389959	(186)
-		-0.0031654 :: -0.00306241	(190)
-		-0.0156938 :: -0.0157957	(668)
-		-0.0633563 :: -0.0630732	(669)
-
-Test result [backward b2] : 4.56224e-07
-
-Test result [backward alpha] : 6.98492e-07
-
-Test result [backward bias] : 4.25595e-07
-
-Test result [backward wQ] : 1.26669e-06
-
-Test result [backward wK] : 9.313e-07
-
-Test result [backward wV] : 8.71144e-07
-
-Test result [backward wO] : 2.10407e-06
-		0.0300212 :: 0.0302258	(416)
-		0.0615797 :: 0.0613856	(512)
-		0.0170703 :: 0.0172759	(916)
-		0.253898 :: 0.254105	(936)
-
-Test result [backward alpha] : 6.57514e-07
-
-Test result [backward bias] : 6.39159e-07
-
-Test result [backward wQ] : 2.4936e-06
-		-0.126046 :: -0.126207	(193)
-		-0.125563 :: -0.125757	(213)
-		-0.108366 :: -0.108557	(218)
-		-0.227717 :: -0.227929	(223)
-		-0.0756068 :: -0.0757776	(684)
-		0.24092 :: 0.241076	(716)
-
-Test result [backward wK] : 1.16076e-06
-		0.247053 :: 0.247191	(683)
-
-Test result [backward wV] : 8.38313e-07
-
-Test result [backward wO] : 2.55503e-06
-		-0.28077 :: -0.280979	(20)
-		-0.217622 :: -0.217827	(96)
-		0.29815 :: 0.297941	(264)
-		-0.0545302 :: -0.0543289	(404)
-		0.279169 :: 0.278966	(532)
-		0.0820199 :: 0.0822307	(660)
-
-Test result [backward alpha] : 7.00355e-07
-
-Test result [backward bias] : 9.03437e-07
-
-Test result [backward w1] : 1.83284e-06
-		-0.0117794 :: -0.0119154	(84)
-		0.114554 :: 0.114463	(101)
-		0.135281 :: 0.135454	(557)
-		-0.0718697 :: -0.071767	(852)
-		0.106242 :: 0.106088	(1294)
-		0.103003 :: 0.102863	(1364)
-
-Test result [backward b1] : 1.28774e-06
-
-Test result [backward w2] : 1.82192e-06
-		-0.0364495 :: -0.0365516	(2713)
-		0.0986079 :: 0.0987154	(4755)
-		-0.106679 :: -0.106771	(5120)
-		0.131511 :: 0.131623	(5227)
-		-0.124608 :: -0.124702	(5746)
-
-Test result [backward b2] : 3.67925e-07
-
-Test result [backward alpha] : 7.26432e-07
-
-Test result [backward bias] : 5.83884e-07
-
-Test result [backward wQ] : 1.19053e-06
-
-Test result [backward wK] : 1.21272e-06
-
-Test result [backward wV] : 1.16407e-06
-
-Test result [backward wO] : 1.6241e-06
-		-0.0581116 :: -0.0578739	(837)
-		-0.283221 :: -0.283427	(965)
-
-Test result [backward alpha] : 7.54371e-07
-
-Test result [backward bias] : 9.45283e-07
-
-Test result [backward wQ] : 1.582e-06
-		0.263414 :: 0.263223	(47)
-		0.175052 :: 0.17523	(535)
-		0.241326 :: 0.241527	(833)
-
-Test result [backward wK] : 1.60045e-06
-		-0.192889 :: -0.193088	(800)
-
-Test result [backward wV] : 5.96628e-07
-
-Test result [backward wO] : 1.51908e-06
-		0.140347 :: 0.140552	(116)
-		0.291671 :: 0.291437	(517)
-
-Test result [backward alpha] : 9.35048e-07
-
-Test result [backward bias] : 6.34771e-07
-
-Test result [backward w1] : 1.31917e-06
-		0.00909569 :: 0.00888468	(2605)
-		0.0545966 :: 0.054392	(3177)
-		-0.0146033 :: -0.0147159	(3690)
-		-0.0347215 :: -0.0348614	(4640)
-		0.0586886 :: 0.0585802	(6985)
-		-0.0735083 :: -0.0737204	(7213)
-
-Test result [backward b1] : 8.69977e-07
-
-Test result [backward w2] : 2.42262e-06
-		-0.100317 :: -0.100205	(992)
-		-0.0256843 :: -0.0257749	(1311)
-		0.0856632 :: 0.0857754	(1989)
-		0.0265023 :: 0.0266056	(3232)
-		0.0309771 :: 0.0312437	(4404)
-		-0.0639153 :: -0.0637137	(7200)
-
-Test result [backward b2] : 7.01086e-07
-
-Test result [backward alpha] : 6.16536e-07
-
-Test result [backward bias] : 1.81625e-07
-
-Test result [backward table] : 2.22036e-05
-		0.0766269 :: 0.0770185	(627)
-		0.106758 :: 0.106557	(654)
-		0.0646468 :: 0.0649872	(1177)
-		-0.149418 :: -0.149188	(1364)
-		-0.0385135 :: -0.0383117	(1549)
-		-0.0275952 :: -0.0273173	(1568)
-
-Test result [backward table] : 2.01971e-05
-		-0.0962295 :: -0.0960104	(831)
-		0.0874964 :: 0.0872981	(1206)
-		-0.141166 :: -0.140966	(1340)
-		-0.186547 :: -0.186662	(1952)
-		0.0639496 :: 0.0638569	(1953)
-		0.106306 :: 0.106192	(1954)
-
-Test result [backward weight] : 4.3174e-07
-
-Test result [backward bias] : 1.86446e-11
-
-Check =========================================
-Test result [backward alpha] : 2.28733e-06
-
-Test result [backward bias] : 1.594e-06
-
-Test result [backward wQ] : 3.89388e-06
-		-0.0342423 :: -0.0340201	(123)
-		0.120186 :: 0.120008	(240)
-		0.132348 :: 0.132139	(754)
-		-0.0968531 :: -0.0970562	(822)
-		0.0853867 :: 0.0851724	(880)
-
-Test result [backward wK] : 2.81585e-06
-		0.18965 :: 0.189848	(274)
-		-0.0983004 :: -0.0980892	(978)
-
-Test result [backward wV] : 1.59992e-06
-
-Test result [backward wO] : 2.02406e-06
-		-0.244284 :: -0.244489	(402)
-
-Test result [backward alpha] : 1.86078e-06
-
-Test result [backward bias] : 1.45163e-06
-
-Test result [backward w1] : 3.25534e-06
-		-0.075093 :: -0.0748789	(95)
-		0.0301851 :: 0.0300474	(161)
-		-0.073765 :: -0.0738559	(223)
-		-0.0942894 :: -0.0940876	(534)
-		-0.0904932 :: -0.0902654	(549)
-		-0.0662837 :: -0.0664871	(895)
-
-Test result [backward b1] : 2.45269e-06
-
-Test result [backward w2] : 2.5654e-06
-		0.136598 :: 0.136395	(1284)
-		0.137832 :: 0.137946	(1482)
-		-0.0613444 :: -0.0615479	(1835)
-		-0.0517673 :: -0.0519724	(2479)
-		-0.00231873 :: -0.00211207	(2900)
-		0.0806199 :: 0.0807996	(3259)
-
-Test result [backward b2] : 1.7316e-06
-
-Test result [backward alpha] : 4.14997e-06
-
-Test result [backward bias] : 2.59416e-06
-
-Test result [backward wQ] : 3.95558e-06
-		0.186226 :: 0.186078	(748)
-		-0.135334 :: -0.135059	(852)
-		-0.227705 :: -0.227945	(855)
-		0.267787 :: 0.267562	(857)
-		0.286209 :: 0.286007	(929)
-		-0.286047 :: -0.286274	(970)
-
-Test result [backward wK] : 3.72985e-06
-		-0.0558223 :: -0.0560219	(110)
-		-0.119827 :: -0.120034	(160)
-		-0.201385 :: -0.201182	(202)
-		-0.118322 :: -0.118522	(321)
-		0.237168 :: 0.237342	(591)
-		0.138992 :: 0.138789	(711)
-
-Test result [backward wV] : 1.62722e-06
-
-Test result [backward wO] : 1.45938e-06
-
-Test result [backward alpha] : 1.83471e-06
-
-Test result [backward bias] : 2.33032e-06
-
-Test result [backward w1] : 2.58164e-06
-		-0.054561 :: -0.0546889	(75)
-		0.0587876 :: 0.059047	(163)
-		0.0345833 :: 0.0349357	(650)
-		-0.0965664 :: -0.0963158	(1104)
-		0.0370028 :: 0.036789	(1417)
-		0.0516706 :: 0.0518021	(5707)
-
-Test result [backward b1] : 3.27021e-06
-		0.100504 :: 0.100295	(147)
-
-Test result [backward w2] : 1.79602e-06
-		-0.093775 :: -0.0939064	(2037)
-		-0.046703 :: -0.0465082	(2662)
-		-0.0481685 :: -0.0483809	(2984)
-		0.0887439 :: 0.0889478	(4283)
-		-0.0419309 :: -0.0417215	(5307)
-		-0.0146768 :: -0.0148775	(5677)
-
-Test result [backward b2] : 1.02202e-06
-
-Test result [backward alpha] : 8.05967e-06
-		1.0002 :: 0.999974	(11)
-
-Test result [backward bias] : 3.60644e-06
-		0.000393332 :: 0.000300173	(11)
-
-Test result [backward wQ] : 1.76395e-06
-		-0.233725 :: -0.233434	(17)
-
-Test result [backward wK] : 1.86078e-06
-		-0.0198788 :: -0.0196726	(951)
-		-0.101777 :: -0.101979	(956)
-
-Test result [backward wV] : 2.72212e-06
-		0.0455615 :: 0.0453519	(300)
-		-0.1758 :: -0.175587	(301)
-		0.0675275 :: 0.0673118	(308)
-		-0.1493 :: -0.14908	(313)
-
-Test result [backward wO] : 1.20528e-06
-
-Test result [backward alpha] : 1.01328e-06
-
-Test result [backward bias] : 1.28874e-06
-
-Test result [backward w1] : 2.0455e-06
-		0.0502836 :: 0.0503842	(421)
-		0.0011089 :: 0.00126313	(474)
-		-0.0083825 :: -0.00818031	(686)
-		0.102461 :: 0.102663	(1187)
-		0.0631316 :: 0.0629383	(1841)
-		-0.0407422 :: -0.0409618	(4101)
-
-Test result [backward b1] : 2.26589e-06
-		0.0477081 :: 0.0475012	(141)
-
-Test result [backward w2] : 2.45312e-06
-		0.0880061 :: 0.087793	(2225)
-		-0.0770577 :: -0.0768344	(2715)
-		0.101971 :: 0.102204	(3611)
-		-0.0331498 :: -0.0329505	(3867)
-		0.0356582 :: 0.0354377	(4925)
-		-0.137598 :: -0.137406	(5819)
-
-Test result [backward b2] : 1.37003e-06
-
-Test result [backward alpha] : 1.3411e-06
-
-Test result [backward bias] : 6.58533e-07
-
-Test result [backward wQ] : 1.1737e-06
-
-Test result [backward wK] : 1.68859e-06
-		-0.0778832 :: -0.0776856	(263)
-		0.297467 :: 0.297292	(405)
-
-Test result [backward wV] : 2.08215e-06
-		-0.237669 :: -0.237877	(957)
-
-Test result [backward wO] : 3.70424e-06
-		0.0462439 :: 0.0464447	(114)
-		-0.129189 :: -0.128989	(227)
-		-0.299513 :: -0.299716	(284)
-		-0.206822 :: -0.206615	(508)
-		-0.043779 :: -0.0439826	(530)
-		-0.00573088 :: -0.00552705	(594)
-
-Test result [backward alpha] : 1.31503e-06
-
-Test result [backward bias] : 1.30872e-06
-
-Test result [backward w1] : 2.45495e-06
-		0.0398978 :: 0.039993	(237)
-		0.114038 :: 0.113838	(471)
-		-0.0587361 :: -0.0588362	(493)
-		-0.0745825 :: -0.07448	(749)
-		-0.0594433 :: -0.0596515	(967)
-		0.0684622 :: 0.0685647	(1005)
-
-Test result [backward b1] : 2.25223e-06
-		-0.0285288 :: -0.0284123	(116)
-		-0.0259883 :: -0.0258889	(237)
-
-Test result [backward w2] : 2.3374e-06
-		-0.0661534 :: -0.0663584	(52)
-		0.0283989 :: 0.0286114	(1063)
-		-0.045786 :: -0.0455853	(1650)
-		0.122407 :: 0.122225	(2033)
-		0.069739 :: 0.0699563	(2183)
-		-0.0122665 :: -0.0125929	(4993)
-
-Test result [backward b2] : 1.03604e-06
-
-Test result [backward alpha] : 2.69897e-06
-
-Test result [backward bias] : 8.80558e-07
-
-Test result [backward wQ] : 1.43824e-06
-
-Test result [backward wK] : 2.09904e-06
-		0.151857 :: 0.151676	(383)
-		-0.187082 :: -0.187288	(472)
-
-Test result [backward wV] : 3.193e-06
-		0.0469615 :: 0.047163	(54)
-		0.217073 :: 0.217282	(56)
-		0.133435 :: 0.133642	(170)
-		-0.196058 :: -0.196268	(173)
-		0.303842 :: 0.304043	(184)
-		-0.151127 :: -0.151339	(185)
-
-Test result [backward wO] : 1.60343e-06
-		0.0813656 :: 0.0811658	(158)
-
-Test result [backward alpha] : 2.02283e-06
-
-Test result [backward bias] : 1.20636e-06
-
-Test result [backward w1] : 1.90066e-06
-		-0.12968 :: -0.129891	(1259)
-		-0.0454655 :: -0.0456708	(2739)
-		-0.0280338 :: -0.0282374	(3339)
-		-0.0173941 :: -0.0175885	(3642)
-		0.123762 :: 0.12399	(3742)
-		-0.122579 :: -0.122377	(5834)
-
-Test result [backward b1] : 1.28667e-06
-
-Test result [backward w2] : 2.01187e-06
-		0.134197 :: 0.134312	(1680)
-		-0.0412435 :: -0.0411533	(1968)
-		0.0190601 :: 0.0189584	(2300)
-		-0.0247458 :: -0.0248503	(2430)
-		-0.00868735 :: -0.00877867	(2743)
-		-0.143122 :: -0.143011	(3857)
-
-Test result [backward b2] : 7.68947e-07
-
-Test result [backward alpha] : 1.20699e-06
-
-Test result [backward bias] : 1.21361e-06
-
-Test result [backward wQ] : 1.70666e-06
-		-0.284945 :: -0.285148	(983)
-
-Test result [backward wK] : 1.50563e-06
-
-Test result [backward wV] : 1.27179e-06
-
-Test result [backward wO] : 1.13406e-06
-
-Test result [backward alpha] : 1.44728e-06
-
-Test result [backward bias] : 1.50606e-06
-
-Test result [backward w1] : 1.8285e-06
-		-0.0781961 :: -0.0783968	(287)
-		0.0764679 :: 0.0762679	(938)
-		0.121301 :: 0.121499	(962)
-		0.126303 :: 0.126101	(3614)
-		0.0820955 :: 0.081782	(4445)
-		0.0310286 :: 0.0308387	(7168)
-
-Test result [backward b1] : 1.49534e-06
-
-Test result [backward w2] : 1.73265e-06
-		0.0502088 :: 0.0503944	(787)
-		0.0425445 :: 0.0427394	(1522)
-		-0.0367567 :: -0.036532	(3187)
-		0.142199 :: 0.142401	(7152)
-		-0.0416789 :: -0.0414993	(7248)
-
-Test result [backward b2] : 7.93931e-07
-
-Test result [backward alpha] : 1.03191e-06
-
-Test result [backward bias] : 8.28511e-07
-
-Test result [backward alpha] : 1.3113e-06
-
-Test result [backward bias] : 8.14244e-07
-
-Test result [backward wQ] : 1.5436e-06
-		0.100548 :: 0.100691	(507)
-		-0.181709 :: -0.181857	(671)
-
-Test result [backward wK] : 1.49227e-06
-		-0.25092 :: -0.251068	(777)
-
-Test result [backward wV] : 1.60266e-06
-		-0.0253013 :: -0.0255056	(900)
-
-Test result [backward wO] : 1.38507e-06
-		0.0287214 :: 0.0289207	(393)
-
-Test result [backward alpha] : 7.35186e-06
-		1.00012 :: 0.99993	(29)
-
-Test result [backward bias] : 8.31004e-07
-
-Test result [backward wQ] : 1.30637e-06
-
-Test result [backward wK] : 1.65475e-06
-		-0.0135081 :: -0.013694	(20)
-
-Test result [backward wV] : 9.23441e-07
-
-Test result [backward wO] : 1.0765e-06
-
-Test result [backward alpha] : 1.41375e-06
-
-Test result [backward bias] : 1.11928e-06
-
-Test result [backward w1] : 1.98928e-06
-		0.0589273 :: 0.0588304	(789)
-		-0.0258973 :: -0.0260976	(1147)
-		0.0513807 :: 0.0511924	(1295)
-		0.13876 :: 0.138962	(1915)
-		-0.0372741 :: -0.0370839	(2416)
-		-0.092537 :: -0.0923354	(2425)
-
-Test result [backward b1] : 1.60507e-06
-
-Test result [backward w2] : 2.19707e-06
-		-0.107421 :: -0.107307	(64)
-		-0.0427385 :: -0.0426334	(66)
-		-0.138727 :: -0.138629	(79)
-		0.0231569 :: 0.02325	(94)
-		0.043653 :: 0.0435523	(100)
-		0.0832664 :: 0.0831096	(3076)
-
-Test result [backward b2] : 1.67346e-06
-
-Test result [backward alpha] : 1.39326e-06
-
-Test result [backward bias] : 1.20997e-06
-
-Test result [backward wQ] : 2.05017e-06
-		0.229635 :: 0.229484	(444)
-		0.0957144 :: 0.0958538	(607)
-		0.175107 :: 0.174962	(862)
-
-Test result [backward wK] : 2.17448e-06
-		0.144389 :: 0.14426	(431)
-		-0.232036 :: -0.231873	(773)
-		0.0342787 :: 0.0341205	(780)
-
-Test result [backward wV] : 1.34683e-06
-
-Test result [backward wO] : 1.36759e-06
-
-Test result [backward alpha] : 1.16229e-06
-
-Test result [backward bias] : 1.11566e-06
-
-Test result [backward wQ] : 1.63524e-06
-		0.188314 :: 0.188127	(488)
-
-Test result [backward wK] : 1.46247e-06
-
-Test result [backward wV] : 1.57315e-06
-		0.252196 :: 0.251987	(786)
-
-Test result [backward wO] : 1.19098e-06
-
-Test result [backward alpha] : 1.24983e-06
-
-Test result [backward bias] : 1.00185e-06
-
-Test result [backward w1] : 2.30307e-06
-		-0.0305357 :: -0.0307342	(16)
-		0.137843 :: 0.138042	(158)
-		-0.0479337 :: -0.0483402	(407)
-		-0.108724 :: -0.108924	(528)
-		-0.0496568 :: -0.0498594	(610)
-		0.11504 :: 0.114838	(688)
-
-Test result [backward b1] : 3.05569e-06
-		0.000718431 :: 0.000936202	(8)
-		-0.0929427 :: -0.0927436	(98)
-
-Test result [backward w2] : 1.70089e-06
-		-0.0404004 :: -0.0402812	(5332)
-		-0.0472884 :: -0.0471213	(6334)
-		0.1353 :: 0.135492	(7060)
-
-Test result [backward b2] : 6.53628e-07
-
-Test result [backward alpha] : 1.49198e-06
-
-Test result [backward bias] : 1.23842e-06
-
-Test result [backward wQ] : 1.73084e-06
-		0.00510527 :: 0.00522295	(147)
-		0.106915 :: 0.106788	(334)
-		-0.253694 :: -0.25384	(452)
-		0.0727595 :: 0.0726033	(644)
-
-Test result [backward wK] : 1.49188e-06
-
-Test result [backward wV] : 1.29887e-06
-
-Test result [backward wO] : 1.82276e-06
-		0.27233 :: 0.272529	(922)
-
-Test result [backward alpha] : 1.22003e-06
-
-Test result [backward bias] : 7.41376e-06
-		0.000125341 :: 0.000332723	(23)
-
-Test result [backward wQ] : 1.5877e-06
-		-0.292125 :: -0.292242	(239)
-		-0.144521 :: -0.144645	(688)
-
-Test result [backward wK] : 1.58076e-06
-		0.11402 :: 0.113764	(798)
-
-Test result [backward wV] : 1.2503e-06
-
-Test result [backward wO] : 2.02773e-06
-		-0.302131 :: -0.302331	(215)
-		-0.136689 :: -0.136474	(659)
-
-Test result [backward alpha] : 8.97795e-07
-
-Test result [backward bias] : 9.8273e-07
-
-Test result [backward w1] : 1.86401e-06
-		0.111795 :: 0.111594	(608)
-		-0.0492885 :: -0.0494218	(1447)
-		-0.130055 :: -0.129865	(1585)
-		0.102017 :: 0.101901	(1915)
-		-0.0467002 :: -0.0468241	(4076)
-		0.132446 :: 0.132704	(5028)
-
-Test result [backward b1] : 1.40293e-06
-
-Test result [backward w2] : 2.93027e-06
-		0.0616553 :: 0.0614077	(73)
-		0.0816932 :: 0.0814836	(937)
-		-0.0832983 :: -0.0835115	(1065)
-		-0.00376246 :: -0.0040315	(1513)
-		0.0111293 :: 0.0109076	(1801)
-		0.0964286 :: 0.0966295	(2004)
-
-Test result [backward b2] : 1.36412e-06
-
-Test result [backward alpha] : 1.4361e-06
-
-Test result [backward bias] : 1.54717e-06
-
-Test result [backward wQ] : 1.12083e-06
-
-Test result [backward wK] : 1.1529e-06
-
-Test result [backward wV] : 1.43008e-06
-
-Test result [backward wO] : 1.6576e-06
-		0.139632 :: 0.139836	(243)
-
-Test result [backward alpha] : 9.0152e-07
-
-Test result [backward bias] : 8.72501e-07
-
-Test result [backward wQ] : 1.55049e-06
-		-0.0462056 :: -0.0463839	(20)
-		-0.264949 :: -0.264757	(560)
-
-Test result [backward wK] : 1.25248e-06
-
-Test result [backward wV] : 1.20926e-06
-
-Test result [backward wO] : 1.39666e-06
-		0.296232 :: 0.296036	(573)
-
-Test result [backward alpha] : 1.49012e-06
-
-Test result [backward bias] : 1.33219e-06
-
-Test result [backward w1] : 1.85597e-06
-		0.0486209 :: 0.0485244	(3)
-		-0.117715 :: -0.117604	(259)
-		0.110142 :: 0.10994	(655)
-		-0.0949738 :: -0.09508	(3077)
-		0.0520558 :: 0.0521771	(3348)
-		-0.0387934 :: -0.0386009	(3983)
-
-Test result [backward b1] : 2.12632e-06
-		0.174918 :: 0.17512	(143)
-
-Test result [backward w2] : 2.28208e-06
-		-0.0630471 :: -0.0629533	(172)
-		-0.039147 :: -0.0390545	(186)
-		-0.00323452 :: -0.00312969	(190)
-		-0.0156447 :: -0.0157469	(668)
-		-0.0634056 :: -0.063122	(669)
-
-Test result [backward b2] : 7.85942e-07
-
-Test result [backward alpha] : 1.27964e-06
-
-Test result [backward bias] : 8.23336e-07
-
-Test result [backward wQ] : 1.48855e-06
-
-Test result [backward wK] : 1.20754e-06
-
-Test result [backward wV] : 1.4371e-06
-
-Test result [backward wO] : 2.55513e-06
-		0.0299398 :: 0.0301448	(416)
-		0.0616621 :: 0.0614688	(512)
-		0.017013 :: 0.0172176	(916)
-		0.253853 :: 0.254061	(936)
-
-Test result [backward alpha] : 9.70438e-07
-
-Test result [backward bias] : 1.02457e-06
-
-Test result [backward wQ] : 2.81945e-06
-		-0.126064 :: -0.126227	(193)
-		-0.125517 :: -0.12571	(213)
-		-0.108446 :: -0.108638	(218)
-		-0.227644 :: -0.227856	(223)
-		-0.0755368 :: -0.0757069	(684)
-		0.240853 :: 0.24101	(716)
-
-Test result [backward wK] : 1.54078e-06
-		0.247004 :: 0.247142	(683)
-
-Test result [backward wV] : 1.42409e-06
-
-Test result [backward wO] : 3.08042e-06
-		-0.28069 :: -0.280898	(20)
-		-0.217576 :: -0.217781	(96)
-		0.29822 :: 0.29801	(264)
-		-0.0544604 :: -0.054258	(404)
-		0.279253 :: 0.279051	(532)
-		0.0820605 :: 0.0822735	(660)
-
-Test result [backward alpha] : 1.14553e-06
-
-Test result [backward bias] : 1.11408e-06
-
-Test result [backward w1] : 2.37176e-06
-		-0.0117497 :: -0.0119063	(84)
-		0.114608 :: 0.114518	(101)
-		0.135213 :: 0.135386	(557)
-		-0.0719029 :: -0.0717824	(852)
-		0.0503602 :: 0.0502669	(984)
-		0.106173 :: 0.106018	(1294)
-
-Test result [backward b1] : 1.80942e-06
-		-0.168248 :: -0.168343	(84)
-
-Test result [backward w2] : 2.36102e-06
-		-0.0364365 :: -0.0365496	(2713)
-		0.0985593 :: 0.0986671	(4755)
-		-0.0784856 :: -0.0783878	(4887)
-		-0.106605 :: -0.106697	(5120)
-		0.131457 :: 0.131569	(5227)
-		-0.124546 :: -0.124641	(5746)
-
-Test result [backward b2] : 6.83192e-07
-
-Test result [backward alpha] : 1.31689e-06
-
-Test result [backward bias] : 1.19572e-06
-
-Test result [backward wQ] : 1.41291e-06
-
-Test result [backward wK] : 1.50614e-06
-
-Test result [backward wV] : 1.70226e-06
-
-Test result [backward wO] : 2.14597e-06
-		-0.0581866 :: -0.0579496	(837)
-		-0.283142 :: -0.283347	(965)
-
-Test result [backward alpha] : 1.08778e-06
-
-Test result [backward bias] : 1.07213e-06
-
-Test result [backward wQ] : 1.91664e-06
-		0.263459 :: 0.263269	(47)
-		0.175111 :: 0.17529	(535)
-		0.24125 :: 0.241451	(833)
-
-Test result [backward wK] : 1.95041e-06
-		-0.192829 :: -0.193027	(800)
-
-Test result [backward wV] : 1.14748e-06
-
-Test result [backward wO] : 1.97733e-06
-		0.140391 :: 0.140598	(116)
-		0.291748 :: 0.291514	(517)
-
-Test result [backward alpha] : 1.38022e-06
-
-Test result [backward bias] : 9.17335e-07
-
-Test result [backward w1] : 1.86243e-06
-		0.00918375 :: 0.00897199	(2605)
-		0.054671 :: 0.0544676	(3177)
-		-0.0145546 :: -0.014667	(3690)
-		-0.0347568 :: -0.0348973	(4640)
-		0.0587272 :: 0.0586191	(6985)
-		-0.0734211 :: -0.0736333	(7213)
-
-Test result [backward b1] : 1.43121e-06
-
-Test result [backward w2] : 3.08314e-06
-		-0.100262 :: -0.10015	(992)
-		-0.102968 :: -0.10306	(1007)
-		0.136359 :: 0.136259	(1247)
-		0.0857137 :: 0.0858254	(1989)
-		0.0264452 :: 0.026549	(3232)
-		0.0309466 :: 0.0312679	(4404)
-
-Test result [backward b2] : 1.20961e-06
-
-Test result [backward alpha] : 1.0021e-06
-
-Test result [backward bias] : 3.19935e-07
-
-Test result [backward table] : 2.72464e-05
-		0.0446496 :: 0.0447496	(384)
-		0.117684 :: 0.11758	(385)
-		0.14215 :: 0.142038	(386)
-		0.108739 :: 0.108641	(387)
-		-0.105746 :: -0.105854	(388)
-		-0.0895813 :: -0.0896867	(390)
-
-Test result [backward table] : 2.75491e-05
-		-0.0962131 :: -0.0959879	(831)
-		0.125122 :: 0.125016	(896)
-		-0.131827 :: -0.131932	(897)
-		-0.0500571 :: -0.0501589	(898)
-		-0.0244783 :: -0.0243777	(900)
-		-0.0822845 :: -0.0821809	(901)
-
-Test result [backward weight] : 7.88256e-07
-
-Test result [backward bias] : 2.31921e-11
 

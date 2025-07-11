@@ -9,8 +9,8 @@ ReLU::ReLU() : mask(batch * sequenceLength, dFF) {;}
 void ReLU::forward(TensorView input, TensorView output) {
     for(int i = 0;i < input.row * input.col;i++) {
         mask[i] = input[i] >= 0;
-        output[i] = input[i] * mask[i];
     }
+    Mul(input, mask, output);
     Timer::CheckPoint();
     if(verbose) std::cout << "ReLU" << std::endl;
 }
