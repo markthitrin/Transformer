@@ -4,7 +4,7 @@ use Config;
 use Matrix;
 use EncoderLayer;
 use LayerNorm;
-
+use Timer;
 
 class Encoder {
     proc init() {

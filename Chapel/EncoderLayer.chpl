@@ -6,6 +6,7 @@ use MultiheadAttention;
 use DropOut;
 use FeedForwardBlock;
 use Matrix;
+use Timer;
 
 class EncoderLayer {
     proc init() {

@@ -39,6 +39,7 @@ void Decoder::backward(
     TensorView outputGradient, TensorView inputGradient, TensorView encoderGradient, TensorView encoderOut,
     const int srcSeq[batch], const int tgtSeq[batch]) {
 
+    encoderGradient = 0.0; // need to be manually set.
     norm.backward(outputGradient, gradient[N - 1]);
     for(int i = N - 1;i >= 1;i--) {
         layers[i].backward(gradient[i], encoderGradient, gradient[i - 1], encoderOut, srcSeq, tgtSeq);

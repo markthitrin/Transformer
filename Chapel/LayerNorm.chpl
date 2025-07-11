@@ -1,6 +1,7 @@
 use Util;
 use Matrix;
 use Config;
+use Timer;
 
 class LayerNorm {
 
@@ -31,6 +32,7 @@ class LayerNorm {
                 output[i * dModel + j] = alpha[j] * xHat[i * dModel + j] + bias[j];
             }
         }
+        CheckPoint();
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {

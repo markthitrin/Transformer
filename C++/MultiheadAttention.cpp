@@ -127,10 +127,13 @@ void MultiheadAttention::backward(
     VTGradient = 0;
     AGradient = 0;
     AsGradient = 0;
+    AdGradient = 0;
     OTGradient = 0;
     inputGradientQ = 0;
-    inputGradientK = 0;
-    inputGradientV = 0;
+    if(maskType != CROSS_PADDING) { // for decoder getting encoder layer
+        inputGradientK = 0;
+        inputGradientV = 0;
+    }
 
     for (int i = 0; i < batch; i++) {
         MatMulPlusAB(OT.sliceRow(i * dModel, dModel),outputGradient.sliceRow(i * sequenceLength, sequenceLength), WOOpt.gradient);

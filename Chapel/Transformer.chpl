@@ -5,6 +5,7 @@ use Embedding;
 use PositionalEncoder;
 use Linear;
 use Matrix;
+use Timer;
 
 class Transformer {
 

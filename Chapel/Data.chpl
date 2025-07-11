@@ -1,5 +1,6 @@
 use Config;
 use Random;
+use Timer;
 
 var rng = new randomStream(int);
 proc randomInt(low: int, high: int): int {

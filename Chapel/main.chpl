@@ -3,6 +3,7 @@ use Transformer;
 use Config;
 use Util;
 use IO;
+use Timer;
 
 proc readDataFile(ref dataDomain: domain(2), ref src: [dataDomain] int, ref tgt: [dataDomain] int) {
     var file = open("opus_books_tokenized.txt", ioMode.r);
@@ -122,15 +123,22 @@ proc main() {
         var targetOutput: [0..#(batch * sequenceLength)] int;
         var output: [0..#(batch * sequenceLength * tgtVocab)] real(32);
         var gradient: [0..#(batch * sequenceLength * tgtVocab)] real(32);
-
+        writeln("Start Training");
         for i in 0..#trainingIteration {
             getData(srcTrain, tgtTrain, encoderInput, decoderInput, targetOutput, srcSeq, tgtSeq);
+            RestartRecord();
             model.forward(encoderInput, decoderInput, output, srcSeq, tgtSeq);
             var loss = CrossEntropy(output, targetOutput, tgtSeq, gradient);
             model.backward(gradient, encoderInput, decoderInput, srcSeq, tgtSeq);
             model.updateParameter();
             writeln("Iteration [", i, " / ", trainingIteration, "] loss : ", loss);
         }
+    }
+
+    writeln("Time Recorded ====================================\n\n");
+    var rec = GetTime();
+    for i in rec.domain {
+        writeln(rec[i]);
     }
 
     {   // Evaluation Section 
@@ -140,7 +148,7 @@ proc main() {
         var tgtSeq: [0..#batch] int;
         var targetOutput: [0..#(batch * sequenceLength)] int;
         var output: [0..#(batch * sequenceLength * tgtVocab)] real(32);
-
+        writeln("Start evaluation");
         for i in 0..#testingIteration {
             getData(srcTest, tgtTest, encoderInput, decoderInput, targetOutput, srcSeq, tgtSeq);
             model.predict(encoderInput, decoderInput, output, srcSeq, tgtSeq);

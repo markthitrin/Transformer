@@ -4,6 +4,7 @@ use Config;
 use Matrix;
 use DecoderLayer;
 use LayerNorm;
+use Timer;
 
 class Decoder {
 

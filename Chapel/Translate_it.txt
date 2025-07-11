@@ -1,4 +1,4 @@
-[UNK]
+ [UNK]
 [PAD]
 [SOS]
 [EOS]

@@ -3,6 +3,7 @@ use IO;
 use Math;
 use Random;
 use Time;
+use Timer;
 
 var file = open(paramFileName, ioMode.r);
 var fileReader = file.reader();

@@ -1,6 +1,7 @@
 use Util;
 use Config;
 use Matrix;
+use Timer;
 
 class Linear {
     proc init(in inD: int, in outD: int) {
@@ -23,6 +24,7 @@ class Linear {
             Copy(bias, output[(i * outD)..#outD]);
         }
         MatMulPlusAB(batch, inD, outD, input, weight, output);
+        CheckPoint();
     }
 
     proc predict(ref input: [?Di] real(32), ref output: [?Do] real(32)) {

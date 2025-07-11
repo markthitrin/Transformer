@@ -1,34 +1,37 @@
-use Timer;
 use Sort;
+use Time;
 
 config param timerSize = 10000;
 var time: [0..#timerSize][0..#10000] real;
-var it: [0..#timerSize] int;
+var round: int = -1;
 var i : int;
 var maxI : int;
 
 var t: stopwatch;
 
 proc RestartRecord() {
-    t.start();
+    t.stop();
     i = 0;
+    round += 1;
+    t.reset();
+    t.start();
 }
 
 proc CheckPoint() {
-    t.top();
-    time[i][it[i]] = t.elapsed() / 1000000;
-    it[i] += 1;
-    maxI = max(maxI, i);
+    t.stop();
+    time[i][round] = t.elapsed() * 1000000;
     i += 1;
+    maxI = max(maxI, i);
+    t.reset();
     t.start();
 }
 
 proc GetTime() {
     var res: [0..#maxI] real;
     for i in 0..#maxI {
-        sort(time[i]);
-        var start = min(it[i] * 0.1, 20): int;
-        var end = max((it[i] * 9 + 9) / 10, it[i] - 20): int ;
+        sort(time[i][0..#round]);
+        var start = min(round * 0.1, 20): int;
+        var end = max((round * 9 + 9) / 10, round - 20): int ;
         var mean: real;
         for j in start..<end {
             mean += time[i][j];

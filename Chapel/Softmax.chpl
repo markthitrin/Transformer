@@ -1,7 +1,7 @@
 use Util;
 use Math;
 use Matrix;
-
+use Timer;
 
 class Softmax {
     proc init(in batch: int, in shape: int) {
@@ -20,6 +20,7 @@ class Softmax {
                 output[i * shape + j] = exp(input[i * shape + j] - maxValue) / sumExp;
             }
         }
+        CheckPoint();
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {

@@ -3,6 +3,7 @@ use Math;
 use Config;
 use Matrix;
 use DropOut;
+use Timer;
 
 class PositionalEncoder {
 
@@ -26,6 +27,7 @@ class PositionalEncoder {
         for i in 0..#batch {
             Plus(input[(i * block)..#block], mask, input[(i * block)..#block]);
         }
+        CheckPoint();
         dropout.forward(input, output);
     }
 

@@ -1,6 +1,7 @@
 use Config;
 use Util;
 use Matrix;
+use Timer;
 
 class ReLU {
     proc init() {
@@ -11,6 +12,7 @@ class ReLU {
         for i in D {
             mask[i] = if input[i] >= 0 then 1.0:real(32) else 0.0:real(32);
         }
+        CheckPoint();
         Mul(input, mask, output);
     }   
 

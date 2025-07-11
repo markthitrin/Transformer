@@ -5,6 +5,7 @@ use DropOut;
 use ReLU;
 use Config;
 use Matrix;
+use Timer;
 
 class FeedForwardBlock {
     proc init() {

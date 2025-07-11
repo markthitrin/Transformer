@@ -9,6 +9,8 @@ Embedding::Embedding(const int numTokens) : table(numTokens, dModel), needUpdate
     for(int i = 0;i < numTokens;i++) {
         tableOpt.emplace_back(1, dModel);
     }
+    
+    UniformInit(table, 0.1);
 }
 
 void Embedding::forward(const int input[batch * sequenceLength], TensorView output) {

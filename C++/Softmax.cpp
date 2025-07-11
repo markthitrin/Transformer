@@ -37,10 +37,10 @@ void Softmax::predict(TensorView input, TensorView output) {
 void Softmax::backward(TensorView outputGradient, TensorView inputGradient, TensorView output) {
     const int row = inputGradient.row;
     const int col = inputGradient.col;
-    for (int i = 0; i < col; i++) {
+    for (int i = 0; i < row; i++) {
         float sumGY = 0.0f;
 
-        for (int j = 0; j < col; j++) {
+        for (int j = 0; j < col; j++) { 
             sumGY += outputGradient[i * col + j] * output[i * col + j];
         }
 

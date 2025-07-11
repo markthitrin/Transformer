@@ -3,6 +3,7 @@ use Math;
 use Matrix;
 use Config;
 use CTypes;
+use Timer;
 
 class Embedding {
 
@@ -21,6 +22,7 @@ class Embedding {
             Copy(table[(input[i] * dModel)..#dModel],output[(i * dModel)..#dModel]);
         }
         Mul(output, sqrt(dModel), output);
+        CheckPoint();
     }
 
     proc predict(ref input: [?Di] int, ref output: [?Do] real(32)) : void {

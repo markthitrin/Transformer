@@ -3,6 +3,7 @@ use Util;
 use Math;
 use Random;
 use Matrix;
+use Timer;
 
 var rng = new randomStream(real, seed=0);
 
@@ -22,7 +23,7 @@ class DropOut {
         GenerateDropoutMask(mask, dropoutRate);
         Mul(input, mask, output);
         Div(output, 1.0 - dropoutRate, output);
-
+        CheckPoint();
         // Div(input, 1.0 - dropoutRate, output);
     }
 

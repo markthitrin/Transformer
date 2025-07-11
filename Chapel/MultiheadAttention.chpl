@@ -4,6 +4,7 @@ use Config;
 use Softmax;
 use Matrix;
 use DropOut;
+use Timer;
 
 enum MaskType {
     LOOK_AHEAD,
@@ -68,6 +69,7 @@ class MultiheadAttention {
                 when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(A[(i * blockAtt)..#blockAtt], seq[i / head], -1e9);
             }
         }
+        CheckPoint();
         if(train) {
             softmax.forward(A, As);
             dropout.forward(As, Ad);
@@ -79,6 +81,7 @@ class MultiheadAttention {
         forall i in 0..#(batch * head) {
             MatMulPlusABT(dPerHead, sequenceLength, sequenceLength, VT[(i * blockPerHead)..#blockPerHead], Ad[(i * blockAtt)..#blockAtt], OT[(i * blockPerHead)..#blockPerHead]);
         }
+        CheckPoint();
         forall i in 0..#batch {
             MatMulPlusATB(sequenceLength, dModel, dModel, OT[(i * block)..#block], WO, output[(i * block)..#block]);
         }

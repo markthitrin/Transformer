@@ -42,7 +42,7 @@ float ComputCrossEntropy(TensorView logits, int target_token, TensorView grad) {
         float prob = std::exp(logits[i] - max_logit) / sum_exp;
         grad[i] = prob;
         if (i == target_token) {
-            loss = -fast_logf(prob + 1e-9f);
+            loss = -std::log2(prob + 1e-9f);
             grad[i] -= 1.0f;
         }
     }
