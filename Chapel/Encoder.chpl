@@ -9,24 +9,27 @@ use LayerNorm;
 class Encoder {
     proc init() {
         domLayers = {0..#N};
-        layers = [i in 0..#N] new EncoderLayer();
+        layers = [i in 0..#N] nil;
+        for i in domLayers {
+            layers[i] = new EncoderLayer();
+        }
         norm = new LayerNorm();
 
         domOG = {0..#(batch * sequenceLength * dModel)};
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32), ref srcSeq: [?Ds] int) : void {
-        layers[0].forward(input, outi[0], srcSeq);
+        layers[0]!.forward(input, outi[0], srcSeq);
         for i in 1..<N {
-            layers[i].forward(outi[i - 1], outi[i], srcSeq);
+            layers[i]!.forward(outi[i - 1], outi[i], srcSeq);
         }
         norm.forward(outi[N - 1], output);
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32), ref srcSeq: [?Ds] int) : void {
-        layers[0].predict(input, outi[0], srcSeq);
+        layers[0]!.predict(input, outi[0], srcSeq);
         for i in 1..<N {
-            layers[i].predict(outi[i - 1], outi[i], srcSeq);
+            layers[i]!.predict(outi[i - 1], outi[i], srcSeq);
         }
         norm.predict(outi[N - 1], output);
     }
@@ -34,21 +37,21 @@ class Encoder {
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref srcSeq: [?Ds] int) : void {
         norm.backward(outputGradient, gradienti[N - 1]);
         for i in 1..(N - 1) by -1 {
-            layers[i].backward(gradienti[i], gradienti[i - 1], srcSeq);
+            layers[i]!.backward(gradienti[i], gradienti[i - 1], srcSeq);
         }
-        layers[0].backward(gradienti[0], inputGradient, srcSeq);
+        layers[0]!.backward(gradienti[0], inputGradient, srcSeq);
     }
 
     proc updateParameter() {
         for i in 0..#N {
-            layers[i].updateParameter();
+            layers[i]!.updateParameter();
         }
         norm.updateParameter();
     }
 
     proc loadParam() {
         for i in 0..#N {
-            layers[i].loadParam();
+            layers[i]!.loadParam();
         }
         norm.loadParam();
     }
@@ -72,7 +75,7 @@ class Encoder {
 
     proc checkUpdateParam() {
         for i in 0..#N {
-            layers[i].checkUpdateParam();
+            layers[i]!.checkUpdateParam();
         }
         norm.checkUpdateParam();
     }
@@ -100,7 +103,7 @@ class Encoder {
     }
     
     var domLayers: domain(1);
-    var layers: [domLayers] owned EncoderLayer;
+    var layers: [domLayers] owned EncoderLayer?;
     var norm: owned LayerNorm;
 
     var domOG: domain(1);

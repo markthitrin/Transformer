@@ -9,7 +9,7 @@
 
 FeedForwardBlock::FeedForwardBlock() :
     linear1(dModel, dFF),
-    dropout(dModel, dFF),
+    dropout(batch * sequenceLength, dFF),
     linear2(dFF, dModel),
     
     out1(batch * sequenceLength, dFF),

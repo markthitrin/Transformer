@@ -2,6 +2,7 @@
 #include "Tensor.h"
 #include "Util.h"
 #include "Linear.h"
+#include "Timer.h"
 
 Linear::Linear(const int in, const int out) : 
     weight(in, out), bias(1, out), weightOpt(in, out), biasOpt(1, out) {
@@ -15,6 +16,8 @@ void Linear::forward(TensorView input, TensorView output) {
         output.sliceRow(i,1) = bias;
     }
     MatMulPlusAB(input, weight, output);
+    Timer::CheckPoint();
+    if(verbose) std::cout << "Linear" << std::endl;
 }
 
 void Linear::predict(TensorView input, TensorView output) {

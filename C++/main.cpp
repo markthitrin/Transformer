@@ -1,6 +1,7 @@
 #include "Header.h"
 #include "Transformer.h"
 #include "Data.h"
+#include "Timer.h"
 
 void readDataFile(std::vector<std::vector<int>>& src, std::vector<std::vector<int>>& tgt) {
     std::ifstream file("opus_books_tokenized.txt");
@@ -109,6 +110,7 @@ int main() {
 
         for(int i = 0;i < trainingIteration;i++) {
             datasetTrain.get(encoderInput, decoderInput, targetOutput, srcSeq, tgtSeq);
+            Timer::RestartRecord();
             model.forward(encoderInput, decoderInput, output, srcSeq, tgtSeq);
             float loss = CrossEntropy(output, targetOutput, tgtSeq, gradient);
             model.backward(gradient, encoderInput, decoderInput, srcSeq, tgtSeq);
@@ -117,6 +119,11 @@ int main() {
         }
     }
 
+    std::cout << "Time Recorded ==========================\n\n";
+    std::vector<double> record = Timer::GetTime();
+    for(int q = 0;q < record.size();q++) {
+        std::cout << record[q] << std::endl;
+    }
 
     {   // Evaluation Section
         int* encoderInput = new int[batch * sequenceLength];
@@ -132,9 +139,9 @@ int main() {
             for(int j = 0;j < batch;j++) {
                 std::cout << "English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n";
                 printSentence(translatorEn, encoderInput, srcSeq, j);
-                std::cout << "Itelian (target) ::::::::::::::::::::::::::::::::::::::::::::::::\n\n";
+                std::cout << "Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::\n\n";
                 printSentence(translatorIt, targetOutput, tgtSeq, j);
-                std::cout << "Itelian (predicted) :::::::::::::::::::::::::::::::::::::::::::::\n\n";
+                std::cout << "Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::\n\n";
                 printSentence(translatorIt, getOutputToken(output), tgtSeq, j);
                 std::cout << std::endl << std::endl << std::endl << std::endl;
             }

@@ -89,6 +89,18 @@ proc ApplyCrossPaddingMask(ref A:[?D] real(32), in seq: int, in x: real(32)) {
     }
 }
 
+proc Copy(ref A: [?Da] real(32), ref B: [?Db] real(32)) {
+    for (ia,ib) in zip(Da,Db) {
+        B[ib] = A[ia];
+    }
+}
+
+proc Set(ref A: [?Da] real(32), in x: real(32)) {
+    for i in Da {
+        A[i] = x;
+    }
+}
+
 proc Plus(ref A: [?Da] real(32), ref B: [?Db] real(32), ref C:[?Dc] real(32)) : void {
     for (ia,ib,ic) in zip(Da,Db,Dc) {
         C[ic] = A[ia] + B[ib];

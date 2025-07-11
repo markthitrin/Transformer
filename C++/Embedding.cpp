@@ -2,7 +2,7 @@
 #include "Tensor.h"
 #include "Util.h"
 #include "Embedding.h"
-
+#include "Timer.h"
 
 Embedding::Embedding(const int numTokens) : table(numTokens, dModel), needUpdate(numTokens, false) {
     tableOpt.reserve(numTokens);
@@ -16,6 +16,8 @@ void Embedding::forward(const int input[batch * sequenceLength], TensorView outp
         output.sliceRow(i, 1) = table.sliceRow(input[i], 1);
     }
     Mul(output, std::sqrt(dModel), output);
+    Timer::CheckPoint();
+    if(verbose) std::cout << "Embedding" << std::endl;
 }
 
 void Embedding::predict(const int input[batch * sequenceLength], TensorView output) {

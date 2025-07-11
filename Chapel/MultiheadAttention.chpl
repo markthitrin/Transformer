@@ -43,14 +43,14 @@ class MultiheadAttention {
         var blockPerHead: int = dPerHead * sequenceLength;
         var blockAtt: int = sequenceLength * sequenceLength;
         
-        QT = 0.0;
-        KT = 0.0;
-        VT = 0.0;
-        A = 0.0;
-        As = 0.0;
-        Ad = 0.0;
-        OT = 0.0;
-        output = 0.0;
+        Set(QT, 0.0);
+        Set(KT, 0.0);
+        Set(VT, 0.0);
+        Set(A, 0.0);
+        Set(As, 0.0);
+        Set(Ad, 0.0);
+        Set(OT, 0.0);
+        Set(output, 0.0);
 
         for i in 0..#batch {
             MatMulPlusABT(dModel, dModel, sequenceLength, WQ, inputQ[(i * block)..#block], QT[(i * block)..#block]);
@@ -105,16 +105,16 @@ class MultiheadAttention {
         var blockPerHead: int = dPerHead * sequenceLength;
         var blockAtt: int = sequenceLength * sequenceLength;
 
-        QTGradient = 0.0;
-        KTGradient = 0.0;
-        VTGradient = 0.0;
-        AGradient = 0.0;
-        AsGradient = 0.0;
-        AdGradient = 0.0;
-        OTGradient = 0.0;
-        inputGradientQ = 0.0;
-        inputGradientK = 0.0;
-        inputGradientV = 0.0;
+        Set(QTGradient, 0.0);
+        Set(KTGradient, 0.0);
+        Set(VTGradient, 0.0);
+        Set(AGradient, 0.0);
+        Set(AsGradient, 0.0);
+        Set(AdGradient, 0.0);
+        Set(OTGradient, 0.0);
+        Set(inputGradientQ, 0.0);
+        Set(inputGradientK, 0.0);
+        Set(inputGradientV, 0.0);
 
         for i in 0..#batch {
             MatMulPlusAB(dModel, sequenceLength, dModel, OT[(i * block)..#block], outputGradient[(i * block)..#block], WOOpt.gradient);

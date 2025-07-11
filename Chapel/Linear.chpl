@@ -20,7 +20,7 @@ class Linear {
         var inD = weight.domain.size / bias.domain.size;
         var batch = Do.size / outD;
         for i in 0..#batch {
-            output[(i * outD)..#outD] = bias;
+            Copy(bias, output[(i * outD)..#outD]);
         }
         MatMulPlusAB(batch, inD, outD, input, weight, output);
     }

@@ -2,6 +2,7 @@ use Util;
 use Math;
 use Matrix;
 use Config;
+use CTypes;
 
 class Embedding {
 
@@ -10,20 +11,20 @@ class Embedding {
         table = 0;
         
         domTableOpt = {0..#(numTokens)};
-        tableOpt = [i in domTableOpt] new AdamOptimizer({0..#dModel});
+        tableOpt = new AdamOptimizer({0..#dModel});
 
         UniformInit(table, 0.1);
     }
 
     proc forward(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
         for i in 0..#(batch * sequenceLength) {
-            output[(i * dModel)..#dModel] = table[(input[i] * dModel)..#dModel];
+            Copy(table[(input[i] * dModel)..#dModel],output[(i * dModel)..#dModel]);
         }
         Mul(output, sqrt(dModel), output);
     }
 
     proc predict(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
-        return forward(input, output);
+        forward(input, output);
     }
 
     proc backward(ref outputGradient: [?Do] real(32), ref input: [?Di] int) : void {

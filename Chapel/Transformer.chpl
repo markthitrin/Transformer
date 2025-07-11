@@ -161,7 +161,7 @@ class Transformer {
 }
 
 // Test code
-var model = new Transformer();
-model.loadParam();
-for i in 0..4 do model.forwardTest();
-for i in 0..4 do model.backwardTest();
+// var model = new Transformer();
+// model.loadParam();
+// for i in 0..4 do model.forwardTest();
+// for i in 0..4 do model.backwardTest();

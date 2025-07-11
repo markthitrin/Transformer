@@ -1,7 +1,12 @@
-config param N = 6;
+use MemDiagnostics;
+use Util;
+use Math;
+use Matrix;
+use Config;
+use CTypes;
 
-for i in 1..(N - 1) by -1 {
-    writeln(i);
+var A: [0..1100000] real(32);
+var B = A;
+for i in 0..1000000 {
+    B = A;
 }
-
-writeln((N - 1)..1 by -1);

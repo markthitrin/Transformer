@@ -21,6 +21,7 @@ SRCS = \
 	Tensor.cpp \
 	Util.cpp \
 	Data.cpp \
+	Timer.cpp \
 	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)

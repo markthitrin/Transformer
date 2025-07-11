@@ -1,6 +1,8 @@
 #include "Header.h"
 #include "ReLU.h"
 #include "Config.h"
+#include "ReLU.h"
+#include "Timer.h"
 
 ReLU::ReLU() : mask(batch * sequenceLength, dFF) {;}
 
@@ -9,6 +11,8 @@ void ReLU::forward(TensorView input, TensorView output) {
         mask[i] = input[i] >= 0;
         output[i] = input[i] * mask[i];
     }
+    Timer::CheckPoint();
+    if(verbose) std::cout << "ReLU" << std::endl;
 }
 
 void ReLU::predict(TensorView input, TensorView output) {

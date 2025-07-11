@@ -5,6 +5,7 @@
 #include "Softmax.h"
 #include "DropOut.h"
 #include "MultiheadAttention.h"
+#include "Timer.h"
 
 
 MultiheadAttention::MultiheadAttention() :
@@ -77,6 +78,8 @@ void MultiheadAttention::process(
             case CROSS_PADDING: ApplyCrossPaddingMask(A.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], -1e9); break;
         }
     }
+    Timer::CheckPoint();
+    if(verbose) std::cout << "MultiheadAttention" << std::endl;
     if(train) {
         softmax.forward(A, As);
         dropout.forward(As, Ad);
@@ -94,6 +97,8 @@ void MultiheadAttention::process(
     for (int i = 0; i < batch; i++) {
         MatMulPlusATB(OT.sliceRow(i * dModel, dModel), WO, output.sliceRow(i * sequenceLength, sequenceLength));
     }
+    Timer::CheckPoint();
+    if(verbose) std::cout << "MultiheadAttention" << std::endl;
 }
 
 void MultiheadAttention::forward(

@@ -1,6 +1,7 @@
 #include "Header.h"
 #include "Tensor.h"
 #include "Softmax.h"
+#include "Timer.h"
 
 Softmax::Softmax() {
 
@@ -25,6 +26,8 @@ void Softmax::forward(TensorView input, TensorView output) {
             output[i * col + j] = std::exp(input[i * col + j] - maxValue) / sumExp;
         }
     }
+    Timer::CheckPoint();
+    if(verbose) std::cout << "Softmax" << std::endl;
 }
 
 void Softmax::predict(TensorView input, TensorView output) {

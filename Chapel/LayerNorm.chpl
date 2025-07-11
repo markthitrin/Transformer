@@ -34,7 +34,7 @@ class LayerNorm {
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        return forward(input, output);
+        forward(input, output);
     }
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {

@@ -9,6 +9,7 @@
 #include "Util.h"
 #include "Decoder.h"
 #include "Transformer.h"
+#include "Timer.h"
 
 Transformer::Transformer() :
     srcEmbed(srcVocab),

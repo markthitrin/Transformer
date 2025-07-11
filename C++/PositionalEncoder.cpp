@@ -6,6 +6,7 @@
 #include "cnpy.h"
 #include "DropOut.h"
 #include "PositionalEncoder.h"
+#include "Timer.h"
 
 PositionalEncoder::PositionalEncoder() :
     dropout(batch * sequenceLength, dModel),
@@ -19,6 +20,8 @@ void PositionalEncoder::forward(TensorView input, TensorView output) {
     for(int i = 0;i < batch;i++) {
         Plus(input.sliceRow(i * sequenceLength, sequenceLength), positionEncode, input.sliceRow(i * sequenceLength, sequenceLength));
     }
+    Timer::CheckPoint();
+    if(verbose) std::cout << "PositionalEncoder" << std::endl;
     dropout.forward(input, output);
 }
 

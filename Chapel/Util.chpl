@@ -31,6 +31,56 @@ proc AdamOpt(ref parameter: [?D] real(32), ref opt: AdamOptimizer) : void {
         var vHat: real(32) = opt.accV[ig] * invPowBeta2;
         parameter[ip] -= learningRate * mHat / (sqrt(vHat) + eps);
     }
-    opt.gradient = 0.0;
+    Set(opt.gradient, 0.0);
     opt.t += 1;
+}
+
+proc ComputeCrossEntropy(ref logits: [?D] real(32), ref target_token: int, ref grad: [D] real(32)) {
+    var max_logits = -inf;
+    for i in D {
+        max_logits = max(logits[i], max_logits);
+    }
+
+    var sum_exp = 0.0;
+    for i in D {
+        sum_exp += exp(logits[i] - max_logits);
+    }
+
+    var loss = 0.0;
+    for i in D {
+        var prob = (exp(logits[i] - max_logits) / sum_exp) : real(32);
+        grad[i] = prob;
+        if(i - D.low == target_token) {
+            loss = -log2(prob + 1e-9);
+            grad[i] -= 1;
+        }
+    }
+
+    return loss;
+}
+
+proc _CrossEntropy(ref logits: [?D] real(32), ref targetToken: [?Dt] int, in tgtSeq: int, ref grad: [D] real(32)) {
+    var loss = 0.0;
+    var ground = D.low;
+    ref targetTokenr = targetToken.reindex(0..#sequenceLength);
+    for i in 0..#tgtSeq {
+        loss += ComputeCrossEntropy(
+            logits[(i * tgtVocab + ground)..#tgtVocab], 
+            targetTokenr[i], 
+            grad[(i * tgtVocab + ground)..#tgtVocab]);
+    }
+    return loss / tgtSeq;
+}
+
+proc CrossEntropy(ref logits: [?D] real(32), ref targetToken: [?Dt] int, ref tgtSeq: [?Ds] int, ref grad: [D] real(32)) {
+    var loss = 0.0;
+    var block = (sequenceLength * tgtVocab);
+    for i in 0..#batch {
+        loss += _CrossEntropy(
+            logits[(i * block)..#block],
+            targetToken[(i * sequenceLength)..#sequenceLength],
+            tgtSeq[i],
+            grad[(i * block)..#block]);
+    }
+    return loss / batch;
 }

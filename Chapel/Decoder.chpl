@@ -9,7 +9,10 @@ class Decoder {
 
     proc init() {
         domLayers = {0..#N};
-        layers = [i in 0..#N] new DecoderLayer();
+        layers = [i in 0..#N] nil;
+        for i in domLayers {
+            layers[i] = new DecoderLayer();
+        }
         norm = new LayerNorm();
 
         domOG = {0..#(batch * sequenceLength * dModel)};
@@ -18,9 +21,9 @@ class Decoder {
     proc forward(
         ref input: [?D] real(32), ref encoderOut:[D] real(32), ref output: [D] real(32),
         ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
-        layers[0].forward(input, encoderOut, outi[0], srcSeq, tgtSeq);
+        layers[0]!.forward(input, encoderOut, outi[0], srcSeq, tgtSeq);
         for i in 1..<N {
-            layers[i].forward(outi[i - 1], encoderOut, outi[i], srcSeq, tgtSeq);
+            layers[i]!.forward(outi[i - 1], encoderOut, outi[i], srcSeq, tgtSeq);
         }
         norm.forward(outi[N - 1], output);
     }
@@ -28,9 +31,9 @@ class Decoder {
     proc predict(
         ref input: [?D] real(32), ref encoderOut:[D] real(32), ref output: [D] real(32),
         ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
-        layers[0].predict(input, encoderOut, outi[0], srcSeq, tgtSeq);
+        layers[0]!.predict(input, encoderOut, outi[0], srcSeq, tgtSeq);
         for i in 1..<N {
-            layers[i].predict(outi[i - 1], encoderOut, outi[i], srcSeq, tgtSeq);
+            layers[i]!.predict(outi[i - 1], encoderOut, outi[i], srcSeq, tgtSeq);
         }
         norm.predict(outi[N - 1], output);
     }
@@ -41,21 +44,21 @@ class Decoder {
         
         norm.backward(outputGradient, gradienti[N - 1]);
         for i in 1..(N - 1) by -1 {
-            layers[i].backward(gradienti[i], encoderGradient, gradienti[i - 1], encoderOut, srcSeq, tgtSeq);
+            layers[i]!.backward(gradienti[i], encoderGradient, gradienti[i - 1], encoderOut, srcSeq, tgtSeq);
         }
-        layers[0].backward(gradienti[0], encoderGradient, inputGradient, encoderOut, srcSeq, tgtSeq);
+        layers[0]!.backward(gradienti[0], encoderGradient, inputGradient, encoderOut, srcSeq, tgtSeq);
     }
 
     proc updateParameter() {
         for i in 0..#N {
-            layers[i].updateParameter();
+            layers[i]!.updateParameter();
         }
         norm.updateParameter();
     }
 
     proc loadParam() {
         for i in 0..#N {
-            layers[i].loadParam();
+            layers[i]!.loadParam();
         }
         norm.loadParam();
     }
@@ -83,7 +86,7 @@ class Decoder {
 
     proc checkUpdateParam() {
         for i in 0..#N {
-            layers[i].checkUpdateParam();
+            layers[i]!.checkUpdateParam();
         }
         norm.checkUpdateParam();
     }
@@ -116,7 +119,7 @@ class Decoder {
     }
     
     var domLayers: domain(1);
-    var layers: [domLayers] owned DecoderLayer;
+    var layers: [domLayers] owned DecoderLayer?;
     var norm: owned LayerNorm;
 
     var domOG: domain(1);
