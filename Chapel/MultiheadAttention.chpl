@@ -116,8 +116,10 @@ class MultiheadAttention {
         Set(AdGradient, 0.0);
         Set(OTGradient, 0.0);
         Set(inputGradientQ, 0.0);
-        Set(inputGradientK, 0.0);
-        Set(inputGradientV, 0.0);
+        if maskType != MaskType.CROSS_PADDING {
+            Set(inputGradientK, 0.0);
+            Set(inputGradientV, 0.0);
+        }
 
         for i in 0..#batch {
             MatMulPlusAB(dModel, sequenceLength, dModel, OT[(i * block)..#block], outputGradient[(i * block)..#block], WOOpt.gradient);
@@ -128,7 +130,14 @@ class MultiheadAttention {
             MatMulPlusAB(dPerHead, sequenceLength, sequenceLength, OTGradient[(i * blockPerHead)..#blockPerHead], Ad[(i * blockAtt)..#blockAtt], VTGradient[(i * blockPerHead)..#blockPerHead]);
         }
         dropout.backward(AdGradient, AsGradient);
-        dropout.backward(AsGradient, AGradient);
+        softmax.backward(AsGradient, AGradient, As);
+        for i in 0..#(batch * head) {
+            select maskType {
+                when MaskType.LOOK_AHEAD do ApplyLookAheadMask(AGradient[(i * blockAtt)..#blockAtt], seq[i / head], 0);
+                when MaskType.PADDING do ApplyPaddingMask(AGradient[(i * blockAtt)..#blockAtt], seq[i / head], 0);
+                when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(AGradient[(i * blockAtt)..#blockAtt], seq[i / head], 0);
+            }
+        }
         Div(AGradient, sqrt(dPerHead):real(32), AGradient);
         for i in 0..#(batch * head) {
             MatMulPlusABT(dPerHead, sequenceLength, sequenceLength, KT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], QTGradient[(i * blockPerHead)..#blockPerHead]);

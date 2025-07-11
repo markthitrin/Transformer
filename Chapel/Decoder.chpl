@@ -42,7 +42,7 @@ class Decoder {
     proc backward(
         ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref encoderGradient: [D] real(32), ref encoderOut: [D] real(32),
         ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
-        
+        Set(encoderGradient, 0.0); // need manually reset;
         norm.backward(outputGradient, gradienti[N - 1]);
         for i in 1..(N - 1) by -1 {
             layers[i]!.backward(gradienti[i], encoderGradient, gradienti[i - 1], encoderOut, srcSeq, tgtSeq);

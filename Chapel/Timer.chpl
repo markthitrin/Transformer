@@ -3,7 +3,7 @@ use Time;
 
 config param timerSize = 10000;
 var time: [0..#timerSize][0..#10000] real;
-var round: int = -1;
+var round: int = 0; // Get this back to -1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var i : int;
 var maxI : int;
 

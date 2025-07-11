@@ -51,7 +51,7 @@ class EncoderLayer {
         Plus(outputGradient, gradient3, gradient3);
 
         dropout1.backward(gradient3, gradient2);
-        mulAtt.backward(gradient2, gradient1, gradient1, gradient1, out1, out1, out2, out2, MaskType.PADDING, srcSeq);
+        mulAtt.backward(gradient2, gradient1, gradient1, gradient1, out1, out1, out1, out2, MaskType.PADDING, srcSeq);
         norm1.backward(gradient1, inputGradient);
         Plus(gradient3, inputGradient, inputGradient);
     }
