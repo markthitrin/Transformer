@@ -173,6 +173,12 @@ proc Div(ref A: [?D] real(32), in x: real(32), ref B:[D] real(32)) : void {
     Mul(A, 1.0 / x, B);
 }
 
+proc Exp(ref A: [?Da] real(32), ref B:[?Db] real(32)) : void {
+    for (ia, ib) in zip(Da, Db) {
+        B[ib] = exp(A[ia]);
+    }
+}
+
 proc MatMulPlusAB(in d1: int, in d2: int, in d3: int,
     ref A:[?Da] real(32), ref B:[?Db] real(32), ref C:[?Dc] real(32)) : void {
     

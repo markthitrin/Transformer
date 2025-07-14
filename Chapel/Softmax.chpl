@@ -7,6 +7,8 @@ class Softmax {
     proc init(in batch: int, in shape: int) {
         this.batch = batch;
         this.shape = shape;
+
+        domB = {0..#shape};
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
@@ -14,11 +16,9 @@ class Softmax {
             var maxValue: real(32);
             var sumExp: real(32);
             MaxReduce(input[(i * shape)..#shape], maxValue);
-            ExpPlusReduce(input[(i * shape)..#shape], maxValue, sumExp);
-            
-            for j in 0..#shape {
-                output[i * shape + j] = exp(input[i * shape + j] - maxValue) / sumExp;
-            }
+            Exp(input[(i * shape)..#shape], buffer);
+            PlusReduce(buffer, sumExp);
+            Div(buffer, sumExp, output[(i * shape)..#shape]);
         }
         CheckPoint();
     }
@@ -42,4 +42,7 @@ class Softmax {
 
     var batch: int;
     var shape: int;
+
+    var domB: domain(1);
+    var buffer: [domB] real(32);
 }

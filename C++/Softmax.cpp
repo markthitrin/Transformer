@@ -2,6 +2,7 @@
 #include "Tensor.h"
 #include "Softmax.h"
 #include "Timer.h"
+#include <immintrin.h>
 
 Softmax::Softmax() {
 
@@ -10,6 +11,7 @@ Softmax::Softmax() {
 void Softmax::forward(TensorView input, TensorView output) {
     const int row = output.row;
     const int col = output.col;
+    float buffer[dFF];
     for (int i = 0; i < row; i++) {
 
         float sumExp = 0.0;
@@ -19,11 +21,16 @@ void Softmax::forward(TensorView input, TensorView output) {
         }
 
         for (int j = 0; j < col; j++) {
-            sumExp += std::exp(input[i * col + j] - maxValue);
+            buffer[j] = input[i * col + j] - maxValue;
+            buffer[j] = std::expf(buffer[j]);
+        }
+
+        for(int j = 0;j < col;j++) {
+            sumExp += buffer[j];
         }
 
         for (int j = 0; j < col; j++) {
-            output[i * col + j] = std::exp(input[i * col + j] - maxValue) / sumExp;
+            output[i * col + j] = buffer[j] / sumExp;
         }
     }
     Timer::CheckPoint();
