@@ -1,6 +1,6 @@
 
 CXX = clang++
-CXXFLAGS = -O2 --std=c++20
+CXXFLAGS = -O2 --std=c++20 -funroll-loops -ftree-vectorize -mavx2 -msse
 
 SRCS = \
 	Embedding.cpp \

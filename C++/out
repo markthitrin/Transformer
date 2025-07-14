@@ -1,1 +1,1671 @@
-Iteration [0 / 200]   loss : 17.7976
+Iteration [0 / 200]   loss : 17.1105
+Iteration [1 / 200]   loss : 17.2488
+Iteration [2 / 200]   loss : 16.9304
+Iteration [3 / 200]   loss : 17.5187
+Iteration [4 / 200]   loss : 17.0231
+Iteration [5 / 200]   loss : 16.5917
+Iteration [6 / 200]   loss : 17.1913
+Iteration [7 / 200]   loss : 17.1485
+Iteration [8 / 200]   loss : 16.7486
+Iteration [9 / 200]   loss : 17.2376
+Iteration [10 / 200]   loss : 17.2135
+Iteration [11 / 200]   loss : 16.6891
+Iteration [12 / 200]   loss : 17.1494
+Iteration [13 / 200]   loss : 16.5662
+Iteration [14 / 200]   loss : 17.2532
+Iteration [15 / 200]   loss : 17.0168
+Iteration [16 / 200]   loss : 17.0868
+Iteration [17 / 200]   loss : 16.6207
+Iteration [18 / 200]   loss : 16.7964
+Iteration [19 / 200]   loss : 17.0618
+Iteration [20 / 200]   loss : 16.8853
+Iteration [21 / 200]   loss : 16.5933
+Iteration [22 / 200]   loss : 17.237
+Iteration [23 / 200]   loss : 16.3805
+Iteration [24 / 200]   loss : 17.1456
+Iteration [25 / 200]   loss : 16.8442
+Iteration [26 / 200]   loss : 16.3531
+Iteration [27 / 200]   loss : 16.2792
+Iteration [28 / 200]   loss : 16.7327
+Iteration [29 / 200]   loss : 16.0367
+Iteration [30 / 200]   loss : 16.3201
+Iteration [31 / 200]   loss : 16.3894
+Iteration [32 / 200]   loss : 17.037
+Iteration [33 / 200]   loss : 17.1593
+Iteration [34 / 200]   loss : 15.9466
+Iteration [35 / 200]   loss : 16.9204
+Iteration [36 / 200]   loss : 16.5312
+Iteration [37 / 200]   loss : 16.6552
+Iteration [38 / 200]   loss : 16.9395
+Iteration [39 / 200]   loss : 16.6142
+Iteration [40 / 200]   loss : 16.41
+Iteration [41 / 200]   loss : 16.6896
+Iteration [42 / 200]   loss : 16.6721
+Iteration [43 / 200]   loss : 16.4165
+Iteration [44 / 200]   loss : 16.9216
+Iteration [45 / 200]   loss : 16.5448
+Iteration [46 / 200]   loss : 16.923
+Iteration [47 / 200]   loss : 17.0691
+Iteration [48 / 200]   loss : 16.3355
+Iteration [49 / 200]   loss : 16.8525
+Iteration [50 / 200]   loss : 16.4057
+Iteration [51 / 200]   loss : 16.6142
+Iteration [52 / 200]   loss : 16.9074
+Iteration [53 / 200]   loss : 16.4105
+Iteration [54 / 200]   loss : 16.4562
+Iteration [55 / 200]   loss : 16.3698
+Iteration [56 / 200]   loss : 16.2959
+Iteration [57 / 200]   loss : 16.3075
+Iteration [58 / 200]   loss : 16.2383
+Iteration [59 / 200]   loss : 17.313
+Iteration [60 / 200]   loss : 16.5617
+Iteration [61 / 200]   loss : 16.7214
+Iteration [62 / 200]   loss : 16.2177
+Iteration [63 / 200]   loss : 16.7013
+Iteration [64 / 200]   loss : 17.2934
+Iteration [65 / 200]   loss : 16.729
+Iteration [66 / 200]   loss : 16.9196
+Iteration [67 / 200]   loss : 16.2875
+Iteration [68 / 200]   loss : 16.695
+Iteration [69 / 200]   loss : 16.3295
+Iteration [70 / 200]   loss : 16.4077
+Iteration [71 / 200]   loss : 17.4183
+Iteration [72 / 200]   loss : 16.8078
+Iteration [73 / 200]   loss : 16.3939
+Iteration [74 / 200]   loss : 16.6131
+Iteration [75 / 200]   loss : 16.8786
+Iteration [76 / 200]   loss : 17.1354
+Iteration [77 / 200]   loss : 16.332
+Iteration [78 / 200]   loss : 15.9268
+Iteration [79 / 200]   loss : 16.0985
+Iteration [80 / 200]   loss : 16.8834
+Iteration [81 / 200]   loss : 16.4309
+Iteration [82 / 200]   loss : 16.3686
+Iteration [83 / 200]   loss : 16.8515
+Iteration [84 / 200]   loss : 16.2376
+Iteration [85 / 200]   loss : 15.8049
+Iteration [86 / 200]   loss : 15.3073
+Iteration [87 / 200]   loss : 16.4921
+Iteration [88 / 200]   loss : 16.2157
+Iteration [89 / 200]   loss : 16.6249
+Iteration [90 / 200]   loss : 16.64
+Iteration [91 / 200]   loss : 16.2587
+Iteration [92 / 200]   loss : 16.4062
+Iteration [93 / 200]   loss : 16.4734
+Iteration [94 / 200]   loss : 15.9651
+Iteration [95 / 200]   loss : 16.0802
+Iteration [96 / 200]   loss : 16.4248
+Iteration [97 / 200]   loss : 17.0754
+Iteration [98 / 200]   loss : 15.9121
+Iteration [99 / 200]   loss : 16.6308
+Iteration [100 / 200]   loss : 16.4826
+Iteration [101 / 200]   loss : 16.3718
+Iteration [102 / 200]   loss : 16.7093
+Iteration [103 / 200]   loss : 16.4321
+Iteration [104 / 200]   loss : 16.5246
+Iteration [105 / 200]   loss : 17.2588
+Iteration [106 / 200]   loss : 16.8902
+Iteration [107 / 200]   loss : 16.007
+Iteration [108 / 200]   loss : 16.9774
+Iteration [109 / 200]   loss : 16.5917
+Iteration [110 / 200]   loss : 16.8131
+Iteration [111 / 200]   loss : 16.4701
+Iteration [112 / 200]   loss : 16.6461
+Iteration [113 / 200]   loss : 16.0752
+Iteration [114 / 200]   loss : 15.6679
+Iteration [115 / 200]   loss : 16.6969
+Iteration [116 / 200]   loss : 16.4067
+Iteration [117 / 200]   loss : 15.9365
+Iteration [118 / 200]   loss : 15.9174
+Iteration [119 / 200]   loss : 16.6809
+Iteration [120 / 200]   loss : 15.9393
+Iteration [121 / 200]   loss : 16.4001
+Iteration [122 / 200]   loss : 15.4727
+Iteration [123 / 200]   loss : 16.5011
+Iteration [124 / 200]   loss : 16.5671
+Iteration [125 / 200]   loss : 17.6825
+Iteration [126 / 200]   loss : 17.0099
+Iteration [127 / 200]   loss : 16.0478
+Iteration [128 / 200]   loss : 15.6702
+Iteration [129 / 200]   loss : 16.4725
+Iteration [130 / 200]   loss : 15.851
+Iteration [131 / 200]   loss : 16.518
+Iteration [132 / 200]   loss : 16.266
+Iteration [133 / 200]   loss : 17.2496
+Iteration [134 / 200]   loss : 16.2937
+Iteration [135 / 200]   loss : 15.5446
+Iteration [136 / 200]   loss : 15.995
+Iteration [137 / 200]   loss : 16.3852
+Iteration [138 / 200]   loss : 15.832
+Iteration [139 / 200]   loss : 16.2415
+Iteration [140 / 200]   loss : 16.2154
+Iteration [141 / 200]   loss : 16.471
+Iteration [142 / 200]   loss : 16.6806
+Iteration [143 / 200]   loss : 16.4964
+Iteration [144 / 200]   loss : 15.7736
+Iteration [145 / 200]   loss : 16.15
+Iteration [146 / 200]   loss : 16.2215
+Iteration [147 / 200]   loss : 16.2336
+Iteration [148 / 200]   loss : 15.7989
+Iteration [149 / 200]   loss : 15.8712
+Iteration [150 / 200]   loss : 16.2429
+Iteration [151 / 200]   loss : 15.5566
+Iteration [152 / 200]   loss : 16.2786
+Iteration [153 / 200]   loss : 15.9581
+Iteration [154 / 200]   loss : 15.9783
+Iteration [155 / 200]   loss : 16.0457
+Iteration [156 / 200]   loss : 16.2464
+Iteration [157 / 200]   loss : 16.291
+Iteration [158 / 200]   loss : 15.6623
+Iteration [159 / 200]   loss : 15.6437
+Iteration [160 / 200]   loss : 15.9817
+Iteration [161 / 200]   loss : 15.8389
+Iteration [162 / 200]   loss : 16.0108
+Iteration [163 / 200]   loss : 15.9449
+Iteration [164 / 200]   loss : 16.8637
+Iteration [165 / 200]   loss : 16.4621
+Iteration [166 / 200]   loss : 16.7498
+Iteration [167 / 200]   loss : 16.749
+Iteration [168 / 200]   loss : 16.5519
+Iteration [169 / 200]   loss : 15.8732
+Iteration [170 / 200]   loss : 15.7507
+Iteration [171 / 200]   loss : 16.5586
+Iteration [172 / 200]   loss : 16.686
+Iteration [173 / 200]   loss : 16.7311
+Iteration [174 / 200]   loss : 14.9819
+Iteration [175 / 200]   loss : 15.8978
+Iteration [176 / 200]   loss : 14.8334
+Iteration [177 / 200]   loss : 17.4164
+Iteration [178 / 200]   loss : 15.0724
+Iteration [179 / 200]   loss : 16.1212
+Iteration [180 / 200]   loss : 16.4267
+Iteration [181 / 200]   loss : 15.7401
+Iteration [182 / 200]   loss : 16.2656
+Iteration [183 / 200]   loss : 15.9038
+Iteration [184 / 200]   loss : 15.7088
+Iteration [185 / 200]   loss : 16.1416
+Iteration [186 / 200]   loss : 15.353
+Iteration [187 / 200]   loss : 16.0817
+Iteration [188 / 200]   loss : 16.7899
+Iteration [189 / 200]   loss : 16.622
+Iteration [190 / 200]   loss : 15.7226
+Iteration [191 / 200]   loss : 15.6979
+Iteration [192 / 200]   loss : 16.8005
+Iteration [193 / 200]   loss : 15.4125
+Iteration [194 / 200]   loss : 16.2273
+Iteration [195 / 200]   loss : 16.385
+Iteration [196 / 200]   loss : 15.6566
+Iteration [197 / 200]   loss : 16.1159
+Iteration [198 / 200]   loss : 15.583
+Iteration [199 / 200]   loss : 16.5686
+Time Recorded ==========================
+
+38.3368
+6.27074
+104.176
+70.9942
+5958.72
+7209.49
+4564.49
+1567.68
+93.0685
+73.5023
+1422.5
+166.551
+880.632
+880.872
+92.5636
+74.0773
+5602.31
+7191.88
+4434.05
+1508.05
+91.5814
+72.6727
+1491.48
+153.585
+861.033
+879.507
+93.1973
+73.2111
+5258.91
+7148.02
+4392.58
+1500.37
+89.8169
+71.6492
+1394.79
+155.421
+876.865
+885.957
+93.8312
+74.5795
+5436.11
+7210.2
+5229.89
+2029.48
+96.6575
+77.1459
+1494.53
+181.275
+962.631
+903.259
+101.567
+85.069
+9384.24
+7518.42
+5197.9
+1758.75
+96.6504
+78.9391
+1462.9
+170.642
+886.976
+885.746
+94.4718
+76.1726
+5998.27
+7235.47
+4639.78
+1608.38
+94.0891
+74.5993
+1429.56
+176.179
+879.75
+884.393
+94.0686
+77.6118
+31.1203
+6.0937
+96.0535
+59.9273
+5837.2
+6884.37
+4572.75
+1611.68
+92.1761
+73.8478
+5547.39
+11927.4
+4309.74
+1483.97
+89.4867
+71.6965
+1383.16
+147.743
+844.079
+883.556
+91.6743
+72.5012
+5091.24
+6754.74
+4290.58
+1459.08
+89.892
+70.7294
+4880.71
+11859.9
+4271.31
+1445.28
+88.5829
+70.6255
+1452.96
+150.271
+829.351
+786.997
+91.8571
+72.8106
+5070.6
+6769.91
+4364.94
+1479.43
+87.8162
+70.8247
+5006.42
+11890.6
+4226.75
+1445.52
+88.5422
+70.2454
+1425.07
+145.485
+809.48
+888.437
+92.0775
+74.467
+4834.32
+6780.68
+4561.54
+1649.17
+93.9662
+76.2121
+6490.84
+11933.3
+4191.24
+1411.35
+87.2824
+69.8321
+1383.78
+147.712
+797.338
+786.333
+90.6777
+75.3737
+4694.9
+6786.74
+4260.41
+1510.76
+91.302
+75.0541
+4828.48
+11903.1
+4162.8
+1421.07
+91.5632
+74.6953
+1426.56
+150.471
+810.243
+877.282
+92.6302
+74.999
+4656.64
+6751.2
+4302.2
+1446.7
+90.4246
+72.19
+5031.03
+11858.6
+4294.51
+1471.6
+88.7255
+70.6192
+1388.53
+147.789
+840.931
+787.833
+92.3526
+71.6833
+142108
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I did not want to tell you , but you make me do it . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Io non volevo [UNK] , ma tu mi ci 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci gioia conoscendo conoscendo conoscendo conoscendo conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+CHAPTER XV 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+XV [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I confess I had not entertained any notion of my ammunition being destroyed at one blast — I mean my powder being blown up by lightning ; and this made the thoughts of it so surprising to me , when it [UNK] and thundered , as I observed just now . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Confesso che non aveva pensato per nulla alla possibilità di veder distrutta in un soffio la mia munizione , intendo di vederla distrutta da un fulmine ; da ciò nacquero i pensieri che mi [UNK] quando [UNK] e lampeggiò , come poc ’ anzi osservai . 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo gioia conoscendo conoscendo conoscendo conoscendo conoscendo gioia gioia gioia conoscendo gioia gioia gioia gioia gioia gioia conoscendo gioia gioia gioia gatte gioia conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gatte gatte gatte gatte conoscendo conoscendo conoscendo gatte gatte gatte gatte gatte gatte 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The most covetous , [UNK] [UNK] in the world would have been cured of the vice of [UNK] if he had been in my case ; for I possessed infinitely more than I knew what to do with . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Il più [UNK] ladro del mondo si sarebbe da vero corretto da questo brutto vizio se si fosse trovato nel caso mio , perchè le cose di cui mi vedeva possessore erano infinitamente più di quelle ond ’ io sapessi che farmi . 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo gioia conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia gioia gioia gatte gioia gioia gioia gioia gioia gioia conoscendo conoscendo gioia gioia gioia gioia gioia conoscendo conoscendo gioia gioia conoscendo conoscendo gatte gatte gatte gatte gatte conoscendo gatte conoscendo conoscendo gatte gatte conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The wind still blew in his direction , and before we reached the end of the street he was laying himself out at the rate of nearly four miles an hour , leaving the [UNK] and stout old ladies simply nowhere . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Il vento soffiava ancora nella sua direzione , e , prima che [UNK] l ’ altro capo della 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo gioia conoscendo gioia conoscendo conoscendo gioia conoscendo gioia conoscendo gioia gioia gioia gioia gioia gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Some time in the afternoon I raised my head , and looking round and seeing the western sun gilding the sign of its decline on the wall , I asked , \" What am I to do ?\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Nel corso del giorno alzai la testa e guardai intorno a 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia conoscendo gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Here then is a [UNK] - song . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Ecco 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I said this almost involuntarily , and , with as little sanction of free will , my tears gushed out . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Dissi queste parole quasi 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Noticing the looks directed toward him , he smiled a [UNK] naive smile . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Avendo notato gli sguardi rivolti su di lui , alzò il capo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo luci luci conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Now I am sure of it .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+È questo che io so , 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci costui gioia gioia conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+We have quarrelled for the second time since ... 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Abbiamo litigato per la seconda volta da che ... [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci gioia conoscendo gioia conoscendo conoscendo conoscendo gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' It cannot be , as I understand ...' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Non è possibile , così per quanto possa intendere io ... 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia gioia conoscendo conoscendo gioia gioia conoscendo conoscendo gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I didn ' t know that Cheshire cats always grinned ; in fact , I didn ' t know that cats could grin .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Non sapevo che i gatti [UNK] a 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo gioia gioia gioia conoscendo conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+She felt herself crushed and her face expressed it . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Si sentiva stroncata e il suo viso lo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo gioia gioia conoscendo conoscendo conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" I want a night ' s shelter in an out - house or anywhere , and a morsel of bread to eat .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Vorrei un rifugio per la notte in una capanna e un [UNK] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia gioia conoscendo conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+It ' ll be no use their putting their heads down and saying \" Come up again , dear !\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] , cari miei , [UNK] il capo dal soffitto per dirmi : “ Carina , 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo gioia gioia conoscendo conoscendo conoscendo conoscendo gioia gioia gioia conoscendo gioia gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+How simple and natural her words sounded and how really it seemed as if she were merely sleepy ! 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Come erano semplici e naturali le 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo conoscendo conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+In that case , my lot would become unspeakably wretched . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+\ 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He said he would show us what could be done up the river in the way of cooking , and suggested that , with the vegetables and the remains of the cold beef and general odds and ends , we should make an Irish stew . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Lui ci avrebbe mostrato di che cosa fosse capace in 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Levin gently disengaged his hand , and without looking at his brother went to his own room and fell asleep . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Levin , liberata pian piano la 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo gioia gioia conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+At these words Levin suddenly grew warm , for at the bottom of his heart he felt that it was true – true that he wished to balance between communism and the existing forms of life , and that this was hardly possible . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Levin 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He was talking about some [UNK] enterprise . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Parlava di 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+There really is something good and sweet about her .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Non è vero che 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They can ' t mend the roads , and when they build a bridge they steal .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+E le strade non si possono fare aggiustare ; e i ponti , appena messi a 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo gioia conoscendo conoscendo conoscendo conoscendo gioia gioia conoscendo gatte gioia gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I can ' t help it ,' replied Levin . ' Put yourself in my place – look at it from a country fellow ' s point of view ! 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Non riesco a capire — rispose Levin . — 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo gioia gioia conoscendo conoscendo conoscendo gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+That amused Harris . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Questo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Did they ever recover the old lady ?\" asked Harris . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— [UNK] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Not long , I think ,' she replied with embarrassment glancing at Vronsky . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Non credo a lungo — ella disse con impaccio 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia gioia conoscendo conoscendo conoscendo conoscendo conoscendo gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Karenin started at the reference to his wife , but immediately his face assumed a death - like immobility which showed utter helplessness in the matter . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Aleksej Aleksandrovic rabbrividì al ricordo della moglie , e immediatamente 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+All became silent again , and one heard the balls being counted . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Si fece silenzio 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" You said eighteen just now ,\" said George . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Se 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Probably those damp walls would soon have eased me of her charge : but to each villain his own vice ; and mine is not a tendency to [UNK] assassination , even of what I most hate . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+È probabile che l 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo costui gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The steeplechase was unlucky : more than half of the seventeen officers were thrown and hurt . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+La corsa fu disgraziata e su diciassette persone ne caddero e si fecero 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+When he moved toward her his fine eyes brightened with a special tenderness , and carefully and respectfully bending over her with a scarcely perceptible , happy , and ( as it seemed to Levin ) modestly - triumphant smile , he held out to her his small broad hand . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Nel momento in cui si avvicinò a lei , i suoi begli occhi brillarono di una particolare tenerezza e con un impercettibile sorriso felice di trionfo discreto ( così parve a Levin ), chinandosi con rispetto verso di lei 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia conoscendo conoscendo gioia gioia gioia gioia gioia conoscendo gioia conoscendo gioia gioia gioia conoscendo gatte gioia gatte conoscendo luci luci conoscendo conoscendo gatte gatte gatte gatte gatte conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Diana and Mary ' s general answer to this question was a sigh , and some minutes of apparently mournful meditation . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Diana 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+In time I rose to be the first girl of the first class ; then I was invested with the office of teacher ; which I discharged with zeal for two years : but at the end of that time I altered . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Non perdetti dunque nessuno dei vantaggi che mi erano offerti e giunsi ad 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo gioia gioia gioia conoscendo conoscendo conoscendo gioia conoscendo gioia gioia gatte gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I assure you [UNK] was nothing to me !' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Vi assicuro , [UNK] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They went back to the conversation at dinner about women ' s rights and occupations . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] la conversazione 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He said his watch went wrong one evening , and stopped at a quarter - past eight . He did not know this at the time because , for some reason or other , he forgot to wind it up when he went to bed ( an unusual occurrence with him ), and hung it up over his pillow without ever looking at the thing . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Una sera , il suo orologio andava male , e s ’ era fermato alle otto e un quarto , senza che egli lo sapesse , perchè , in un modo o 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo gioia conoscendo gioia conoscendo conoscendo conoscendo conoscendo conoscendo gioia conoscendo gatte conoscendo gioia gioia gioia gioia conoscendo conoscendo gioia gioia gioia gioia gioia gioia conoscendo gioia gioia gioia conoscendo conoscendo gatte 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He tried to recall his best moments with her but they were for ever poisoned . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Egli cercava di ricordare i momenti migliori passati con lei ; ma questi momenti erano [UNK] per sempre . [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo gioia gioia conoscendo conoscendo gioia conoscendo gioia gioia gioia gatte gioia gioia gioia gioia conoscendo gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I am afraid she does not understand her position herself . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Penso ch ’ ella stessa non intenda la propria situazione 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci luci conoscendo conoscendo conoscendo conoscendo conoscendo luci gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+First , I smiled to myself and felt [UNK] ; but this fierce pleasure subsided in me as fast as did the accelerated throb of my pulses . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Prima 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' No . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— No 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+During THE [UNK] between dinner and the beginning of the evening party , Kitty experienced something resembling a young man ' s feelings before a battle . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Kitty , dopo pranzo e fino al principio della serata , provò una sensazione simile a 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo luci conoscendo conoscendo conoscendo conoscendo conoscendo gioia gioia gatte gioia gatte gioia gatte gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Yes , I knew her when she first became an invalid .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Oh , how I wish I could shut up like a telescope ! 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Oh , 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+While they were talking Laska , pricking her ears , kept looking up at the sky and then reproachfully at them . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Mentre dicevano questo , Laska , drizzando le orecchie , guardò 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia conoscendo gioia gioia conoscendo conoscendo conoscendo conoscendo conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+On that day of the week and at that hour , people belonging to the same set and acquainted with one another , met on the ice . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+In quel giorno della settimana e a quell ’ 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia luci conoscendo gioia conoscendo conoscendo conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" It is not my house , sir ; and Abbot says I have less right to be here than a servant .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Non è la mia casa , signore , e Abbot dice che 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo gioia conoscendo gioia conoscendo conoscendo gioia gioia gioia gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Half - an - hour ' s recreation succeeded , then study ; then the glass of water and the piece of oat - cake , prayers , and bed . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Dopo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Her head dropped . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Ella chinò il capo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gatte conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Why it ' s so curious ,\" murmured Harris , \" but precisely that very same thing happened to MY father once at a country inn . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— È curioso — mormorò Harris — ma precisamente la stessa cosa capitò a mio padre una volta in un 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia gioia gioia gioia gioia gioia gioia gioia gioia gioia conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Only master had been reading in his bed last night ; he fell asleep with his candle lit , and the curtains got on fire ; but , fortunately , he awoke before the bed - clothes or the wood - work caught , and contrived to quench the flames with the water in the ewer .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Il padrone voleva leggere la notte scorsa , ed essendosi addormentato con la candela accesa , il fuoco s ' è appiccato al cortinaggio . Per fortuna 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo gioia conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia conoscendo conoscendo gioia gioia gioia gioia gioia gioia conoscendo conoscendo gioia gioia gioia gioia conoscendo conoscendo gioia luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I could go back and be his comforter -- his pride ; his [UNK] from misery , perhaps from ruin . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Potevo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I wrote to him ; I said I was sorry for his disappointment , but Jane Eyre was dead : she had died of typhus fever at Lowood . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Gli scrissi dicendogli che mi doleva che i suoi disegni non potessero compiersi , ma che Jane Eyre era morta di 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo gioia gioia conoscendo gioia conoscendo conoscendo gioia gioia conoscendo gioia conoscendo gioia gioia gioia gioia gioia gioia gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The same lady pays for the education and clothing of an orphan from the workhouse , on condition that she shall aid the mistress in such [UNK] offices connected with her own house and the school as her occupation of teaching will prevent her having time to discharge in person . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+\ La stessa signora paga per l 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo gioia conoscendo conoscendo conoscendo conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Have you , Miss ? 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I expect you got very weary of it ,' he said , quickly seizing in its flight the ball of coquetry she had thrown at him . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Probabilmente questo vi avrà annoiato 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo gioia conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Give her the telegram , and see what she says .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Ecco , prendi il telegramma , [UNK] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo luci conoscendo conoscendo conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Besides , he experienced that feeling of concentrated excitement which every sportsman knows when approaching the scene of action . If his mind was occupied with anything now , it was only with questions , whether they would find anything in the Kolpensky marsh , how Laska would compare with Krak , and how he would shoot to - day . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Inoltre provava quel senso di agitazione che prova ogni cacciatore , avvicinandosi al luogo della caccia 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo gioia gioia conoscendo conoscendo conoscendo gioia gioia gioia luci gioia conoscendo gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+CHAPTER IX 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+IX [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Do you know what he has done ?' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Lo sai cosa ha fatto ... [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci costui luci conoscendo conoscendo conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+She looked at him smilingly , but suddenly her eyebrows twitched , she raised her head , and coming quickly to him she took hold of his hand and clinging close she enveloped him in her hot breath . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Lo guardava sorridendo ; ma a un tratto le tremarono le sopracciglia , levò il capo , e , avvicinatasi rapida , lo prese per mano e si strinse tutta a lui , [UNK] del proprio respiro caldo . 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gatte gatte gioia gioia gioia gioia gioia conoscendo gioia gioia gatte gioia gioia conoscendo conoscendo conoscendo conoscendo gioia conoscendo conoscendo conoscendo conoscendo gatte gatte gatte conoscendo conoscendo gatte 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" I have no cause to do otherwise than like him ; and I believe he is considered a just and liberal landlord by his tenants : but he has never lived much amongst them .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Non ho nessuna ragione per non amarlo , e credo che i suoi [UNK] lo considerino giusto e generoso 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia gioia conoscendo conoscendo gioia gioia gioia gioia gioia gioia gioia conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They do not speak , but they give you a look that says all that can be said in a civilised community ; and you back out promptly and shut the door behind you . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Essi non 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I thought you meant to run away ,' she said , smiling at him . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Credevo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He sat down . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Egli si sedè . 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo gioia conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+CHAPTER XIII 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+XIII 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+costui 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Just when the question of how to live had become a little clearer to him , a new insoluble problem presented itself – Death . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Gli 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" I do feel better ,\" remarked Mr . Mason . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Mi sento meglio , — 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci conoscendo gioia conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+but how far he could hope for his sympathy with his own novel views Levin did not know , and could not gather from the expression of the Professor ' s quiet and intelligent face . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+E Levin cominciò a esporre prudentemente , quasi a [UNK] il terreno , il 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo gioia conoscendo conoscendo conoscendo conoscendo gioia conoscendo conoscendo gioia conoscendo conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' No , Princess , I am no longer on the Zemstvo ,' he answered ,' I have come to Moscow for a few days .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— No , principessa , non mi occupo più del consiglio distrettuale 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo luci gioia conoscendo conoscendo conoscendo conoscendo gioia gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' How nice it would be for us to meet there ! 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Come sarebbe bene andare 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci conoscendo gatte gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Yes , I noticed that poor Grinevich ' s nails interested you greatly ,' said Oblonsky . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Già , ho visto che le unghie del povero Grinevic ti interessavano molto — disse , ridendo , 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia gioia gioia conoscendo conoscendo conoscendo conoscendo gioia gioia gioia gioia gioia gatte gioia gioia gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+That is the deduction reason makes . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Questa è la deduzione 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci conoscendo conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Having learnt that the doctor was not up yet , Levin , out of the many plans that occurred to him , decided on the following : Kuzma should go with a note to another doctor , while he himself would go to the chemist for the opium ; and if the doctor was not up when he returned he would bribe the footman – or if that was impossible , he would enter by force and wake the doctor at all costs . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Saputo che il dottore non 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo gioia conoscendo conoscendo 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+No , not YOU - the other one - leave the lines alone , can ' t you - now , both together . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+No 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+George snatched it up , and rushed downstairs . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Giorgio se lo cacciò 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci gioia conoscendo gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I have observed in books written by men , that period assigned as the farthest to which a husband ' s ardour extends . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Ho osservato che , nei libri scritti dagli uomini , questo periodo è 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+luci luci conoscendo gioia gioia conoscendo conoscendo gioia conoscendo gioia gioia gioia gioia 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+How different had this scene looked when I viewed it laid out beneath the iron sky of winter , stiffened in frost , shrouded with snow !-- when mists as chill as death wandered to the impulse of east winds along those purple peaks , and rolled down \" [UNK] \" and [UNK] till they blended with the frozen fog of the beck ! 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Nel mezzo a quella spianata scorreva un ruscello pieno di pietre nere e di sassi scintillanti . Quella scena mi era parsa 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo conoscendo gioia gioia gioia gioia gioia conoscendo gioia gioia gioia gioia gioia conoscendo gioia gioia 
+
+
+
+
+

@@ -12,9 +12,7 @@ public:
 
 	void predict(TensorView input, TensorView output);
 
-	void backward(TensorView outputGradient, TensorView inputGradient);
-
-    Tensor mask;
+	void backward(TensorView outputGradient, TensorView inputGradient, TensorView input);
 };
 
 #endif

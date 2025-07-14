@@ -36,7 +36,7 @@ class FeedForwardBlock {
         
         linear2.backward(outputGradient, gradient3, out3);
         dropout.backward(gradient3, gradient2);
-        relu.backward(gradient2, gradient1);
+        relu.backward(gradient2, gradient1, out1);
         linear1.backward(gradient1, inputGradient, input);
     }
 

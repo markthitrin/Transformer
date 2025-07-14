@@ -20,11 +20,11 @@ class Linear {
         var outD = bias.domain.size;
         var inD = weight.domain.size / bias.domain.size;
         var batch = Do.size / outD;
-        for i in 0..#batch {
-            Copy(bias, output[(i * outD)..#outD]);
-        }
+        // for i in 0..#batch {
+        //     Copy(bias, output[(i * outD)..#outD]);
+        // }
         MatMulPlusAB(batch, inD, outD, input, weight, output);
-        CheckPoint();
+        // CheckPoint();
     }
 
     proc predict(ref input: [?Di] real(32), ref output: [?Do] real(32)) {

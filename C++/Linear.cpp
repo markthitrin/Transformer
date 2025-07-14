@@ -12,12 +12,12 @@ Linear::Linear(const int in, const int out) :
 }
 
 void Linear::forward(TensorView input, TensorView output) {
-    for(int i = 0;i < batch * sequenceLength;i++) {
-        output.sliceRow(i,1) = bias;
-    }
+    // for(int i = 0;i < batch * sequenceLength;i++) {
+    //     output.sliceRow(i,1) = bias;
+    // }
     MatMulPlusAB(input, weight, output);
-    Timer::CheckPoint();
-    if(verbose) std::cout << "Linear" << std::endl;
+    // Timer::CheckPoint();
+    // if(verbose) std::cout << "Linear" << std::endl;
 }
 
 void Linear::predict(TensorView input, TensorView output) {

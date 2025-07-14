@@ -10,18 +10,19 @@ class ReLU {
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         for i in D {
-            mask[i] = if input[i] >= 0 then 1.0:real(32) else 0.0:real(32);
+            output[i] = if input[i] >= 0 then input[i] else 0.0:real(32);
         }
         CheckPoint();
-        Mul(input, mask, output);
     }   
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         forward(input, output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
-        Mul(outputGradient, mask, inputGradient);
+    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref input: [D] real(32)) : void {
+        for i in D {
+            inputGradient[i] = if input[i] >= 0 then outputGradient[i] else 0.0:real(32);
+        }
     }
 
     var domMask: domain(1);
