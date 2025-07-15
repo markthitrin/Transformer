@@ -15,10 +15,10 @@ class Softmax {
         for i in 0..#batch {
             var maxValue: real(32);
             var sumExp: real(32);
-            MaxReduce(input[(i * shape)..#shape], maxValue);
-            Exp(input[(i * shape)..#shape], buffer);
-            PlusReduce(buffer, sumExp);
-            Div(buffer, sumExp, output[(i * shape)..#shape]);
+            MaxReduce3(i*shape, shape, input, maxValue);
+            Exp(input[(i * shape)..#shape], maxValue, buffer);
+            PlusReduce3(0, shape, buffer, sumExp);
+            Div2(0, i*shape, shape, buffer, sumExp, output[(i * shape)..#shape]);
         }
         CheckPoint();
     }

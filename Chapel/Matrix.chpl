@@ -119,10 +119,42 @@ proc PlusProductInplace(ref A: [?Da] real(32), ref B: [?Db] real(32), in C: real
     }
 }
 
+proc PlusReduce4(ref A: [?D] real(32), out output: real(32)) : void {
+    output = + reduce(A);
+}
+
+proc PlusReduce3( in start: int, in count: int, ref A: [] real(32), out output: real(32)) : void {
+    output = 0.0;
+    for i in start..#count {
+        output += A[i];
+    }
+}
+
+proc PlusReduce2( D:domain(1), ref A: [] real(32), out output: real(32)) : void {
+    output = 0.0;
+    for i in D {
+        output += A[i];
+    }
+}
+
 proc PlusReduce(ref A: [?D] real(32), out output: real(32)) : void {
     output = 0.0;
     for i in D {
         output += A[i];
+    }
+}
+
+proc MaxReduce3(in start: int, in count: int, ref A: [] real(32), out output: real(32)) : void {
+    output = -inf;
+    for i in start..#count {
+        output = max(A[i], output);
+    }
+}
+
+proc MaxReduce2(D:domain(1), ref A: [] real(32), out output: real(32)) : void {
+    output = -inf;
+    for i in D {
+        output = max(A[i], output);
     }
 }
 
@@ -147,6 +179,16 @@ proc ExpPlusReduce(ref A: [?D] real(32), in maxValue, out output: real(32)) : vo
     }
 }
 
+proc StdReduce2(in start: int, in count: int, ref A: [?D] real(32), in mean: real(32), out output: real(32)) : void {
+    output = 0.0;
+    for i in start..#count {
+        var x: real(32) = A[i] - mean;
+        output += x * x;
+    }
+    output /= count - 1;
+    output = sqrt(output);
+}
+
 proc StdReduce(ref A: [?D] real(32), in mean: real(32), out output: real(32)) : void {
     output = 0.0;
     for i in D {
@@ -163,19 +205,29 @@ proc Mul(ref A: [?Da] real(32), ref B: [?Db] real(32), ref C: [?Dc] real(32)) : 
     }
 }
 
+proc Mul2(in starta: int, in startb, in count: int, ref A: [] real(32), in x: real(32), ref B:[] real(32)) : void {
+    for i in 0..#count {
+        B[startb + i] = A[starta + i] * x;
+    }
+}
+
 proc Mul(ref A: [?Da] real(32), in x: real(32), ref B:[?Db] real(32)) : void {
     for (ia, ib) in zip(Da, Db) {
         B[ib] = A[ia] * x;
     }
 }
 
+proc Div2(in starta: int, in startb: int, in count:int, ref A: [?D] real(32), in x: real(32), ref B:[D] real(32)) : void {
+    Mul2(starta, startb, count, A, 1.0 / x, B);
+}
+
 proc Div(ref A: [?D] real(32), in x: real(32), ref B:[D] real(32)) : void {
     Mul(A, 1.0 / x, B);
 }
 
-proc Exp(ref A: [?Da] real(32), ref B:[?Db] real(32)) : void {
+proc Exp(ref A: [?Da] real(32), in maxValue: real(32), ref B:[?Db] real(32)) : void {
     for (ia, ib) in zip(Da, Db) {
-        B[ib] = exp(A[ia]);
+        B[ib] = exp(A[ia] - maxValue);
     }
 }
 

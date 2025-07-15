@@ -22,10 +22,14 @@ class LayerNorm {
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         for i in 0..#(batch * sequenceLength) {
             var mean: real(32);
-            PlusReduce(input[(i * dModel)..#dModel], mean);
+            // PlusReduce4(input[(i * dModel)..#dModel], mean);
+            PlusReduce3(i * dModel, dModel, input, mean);
+            // PlusReduce2({(i * dModel)..#dModel}, input, mean);
+            // PlusReduce(input[(i * dModel)..#dModel], mean);
             mean /= dModel;
 
-            StdReduce(input[(i * dModel)..#dModel], mean, std[i]);
+            StdReduce2((i * dModel), dModel, input, mean, std[i]);
+            // StdReduce(input[(i * dModel)..#dModel], mean, std[i]);
 
             for j in 0..#dModel {
                 xHat[i * dModel + j] = (input[i * dModel + j] - mean) / (std[i] + eps);

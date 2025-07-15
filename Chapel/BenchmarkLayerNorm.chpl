@@ -1,18 +1,21 @@
-use Softmax;
+use LayerNorm;
 use Config;
 use Util;
 use Matrix;
 use Time;
 
-param iterationTest = 20;
-param stdTest = 10000;
+param iterationTest = 400;
+param stdTest = 10;
 var t:stopwatch;
 
 
-var input: [0..#(batch * head * sequenceLength * sequenceLength)] real(32);
-var output: [0..#(batch * head * sequenceLength * sequenceLength)] real(32);
+
+
+
+var input: [0..#(batch * sequenceLength * dModel)] real(32);
+var output: [0..#(batch * sequenceLength * dModel)] real(32);
 UniformInit(input, 1);
-var softmax = new Softmax(batch * head* sequenceLength, sequenceLength);
+var layerNorm = new LayerNorm();
 
 var time:[0..stdTest] real;
 var totalTime: real;
@@ -22,7 +25,7 @@ for i in 0..#stdTest {
     t.reset();
     t.start();
     for j in 0..#iterationTest {
-        softmax.forward(input, output);
+        layerNorm.forward(input, output);
     }
     t.stop();
     time[i] = t.elapsed();
