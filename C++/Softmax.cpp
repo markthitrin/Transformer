@@ -11,7 +11,7 @@ Softmax::Softmax() {
 void Softmax::forward(TensorView input, TensorView output) {
     const int row = output.row;
     const int col = output.col;
-    float buffer[dFF];
+    float buffer[sequenceLength];
     for (int i = 0; i < row; i++) {
 
         float sumExp = 0.0;
@@ -34,7 +34,7 @@ void Softmax::forward(TensorView input, TensorView output) {
         }
     }
     Timer::CheckPoint();
-    if(verbose) std::cout << "Softmax" << std::endl;
+    if(verbose) std::cout << "Softmax" << std::endl;    
 }
 
 void Softmax::predict(TensorView input, TensorView output) {

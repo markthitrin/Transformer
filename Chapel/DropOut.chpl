@@ -5,12 +5,16 @@ use Random;
 use Matrix;
 use Timer;
 
-var rng = new randomStream(real, seed=0);
+var rng = new randomStream(int, seed=0);
 
-proc GenerateDropoutMask(ref mask: [?D] real(32), in dropoutRate : real(32)) {
-    fillRandom(mask, 0.0, 1.0);
+proc GenerateDropoutMask(ref mask: [?D] int, in dropoutRate : real(32)) {
+    var thresholdInt = (dropoutRate * 65535):int;
+    // for i in D {
+    //     mask[i] = rng.next(0, 65535);
+    // }
+    rng.fill(mask, 0, 65535);
     for i in D {
-        mask[i] = (if mask[i] > dropoutRate then 1.0 else 0.0):real(32);
+        mask[i] = if mask[i] > thresholdInt then 1 else 0;
     }
 }
 
@@ -21,8 +25,10 @@ class DropOut {
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         GenerateDropoutMask(mask, dropoutRate);
-        Mul(input, mask, output);
-        Div(output, 1.0 - dropoutRate, output);
+        var corrector: real(32) = 1.0 / (1.0 - dropoutRate);
+        for i in D {
+            output[i] = input[i] * mask[i]:real(32) * corrector;
+        }
         CheckPoint();
 
         // Div(input, 1.0 - dropoutRate, output);
@@ -33,12 +39,14 @@ class DropOut {
     }
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
-        Mul(outputGradient, mask, inputGradient);
-        Div(inputGradient, 1.0 - dropoutRate, inputGradient);
+        var corrector: real(32) = (1.0 - dropoutRate);
+        for i in D {
+            inputGradient[i] = outputGradient[i] * mask[i]:real(32) * corrector;
+        }
 
         // Div(outputGradient, 1.0 - dropoutRate, inputGradient);
     }
 
     var domMask: domain(1);
-    var mask: [domMask] real(32);
+    var mask: [domMask] int;
 }

@@ -13,13 +13,13 @@ AdamOptimizer::AdamOptimizer(const int row, const int col) :
 
 void AdamOpt(TensorView param, AdamOptimizer& opt) {
     const float learningRate = lr;
-    const float invPowBeta1 = 1.0f / (1.0f - std::pow(beta1,opt.t));
-    const float invPowBeta2 = 1.0f / (1.0f - std::pow(beta2,opt.t));
-        for(int i = 0;i < param.row * param.col;i++) {
+    const float PowBeta1 = (1.0f - std::pow(beta1,opt.t));
+    const float PowBeta2 = (1.0f - std::pow(beta2,opt.t));
+    for(int i = 0;i < param.row * param.col;i++) {
         opt.accM[i] = opt.accM[i] * beta1 + opt.gradient[i] * (1.0f - beta1);
         opt.accV[i] = opt.accV[i] * beta2 + opt.gradient[i] * opt.gradient[i] * (1.0f - beta2);
-        float mHat = opt.accM[i] * invPowBeta1;
-        float vHat = opt.accV[i] * invPowBeta2;
+        float mHat = opt.accM[i] / (PowBeta1 + eps);
+        float vHat = opt.accV[i] / (PowBeta2 + eps);
         param[i] -= learningRate * mHat / (std::sqrt(vHat) + eps);
     }
     opt.gradient = 0;
