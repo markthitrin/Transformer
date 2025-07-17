@@ -1,421 +1,225 @@
-Iteration [0 / 200]   loss : 17.3882
-Iteration [1 / 200]   loss : 17.2613
-Iteration [2 / 200]   loss : 17.0573
-Iteration [3 / 200]   loss : 16.7727
-Iteration [4 / 200]   loss : 17.1397
-Iteration [5 / 200]   loss : 17.1642
-Iteration [6 / 200]   loss : 16.6048
-Iteration [7 / 200]   loss : 16.5493
-Iteration [8 / 200]   loss : 17.2948
-Iteration [9 / 200]   loss : 17.0793
-Iteration [10 / 200]   loss : 17.1898
-Iteration [11 / 200]   loss : 16.9416
-Iteration [12 / 200]   loss : 16.2762
-Iteration [13 / 200]   loss : 17.0773
-Iteration [14 / 200]   loss : 17.1598
-Iteration [15 / 200]   loss : 16.9409
-Iteration [16 / 200]   loss : 16.6076
-Iteration [17 / 200]   loss : 16.4816
-Iteration [18 / 200]   loss : 16.2924
-Iteration [19 / 200]   loss : 17.1566
-Iteration [20 / 200]   loss : 16.1285
-Iteration [21 / 200]   loss : 16.3533
-Iteration [22 / 200]   loss : 16.677
-Iteration [23 / 200]   loss : 17.2264
-Iteration [24 / 200]   loss : 15.3185
-Iteration [25 / 200]   loss : 15.7382
-Iteration [26 / 200]   loss : 16.1404
-Iteration [27 / 200]   loss : 16.2066
-Iteration [28 / 200]   loss : 16.2539
-Iteration [29 / 200]   loss : 16.6547
-Iteration [30 / 200]   loss : 16.5662
-Iteration [31 / 200]   loss : 16.4319
-Iteration [32 / 200]   loss : 16.7424
-Iteration [33 / 200]   loss : 16.6925
-Iteration [34 / 200]   loss : 14.8854
-Iteration [35 / 200]   loss : 16.1455
-Iteration [36 / 200]   loss : 16.2561
-Iteration [37 / 200]   loss : 16.2096
-Iteration [38 / 200]   loss : 16.7047
-Iteration [39 / 200]   loss : 16.9094
-Iteration [40 / 200]   loss : 16.5579
-Iteration [41 / 200]   loss : 16.1115
-Iteration [42 / 200]   loss : 16.7425
-Iteration [43 / 200]   loss : 15.2042
-Iteration [44 / 200]   loss : 16.5758
-Iteration [45 / 200]   loss : 16.084
-Iteration [46 / 200]   loss : 16.6287
-Iteration [47 / 200]   loss : 16.9327
-Iteration [48 / 200]   loss : 15.9282
-Iteration [49 / 200]   loss : 16.2237
-Iteration [50 / 200]   loss : 15.9468
-Iteration [51 / 200]   loss : 15.7985
-Iteration [52 / 200]   loss : 16.4643
-Iteration [53 / 200]   loss : 15.6266
-Iteration [54 / 200]   loss : 16.2967
-Iteration [55 / 200]   loss : 15.8663
-Iteration [56 / 200]   loss : 16.1474
-Iteration [57 / 200]   loss : 16.1538
-Iteration [58 / 200]   loss : 15.751
-Iteration [59 / 200]   loss : 16.6248
-Iteration [60 / 200]   loss : 16.1493
-Iteration [61 / 200]   loss : 16.5062
-Iteration [62 / 200]   loss : 15.3906
-Iteration [63 / 200]   loss : 15.2034
-Iteration [64 / 200]   loss : 15.9076
-Iteration [65 / 200]   loss : 16.0397
-Iteration [66 / 200]   loss : 16.3035
-Iteration [67 / 200]   loss : 15.5428
-Iteration [68 / 200]   loss : 15.8214
-Iteration [69 / 200]   loss : 16.2905
-Iteration [70 / 200]   loss : 15.8005
-Iteration [71 / 200]   loss : 15.4661
-Iteration [72 / 200]   loss : 16.1157
-Iteration [73 / 200]   loss : 15.286
-Iteration [74 / 200]   loss : 14.7334
-Iteration [75 / 200]   loss : 15.549
-Iteration [76 / 200]   loss : 16.118
-Iteration [77 / 200]   loss : 14.9322
-Iteration [78 / 200]   loss : 16.0368
-Iteration [79 / 200]   loss : 15.7935
-Iteration [80 / 200]   loss : 16.3299
-Iteration [81 / 200]   loss : 16.3239
-Iteration [82 / 200]   loss : 16.0317
-Iteration [83 / 200]   loss : 15.317
-Iteration [84 / 200]   loss : 15.7259
-Iteration [85 / 200]   loss : 15.8857
-Iteration [86 / 200]   loss : 14.9535
-Iteration [87 / 200]   loss : 15.185
-Iteration [88 / 200]   loss : 16.2231
-Iteration [89 / 200]   loss : 16.2488
-Iteration [90 / 200]   loss : 14.9687
-Iteration [91 / 200]   loss : 15.488
-Iteration [92 / 200]   loss : 16.1428
-Iteration [93 / 200]   loss : 15.6787
-Iteration [94 / 200]   loss : 16.2012
-Iteration [95 / 200]   loss : 15.7204
-Iteration [96 / 200]   loss : 15.4345
-Iteration [97 / 200]   loss : 15.9437
-Iteration [98 / 200]   loss : 16.1433
-Iteration [99 / 200]   loss : 16.3292
-Iteration [100 / 200]   loss : 15.4439
-Iteration [101 / 200]   loss : 15.9642
-Iteration [102 / 200]   loss : 15.7641
-Iteration [103 / 200]   loss : 16.2078
-Iteration [104 / 200]   loss : 15.5198
-Iteration [105 / 200]   loss : 16.3121
-Iteration [106 / 200]   loss : 16.1986
-Iteration [107 / 200]   loss : 15.37
-Iteration [108 / 200]   loss : 16.6854
-Iteration [109 / 200]   loss : 15.3505
-Iteration [110 / 200]   loss : 16.0009
-Iteration [111 / 200]   loss : 16.6111
-Iteration [112 / 200]   loss : 16.0857
-Iteration [113 / 200]   loss : 15.7811
-Iteration [114 / 200]   loss : 15.3529
-Iteration [115 / 200]   loss : 16.303
-Iteration [116 / 200]   loss : 15.6483
-Iteration [117 / 200]   loss : 16.0306
-Iteration [118 / 200]   loss : 15.4101
-Iteration [119 / 200]   loss : 15.2551
-Iteration [120 / 200]   loss : 15.3773
-Iteration [121 / 200]   loss : 15.4714
-Iteration [122 / 200]   loss : 15.2178
-Iteration [123 / 200]   loss : 14.9687
-Iteration [124 / 200]   loss : 15.9664
-Iteration [125 / 200]   loss : 17.2786
-Iteration [126 / 200]   loss : 15.3538
-Iteration [127 / 200]   loss : 15.6424
-Iteration [128 / 200]   loss : 15.0999
-Iteration [129 / 200]   loss : 15.8992
-Iteration [130 / 200]   loss : 15.0456
-Iteration [131 / 200]   loss : 16.692
-Iteration [132 / 200]   loss : 15.7721
-Iteration [133 / 200]   loss : 16.4046
-Iteration [134 / 200]   loss : 15.4015
-Iteration [135 / 200]   loss : 16.2348
-Iteration [136 / 200]   loss : 15.2631
-Iteration [137 / 200]   loss : 15.4436
-Iteration [138 / 200]   loss : 15.2914
-Iteration [139 / 200]   loss : 15.9169
-Iteration [140 / 200]   loss : 15.4167
-Iteration [141 / 200]   loss : 15.2423
-Iteration [142 / 200]   loss : 15.3065
-Iteration [143 / 200]   loss : 15.2414
-Iteration [144 / 200]   loss : 15.3191
-Iteration [145 / 200]   loss : 15.7068
-Iteration [146 / 200]   loss : 14.6351
-Iteration [147 / 200]   loss : 15.4427
-Iteration [148 / 200]   loss : 14.7343
-Iteration [149 / 200]   loss : 15.3769
-Iteration [150 / 200]   loss : 15.8085
-Iteration [151 / 200]   loss : 15.6649
-Iteration [152 / 200]   loss : 14.8561
-Iteration [153 / 200]   loss : 15.2953
-Iteration [154 / 200]   loss : 15.549
-Iteration [155 / 200]   loss : 15.3568
-Iteration [156 / 200]   loss : 15.8885
-Iteration [157 / 200]   loss : 15.8802
-Iteration [158 / 200]   loss : 15.4034
-Iteration [159 / 200]   loss : 15.2002
-Iteration [160 / 200]   loss : 15.7412
-Iteration [161 / 200]   loss : 15.7697
-Iteration [162 / 200]   loss : 15.5338
-Iteration [163 / 200]   loss : 16.4453
-Iteration [164 / 200]   loss : 15.5507
-Iteration [165 / 200]   loss : 16.052
-Iteration [166 / 200]   loss : 15.5484
-Iteration [167 / 200]   loss : 14.6771
-Iteration [168 / 200]   loss : 16.1435
-Iteration [169 / 200]   loss : 15.2603
-Iteration [170 / 200]   loss : 15.5539
-Iteration [171 / 200]   loss : 14.9672
-Iteration [172 / 200]   loss : 15.6434
-Iteration [173 / 200]   loss : 14.7328
-Iteration [174 / 200]   loss : 14.9694
-Iteration [175 / 200]   loss : 16.4721
-Iteration [176 / 200]   loss : 15.1037
-Iteration [177 / 200]   loss : 15.6364
-Iteration [178 / 200]   loss : 15.3303
-Iteration [179 / 200]   loss : 15.0809
-Iteration [180 / 200]   loss : 15.8241
-Iteration [181 / 200]   loss : 15.1955
-Iteration [182 / 200]   loss : 16.0277
-Iteration [183 / 200]   loss : 14.8137
-Iteration [184 / 200]   loss : 15.36
-Iteration [185 / 200]   loss : 15.1258
-Iteration [186 / 200]   loss : 15.7984
-Iteration [187 / 200]   loss : 15.2535
-Iteration [188 / 200]   loss : 16.1377
-Iteration [189 / 200]   loss : 15.6526
-Iteration [190 / 200]   loss : 15.1575
-Iteration [191 / 200]   loss : 15.5984
-Iteration [192 / 200]   loss : 14.4998
-Iteration [193 / 200]   loss : 14.5144
-Iteration [194 / 200]   loss : 15.6029
-Iteration [195 / 200]   loss : 15.0946
-Iteration [196 / 200]   loss : 15.6719
-Iteration [197 / 200]   loss : 15.1988
-Iteration [198 / 200]   loss : 14.8845
-Iteration [199 / 200]   loss : 14.7961
+Iteration [0 / 20]   loss : 17.3944
+Iteration [1 / 20]   loss : 17.4353
+Iteration [2 / 20]   loss : 17.185
+Iteration [3 / 20]   loss : 17.292
+Iteration [4 / 20]   loss : 17.1948
+Iteration [5 / 20]   loss : 16.5541
+Iteration [6 / 20]   loss : 16.8009
+Iteration [7 / 20]   loss : 17.3349
+Iteration [8 / 20]   loss : 16.5664
+Iteration [9 / 20]   loss : 16.8805
+Iteration [10 / 20]   loss : 16.8206
+Iteration [11 / 20]   loss : 16.8076
+Iteration [12 / 20]   loss : 16.5512
+Iteration [13 / 20]   loss : 17.0121
+Iteration [14 / 20]   loss : 17.3986
+Iteration [15 / 20]   loss : 16.8184
+Iteration [16 / 20]   loss : 16.9109
+Iteration [17 / 20]   loss : 17.2099
+Iteration [18 / 20]   loss : 16.8736
+Iteration [19 / 20]   loss : 17.2929
 Time Recorded ==========================
 
-154796
-38.5508
-22.3497
-1749.4
-199.081
-813.003
-1696.68
-22.066
-41.4178
-4767.01
-1751.94
-1492.51
-2995.22
-31.2776
-50.749
-4608.8
-1756.87
-1476.1
-2848.75
-30.3068
-50.1606
-1984.88
-256.676
-814.42
-1676.74
-21.2532
-42.2756
-4608.08
-1745.63
-1485.8
-3090.17
-26.1966
-38.6808
-4801.4
-1774.19
-1528.16
-2834.41
-37.1238
-56.3984
-1877.34
-267.353
-775.181
-1684.33
-22.3205
-42.9416
-4699.1
-1791.2
-1510.86
-2891.38
-32.6046
-51.5146
-4528.78
-1735.43
-1484.98
-2765.76
-37.6231
-58.6031
-2024.33
-276.372
-751.23
-1678.82
-23.5741
-40.9865
-4562.23
-1783.43
-1456.46
-2724.27
-39.3736
-63.2354
-4650.04
-1754.13
-1450.29
-2766.53
-32.7688
-56.6846
-1874.1
-271.302
-804.788
-1688.3
-21.2869
-42.5592
-4608.49
-1747.5
-1475.52
-2692.3
-39.8328
-59.0536
-4547.12
-1642.01
-1387.67
-2779.09
-37.6306
-59.8935
-2012.76
-280.787
-858.818
-1679.05
-21.8486
-40.653
-4652.4
-1726.27
-1441.08
-2712.12
-39.5264
-61.6408
-4572.35
-1720.26
-1476.78
-2714.89
-36.7314
-58.7681
-1.22872
-17.865
-65.7597
-42.1965
-1860.87
-269.226
-762.14
-1683.78
-24.5812
-43.3803
-4598.01
-1695.06
-1379.41
-2747.44
-35.6702
-58.1321
-1883.48
-276.542
-791.41
-1687.89
-20.8799
-40.8145
-4664.87
-1704.73
-1354.24
-2732.28
-36.7908
-58.6349
-1880.73
-274.977
-812.297
-1679.44
-21.8622
-43.6785
-4675.62
-1707.32
-1373.01
-2732.31
-37.1378
-58.6119
-1889.55
-271.996
-884.066
-1681.18
-23.3811
-42.4855
-4671.38
-1768.28
-1437.98
-2733.07
-37.1513
-57.5608
-1873.27
-280.668
-922.454
-1678.98
-22.6265
-39.7498
-4617.47
-1754.58
-1413.66
-2728.06
-37.8738
-58.9851
-1852.36
-281.617
-977.248
-1677.32
-26.023
-41.1454
-4622.5
-1774.02
-1431.03
-2751.35
-37.6965
-62.173
-1.20563
-25.7816
+157508
+48.1961
+25.6847
+1866.95
+236.562
+966.572
+1781.27
+39.6447
+54.3549
+5469.46
+1926.3
+1611.07
+2730.22
+356.05
+67.1757
+5460.25
+1895.7
+1836.65
+2892.07
+399.964
+68.1841
+2086.17
+310.953
+931.38
+1719.28
+30.5781
+53.5171
+5786.35
+1906.57
+1650.47
+2824
+359.11
+60.641
+5506.92
+1856.99
+1715.23
+3125.78
+353.474
+61.0384
+1957.8
+308.91
+842.907
+1715.81
+29.7444
+51.483
+5407.49
+1845.31
+1601.25
+2927.12
+356.43
+67.9178
+5392.51
+1947.3
+1614.03
+2922.58
+398.505
+75.3428
+2188.43
+332.609
+858.407
+1730.91
+32.8785
+54.3203
+5725.01
+1748.51
+1657.46
+3110.34
+364.601
+64.1422
+5799.38
+1841.89
+1784.57
+2821.74
+354.186
+78.3941
+1982.22
+279.179
+889.256
+1719.24
+32.359
+51.9544
+5653.94
+1823.42
+1867.81
+3158.27
+348.987
+66.2984
+5736.91
+1815.49
+1907.88
+2845.03
+402.875
+66.9794
+2189.43
+323.298
+984.74
+1731.36
+32.2412
+49.1737
+6289.59
+2110.21
+1679.31
+3072.83
+377.33
+67.9616
+5612.66
+1917.14
+1838.74
+3189.97
+352.475
+82.9821
+1.09131
+22.7689
+86.1161
+57.3891
+1984.24
+276.617
+903.927
+1737.66
+34.9302
+55.3329
+5834.3
+1824.06
+1944.95
+3044.34
+357.172
+70.5106
+2056.99
+318.304
+945.772
+1749.47
+34.4195
+55.7563
+5790.15
+2036.34
+1657.47
+2691.28
+347.346
+63.5045
+1967.79
+282.479
+967.349
+1723.67
+28.2602
+50.2039
+5487.77
+1939.3
+1521.59
+2708.25
+347.787
+61.2084
+1990.63
+281.89
+937.692
+1707.77
+31.2329
+51.605
+5678.96
+1925.73
+1517.95
+3027.21
+345.787
+63.1074
+2015.31
+304.318
+976.577
+1713.45
+34.1925
+50.4569
+5547.8
+1872.95
+1749.1
+2680.82
+354.461
+63.3081
+1956.38
+317.855
+974.482
+1708.31
+27.8629
+48.2614
+5541.98
+1857.77
+1594.57
+2804.76
+354.862
+63.9017
+1.12613
+28.2208
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I did not want to tell you , but you make me do it . 
+But it is impossible to hold with such tranquillity states constituted like that of France . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Io non volevo [UNK] , ma tu mi ci 
+Ma li stati ordinati come quello di Francia è impossibile possederli con tanta quiete . [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-CHAPTER XV 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-XV [EOS] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -423,15 +227,863 @@ irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I confess I had not entertained any notion of my ammunition being destroyed at one blast — I mean my powder being blown up by lightning ; and this made the thoughts of it so surprising to me , when it [UNK] and thundered , as I observed just now . 
+A picturesque track it was , by the way ; lying along the side of the beck and through the sweetest curves of the [UNK] : but that day I thought more of the letters , that might or might not be awaiting me at the little [UNK] whither I was bound , than of the charms of lea and water . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Confesso che non aveva pensato per nulla alla possibilità di veder distrutta in un soffio la mia munizione , intendo di vederla distrutta da un fulmine ; da ciò nacquero i pensieri che mi [UNK] quando [UNK] e lampeggiò , come poc ’ anzi osservai . 
+La 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+No ; what the deuce would you call her for ? 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+No , perché destarla ? Che farebbe ? 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The noble bust , the sloping shoulders , the graceful neck , the dark eyes and black ringlets were all there ;-- but her face ? 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Il busto nobile , le spalle spioventi 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They say he was the sole support of a very large family . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Dicono che era lui solo a dar da 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He decided to go back to Petersburg and see his wife . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Aleksej Aleksandrovic decise di andare a 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea giglio Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I found the rules of the establishment were too strict , its course of study too severe for a child of her age : I took her home with me . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Il regolamento della pensione era troppo duro e gli studi troppo severi per una bimba di quell ' 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+And nothing honours a man more than to establish new laws and new ordinances when he himself was newly risen . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Questo nasce , che li ordini antichi di essa non erano buoni e non 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea giglio giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Doesn ' t she know ?\" I heard the woman whisper . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+This is why !' suddenly shouted Nicholas at the mention of the name . ' This is why . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Ah , ecco perché ! — gridò ad un tratto Nikolaj 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I responded that it was merely a fancy head , and hurried it beneath the other sheets . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Risposi che era 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+You had better send word , sir , that you will be there in the morning .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] dire che vi 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' There is ! 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— C ’ è , amico mio ! 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea giglio giglio Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+At the bottom of its one street there was a little shop with some cakes of bread in the window . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+In fondo all ' unica strada del paesello 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+It was necessary to put in his place a fresh , up - to - date , practical , and quite new man , and to manage matters so as to extract from the rights granted to the Nobility ( not as nobles , but as an element of the Zemstvo ) all the advantages of self - government which could be obtained from them . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Bisognava mettere al suo posto un uomo nuovo , moderno , attivo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Four hands were immediately laid upon me , and I was borne upstairs . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Quattro mani mi afferrarono e io 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea giglio Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They are both going . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Vanno tutti e due 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+giglio Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I am going .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Io vado 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+giglio Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Oh , yes , you saved that Levin from unpleasantness .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Come ! Avete salvato quel Levin da 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea rimpianto Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+We ate a hearty supper , George and I , and we should have had some toddy after it , if we could have found the whisky , but we could not . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] con ottimo appetito , Giorgio e io , e ci sarebbe piaciuto farci un ponce dopo , se avessimo trovato lo whisky , ma non 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Of course there was love too ; but the greater part was pride in his success . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+S ’ intende , c ’ era anche l ’ amore , ma la parte maggiore era l ’ orgoglio del 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I believed he was naturally a man of better tendencies , higher principles , and purer tastes than such as circumstances had developed , education instilled , or destiny encouraged . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+La natura , almeno credo , avevagli dato tendenze migliori , principii più eletti , gusti più puri di quelli che le circostanze e la sorte incoraggiarono in lui . [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Try to build up anything without these conceptions ! 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+E allora , 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea giglio Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Only now and then the baby , continuing his business , lifted his long curved lashes and looked at his mother with moist eyes that seemed black in the dim light . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Solo di tanto in tanto , il bambino sollevava le lunghe ciglia ricurve , fissava la madre con gli occhi umidi 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+She was first [UNK] with surprise , and then [UNK] with delight . \" Had I done these pictures ? 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Li avete 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea rimpianto Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+And without letting Levin finish explaining his idea , Metrov began expounding to him the peculiarity of his own teaching . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+E , senza consentire a Levin di esporre a fondo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I must make a beginning . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+S ’ intende , la colpa non è sua . [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I thought there were excellent materials in him ; though for the present they hung together somewhat spoiled and tangled . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Credo che [UNK] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] , et late fines [UNK] [UNK] .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] , et [UNK] [UNK] custode [UNK] . [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+giglio Avea giglio giglio Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I dreaded being discovered and sent back ; for I _must_ see Helen ,-- I must embrace her before she died ,-- I must give her one last kiss , exchange with her one last word . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Passai sollecita per non essere scoperta dall ' infermiera , che mi avrebbe rimandata a letto e io 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+She was trying to do what she had attempted ten times already during those three days , to sort out her own and her children ' s clothes to take to her mother ' s ; but she could not bring herself to do it , and said again as she had done after each previous attempt , that things could not remain as they were – that she must do something to punish and humiliate him , and to revenge herself if only for a small part of the pain he had caused her . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Aveva tentato proprio allora di fare quello che aveva tentato già dieci volte in quei tre giorni : preparare la roba sua e dei bambini per trasportarla dalla madre , ma poi , di nuovo , non aveva saputo decidersi : eppure anche ora , come le altre volte , diceva a se stessa che così non poteva durare 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci giglio Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea rimpianto giglio Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Nonsense ! and what sort of an effect will the bequest have on you ? 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— È inutile . Rispondetemi : che effetto [UNK] su voi questo denaro ? 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea rimpianto Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I drifted on for about a quarter of a mile , and then I came in sight of a fishing - punt moored in mid - stream , in which sat two old fishermen . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Mi [UNK] così per circa un quarto di miglio , e poi arrivai 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+It ' s him .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They spent the day in labour , reading , and prayer ; and over all their lives there fell a silence as of death , for no one spoke . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Passavano i giorni nel lavoro , nella lettura e nella preghiera ; e su tutta la loro 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Having written for some time , Levin suddenly with particular vividness remembered Kitty , her refusal , and their last meeting . He rose and began to pace up and down the room . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Laska si coricò sotto la tavola , Agaf ’ ja 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Had to match - board it all over first , of course . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Naturalmente doveva essere [UNK] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Let your boat of life be light , packed with only what you need - a homely home and simple pleasures , one or two friends , worth the name , someone to love and someone to love you , a cat , a dog , and a pipe or two , enough to eat and enough to wear , and a little more than enough to drink ; for thirst is a dangerous thing . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Che la tua barchetta sia leggera , e porti soltanto ciò di 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Yes , that ' s true ,' answered Varenka with a smile , and involuntarily the direction of their stroll changed . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Già 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea rimpianto 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Very much .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Molto 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+giglio giglio 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They have a worth -- so I have always believed ; and if I cannot believe it now , it is because I am insane -- quite insane : with my veins running fire , and my heart beating faster than I can count its throbs . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Hanno un valore , l ' ho sempre creduto e se ora non lo 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Delightful ! O delightful !' he thought . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+“ Bene , molto bene !” si 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea giglio Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Having then for the first time clearly understood that before every man , and before himself , there lay only suffering , death , and eternal oblivion , he had concluded that to live under such conditions was impossible ; that one must either explain life to oneself so that it does not seem to be an evil mockery by some sort of devil , or one must shoot oneself . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Avendo allora , per la prima volta , capito chiaramente che per ogni uomo come lui non c ’ era niente , all ’ infuori della sofferenza , della morte , dell ’ oblio completo , aveva deciso che 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci lacci lacci giglio giglio giglio 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Such impression did this make upon me , that after the storm was over I laid aside all my works , my building and [UNK] , and applied myself to make bags and boxes , to separate the powder , and to keep it a little and a little in a parcel , in the hope that , whatever might come , it might not all take fire at once ; and to keep it so apart that it should not be possible to make one part fire another . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Tale impressione fu sì forte 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He remembered how he had kissed the hand and afterwards examined the [UNK] lines on the rosy palm . Again ' Lordvmercypons !' thought he , crossing himself , bowing , and watching the movements of the bowing deacon ' s flexible back . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Non avevano nulla da dirsi , come sempre capitava in quel tempo , e lei , posta 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+When she was undressed she went into the bedroom , but on her face not only was there not a trace of that animation which during her stay in Moscow had sparkled in her eyes and smile , but on the contrary the fire in her now seemed quenched or hidden somewhere very far away . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] , Anna entrò in camera , ma sul suo volto non solo non c ’ era 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The conversation touched on the new direction taken by art and the new [UNK] of the Bible by a French artist . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Si venne a parlare della 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea giglio Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Then Harris , who was sitting next the window , drew aside the curtain and looked out upon the street . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Allora Harris , ch ’ era seduto accanto alla finestra 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Constantine Dmitrich Levin , Count Alexis [UNK] Vronsky .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Il conte Aleksej 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Will I not guard , and cherish , and solace her ? Is there not love in my heart , and constancy in my resolves ? 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Non vi è forse amore nel mio cuore e fermezza 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Then what do you say to pyramids ? 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— E allora , una carambola ? 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea rimpianto rimpianto Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+She must go away , must leave him – that was all she thought and felt . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Doveva andar via , doveva lasciarlo , pensava e sentiva solo questo . [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+One morning she told me I was at liberty . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Una 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Levin counted the carts , and was pleased to see that sufficient manure was being brought . At sight of the meadows his thoughts turned to the hay harvest . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Levin li contò e fu contento pensando che così sarebbe stato portato 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+J . E . is requested to send references , name , address , and all particulars to the direction :-- \" Mrs . Fairfax , Thornfield , near Millcote , --- shire .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+J . E ., [UNK] mandare il suo nome , 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -443,11 +1095,11 @@ The most covetous , [UNK] [UNK] in the world would have been cured of the vice o
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Il più [UNK] ladro del mondo si sarebbe da vero corretto da questo brutto vizio se si fosse trovato nel caso mio , perchè le cose di cui mi vedeva possessore erano infinitamente più di quelle ond ’ io sapessi che farmi . 
+Il più [UNK] ladro del mondo si sarebbe da vero corretto da questo brutto vizio se si fosse trovato 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -455,15 +1107,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The wind still blew in his direction , and before we reached the end of the street he was laying himself out at the rate of nearly four miles an hour , leaving the [UNK] and stout old ladies simply nowhere . 
+' But I am still alive : what am I to do now ? 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Il vento soffiava ancora nella sua direzione , e , prima che [UNK] l ’ altro capo della 
+“ Eppure io sono vivo ancora . [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -471,15 +1123,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Some time in the afternoon I raised my head , and looking round and seeing the western sun gilding the sign of its decline on the wall , I asked , \" What am I to do ?\" 
+\" The creature of an over - stimulated brain ; that is certain . I must be careful of you , my treasure : nerves like yours were not made for rough handling .\" 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Nel corso del giorno alzai la testa e guardai intorno a 
+— Una creazione del vostro cervello esaltato ; bisogna che abbia molta cura di voi , 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -487,15 +1139,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-\" Here then is a [UNK] - song . 
+On his way to the distant Province Karenin stopped three days in Moscow . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Ecco 
+Di passaggio per governatorati lontani , Aleksej Aleksandrovic si fermò tre giorni a Mosca 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -503,15 +1155,15 @@ irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I said this almost involuntarily , and , with as little sanction of free will , my tears gushed out . 
+' Yes , to tell you the truth , I don ' t like Veslovsky ' s manner ,' said Dolly , wishing to change the subject . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Dissi queste parole quasi 
+— Sì , a dire la verità 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo 
+Avea rimpianto Avea Avea Avea Avea Avea 
 
 
 
@@ -519,15 +1171,15 @@ irritarlo irritarlo irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Noticing the looks directed toward him , he smiled a [UNK] naive smile . 
+If we should wish to retreat , how ought we to pursue ?\" And he would set forth to them , as he went , all the chances that could befall an army ; he would listen to their opinion and state his , confirming it with reasons , so that by these continual discussions there could never arise , in time of war , any unexpected circumstances that he could not deal with . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Avendo notato gli sguardi rivolti su di lui , alzò il capo 
+come si potrebbe [UNK] , [UNK] li ordini , a trovarli ? se noi volessimo [UNK] , come aremmo a fare ? se loro si 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -535,15 +1187,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Now I am sure of it .' 
+They were entering when Oblonsky overtook them , and were talking about the weather . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-È questo che io so , 
+Stavano per entrare , conversando del tempo , quando 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -551,15 +1203,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We have quarrelled for the second time since ... 
+There was the great four - post bed with amber hangings as of old ; there the toilet - table , the [UNK] , and the footstool , at which I had a hundred times been sentenced to kneel , to ask pardon for offences by me [UNK] . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Abbiamo litigato per la seconda volta da che ... [EOS] 
+Era già scuro e sulla tavola era stato posto un lume velato , che illuminava il letto a colonne , le cortine gialle , la toilette , la poltrona e il panchetto , dove mi ero dovuta [UNK] tante volte per chiedere scusa di colpe che non avevo commesse 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea giglio lacci lacci giglio giglio Avea Avea Avea Avea Avea Avea lacci Avea Avea Avea 
 
 
 
@@ -567,15 +1219,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' It cannot be , as I understand ...' 
+He shall have me . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Non è possibile , così per quanto possa intendere io ... 
+Egli avrà me . 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+giglio giglio Avea giglio 
 
 
 
@@ -583,15 +1235,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' I didn ' t know that Cheshire cats always grinned ; in fact , I didn ' t know that cats could grin .' 
+( Many people lived by it , especially one very moral and musical family in which the daughters all played stringed instruments . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Non sapevo che i gatti [UNK] a 
+( Molte persone ci mangiavano su , specialmente una famiglia molto per bene e amante della musica in cui tutte le 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -599,15 +1251,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-She felt herself crushed and her face expressed it . 
+The delicate white outer bark adhered to the [UNK] , and the light went out . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Si sentiva stroncata e il suo viso lo 
+Lo strato sottile della corteccia bianca [UNK] al [UNK] e la fiamma si spegneva . [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -615,15 +1267,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-\" I want a night ' s shelter in an out - house or anywhere , and a morsel of bread to eat .\" 
+' I have one !' said Anna , and unexpectedly following her tears , a sly , humorous smile puckered her lips . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Vorrei un rifugio per la notte in una capanna e un [UNK] 
+— Eppure ci sono — disse Anna a un tratto e , inaspettatamente , dopo le lacrime , un riso [UNK] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea rimpianto rimpianto Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea giglio Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -631,15 +1283,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-It ' ll be no use their putting their heads down and saying \" Come up again , dear !\" 
+Harris proposed that we should have scrambled eggs for breakfast . He said he would cook them . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[UNK] , cari miei , [UNK] il capo dal soffitto per dirmi : “ Carina , 
+Harris propose 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea 
 
 
 
@@ -647,15 +1299,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-How simple and natural her words sounded and how really it seemed as if she were merely sleepy ! 
+He did this quietly at first and without any fear of hindrance , for he held the minds of the barons of Castile occupied in thinking of the war and not anticipating any innovations ; thus they did not perceive that by these means he was acquiring power and authority over them . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Come erano semplici e naturali le 
+Prima , e ' la fece ozioso , e sanza sospetto di essere impedito 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -663,15 +1315,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-In that case , my lot would become unspeakably wretched . 
+But Kitty had not expected more from the quadrille , she waited with a clutch at her heart for the mazurka . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-\ 
+Ma Kitty non si 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo 
+Avea Avea Avea Avea 
 
 
 
@@ -679,15 +1331,15 @@ irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-He said he would show us what could be done up the river in the way of cooking , and suggested that , with the vegetables and the remains of the cold beef and general odds and ends , we should make an Irish stew . 
+We were wet to the skin , and cold and miserable . We began to wonder whether there were only four islands or more , or whether we were near the islands at all , or whether we were anywhere within a mile of where we ought to be , or in the wrong part of the river altogether ; everything looked so strange and different in the darkness . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Lui ci avrebbe mostrato di che cosa fosse capace in 
+Cominciammo a domandarci se non vi fossero più di quattro isole o 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -695,15 +1347,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Levin gently disengaged his hand , and without looking at his brother went to his own room and fell asleep . 
+' Thank Heaven she has refused him ,' thought the mother , and her face brightened into the usual smile with which she greeted her visitors on Thursday evenings . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Levin , liberata pian piano la 
+“ Grazie a Dio , ha detto di no ” pensò la madre , e 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -711,15 +1363,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-At these words Levin suddenly grew warm , for at the bottom of his heart he felt that it was true – true that he wished to balance between communism and the existing forms of life , and that this was hardly possible . 
+Yes , a mean , horrid man ! 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Levin 
+Ma no ! è vile , disgustoso ! 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -727,15 +1379,15 @@ irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-He was talking about some [UNK] enterprise . 
+And the celebrity explained his plan of a treatment with Soden Water , the chief reason for [UNK] this evidently being that it could do no harm . The family doctor listened attentively and respectfully to the end . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Parlava di 
+Il 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo 
+Avea 
 
 
 
@@ -743,15 +1395,15 @@ irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-There really is something good and sweet about her .' 
+When I colour , and when I shade before Miss Oliver , I do not pity myself . I scorn the weakness . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Non è vero che 
+\ Non mi lagno quando , in presenza della signorina Oliver , arrossisco e [UNK] ; disprezzo soltanto la mia debolezza ; è una 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo 
+Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -759,15 +1411,15 @@ irritarlo irritarlo irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-They can ' t mend the roads , and when they build a bridge they steal .' 
+“ Why , sir ,” said I , “ will you go to sea no more ?” “ That is another case ,” said he ; “ it is my calling , and therefore my duty ; but as you made this voyage on trial , you see what a taste Heaven has given you of what you are to expect if you persist . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-E le strade non si possono fare aggiustare ; e i ponti , appena messi a 
+Egli era in compagnia di suo padre , al quale disse chi io fossi , e come avessi impreso questo viaggio soltanto per esperimento e con proposito di procedere molto più in là . Il capitano voltosi a me disse con accento grave e solenne : — « Il mio giovine , voi dovete lasciar da banda ogni pensiere di [UNK] in mare , e ravvisare in quanto vi è avvenuto un pieno e visibile contrassegno , che la vostra vocazione non e quella del navigante . — Perchè , signore ? gli chiesi 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea lacci Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci lacci lacci Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci Avea Avea Avea Avea Avea Avea Avea Avea rimpianto rimpianto Avea Avea lacci Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
 
 
 
@@ -775,15 +1427,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' I can ' t help it ,' replied Levin . ' Put yourself in my place – look at it from a country fellow ' s point of view ! 
+But I must go round to the office .' 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Non riesco a capire — rispose Levin . — 
+Si alzò stirandosi e sorridendo . [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea giglio Avea Avea Avea Avea Avea 
 
 
 
@@ -791,15 +1443,15 @@ irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-That amused Harris . 
+Where I was , I yet knew not ; whether on the continent or on an island ; whether inhabited or not inhabited ; whether in danger of wild beasts or not . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Questo 
+Dove 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo 
+Avea 
 
 
 
@@ -807,15 +1459,15 @@ irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-\" Did they ever recover the old lady ?\" asked Harris . 
+And even worse than lost . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— [UNK] 
+Peggio che perduta . [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo 
+giglio Avea Avea Avea Avea 
 
 
 
@@ -823,847 +1475,15 @@ irritarlo irritarlo
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Not long , I think ,' she replied with embarrassment glancing at Vronsky . 
+To mow or reap the rye and oats , and cart them , to finish mowing the meadows , to re - plough the fallow land , to thresh the seed corn and sow the winter rye – all this seems simple and ordinary ; yet to get it all done , it is necessary that all the peasants , from the oldest to the youngest , should work unceasingly those three or four weeks , three times as hard as usual , living on kvas , onions , and black bread , threshing and carting the sheaves by night and sleeping not more than two or three hours out of the twenty - four . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Non credo a lungo — ella disse con impaccio 
+[UNK] e [UNK] la segala e l ’ avena e [UNK] , finire di falciare i prati , dividere a mezzo il maggese , [UNK] le sementi e seminare il grano autunnale , tutto questo sembra semplice e ordinario ; ma per giungere a questo bisogna che , dal grande al piccolo , tutta la gente di campagna lavori incessantemente , 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Karenin started at the reference to his wife , but immediately his face assumed a death - like immobility which showed utter helplessness in the matter . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Aleksej Aleksandrovic rabbrividì al ricordo della moglie , e immediatamente 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-All became silent again , and one heard the balls being counted . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Si fece silenzio 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-\" You said eighteen just now ,\" said George . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Se 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Probably those damp walls would soon have eased me of her charge : but to each villain his own vice ; and mine is not a tendency to [UNK] assassination , even of what I most hate . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-È probabile che l 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The steeplechase was unlucky : more than half of the seventeen officers were thrown and hurt . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-La corsa fu disgraziata e su diciassette persone ne caddero e si fecero 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-When he moved toward her his fine eyes brightened with a special tenderness , and carefully and respectfully bending over her with a scarcely perceptible , happy , and ( as it seemed to Levin ) modestly - triumphant smile , he held out to her his small broad hand . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Nel momento in cui si avvicinò a lei , i suoi begli occhi brillarono di una particolare tenerezza e con un impercettibile sorriso felice di trionfo discreto ( così parve a Levin ), chinandosi con rispetto verso di lei 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Diana and Mary ' s general answer to this question was a sigh , and some minutes of apparently mournful meditation . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Diana 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-In time I rose to be the first girl of the first class ; then I was invested with the office of teacher ; which I discharged with zeal for two years : but at the end of that time I altered . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Non perdetti dunque nessuno dei vantaggi che mi erano offerti e giunsi ad 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-I assure you [UNK] was nothing to me !' 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Vi assicuro , [UNK] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-They went back to the conversation at dinner about women ' s rights and occupations . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-[UNK] la conversazione 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-He said his watch went wrong one evening , and stopped at a quarter - past eight . He did not know this at the time because , for some reason or other , he forgot to wind it up when he went to bed ( an unusual occurrence with him ), and hung it up over his pillow without ever looking at the thing . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Una sera , il suo orologio andava male , e s ’ era fermato alle otto e un quarto , senza che egli lo sapesse , perchè , in un modo o 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-He tried to recall his best moments with her but they were for ever poisoned . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Egli cercava di ricordare i momenti migliori passati con lei ; ma questi momenti erano [UNK] per sempre . [EOS] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' I am afraid she does not understand her position herself . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Penso ch ’ ella stessa non intenda la propria situazione 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-First , I smiled to myself and felt [UNK] ; but this fierce pleasure subsided in me as fast as did the accelerated throb of my pulses . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Prima 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' No . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— No 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-During THE [UNK] between dinner and the beginning of the evening party , Kitty experienced something resembling a young man ' s feelings before a battle . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Kitty , dopo pranzo e fino al principio della serata , provò una sensazione simile a 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Yes , I knew her when she first became an invalid .' 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Oh , how I wish I could shut up like a telescope ! 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Oh , 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-While they were talking Laska , pricking her ears , kept looking up at the sky and then reproachfully at them . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Mentre dicevano questo , Laska , drizzando le orecchie , guardò 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-On that day of the week and at that hour , people belonging to the same set and acquainted with one another , met on the ice . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-In quel giorno della settimana e a quell ’ 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-\" It is not my house , sir ; and Abbot says I have less right to be here than a servant .\" 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Non è la mia casa , signore , e Abbot dice che 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Half - an - hour ' s recreation succeeded , then study ; then the glass of water and the piece of oat - cake , prayers , and bed . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Dopo 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Her head dropped . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Ella chinò il capo 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-\" Why it ' s so curious ,\" murmured Harris , \" but precisely that very same thing happened to MY father once at a country inn . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— È curioso — mormorò Harris — ma precisamente la stessa cosa capitò a mio padre una volta in un 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-\" Only master had been reading in his bed last night ; he fell asleep with his candle lit , and the curtains got on fire ; but , fortunately , he awoke before the bed - clothes or the wood - work caught , and contrived to quench the flames with the water in the ewer .\" 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Il padrone voleva leggere la notte scorsa , ed essendosi addormentato con la candela accesa , il fuoco s ' è appiccato al cortinaggio . Per fortuna 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-I could go back and be his comforter -- his pride ; his [UNK] from misery , perhaps from ruin . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Potevo 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-I wrote to him ; I said I was sorry for his disappointment , but Jane Eyre was dead : she had died of typhus fever at Lowood . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Gli scrissi dicendogli che mi doleva che i suoi disegni non potessero compiersi , ma che Jane Eyre era morta di 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The same lady pays for the education and clothing of an orphan from the workhouse , on condition that she shall aid the mistress in such [UNK] offices connected with her own house and the school as her occupation of teaching will prevent her having time to discharge in person . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-\ La stessa signora paga per l 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-\" Have you , Miss ? 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' I expect you got very weary of it ,' he said , quickly seizing in its flight the ball of coquetry she had thrown at him . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Probabilmente questo vi avrà annoiato 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Give her the telegram , and see what she says .' 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Ecco , prendi il telegramma , [UNK] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Besides , he experienced that feeling of concentrated excitement which every sportsman knows when approaching the scene of action . If his mind was occupied with anything now , it was only with questions , whether they would find anything in the Kolpensky marsh , how Laska would compare with Krak , and how he would shoot to - day . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Inoltre provava quel senso di agitazione che prova ogni cacciatore , avvicinandosi al luogo della caccia 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-CHAPTER IX 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-IX [EOS] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Do you know what he has done ?' 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Lo sai cosa ha fatto ... [EOS] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-She looked at him smilingly , but suddenly her eyebrows twitched , she raised her head , and coming quickly to him she took hold of his hand and clinging close she enveloped him in her hot breath . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Lo guardava sorridendo ; ma a un tratto le tremarono le sopracciglia , levò il capo , e , avvicinatasi rapida , lo prese per mano e si strinse tutta a lui , [UNK] del proprio respiro caldo . 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-\" I have no cause to do otherwise than like him ; and I believe he is considered a just and liberal landlord by his tenants : but he has never lived much amongst them .\" 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Non ho nessuna ragione per non amarlo , e credo che i suoi [UNK] lo considerino giusto e generoso 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-They do not speak , but they give you a look that says all that can be said in a civilised community ; and you back out promptly and shut the door behind you . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Essi non 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' I thought you meant to run away ,' she said , smiling at him . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Credevo 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-He sat down . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Egli si sedè . 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-CHAPTER XIII 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-XIII 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Just when the question of how to live had become a little clearer to him , a new insoluble problem presented itself – Death . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Gli 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-\" I do feel better ,\" remarked Mr . Mason . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Mi sento meglio , — 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-but how far he could hope for his sympathy with his own novel views Levin did not know , and could not gather from the expression of the Professor ' s quiet and intelligent face . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-E Levin cominciò a esporre prudentemente , quasi a [UNK] il terreno , il 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' No , Princess , I am no longer on the Zemstvo ,' he answered ,' I have come to Moscow for a few days .' 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— No , principessa , non mi occupo più del consiglio distrettuale 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' How nice it would be for us to meet there ! 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Come sarebbe bene andare 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Yes , I noticed that poor Grinevich ' s nails interested you greatly ,' said Oblonsky . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Già , ho visto che le unghie del povero Grinevic ti interessavano molto — disse , ridendo , 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-That is the deduction reason makes . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Questa è la deduzione 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Having learnt that the doctor was not up yet , Levin , out of the many plans that occurred to him , decided on the following : Kuzma should go with a note to another doctor , while he himself would go to the chemist for the opium ; and if the doctor was not up when he returned he would bribe the footman – or if that was impossible , he would enter by force and wake the doctor at all costs . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Saputo che il dottore non 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-No , not YOU - the other one - leave the lines alone , can ' t you - now , both together . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-No 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-George snatched it up , and rushed downstairs . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Giorgio se lo cacciò 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-I have observed in books written by men , that period assigned as the farthest to which a husband ' s ardour extends . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Ho osservato che , nei libri scritti dagli uomini , questo periodo è 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-How different had this scene looked when I viewed it laid out beneath the iron sky of winter , stiffened in frost , shrouded with snow !-- when mists as chill as death wandered to the impulse of east winds along those purple peaks , and rolled down \" [UNK] \" and [UNK] till they blended with the frozen fog of the beck ! 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Nel mezzo a quella spianata scorreva un ruscello pieno di pietre nere e di sassi scintillanti . Quella scena mi era parsa 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
+Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci lacci Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea giglio Avea giglio Avea 
 
 
 

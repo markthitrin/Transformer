@@ -138,6 +138,7 @@ class MultiheadAttention {
             }
         }
         Div(0, 0, batch * head * sequenceLength * sequenceLength, AGradient, sqrt(dPerHead):real(32), AGradient);
+        
         for i in 0..#(batch * head) {
             MatMulPlusABT(dPerHead, sequenceLength, sequenceLength, KT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], QTGradient[(i * blockPerHead)..#blockPerHead]);
             MatMulPlusAB(dPerHead, sequenceLength, sequenceLength, QT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], KTGradient[(i * blockPerHead)..#blockPerHead]);
@@ -146,11 +147,13 @@ class MultiheadAttention {
             MatMulPlusAB(dModel, sequenceLength, dModel, QTGradient[(i * block)..#block], inputQ[(i * block)..#block], WQOpt.gradient);
             MatMulPlusAB(dModel, sequenceLength, dModel, KTGradient[(i * block)..#block], inputK[(i * block)..#block], WKOpt.gradient);
             MatMulPlusAB(dModel, sequenceLength, dModel, VTGradient[(i * block)..#block], inputV[(i * block)..#block], WVOpt.gradient);
+        }CheckPoint();
+        for i in 0..#batch {
             MatMulPlusATB(sequenceLength, dModel, dModel, QTGradient[(i * block)..#block], WQ, inputGradientQ[(i * block)..#block]);
             MatMulPlusATB(sequenceLength, dModel, dModel, KTGradient[(i * block)..#block], WK, inputGradientK[(i * block)..#block]);
             MatMulPlusATB(sequenceLength, dModel, dModel, VTGradient[(i * block)..#block], WV, inputGradientV[(i * block)..#block]);
         }
-        CheckPoint();
+        
     }
 
     proc updateParameter() {

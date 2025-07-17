@@ -116,17 +116,17 @@ proc testATB(in d1: int, in d2: int, in d3: int, in iterationTest: int = 1) {
     writeln("std  Iteration per second : ",  iterationTest * iterationTest / (meanPerTest * meanPerTest) * (std / sqrt(iterationTest)));
 }
 
-testAB(1024,256,32);
-testAB(1024,32,22465);
-testAB(1024,32,256);
-testAB(32,128,32);
-testAB(4,128,128);
+// testAB(1024,256,32);
+// testAB(1024,32,22465);
+// testAB(1024,32,256);
+// testAB(32,128,32);
+// testAB(4,128,128);
 
-testABT(1024,22465,32);
-testABT(1024,256,32);
-testABT(1024,32,256);
-testABT(32,32,128);
-testABT(4,128,128);
+// testABT(1024,22465,32);
+// testABT(1024,256,32);
+// testABT(1024,32,256);
+// testABT(32,32,128);
+// testABT(4,128,128);
 
 testATB(256,1024,32);
 testATB(128,32,32);

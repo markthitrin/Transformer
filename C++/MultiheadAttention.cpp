@@ -157,6 +157,7 @@ void MultiheadAttention::backward(
         }
     }
     Div(AGradient, std::sqrt(float(dPerHead)), AGradient);
+    
     for (int i = 0; i < batch * head; i++) {
         MatMulPlusAB(
             QT.sliceRow(i * dPerHead, dPerHead),
@@ -171,11 +172,13 @@ void MultiheadAttention::backward(
         MatMulPlusAB(QTGradient.sliceRow(i * dModel, dModel), inputQ.sliceRow(i * sequenceLength, sequenceLength), WQOpt.gradient);
         MatMulPlusAB(KTGradient.sliceRow(i * dModel, dModel), inputK.sliceRow(i * sequenceLength, sequenceLength), WKOpt.gradient);
         MatMulPlusAB(VTGradient.sliceRow(i * dModel, dModel),  inputV.sliceRow(i * sequenceLength, sequenceLength), WVOpt.gradient);
+    }Timer::CheckPoint();
+    for (int i = 0;i < batch;i++) {
         MatMulPlusATB(QTGradient.sliceRow(i * dModel, dModel), WQ, inputGradientQ.sliceRow(i * sequenceLength, sequenceLength));
         MatMulPlusATB(KTGradient.sliceRow(i * dModel, dModel), WK, inputGradientK.sliceRow(i * sequenceLength, sequenceLength));
         MatMulPlusATB(VTGradient.sliceRow(i * dModel, dModel), WV, inputGradientV.sliceRow(i * sequenceLength, sequenceLength));
     }
-    Timer::CheckPoint();
+    
     if(verbose) std::cout << "MultiheadAttention" << std::endl;
 }
 
