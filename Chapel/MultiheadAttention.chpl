@@ -77,10 +77,10 @@ class MultiheadAttention {
             softmax.predict(A, As);
             dropout.predict(As, Ad);
         }
-        forall i in 0..#(batch * head) {
+        for i in 0..#(batch * head) {
             MatMulPlusABT(dPerHead, sequenceLength, sequenceLength, VT[(i * blockPerHead)..#blockPerHead], Ad[(i * blockAtt)..#blockAtt], OT[(i * blockPerHead)..#blockPerHead]);
         }
-        forall i in 0..#batch {
+        for i in 0..#batch {
             MatMulPlusATB(sequenceLength, dModel, dModel, OT[(i * block)..#block], WO, output[(i * block)..#block]);
         }
     }
