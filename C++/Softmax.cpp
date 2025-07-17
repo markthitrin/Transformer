@@ -32,9 +32,7 @@ void Softmax::forward(TensorView input, TensorView output) {
         for (int j = 0; j < col; j++) {
             output[i * col + j] = buffer[j] / sumExp;
         }
-    }
-    Timer::CheckPoint();
-    if(verbose) std::cout << "Softmax" << std::endl;    
+    }   
 }
 
 void Softmax::predict(TensorView input, TensorView output) {
@@ -55,4 +53,6 @@ void Softmax::backward(TensorView outputGradient, TensorView inputGradient, Tens
             inputGradient[i * col + j] = output[i * col + j] * (outputGradient[i * col + j] - sumGY);
         }
     }
+    Timer::CheckPoint();
+    if(verbose) std::cout << "Softmax" << std::endl; 
 }

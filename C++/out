@@ -1,394 +1,394 @@
-Iteration [0 / 200]   loss : 17.1896
-Iteration [1 / 200]   loss : 17.0371
-Iteration [2 / 200]   loss : 16.768
-Iteration [3 / 200]   loss : 16.6134
-Iteration [4 / 200]   loss : 16.9415
-Iteration [5 / 200]   loss : 17.3195
-Iteration [6 / 200]   loss : 17.1689
-Iteration [7 / 200]   loss : 17.818
-Iteration [8 / 200]   loss : 17.8873
-Iteration [9 / 200]   loss : 16.4943
-Iteration [10 / 200]   loss : 17.5236
-Iteration [11 / 200]   loss : 17.1445
-Iteration [12 / 200]   loss : 16.5979
-Iteration [13 / 200]   loss : 16.8223
-Iteration [14 / 200]   loss : 16.5966
-Iteration [15 / 200]   loss : 17.056
-Iteration [16 / 200]   loss : 16.0163
-Iteration [17 / 200]   loss : 16.4187
-Iteration [18 / 200]   loss : 18.2664
-Iteration [19 / 200]   loss : 16.7115
-Iteration [20 / 200]   loss : 16.4907
-Iteration [21 / 200]   loss : 16.5737
-Iteration [22 / 200]   loss : 16.8045
-Iteration [23 / 200]   loss : 17.1847
-Iteration [24 / 200]   loss : 15.7205
-Iteration [25 / 200]   loss : 18.4153
-Iteration [26 / 200]   loss : 16.0548
-Iteration [27 / 200]   loss : 16.297
-Iteration [28 / 200]   loss : 16.1564
-Iteration [29 / 200]   loss : 17.3148
-Iteration [30 / 200]   loss : 16.4969
-Iteration [31 / 200]   loss : 16.7051
-Iteration [32 / 200]   loss : 17.0048
-Iteration [33 / 200]   loss : 16.3549
-Iteration [34 / 200]   loss : 16.862
-Iteration [35 / 200]   loss : 17.0898
-Iteration [36 / 200]   loss : 16.4886
-Iteration [37 / 200]   loss : 16.4008
-Iteration [38 / 200]   loss : 16.4675
-Iteration [39 / 200]   loss : 16.8702
-Iteration [40 / 200]   loss : 16.9867
-Iteration [41 / 200]   loss : 16.4452
-Iteration [42 / 200]   loss : 16.0447
-Iteration [43 / 200]   loss : 16.6398
-Iteration [44 / 200]   loss : 16.2659
-Iteration [45 / 200]   loss : 16.6615
-Iteration [46 / 200]   loss : 15.6211
-Iteration [47 / 200]   loss : 16.0583
-Iteration [48 / 200]   loss : 17.3384
-Iteration [49 / 200]   loss : 15.6756
-Iteration [50 / 200]   loss : 15.729
-Iteration [51 / 200]   loss : 16.634
-Iteration [52 / 200]   loss : 16.4464
-Iteration [53 / 200]   loss : 16.1368
-Iteration [54 / 200]   loss : 17.4472
-Iteration [55 / 200]   loss : 16.1799
-Iteration [56 / 200]   loss : 16.2871
-Iteration [57 / 200]   loss : 16.1439
-Iteration [58 / 200]   loss : 15.8477
-Iteration [59 / 200]   loss : 16.2783
-Iteration [60 / 200]   loss : 15.654
-Iteration [61 / 200]   loss : 17.2455
-Iteration [62 / 200]   loss : 16.2613
-Iteration [63 / 200]   loss : 16.4754
-Iteration [64 / 200]   loss : 16.5875
-Iteration [65 / 200]   loss : 15.5465
-Iteration [66 / 200]   loss : 16.1886
-Iteration [67 / 200]   loss : 16.0297
-Iteration [68 / 200]   loss : 15.7755
-Iteration [69 / 200]   loss : 16.9664
-Iteration [70 / 200]   loss : 16.1888
-Iteration [71 / 200]   loss : 15.9902
-Iteration [72 / 200]   loss : 15.05
-Iteration [73 / 200]   loss : 15.7677
-Iteration [74 / 200]   loss : 15.9849
-Iteration [75 / 200]   loss : 15.6068
-Iteration [76 / 200]   loss : 17.0138
-Iteration [77 / 200]   loss : 16.1804
-Iteration [78 / 200]   loss : 16.7262
-Iteration [79 / 200]   loss : 16.921
-Iteration [80 / 200]   loss : 16.6657
-Iteration [81 / 200]   loss : 16.1555
-Iteration [82 / 200]   loss : 15.9464
-Iteration [83 / 200]   loss : 15.5917
-Iteration [84 / 200]   loss : 15.3321
-Iteration [85 / 200]   loss : 17.0047
-Iteration [86 / 200]   loss : 15.9331
-Iteration [87 / 200]   loss : 15.7917
-Iteration [88 / 200]   loss : 16.127
-Iteration [89 / 200]   loss : 16.0747
-Iteration [90 / 200]   loss : 15.7572
-Iteration [91 / 200]   loss : 16.1591
-Iteration [92 / 200]   loss : 15.9041
-Iteration [93 / 200]   loss : 17.0484
-Iteration [94 / 200]   loss : 16.5241
-Iteration [95 / 200]   loss : 16.3041
-Iteration [96 / 200]   loss : 16.2673
-Iteration [97 / 200]   loss : 16.8967
-Iteration [98 / 200]   loss : 15.7168
-Iteration [99 / 200]   loss : 17.1555
-Iteration [100 / 200]   loss : 15.9852
-Iteration [101 / 200]   loss : 16.1422
-Iteration [102 / 200]   loss : 16.0161
-Iteration [103 / 200]   loss : 16.2686
-Iteration [104 / 200]   loss : 16.5251
-Iteration [105 / 200]   loss : 16.4337
-Iteration [106 / 200]   loss : 16.9608
-Iteration [107 / 200]   loss : 15.8861
-Iteration [108 / 200]   loss : 15.8496
-Iteration [109 / 200]   loss : 16.3896
-Iteration [110 / 200]   loss : 15.601
-Iteration [111 / 200]   loss : 16.5989
-Iteration [112 / 200]   loss : 16.1342
-Iteration [113 / 200]   loss : 16.4348
-Iteration [114 / 200]   loss : 16.0256
-Iteration [115 / 200]   loss : 16.6831
-Iteration [116 / 200]   loss : 16.0401
-Iteration [117 / 200]   loss : 16.3846
-Iteration [118 / 200]   loss : 15.0456
-Iteration [119 / 200]   loss : 15.892
-Iteration [120 / 200]   loss : 15.353
-Iteration [121 / 200]   loss : 16.0113
-Iteration [122 / 200]   loss : 16.4692
-Iteration [123 / 200]   loss : 16.4583
-Iteration [124 / 200]   loss : 16.9076
-Iteration [125 / 200]   loss : 17.5092
-Iteration [126 / 200]   loss : 16.0907
-Iteration [127 / 200]   loss : 16.1774
-Iteration [128 / 200]   loss : 16.0413
-Iteration [129 / 200]   loss : 15.9609
-Iteration [130 / 200]   loss : 16.6497
-Iteration [131 / 200]   loss : 17.496
-Iteration [132 / 200]   loss : 15.7068
-Iteration [133 / 200]   loss : 17.4025
-Iteration [134 / 200]   loss : 16.2015
-Iteration [135 / 200]   loss : 16.0192
-Iteration [136 / 200]   loss : 15.8501
-Iteration [137 / 200]   loss : 17.2692
-Iteration [138 / 200]   loss : 15.8839
-Iteration [139 / 200]   loss : 16.1812
-Iteration [140 / 200]   loss : 15.8778
-Iteration [141 / 200]   loss : 15.6676
-Iteration [142 / 200]   loss : 15.3247
-Iteration [143 / 200]   loss : 15.683
-Iteration [144 / 200]   loss : 15.9445
-Iteration [145 / 200]   loss : 15.3935
-Iteration [146 / 200]   loss : 17.0795
-Iteration [147 / 200]   loss : 15.0033
-Iteration [148 / 200]   loss : 15.8602
-Iteration [149 / 200]   loss : 15.3354
-Iteration [150 / 200]   loss : 15.7205
-Iteration [151 / 200]   loss : 15.8453
-Iteration [152 / 200]   loss : 16.3821
-Iteration [153 / 200]   loss : 16.3226
-Iteration [154 / 200]   loss : 15.9101
-Iteration [155 / 200]   loss : 15.0872
-Iteration [156 / 200]   loss : 15.9179
-Iteration [157 / 200]   loss : 16.6192
-Iteration [158 / 200]   loss : 16.3661
-Iteration [159 / 200]   loss : 15.9264
-Iteration [160 / 200]   loss : 16.8175
-Iteration [161 / 200]   loss : 16.0035
-Iteration [162 / 200]   loss : 15.9455
-Iteration [163 / 200]   loss : 15.3256
-Iteration [164 / 200]   loss : 15.8946
-Iteration [165 / 200]   loss : 15.4826
-Iteration [166 / 200]   loss : 15.8867
-Iteration [167 / 200]   loss : 15.679
-Iteration [168 / 200]   loss : 15.4162
-Iteration [169 / 200]   loss : 15.512
-Iteration [170 / 200]   loss : 15.1341
-Iteration [171 / 200]   loss : 15.2666
-Iteration [172 / 200]   loss : 15.8848
-Iteration [173 / 200]   loss : 15.7334
-Iteration [174 / 200]   loss : 15.5411
-Iteration [175 / 200]   loss : 15.7313
-Iteration [176 / 200]   loss : 15.6738
-Iteration [177 / 200]   loss : 16.3455
-Iteration [178 / 200]   loss : 16.1632
-Iteration [179 / 200]   loss : 16.0141
-Iteration [180 / 200]   loss : 15.7502
-Iteration [181 / 200]   loss : 16.3005
-Iteration [182 / 200]   loss : 17.3636
-Iteration [183 / 200]   loss : 15.7087
-Iteration [184 / 200]   loss : 15.0886
-Iteration [185 / 200]   loss : 15.2886
-Iteration [186 / 200]   loss : 15.3407
-Iteration [187 / 200]   loss : 15.0573
-Iteration [188 / 200]   loss : 16.5097
-Iteration [189 / 200]   loss : 15.4247
-Iteration [190 / 200]   loss : 15.2395
-Iteration [191 / 200]   loss : 15.3852
-Iteration [192 / 200]   loss : 15.8804
-Iteration [193 / 200]   loss : 15.0193
-Iteration [194 / 200]   loss : 16.0042
-Iteration [195 / 200]   loss : 15.5154
-Iteration [196 / 200]   loss : 16.0445
-Iteration [197 / 200]   loss : 15.5836
-Iteration [198 / 200]   loss : 14.8105
-Iteration [199 / 200]   loss : 15.8116
+Iteration [0 / 200]   loss : 17.3882
+Iteration [1 / 200]   loss : 17.2613
+Iteration [2 / 200]   loss : 17.0573
+Iteration [3 / 200]   loss : 16.7727
+Iteration [4 / 200]   loss : 17.1397
+Iteration [5 / 200]   loss : 17.1642
+Iteration [6 / 200]   loss : 16.6048
+Iteration [7 / 200]   loss : 16.5493
+Iteration [8 / 200]   loss : 17.2948
+Iteration [9 / 200]   loss : 17.0793
+Iteration [10 / 200]   loss : 17.1898
+Iteration [11 / 200]   loss : 16.9416
+Iteration [12 / 200]   loss : 16.2762
+Iteration [13 / 200]   loss : 17.0773
+Iteration [14 / 200]   loss : 17.1598
+Iteration [15 / 200]   loss : 16.9409
+Iteration [16 / 200]   loss : 16.6076
+Iteration [17 / 200]   loss : 16.4816
+Iteration [18 / 200]   loss : 16.2924
+Iteration [19 / 200]   loss : 17.1566
+Iteration [20 / 200]   loss : 16.1285
+Iteration [21 / 200]   loss : 16.3533
+Iteration [22 / 200]   loss : 16.677
+Iteration [23 / 200]   loss : 17.2264
+Iteration [24 / 200]   loss : 15.3185
+Iteration [25 / 200]   loss : 15.7382
+Iteration [26 / 200]   loss : 16.1404
+Iteration [27 / 200]   loss : 16.2066
+Iteration [28 / 200]   loss : 16.2539
+Iteration [29 / 200]   loss : 16.6547
+Iteration [30 / 200]   loss : 16.5662
+Iteration [31 / 200]   loss : 16.4319
+Iteration [32 / 200]   loss : 16.7424
+Iteration [33 / 200]   loss : 16.6925
+Iteration [34 / 200]   loss : 14.8854
+Iteration [35 / 200]   loss : 16.1455
+Iteration [36 / 200]   loss : 16.2561
+Iteration [37 / 200]   loss : 16.2096
+Iteration [38 / 200]   loss : 16.7047
+Iteration [39 / 200]   loss : 16.9094
+Iteration [40 / 200]   loss : 16.5579
+Iteration [41 / 200]   loss : 16.1115
+Iteration [42 / 200]   loss : 16.7425
+Iteration [43 / 200]   loss : 15.2042
+Iteration [44 / 200]   loss : 16.5758
+Iteration [45 / 200]   loss : 16.084
+Iteration [46 / 200]   loss : 16.6287
+Iteration [47 / 200]   loss : 16.9327
+Iteration [48 / 200]   loss : 15.9282
+Iteration [49 / 200]   loss : 16.2237
+Iteration [50 / 200]   loss : 15.9468
+Iteration [51 / 200]   loss : 15.7985
+Iteration [52 / 200]   loss : 16.4643
+Iteration [53 / 200]   loss : 15.6266
+Iteration [54 / 200]   loss : 16.2967
+Iteration [55 / 200]   loss : 15.8663
+Iteration [56 / 200]   loss : 16.1474
+Iteration [57 / 200]   loss : 16.1538
+Iteration [58 / 200]   loss : 15.751
+Iteration [59 / 200]   loss : 16.6248
+Iteration [60 / 200]   loss : 16.1493
+Iteration [61 / 200]   loss : 16.5062
+Iteration [62 / 200]   loss : 15.3906
+Iteration [63 / 200]   loss : 15.2034
+Iteration [64 / 200]   loss : 15.9076
+Iteration [65 / 200]   loss : 16.0397
+Iteration [66 / 200]   loss : 16.3035
+Iteration [67 / 200]   loss : 15.5428
+Iteration [68 / 200]   loss : 15.8214
+Iteration [69 / 200]   loss : 16.2905
+Iteration [70 / 200]   loss : 15.8005
+Iteration [71 / 200]   loss : 15.4661
+Iteration [72 / 200]   loss : 16.1157
+Iteration [73 / 200]   loss : 15.286
+Iteration [74 / 200]   loss : 14.7334
+Iteration [75 / 200]   loss : 15.549
+Iteration [76 / 200]   loss : 16.118
+Iteration [77 / 200]   loss : 14.9322
+Iteration [78 / 200]   loss : 16.0368
+Iteration [79 / 200]   loss : 15.7935
+Iteration [80 / 200]   loss : 16.3299
+Iteration [81 / 200]   loss : 16.3239
+Iteration [82 / 200]   loss : 16.0317
+Iteration [83 / 200]   loss : 15.317
+Iteration [84 / 200]   loss : 15.7259
+Iteration [85 / 200]   loss : 15.8857
+Iteration [86 / 200]   loss : 14.9535
+Iteration [87 / 200]   loss : 15.185
+Iteration [88 / 200]   loss : 16.2231
+Iteration [89 / 200]   loss : 16.2488
+Iteration [90 / 200]   loss : 14.9687
+Iteration [91 / 200]   loss : 15.488
+Iteration [92 / 200]   loss : 16.1428
+Iteration [93 / 200]   loss : 15.6787
+Iteration [94 / 200]   loss : 16.2012
+Iteration [95 / 200]   loss : 15.7204
+Iteration [96 / 200]   loss : 15.4345
+Iteration [97 / 200]   loss : 15.9437
+Iteration [98 / 200]   loss : 16.1433
+Iteration [99 / 200]   loss : 16.3292
+Iteration [100 / 200]   loss : 15.4439
+Iteration [101 / 200]   loss : 15.9642
+Iteration [102 / 200]   loss : 15.7641
+Iteration [103 / 200]   loss : 16.2078
+Iteration [104 / 200]   loss : 15.5198
+Iteration [105 / 200]   loss : 16.3121
+Iteration [106 / 200]   loss : 16.1986
+Iteration [107 / 200]   loss : 15.37
+Iteration [108 / 200]   loss : 16.6854
+Iteration [109 / 200]   loss : 15.3505
+Iteration [110 / 200]   loss : 16.0009
+Iteration [111 / 200]   loss : 16.6111
+Iteration [112 / 200]   loss : 16.0857
+Iteration [113 / 200]   loss : 15.7811
+Iteration [114 / 200]   loss : 15.3529
+Iteration [115 / 200]   loss : 16.303
+Iteration [116 / 200]   loss : 15.6483
+Iteration [117 / 200]   loss : 16.0306
+Iteration [118 / 200]   loss : 15.4101
+Iteration [119 / 200]   loss : 15.2551
+Iteration [120 / 200]   loss : 15.3773
+Iteration [121 / 200]   loss : 15.4714
+Iteration [122 / 200]   loss : 15.2178
+Iteration [123 / 200]   loss : 14.9687
+Iteration [124 / 200]   loss : 15.9664
+Iteration [125 / 200]   loss : 17.2786
+Iteration [126 / 200]   loss : 15.3538
+Iteration [127 / 200]   loss : 15.6424
+Iteration [128 / 200]   loss : 15.0999
+Iteration [129 / 200]   loss : 15.8992
+Iteration [130 / 200]   loss : 15.0456
+Iteration [131 / 200]   loss : 16.692
+Iteration [132 / 200]   loss : 15.7721
+Iteration [133 / 200]   loss : 16.4046
+Iteration [134 / 200]   loss : 15.4015
+Iteration [135 / 200]   loss : 16.2348
+Iteration [136 / 200]   loss : 15.2631
+Iteration [137 / 200]   loss : 15.4436
+Iteration [138 / 200]   loss : 15.2914
+Iteration [139 / 200]   loss : 15.9169
+Iteration [140 / 200]   loss : 15.4167
+Iteration [141 / 200]   loss : 15.2423
+Iteration [142 / 200]   loss : 15.3065
+Iteration [143 / 200]   loss : 15.2414
+Iteration [144 / 200]   loss : 15.3191
+Iteration [145 / 200]   loss : 15.7068
+Iteration [146 / 200]   loss : 14.6351
+Iteration [147 / 200]   loss : 15.4427
+Iteration [148 / 200]   loss : 14.7343
+Iteration [149 / 200]   loss : 15.3769
+Iteration [150 / 200]   loss : 15.8085
+Iteration [151 / 200]   loss : 15.6649
+Iteration [152 / 200]   loss : 14.8561
+Iteration [153 / 200]   loss : 15.2953
+Iteration [154 / 200]   loss : 15.549
+Iteration [155 / 200]   loss : 15.3568
+Iteration [156 / 200]   loss : 15.8885
+Iteration [157 / 200]   loss : 15.8802
+Iteration [158 / 200]   loss : 15.4034
+Iteration [159 / 200]   loss : 15.2002
+Iteration [160 / 200]   loss : 15.7412
+Iteration [161 / 200]   loss : 15.7697
+Iteration [162 / 200]   loss : 15.5338
+Iteration [163 / 200]   loss : 16.4453
+Iteration [164 / 200]   loss : 15.5507
+Iteration [165 / 200]   loss : 16.052
+Iteration [166 / 200]   loss : 15.5484
+Iteration [167 / 200]   loss : 14.6771
+Iteration [168 / 200]   loss : 16.1435
+Iteration [169 / 200]   loss : 15.2603
+Iteration [170 / 200]   loss : 15.5539
+Iteration [171 / 200]   loss : 14.9672
+Iteration [172 / 200]   loss : 15.6434
+Iteration [173 / 200]   loss : 14.7328
+Iteration [174 / 200]   loss : 14.9694
+Iteration [175 / 200]   loss : 16.4721
+Iteration [176 / 200]   loss : 15.1037
+Iteration [177 / 200]   loss : 15.6364
+Iteration [178 / 200]   loss : 15.3303
+Iteration [179 / 200]   loss : 15.0809
+Iteration [180 / 200]   loss : 15.8241
+Iteration [181 / 200]   loss : 15.1955
+Iteration [182 / 200]   loss : 16.0277
+Iteration [183 / 200]   loss : 14.8137
+Iteration [184 / 200]   loss : 15.36
+Iteration [185 / 200]   loss : 15.1258
+Iteration [186 / 200]   loss : 15.7984
+Iteration [187 / 200]   loss : 15.2535
+Iteration [188 / 200]   loss : 16.1377
+Iteration [189 / 200]   loss : 15.6526
+Iteration [190 / 200]   loss : 15.1575
+Iteration [191 / 200]   loss : 15.5984
+Iteration [192 / 200]   loss : 14.4998
+Iteration [193 / 200]   loss : 14.5144
+Iteration [194 / 200]   loss : 15.6029
+Iteration [195 / 200]   loss : 15.0946
+Iteration [196 / 200]   loss : 15.6719
+Iteration [197 / 200]   loss : 15.1988
+Iteration [198 / 200]   loss : 14.8845
+Iteration [199 / 200]   loss : 14.7961
 Time Recorded ==========================
 
-37.5421
-7.13573
-97.4626
-56.3227
-4470.63
-1854.68
-4141.42
-1187.29
-86.1494
-42.3123
-798.98
-149.864
-811.862
-985.276
-87.8889
-47.3226
-4414.74
-1856.23
-4145.19
-1127.71
-85.3309
-41.3813
-822.264
-152.3
-792.376
-983.999
-87.9064
-47.8233
-4381.74
-1854.02
-4106.1
-1173.94
-86.6615
-38.1463
-798.652
-149.911
-784.907
-983.395
-87.1163
-50.5655
-4464.16
-1842.74
-4099.88
-1140.63
-85.3182
-39.2663
-810.285
-152.78
-773.953
-985.708
-88.2245
-51.6931
-4467.36
-1851.88
-4111.13
-1101.11
-87.0988
-43.8152
-825.777
-156.791
-773.824
-983.124
-87.0487
-52.7285
-5282.9
-2126.38
-4792
-1412.29
-90.2343
-49.0447
-837.946
-176.254
-849.569
-998.99
-94.2171
-53.3108
-33.7439
-7.32037
-92.6233
-43.8541
-8283.5
-2982.12
-6941.95
-2108.53
-102.338
-62.3248
-6811.13
-5694.77
-4104.54
-1161.58
-86.585
-45.8564
-806.161
-151.779
-778.503
-1006.16
-88.2957
-53.8966
-4631.14
-1554.84
-4086.7
-1191.39
-87.7244
-47.8639
-4122.74
-5572.98
-4139.67
-1132.66
-85.8639
-47.134
-825.689
-151.436
-760.733
-883.358
-88.8567
-54.8032
-4148.41
-1594.91
-4026.46
-1126.3
-88.2901
-54.9333
-4220.77
-5564.46
-4182.12
-1281.88
-85.0245
-36.4273
-841.098
-147.1
-818.553
-1015.91
-88.4202
-49.5868
-4501.63
-1646.36
-4174.5
-1232.32
-85.9892
-43.0605
-4374.81
-5549.29
-4162.07
-1179.37
-86.0647
-44.6996
-806.18
-155.031
-802.047
-883.398
-86.1664
-45.694
-4396.42
-1607.88
-4127.94
-1185.55
-85.1091
-43.1587
-4339.51
-5560.91
-4133.15
-1198.62
-86.7989
-43.1814
-858.979
-154.766
-786.078
-999.873
-88.2953
-53.6303
-4353.85
-1620.04
-4130.18
-1209.98
-85.791
-42.3573
-4296.31
-5562.09
-4056.47
-1177.44
-85.6265
-42.3189
-798.759
-147.714
-824.98
-886.051
-91.0253
-48.6986
-99091.5
+154796
+38.5508
+22.3497
+1749.4
+199.081
+813.003
+1696.68
+22.066
+41.4178
+4767.01
+1751.94
+1492.51
+2995.22
+31.2776
+50.749
+4608.8
+1756.87
+1476.1
+2848.75
+30.3068
+50.1606
+1984.88
+256.676
+814.42
+1676.74
+21.2532
+42.2756
+4608.08
+1745.63
+1485.8
+3090.17
+26.1966
+38.6808
+4801.4
+1774.19
+1528.16
+2834.41
+37.1238
+56.3984
+1877.34
+267.353
+775.181
+1684.33
+22.3205
+42.9416
+4699.1
+1791.2
+1510.86
+2891.38
+32.6046
+51.5146
+4528.78
+1735.43
+1484.98
+2765.76
+37.6231
+58.6031
+2024.33
+276.372
+751.23
+1678.82
+23.5741
+40.9865
+4562.23
+1783.43
+1456.46
+2724.27
+39.3736
+63.2354
+4650.04
+1754.13
+1450.29
+2766.53
+32.7688
+56.6846
+1874.1
+271.302
+804.788
+1688.3
+21.2869
+42.5592
+4608.49
+1747.5
+1475.52
+2692.3
+39.8328
+59.0536
+4547.12
+1642.01
+1387.67
+2779.09
+37.6306
+59.8935
+2012.76
+280.787
+858.818
+1679.05
+21.8486
+40.653
+4652.4
+1726.27
+1441.08
+2712.12
+39.5264
+61.6408
+4572.35
+1720.26
+1476.78
+2714.89
+36.7314
+58.7681
+1.22872
+17.865
+65.7597
+42.1965
+1860.87
+269.226
+762.14
+1683.78
+24.5812
+43.3803
+4598.01
+1695.06
+1379.41
+2747.44
+35.6702
+58.1321
+1883.48
+276.542
+791.41
+1687.89
+20.8799
+40.8145
+4664.87
+1704.73
+1354.24
+2732.28
+36.7908
+58.6349
+1880.73
+274.977
+812.297
+1679.44
+21.8622
+43.6785
+4675.62
+1707.32
+1373.01
+2732.31
+37.1378
+58.6119
+1889.55
+271.996
+884.066
+1681.18
+23.3811
+42.4855
+4671.38
+1768.28
+1437.98
+2733.07
+37.1513
+57.5608
+1873.27
+280.668
+922.454
+1678.98
+22.6265
+39.7498
+4617.47
+1754.58
+1413.66
+2728.06
+37.8738
+58.9851
+1852.36
+281.617
+977.248
+1677.32
+26.023
+41.1454
+4622.5
+1774.02
+1431.03
+2751.35
+37.6965
+62.173
+1.20563
+25.7816
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 I did not want to tell you , but you make me do it . 
@@ -399,7 +399,7 @@ Io non volevo [UNK] , ma tu mi ci
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , rammentar suggerirmi , rammentar carico rammentar 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -415,7 +415,7 @@ XV [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , 
+irritarlo irritarlo 
 
 
 
@@ -431,7 +431,7 @@ Confesso che non aveva pensato per nulla alla possibilità di veder distrutta in
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , carico debba debba debba debba carico carico , , , , , carico debba debba carico carico , , , , , , debba debba , , , , , , , , , , debba , , , , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -447,7 +447,7 @@ Il più [UNK] ladro del mondo si sarebbe da vero corretto da questo brutto vizio
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba carico , carico , , , , carico , debba debba debba , , , , , , debba , debba debba , , debba , , , , debba debba debba , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -463,7 +463,7 @@ Il vento soffiava ancora nella sua direzione , e , prima che [UNK] l ’ altro c
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba debba carico carico carico , , , carico debba , debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -479,7 +479,7 @@ Nel corso del giorno alzai la testa e guardai intorno a
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , debba debba debba debba debba carico carico carico , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -495,7 +495,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , 
+irritarlo irritarlo 
 
 
 
@@ -511,7 +511,7 @@ Dissi queste parole quasi
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, debba debba debba 
+irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -527,7 +527,7 @@ Avendo notato gli sguardi rivolti su di lui , alzò il capo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , , debba debba debba rammentar carico carico , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -543,7 +543,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , , debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -559,7 +559,7 @@ Abbiamo litigato per la seconda volta da che ... [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , carico carico carico carico carico carico carico 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -575,7 +575,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , , debba debba debba debba rammentar carico , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -591,7 +591,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba spinge rammentar 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -607,7 +607,7 @@ Si sentiva stroncata e il suo viso lo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , carico debba debba debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -623,7 +623,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , debba debba debba debba debba rammentar rammentar rammentar , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -639,7 +639,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba rammentar rammentar , , , , , , carico 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -655,7 +655,7 @@ Come erano semplici e naturali le
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , suggerirmi debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -671,7 +671,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico 
+irritarlo 
 
 
 
@@ -687,7 +687,7 @@ Lui ci avrebbe mostrato di che cosa fosse capace in
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, spinge debba debba debba debba debba debba debba carico 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -703,7 +703,7 @@ Levin , liberata pian piano la
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -719,7 +719,7 @@ Levin
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, 
+irritarlo 
 
 
 
@@ -735,7 +735,7 @@ Parlava di
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico carico 
+irritarlo irritarlo 
 
 
 
@@ -751,7 +751,7 @@ Non è vero che
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , , 
+irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -767,7 +767,7 @@ E le strade non si possono fare aggiustare ; e i ponti , appena messi a
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , debba debba debba rammentar , rammentar , , , , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -783,7 +783,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba , rammentar rammentar 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -799,7 +799,7 @@ Questo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, 
+irritarlo 
 
 
 
@@ -815,7 +815,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , 
+irritarlo irritarlo 
 
 
 
@@ -831,7 +831,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , , debba debba debba carico rammentar carico 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -847,7 +847,7 @@ Aleksej Aleksandrovic rabbrividì al ricordo della moglie , e immediatamente
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , debba debba debba debba debba , carico carico 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -863,7 +863,7 @@ Si fece silenzio
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , debba 
+irritarlo irritarlo irritarlo 
 
 
 
@@ -879,7 +879,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , 
+irritarlo irritarlo 
 
 
 
@@ -895,7 +895,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , , 
+irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -911,7 +911,7 @@ La corsa fu disgraziata e su diciassette persone ne caddero e si fecero
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico debba , debba debba debba debba carico carico , carico debba carico 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -927,7 +927,7 @@ Nel momento in cui si avvicinò a lei , i suoi begli occhi brillarono di una par
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba debba , carico carico , , , debba debba debba debba debba spinge debba , , , debba debba , debba , debba , , , , , , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -943,7 +943,7 @@ Diana
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico 
+irritarlo 
 
 
 
@@ -959,7 +959,7 @@ Non perdetti dunque nessuno dei vantaggi che mi erano offerti e giunsi ad
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , , carico debba debba carico rammentar , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -975,7 +975,7 @@ Vi assicuro , [UNK]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , debba 
+irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -991,7 +991,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , 
+irritarlo irritarlo irritarlo 
 
 
 
@@ -1007,7 +1007,7 @@ Una sera , il suo orologio andava male , e s ’ era fermato alle otto e un quar
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , debba debba debba debba debba debba debba carico debba , debba debba debba carico carico debba debba debba carico carico , , , , debba , debba debba debba , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1023,7 +1023,7 @@ Egli cercava di ricordare i momenti migliori passati con lei ; ma questi momenti
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico debba , debba debba debba spinge carico carico carico , , rammentar , carico carico carico debba carico debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1039,7 +1039,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , debba debba debba debba rammentar rammentar , rammentar 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1055,7 +1055,7 @@ Prima
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, 
+irritarlo 
 
 
 
@@ -1071,7 +1071,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , 
+irritarlo irritarlo 
 
 
 
@@ -1087,7 +1087,7 @@ Kitty , dopo pranzo e fino al principio della serata , provò una sensazione sim
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba debba carico , carico , , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1103,7 +1103,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico 
+irritarlo 
 
 
 
@@ -1119,7 +1119,7 @@ Oh ,
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , 
+irritarlo irritarlo 
 
 
 
@@ -1135,7 +1135,7 @@ Mentre dicevano questo , Laska , drizzando le orecchie , guardò
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba carico carico carico , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1151,7 +1151,7 @@ In quel giorno della settimana e a quell ’
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , debba debba debba debba debba debba carico 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1167,7 +1167,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , , debba debba debba carico , carico , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1183,7 +1183,7 @@ Dopo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, 
+irritarlo 
 
 
 
@@ -1199,7 +1199,7 @@ Ella chinò il capo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , , 
+irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1215,7 +1215,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , , debba debba debba , rammentar , , , , , , , debba debba debba , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1231,7 +1231,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , debba debba debba debba debba carico carico carico , , , , , , , carico debba , , , , debba debba debba debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1247,7 +1247,7 @@ Potevo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, 
+irritarlo 
 
 
 
@@ -1263,7 +1263,7 @@ Gli scrissi dicendogli che mi doleva che i suoi disegni non potessero compiersi 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba carico carico , carico , , , , debba carico debba debba , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1279,7 +1279,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , debba debba debba debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1295,7 +1295,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, 
+irritarlo 
 
 
 
@@ -1311,7 +1311,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1327,7 +1327,7 @@ Ecco , prendi il telegramma , [UNK]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , , debba debba carico 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1343,7 +1343,7 @@ Inoltre provava quel senso di agitazione che prova ogni cacciatore , avvicinando
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba carico rammentar , , , , , carico , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1359,7 +1359,7 @@ IX [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , 
+irritarlo irritarlo 
 
 
 
@@ -1375,7 +1375,7 @@ Lo sai cosa ha fatto ... [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , spinge debba debba , debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1391,7 +1391,7 @@ Lo guardava sorridendo ; ma a un tratto le tremarono le sopracciglia , levò il 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba debba debba carico carico , , , , debba , debba debba debba carico , , , , debba debba debba debba debba debba debba , , , , , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1407,7 +1407,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , , debba debba debba rammentar , , , , , , , , , debba , debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1423,7 +1423,7 @@ Essi non
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , 
+irritarlo irritarlo 
 
 
 
@@ -1439,7 +1439,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , 
+irritarlo irritarlo 
 
 
 
@@ -1455,7 +1455,7 @@ Egli si sedè .
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico debba , carico 
+irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1471,7 +1471,7 @@ XIII
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, 
+irritarlo 
 
 
 
@@ -1487,7 +1487,7 @@ Gli
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, 
+irritarlo 
 
 
 
@@ -1503,7 +1503,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , debba debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1519,7 +1519,7 @@ E Levin cominciò a esporre prudentemente , quasi a [UNK] il terreno , il
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , , debba debba debba carico rammentar rammentar , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1535,7 +1535,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , , debba debba debba rammentar , , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1551,7 +1551,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1567,7 +1567,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , debba debba debba debba carico rammentar carico carico debba , debba , , debba debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1583,7 +1583,7 @@ Questa è la deduzione
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , , debba 
+irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1599,7 +1599,7 @@ Saputo che il dottore non
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba 
+irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1615,7 +1615,7 @@ No
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico 
+irritarlo 
 
 
 
@@ -1631,7 +1631,7 @@ Giorgio se lo cacciò
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-carico , debba debba 
+irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1647,7 +1647,7 @@ Ho osservato che , nei libri scritti dagli uomini , questo periodo è
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , carico carico debba spinge debba carico , carico , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 
@@ -1663,7 +1663,7 @@ Nel mezzo a quella spianata scorreva un ruscello pieno di pietre nere e di sassi
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-, , , debba debba debba rammentar rammentar , rammentar rammentar , , spinge , , debba debba debba , , , 
+irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo irritarlo 
 
 
 

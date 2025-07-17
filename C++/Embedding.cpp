@@ -18,8 +18,6 @@ void Embedding::forward(const int input[batch * sequenceLength], TensorView outp
         output.sliceRow(i, 1) = table.sliceRow(input[i], 1);
     }
     Mul(output, std::sqrt(dModel), output);
-    Timer::CheckPoint();
-    if(verbose) std::cout << "Embedding" << std::endl;
 }
 
 void Embedding::predict(const int input[batch * sequenceLength], TensorView output) {
@@ -32,6 +30,8 @@ void Embedding::backward(TensorView outputGradient, const int* input) {
         needUpdate[input[i]] = true;
         tableOpt[input[i]].gradient += outputGradient.sliceRow(i, 1);
     }
+    Timer::CheckPoint();
+    if(verbose) std::cout << "Embedding" << std::endl;
 }
 
 void Embedding::updateParameter() {

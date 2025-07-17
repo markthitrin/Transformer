@@ -10,8 +10,6 @@ void ReLU::forward(TensorView input, TensorView output) {
     for(int i = 0;i < input.row * input.col;i++) {
         output[i] = input[i] >= 0 ? input[i] : 0;
     }
-    Timer::CheckPoint();
-    if(verbose) std::cout << "ReLU" << std::endl;
 }
 
 void ReLU::predict(TensorView input, TensorView output) {
@@ -22,4 +20,6 @@ void ReLU::backward(TensorView outputGradient, TensorView inputGradient, TensorV
     for(int i = 0;i < outputGradient.row * outputGradient.col;i++) {
         inputGradient[i] = input[i] >= 0 ? outputGradient[i] : 0;
     }
+    Timer::CheckPoint();
+    if(verbose) std::cout << "ReLU" << std::endl;
 }

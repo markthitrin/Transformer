@@ -32,7 +32,6 @@ class LayerNorm {
                 output[i * dModel + j] = alpha[j] * xHat[i * dModel + j] + bias[j];
             }
         }
-        CheckPoint();
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
@@ -55,6 +54,7 @@ class LayerNorm {
                 inputGradient[i * dModel + j] = (1.0 / std[i]) * (outputGradient[i * dModel + j] - a - xHat[i * dModel + j] * b) * alpha[j];
             }
         }
+        CheckPoint();
     }
 
     proc updateParameter() {

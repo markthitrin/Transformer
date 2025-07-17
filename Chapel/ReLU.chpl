@@ -12,7 +12,6 @@ class ReLU {
         for i in D {
             output[i] = if input[i] >= 0 then input[i] else 0.0:real(32);
         }
-        CheckPoint();
     }   
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
@@ -23,6 +22,7 @@ class ReLU {
         for i in D {
             inputGradient[i] = if input[i] >= 0 then outputGradient[i] else 0.0:real(32);
         }
+        CheckPoint();
     }
 
     var domMask: domain(1);
