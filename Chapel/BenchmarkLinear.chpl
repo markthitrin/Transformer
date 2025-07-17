@@ -4,24 +4,43 @@ use Util;
 use Matrix;
 use Time;
 
-param iterationTest = 2000;
+param iterationTest = 500;
+param stdTest = 20;
 var t:stopwatch;
 
 
 
 
 
-var input: [0..#(batch * sequenceLength * dFF)] real(32);
+var input: [0..#(batch * sequenceLength * dModel)] real(32);
 var output: [0..#(batch * sequenceLength * dFF)] real(32);
 UniformInit(input, 1);
-var linear = new Linear(dFF, dFF);
+var linear = new Linear(dModel, dFF);
 
-t.start();
-for i in 0..#iterationTest {
-    linear.forward(input, output);
+var time:[0..stdTest] real;
+var totalTime: real;
+var std: real;
+
+for i in 0..#stdTest {
+    t.reset();
+    t.start();
+    for j in 0..#iterationTest {
+        linear.forward(input, output);
+    }
+    t.stop();
+    time[i] = t.elapsed();
+    totalTime += time[i];
 }
-t.stop();
+var meanPerTest = totalTime / stdTest;
+for i in 0..#stdTest {
+    var x = time[i] - meanPerTest;
+    std += x * x;
+}
+std /= stdTest - 1;
+std = sqrt(std);
 
 
-writeln("Time per iteration : ", t.elapsed() / iterationTest);
-writeln("Iteration per second : ", iterationTest / t.elapsed());
+writeln("mean Time per iteration : ", meanPerTest / iterationTest);
+writeln("std  Time per iteration : ", std / sqrt(iterationTest));
+writeln("mean Iteration per second : ", iterationTest / meanPerTest);
+writeln("std  Iteration per second : ",  iterationTest * iterationTest / (meanPerTest * meanPerTest) * (std / sqrt(iterationTest)));

@@ -1,394 +1,394 @@
-Iteration [0 / 200]   loss : 17.2116
-Iteration [1 / 200]   loss : 17.2941
-Iteration [2 / 200]   loss : 16.9646
-Iteration [3 / 200]   loss : 16.9123
-Iteration [4 / 200]   loss : 16.9719
-Iteration [5 / 200]   loss : 17.0095
-Iteration [6 / 200]   loss : 17.0724
-Iteration [7 / 200]   loss : 16.9141
-Iteration [8 / 200]   loss : 16.3998
-Iteration [9 / 200]   loss : 16.7951
-Iteration [10 / 200]   loss : 16.4506
-Iteration [11 / 200]   loss : 16.7537
-Iteration [12 / 200]   loss : 16.726
-Iteration [13 / 200]   loss : 16.4589
-Iteration [14 / 200]   loss : 16.1591
-Iteration [15 / 200]   loss : 16.783
-Iteration [16 / 200]   loss : 16.4884
-Iteration [17 / 200]   loss : 16.7053
-Iteration [18 / 200]   loss : 16.758
-Iteration [19 / 200]   loss : 16.8642
-Iteration [20 / 200]   loss : 16.5057
-Iteration [21 / 200]   loss : 16.6018
-Iteration [22 / 200]   loss : 16.5872
-Iteration [23 / 200]   loss : 16.6774
-Iteration [24 / 200]   loss : 16.1063
-Iteration [25 / 200]   loss : 17.299
-Iteration [26 / 200]   loss : 16.3764
-Iteration [27 / 200]   loss : 15.4622
-Iteration [28 / 200]   loss : 16.1987
-Iteration [29 / 200]   loss : 16.4778
-Iteration [30 / 200]   loss : 15.6652
-Iteration [31 / 200]   loss : 16.282
-Iteration [32 / 200]   loss : 16.3971
-Iteration [33 / 200]   loss : 15.6077
-Iteration [34 / 200]   loss : 16.4568
-Iteration [35 / 200]   loss : 16.4504
-Iteration [36 / 200]   loss : 15.5484
-Iteration [37 / 200]   loss : 16.6293
-Iteration [38 / 200]   loss : 16.7834
-Iteration [39 / 200]   loss : 16.1804
-Iteration [40 / 200]   loss : 16.2803
-Iteration [41 / 200]   loss : 16.3071
-Iteration [42 / 200]   loss : 16.3751
-Iteration [43 / 200]   loss : 17.1033
-Iteration [44 / 200]   loss : 16.4795
-Iteration [45 / 200]   loss : 16.6067
-Iteration [46 / 200]   loss : 16.3495
-Iteration [47 / 200]   loss : 17.1048
-Iteration [48 / 200]   loss : 17.006
-Iteration [49 / 200]   loss : 16.493
-Iteration [50 / 200]   loss : 16.2435
-Iteration [51 / 200]   loss : 16.5399
-Iteration [52 / 200]   loss : 15.9119
-Iteration [53 / 200]   loss : 16.3679
-Iteration [54 / 200]   loss : 16.3913
-Iteration [55 / 200]   loss : 16.8601
-Iteration [56 / 200]   loss : 16.0069
-Iteration [57 / 200]   loss : 16.196
-Iteration [58 / 200]   loss : 16.0843
-Iteration [59 / 200]   loss : 16.2861
-Iteration [60 / 200]   loss : 15.9638
-Iteration [61 / 200]   loss : 16.87
-Iteration [62 / 200]   loss : 16.9268
-Iteration [63 / 200]   loss : 16.5716
-Iteration [64 / 200]   loss : 15.9001
-Iteration [65 / 200]   loss : 16.0969
-Iteration [66 / 200]   loss : 16.7226
-Iteration [67 / 200]   loss : 16.1016
-Iteration [68 / 200]   loss : 16.5977
-Iteration [69 / 200]   loss : 15.7676
-Iteration [70 / 200]   loss : 16.3779
-Iteration [71 / 200]   loss : 16.4665
-Iteration [72 / 200]   loss : 16.9929
-Iteration [73 / 200]   loss : 16.0395
-Iteration [74 / 200]   loss : 15.9055
-Iteration [75 / 200]   loss : 16.0162
-Iteration [76 / 200]   loss : 16.1818
-Iteration [77 / 200]   loss : 16.4596
-Iteration [78 / 200]   loss : 15.8334
-Iteration [79 / 200]   loss : 15.5435
-Iteration [80 / 200]   loss : 16.2482
-Iteration [81 / 200]   loss : 16.6884
-Iteration [82 / 200]   loss : 16.2717
-Iteration [83 / 200]   loss : 15.8412
-Iteration [84 / 200]   loss : 16.1669
-Iteration [85 / 200]   loss : 16.3386
-Iteration [86 / 200]   loss : 16.1644
-Iteration [87 / 200]   loss : 16.2636
-Iteration [88 / 200]   loss : 16.4137
-Iteration [89 / 200]   loss : 16.4544
-Iteration [90 / 200]   loss : 16.4203
-Iteration [91 / 200]   loss : 15.5719
-Iteration [92 / 200]   loss : 15.6343
-Iteration [93 / 200]   loss : 16.6919
-Iteration [94 / 200]   loss : 15.6016
-Iteration [95 / 200]   loss : 16.1544
-Iteration [96 / 200]   loss : 16.1442
-Iteration [97 / 200]   loss : 16.7351
-Iteration [98 / 200]   loss : 16.4359
-Iteration [99 / 200]   loss : 15.9297
-Iteration [100 / 200]   loss : 16.0673
-Iteration [101 / 200]   loss : 15.832
-Iteration [102 / 200]   loss : 16.2705
-Iteration [103 / 200]   loss : 16.0568
-Iteration [104 / 200]   loss : 16.6986
-Iteration [105 / 200]   loss : 16.8681
-Iteration [106 / 200]   loss : 16.4589
-Iteration [107 / 200]   loss : 15.5433
-Iteration [108 / 200]   loss : 16.8385
-Iteration [109 / 200]   loss : 15.7982
-Iteration [110 / 200]   loss : 16.1741
-Iteration [111 / 200]   loss : 16.8541
-Iteration [112 / 200]   loss : 15.7226
-Iteration [113 / 200]   loss : 16.0726
-Iteration [114 / 200]   loss : 15.9889
-Iteration [115 / 200]   loss : 16.5354
-Iteration [116 / 200]   loss : 16.1253
-Iteration [117 / 200]   loss : 16.4698
-Iteration [118 / 200]   loss : 16.5878
-Iteration [119 / 200]   loss : 15.442
-Iteration [120 / 200]   loss : 17.2585
-Iteration [121 / 200]   loss : 15.6975
-Iteration [122 / 200]   loss : 16.3482
-Iteration [123 / 200]   loss : 16.0975
-Iteration [124 / 200]   loss : 16.263
-Iteration [125 / 200]   loss : 16.6865
-Iteration [126 / 200]   loss : 16.1942
-Iteration [127 / 200]   loss : 16.0808
-Iteration [128 / 200]   loss : 16.052
-Iteration [129 / 200]   loss : 15.7947
-Iteration [130 / 200]   loss : 16.6306
-Iteration [131 / 200]   loss : 15.763
-Iteration [132 / 200]   loss : 16.2019
-Iteration [133 / 200]   loss : 16.2256
-Iteration [134 / 200]   loss : 17.5508
-Iteration [135 / 200]   loss : 16.0681
-Iteration [136 / 200]   loss : 15.7972
-Iteration [137 / 200]   loss : 15.9358
-Iteration [138 / 200]   loss : 16.3415
-Iteration [139 / 200]   loss : 17.0656
-Iteration [140 / 200]   loss : 15.3908
-Iteration [141 / 200]   loss : 15.9598
-Iteration [142 / 200]   loss : 16.7727
-Iteration [143 / 200]   loss : 15.9492
-Iteration [144 / 200]   loss : 16.5199
-Iteration [145 / 200]   loss : 15.811
-Iteration [146 / 200]   loss : 15.4022
-Iteration [147 / 200]   loss : 16.351
-Iteration [148 / 200]   loss : 15.7429
-Iteration [149 / 200]   loss : 16.0109
-Iteration [150 / 200]   loss : 16.247
-Iteration [151 / 200]   loss : 15.756
-Iteration [152 / 200]   loss : 15.9302
-Iteration [153 / 200]   loss : 16.5319
-Iteration [154 / 200]   loss : 15.6572
-Iteration [155 / 200]   loss : 16.0776
-Iteration [156 / 200]   loss : 16.6822
-Iteration [157 / 200]   loss : 16.1097
-Iteration [158 / 200]   loss : 15.514
-Iteration [159 / 200]   loss : 15.6256
-Iteration [160 / 200]   loss : 16.0484
-Iteration [161 / 200]   loss : 16.0412
-Iteration [162 / 200]   loss : 15.9266
-Iteration [163 / 200]   loss : 16.0826
-Iteration [164 / 200]   loss : 15.4115
-Iteration [165 / 200]   loss : 15.9744
-Iteration [166 / 200]   loss : 15.7726
-Iteration [167 / 200]   loss : 15.1435
-Iteration [168 / 200]   loss : 16.0108
-Iteration [169 / 200]   loss : 15.8301
-Iteration [170 / 200]   loss : 15.8443
-Iteration [171 / 200]   loss : 15.9365
-Iteration [172 / 200]   loss : 16.6027
-Iteration [173 / 200]   loss : 15.9656
-Iteration [174 / 200]   loss : 14.5548
-Iteration [175 / 200]   loss : 15.2001
-Iteration [176 / 200]   loss : 15.9438
-Iteration [177 / 200]   loss : 14.9266
-Iteration [178 / 200]   loss : 15.667
-Iteration [179 / 200]   loss : 15.6375
-Iteration [180 / 200]   loss : 15.6653
-Iteration [181 / 200]   loss : 16.88
-Iteration [182 / 200]   loss : 16.1599
-Iteration [183 / 200]   loss : 15.1926
-Iteration [184 / 200]   loss : 15.8236
-Iteration [185 / 200]   loss : 15.0636
-Iteration [186 / 200]   loss : 16.1935
-Iteration [187 / 200]   loss : 15.8955
-Iteration [188 / 200]   loss : 15.5251
-Iteration [189 / 200]   loss : 15.8569
-Iteration [190 / 200]   loss : 16.0694
-Iteration [191 / 200]   loss : 15.4482
-Iteration [192 / 200]   loss : 15.2671
-Iteration [193 / 200]   loss : 15.6535
-Iteration [194 / 200]   loss : 15.502
-Iteration [195 / 200]   loss : 14.9187
-Iteration [196 / 200]   loss : 15.4561
-Iteration [197 / 200]   loss : 14.6373
-Iteration [198 / 200]   loss : 15.4786
-Iteration [199 / 200]   loss : 15.9266
+Iteration [0 / 200]   loss : 17.1896
+Iteration [1 / 200]   loss : 17.0371
+Iteration [2 / 200]   loss : 16.768
+Iteration [3 / 200]   loss : 16.6134
+Iteration [4 / 200]   loss : 16.9415
+Iteration [5 / 200]   loss : 17.3195
+Iteration [6 / 200]   loss : 17.1689
+Iteration [7 / 200]   loss : 17.818
+Iteration [8 / 200]   loss : 17.8873
+Iteration [9 / 200]   loss : 16.4943
+Iteration [10 / 200]   loss : 17.5236
+Iteration [11 / 200]   loss : 17.1445
+Iteration [12 / 200]   loss : 16.5979
+Iteration [13 / 200]   loss : 16.8223
+Iteration [14 / 200]   loss : 16.5966
+Iteration [15 / 200]   loss : 17.056
+Iteration [16 / 200]   loss : 16.0163
+Iteration [17 / 200]   loss : 16.4187
+Iteration [18 / 200]   loss : 18.2664
+Iteration [19 / 200]   loss : 16.7115
+Iteration [20 / 200]   loss : 16.4907
+Iteration [21 / 200]   loss : 16.5737
+Iteration [22 / 200]   loss : 16.8045
+Iteration [23 / 200]   loss : 17.1847
+Iteration [24 / 200]   loss : 15.7205
+Iteration [25 / 200]   loss : 18.4153
+Iteration [26 / 200]   loss : 16.0548
+Iteration [27 / 200]   loss : 16.297
+Iteration [28 / 200]   loss : 16.1564
+Iteration [29 / 200]   loss : 17.3148
+Iteration [30 / 200]   loss : 16.4969
+Iteration [31 / 200]   loss : 16.7051
+Iteration [32 / 200]   loss : 17.0048
+Iteration [33 / 200]   loss : 16.3549
+Iteration [34 / 200]   loss : 16.862
+Iteration [35 / 200]   loss : 17.0898
+Iteration [36 / 200]   loss : 16.4886
+Iteration [37 / 200]   loss : 16.4008
+Iteration [38 / 200]   loss : 16.4675
+Iteration [39 / 200]   loss : 16.8702
+Iteration [40 / 200]   loss : 16.9867
+Iteration [41 / 200]   loss : 16.4452
+Iteration [42 / 200]   loss : 16.0447
+Iteration [43 / 200]   loss : 16.6398
+Iteration [44 / 200]   loss : 16.2659
+Iteration [45 / 200]   loss : 16.6615
+Iteration [46 / 200]   loss : 15.6211
+Iteration [47 / 200]   loss : 16.0583
+Iteration [48 / 200]   loss : 17.3384
+Iteration [49 / 200]   loss : 15.6756
+Iteration [50 / 200]   loss : 15.729
+Iteration [51 / 200]   loss : 16.634
+Iteration [52 / 200]   loss : 16.4464
+Iteration [53 / 200]   loss : 16.1368
+Iteration [54 / 200]   loss : 17.4472
+Iteration [55 / 200]   loss : 16.1799
+Iteration [56 / 200]   loss : 16.2871
+Iteration [57 / 200]   loss : 16.1439
+Iteration [58 / 200]   loss : 15.8477
+Iteration [59 / 200]   loss : 16.2783
+Iteration [60 / 200]   loss : 15.654
+Iteration [61 / 200]   loss : 17.2455
+Iteration [62 / 200]   loss : 16.2613
+Iteration [63 / 200]   loss : 16.4754
+Iteration [64 / 200]   loss : 16.5875
+Iteration [65 / 200]   loss : 15.5465
+Iteration [66 / 200]   loss : 16.1886
+Iteration [67 / 200]   loss : 16.0297
+Iteration [68 / 200]   loss : 15.7755
+Iteration [69 / 200]   loss : 16.9664
+Iteration [70 / 200]   loss : 16.1888
+Iteration [71 / 200]   loss : 15.9902
+Iteration [72 / 200]   loss : 15.05
+Iteration [73 / 200]   loss : 15.7677
+Iteration [74 / 200]   loss : 15.9849
+Iteration [75 / 200]   loss : 15.6068
+Iteration [76 / 200]   loss : 17.0138
+Iteration [77 / 200]   loss : 16.1804
+Iteration [78 / 200]   loss : 16.7262
+Iteration [79 / 200]   loss : 16.921
+Iteration [80 / 200]   loss : 16.6657
+Iteration [81 / 200]   loss : 16.1555
+Iteration [82 / 200]   loss : 15.9464
+Iteration [83 / 200]   loss : 15.5917
+Iteration [84 / 200]   loss : 15.3321
+Iteration [85 / 200]   loss : 17.0047
+Iteration [86 / 200]   loss : 15.9331
+Iteration [87 / 200]   loss : 15.7917
+Iteration [88 / 200]   loss : 16.127
+Iteration [89 / 200]   loss : 16.0747
+Iteration [90 / 200]   loss : 15.7572
+Iteration [91 / 200]   loss : 16.1591
+Iteration [92 / 200]   loss : 15.9041
+Iteration [93 / 200]   loss : 17.0484
+Iteration [94 / 200]   loss : 16.5241
+Iteration [95 / 200]   loss : 16.3041
+Iteration [96 / 200]   loss : 16.2673
+Iteration [97 / 200]   loss : 16.8967
+Iteration [98 / 200]   loss : 15.7168
+Iteration [99 / 200]   loss : 17.1555
+Iteration [100 / 200]   loss : 15.9852
+Iteration [101 / 200]   loss : 16.1422
+Iteration [102 / 200]   loss : 16.0161
+Iteration [103 / 200]   loss : 16.2686
+Iteration [104 / 200]   loss : 16.5251
+Iteration [105 / 200]   loss : 16.4337
+Iteration [106 / 200]   loss : 16.9608
+Iteration [107 / 200]   loss : 15.8861
+Iteration [108 / 200]   loss : 15.8496
+Iteration [109 / 200]   loss : 16.3896
+Iteration [110 / 200]   loss : 15.601
+Iteration [111 / 200]   loss : 16.5989
+Iteration [112 / 200]   loss : 16.1342
+Iteration [113 / 200]   loss : 16.4348
+Iteration [114 / 200]   loss : 16.0256
+Iteration [115 / 200]   loss : 16.6831
+Iteration [116 / 200]   loss : 16.0401
+Iteration [117 / 200]   loss : 16.3846
+Iteration [118 / 200]   loss : 15.0456
+Iteration [119 / 200]   loss : 15.892
+Iteration [120 / 200]   loss : 15.353
+Iteration [121 / 200]   loss : 16.0113
+Iteration [122 / 200]   loss : 16.4692
+Iteration [123 / 200]   loss : 16.4583
+Iteration [124 / 200]   loss : 16.9076
+Iteration [125 / 200]   loss : 17.5092
+Iteration [126 / 200]   loss : 16.0907
+Iteration [127 / 200]   loss : 16.1774
+Iteration [128 / 200]   loss : 16.0413
+Iteration [129 / 200]   loss : 15.9609
+Iteration [130 / 200]   loss : 16.6497
+Iteration [131 / 200]   loss : 17.496
+Iteration [132 / 200]   loss : 15.7068
+Iteration [133 / 200]   loss : 17.4025
+Iteration [134 / 200]   loss : 16.2015
+Iteration [135 / 200]   loss : 16.0192
+Iteration [136 / 200]   loss : 15.8501
+Iteration [137 / 200]   loss : 17.2692
+Iteration [138 / 200]   loss : 15.8839
+Iteration [139 / 200]   loss : 16.1812
+Iteration [140 / 200]   loss : 15.8778
+Iteration [141 / 200]   loss : 15.6676
+Iteration [142 / 200]   loss : 15.3247
+Iteration [143 / 200]   loss : 15.683
+Iteration [144 / 200]   loss : 15.9445
+Iteration [145 / 200]   loss : 15.3935
+Iteration [146 / 200]   loss : 17.0795
+Iteration [147 / 200]   loss : 15.0033
+Iteration [148 / 200]   loss : 15.8602
+Iteration [149 / 200]   loss : 15.3354
+Iteration [150 / 200]   loss : 15.7205
+Iteration [151 / 200]   loss : 15.8453
+Iteration [152 / 200]   loss : 16.3821
+Iteration [153 / 200]   loss : 16.3226
+Iteration [154 / 200]   loss : 15.9101
+Iteration [155 / 200]   loss : 15.0872
+Iteration [156 / 200]   loss : 15.9179
+Iteration [157 / 200]   loss : 16.6192
+Iteration [158 / 200]   loss : 16.3661
+Iteration [159 / 200]   loss : 15.9264
+Iteration [160 / 200]   loss : 16.8175
+Iteration [161 / 200]   loss : 16.0035
+Iteration [162 / 200]   loss : 15.9455
+Iteration [163 / 200]   loss : 15.3256
+Iteration [164 / 200]   loss : 15.8946
+Iteration [165 / 200]   loss : 15.4826
+Iteration [166 / 200]   loss : 15.8867
+Iteration [167 / 200]   loss : 15.679
+Iteration [168 / 200]   loss : 15.4162
+Iteration [169 / 200]   loss : 15.512
+Iteration [170 / 200]   loss : 15.1341
+Iteration [171 / 200]   loss : 15.2666
+Iteration [172 / 200]   loss : 15.8848
+Iteration [173 / 200]   loss : 15.7334
+Iteration [174 / 200]   loss : 15.5411
+Iteration [175 / 200]   loss : 15.7313
+Iteration [176 / 200]   loss : 15.6738
+Iteration [177 / 200]   loss : 16.3455
+Iteration [178 / 200]   loss : 16.1632
+Iteration [179 / 200]   loss : 16.0141
+Iteration [180 / 200]   loss : 15.7502
+Iteration [181 / 200]   loss : 16.3005
+Iteration [182 / 200]   loss : 17.3636
+Iteration [183 / 200]   loss : 15.7087
+Iteration [184 / 200]   loss : 15.0886
+Iteration [185 / 200]   loss : 15.2886
+Iteration [186 / 200]   loss : 15.3407
+Iteration [187 / 200]   loss : 15.0573
+Iteration [188 / 200]   loss : 16.5097
+Iteration [189 / 200]   loss : 15.4247
+Iteration [190 / 200]   loss : 15.2395
+Iteration [191 / 200]   loss : 15.3852
+Iteration [192 / 200]   loss : 15.8804
+Iteration [193 / 200]   loss : 15.0193
+Iteration [194 / 200]   loss : 16.0042
+Iteration [195 / 200]   loss : 15.5154
+Iteration [196 / 200]   loss : 16.0445
+Iteration [197 / 200]   loss : 15.5836
+Iteration [198 / 200]   loss : 14.8105
+Iteration [199 / 200]   loss : 15.8116
 Time Recorded ==========================
 
-38.1932
-5.97184
-102.055
-54.1846
-5520
-1921.88
-4301.38
-1816.84
-85.1955
-39.4269
-1718.05
-153.889
-826.816
-993.749
-87.8046
-49.2537
-5322.99
-1910.33
-4250.59
-1791.56
-85.8168
-41.0759
-1773.65
-155.127
-823.942
-994.984
-87.4465
-51.5842
-5213.45
-1915.97
-4232.17
-1771.65
-86.748
-42.4836
-1712.9
-150.276
-794.998
-995.146
-88.0694
-53.2917
-5336.71
-1928.87
-4304.39
-1817.78
-86.2743
-43.4868
-1734.33
-155.24
-830.039
-1000.04
-88.9384
-51.0692
-5643.49
-1992.74
-4798.75
-2190.33
-93.7162
-53.2546
-1905.98
-209.978
-904.785
-1019.38
-93.8416
-61.2198
-8306.63
-2918.41
-6424.78
-2589.34
-98.8231
-56.0659
-1981.26
-221.333
-980.644
-1030.44
-97.9434
-70.8
-36.29
-6.42556
-95.2972
-47.8108
-6456.97
-1767.13
-4348.03
-1871.45
-85.0114
-45.5524
-5241.32
-5618.53
-4132.18
-1725.64
-86.6242
-38.6245
-1719.32
-148.515
-792.411
-1032.41
-86.44
-48.2478
-5031.53
-1646.98
-4118.83
-1688.15
-85.1383
-45.3086
-4946.79
-5561.93
-4138.51
-1730.75
-83.9866
-43.0071
-1772.12
-146.82
-815.151
-887.02
-87.0645
-46.9654
-5052.38
-1576.97
-4142.53
-1711.13
-84.2718
-42.2041
-4997.77
-5581.22
-4147.62
-1726.33
-84.7411
-39.257
-1737.41
-144.619
-798.84
-1010.19
-87.3257
-46.8914
-4985.62
-1626.69
-4120.97
-1721.73
-85.4722
-41.7969
-5151.68
-5571.68
-4131.99
-1704.08
-84.8168
-44.813
-1733.7
-154.893
-809.193
-883.699
-85.3841
-44.1339
-5111.49
-1581.22
-4117.22
-1753.01
-82.6676
-38.4616
-4941.63
-5568.25
-4107.14
-1694.46
-85.0529
-43.4362
-1752.82
-145.85
-788.489
-1028.39
-87.8752
-52.7088
-5694.37
-1805.82
-4416.89
-1814.49
-87.7119
-48.1818
-5813.91
-5698.77
-4913.93
-2070.45
-87.027
-44.2998
-1777.02
-167.394
-853.291
-900.433
-91.0779
-53.7584
-164873
+37.5421
+7.13573
+97.4626
+56.3227
+4470.63
+1854.68
+4141.42
+1187.29
+86.1494
+42.3123
+798.98
+149.864
+811.862
+985.276
+87.8889
+47.3226
+4414.74
+1856.23
+4145.19
+1127.71
+85.3309
+41.3813
+822.264
+152.3
+792.376
+983.999
+87.9064
+47.8233
+4381.74
+1854.02
+4106.1
+1173.94
+86.6615
+38.1463
+798.652
+149.911
+784.907
+983.395
+87.1163
+50.5655
+4464.16
+1842.74
+4099.88
+1140.63
+85.3182
+39.2663
+810.285
+152.78
+773.953
+985.708
+88.2245
+51.6931
+4467.36
+1851.88
+4111.13
+1101.11
+87.0988
+43.8152
+825.777
+156.791
+773.824
+983.124
+87.0487
+52.7285
+5282.9
+2126.38
+4792
+1412.29
+90.2343
+49.0447
+837.946
+176.254
+849.569
+998.99
+94.2171
+53.3108
+33.7439
+7.32037
+92.6233
+43.8541
+8283.5
+2982.12
+6941.95
+2108.53
+102.338
+62.3248
+6811.13
+5694.77
+4104.54
+1161.58
+86.585
+45.8564
+806.161
+151.779
+778.503
+1006.16
+88.2957
+53.8966
+4631.14
+1554.84
+4086.7
+1191.39
+87.7244
+47.8639
+4122.74
+5572.98
+4139.67
+1132.66
+85.8639
+47.134
+825.689
+151.436
+760.733
+883.358
+88.8567
+54.8032
+4148.41
+1594.91
+4026.46
+1126.3
+88.2901
+54.9333
+4220.77
+5564.46
+4182.12
+1281.88
+85.0245
+36.4273
+841.098
+147.1
+818.553
+1015.91
+88.4202
+49.5868
+4501.63
+1646.36
+4174.5
+1232.32
+85.9892
+43.0605
+4374.81
+5549.29
+4162.07
+1179.37
+86.0647
+44.6996
+806.18
+155.031
+802.047
+883.398
+86.1664
+45.694
+4396.42
+1607.88
+4127.94
+1185.55
+85.1091
+43.1587
+4339.51
+5560.91
+4133.15
+1198.62
+86.7989
+43.1814
+858.979
+154.766
+786.078
+999.873
+88.2953
+53.6303
+4353.85
+1620.04
+4130.18
+1209.98
+85.791
+42.3573
+4296.31
+5562.09
+4056.47
+1177.44
+85.6265
+42.3189
+798.759
+147.714
+824.98
+886.051
+91.0253
+48.6986
+99091.5
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 I did not want to tell you , but you make me do it . 
@@ -399,7 +399,7 @@ Io non volevo [UNK] , ma tu mi ci
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-percosso percosso percosso percosso afflitti percosso percosso afflitti percosso 
+carico , , rammentar suggerirmi , rammentar carico rammentar 
 
 
 
@@ -415,7 +415,7 @@ XV [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso 
+, , 
 
 
 
@@ -431,7 +431,7 @@ Confesso che non aveva pensato per nulla alla possibilità di veder distrutta in
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti percosso percosso percosso afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti percosso percosso afflitti afflitti percosso afflitti percosso percosso percosso afflitti afflitti percosso percosso percosso percosso percosso 
+, , , carico debba debba debba debba carico carico , , , , , carico debba debba carico carico , , , , , , debba debba , , , , , , , , , , debba , , , , , , , 
 
 
 
@@ -447,7 +447,7 @@ Il più [UNK] ladro del mondo si sarebbe da vero corretto da questo brutto vizio
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso afflitti afflitti percosso percosso afflitti afflitti afflitti percosso percosso percosso percosso percosso afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti percosso percosso percosso percosso percosso afflitti afflitti percosso 
+, , , debba debba debba debba carico , carico , , , , carico , debba debba debba , , , , , , debba , debba debba , , debba , , , , debba debba debba , , , , 
 
 
 
@@ -463,7 +463,7 @@ Il vento soffiava ancora nella sua direzione , e , prima che [UNK] l ’ altro c
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso afflitti percosso percosso percosso afflitti afflitti percosso percosso percosso percosso percosso afflitti afflitti percosso percosso afflitti 
+, , , debba debba debba debba debba carico carico carico , , , carico debba , debba 
 
 
 
@@ -479,7 +479,7 @@ Nel corso del giorno alzai la testa e guardai intorno a
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti 
+, , debba debba debba debba debba carico carico carico , 
 
 
 
@@ -495,7 +495,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-percosso afflitti 
+carico , 
 
 
 
@@ -511,7 +511,7 @@ Dissi queste parole quasi
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti 
+, debba debba debba 
 
 
 
@@ -527,7 +527,7 @@ Avendo notato gli sguardi rivolti su di lui , alzò il capo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti percosso percosso percosso percosso afflitti afflitti percosso afflitti percosso 
+carico , , , debba debba debba rammentar carico carico , , 
 
 
 
@@ -543,7 +543,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso percosso percosso percosso 
+carico , , , debba debba 
 
 
 
@@ -559,7 +559,7 @@ Abbiamo litigato per la seconda volta da che ... [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso percosso percosso percosso percosso percosso percosso percosso 
+carico , , carico carico carico carico carico carico carico 
 
 
 
@@ -575,7 +575,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti percosso percosso percosso percosso percosso percosso afflitti percosso percosso 
+carico , , , debba debba debba debba rammentar carico , , 
 
 
 
@@ -591,7 +591,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti percosso percosso percosso percosso afflitti 
+, , , debba debba debba spinge rammentar 
 
 
 
@@ -607,7 +607,7 @@ Si sentiva stroncata e il suo viso lo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso percosso afflitti afflitti 
+carico , , carico debba debba debba debba 
 
 
 
@@ -623,7 +623,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti percosso afflitti 
+, , debba debba debba debba debba rammentar rammentar rammentar , , , 
 
 
 
@@ -639,7 +639,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso percosso percosso percosso percosso percosso afflitti percosso afflitti percosso percosso percosso percosso percosso 
+, , , debba debba debba debba rammentar rammentar , , , , , , carico 
 
 
 
@@ -655,7 +655,7 @@ Come erano semplici e naturali le
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso afflitti percosso percosso 
+, , , suggerirmi debba debba 
 
 
 
@@ -671,7 +671,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+carico 
 
 
 
@@ -687,7 +687,7 @@ Lui ci avrebbe mostrato di che cosa fosse capace in
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso percosso afflitti percosso percosso afflitti afflitti percosso 
+, spinge debba debba debba debba debba debba debba carico 
 
 
 
@@ -703,7 +703,7 @@ Levin , liberata pian piano la
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso afflitti percosso percosso 
+, , , debba debba debba 
 
 
 
@@ -719,7 +719,7 @@ Levin
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+, 
 
 
 
@@ -735,7 +735,7 @@ Parlava di
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso 
+carico carico 
 
 
 
@@ -751,7 +751,7 @@ Non è vero che
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso percosso percosso 
+, , , , 
 
 
 
@@ -767,7 +767,7 @@ E le strade non si possono fare aggiustare ; e i ponti , appena messi a
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso percosso percosso percosso percosso percosso afflitti afflitti percosso percosso percosso percosso percosso percosso percosso 
+carico , , debba debba debba rammentar , rammentar , , , , , , , 
 
 
 
@@ -783,7 +783,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti 
+, , , debba debba debba debba , rammentar rammentar 
 
 
 
@@ -799,7 +799,7 @@ Questo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+, 
 
 
 
@@ -815,7 +815,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti 
+carico , 
 
 
 
@@ -831,7 +831,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso percosso percosso afflitti afflitti afflitti 
+carico , , , debba debba debba carico rammentar carico 
 
 
 
@@ -847,7 +847,7 @@ Aleksej Aleksandrovic rabbrividì al ricordo della moglie , e immediatamente
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso afflitti percosso percosso percosso percosso percosso percosso percosso 
+, , debba debba debba debba debba , carico carico 
 
 
 
@@ -863,7 +863,7 @@ Si fece silenzio
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti 
+carico , debba 
 
 
 
@@ -879,7 +879,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-percosso afflitti 
+carico , 
 
 
 
@@ -895,7 +895,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti 
+, , , , 
 
 
 
@@ -911,7 +911,7 @@ La corsa fu disgraziata e su diciassette persone ne caddero e si fecero
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso afflitti afflitti percosso percosso percosso percosso afflitti afflitti percosso percosso percosso 
+carico debba , debba debba debba debba carico carico , carico debba carico 
 
 
 
@@ -927,7 +927,7 @@ Nel momento in cui si avvicinò a lei , i suoi begli occhi brillarono di una par
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti percosso percosso 
+, , , debba debba debba debba debba , carico carico , , , debba debba debba debba debba spinge debba , , , debba debba , debba , debba , , , , , , , , , 
 
 
 
@@ -943,7 +943,7 @@ Diana
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+carico 
 
 
 
@@ -959,7 +959,7 @@ Non perdetti dunque nessuno dei vantaggi che mi erano offerti e giunsi ad
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso afflitti percosso afflitti afflitti percosso afflitti afflitti afflitti afflitti percosso percosso 
+, , , , carico debba debba carico rammentar , , , , 
 
 
 
@@ -975,7 +975,7 @@ Vi assicuro , [UNK]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-percosso afflitti percosso percosso 
+carico , , debba 
 
 
 
@@ -991,7 +991,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso 
+carico , , 
 
 
 
@@ -1007,7 +1007,7 @@ Una sera , il suo orologio andava male , e s ’ era fermato alle otto e un quar
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso percosso percosso afflitti percosso afflitti afflitti afflitti percosso percosso percosso percosso afflitti percosso afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti afflitti percosso percosso afflitti percosso percosso percosso percosso 
+, , debba debba debba debba debba debba debba carico debba , debba debba debba carico carico debba debba debba carico carico , , , , debba , debba debba debba , 
 
 
 
@@ -1023,7 +1023,7 @@ Egli cercava di ricordare i momenti migliori passati con lei ; ma questi momenti
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso percosso percosso percosso percosso percosso percosso percosso afflitti percosso percosso percosso percosso percosso percosso percosso percosso percosso percosso 
+carico debba , debba debba debba spinge carico carico carico , , rammentar , carico carico carico debba carico debba 
 
 
 
@@ -1039,7 +1039,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso afflitti percosso percosso afflitti afflitti percosso 
+carico , , debba debba debba debba rammentar rammentar , rammentar 
 
 
 
@@ -1055,7 +1055,7 @@ Prima
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+, 
 
 
 
@@ -1071,7 +1071,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti 
+, , 
 
 
 
@@ -1087,7 +1087,7 @@ Kitty , dopo pranzo e fino al principio della serata , provò una sensazione sim
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso percosso percosso percosso percosso percosso afflitti afflitti percosso percosso percosso percosso afflitti percosso 
+, , , debba debba debba debba debba carico , carico , , , , , 
 
 
 
@@ -1103,7 +1103,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+carico 
 
 
 
@@ -1119,7 +1119,7 @@ Oh ,
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso 
+, , 
 
 
 
@@ -1135,7 +1135,7 @@ Mentre dicevano questo , Laska , drizzando le orecchie , guardò
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso percosso percosso percosso percosso percosso percosso percosso percosso percosso 
+, , , debba debba debba debba carico carico carico , 
 
 
 
@@ -1151,7 +1151,7 @@ In quel giorno della settimana e a quell ’
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti 
+, , debba debba debba debba debba debba carico 
 
 
 
@@ -1167,7 +1167,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti percosso percosso percosso percosso percosso afflitti percosso percosso percosso afflitti 
+, , , , debba debba debba carico , carico , , , 
 
 
 
@@ -1183,7 +1183,7 @@ Dopo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+, 
 
 
 
@@ -1199,7 +1199,7 @@ Ella chinò il capo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-percosso percosso afflitti percosso 
+, , , , 
 
 
 
@@ -1215,7 +1215,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti percosso percosso afflitti afflitti percosso afflitti afflitti afflitti afflitti 
+carico , , , debba debba debba , rammentar , , , , , , , debba debba debba , 
 
 
 
@@ -1231,7 +1231,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti 
+, , debba debba debba debba debba carico carico carico , , , , , , , carico debba , , , , debba debba debba debba debba 
 
 
 
@@ -1247,7 +1247,7 @@ Potevo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+, 
 
 
 
@@ -1263,7 +1263,7 @@ Gli scrissi dicendogli che mi doleva che i suoi disegni non potessero compiersi 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti percosso percosso afflitti afflitti afflitti percosso percosso percosso afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti 
+, , , debba debba debba debba carico carico , carico , , , , debba carico debba debba , , 
 
 
 
@@ -1279,7 +1279,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso percosso percosso percosso percosso 
+, , debba debba debba debba debba 
 
 
 
@@ -1295,7 +1295,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-percosso 
+, 
 
 
 
@@ -1311,7 +1311,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti percosso percosso percosso 
+, , , debba debba debba 
 
 
 
@@ -1327,7 +1327,7 @@ Ecco , prendi il telegramma , [UNK]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso afflitti percosso percosso percosso 
+carico , , , debba debba carico 
 
 
 
@@ -1343,7 +1343,7 @@ Inoltre provava quel senso di agitazione che prova ogni cacciatore , avvicinando
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso percosso percosso percosso percosso afflitti afflitti afflitti afflitti afflitti percosso percosso afflitti afflitti afflitti 
+, , , debba debba debba debba carico rammentar , , , , , carico , 
 
 
 
@@ -1359,7 +1359,7 @@ IX [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti 
+, , 
 
 
 
@@ -1375,7 +1375,7 @@ Lo sai cosa ha fatto ... [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso percosso percosso 
+carico , spinge debba debba , debba 
 
 
 
@@ -1391,7 +1391,7 @@ Lo guardava sorridendo ; ma a un tratto le tremarono le sopracciglia , levò il 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti percosso percosso afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti percosso percosso percosso 
+, , , debba debba debba debba debba carico carico , , , , debba , debba debba debba carico , , , , debba debba debba debba debba debba debba , , , , , , , , 
 
 
 
@@ -1407,7 +1407,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti percosso percosso percosso percosso afflitti afflitti percosso percosso afflitti percosso percosso percosso afflitti afflitti percosso afflitti afflitti 
+, , , , debba debba debba rammentar , , , , , , , , , debba , debba 
 
 
 
@@ -1423,7 +1423,7 @@ Essi non
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti 
+, , 
 
 
 
@@ -1439,7 +1439,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti 
+carico , 
 
 
 
@@ -1455,7 +1455,7 @@ Egli si sedè .
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso afflitti percosso 
+carico debba , carico 
 
 
 
@@ -1471,7 +1471,7 @@ XIII
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+, 
 
 
 
@@ -1487,7 +1487,7 @@ Gli
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+, 
 
 
 
@@ -1503,7 +1503,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso percosso 
+carico , , debba debba debba 
 
 
 
@@ -1519,7 +1519,7 @@ E Levin cominciò a esporre prudentemente , quasi a [UNK] il terreno , il
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti percosso 
+, , , , debba debba debba carico rammentar rammentar , , , , 
 
 
 
@@ -1535,7 +1535,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso percosso afflitti afflitti afflitti afflitti afflitti afflitti 
+, , , , debba debba debba rammentar , , , , 
 
 
 
@@ -1551,7 +1551,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti 
+carico , , debba debba 
 
 
 
@@ -1567,7 +1567,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti percosso percosso percosso percosso afflitti afflitti afflitti percosso percosso percosso afflitti afflitti afflitti afflitti percosso afflitti 
+carico , , debba debba debba debba carico rammentar carico carico debba , debba , , debba debba debba 
 
 
 
@@ -1583,7 +1583,7 @@ Questa è la deduzione
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso percosso 
+carico , , debba 
 
 
 
@@ -1599,7 +1599,7 @@ Saputo che il dottore non
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti 
+, , , debba debba 
 
 
 
@@ -1615,7 +1615,7 @@ No
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti 
+carico 
 
 
 
@@ -1631,7 +1631,7 @@ Giorgio se lo cacciò
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti percosso afflitti 
+carico , debba debba 
 
 
 
@@ -1647,7 +1647,7 @@ Ho osservato che , nei libri scritti dagli uomini , questo periodo è
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti percosso percosso afflitti afflitti afflitti afflitti percosso percosso afflitti 
+, , , carico carico debba spinge debba carico , carico , , 
 
 
 
@@ -1663,7 +1663,7 @@ Nel mezzo a quella spianata scorreva un ruscello pieno di pietre nere e di sassi
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti percosso afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti afflitti 
+, , , debba debba debba rammentar rammentar , rammentar rammentar , , spinge , , debba debba debba , , , 
 
 
 

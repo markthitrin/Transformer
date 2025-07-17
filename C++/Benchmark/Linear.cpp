@@ -7,9 +7,9 @@ static void escape(void *p) {
 }
 
 static void Bench(benchmark::State& state) {
-    Tensor input(batch * sequenceLength, dFF);
+    Tensor input(batch * sequenceLength, dModel);
     Tensor output(batch * sequenceLength, dFF);
-    Linear linear(dFF, dFF);
+    Linear linear(dModel, dFF);
     for(auto _ : state) {
         linear.forward(input, output);
         escape(&output.data[0]);

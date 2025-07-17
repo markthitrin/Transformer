@@ -271,9 +271,9 @@ inline void MatMulPlusAB(TensorView A, TensorView B, TensorView C) {
         for(int jj = 0;jj < d3;jj += BLOCK_SIZE) {
             for(int kk = 0;kk < d2;kk += BLOCK_SIZE) {
 
-                for(int i = 0;i < BLOCK_SIZE && ii + i < d1;i++) {
-                    for(int k = 0; k < BLOCK_SIZE && kk + k < d2;k++) {
-                        for(int j = 0;j < BLOCK_SIZE && jj + j < d3;j++) {
+                for(int i = 0;(i < BLOCK_SIZE) & (ii + i < d1);i++) {
+                    for(int k = 0; (k < BLOCK_SIZE ) & (kk + k < d2);k++) {
+                        for(int j = 0;(j < BLOCK_SIZE) & (jj + j < d3);j++) {
                             C[(ii + i) * d3 + (jj + j)] += A[(ii + i) * d2 + (kk + k)] * B[(kk + k) * d3 + (jj + j)];
                         }
                     }
@@ -292,10 +292,10 @@ inline void MatMulPlusATB(TensorView A, TensorView B, TensorView C) {
         for(int jj = 0;jj < d3;jj += BLOCK_SIZE) {
             for(int kk = 0;kk < d2;kk += BLOCK_SIZE) {
 
-                for(int i = 0;i < BLOCK_SIZE && ii + i < d1;i++) {
-                    for(int k = 0; k < BLOCK_SIZE && kk + k < d2;k++) {
+                for(int i = 0;(i < BLOCK_SIZE) & (ii + i < d1);i++) {
+                    for(int k = 0; (k < BLOCK_SIZE) & (kk + k < d2);k++) {
                         float a = A[(kk + k) * d1 + (ii + i)];
-                        for(int j = 0;j < BLOCK_SIZE && jj + j < d3;j++) {
+                        for(int j = 0;(j < BLOCK_SIZE) & (jj + j < d3);j++) {
                             C[(ii + i) * d3 + (jj + j)] += a * B[(kk + k) * d3 + (jj + j)];
                         }
                     }
@@ -312,8 +312,8 @@ inline void MatMulPlusABT(TensorView A, TensorView B, TensorView C) {
     const int d3 = B.row;
     for(int ii = 0;ii < d2;ii += BLOCK_SIZE) {
         for(int jj = 0;jj < d3;jj += BLOCK_SIZE) {
-            for(int i = 0;i < BLOCK_SIZE && ii + i < d2;i++){
-                for(int j = 0;j < BLOCK_SIZE && jj + j < d3;j++) {
+            for(int i = 0;(i < BLOCK_SIZE) & (ii + i < d2);i++){
+                for(int j = 0;(j < BLOCK_SIZE) & (jj + j < d3);j++) {
                     BT[(ii + i) * d3 + jj + j] = B[(jj + j) * d2 + ii + i];
                 }
             }
