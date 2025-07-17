@@ -106,53 +106,54 @@ class MultiheadAttention {
         var blockPerHead: int = dPerHead * sequenceLength;
         var blockAtt: int = sequenceLength * sequenceLength;
 
-        Set(0, batch * dModel * sequenceLength, QTGradient, 0.0);
-        Set(0, batch * dModel * sequenceLength, KTGradient, 0.0);
-        Set(0, batch * dModel * sequenceLength, VTGradient, 0.0);
-        Set(0, batch * head * sequenceLength * sequenceLength, AGradient, 0.0);
-        Set(0, batch * head * sequenceLength * sequenceLength, AsGradient, 0.0);
-        Set(0, batch * head * sequenceLength * sequenceLength, AdGradient, 0.0);
-        Set(0, batch * dModel * sequenceLength, OTGradient, 0.0);
-        Set(0, batch * sequenceLength * dModel, inputGradientQ, 0.0);
-        if maskType != MaskType.CROSS_PADDING {
-            Set(0, batch * sequenceLength * dModel, inputGradientK, 0.0);
-            Set(0, batch * sequenceLength * dModel, inputGradientV, 0.0);
-        }
+        // Set(0, batch * dModel * sequenceLength, QTGradient, 0.0);
+        // Set(0, batch * dModel * sequenceLength, KTGradient, 0.0);
+        // Set(0, batch * dModel * sequenceLength, VTGradient, 0.0);
+        // Set(0, batch * head * sequenceLength * sequenceLength, AGradient, 0.0);
+        // Set(0, batch * head * sequenceLength * sequenceLength, AsGradient, 0.0);
+        // Set(0, batch * head * sequenceLength * sequenceLength, AdGradient, 0.0);
+        // Set(0, batch * dModel * sequenceLength, OTGradient, 0.0);
+        // Set(0, batch * sequenceLength * dModel, inputGradientQ, 0.0);
+        // if maskType != MaskType.CROSS_PADDING {
+        //     Set(0, batch * sequenceLength * dModel, inputGradientK, 0.0);
+        //     Set(0, batch * sequenceLength * dModel, inputGradientV, 0.0);
+        // }
 
-        for i in 0..#batch {
-            MatMulPlusAB(dModel, sequenceLength, dModel, OT[(i * block)..#block], outputGradient[(i * block)..#block], WOOpt.gradient);
-            MatMulPlusABT(dModel, dModel, sequenceLength, WO, outputGradient[(i * block)..#block], OTGradient[(i * block)..#block]);
-        }
-        for i in 0..#(batch * head) {
-            MatMulPlusATB(sequenceLength, dPerHead, sequenceLength, OTGradient[(i * blockPerHead)..#blockPerHead], VT[(i * blockPerHead)..#blockPerHead], AdGradient[(i * blockAtt)..#blockAtt]);
-            MatMulPlusAB(dPerHead, sequenceLength, sequenceLength, OTGradient[(i * blockPerHead)..#blockPerHead], Ad[(i * blockAtt)..#blockAtt], VTGradient[(i * blockPerHead)..#blockPerHead]);
-        }
-        CheckPoint();
-        dropout.backward(AdGradient, AsGradient);
-        softmax.backward(AsGradient, AGradient, As);
-        for i in 0..#(batch * head) {
-            select maskType {
-                when MaskType.LOOK_AHEAD do ApplyLookAheadMask(i * blockAtt, AGradient, seq[i / head], 0);
-                when MaskType.PADDING do ApplyPaddingMask(i * blockAtt, AGradient, seq[i / head], 0);
-                when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(i * blockAtt, AGradient, seq[i / head], 0);
-            }
-        }
-        Div(0, 0, batch * head * sequenceLength * sequenceLength, AGradient, sqrt(dPerHead):real(32), AGradient);
+        // for i in 0..#batch {
+        //     MatMulPlusAB(dModel, sequenceLength, dModel, OT[(i * block)..#block], outputGradient[(i * block)..#block], WOOpt.gradient);
+        //     MatMulPlusABT(dModel, dModel, sequenceLength, WO, outputGradient[(i * block)..#block], OTGradient[(i * block)..#block]);
+        // }
+        // for i in 0..#(batch * head) {
+        //     MatMulPlusATB(sequenceLength, dPerHead, sequenceLength, OTGradient[(i * blockPerHead)..#blockPerHead], VT[(i * blockPerHead)..#blockPerHead], AdGradient[(i * blockAtt)..#blockAtt]);
+        //     MatMulPlusAB(dPerHead, sequenceLength, sequenceLength, OTGradient[(i * blockPerHead)..#blockPerHead], Ad[(i * blockAtt)..#blockAtt], VTGradient[(i * blockPerHead)..#blockPerHead]);
+        // }
+        // CheckPoint();
+        // dropout.backward(AdGradient, AsGradient);
+        // softmax.backward(AsGradient, AGradient, As);
+        // for i in 0..#(batch * head) {
+        //     select maskType {
+        //         when MaskType.LOOK_AHEAD do ApplyLookAheadMask(i * blockAtt, AGradient, seq[i / head], 0);
+        //         when MaskType.PADDING do ApplyPaddingMask(i * blockAtt, AGradient, seq[i / head], 0);
+        //         when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(i * blockAtt, AGradient, seq[i / head], 0);
+        //     }
+        // }
+        // Div(0, 0, batch * head * sequenceLength * sequenceLength, AGradient, sqrt(dPerHead):real(32), AGradient);
         
-        for i in 0..#(batch * head) {
-            MatMulPlusABT(dPerHead, sequenceLength, sequenceLength, KT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], QTGradient[(i * blockPerHead)..#blockPerHead]);
-            MatMulPlusAB(dPerHead, sequenceLength, sequenceLength, QT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], KTGradient[(i * blockPerHead)..#blockPerHead]);
-        }
+        // for i in 0..#(batch * head) {
+        //     MatMulPlusABT(dPerHead, sequenceLength, sequenceLength, KT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], QTGradient[(i * blockPerHead)..#blockPerHead]);
+        //     MatMulPlusAB(dPerHead, sequenceLength, sequenceLength, QT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], KTGradient[(i * blockPerHead)..#blockPerHead]);
+        // }
         for i in 0..#batch {
             MatMulPlusAB(dModel, sequenceLength, dModel, QTGradient[(i * block)..#block], inputQ[(i * block)..#block], WQOpt.gradient);
             MatMulPlusAB(dModel, sequenceLength, dModel, KTGradient[(i * block)..#block], inputK[(i * block)..#block], WKOpt.gradient);
             MatMulPlusAB(dModel, sequenceLength, dModel, VTGradient[(i * block)..#block], inputV[(i * block)..#block], WVOpt.gradient);
-        }CheckPoint();
-        for i in 0..#batch {
-            MatMulPlusATB(sequenceLength, dModel, dModel, QTGradient[(i * block)..#block], WQ, inputGradientQ[(i * block)..#block]);
-            MatMulPlusATB(sequenceLength, dModel, dModel, KTGradient[(i * block)..#block], WK, inputGradientK[(i * block)..#block]);
-            MatMulPlusATB(sequenceLength, dModel, dModel, VTGradient[(i * block)..#block], WV, inputGradientV[(i * block)..#block]);
         }
+        // CheckPoint();
+        // for i in 0..#batch {
+        //     MatMulPlusATB(sequenceLength, dModel, dModel, QTGradient[(i * block)..#block], WQ, inputGradientQ[(i * block)..#block]);
+        //     MatMulPlusATB(sequenceLength, dModel, dModel, KTGradient[(i * block)..#block], WK, inputGradientK[(i * block)..#block]);
+        //     MatMulPlusATB(sequenceLength, dModel, dModel, VTGradient[(i * block)..#block], WV, inputGradientV[(i * block)..#block]);
+        // }
         
     }
 

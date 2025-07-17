@@ -229,11 +229,11 @@ proc MatMulPlusATB(in d1: int, in d2: int, in d3: int,
             for kk in 0..<d2 by BLOCK_SIZE {
                 
                 var i = 0;
-                while (i < BLOCK_SIZE && ii + i < d1) {
+                while ((i < BLOCK_SIZE) & (ii + i < d1)) {
                     var k = 0;
-                    while(k < BLOCK_SIZE && kk + k < d2) {
+                    while((k < BLOCK_SIZE) & (kk + k < d2)) {
                         var j = 0;
-                        while(j < BLOCK_SIZE && jj + j < d3) {
+                        while((j < BLOCK_SIZE) & (jj + j < d3)) {
                             Cr[(ii + i) * d3 + (jj + j)] += Ar[(kk + k) * d1 + (ii + i)] * Br[(kk + k) * d3 + (jj + j)];
                             j += 1;
                         }

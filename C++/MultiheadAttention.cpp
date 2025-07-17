@@ -118,66 +118,67 @@ void MultiheadAttention::backward(
 
     const int dPerHead = dModel / head;
 
-    QTGradient = 0;
-    KTGradient = 0;
-    VTGradient = 0;
-    AGradient = 0;
-    AsGradient = 0;
-    AdGradient = 0;
-    OTGradient = 0;
-    inputGradientQ = 0;
-    if(maskType != CROSS_PADDING) { // for decoder getting encoder layer
-        inputGradientK = 0;
-        inputGradientV = 0;
-    }
+    // QTGradient = 0;
+    // KTGradient = 0;
+    // VTGradient = 0;
+    // AGradient = 0;
+    // AsGradient = 0;
+    // AdGradient = 0;
+    // OTGradient = 0;
+    // inputGradientQ = 0;
+    // if(maskType != CROSS_PADDING) { // for decoder getting encoder layer
+    //     inputGradientK = 0;
+    //     inputGradientV = 0;
+    // }
 
-    for (int i = 0; i < batch; i++) {
-        MatMulPlusAB(OT.sliceRow(i * dModel, dModel),outputGradient.sliceRow(i * sequenceLength, sequenceLength), WOOpt.gradient);
-        MatMulPlusABT(WO, outputGradient.sliceRow(i * sequenceLength, sequenceLength), OTGradient.sliceRow(i * dModel, dModel));
-    }
-    for (int i = 0; i < batch * head; i++) {
-        MatMulPlusATB(
-            OTGradient.sliceRow(i * dPerHead, dPerHead),
-            VT.sliceRow(i * dPerHead, dPerHead),
-            AdGradient.sliceRow(i * sequenceLength, sequenceLength));
-        MatMulPlusAB(
-            OTGradient.sliceRow(i * dPerHead, dPerHead),
-            Ad.sliceRow(i * sequenceLength, sequenceLength),
-            VTGradient.sliceRow(i * dPerHead, dPerHead));
-    }
-    Timer::CheckPoint();
-    if(verbose) std::cout << "MultiheadAttention" << std::endl;
-    dropout.backward(AdGradient, AsGradient);
-    softmax.backward(AsGradient, AGradient, As);
-    for(int i = 0;i < batch * head;i++) {
-        switch(maskType) {
-            case LOOK_AHEAD : ApplyLookAheadMask(AGradient.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], 0); break;
-            case PADDING: ApplyPaddingMask(AGradient.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], 0); break;
-            case CROSS_PADDING: ApplyCrossPaddingMask(AGradient.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], 0); break;
-        }
-    }
-    Div(AGradient, std::sqrt(float(dPerHead)), AGradient);
+    // for (int i = 0; i < batch; i++) {
+    //     MatMulPlusAB(OT.sliceRow(i * dModel, dModel),outputGradient.sliceRow(i * sequenceLength, sequenceLength), WOOpt.gradient);
+    //     MatMulPlusABT(WO, outputGradient.sliceRow(i * sequenceLength, sequenceLength), OTGradient.sliceRow(i * dModel, dModel));
+    // }
+    // for (int i = 0; i < batch * head; i++) {
+    //     MatMulPlusATB(
+    //         OTGradient.sliceRow(i * dPerHead, dPerHead),
+    //         VT.sliceRow(i * dPerHead, dPerHead),
+    //         AdGradient.sliceRow(i * sequenceLength, sequenceLength));
+    //     MatMulPlusAB(
+    //         OTGradient.sliceRow(i * dPerHead, dPerHead),
+    //         Ad.sliceRow(i * sequenceLength, sequenceLength),
+    //         VTGradient.sliceRow(i * dPerHead, dPerHead));
+    // }
+    // Timer::CheckPoint();
+    // if(verbose) std::cout << "MultiheadAttention" << std::endl;
+    // dropout.backward(AdGradient, AsGradient);
+    // softmax.backward(AsGradient, AGradient, As);
+    // for(int i = 0;i < batch * head;i++) {
+    //     switch(maskType) {
+    //         case LOOK_AHEAD : ApplyLookAheadMask(AGradient.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], 0); break;
+    //         case PADDING: ApplyPaddingMask(AGradient.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], 0); break;
+    //         case CROSS_PADDING: ApplyCrossPaddingMask(AGradient.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], 0); break;
+    //     }
+    // }
+    // Div(AGradient, std::sqrt(float(dPerHead)), AGradient);
     
-    for (int i = 0; i < batch * head; i++) {
-        MatMulPlusAB(
-            QT.sliceRow(i * dPerHead, dPerHead),
-            AGradient.sliceRow(i * sequenceLength, sequenceLength),
-            KTGradient.sliceRow(i * dPerHead, dPerHead));
-        MatMulPlusABT(
-            KT.sliceRow(i * dPerHead, dPerHead),
-            AGradient.sliceRow(i * sequenceLength, sequenceLength),
-            QTGradient.sliceRow(i * dPerHead, dPerHead));
-    }
+    // for (int i = 0; i < batch * head; i++) {
+    //     MatMulPlusAB(
+    //         QT.sliceRow(i * dPerHead, dPerHead),
+    //         AGradient.sliceRow(i * sequenceLength, sequenceLength),
+    //         KTGradient.sliceRow(i * dPerHead, dPerHead));
+    //     MatMulPlusABT(
+    //         KT.sliceRow(i * dPerHead, dPerHead),
+    //         AGradient.sliceRow(i * sequenceLength, sequenceLength),
+    //         QTGradient.sliceRow(i * dPerHead, dPerHead));
+    // }
     for (int i = 0; i < batch; i++) {
         MatMulPlusAB(QTGradient.sliceRow(i * dModel, dModel), inputQ.sliceRow(i * sequenceLength, sequenceLength), WQOpt.gradient);
         MatMulPlusAB(KTGradient.sliceRow(i * dModel, dModel), inputK.sliceRow(i * sequenceLength, sequenceLength), WKOpt.gradient);
         MatMulPlusAB(VTGradient.sliceRow(i * dModel, dModel),  inputV.sliceRow(i * sequenceLength, sequenceLength), WVOpt.gradient);
-    }Timer::CheckPoint();
-    for (int i = 0;i < batch;i++) {
-        MatMulPlusATB(QTGradient.sliceRow(i * dModel, dModel), WQ, inputGradientQ.sliceRow(i * sequenceLength, sequenceLength));
-        MatMulPlusATB(KTGradient.sliceRow(i * dModel, dModel), WK, inputGradientK.sliceRow(i * sequenceLength, sequenceLength));
-        MatMulPlusATB(VTGradient.sliceRow(i * dModel, dModel), WV, inputGradientV.sliceRow(i * sequenceLength, sequenceLength));
     }
+    // Timer::CheckPoint();
+    // for (int i = 0;i < batch;i++) {
+    //     MatMulPlusATB(QTGradient.sliceRow(i * dModel, dModel), WQ, inputGradientQ.sliceRow(i * sequenceLength, sequenceLength));
+    //     MatMulPlusATB(KTGradient.sliceRow(i * dModel, dModel), WK, inputGradientK.sliceRow(i * sequenceLength, sequenceLength));
+    //     MatMulPlusATB(VTGradient.sliceRow(i * dModel, dModel), WV, inputGradientV.sliceRow(i * sequenceLength, sequenceLength));
+    // }
     
     if(verbose) std::cout << "MultiheadAttention" << std::endl;
 }

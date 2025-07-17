@@ -294,9 +294,8 @@ inline void MatMulPlusATB(TensorView A, TensorView B, TensorView C) {
 
                 for(int i = 0;(i < BLOCK_SIZE) & (ii + i < d1);i++) {
                     for(int k = 0; (k < BLOCK_SIZE) & (kk + k < d2);k++) {
-                        float a = A[(kk + k) * d1 + (ii + i)];
                         for(int j = 0;(j < BLOCK_SIZE) & (jj + j < d3);j++) {
-                            C[(ii + i) * d3 + (jj + j)] += a * B[(kk + k) * d3 + (jj + j)];
+                            C[(ii + i) * d3 + (jj + j)] += A[(kk + k) * d1 + (ii + i)] * B[(kk + k) * d3 + (jj + j)];
                         }
                     }
                 }
