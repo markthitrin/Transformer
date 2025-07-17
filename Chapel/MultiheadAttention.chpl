@@ -44,14 +44,14 @@ class MultiheadAttention {
         var blockPerHead: int = dPerHead * sequenceLength;
         var blockAtt: int = sequenceLength * sequenceLength;
         
-        Set(QT, 0.0);
-        Set(KT, 0.0);
-        Set(VT, 0.0);
-        Set(A, 0.0);
-        Set(As, 0.0);
-        Set(Ad, 0.0);
-        Set(OT, 0.0);
-        Set(output, 0.0);
+        Set(0, batch * dModel * sequenceLength, QT, 0.0);
+        Set(0, batch * dModel * sequenceLength, KT, 0.0);
+        Set(0, batch * dModel * sequenceLength, VT, 0.0);
+        Set(0, batch * head * sequenceLength * sequenceLength, A, 0.0);
+        Set(0, batch * head * sequenceLength * sequenceLength, As, 0.0);
+        Set(0, batch * head * sequenceLength * sequenceLength, Ad, 0.0);
+        Set(0, batch * dModel * sequenceLength, OT, 0.0);
+        Set(0, batch * sequenceLength * dModel, output, 0.0);
 
         for i in 0..#batch {
             MatMulPlusABT(dModel, dModel, sequenceLength, WQ, inputQ[(i * block)..#block], QT[(i * block)..#block]);
@@ -61,12 +61,12 @@ class MultiheadAttention {
         for i in 0..#(batch * head) {
             MatMulPlusATB(sequenceLength, dPerHead, sequenceLength, QT[(i * blockPerHead)..#blockPerHead], KT[(i * blockPerHead)..#blockPerHead], A[(i * blockAtt)..#blockAtt]);
         }
-        Div(A, sqrt(dPerHead):real(32), A);
+        Div(0, 0, batch * head * sequenceLength * sequenceLength, A, sqrt(dPerHead):real(32), A);
         for i in 0..#(batch * head) {
             select maskType {
-                when MaskType.LOOK_AHEAD do ApplyLookAheadMask(A[(i * blockAtt)..#blockAtt], seq[i / head], -1e9);
-                when MaskType.PADDING do ApplyPaddingMask(A[(i * blockAtt)..#blockAtt], seq[i / head], -1e9);
-                when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(A[(i * blockAtt)..#blockAtt], seq[i / head], -1e9);
+                when MaskType.LOOK_AHEAD do ApplyLookAheadMask(i * blockAtt, A, seq[i / head], -1e9);
+                when MaskType.PADDING do ApplyPaddingMask(i * blockAtt, A, seq[i / head], -1e9);
+                when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(i * blockAtt, A, seq[i / head], -1e9);
             }
         }
         CheckPoint();
@@ -108,17 +108,17 @@ class MultiheadAttention {
         var blockPerHead: int = dPerHead * sequenceLength;
         var blockAtt: int = sequenceLength * sequenceLength;
 
-        Set(QTGradient, 0.0);
-        Set(KTGradient, 0.0);
-        Set(VTGradient, 0.0);
-        Set(AGradient, 0.0);
-        Set(AsGradient, 0.0);
-        Set(AdGradient, 0.0);
-        Set(OTGradient, 0.0);
-        Set(inputGradientQ, 0.0);
+        Set(0, batch * dModel * sequenceLength, QTGradient, 0.0);
+        Set(0, batch * dModel * sequenceLength, KTGradient, 0.0);
+        Set(0, batch * dModel * sequenceLength, VTGradient, 0.0);
+        Set(0, batch * head * sequenceLength * sequenceLength, AGradient, 0.0);
+        Set(0, batch * head * sequenceLength * sequenceLength, AsGradient, 0.0);
+        Set(0, batch * head * sequenceLength * sequenceLength, AdGradient, 0.0);
+        Set(0, batch * dModel * sequenceLength, OTGradient, 0.0);
+        Set(0, batch * sequenceLength * dModel, inputGradientQ, 0.0);
         if maskType != MaskType.CROSS_PADDING {
-            Set(inputGradientK, 0.0);
-            Set(inputGradientV, 0.0);
+            Set(0, batch * sequenceLength * dModel, inputGradientK, 0.0);
+            Set(0, batch * sequenceLength * dModel, inputGradientV, 0.0);
         }
 
         for i in 0..#batch {
@@ -133,12 +133,12 @@ class MultiheadAttention {
         softmax.backward(AsGradient, AGradient, As);
         for i in 0..#(batch * head) {
             select maskType {
-                when MaskType.LOOK_AHEAD do ApplyLookAheadMask(AGradient[(i * blockAtt)..#blockAtt], seq[i / head], 0);
-                when MaskType.PADDING do ApplyPaddingMask(AGradient[(i * blockAtt)..#blockAtt], seq[i / head], 0);
-                when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(AGradient[(i * blockAtt)..#blockAtt], seq[i / head], 0);
+                when MaskType.LOOK_AHEAD do ApplyLookAheadMask(i * blockAtt, AGradient, seq[i / head], 0);
+                when MaskType.PADDING do ApplyPaddingMask(i * blockAtt, AGradient, seq[i / head], 0);
+                when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(i * blockAtt, AGradient, seq[i / head], 0);
             }
         }
-        Div(AGradient, sqrt(dPerHead):real(32), AGradient);
+        Div(0, 0, batch * head * sequenceLength * sequenceLength, AGradient, sqrt(dPerHead):real(32), AGradient);
         for i in 0..#(batch * head) {
             MatMulPlusABT(dPerHead, sequenceLength, sequenceLength, KT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], QTGradient[(i * blockPerHead)..#blockPerHead]);
             MatMulPlusAB(dPerHead, sequenceLength, sequenceLength, QT[(i * blockPerHead)..#blockPerHead], AGradient[(i * blockAtt)..#blockAtt], KTGradient[(i * blockPerHead)..#blockPerHead]);

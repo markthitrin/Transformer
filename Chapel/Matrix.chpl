@@ -49,190 +49,147 @@ proc HeNormalInit(ref parameter: [?D] real(32)) : void {
     }
 }
 
-proc ApplyLookAheadMask(ref A:[?D] real(32), in seq: int, in x: real(32)) {
-    ref Ar = A.reindex(0..#D.size);
+proc ApplyLookAheadMask(in start: int, ref A:[] real(32), in seq: int, in x: real(32)) {
 
     for i in 0..#seq {
         for j in (i + 1)..<sequenceLength {
-            Ar[i * sequenceLength + j] = x;
+            A[start + i * sequenceLength + j] = x;
         }
     }
     for i in seq..<sequenceLength {
         for j in 0..#sequenceLength {
-            Ar[i * sequenceLength + j] = x;
+            A[start + i * sequenceLength + j] = x;
         }
     }
 }
 
-proc ApplyPaddingMask(ref A:[?D] real(32), in seq: int, in x: real(32)) {
-    ref Ar = A.reindex(0..#D.size);
+proc ApplyPaddingMask(in start: int, ref A:[] real(32), in seq: int, in x: real(32)) {
 
     for i in 0..#seq {
         for j in seq..<sequenceLength {
-            Ar[i * sequenceLength + j] = x;
+            A[start + i * sequenceLength + j] = x;
         }
     }
     for i in seq..<sequenceLength {
         for j in 0..#sequenceLength {
-            Ar[i * sequenceLength + j] = x;
+            A[start + i * sequenceLength + j] = x;
         }
     }
 }
 
-proc ApplyCrossPaddingMask(ref A:[?D] real(32), in seq: int, in x: real(32)) {
-    ref Ar = A.reindex(0..#D.size);
+proc ApplyCrossPaddingMask(in start: int, ref A:[] real(32), in seq: int, in x: real(32)) {
     
     for i in 0..#sequenceLength {
         for j in seq..<sequenceLength {
-            Ar[i * sequenceLength + j] = x;
+            A[start + i * sequenceLength + j] = x;
         }
     }
 }
 
-proc Copy(ref A: [?Da] real(32), ref B: [?Db] real(32)) {
-    for (ia,ib) in zip(Da,Db) {
-        B[ib] = A[ia];
+proc Copy(in starta: int, in startb: int, in count: int, ref A: [] real(32), ref B: [] real(32)) {
+    
+    for i in 0..#count {
+        B[startb + i] = A[starta + i];
     }
 }
 
-proc Set(ref A: [?Da] real(32), in x: real(32)) {
-    for i in Da {
-        A[i] = x;
+proc Set(in starta: int, in count:int, ref A: [] real(32), in x: real(32)) {
+    for i in 0..#count {
+        A[starta + i] = x;
     }
 }
 
-proc Plus(ref A: [?Da] real(32), ref B: [?Db] real(32), ref C:[?Dc] real(32)) : void {
-    for (ia,ib,ic) in zip(Da,Db,Dc) {
-        C[ic] = A[ia] + B[ib];
+proc Plus(in starta: int, in startb: int, in startc: int, in count: int,
+    ref A: [] real(32), ref B: [] real(32), ref C:[] real(32)) : void {
+    for i in 0..#count {
+        C[startc + i] = A[starta + i] + B[startb + i];
     }
 }
 
-proc PlusProductInplace(ref A: [?Da] real(32), ref B: [?Db] real(32), ref C: [?Dc] real(32)) : void {
-    for (ia,ib,ic) in zip(Da,Db,Dc) {
-        A[ia] += B[ib] * C[ic];
+proc PlusProductInplace(in starta: int, in startb: int, in startc: int, in count: int,
+    ref A: [] real(32), ref B: [] real(32), ref C: [] real(32)) : void {
+    for i in 0..#count {
+        A[starta + i] += B[startb + i] * C[startc + i];
     }
 }
 
-proc PlusProductInplace(ref A: [?Da] real(32), ref B: [?Db] real(32), in C: real(32)) : void {
-    for (ia,ib) in zip(Da,Db) {
-        A[ia] += B[ib] * C;
+proc PlusProductInplace(in starta: int, in startb: int, in count: int,
+    ref A: [] real(32), ref B: [] real(32), in C: real(32)) : void {
+    for i in 0..#count {
+        A[starta + i] += B[startb + i] * C;
     }
 }
 
-proc PlusReduce4(ref A: [?D] real(32), out output: real(32)) : void {
-    output = + reduce(A);
-}
-
-proc PlusReduce3( in start: int, in count: int, ref A: [] real(32), out output: real(32)) : void {
+proc PlusReduce(in starta: int, in count: int,
+    ref A: [] real(32), out output: real(32)) : void {
     output = 0.0;
-    for i in start..#count {
-        output += A[i];
+    for i in 0..#count {
+        output += A[starta + i];
     }
 }
 
-proc PlusReduce2( D:domain(1), ref A: [] real(32), out output: real(32)) : void {
-    output = 0.0;
-    for i in D {
-        output += A[i];
-    }
-}
-
-proc PlusReduce(ref A: [?D] real(32), out output: real(32)) : void {
-    output = 0.0;
-    for i in D {
-        output += A[i];
-    }
-}
-
-proc MaxReduce3(in start: int, in count: int, ref A: [] real(32), out output: real(32)) : void {
+proc MaxReduce(in starta: int, in count: int,
+    ref A: [] real(32), out output: real(32)) : void {
     output = -inf;
-    for i in start..#count {
-        output = max(A[i], output);
+    for i in 0..#count {
+        output = max(A[starta + i], output);
     }
 }
 
-proc MaxReduce2(D:domain(1), ref A: [] real(32), out output: real(32)) : void {
-    output = -inf;
-    for i in D {
-        output = max(A[i], output);
-    }
-}
-
-proc MaxReduce(ref A: [?D] real(32), out output: real(32)) : void {
-    output = -inf;
-    for i in D {
-        output = max(A[i], output);
-    }
-}
-
-proc ProductPlusReduce(ref A: [?D] real(32), ref B: [D] real(32), out output: real(32)) : void {
+proc ProductPlusReduce(in starta: int, in startb: int, in count: int,
+    ref A: [] real(32), ref B: [] real(32), out output: real(32)) : void {
     output = 0.0;
-    for i in D {
-        output += A[i] * B[i];
+    for i in 0..#count {
+        output += A[starta + i] * B[startb + i];
     }
 }
 
-proc ExpPlusReduce(ref A: [?D] real(32), in maxValue, out output: real(32)) : void {
+proc ExpPlusReduce(in starta: int, in count: int,
+    ref A: [] real(32), in maxValue, out output: real(32)) : void {
     output = 0.0;
-    for i in D {
-        output += exp(A[i] - maxValue);
+    for i in 0..#count {
+        output += exp(A[starta + i] - maxValue);
     }
 }
 
-proc StdReduce2(in start: int, in count: int, ref A: [?D] real(32), in mean: real(32), out output: real(32)) : void {
+proc StdReduce(in starta: int, in count: int,
+    ref A: [] real(32), in mean: real(32), out output: real(32)) : void {
     output = 0.0;
-    for i in start..#count {
-        var x: real(32) = A[i] - mean;
+    for i in 0..#count {
+        var x: real(32) = A[starta + i] - mean;
         output += x * x;
     }
     output /= count - 1;
     output = sqrt(output);
 }
 
-proc StdReduce(ref A: [?D] real(32), in mean: real(32), out output: real(32)) : void {
-    output = 0.0;
-    for i in D {
-        var x: real(32) = A[i] - mean;
-        output += x * x;
-    }
-    output /= D.size - 1;
-    output = sqrt(output);
-}
-
-proc Mul(ref A: [?Da] real(32), ref B: [?Db] real(32), ref C: [?Dc] real(32)) : void {
-    for (ia,ib,ic) in zip(Da,Db,Dc) {
-        C[ic] = A[ia] * B[ib];
-    }
-}
-
-proc Mul2(in starta: int, in startb, in count: int, ref A: [] real(32), in x: real(32), ref B:[] real(32)) : void {
+proc Mul(in starta: int, in startb, in count: int,
+    ref A: [] real(32), in x: real(32), ref B:[] real(32)) : void {
     for i in 0..#count {
         B[startb + i] = A[starta + i] * x;
     }
 }
 
-proc Mul(ref A: [?Da] real(32), in x: real(32), ref B:[?Db] real(32)) : void {
-    for (ia, ib) in zip(Da, Db) {
-        B[ib] = A[ia] * x;
+proc Mul(in starta: int, in startb: int, in count: int,
+    ref A: [] real(32), in x: real(32), ref B:[] real(32)) : void {
+    for i in 0..#count {
+        B[startb + i] = A[starta + i] * x;
     }
 }
 
-proc Div2(in starta: int, in startb: int, in count:int, ref A: [?D] real(32), in x: real(32), ref B:[D] real(32)) : void {
-    Mul2(starta, startb, count, A, 1.0 / x, B);
+proc Div(in starta: int, in startb: int, in count:int, ref A: [?D] real(32), in x: real(32), ref B:[D] real(32)) : void {
+    Mul(starta, startb, count, A, 1.0 / x, B);
 }
 
-proc Div(ref A: [?D] real(32), in x: real(32), ref B:[D] real(32)) : void {
-    Mul(A, 1.0 / x, B);
-}
-
-proc Exp(ref A: [?Da] real(32), in maxValue: real(32), ref B:[?Db] real(32)) : void {
-    for (ia, ib) in zip(Da, Db) {
-        B[ib] = exp(A[ia] - maxValue);
+proc Exp(in starta: int, in startb: int, in count: int,
+    ref A: [] real(32), in maxValue: real(32), ref B:[] real(32)) : void {
+    for i in 0..#count {
+        B[startb + i] = exp(A[starta + i] - maxValue);
     }
 }
 
 proc MatMulPlusAB(in d1: int, in d2: int, in d3: int,
-    ref A:[?Da] real(32), ref B:[?Db] real(32), ref C:[?Dc] real(32)) : void {
+    ref A:[] real(32), ref B:[] real(32), ref C:[] real(32)) : void {
     
     ref Ar = A.reindex(0..#(d1 * d2));
     ref Br = B.reindex(0..#(d2 * d3));
@@ -261,7 +218,7 @@ proc MatMulPlusAB(in d1: int, in d2: int, in d3: int,
 }
 
 proc MatMulPlusATB(in d1: int, in d2: int, in d3: int,
-    ref A:[?Da] real(32), ref B:[?Db] real(32), ref C:[?Dc] real(32)) : void {
+    ref A:[] real(32), ref B:[] real(32), ref C:[] real(32)) : void {
 
     ref Ar = A.reindex(0..#(d1 * d2));
     ref Br = B.reindex(0..#(d2 * d3));
@@ -290,7 +247,7 @@ proc MatMulPlusATB(in d1: int, in d2: int, in d3: int,
 }
 
 proc MatMulPlusABT(in d1: int, in d2: int, in d3: int,
-    ref A:[?Da] real(32), ref B:[?Db] real(32), ref C:[?Dc] real(32)) : void {
+    ref A:[] real(32), ref B:[] real(32), ref C:[] real(32)) : void {
 
     ref Ar = A.reindex(0..#(d1 * d2));
     ref Br = B.reindex(0..#(d2 * d3));

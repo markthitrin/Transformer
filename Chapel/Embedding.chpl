@@ -19,9 +19,9 @@ class Embedding {
 
     proc forward(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
         for i in 0..#(batch * sequenceLength) {
-            Copy(table[(input[i] * dModel)..#dModel],output[(i * dModel)..#dModel]);
+            Copy(input[i] * dModel, i * dModel, dModel, table, output);
         }
-        Mul(output, sqrt(dModel), output);
+        Mul(0, 0, batch * sequenceLength * dModel, output, sqrt(dModel), output);
         CheckPoint();
     }
 
@@ -30,11 +30,12 @@ class Embedding {
     }
 
     proc backward(ref outputGradient: [?Do] real(32), ref input: [?Di] int) : void {
-        Mul(outputGradient, sqrt(dModel), outputGradient);
+        Mul(0, 0, batch * sequenceLength * dModel, outputGradient, sqrt(dModel), outputGradient);
         for i in 0..#(batch * sequenceLength) {
             needUpdate[input[i]] = true;
-            Plus(tableOpt[input[i]].gradient,
-                outputGradient[(i * dModel)..#dModel],
+            Plus(0, i*dModel, 0, dModel,
+                tableOpt[input[i]].gradient,
+                outputGradient,
                 tableOpt[input[i]].gradient);
         }
     }

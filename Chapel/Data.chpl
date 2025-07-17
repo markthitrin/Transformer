@@ -19,7 +19,6 @@ proc getData(
         var srclen = srcTokens[pos, -1];
         var tgtlen = randomInt(0, tgtToken[pos, -1]);
         if(srclen > sequenceLength - 1 || tgtlen + 1 > sequenceLength) {
-            i -= 1;
             continue;
         }
 

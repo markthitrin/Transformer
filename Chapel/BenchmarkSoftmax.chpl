@@ -5,7 +5,7 @@ use Matrix;
 use Time;
 
 param iterationTest = 20;
-param stdTest = 10000;
+param stdTest = 100;
 var t:stopwatch;
 
 

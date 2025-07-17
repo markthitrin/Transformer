@@ -58,6 +58,7 @@ class Transformer {
         decoder.backward(gradient5, gradient4, encoderGradient, encoderOut, srcSeq, tgtSeq);
         tgtPos.backward(gradient4, gradient3);
         tgtEmbed.backward(gradient3, inputd);
+        
 
         encoder.backward(encoderGradient, gradient2, srcSeq);
         srcPos.backward(gradient2, gradient1);

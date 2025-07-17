@@ -15,10 +15,10 @@ class Softmax {
         for i in 0..#batch {
             var maxValue: real(32);
             var sumExp: real(32);
-            MaxReduce3(i*shape, shape, input, maxValue);
-            Exp(input[(i * shape)..#shape], maxValue, buffer);
-            PlusReduce3(0, shape, buffer, sumExp);
-            Div2(0, i*shape, shape, buffer, sumExp, output[(i * shape)..#shape]);
+            MaxReduce(i*shape, shape, input, maxValue);
+            Exp(i * shape, 0, shape, input, maxValue, buffer);
+            PlusReduce(0, shape, buffer, sumExp);
+            Div(0, i * shape, shape, buffer, sumExp, output);
         }
         CheckPoint();
     }
@@ -32,7 +32,7 @@ class Softmax {
 
         for i in 0..#batch {
             var sumGY: real(32);
-            ProductPlusReduce(outputGradient[(i * shape)..#shape], output[(i * shape)..#shape], sumGY);
+            ProductPlusReduce(i * shape, i * shape, shape, outputGradient, output, sumGY);
             
             for j in 0..#shape {
                 inputGradient[i * shape + j] = output[i * shape + j] * (outputGradient[i * shape + j] - sumGY);

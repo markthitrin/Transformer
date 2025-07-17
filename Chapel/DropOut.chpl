@@ -7,13 +7,13 @@ use Timer;
 
 var rng = new randomStream(int, seed=0);
 
-proc GenerateDropoutMask(ref mask: [?D] int, in dropoutRate : real(32)) {
+proc GenerateDropoutMask(in size: int, ref mask: [] int, in dropoutRate : real(32)) {
     var thresholdInt = (dropoutRate * 65535):int;
     // for i in D {
     //     mask[i] = rng.next(0, 65535);
     // }
     rng.fill(mask, 0, 65535);
-    for i in D {
+    for i in 0..#size {
         mask[i] = if mask[i] > thresholdInt then 1 else 0;
     }
 }
@@ -24,14 +24,14 @@ class DropOut {
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        GenerateDropoutMask(mask, dropoutRate);
+        GenerateDropoutMask(domMask.size, mask, dropoutRate);
         var corrector: real(32) = 1.0 / (1.0 - dropoutRate);
         for i in D {
             output[i] = input[i] * mask[i]:real(32) * corrector;
         }
         CheckPoint();
 
-        // Div(input, 1.0 - dropoutRate, output);
+        // Div(0, 0, domMask.size, input, 1.0 - dropoutRate, output);
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
@@ -44,7 +44,7 @@ class DropOut {
             inputGradient[i] = outputGradient[i] * mask[i]:real(32) * corrector;
         }
 
-        // Div(outputGradient, 1.0 - dropoutRate, inputGradient);
+        // Div(0, 0, domMask.size, outputGradient, 1.0 - dropoutRate, inputGradient);
     }
 
     var domMask: domain(1);

@@ -1,60 +1,15 @@
-mean Time per iteration : 0.0008736
-std  Time per iteration : 3.09225e-05
-mean Iteration per second : 1144.69
-std  Iteration per second : 40.5182
-mean Time per iteration : 0.0801756
-std  Time per iteration : 0.0207361
-mean Iteration per second : 12.4726
-std  Iteration per second : 3.22583
-mean Time per iteration : 0.0005398
-std  Time per iteration : 0.000128512
-mean Iteration per second : 1852.54
-std  Iteration per second : 441.04
-mean Time per iteration : 1.526e-05
-std  Time per iteration : 1.482e-06
-mean Iteration per second : 65530.8
-std  Iteration per second : 6364.14
-mean Time per iteration : 6.46e-06
-std  Time per iteration : 1.63145e-06
-mean Iteration per second : 1.54799e+05
-std  Iteration per second : 39093.9
-mean Time per iteration : 0.0849619
-std  Time per iteration : 0.00306675
-mean Iteration per second : 11.77
-std  Iteration per second : 0.424845
-mean Time per iteration : 0.00087892
-std  Time per iteration : 1.48899e-05
-mean Iteration per second : 1137.76
-std  Iteration per second : 19.2749
-mean Time per iteration : 0.00053412
-std  Time per iteration : 1.91051e-05
-mean Iteration per second : 1872.24
-std  Iteration per second : 66.9687
-mean Time per iteration : 1.342e-05
-std  Time per iteration : 1.7623e-06
-mean Iteration per second : 74515.6
-std  Iteration per second : 9785.34
-mean Time per iteration : 2.158e-05
-std  Time per iteration : 2.07108e-06
-mean Iteration per second : 46339.2
-std  Iteration per second : 4447.28
-mean Time per iteration : 0.00088186
-std  Time per iteration : 4.31036e-05
-mean Iteration per second : 1133.97
-std  Iteration per second : 55.4261
-mean Time per iteration : 1.506e-05
-std  Time per iteration : 2.17039e-06
-mean Iteration per second : 66401.1
-std  Iteration per second : 9569.49
-mean Time per iteration : 6.12e-06
-std  Time per iteration : 5.20596e-07
-mean Iteration per second : 1.63399e+05
-std  Iteration per second : 13899.5
-mean Time per iteration : 0.00054762
-std  Time per iteration : 4.02634e-05
-mean Iteration per second : 1826.08
-std  Iteration per second : 134.261
-mean Time per iteration : 0.0740113
-std  Time per iteration : 0.000485501
-mean Iteration per second : 13.5115
-std  Iteration per second : 0.0886329
+1144.69
+12.4726
+1852.54
+65530.8
+1.54799e+05
+11.77
+1137.76
+1872.24
+74515.6
+46339.2
+1133.97
+66401.1
+1.63399e+05
+1826.08
+13.5115

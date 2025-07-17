@@ -30,17 +30,17 @@ class DecoderLayer {
         norm1.forward(input, out1);
         mulAtt1.forward(out1, out1, out1, out2, MaskType.LOOK_AHEAD, tgtSeq);
         dropout1.forward(out2, out3);
-        Plus(input, out3, out3);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, input, out3, out3);
 
         norm2.forward(out3, out4);
         mulAtt2.forward(out4, encoderOut, encoderOut, out5, MaskType.CROSS_PADDING, srcSeq);
         dropout2.forward(out5, out6);
-        Plus(out3, out6, out6);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, out3, out6, out6);
 
         norm3.forward(out6, out7);
         pff.forward(out7, out8);
         dropout3.forward(out8, output);
-        Plus(out6, output, output);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, out6, output, output);
     }
 
     proc predict(
@@ -50,17 +50,17 @@ class DecoderLayer {
         norm1.predict(input, out1);
         mulAtt1.predict(out1, out1, out1, out2, MaskType.LOOK_AHEAD, tgtSeq);
         dropout1.predict(out2, out3);
-        Plus(input, out3, out3);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, input, out3, out3);
 
         norm2.predict(out3, out4);
         mulAtt2.predict(out4, encoderOut, encoderOut, out5, MaskType.CROSS_PADDING, srcSeq);
         dropout2.predict(out5, out6);
-        Plus(out3, out6, out6);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, out3, out6, out6);
 
         norm3.predict(out6, out7);
         pff.predict(out7, out8);
         dropout3.predict(out8, output);
-        Plus(out6, output, output);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, out6, output, output);
     }
 
     proc backward(
@@ -70,17 +70,17 @@ class DecoderLayer {
         dropout3.backward(outputGradient, gradient8);
         pff.backward(gradient8, gradient7, out7);
         norm3.backward(gradient7, gradient6);
-        Plus(outputGradient, gradient6, gradient6);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, outputGradient, gradient6, gradient6);
 
         dropout2.backward(gradient6, gradient5);
         mulAtt2.backward(gradient5, gradient4, encoderGradient, encoderGradient, out4, encoderOut, encoderOut, out5, MaskType.CROSS_PADDING, srcSeq);
         norm2.backward(gradient4, gradient3);
-        Plus(gradient6, gradient3, gradient3);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, gradient6, gradient3, gradient3);
 
         dropout1.backward(gradient3, gradient2);
         mulAtt1.backward(gradient2, gradient1, gradient1, gradient1, out1, out1, out1, out2, MaskType.LOOK_AHEAD, tgtSeq);
         norm1.backward(gradient1, inputGradient);
-        Plus(gradient3, inputGradient, inputGradient);
+        Plus(0, 0, 0, batch * sequenceLength * dModel, gradient3, inputGradient, inputGradient);
     }
 
     proc updateParameter() {

@@ -31,7 +31,7 @@ proc AdamOpt(ref parameter: [?D] real(32), ref opt: AdamOptimizer) : void {
         var vHat: real(32) = opt.accV[ig] * invPowBeta2;
         parameter[ip] -= learningRate * mHat / (sqrt(vHat) + eps);
     }
-    Set(opt.gradient, 0.0);
+    Set(0, D.size, opt.gradient, 0.0);
     opt.t += 1;
 }
 

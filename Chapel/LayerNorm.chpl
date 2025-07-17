@@ -22,14 +22,10 @@ class LayerNorm {
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         for i in 0..#(batch * sequenceLength) {
             var mean: real(32);
-            // PlusReduce4(input[(i * dModel)..#dModel], mean);
-            PlusReduce3(i * dModel, dModel, input, mean);
-            // PlusReduce2({(i * dModel)..#dModel}, input, mean);
-            // PlusReduce(input[(i * dModel)..#dModel], mean);
+            PlusReduce(i * dModel, dModel, input, mean);
             mean /= dModel;
 
-            StdReduce2((i * dModel), dModel, input, mean, std[i]);
-            // StdReduce(input[(i * dModel)..#dModel], mean, std[i]);
+            StdReduce((i * dModel), dModel, input, mean, std[i]);
 
             for j in 0..#dModel {
                 xHat[i * dModel + j] = (input[i * dModel + j] - mean) / (std[i] + eps);
@@ -45,12 +41,12 @@ class LayerNorm {
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
         for i in 0..#(batch * sequenceLength) {
-            PlusProductInplace(alphaOpt.gradient, outputGradient[(i * dModel)..#dModel], xHat[(i * dModel)..#dModel]);
-            Plus(biasOpt.gradient, outputGradient[(i * dModel)..#dModel], biasOpt.gradient);
+            PlusProductInplace(0, i * dModel, i * dModel, dModel, alphaOpt.gradient, outputGradient, xHat);
+            Plus(0, i * dModel, 0, dModel, biasOpt.gradient, outputGradient, biasOpt.gradient);
             var sumG: real(32) = 0.0;
             var sumGXHat: real(32) = 0.0;
-            PlusReduce(outputGradient[(i * dModel)..#dModel], sumG);
-            ProductPlusReduce(outputGradient[(i * dModel)..#dModel], xHat[(i * dModel)..#dModel], sumGXHat);
+            PlusReduce(i * dModel, dModel, outputGradient, sumG);
+            ProductPlusReduce(i * dModel, i * dModel, dModel, outputGradient, xHat, sumGXHat);
 
             var a: real(32) = sumG / dModel;
             var b: real(32) = sumGXHat / dModel;
