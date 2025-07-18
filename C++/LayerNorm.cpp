@@ -49,8 +49,8 @@ void LayerNorm::predict(TensorView input, TensorView output) {
 }
 
 void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
-    const int row = inputGradient.row;
-    const int col = inputGradient.col;
+    constexpr int row = batch * sequenceLength;
+    constexpr int col = dModel;
 
     const float invCol = 1.0f / col;
     for (int i = 0; i < row; i++) {
@@ -60,9 +60,11 @@ void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
         for (int j = 0; j < col; j++) {
             float gxH = outputGradient[i * col + j] * xHat[i * col + j];
             alphaOpt.gradient[j] += gxH;
+            sumGXHat += gxH;
+        }
+        for (int j= 0;j< col;j++) {
             biasOpt.gradient[j] += outputGradient[i * col + j];
             sumG += outputGradient[i * col + j];
-            sumGXHat += gxH;
         }
         float a = invCol * sumG;
         float b = invCol * sumGXHat;

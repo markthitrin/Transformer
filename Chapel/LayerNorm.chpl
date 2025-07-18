@@ -39,19 +39,25 @@ class LayerNorm {
     }
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
+        var invD: real(32) = (1.0 / dModel):real(32);
         for i in 0..#(batch * sequenceLength) {
-            PlusProductInplace(0, i * dModel, i * dModel, dModel, alphaOpt.gradient, outputGradient, xHat);
-            Plus(0, i * dModel, 0, dModel, biasOpt.gradient, outputGradient, biasOpt.gradient);
+            var invStd: real(32) = (1.0 / std[i]): real(32);
             var sumG: real(32) = 0.0;
             var sumGXHat: real(32) = 0.0;
-            PlusReduce(i * dModel, dModel, outputGradient, sumG);
-            ProductPlusReduce(i * dModel, i * dModel, dModel, outputGradient, xHat, sumGXHat);
-
-            var a: real(32) = sumG / dModel;
-            var b: real(32) = sumGXHat / dModel;
+            for j in 0..#dModel {
+                var gxH = outputGradient[i * dModel + j] * xHat[i * dModel + j];
+                alphaOpt.gradient[j] += gxH;
+                sumGXHat += gxH;
+            }
+            for j in 0..#dModel {
+                biasOpt.gradient[j] += outputGradient[i * dModel + j];
+                sumG += outputGradient[i * dModel + j];
+            }
+            var a: real(32) = sumG * invD;
+            var b: real(32) = sumGXHat * invD;
             
             for j in 0..#dModel {
-                inputGradient[i * dModel + j] = (1.0 / std[i]) * (outputGradient[i * dModel + j] - a - xHat[i * dModel + j] * b) * alpha[j];
+                inputGradient[i * dModel + j] = invStd * (outputGradient[i * dModel + j] - a - xHat[i * dModel + j] * b) * alpha[j];
             }
         }
         CheckPoint();
