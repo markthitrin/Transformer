@@ -16,6 +16,8 @@ void Linear::forward(TensorView input, TensorView output) {
         output.sliceRow(i,1) = bias;
     }
     MatMulPlusAB(input, weight, output);
+    Timer::CheckPoint();
+    if(verbose) std::cout << "Linear" << std::endl;
 }
 
 void Linear::predict(TensorView input, TensorView output) {
@@ -29,8 +31,6 @@ void Linear::backward(TensorView outputGradient, TensorView inputGradient, Tenso
     }
     MatMulPlusATB(input, outputGradient, weightOpt.gradient);
     MatMulPlusABT(outputGradient, weight, inputGradient);
-    Timer::CheckPoint();
-    if(verbose) std::cout << "Linear" << std::endl;
 }
 
 void Linear::updateParameter() {

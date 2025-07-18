@@ -126,9 +126,9 @@ proc main() {
         writeln("Start Training");
         for i in 0..#trainingIteration {
             getData(srcTrain, tgtTrain, encoderInput, decoderInput, targetOutput, srcSeq, tgtSeq);
+            RestartRecord();
             model.forward(encoderInput, decoderInput, output, srcSeq, tgtSeq);
             var loss = CrossEntropy(output, targetOutput, tgtSeq, gradient);
-            RestartRecord();
             model.backward(gradient, encoderInput, decoderInput, srcSeq, tgtSeq);
             model.updateParameter();
             writeln("Iteration [", i, " / ", trainingIteration, "] loss : ", loss);

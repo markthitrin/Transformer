@@ -22,6 +22,7 @@ class Embedding {
             Copy(input[i] * dModel, i * dModel, dModel, table, output);
         }
         Mul(0, 0, batch * sequenceLength * dModel, output, sqrt(dModel):real(32), output);
+        CheckPoint();
     }
 
     proc predict(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
@@ -37,7 +38,6 @@ class Embedding {
                 outputGradient,
                 tableOpt[input[i]].gradient);
         }
-        CheckPoint();
     }
 
     proc updateParameter() {

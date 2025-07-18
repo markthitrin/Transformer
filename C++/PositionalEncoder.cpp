@@ -21,6 +21,8 @@ void PositionalEncoder::forward(TensorView input, TensorView output) {
         Plus(input.sliceRow(i * sequenceLength, sequenceLength), positionEncode, input.sliceRow(i * sequenceLength, sequenceLength));
     }
     dropout.forward(input, output);
+    Timer::CheckPoint();
+    if(verbose) std::cout << "MultiheadAttention" << std::endl;
 }
 
 void PositionalEncoder::predict(TensorView input, TensorView output) {
@@ -31,8 +33,6 @@ void PositionalEncoder::predict(TensorView input, TensorView output) {
 
 void PositionalEncoder::backward(TensorView outputGradient, TensorView inputGradient) {
     dropout.backward(outputGradient, inputGradient);
-    Timer::CheckPoint();
-    if(verbose) std::cout << "PositionalEncoder" << std::endl;
 }
 
 void PositionalEncoder::forwardTest(cnpy::npz_t npFile, std::string prefix) {

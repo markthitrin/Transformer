@@ -69,6 +69,7 @@ class MultiheadAttention {
                 when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(i * blockAtt, A, seq[i / head], -1e9);
             }
         }
+        CheckPoint();
         if(train) {
             softmax.forward(A, As);
             dropout.forward(As, Ad);
@@ -83,6 +84,7 @@ class MultiheadAttention {
         for i in 0..#batch {
             MatMulPlusATB(sequenceLength, dModel, dModel, OT[(i * block)..#block], WO, output[(i * block)..#block]);
         }
+        CheckPoint();
     }
 
     proc forward(ref inputQ: [?D] real(32), ref inputK: [D] real(32), ref inputV: [D] real(32), ref output: [D] real(32),
@@ -127,7 +129,6 @@ class MultiheadAttention {
             MatMulPlusATB(sequenceLength, dPerHead, sequenceLength, OTGradient[(i * blockPerHead)..#blockPerHead], VT[(i * blockPerHead)..#blockPerHead], AdGradient[(i * blockAtt)..#blockAtt]);
             MatMulPlusAB(dPerHead, sequenceLength, sequenceLength, OTGradient[(i * blockPerHead)..#blockPerHead], Ad[(i * blockAtt)..#blockAtt], VTGradient[(i * blockPerHead)..#blockPerHead]);
         }
-        CheckPoint();
         dropout.backward(AdGradient, AsGradient);
         softmax.backward(AsGradient, AGradient, As);
         for i in 0..#(batch * head) {
@@ -152,7 +153,6 @@ class MultiheadAttention {
             MatMulPlusATB(sequenceLength, dModel, dModel, KTGradient[(i * block)..#block], WK, inputGradientK[(i * block)..#block]);
             MatMulPlusATB(sequenceLength, dModel, dModel, VTGradient[(i * block)..#block], WV, inputGradientV[(i * block)..#block]);
         }
-        CheckPoint();
     }
 
     proc updateParameter() {

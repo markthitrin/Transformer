@@ -24,6 +24,7 @@ class Linear {
             Copy(0, i * outD, outD, bias, output);
         }
         MatMulPlusAB(batch, inD, outD, input, weight, output);
+        CheckPoint();
     }
 
     proc predict(ref input: [?Di] real(32), ref output: [?Do] real(32)) {
@@ -43,7 +44,6 @@ class Linear {
         }
         MatMulPlusATB(inD, batch, outD, input, outputGradient, weightOpt.gradient);
         MatMulPlusABT(batch, outD, inD, outputGradient, weight, inputGradient);
-        CheckPoint();
     }
 
     proc updateParameter() {

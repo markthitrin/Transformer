@@ -55,6 +55,8 @@ void DropOut::forward(TensorView input, TensorView output) {
     GenerateDropoutMask(mask);
     Mul(input, mask, output);
     Div(output, (1.0f - dropoutRate), output);
+    Timer::CheckPoint();
+    if(verbose) std::cout << "DropOut" << std::endl;
 
     // Div(input, (1.0 - dropoutRate), output);
 }
@@ -66,8 +68,6 @@ void DropOut::predict(TensorView input, TensorView output) {
 void DropOut::backward(TensorView outputGradient, TensorView inputGradient) {
     Mul(outputGradient, mask, inputGradient);
     Div(inputGradient, (1.0f - dropoutRate), inputGradient);
-    Timer::CheckPoint();
-    if(verbose) std::cout << "DropOut" << std::endl;
 
     // Div(outputGradient, (1.0 - dropoutRate), inputGradient);
 }
