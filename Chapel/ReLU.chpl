@@ -20,8 +20,9 @@ class ReLU {
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref input: [D] real(32)) : void {
         for i in D {
-            inputGradient[i] = if input[i] >= 0 then outputGradient[i] else 0.0:real(32);
+            outputGradient[i] = if input[i] >= 0 then outputGradient[i] else 0.0:real(32);
         }
+        Copy(0,0,D.size,outputGradient,inputGradient);
         CheckPoint();
     }
 

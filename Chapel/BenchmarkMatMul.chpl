@@ -128,9 +128,9 @@ proc testATB(in d1: int, in d2: int, in d3: int, in iterationTest: int = 1) {
 // testABT(32,32,128);
 // testABT(4,128,128);
 
-testATB(256,1024,32);
-testATB(128,32,32);
-testATB(128,4,128);
-testATB(32,1024,256);
-testATB(32,1024,22465);
+// testATB(256,1024,32);
+// testATB(128,32,32);
+// testATB(128,4,128);
+// testATB(32,1024,256);
+// testATB(32,1024,22465);
 

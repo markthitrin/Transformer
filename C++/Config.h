@@ -9,6 +9,7 @@ static constexpr float eps = 1e-9;
 
 static constexpr int dModel = 32; // 512
 static constexpr int head = 8; // 8
+
 static constexpr int sequenceLength = 128;
 static constexpr int dFF = 256; // 256
 static constexpr float dropoutRate = 0.1;

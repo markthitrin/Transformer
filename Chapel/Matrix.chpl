@@ -189,7 +189,7 @@ proc Exp(in starta: int, in startb: int, in count: int,
 }
 
 proc MatMulPlusAB(in d1: int, in d2: int, in d3: int,
-    ref A:[] real(32), ref B:[] real(32), ref C:[] real(32)) : void {
+    const ref A:[] real(32), const ref B:[] real(32), ref C:[] real(32)) : void {
     
     ref Ar = A.reindex(0..#(d1 * d2));
     ref Br = B.reindex(0..#(d2 * d3));

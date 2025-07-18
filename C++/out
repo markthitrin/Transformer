@@ -1,214 +1,214 @@
-Iteration [0 / 20]   loss : 17.3944
-Iteration [1 / 20]   loss : 17.4353
-Iteration [2 / 20]   loss : 17.185
-Iteration [3 / 20]   loss : 17.292
-Iteration [4 / 20]   loss : 17.1948
-Iteration [5 / 20]   loss : 16.5541
-Iteration [6 / 20]   loss : 16.8009
-Iteration [7 / 20]   loss : 17.3349
-Iteration [8 / 20]   loss : 16.5664
-Iteration [9 / 20]   loss : 16.8805
-Iteration [10 / 20]   loss : 16.8206
-Iteration [11 / 20]   loss : 16.8076
-Iteration [12 / 20]   loss : 16.5512
-Iteration [13 / 20]   loss : 17.0121
-Iteration [14 / 20]   loss : 17.3986
-Iteration [15 / 20]   loss : 16.8184
-Iteration [16 / 20]   loss : 16.9109
-Iteration [17 / 20]   loss : 17.2099
-Iteration [18 / 20]   loss : 16.8736
-Iteration [19 / 20]   loss : 17.2929
+Iteration [0 / 20]   loss : 17.503
+Iteration [1 / 20]   loss : 17.5293
+Iteration [2 / 20]   loss : 17.3113
+Iteration [3 / 20]   loss : 16.8075
+Iteration [4 / 20]   loss : 17.0332
+Iteration [5 / 20]   loss : 17.2701
+Iteration [6 / 20]   loss : 17.4627
+Iteration [7 / 20]   loss : 16.7902
+Iteration [8 / 20]   loss : 16.3735
+Iteration [9 / 20]   loss : 17.6404
+Iteration [10 / 20]   loss : 17.7547
+Iteration [11 / 20]   loss : 16.8991
+Iteration [12 / 20]   loss : 18.217
+Iteration [13 / 20]   loss : 18.0529
+Iteration [14 / 20]   loss : 17.3047
+Iteration [15 / 20]   loss : 16.9885
+Iteration [16 / 20]   loss : 17.0068
+Iteration [17 / 20]   loss : 17.1642
+Iteration [18 / 20]   loss : 18.2183
+Iteration [19 / 20]   loss : 16.7261
 Time Recorded ==========================
 
-157508
-48.1961
-25.6847
-1866.95
-236.562
-966.572
-1781.27
-39.6447
-54.3549
-5469.46
-1926.3
+149203
+36.3889
+18.0033
+1751.86
+194.845
+219.569
+1631.24
+20.028
+38.8619
+4530.68
+1756.49
+1451.65
+2894.87
+27.5608
+46.3657
+4388.8
+1742.89
+1449.6
+3081.01
+26.0903
+40.5778
+1919.3
+268.784
+238.773
+1613.35
+20.9274
+37.4814
+4393.61
+1747.32
+1452.86
+2855.53
+24.0339
+45.2666
+4544.23
+1739
+1427.39
+2677.67
+32.3384
+58.4353
+1847.04
+283.281
+260.603
+1621.06
+19.8427
+37.1382
+4607.25
+1729.85
+1437.16
+2653.19
+34.1543
+60.0875
+4516.19
+1783.79
+1470.97
+3049.93
+22.5356
+38.5448
+1920.72
+280.337
+242.697
+1614.45
+20.2403
+37.4037
+4423.3
+1749.39
+1461.56
+2706.67
+30.4247
+58.5639
+4696.54
+1755.34
+1452.76
+2793.7
+26.0753
+50.9022
+1829.14
+277.12
+239.898
+1608.9
+19.6616
+40.5049
+4552.21
+1753.66
+1462.03
+2624.03
+34.8027
+58.5234
+4387.38
+1770.3
+1447.8
+2724.54
+32.4993
+61.8001
+1972.76
+284.695
+239.25
+1609.34
+20.4703
+38.4334
+4512.03
+1658.71
+1411.36
+2622.4
+32.3286
+62.1911
+4378.85
+1741.15
+1370.54
+2665.84
+32.9179
+61.3704
+0.0225
+17.4351
+65.4874
+46.5403
+1834.93
+267.29
+236.681
+1610.68
+20.9974
+39.6763
+4580.75
+1653.79
+1446.72
+2645.58
+33.5243
+58.2811
+1853.74
+281.249
+238.427
+1617.44
+20.9488
+39.4733
+4550.52
+1768.24
+1390.16
+2640.85
+33.6977
+61.9758
+1845.23
+278.849
+237.573
+1607.2
+21.9086
+40.6139
+4570
+1722.9
+1335.67
+2625.9
+32.6401
+58.1865
+1864.54
+279.222
+241.582
+1616.73
+21.9404
+38.2972
+4562.23
+1684.23
+1416.28
+2633.48
+35.0971
+61.5447
+1856.24
+285.623
+240.808
+1612.36
+22.2713
+39.8059
+4550.76
+1695.75
+1399.05
+2632.14
+34.8132
+61.2134
+1851.19
+288.039
+238.874
 1611.07
-2730.22
-356.05
-67.1757
-5460.25
-1895.7
-1836.65
-2892.07
-399.964
-68.1841
-2086.17
-310.953
-931.38
-1719.28
-30.5781
-53.5171
-5786.35
-1906.57
-1650.47
-2824
-359.11
-60.641
-5506.92
-1856.99
-1715.23
-3125.78
-353.474
-61.0384
-1957.8
-308.91
-842.907
-1715.81
-29.7444
-51.483
-5407.49
-1845.31
-1601.25
-2927.12
-356.43
-67.9178
-5392.51
-1947.3
-1614.03
-2922.58
-398.505
-75.3428
-2188.43
-332.609
-858.407
-1730.91
-32.8785
-54.3203
-5725.01
-1748.51
-1657.46
-3110.34
-364.601
-64.1422
-5799.38
-1841.89
-1784.57
-2821.74
-354.186
-78.3941
-1982.22
-279.179
-889.256
-1719.24
-32.359
-51.9544
-5653.94
-1823.42
-1867.81
-3158.27
-348.987
-66.2984
-5736.91
-1815.49
-1907.88
-2845.03
-402.875
-66.9794
-2189.43
-323.298
-984.74
-1731.36
-32.2412
-49.1737
-6289.59
-2110.21
-1679.31
-3072.83
-377.33
-67.9616
-5612.66
-1917.14
-1838.74
-3189.97
-352.475
-82.9821
-1.09131
-22.7689
-86.1161
-57.3891
-1984.24
-276.617
-903.927
-1737.66
-34.9302
-55.3329
-5834.3
-1824.06
-1944.95
-3044.34
-357.172
-70.5106
-2056.99
-318.304
-945.772
-1749.47
-34.4195
-55.7563
-5790.15
-2036.34
-1657.47
-2691.28
-347.346
-63.5045
-1967.79
-282.479
-967.349
-1723.67
-28.2602
-50.2039
-5487.77
-1939.3
-1521.59
-2708.25
-347.787
-61.2084
-1990.63
-281.89
-937.692
-1707.77
-31.2329
-51.605
-5678.96
-1925.73
-1517.95
-3027.21
-345.787
-63.1074
-2015.31
-304.318
-976.577
-1713.45
-34.1925
-50.4569
-5547.8
-1872.95
-1749.1
-2680.82
-354.461
-63.3081
-1956.38
-317.855
-974.482
-1708.31
-27.8629
-48.2614
-5541.98
-1857.77
-1594.57
-2804.76
-354.862
-63.9017
-1.12613
-28.2208
+20.4011
+38.0501
+4559.98
+1607.16
+1441.1
+2664.81
+33.6953
+60.9797
+0.0213125
+25.1134
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 But it is impossible to hold with such tranquillity states constituted like that of France . 
@@ -219,7 +219,7 @@ Ma li stati ordinati come quello di Francia è impossibile possederli con tanta 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti consueti caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -235,7 +235,7 @@ La
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea 
+caricate 
 
 
 
@@ -251,7 +251,7 @@ No , perché destarla ? Che farebbe ?
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -267,7 +267,7 @@ Il busto nobile , le spalle spioventi
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -283,7 +283,7 @@ Dicono che era lui solo a dar da
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -299,7 +299,7 @@ Aleksej Aleksandrovic decise di andare a
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -315,7 +315,7 @@ Il regolamento della pensione era troppo duro e gli studi troppo severi per una 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti consueti caricate caricate caricate caricate caricate caricate leggerò 
 
 
 
@@ -331,7 +331,7 @@ Questo nasce , che li ordini antichi di essa non erano buoni e non
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea giglio giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate leggerò caricate caricate 
 
 
 
@@ -347,7 +347,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea 
+caricate 
 
 
 
@@ -363,7 +363,7 @@ Ah , ecco perché ! — gridò ad un tratto Nikolaj
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -379,7 +379,7 @@ Risposi che era
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea 
+caricate caricate caricate 
 
 
 
@@ -395,7 +395,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea 
+caricate caricate caricate caricate 
 
 
 
@@ -411,7 +411,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio giglio Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -427,7 +427,7 @@ In fondo all ' unica strada del paesello
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -443,7 +443,7 @@ Bisognava mettere al suo posto un uomo nuovo , moderno , attivo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti consueti caricate caricate 
 
 
 
@@ -459,7 +459,7 @@ Quattro mani mi afferrarono e io
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea giglio Avea 
+caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -475,7 +475,7 @@ Vanno tutti e due
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-giglio Avea Avea Avea 
+caricate caricate caricate caricate 
 
 
 
@@ -491,7 +491,7 @@ Io vado
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-giglio Avea 
+caricate caricate 
 
 
 
@@ -507,7 +507,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea rimpianto Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -523,7 +523,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti leggerò leggerò caricate caricate mota caricate caricate caricate caricate caricate Lasciando consueti consueti consueti caricate caricate 
 
 
 
@@ -539,7 +539,7 @@ S ’ intende , c ’ era anche l ’ amore , ma la parte maggiore era l ’ org
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò caricate caricate caricate leggerò caricate caricate caricate caricate leggerò 
 
 
 
@@ -555,7 +555,7 @@ La natura , almeno credo , avevagli dato tendenze migliori , principii più elet
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti consueti consueti caricate caricate Lasciando caricate consueti leggerò leggerò 
 
 
 
@@ -571,7 +571,7 @@ E allora ,
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea 
+caricate caricate caricate 
 
 
 
@@ -587,7 +587,7 @@ Solo di tanto in tanto , il bambino sollevava le lunghe ciglia ricurve , fissava
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò 
 
 
 
@@ -603,7 +603,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea rimpianto Avea 
+caricate caricate caricate 
 
 
 
@@ -619,7 +619,7 @@ E , senza consentire a Levin di esporre a fondo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate 
 
 
 
@@ -635,7 +635,7 @@ S ’ intende , la colpa non è sua . [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò 
 
 
 
@@ -651,7 +651,7 @@ Credo che [UNK]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea 
+caricate caricate caricate 
 
 
 
@@ -667,7 +667,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-giglio Avea giglio giglio Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -683,7 +683,7 @@ Passai sollecita per non essere scoperta dall ' infermiera , che mi avrebbe rima
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -699,7 +699,7 @@ Aveva tentato proprio allora di fare quello che aveva tentato già dieci volte i
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci giglio Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea rimpianto giglio Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate mota caricate caricate leggerò caricate caricate caricate leggerò caricate caricate caricate Lasciando mota caricate caricate caricate leggerò leggerò leggerò leggerò leggerò leggerò leggerò caricate caricate caricate consueti leggerò leggerò caricate leggerò Lasciando Lasciando caricate caricate caricate Lasciando Lasciando leggerò leggerò leggerò leggerò leggerò caricate Lasciando 
 
 
 
@@ -715,7 +715,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea rimpianto Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò leggerò caricate caricate 
 
 
 
@@ -731,7 +731,7 @@ Mi [UNK] così per circa un quarto di miglio , e poi arrivai
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate caricate caricate 
 
 
 
@@ -747,7 +747,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea 
+caricate 
 
 
 
@@ -763,7 +763,7 @@ Passavano i giorni nel lavoro , nella lettura e nella preghiera ; e su tutta la 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -779,7 +779,7 @@ Laska si coricò sotto la tavola , Agaf ’ ja
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate 
 
 
 
@@ -795,7 +795,7 @@ Naturalmente doveva essere [UNK]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea 
+caricate caricate caricate caricate 
 
 
 
@@ -811,7 +811,7 @@ Che la tua barchetta sia leggera , e porti soltanto ciò di
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò leggerò caricate 
 
 
 
@@ -827,7 +827,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea rimpianto 
+caricate caricate 
 
 
 
@@ -843,7 +843,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-giglio giglio 
+caricate caricate 
 
 
 
@@ -859,7 +859,7 @@ Hanno un valore , l ' ho sempre creduto e se ora non lo
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate mota mota caricate caricate caricate caricate consueti consueti leggerò caricate caricate caricate 
 
 
 
@@ -875,7 +875,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea giglio Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -891,7 +891,7 @@ Avendo allora , per la prima volta , capito chiaramente che per ogni uomo come l
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci lacci lacci giglio giglio giglio 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate scrupoli scrupoli caricate caricate caricate caricate scrupoli consueti caricate caricate caricate caricate caricate caricate caricate caricate leggerò leggerò leggerò Lasciando leggerò caricate caricate caricate 
 
 
 
@@ -907,7 +907,7 @@ Tale impressione fu sì forte
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate 
 
 
 
@@ -923,7 +923,7 @@ Non avevano nulla da dirsi , come sempre capitava in quel tempo , e lei , posta
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti consueti consueti caricate leggerò caricate caricate caricate leggerò 
 
 
 
@@ -939,7 +939,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -955,7 +955,7 @@ Si venne a parlare della
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea Avea Avea 
+caricate caricate caricate caricate caricate 
 
 
 
@@ -971,7 +971,7 @@ Allora Harris , ch ’ era seduto accanto alla finestra
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate 
 
 
 
@@ -987,7 +987,7 @@ Il conte Aleksej
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea 
+caricate caricate caricate 
 
 
 
@@ -1003,7 +1003,7 @@ Non vi è forse amore nel mio cuore e fermezza
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate 
 
 
 
@@ -1019,7 +1019,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea rimpianto rimpianto Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1035,7 +1035,7 @@ Doveva andar via , doveva lasciarlo , pensava e sentiva solo questo . [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò leggerò leggerò caricate caricate 
 
 
 
@@ -1051,7 +1051,7 @@ Una
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea 
+caricate 
 
 
 
@@ -1067,7 +1067,7 @@ Levin li contò e fu contento pensando che così sarebbe stato portato
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1083,7 +1083,7 @@ J . E ., [UNK] mandare il suo nome ,
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1099,7 +1099,7 @@ Il più [UNK] ladro del mondo si sarebbe da vero corretto da questo brutto vizio
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1115,7 +1115,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1131,7 +1131,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti consueti caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1147,7 +1147,7 @@ Di passaggio per governatorati lontani , Aleksej Aleksandrovic si fermò tre gio
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate scrupoli scrupoli caricate leggerò caricate 
 
 
 
@@ -1163,7 +1163,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea rimpianto Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1179,7 +1179,7 @@ come si potrebbe [UNK] , [UNK] li ordini , a trovarli ? se noi volessimo [UNK] ,
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti consueti caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò caricate caricate caricate caricate 
 
 
 
@@ -1195,7 +1195,7 @@ Stavano per entrare , conversando del tempo , quando
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1211,7 +1211,7 @@ Era già scuro e sulla tavola era stato posto un lume velato , che illuminava il
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea giglio lacci lacci giglio giglio Avea Avea Avea Avea Avea Avea lacci Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò caricate leggerò caricate caricate caricate caricate caricate caricate caricate leggerò leggerò leggerò leggerò leggerò leggerò leggerò caricate caricate leggerò leggerò leggerò leggerò consueti caricate leggerò caricate caricate caricate 
 
 
 
@@ -1227,7 +1227,7 @@ Egli avrà me .
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-giglio giglio Avea giglio 
+caricate caricate caricate caricate 
 
 
 
@@ -1243,7 +1243,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò leggerò caricate caricate caricate caricate leggerò caricate leggerò consueti 
 
 
 
@@ -1259,7 +1259,7 @@ Lo strato sottile della corteccia bianca [UNK] al [UNK] e la fiamma si spegneva 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate consueti consueti caricate caricate consueti caricate caricate caricate 
 
 
 
@@ -1275,7 +1275,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea rimpianto rimpianto Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea giglio Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate consueti caricate caricate consueti leggerò caricate caricate caricate caricate caricate leggerò caricate caricate consueti 
 
 
 
@@ -1291,7 +1291,7 @@ Harris propose
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea 
+caricate caricate 
 
 
 
@@ -1307,7 +1307,7 @@ Prima , e ' la fece ozioso , e sanza sospetto di essere impedito
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò caricate caricate 
 
 
 
@@ -1323,7 +1323,7 @@ Ma Kitty non si
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea 
+caricate caricate caricate caricate 
 
 
 
@@ -1339,7 +1339,7 @@ Cominciammo a domandarci se non vi fossero più di quattro isole o
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1355,7 +1355,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti caricate caricate caricate caricate caricate 
 
 
 
@@ -1371,7 +1371,7 @@ Ma no ! è vile , disgustoso !
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate consueti 
 
 
 
@@ -1387,7 +1387,7 @@ Il
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea 
+caricate 
 
 
 
@@ -1403,7 +1403,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò caricate consueti leggerò 
 
 
 
@@ -1419,7 +1419,7 @@ Egli era in compagnia di suo padre , al quale disse chi io fossi , e come avessi
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea lacci Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci lacci lacci Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci Avea Avea Avea Avea Avea Avea Avea Avea rimpianto rimpianto Avea Avea lacci Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò caricate leggerò leggerò leggerò caricate caricate caricate mota caricate leggerò leggerò leggerò consueti leggerò leggerò leggerò caricate caricate caricate caricate leggerò caricate caricate caricate leggerò Lasciando leggerò caricate caricate caricate caricate Lasciando leggerò leggerò leggerò caricate caricate Lasciando caricate caricate caricate caricate caricate caricate consueti leggerò consueti consueti leggerò caricate caricate caricate caricate leggerò leggerò leggerò leggerò leggerò leggerò caricate caricate leggerò caricate caricate leggerò caricate consueti leggerò consueti leggerò leggerò leggerò caricate caricate 
 
 
 
@@ -1435,7 +1435,7 @@ Si alzò stirandosi e sorridendo . [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea giglio Avea Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate caricate caricate 
 
 
 
@@ -1451,7 +1451,7 @@ Dove
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea 
+caricate 
 
 
 
@@ -1467,7 +1467,7 @@ Peggio che perduta . [EOS]
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-giglio Avea Avea Avea Avea 
+caricate caricate caricate caricate caricate 
 
 
 
@@ -1483,7 +1483,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea lacci lacci Avea giglio Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea Avea giglio Avea giglio Avea 
+caricate caricate caricate caricate caricate caricate caricate caricate caricate consueti leggerò caricate caricate caricate caricate caricate caricate caricate caricate caricate leggerò consueti consueti leggerò caricate caricate caricate caricate caricate caricate leggerò leggerò caricate leggerò leggerò caricate caricate caricate caricate caricate caricate leggerò leggerò leggerò leggerò caricate caricate leggerò leggerò caricate caricate leggerò leggerò leggerò leggerò caricate leggerò caricate caricate caricate caricate 
 
 
 

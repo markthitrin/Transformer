@@ -1,0 +1,47 @@
+use ReLU;
+use Config;
+use Util;
+use Matrix;
+use Time;
+
+param iterationTest = 400;
+param stdTest = 10;
+var t:stopwatch;
+
+
+
+
+
+var input: [0..#(batch * sequenceLength * dFF)] real(32);
+var outputGradient: [0..#(batch * sequenceLength * dFF)] real(32);
+var inputGradient: [0..#(batch * sequenceLength * dFF)] real(32);
+UniformInit(input, 1);
+var relu = new ReLU();
+
+var time:[0..stdTest] real;
+var totalTime: real;
+var std: real;
+
+for i in 0..#stdTest {
+    t.reset();
+    t.start();
+    for j in 0..#iterationTest {
+        relu.backward(outputGradient, inputGradient, input);
+    }
+    t.stop();
+    time[i] = t.elapsed();
+    totalTime += time[i];
+}
+var meanPerTest = totalTime / stdTest;
+for i in 0..#stdTest {
+    var x = time[i] - meanPerTest;
+    std += x * x;
+}
+std /= stdTest - 1;
+std = sqrt(std);
+
+
+writeln("mean Time per iteration : ", meanPerTest / iterationTest);
+writeln("std  Time per iteration : ", std / sqrt(iterationTest));
+writeln("mean Iteration per second : ", iterationTest / meanPerTest);
+writeln("std  Iteration per second : ",  iterationTest * iterationTest / (meanPerTest * meanPerTest) * (std / sqrt(iterationTest)));
