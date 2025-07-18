@@ -21,8 +21,6 @@ void PositionalEncoder::forward(TensorView input, TensorView output) {
         Plus(input.sliceRow(i * sequenceLength, sequenceLength), positionEncode, input.sliceRow(i * sequenceLength, sequenceLength));
     }
     dropout.forward(input, output);
-    Timer::CheckPoint();
-    if(verbose) std::cout << "MultiheadAttention" << std::endl;
 }
 
 void PositionalEncoder::predict(TensorView input, TensorView output) {

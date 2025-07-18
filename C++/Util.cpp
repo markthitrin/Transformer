@@ -1,6 +1,7 @@
 #include "Tensor.h"
 #include "Util.h"
 #include "Header.h"
+#include "Timer.h"
 
 AdamOptimizer::AdamOptimizer() {;}
 

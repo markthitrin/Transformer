@@ -110,11 +110,12 @@ int main() {
 
         for(int i = 0;i < trainingIteration;i++) {
             datasetTrain.get(encoderInput, decoderInput, targetOutput, srcSeq, tgtSeq);
-            Timer::RestartRecord();
             model.forward(encoderInput, decoderInput, output, srcSeq, tgtSeq);
             float loss = CrossEntropy(output, targetOutput, tgtSeq, gradient);
             model.backward(gradient, encoderInput, decoderInput, srcSeq, tgtSeq);
+            Timer::RestartRecord();
             model.updateParameter();
+            Timer::CheckPoint();
             std::cout << "Iteration [" << i << " / " << trainingIteration << "]   loss : " << loss << std::endl; 
         }
     }

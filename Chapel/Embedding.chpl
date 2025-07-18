@@ -22,7 +22,6 @@ class Embedding {
             Copy(input[i] * dModel, i * dModel, dModel, table, output);
         }
         Mul(0, 0, batch * sequenceLength * dModel, output, sqrt(dModel):real(32), output);
-        CheckPoint();
     }
 
     proc predict(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
@@ -43,7 +42,7 @@ class Embedding {
     proc updateParameter() {
         for i in domTableOpt {
             if needUpdate[i] {
-                AdamOpt(table[(i * dModel)..#dModel], tableOpt[i]);
+                // AdamOpt(table[(i * dModel)..#dModel], tableOpt[i]); ** TEMPORARY
                 needUpdate[i] = false;
             }
         }

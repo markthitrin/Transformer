@@ -33,8 +33,6 @@ void Softmax::forward(TensorView input, TensorView output) {
             output[i * col + j] = buffer[j] / sumExp;
         }
     }   
-    Timer::CheckPoint();
-    if(verbose) std::cout << "MultiheadAttention" << std::endl;
 }
 
 void Softmax::predict(TensorView input, TensorView output) {

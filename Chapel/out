@@ -2,710 +2,42 @@ read data
 split data
 Create the model
 Start Training
-Iteration [0 / 500] loss : 14.4571
-Iteration [1 / 500] loss : 14.453
-Iteration [2 / 500] loss : 14.4502
-Iteration [3 / 500] loss : 14.4456
-Iteration [4 / 500] loss : 14.4414
-Iteration [5 / 500] loss : 14.4355
-Iteration [6 / 500] loss : 14.4424
-Iteration [7 / 500] loss : 14.4335
-Iteration [8 / 500] loss : 14.4321
-Iteration [9 / 500] loss : 14.4332
-Iteration [10 / 500] loss : 14.4193
-Iteration [11 / 500] loss : 14.4174
-Iteration [12 / 500] loss : 14.421
-Iteration [13 / 500] loss : 14.4152
-Iteration [14 / 500] loss : 14.4108
-Iteration [15 / 500] loss : 14.4181
-Iteration [16 / 500] loss : 14.4023
-Iteration [17 / 500] loss : 14.3973
-Iteration [18 / 500] loss : 14.3936
-Iteration [19 / 500] loss : 14.3916
-Iteration [20 / 500] loss : 14.3802
-Iteration [21 / 500] loss : 14.3802
-Iteration [22 / 500] loss : 14.385
-Iteration [23 / 500] loss : 14.3721
-Iteration [24 / 500] loss : 14.3682
-Iteration [25 / 500] loss : 14.3554
-Iteration [26 / 500] loss : 14.3565
-Iteration [27 / 500] loss : 14.3271
-Iteration [28 / 500] loss : 14.335
-Iteration [29 / 500] loss : 14.3242
-Iteration [30 / 500] loss : 14.3239
-Iteration [31 / 500] loss : 14.314
-Iteration [32 / 500] loss : 14.3387
-Iteration [33 / 500] loss : 14.3354
-Iteration [34 / 500] loss : 14.3093
-Iteration [35 / 500] loss : 14.2934
-Iteration [36 / 500] loss : 14.2805
-Iteration [37 / 500] loss : 14.2815
-Iteration [38 / 500] loss : 14.2783
-Iteration [39 / 500] loss : 14.2664
-Iteration [40 / 500] loss : 14.3056
-Iteration [41 / 500] loss : 14.2838
-Iteration [42 / 500] loss : 14.2985
-Iteration [43 / 500] loss : 14.2585
-Iteration [44 / 500] loss : 14.2915
-Iteration [45 / 500] loss : 14.204
-Iteration [46 / 500] loss : 14.2514
-Iteration [47 / 500] loss : 14.1929
-Iteration [48 / 500] loss : 14.204
-Iteration [49 / 500] loss : 14.1708
-Iteration [50 / 500] loss : 14.195
-Iteration [51 / 500] loss : 14.1409
-Iteration [52 / 500] loss : 14.2131
-Iteration [53 / 500] loss : 14.2197
-Iteration [54 / 500] loss : 14.1759
-Iteration [55 / 500] loss : 14.1751
-Iteration [56 / 500] loss : 14.1563
-Iteration [57 / 500] loss : 14.1444
-Iteration [58 / 500] loss : 14.1461
-Iteration [59 / 500] loss : 14.1366
-Iteration [60 / 500] loss : 14.1353
-Iteration [61 / 500] loss : 14.117
-Iteration [62 / 500] loss : 14.1186
-Iteration [63 / 500] loss : 14.1752
-Iteration [64 / 500] loss : 14.1563
-Iteration [65 / 500] loss : 14.1307
-Iteration [66 / 500] loss : 14.0836
-Iteration [67 / 500] loss : 14.1316
-Iteration [68 / 500] loss : 14.0613
-Iteration [69 / 500] loss : 14.0674
-Iteration [70 / 500] loss : 14.0776
-Iteration [71 / 500] loss : 14.0676
-Iteration [72 / 500] loss : 14.0445
-Iteration [73 / 500] loss : 14.0261
-Iteration [74 / 500] loss : 13.994
-Iteration [75 / 500] loss : 14.0435
-Iteration [76 / 500] loss : 14.0413
-Iteration [77 / 500] loss : 14.0149
-Iteration [78 / 500] loss : 14.0188
-Iteration [79 / 500] loss : 14.0811
-Iteration [80 / 500] loss : 13.9854
-Iteration [81 / 500] loss : 14.0068
-Iteration [82 / 500] loss : 14.1151
-Iteration [83 / 500] loss : 14.0163
-Iteration [84 / 500] loss : 13.9444
-Iteration [85 / 500] loss : 13.9693
-Iteration [86 / 500] loss : 13.9022
-Iteration [87 / 500] loss : 13.984
-Iteration [88 / 500] loss : 14.028
-Iteration [89 / 500] loss : 13.889
-Iteration [90 / 500] loss : 13.9481
-Iteration [91 / 500] loss : 13.9132
-Iteration [92 / 500] loss : 14.0114
-Iteration [93 / 500] loss : 13.9152
-Iteration [94 / 500] loss : 13.9072
-Iteration [95 / 500] loss : 13.8893
-Iteration [96 / 500] loss : 13.8715
-Iteration [97 / 500] loss : 13.849
-Iteration [98 / 500] loss : 13.8758
-Iteration [99 / 500] loss : 13.9326
-Iteration [100 / 500] loss : 13.8908
-Iteration [101 / 500] loss : 13.8449
-Iteration [102 / 500] loss : 13.8339
-Iteration [103 / 500] loss : 13.892
-Iteration [104 / 500] loss : 13.8503
-Iteration [105 / 500] loss : 13.8088
-Iteration [106 / 500] loss : 13.7983
-Iteration [107 / 500] loss : 13.7687
-Iteration [108 / 500] loss : 13.8875
-Iteration [109 / 500] loss : 13.7342
-Iteration [110 / 500] loss : 13.8688
-Iteration [111 / 500] loss : 13.7329
-Iteration [112 / 500] loss : 13.7914
-Iteration [113 / 500] loss : 13.8331
-Iteration [114 / 500] loss : 13.7076
-Iteration [115 / 500] loss : 13.8082
-Iteration [116 / 500] loss : 13.7349
-Iteration [117 / 500] loss : 13.7707
-Iteration [118 / 500] loss : 13.7103
-Iteration [119 / 500] loss : 13.7747
-Iteration [120 / 500] loss : 13.7801
-Iteration [121 / 500] loss : 13.7535
-Iteration [122 / 500] loss : 13.6386
-Iteration [123 / 500] loss : 13.7645
-Iteration [124 / 500] loss : 13.9044
-Iteration [125 / 500] loss : 13.713
-Iteration [126 / 500] loss : 13.6784
-Iteration [127 / 500] loss : 13.6599
-Iteration [128 / 500] loss : 13.6422
-Iteration [129 / 500] loss : 13.5881
-Iteration [130 / 500] loss : 13.6128
-Iteration [131 / 500] loss : 13.5665
-Iteration [132 / 500] loss : 13.6167
-Iteration [133 / 500] loss : 13.5463
-Iteration [134 / 500] loss : 13.7815
-Iteration [135 / 500] loss : 13.6573
-Iteration [136 / 500] loss : 13.7375
-Iteration [137 / 500] loss : 13.654
-Iteration [138 / 500] loss : 13.6034
-Iteration [139 / 500] loss : 13.7533
-Iteration [140 / 500] loss : 13.5288
-Iteration [141 / 500] loss : 13.6156
-Iteration [142 / 500] loss : 13.7007
-Iteration [143 / 500] loss : 13.5453
-Iteration [144 / 500] loss : 13.6708
-Iteration [145 / 500] loss : 13.6629
-Iteration [146 / 500] loss : 13.6505
-Iteration [147 / 500] loss : 13.6369
-Iteration [148 / 500] loss : 13.5627
-Iteration [149 / 500] loss : 13.4703
-Iteration [150 / 500] loss : 13.6522
-Iteration [151 / 500] loss : 13.5452
-Iteration [152 / 500] loss : 13.5401
-Iteration [153 / 500] loss : 13.766
-Iteration [154 / 500] loss : 13.637
-Iteration [155 / 500] loss : 13.5571
-Iteration [156 / 500] loss : 13.6436
-Iteration [157 / 500] loss : 13.4037
-Iteration [158 / 500] loss : 13.6309
-Iteration [159 / 500] loss : 13.5549
-Iteration [160 / 500] loss : 13.4741
-Iteration [161 / 500] loss : 13.4954
-Iteration [162 / 500] loss : 13.4964
-Iteration [163 / 500] loss : 13.5084
-Iteration [164 / 500] loss : 13.5046
-Iteration [165 / 500] loss : 13.3879
-Iteration [166 / 500] loss : 13.5329
-Iteration [167 / 500] loss : 13.4526
-Iteration [168 / 500] loss : 13.4063
-Iteration [169 / 500] loss : 13.5787
-Iteration [170 / 500] loss : 13.4851
-Iteration [171 / 500] loss : 13.3636
-Iteration [172 / 500] loss : 13.3559
-Iteration [173 / 500] loss : 13.3972
-Iteration [174 / 500] loss : 13.3774
-Iteration [175 / 500] loss : 13.4381
-Iteration [176 / 500] loss : 13.3555
-Iteration [177 / 500] loss : 13.3741
-Iteration [178 / 500] loss : 13.4057
-Iteration [179 / 500] loss : 13.4784
-Iteration [180 / 500] loss : 13.3314
-Iteration [181 / 500] loss : 13.3139
-Iteration [182 / 500] loss : 13.3053
-Iteration [183 / 500] loss : 13.3871
-Iteration [184 / 500] loss : 13.2504
-Iteration [185 / 500] loss : 13.2786
-Iteration [186 / 500] loss : 13.3059
-Iteration [187 / 500] loss : 13.4411
-Iteration [188 / 500] loss : 13.3532
-Iteration [189 / 500] loss : 13.344
-Iteration [190 / 500] loss : 13.3933
-Iteration [191 / 500] loss : 13.2197
-Iteration [192 / 500] loss : 13.2484
-Iteration [193 / 500] loss : 13.3685
-Iteration [194 / 500] loss : 13.375
-Iteration [195 / 500] loss : 13.2528
-Iteration [196 / 500] loss : 13.1997
-Iteration [197 / 500] loss : 13.2517
-Iteration [198 / 500] loss : 13.2249
-Iteration [199 / 500] loss : 13.285
-Iteration [200 / 500] loss : 13.3488
-Iteration [201 / 500] loss : 13.371
-Iteration [202 / 500] loss : 13.0836
-Iteration [203 / 500] loss : 13.2441
-Iteration [204 / 500] loss : 13.3687
-Iteration [205 / 500] loss : 13.3374
-Iteration [206 / 500] loss : 13.2636
-Iteration [207 / 500] loss : 13.1861
-Iteration [208 / 500] loss : 13.0545
-Iteration [209 / 500] loss : 13.1719
-Iteration [210 / 500] loss : 13.2257
-Iteration [211 / 500] loss : 13.1842
-Iteration [212 / 500] loss : 13.1228
-Iteration [213 / 500] loss : 13.274
-Iteration [214 / 500] loss : 13.083
-Iteration [215 / 500] loss : 13.1291
-Iteration [216 / 500] loss : 13.0857
-Iteration [217 / 500] loss : 13.1231
-Iteration [218 / 500] loss : 13.3262
-Iteration [219 / 500] loss : 13.0972
-Iteration [220 / 500] loss : 13.1681
-Iteration [221 / 500] loss : 13.2531
-Iteration [222 / 500] loss : 13.1753
-Iteration [223 / 500] loss : 13.1422
-Iteration [224 / 500] loss : 13.0958
-Iteration [225 / 500] loss : 12.9654
-Iteration [226 / 500] loss : 12.9374
-Iteration [227 / 500] loss : 13.1123
-Iteration [228 / 500] loss : 13.4226
-Iteration [229 / 500] loss : 13.0271
-Iteration [230 / 500] loss : 13.1212
-Iteration [231 / 500] loss : 13.1885
-Iteration [232 / 500] loss : 13.1493
-Iteration [233 / 500] loss : 13.0907
-Iteration [234 / 500] loss : 13.2986
-Iteration [235 / 500] loss : 13.1107
-Iteration [236 / 500] loss : 13.0599
-Iteration [237 / 500] loss : 12.9751
-Iteration [238 / 500] loss : 13.1034
-Iteration [239 / 500] loss : 13.1054
-Iteration [240 / 500] loss : 12.9613
-Iteration [241 / 500] loss : 13.0185
-Iteration [242 / 500] loss : 13.0239
-Iteration [243 / 500] loss : 13.3187
-Iteration [244 / 500] loss : 13.0986
-Iteration [245 / 500] loss : 12.9839
-Iteration [246 / 500] loss : 12.8619
-Iteration [247 / 500] loss : 12.9999
-Iteration [248 / 500] loss : 12.9896
-Iteration [249 / 500] loss : 13.2752
-Iteration [250 / 500] loss : 13.0965
-Iteration [251 / 500] loss : 12.9133
-Iteration [252 / 500] loss : 13.2237
-Iteration [253 / 500] loss : 12.9875
-Iteration [254 / 500] loss : 12.9571
-Iteration [255 / 500] loss : 12.9205
-Iteration [256 / 500] loss : 12.9663
-Iteration [257 / 500] loss : 13.1159
-Iteration [258 / 500] loss : 13.0282
-Iteration [259 / 500] loss : 12.969
-Iteration [260 / 500] loss : 12.8915
-Iteration [261 / 500] loss : 12.9973
-Iteration [262 / 500] loss : 12.8455
-Iteration [263 / 500] loss : 12.8718
-Iteration [264 / 500] loss : 12.7879
-Iteration [265 / 500] loss : 12.8114
-Iteration [266 / 500] loss : 13.0146
-Iteration [267 / 500] loss : 12.7965
-Iteration [268 / 500] loss : 12.8385
-Iteration [269 / 500] loss : 12.6332
-Iteration [270 / 500] loss : 12.6355
-Iteration [271 / 500] loss : 12.9277
-Iteration [272 / 500] loss : 12.8065
-Iteration [273 / 500] loss : 12.8116
-Iteration [274 / 500] loss : 12.8824
-Iteration [275 / 500] loss : 13.1363
-Iteration [276 / 500] loss : 12.8568
-Iteration [277 / 500] loss : 12.7194
-Iteration [278 / 500] loss : 12.7867
-Iteration [279 / 500] loss : 12.7006
-Iteration [280 / 500] loss : 12.6779
-Iteration [281 / 500] loss : 12.6529
-Iteration [282 / 500] loss : 13.0111
-Iteration [283 / 500] loss : 12.7439
-Iteration [284 / 500] loss : 13.1102
-Iteration [285 / 500] loss : 12.5886
-Iteration [286 / 500] loss : 12.8626
-Iteration [287 / 500] loss : 13.0369
-Iteration [288 / 500] loss : 12.7853
-Iteration [289 / 500] loss : 12.7822
-Iteration [290 / 500] loss : 12.5294
-Iteration [291 / 500] loss : 12.7822
-Iteration [292 / 500] loss : 12.7556
-Iteration [293 / 500] loss : 12.7424
-Iteration [294 / 500] loss : 12.8426
-Iteration [295 / 500] loss : 12.5843
-Iteration [296 / 500] loss : 12.7638
-Iteration [297 / 500] loss : 12.7329
-Iteration [298 / 500] loss : 12.6181
-Iteration [299 / 500] loss : 12.679
-Iteration [300 / 500] loss : 12.8077
-Iteration [301 / 500] loss : 12.7567
-Iteration [302 / 500] loss : 12.3842
-Iteration [303 / 500] loss : 12.7638
-Iteration [304 / 500] loss : 12.863
-Iteration [305 / 500] loss : 12.6846
-Iteration [306 / 500] loss : 12.7179
-Iteration [307 / 500] loss : 12.4695
-Iteration [308 / 500] loss : 12.7496
-Iteration [309 / 500] loss : 12.848
-Iteration [310 / 500] loss : 12.5539
-Iteration [311 / 500] loss : 12.6161
-Iteration [312 / 500] loss : 12.7262
-Iteration [313 / 500] loss : 12.5976
-Iteration [314 / 500] loss : 12.5966
-Iteration [315 / 500] loss : 12.4429
-Iteration [316 / 500] loss : 12.7064
-Iteration [317 / 500] loss : 12.5809
-Iteration [318 / 500] loss : 12.3941
-Iteration [319 / 500] loss : 12.7883
-Iteration [320 / 500] loss : 12.533
-Iteration [321 / 500] loss : 12.711
-Iteration [322 / 500] loss : 12.4322
-Iteration [323 / 500] loss : 12.6582
-Iteration [324 / 500] loss : 12.8955
-Iteration [325 / 500] loss : 12.3989
-Iteration [326 / 500] loss : 12.3445
-Iteration [327 / 500] loss : 12.7065
-Iteration [328 / 500] loss : 12.2036
-Iteration [329 / 500] loss : 12.4831
-Iteration [330 / 500] loss : 12.4872
-Iteration [331 / 500] loss : 12.2151
-Iteration [332 / 500] loss : 12.6569
-Iteration [333 / 500] loss : 12.763
-Iteration [334 / 500] loss : 12.7079
-Iteration [335 / 500] loss : 12.6313
-Iteration [336 / 500] loss : 12.4065
-Iteration [337 / 500] loss : 12.6968
-Iteration [338 / 500] loss : 12.375
-Iteration [339 / 500] loss : 12.6597
-Iteration [340 / 500] loss : 12.1517
-Iteration [341 / 500] loss : 12.5153
-Iteration [342 / 500] loss : 12.393
-Iteration [343 / 500] loss : 12.751
-Iteration [344 / 500] loss : 12.4357
-Iteration [345 / 500] loss : 12.648
-Iteration [346 / 500] loss : 12.5488
-Iteration [347 / 500] loss : 12.4562
-Iteration [348 / 500] loss : 12.5998
-Iteration [349 / 500] loss : 12.6972
-Iteration [350 / 500] loss : 12.6727
-Iteration [351 / 500] loss : 12.5768
-Iteration [352 / 500] loss : 12.3076
-Iteration [353 / 500] loss : 12.4955
-Iteration [354 / 500] loss : 12.3655
-Iteration [355 / 500] loss : 12.4471
-Iteration [356 / 500] loss : 12.421
-Iteration [357 / 500] loss : 12.37
-Iteration [358 / 500] loss : 12.2047
-Iteration [359 / 500] loss : 12.1486
-Iteration [360 / 500] loss : 12.0703
-Iteration [361 / 500] loss : 12.8561
-Iteration [362 / 500] loss : 12.2229
-Iteration [363 / 500] loss : 12.3747
-Iteration [364 / 500] loss : 12.6717
-Iteration [365 / 500] loss : 12.4915
-Iteration [366 / 500] loss : 12.3027
-Iteration [367 / 500] loss : 12.3442
-Iteration [368 / 500] loss : 12.3501
-Iteration [369 / 500] loss : 12.693
-Iteration [370 / 500] loss : 12.5815
-Iteration [371 / 500] loss : 12.3645
-Iteration [372 / 500] loss : 12.2374
-Iteration [373 / 500] loss : 12.2011
-Iteration [374 / 500] loss : 12.4491
-Iteration [375 / 500] loss : 12.0698
-Iteration [376 / 500] loss : 12.1707
-Iteration [377 / 500] loss : 12.2261
-Iteration [378 / 500] loss : 12.6326
-Iteration [379 / 500] loss : 12.3471
-Iteration [380 / 500] loss : 12.5024
-Iteration [381 / 500] loss : 12.2885
-Iteration [382 / 500] loss : 12.1535
-Iteration [383 / 500] loss : 12.2223
-Iteration [384 / 500] loss : 12.5495
-Iteration [385 / 500] loss : 12.4745
-Iteration [386 / 500] loss : 12.2195
-Iteration [387 / 500] loss : 12.303
-Iteration [388 / 500] loss : 12.2966
-Iteration [389 / 500] loss : 12.0619
-Iteration [390 / 500] loss : 12.1621
-Iteration [391 / 500] loss : 11.9758
-Iteration [392 / 500] loss : 12.2972
-Iteration [393 / 500] loss : 12.2553
-Iteration [394 / 500] loss : 12.8403
-Iteration [395 / 500] loss : 12.2356
-Iteration [396 / 500] loss : 12.3071
-Iteration [397 / 500] loss : 12.3709
-Iteration [398 / 500] loss : 11.9818
-Iteration [399 / 500] loss : 12.323
-Iteration [400 / 500] loss : 12.5317
-Iteration [401 / 500] loss : 12.1854
-Iteration [402 / 500] loss : 12.0227
-Iteration [403 / 500] loss : 12.4613
-Iteration [404 / 500] loss : 12.233
-Iteration [405 / 500] loss : 12.0462
-Iteration [406 / 500] loss : 12.3311
-Iteration [407 / 500] loss : 12.1612
-Iteration [408 / 500] loss : 12.2395
-Iteration [409 / 500] loss : 12.2544
-Iteration [410 / 500] loss : 12.2875
-Iteration [411 / 500] loss : 12.4948
-Iteration [412 / 500] loss : 12.1272
-Iteration [413 / 500] loss : 12.3844
-Iteration [414 / 500] loss : 11.9389
-Iteration [415 / 500] loss : 12.2224
-Iteration [416 / 500] loss : 12.0783
-Iteration [417 / 500] loss : 12.2821
-Iteration [418 / 500] loss : 12.6954
-Iteration [419 / 500] loss : 12.2514
-Iteration [420 / 500] loss : 11.7494
-Iteration [421 / 500] loss : 11.9638
-Iteration [422 / 500] loss : 12.2087
-Iteration [423 / 500] loss : 12.2794
-Iteration [424 / 500] loss : 12.0686
-Iteration [425 / 500] loss : 12.2982
-Iteration [426 / 500] loss : 12.3039
-Iteration [427 / 500] loss : 12.0264
-Iteration [428 / 500] loss : 12.4111
-Iteration [429 / 500] loss : 11.9196
-Iteration [430 / 500] loss : 12.2944
-Iteration [431 / 500] loss : 11.8528
-Iteration [432 / 500] loss : 11.7266
-Iteration [433 / 500] loss : 11.8889
-Iteration [434 / 500] loss : 12.1552
-Iteration [435 / 500] loss : 11.7808
-Iteration [436 / 500] loss : 11.8024
-Iteration [437 / 500] loss : 12.0092
-Iteration [438 / 500] loss : 11.8889
-Iteration [439 / 500] loss : 12.2201
-Iteration [440 / 500] loss : 12.0682
-Iteration [441 / 500] loss : 11.998
-Iteration [442 / 500] loss : 11.8861
-Iteration [443 / 500] loss : 11.7665
-Iteration [444 / 500] loss : 12.5683
-Iteration [445 / 500] loss : 12.0173
-Iteration [446 / 500] loss : 12.1597
-Iteration [447 / 500] loss : 11.9747
-Iteration [448 / 500] loss : 11.7449
-Iteration [449 / 500] loss : 11.9064
-Iteration [450 / 500] loss : 12.1026
-Iteration [451 / 500] loss : 11.9332
-Iteration [452 / 500] loss : 12.5038
-Iteration [453 / 500] loss : 11.7787
-Iteration [454 / 500] loss : 11.6307
-Iteration [455 / 500] loss : 11.7561
-Iteration [456 / 500] loss : 12.003
-Iteration [457 / 500] loss : 11.9507
-Iteration [458 / 500] loss : 12.2896
-Iteration [459 / 500] loss : 11.9467
-Iteration [460 / 500] loss : 11.7944
-Iteration [461 / 500] loss : 12.0212
-Iteration [462 / 500] loss : 11.9317
-Iteration [463 / 500] loss : 11.5588
-Iteration [464 / 500] loss : 11.6658
-Iteration [465 / 500] loss : 11.9549
-Iteration [466 / 500] loss : 11.7445
-Iteration [467 / 500] loss : 11.6197
-Iteration [468 / 500] loss : 11.8397
-Iteration [469 / 500] loss : 11.6861
-Iteration [470 / 500] loss : 11.4441
-Iteration [471 / 500] loss : 11.7028
-Iteration [472 / 500] loss : 12.1028
-Iteration [473 / 500] loss : 12.055
-Iteration [474 / 500] loss : 11.6299
-Iteration [475 / 500] loss : 12.2387
-Iteration [476 / 500] loss : 11.7731
-Iteration [477 / 500] loss : 11.6892
-Iteration [478 / 500] loss : 12.0174
-Iteration [479 / 500] loss : 11.8465
-Iteration [480 / 500] loss : 11.5987
-Iteration [481 / 500] loss : 12.0266
-Iteration [482 / 500] loss : 11.9748
-Iteration [483 / 500] loss : 11.7279
-Iteration [484 / 500] loss : 11.6692
-Iteration [485 / 500] loss : 11.6968
-Iteration [486 / 500] loss : 11.9328
-Iteration [487 / 500] loss : 11.6682
-Iteration [488 / 500] loss : 11.7027
-Iteration [489 / 500] loss : 12.2444
-Iteration [490 / 500] loss : 11.4888
-Iteration [491 / 500] loss : 11.6608
-Iteration [492 / 500] loss : 11.5522
-Iteration [493 / 500] loss : 11.7892
-Iteration [494 / 500] loss : 11.6477
-Iteration [495 / 500] loss : 11.5812
-Iteration [496 / 500] loss : 11.9227
-Iteration [497 / 500] loss : 11.7558
-Iteration [498 / 500] loss : 11.5768
-Iteration [499 / 500] loss : 12.0893
+Iteration [0 / 20] loss : 14.4582
+Iteration [1 / 20] loss : 14.4497
+Iteration [2 / 20] loss : 14.4492
+Iteration [3 / 20] loss : 14.4478
+Iteration [4 / 20] loss : 14.4479
+Iteration [5 / 20] loss : 14.4447
+Iteration [6 / 20] loss : 14.4369
+Iteration [7 / 20] loss : 14.4345
+Iteration [8 / 20] loss : 14.4277
+Iteration [9 / 20] loss : 14.4236
+Iteration [10 / 20] loss : 14.433
+Iteration [11 / 20] loss : 14.4216
+Iteration [12 / 20] loss : 14.4194
+Iteration [13 / 20] loss : 14.4315
+Iteration [14 / 20] loss : 14.4144
+Iteration [15 / 20] loss : 14.4151
+Iteration [16 / 20] loss : 14.4086
+Iteration [17 / 20] loss : 14.4015
+Iteration [18 / 20] loss : 14.3721
+Iteration [19 / 20] loss : 14.4034
 Time Recorded ====================================
 
 
-29.7516
-6.26797
-372.952
-67.3486
-4336.48
-4421.24
-13507.8
-1170.27
-346.752
-74.9847
-607.434
-100.007
-2947.21
-914.407
-353.362
-82.281
-4308.26
-4417.68
-13419.2
-1176.31
-347.081
-75.5294
-608.514
-98.9303
-2927.58
-918.209
-353.159
-82.1416
-4320.97
-4416.58
-13521.1
-1166.12
-346.558
-76.1525
-617.255
-99.9717
-2937.82
-925.351
-354.913
-83.4706
-4673.05
-4415.79
-13652.2
-1154.19
-347.477
-75.4444
-614.207
-99.7429
-2925.32
-918.418
-354.231
-82.6449
-4681.36
-4415.84
-13551.5
-1216.14
-347.562
-75.6275
-615.205
-105.599
-2928.13
-941.412
-354.407
-82.9477
-4606.72
-4416.66
-13645.9
-1187.45
-347.638
-75.3943
-613.85
-97.7102
-2935.51
-914.621
-354.229
-81.4532
-25.4096
-5.65359
-355.669
-66.4423
-4627.84
-4296.71
-13642.2
-1206.61
-347.083
-75.6405
-4459.13
-6709.96
-13617.4
-1201.36
-347.495
-75.1438
-606.756
-99.2309
-2932.48
-914.959
-353.667
-82.8061
-4320.72
-4299.43
-13456.6
-1171.35
-346.767
-76.0261
-4100.13
-6710.23
-13466.7
-1176.44
-347.155
-75.1285
-604.024
-97.9368
-2925.3
-916.771
-354.139
-83.1481
-4317.16
-4297.9
-13500.4
-1171.71
-346.468
-75.1068
-4108.46
-6710.77
-13428.2
-1173.95
-346.29
-75.061
-607.111
-97.3181
-2945.04
-916.004
-353.525
-81.9586
-4293.4
-4300.98
-13544.8
-1170.38
-346.708
-75.8148
-4070.59
-6705.39
-13443.9
-1154.26
-346.712
-75.0675
-610.699
-98.1373
-2938.46
-914.137
-353.231
-82.2963
-4297.1
-4295.5
-13490.3
-1156.52
-346.71
-75.6405
-4112.13
-6711.24
-13394.0
-1176.75
-346.394
-75.281
-618.758
-98.7015
-2930.72
-913.399
-352.211
-83.0479
-4274.29
-4294.65
-13532.1
-1152.57
-347.011
-74.719
-4111.93
-6711.39
-13489.6
-1173.4
-347.035
-75.3355
-606.407
-98.902
-2934.18
-914.414
-352.969
-82.5381
-86812.2
+3226.0
 Start evaluation
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Why , I thought it was the Director of the Department !' and he remembered that Anna had asked him to see the boy . 
+' I ' m awfully glad I have found you in ! Well , I hope ...' began Oblonsky , cheerfully . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Io credevo fosse un [UNK] . Anna m ’ aveva appunto pregato di vederlo ” ricordò . 
+Così io spero 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , 
+— — — 
 
 
 
@@ -713,15 +45,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' What should I have been and how should I have lived my life , if I had not had those beliefs , and had not known that one must live for God , and not for one ' s own needs ? 
+' [UNK] !' shouted Veslovsky . ' Excuse me – I have only just finished my ablutions ,' he said smiling , as he stood before Levin in his [UNK] . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-“ Che cosa sarei e come avrei vissuto la mia vita , se non avessi avuto questa fede , se non 
+— [UNK] ! — gli gridò 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , , , , , 
+— — — ' ' — 
 
 
 
@@ -729,15 +61,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' [UNK] ! Let ' s go !... 
+' One cannot even admit that the Government had that aim in view ,' he said . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Benissimo 
+— Nemmeno si può dire — 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , 
+— — — — la — 
 
 
 
@@ -745,15 +77,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-She , however , sorted combs and brushes , and did it all in such a way that there was nothing offensive about it . 
+But where , when , and why all this was done he did not know . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Lei , invece , metteva in ordine le spazzole e faceva tutto ciò senza che vi fosse nulla di offensivo . [EOS] 
+Ma dove , quando e perché avvenisse tutto 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , , , , , , 
+— — ' ' — — — — 
 
 
 
@@ -761,15 +93,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' What do you want ?' 
+' You are married , I hear ?' said the landowner . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Che vi occorre ? [EOS] 
+— 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , 
+— 
 
 
 
@@ -777,15 +109,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-As no one was paying any attention to him , and he apparently was not wanted by anybody , he went quietly to the small refreshment - room and again felt great relief when he saw the waiters . 
+Golenishchev ' s conviction that Vronsky possessed talent was supported by the fact that he required Vronsky ' s sympathy and praise for his articles and ideas , and felt that praise and encouragement should be mutual . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Poiché nessuno faceva attenzione a lui , e 
+La fiducia di Golenišcev nel talento di Vronskij era sostenuta anche dal fatto che egli aveva bisogno della simpatia e delle lodi di Vronskij per i suoi articoli e per le sue idee , e sentiva che 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , 
+— — — ' — — — — — parte l — — — — — immediatamente immediatamente — — — ' che immediatamente — — — — parte immediatamente — immediatamente — — — — — 
 
 
 
@@ -793,15 +125,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Levin again expressed , and heard , various opinions about the meeting , the new fantasia , and a trial . But probably as a result of the mental fatigue he was beginning to feel , he made a slip when talking of the trial , and he afterwards remembered that slip with vexation several times . 
+In the front nursery Serezha , lying with his chest on the table and his legs on a chair , was drawing something and chattering merrily . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Ma , probabilmente per la stanchezza dovuta all ’ attenzione , che cominciava a provare , si sbagliò parlando del processo , e questo sbaglio poi 
+Nella prima stanza Serëza , disteso col petto sulla tavola e con i piedi su di una sedia , disegnava qualcosa [UNK] 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , , , , , , , , , , 
+— — ' — — — — — — — — — — — — ' immediatamente parte — — immediatamente che 
 
 
 
@@ -809,15 +141,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Now everything is ready . 
+Laska paused with a mocking look at the horses and a questioning one at Levin . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Sia 
+Laska si fermò , guardando con irrisione 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, 
+— — — ' — — — 
 
 
 
@@ -825,415 +157,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Shall I bring some more bread and give the [UNK] a bit ?' he asked Dolly , pointing to Grisha , who was finishing his crust . 
+She knew that , though he was the chief cause of her misery , the question of her seeing her son would seem to him quite unimportant . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Devo portare dell ’ altro pane ? Posso darne ancora al bambino ? — disse rivolto a Dar ’ ja Aleksandrovna , indicando Griša , 
+Sapeva che per lui , anche se questa 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-But now without a moment ' s hesitation he did refuse it and , observing that his superiors frowned upon his action , at once resigned his commission . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Ma adesso , senza 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-I wish for a divorce , but the form in which it can be obtained is of importance to me . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Desidero il divorzio , ma per me è 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Whether it was that he , Prince Oblonsky , a [UNK] of Rurik , was waiting two hours in a Jew ' s waiting - room , or that , for the first time in his life , he was departing from the example set by his ancestors of serving the State only and was entering on a new field , at any rate he felt uncomfortable . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Ch ’ egli si sentisse a disagio perché lui , principe Oblonskij , discendente di Rjurik , aveva aspettato due ore nella sala d ’ aspetto di un giudeo , o perché , per la prima volta nella vita , non aveva seguito l ’ esempio degli antenati col servire il governo , e aveva voluto entrare in un ’ amministrazione nuova , certo è che si era 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-They were doing no one any harm , and everybody was pleased . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Non davano noia a nessuno e tutti si 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Well then , what do you say to Papa ?' asked Kitty . ' Is he bad too , because he does nothing for the common good ?' 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— E allora cosa dirai mai di papà ? — 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Karenin smiled contemptuously . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Aleksej Aleksandrovic rise sprezzante . 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Her disbelief in his dissatisfaction with himself was pleasant , and unconsciously he challenged her to give reasons for her disbelief . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-L ’ incredulità di lei verso la sua insoddisfazione lo rallegrava ed egli 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' A decision , some decision , Alexis Alexandrovich ! 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Una decisione , una qualsiasi decisione , Aleksej Aleksandrovic . 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Yes , you ' d better ask him ! 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Ma ecco , domandate 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Even now , if we had not spent this summer with Kostya and Kitty , I don ' t know how we should have managed . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-E ora , se non avessimo trascorso questa estate dai Levin , non so come 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Why ?' she said , becoming more and more agitated . ' Does anyone dispute your right ? 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Per che cosa ? — ella 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-And Kitty is just the same : if not Vronsky , then Levin . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Se non 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-I am ashamed to confess it , but I ... I am [UNK] happy ! 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-È vergognoso confessarlo ; ma io ... sono imperdonabilmente felice . 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-She too was in great trouble that day . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Dar ’ ja Aleksandrovna , per conto suo , era molto amareggiata 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' [UNK] are natural to human weakness , but we must pray that our merciful Lord will strengthen us . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— I dubbi sono propri della debolezza umana , ma noi 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Her mouth was slightly open and her ears erect . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-La bocca era leggermente aperta , 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-He was now listening to Sviyazhsky and Hlyustov , the Marshal of another district , who also belonged to their party . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Egli ora ascoltava Svijazskij e 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-A usual when she saw her husband all her animation vanished from her face ; she bowed her head and glanced uneasily at Betsy . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Come sempre , alla vista del marito , l ’ animazione sul suo viso scomparve 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-If you were uneasy about me , you may be quite at ease now . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-E se temi per me , puoi star più tranquillo 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' One ought not to wear a chignon ,' replied the Maid of Honour , who had long ago made up her mind that if the old [UNK] for whom she was angling ever married her , their wedding should be of the simplest . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Non occorreva mettersi lo chignon — rispondeva la Nikolaevna , la quale aveva da lungo tempo deciso che , se il vecchio [UNK] che stava [UNK] 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The only thing she did not prepare was what she would say to her son . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Solo le parole da 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' I don ' t understand it at all ,' said Levin , blushing , and feeling that his words were silly and that they could not but be silly . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Io non capisco nulla — disse Levin , diventando 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Please remember that cases of this kind , as you know , are decided by the Ecclesiastical Department , and the reverend Fathers in such cases are keenly interested in the minutest details ,' he said , with a smile that showed his fellow - feeling with the reverend Fathers ' taste . ' Letters may certainly serve as a partial confirmation , but direct evidence from witnesses must be produced . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Abbiate la 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Here we live and know nothing ,' said Vronsky one morning to Golenishchev , who had come to see him . ' Have you seen Mikhaylov ' s picture ?' and he passed his visitor a Russian newspaper that had just arrived , and pointed to an article on a Russian artist who was living in that town , and had just finished a picture long talked of and bought before completion . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— E noi viviamo e 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Well , perhaps Steve is right ! I am not manly with her , I have grown effeminate ... 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-E che Stiva abbia ragione , 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , 
+— — ' — — — — — 
 
 
 
@@ -1245,11 +177,11 @@ The full meal is you and the talks I am going to have with you , and which I cou
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Il pranzo completo sei tu e i miei discorsi con te , che non potevo avere con altri ; e non so 
+Il pranzo completo sei tu e i miei discorsi con te , che non potevo avere con altri ; e non so da quale di questi incominciare . [EOS] 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , , , , , , 
+— — — ' ' — — — — — — — — — — — ' — — — — parte che immediatamente — immediatamente immediatamente — mano 
 
 
 
@@ -1257,15 +189,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Noticing a lady with a collecting - box he beckoned to her and put in a five - rouble note . 
+And after listening to the conversation he backed Sviyazhsky ' s opinion . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Avendo scorto una signora che passava con una cassetta , la chiamò presso di sé e mise dentro un 
+E prestato ascolto alla conversazione , confermò 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , , , 
+— — — ' — — — 
 
 
 
@@ -1273,15 +205,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-They prevent our hearing anything else !' 
+' Well , wait till he wakes up and you will see for yourself . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-E proprio per causa 
+— Ma ecco che si [UNK] , se 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , 
+— — — ' — — — — 
 
 
 
@@ -1289,15 +221,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' That ' s Yashvin ,' said Vronsky in reply to Turovtsin ' s question , as he took a vacant chair beside them . 
+She had a headache , was sick , and could not leave her bed all the morning . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— È Jašvin 
+Le venne mal di capo , vomito e per 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , 
+— — ' ' — — — — [UNK] 
 
 
 
@@ -1305,15 +237,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Very much : about twenty thousand roubles .' 
+CHAPTER XXI 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Per moltissimo , per ventimila rubli . [EOS] 
+XXI [EOS] 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , 
+— — 
 
 
 
@@ -1321,15 +253,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-One of the passengers , an old man in a military overcoat , had been listening all the time to Katavasov ' s conversation with the Volunteers . 
+' Yes , I knew they were coming to see you . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Un vecchietto di passaggio , in cappotto militare , aveva prestato ascolto tutto il tempo alla conversazione 
+— Già , volevano 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , 
+— — ' ' 
 
 
 
@@ -1337,15 +269,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Levin , who had long wished to reconcile his brothers , even if only at the moment of death , had written to Sergius Ivanich , and having received his answer read it to Nicholas . 
+' Yes , but he [UNK] : \" Could get no answer . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Levin , che da tempo era preoccupato dal pensiero di rappacificare 
+— Sì , ma 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , 
+— — — ' 
 
 
 
@@ -1353,15 +285,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' I hate your calmness ! 
+Nothing of that which [UNK] the chief joys of my life would have existed for me .' 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Io odio 
+Nulla di quello che costituisce la 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , 
+— — — — — — 
 
 
 
@@ -1369,343 +301,7 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-She was filled with joy , and that joy made her feel so confused that for a moment when , as he was approaching the hostess , he again glanced at her , Kitty herself , he , and Dolly all thought she would not be able to control herself but would burst into tears . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Si rallegrò e si confuse della sua gioia a un punto tale che vi fu un momento , proprio quando egli si avvicinò alla padrona di casa e la guardò di nuovo , che a lei e a lui e a Dolly , che vedeva tutto , parve ch ’ ella non avrebbe resistito e che sarebbe scoppiata a piangere . [EOS] 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Why ' s that ?' said Vronsky , as if in surprise . ' There ' s no sense in that .' 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— E 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The role Vronsky had chosen , with their removal to the palazzo , was quite successful ; and having through Golenishchev made the acquaintance of several interesting persons , he felt tranquil for a time . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-La parte 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Yes , ma ' am ! 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Sissignora . 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The District Marshals carried little plates filled with ballot balls from their own tables to the Provincial table , and the election began . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-I marescialli distrettuali passavano , con dei vassoi in cui erano le palle , dalle proprie tavole 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-I must tell you ... you , I mean ,' and she turned toward her husband , the colour spreading over her neck and forehead . ' I don ' t wish to hide anything from you .' 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Ho bisogno di dire a voi ... no , 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Vronsky could not help being conscious of this . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Tutto questo 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' I expect your husband has told you the reasons which make me consider it necessary to change my former relations with Anna Arkadyevna ,' he said without looking in her eyes , discontentedly eyeing Shcherbatsky who was passing through the sitting - room . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Suppongo che vostro marito vi abbia riferito le ragioni per le quali considero necessario cambiare i miei precedenti rapporti con Anna 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' How can you be dissatisfied if you are happy ?' 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Allora 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Consequently for the Russification of the alien [UNK] , there is but one means : to breed as many children as possible ... 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Perciò per la russificazione degli allogeni vi è un mezzo solo : far nascere quanti più bambini è possibile . [EOS] 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-After wavering for some time between various kinds of art – religious , historical , [UNK] or [UNK] – he began to paint . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Dopo un certo tempo d ’ incertezza sul genere di pittura da scegliere , religioso , storico , di genere o [UNK] 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Then he was sent to fetch an icon with silver - gilt [UNK] from the Princess ' s bedroom , and he and the Princess ' s old lady ' s maid climbed on a cupboard to get down the icon , and he broke the little lamp that burned before it , and the old servant tried to comfort him about his wife and about the lamp . He brought the icon back with him , and put it at the head of Kitty ' s bed , carefully pushing it in behind the pillows . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Poi l ’ avevano mandato nella camera della principessa a prendere un ’ icona dalla cornice d ’ argento , e lui , insieme con la vecchia cameriera della principessa , s ’ era arrampicato su di un armadio per raggiungerla e aveva rotto la lampada , e la cameriera 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' No , but I promised my sister - in - law to call for her there ,' said Levin . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— No , ho promesso alla mia belle - soeur d 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , , , , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-We will call at Dolly ' s . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-[UNK] da 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-On his way to the distant Province Karenin stopped three days in Moscow . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Di passaggio per 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Vasenka drew himself up . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Vasen 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Lydia Ivanovna was beginning to breathe freely again , when next morning she received a note and with horror recognized the handwriting . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Lidija 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' I said you would be in time ,' the Assistant said , as Levin stepped aside to let the lady pass . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— Ve 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Then what do you say to pyramids ? 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-— E allora , una 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Levin smiled . 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Levin sorrise . 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Perhaps you will say it is egotism , but what legitimate and noble egotism ! 
-
-Italian (target) :::::::::::::::::::::::::::::::::::::::::::
-
-Forse tu dirai che 
-
-Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
-
-, , , , 
-
-
-
-
-
-English ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Really , there ' s not room ! 
+' Is it the [UNK] [UNK] ?' 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
@@ -1713,7 +309,7 @@ Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, 
+— 
 
 
 
@@ -1721,15 +317,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Yes , as soon as I returned home I put on a black coat ,' Vronsky replied with a smile , slowly taking out his opera - glasses . 
+And for a moment from force of habit he felt as if he were in fault . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Già , 
+E a lui , nel primo momento , per abitudine 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , 
+— — — — ' — — — ' parte 
 
 
 
@@ -1737,15 +333,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' You are a classic , Sergius Ivanich ! 
+' Varenka is waiting ,' she said , carefully placing his hat on his head when she saw from his smile that she had permission to do so . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Voi siete un 
+— 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , 
+— 
 
 
 
@@ -1753,15 +349,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Things must be lively and amusing here , so that Alexis shall not wish for anything new ! 
+' I have come to say that there is still time ... 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Bisogna che da noi ci sia animazione 
+— Sono venuto a 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , 
+— — — ' 
 
 
 
@@ -1769,15 +365,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Several times a day he went to the nursery , and remained there so long that the nurses , who had been shy in his presence , became quite used to him . 
+And who may you be ?' 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Varie volte al giorno andava nella camera dei bambini 
+E voi di dove sareste ? 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , 
+— — — ' l — 
 
 
 
@@ -1785,15 +381,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-In reality she was less brilliant , but there was something about her new and attractive which was not in the portrait . 
+He waited for the venomous nobleman to conclude , and then said he considered the proper course would be to consult the [UNK] of the Act and requested the Secretary to look it up . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Era meno splendente nella realtà , ma in compenso in lei viva c ’ era un fascino nuovo che 
+Sergej Ivanovic , dopo aver ascoltato la fine del 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , , , 
+— — — ' — — — — — 
 
 
 
@@ -1801,15 +397,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-He tried to keep calm , but the same thing happened again . 
+She does not want anything , does not ask for anything , but leaves all to your generosity .' 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Voleva 
+Ella non vuole nulla 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, 
+— — — ' 
 
 
 
@@ -1817,15 +413,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-So it is decided that we go to - morrow ?' she said in a cheerful voice ; but suddenly her face changed . 
+Vasily Lukich replied that the Order of Vladimir was higher . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Allora proprio domani — disse con voce gaia 
+Vasilij Lukic rispose che al di sopra dell ’ Aleksandr Nevskij c ’ era l ’ ordine di Vladimir . 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , 
+— — ' — — — — — — parte — — — — — immediatamente parte — immediatamente — 
 
 
 
@@ -1833,15 +429,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' You don ' t say so !' he exclaimed , when the Princess told him that Vronsky was going by that train . 
+' Abandon me ! Abandon me !' she murmured between her sobs . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Cosa dite ! 
+— Lasciami , lasciami ! — ella diceva fra i singhiozzi . — 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , 
+— — — ' — — — — — parte [UNK] — — 
 
 
 
@@ -1849,15 +445,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Love those that hate you ...' whispered Dolly [UNK] . 
+Karenin ordered tea , sat down at a table , took up a time - table , and began planning his journey . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Amate chi vi 
+Aleksej Aleksandrovic ordinò di portargli il tè , sedette alla tavola e , preso il [UNK] , cominciò a combinare l ’ 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , 
+— — — — — — — — ' ' parte — — — — [UNK] — — — — — immediatamente 
 
 
 
@@ -1865,15 +461,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Vronsky ' s face too was lit up by the general pleasant good - humour of the club . 
+I feel that I am flying headlong over some precipice but must not even try to save myself . And I can ' t .' 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Nel viso di Vronskij splendeva la stessa generale allegra [UNK] 
+Io sento 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , 
+— — 
 
 
 
@@ -1881,15 +477,735 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-But the minutes went by , and the hours , and other hours , and his suffering and terror and strain grew [UNK] . 
+Not one of her children had crawled like that . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Ma passavano ancora minuti , ore e ancora ore , e i suoi sentimenti di pena e di angoscia crescevano e si tendevano ancora di più . 
+Neanche uno dei suoi bambini s 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , , , , , , , , , , , , , 
+— — ' — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' For them it is always a holiday ,' he thought , ' yet here we have work that is no holiday task , which cannot be put off , and without which life is impossible .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+“ Per loro è sempre festa — 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+This joy appeared to him particularly important because it coincided with the satisfaction of the official , and his own happiness that a present had been brought . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Questa gioia gli sembrava particolarmente importante perché [UNK] 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — — — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They were entertaining you , you see ! 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Si vede che ve l ’ hanno offerta . [EOS] 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' — — — — — parte 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' No , it ' s not exactly typhus , but she ' s not in a good state .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Per essere tifo non è tifo 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — ' — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+But Serezha understood all she wanted to tell him . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Egli capì ch ’ ella era infelice e che lo amava . 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — ' — — — [UNK] parte — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I am saying what every one says .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Io dico quello 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+But he placed great hopes on Varya , his brother ' s wife . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Ma egli riponeva grandi 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I meant to tell Dolly , but it ' s a good thing I didn ' t . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Io volevo raccontarlo a Dolly ed è stato 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — — — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Oh , nothing in particular – the same as everybody ,' Kitty answered , rather embarrassed and glancing round at Koznyshev . ' Well , I ' ll send for him . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Ma lui la vede così , come tutti — rispose Kitty un po ’ confusa , voltandosi a guardare Sergej Ivanovic . — Allora manderò a 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — — — — — ' parte ' — — — l ' parte — l — l immediatamente la che immediatamente — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Oh , but , Mama , try and understand why nothing better could be imagined either for him or for her . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— No , mamma , [UNK] , 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' ' — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Where did I leave off ? 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+“ Sì , a che punto mi son fermata ? [EOS] 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' — — — — — parte parte 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Here and there among the marsh [UNK] and [UNK] , that smell was very strong ; but it was impossible to decide in which direction it grew stronger or weaker . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Qua e là , tra il muschio e le [UNK] della palude , quest ’ odore era molto forte , ma non si poteva stabilire , da quale 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' ' — — — [UNK] immediatamente — — — — — ' — parte — — ' che parte immediatamente immediatamente — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Excuse me ! You seem to be placing me in the position of [UNK] ,' Karenin remonstrated . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Ma scusate , voi , a quanto pare , mi mettete nella situazione di un 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' ' — — — — la ' — — — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' But you do live .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— E non vivi ? 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He was rather vexed that the old Prince , whom he liked more and more the better he knew him , had not come , and vexed because this Vasenka Veslovsky , a quite superfluous stranger , had come . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Era urtato 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' But I can see better without a candle what I have been praying for ! 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Ma senza 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He felt that the husband in his sorrow was magnanimous , while he himself was mean and trivial in his deceptions . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Sentiva che quel marito era grande anche nel suo dolore , ed egli basso , meschino nel suo 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' — — — — — — — ' — — — — ' [UNK] — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The doctors say there is no hope . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+I dottori hanno detto che 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Levin listened to them and at the same time involuntarily thought of the past and of what had been going on before that morning , remembering himself as he had been yesterday before this event . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Levin li ascoltava , [UNK] involontariamente a questi discorsi il passato , cioè quello che era stato fatto fino 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' — — — — ' — [UNK] — — — — ' parte — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+We shall invite Koznyshev and Pestsov , so as to let him taste the Moscow intellectuals .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] anche 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I ...' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Io .... [EOS] 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He opened his eyes for an instant : they were standing chatting in the open doorway , brightly lit up by the moon which had now risen . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Per un 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+It is something like Varenka ' s , and so pretty and cheap .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Una 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The more he went into this question , the clearer it seemed to him that it was a matter which would attain enormous proportions and become epoch - making . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+E 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+For a moment Oblonsky ' s face looked sad , but a minute later when , with a slight spring in his step and smoothing his whiskers , he entered the waiting - room where Vronsky was , Oblonsky had quite forgotten how he had sobbed with despair over his sister ' s corpse , and he saw in Vronsky only a hero and an old friend . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Per un attimo il viso di Stepan Arkad ’ 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — — — — [UNK] — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+And Dolly noticed that tears had started to her eyes . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+E 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+She would have concealed it ; but her chief feeling would have been joy that I am punished for the pleasures she has envied me . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+L ’ avrebbe nascosto ; ma il sentimento principale sarebbe stata la gioia che io fossi punita per quel piacere che lei mi 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' — — — — — — — l — — — — — parte — — — immediatamente parte immediatamente 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He listened and heard repeated in a strange mad whisper the words , ' [UNK] to value , unable to enjoy ; unable to value , unable to enjoy .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Si pose in ascolto e sentì 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+But he knows me as little as does anyone else in the world . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+E mi conosce così poco , come poco mi 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' ' — — — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Her impatience was increasing with the baby ' s . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+La sua impazienza 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He ... you ... are with your wife ?' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Voi ... siete 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+That is what I learn by watching your children .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Ecco ciò che imparo 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The little girl lay with her head thrown back , wriggling in the wet - nurse ' s arms , and would neither take the breast nor cease screaming , despite the hushing of two nurses who were bending over her . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+La bambina era lì supina , con la testa [UNK] all ’ indietro , e , dibattendosi in braccio alla balia , non 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' ' — — — — — — — — — — — — ' — — — — parte ' 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+So now you have come round to my notion . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Ecco che tu sei venuto dalla 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' — ' — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Tell us all about it ,' said Oblonsky . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] ben bene — disse Stepan Arkad 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' ' — [UNK] 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+He needed society , and so he had placed her in this terrible position , the misery of which he would not understand . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Gli era indispensabile la società , e aveva messo lei in quella 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— ' — — — — — — ' parte — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+All this was put with so much wit that Koznyshev himself would not have been averse to [UNK] it ; and that was what was dreadful . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+E tutto ciò era così spiritoso che neppure Sergej Ivanovic avrebbe 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' — — — — — — l la 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Please let ' s go !' said Vasenka , sitting down and once more doubling his leg under him , as his habit was . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Andiamo , per favore ? — disse Vasen ’ ka , sedendosi su 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — ' — — — — — — parte l — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Do you know that the well - known Count Vronsky is going by this train ?' remarked the Princess with a triumphant and significant smile , when Koznyshev had found her again and given her the note . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+— Sapete , il conte Vronskij , il famoso ... parte con questo treno 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' — — — — [UNK] ' la — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+But question Oblonsky as he would , as to whether he could not obtain a certificate without going to communion , Oblonsky declared that he must go through with it . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Ma per quanto interrogasse Stepan Arkad ’ ic se fosse possibile ricevere il certificato 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — — [UNK] — — — [UNK] immediatamente — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I see you are displeased .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Sei scontento , lo 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+But most terrible of all was the ridiculous , shameful figure he had cut when Karenin was pulling his hands from before his shame - suffused face . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Più terribile di tutto era stata quella 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' ' — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Without ceasing to think of Anna and of all the words – simple in the extreme – which they had interchanged , recalling every detail of the expressions of her face , entering more and more into her situation and feeling more and more sorry for her , Levin reached home . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Senza smettere di pensare 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+When you are grown up you will be able to judge .' 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Quando sarai grande , 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — ' 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+She was silent , thinking of herself and her own sorrow , and then suddenly and energetically she raised her head and folded her hands as in prayer . ' But wait ! 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] pensando a se stessa e al proprio dolore familiare e improvvisamente , 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — — — — — — ' la — — 
 
 
 
@@ -1901,11 +1217,11 @@ English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-— Ma che abile pronuba ! 
+— Ma che abile pronuba ! — disse Dolly . — Con che accortezza e con che 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , 
+— — — ' — — — — — immediatamente — — — — — — — 
 
 
 
@@ -1913,15 +1229,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-To mow or reap the rye and oats , and cart them , to finish mowing the meadows , to re - plough the fallow land , to thresh the seed corn and sow the winter rye – all this seems simple and ordinary ; yet to get it all done , it is necessary that all the peasants , from the oldest to the youngest , should work unceasingly those three or four weeks , three times as hard as usual , living on kvas , onions , and black bread , threshing and carting the sheaves by night and sleeping not more than two or three hours out of the twenty - four . 
+He has brought some beautiful songs – two new ones . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-[UNK] e [UNK] la segala 
+Ha portato con sé delle bellissime romanze , due nuove . [EOS] 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , 
+— — — — — — — — ' parte parte — 
 
 
 
@@ -1929,15 +1245,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Here people understood that a man must live his own life like a [UNK] being . 
+Varenka , who was wearing a yellow print dress and a white kerchief on her head , stood in the doorway . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Qui si capiva che un uomo aveva il dovere di vivere 
+Varen ’ ka stava in piedi sulla porta , in abito 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , 
+— — ' — — — — — immediatamente ' parte 
 
 
 
@@ -1945,15 +1261,15 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-She too had not slept all night and had waited for him the whole morning . 
+' It was such a stupid thing that happened ! I am ashamed to tell it ,' he said with a blush , and was obliged to turn round to the approaching Sergius Ivanich . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Anche lei non aveva dormito per 
+— È così sciocco quello che m ’ è successo che fa 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , 
+— — ' ' — — — — parte — parte — 
 
 
 
@@ -1961,15 +1277,31 @@ Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
 English ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-However , Levin had changed considerably since his marriage ; he had become patient , and if he did not understand why things were arranged thus , he told himself that , not knowing everything , he could not judge , and that probably things had to be so ; and he tried not to be indignant . 
+The [UNK] is gone !' she said to herself in English . 
 
 Italian (target) :::::::::::::::::::::::::::::::::::::::::::
 
-Ma Levin era molto cambiato dal tempo del suo matrimonio ; era paziente , e 
+The [UNK] [UNK] [UNK] . 
 
 Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
 
-, , , , , , , , , , , , , , , 
+— — — — — 
+
+
+
+
+
+English ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] arose , and for a moment there was such confusion that the Marshal had to call for order . 
+
+Italian (target) :::::::::::::::::::::::::::::::::::::::::::
+
+Si levarono grida e 
+
+Italian (predicted) ::::::::::::::::::::::::::::::::::::::::
+
+— — — — 
 
 
 

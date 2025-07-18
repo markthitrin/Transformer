@@ -27,7 +27,6 @@ class PositionalEncoder {
         for i in 0..#batch {
             Plus(i * block, 0, i * block, block, input, mask, input);
         }
-        CheckPoint();
         dropout.forward(input, output);
     }
 

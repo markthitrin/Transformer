@@ -20,7 +20,6 @@ class Softmax {
             PlusReduce(0, shape, buffer, sumExp);
             Div(0, i * shape, shape, buffer, sumExp, output);
         }
-        CheckPoint();
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {

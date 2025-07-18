@@ -55,8 +55,6 @@ void DropOut::forward(TensorView input, TensorView output) {
     GenerateDropoutMask(mask);
     Mul(input, mask, output);
     Div(output, (1.0f - dropoutRate), output);
-    Timer::CheckPoint();
-    if(verbose) std::cout << "DropOut" << std::endl;
 
     // Div(input, (1.0 - dropoutRate), output);
 }

@@ -69,7 +69,6 @@ class MultiheadAttention {
                 when MaskType.CROSS_PADDING do ApplyCrossPaddingMask(i * blockAtt, A, seq[i / head], -1e9);
             }
         }
-        CheckPoint();
         if(train) {
             softmax.forward(A, As);
             dropout.forward(As, Ad);
@@ -84,7 +83,6 @@ class MultiheadAttention {
         for i in 0..#batch {
             MatMulPlusATB(sequenceLength, dModel, dModel, OT[(i * block)..#block], WO, output[(i * block)..#block]);
         }
-        CheckPoint();
     }
 
     proc forward(ref inputQ: [?D] real(32), ref inputK: [D] real(32), ref inputV: [D] real(32), ref output: [D] real(32),

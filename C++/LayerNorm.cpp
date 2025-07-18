@@ -42,8 +42,6 @@ void LayerNorm::forward(TensorView input, TensorView output) {
             output[i * col + j] = alpha[j] * xHat[i * col + j] + bias[j];
         }
     }
-    Timer::CheckPoint();
-    if(verbose) std::cout << "LayerNorm" << std::endl;
 }
 
 void LayerNorm::predict(TensorView input, TensorView output) {
