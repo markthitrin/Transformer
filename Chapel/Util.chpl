@@ -36,52 +36,52 @@ proc AdamOpt(ref parameter: [?D] real(32), ref opt: AdamOptimizer) : void {
     opt.t += 1;
 }
 
-proc ComputeCrossEntropy(ref logits: [?D] real(32), ref target_token: int, ref grad: [D] real(32)) {
+proc ComputeCrossEntropy(in start: int, in count: int, ref logits: [] real(32), ref target_token: int, ref grad: [] real(32)) {
     var max_logits = -inf;
-    for i in D {
-        max_logits = max(logits[i], max_logits);
+    var buffer: [0..#tgtVocab] real(32);
+    for i in 0..#count {
+        max_logits = max(logits[start + i], max_logits);
     }
 
     var sum_exp = 0.0;
-    for i in D {
-        sum_exp += exp(logits[i] - max_logits);
+    for i in 0..#count {
+        buffer[i] = exp(logits[start + i] - max_logits):real(32);
+        sum_exp += buffer[i];
     }
 
     var loss = 0.0;
-    for i in D {
-        var prob = (exp(logits[i] - max_logits) / sum_exp) : real(32);
-        grad[i] = prob;
-        if(i - D.low == target_token) {
-            loss = -log2(prob + 1e-9);
-            grad[i] -= 1;
-        }
+    for i in 0..#count {
+        grad[start + i] = (buffer[i] / sum_exp) : real(32);
     }
+    grad[start + i] -= 1;
+    loss = -log2(buffer[i] / sum_exp);
 
     return loss;
 }
 
-proc _CrossEntropy(ref logits: [?D] real(32), ref targetToken: [?Dt] int, in tgtSeq: int, ref grad: [D] real(32)) {
+proc _CrossEntropy(in start: int, in startToken: int, ref logits: [] real(32), ref targetToken: [] int, in tgtSeq: int, ref grad: [] real(32)) {
     var loss = 0.0;
-    var ground = D.low;
-    ref targetTokenr = targetToken.reindex(0..#sequenceLength);
     for i in 0..#tgtSeq {
         loss += ComputeCrossEntropy(
-            logits[(i * tgtVocab + ground)..#tgtVocab], 
-            targetTokenr[i], 
-            grad[(i * tgtVocab + ground)..#tgtVocab]);
+            start + i * tgtVocab,
+            tgtVocab,
+            logits, 
+            targetToken[startToken + i], 
+            grad);
     }
     return loss / tgtSeq;
 }
 
-proc CrossEntropy(ref logits: [?D] real(32), ref targetToken: [?Dt] int, ref tgtSeq: [?Ds] int, ref grad: [D] real(32)) {
+proc CrossEntropy(ref logits: [] real(32), ref targetToken: [] int, ref tgtSeq: [] int, ref grad: [] real(32)) {
     var loss = 0.0;
-    var block = (sequenceLength * tgtVocab);
     for i in 0..#batch {
         loss += _CrossEntropy(
-            logits[(i * block)..#block],
-            targetToken[(i * sequenceLength)..#sequenceLength],
+            sequenceLength * tgtVocab * i,
+            i * sequenceLength,
+            logits,
+            targetToken,
             tgtSeq[i],
-            grad[(i * block)..#block]);
+            grad);
     }
     return loss / batch;
 }

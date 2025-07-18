@@ -18,7 +18,7 @@ static constexpr int srcVocab = 15700; // 15700
 static constexpr int tgtVocab = 22470; // 22470
 
 static constexpr int epoch = 2;
-static constexpr int trainingIteration = 20;
+static constexpr int trainingIteration = 500;
 static constexpr int testingIteration = 10;
 static constexpr int batch = 8;
 

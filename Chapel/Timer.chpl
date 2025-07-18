@@ -42,3 +42,28 @@ proc GetTime() {
     }
     return res;
 }
+
+proc GetTimeStd() {
+    var res: [0..#maxI] real;
+    for i in 0..#maxI {
+        sort(time[i][0..#round]);
+        var start = min(round * 0.1, 20): int;
+        var end = max((round * 9 + 9) / 10, round - 20): int ;
+        var mean: real;
+        var std: real;
+        for j in start..<end {
+            mean += time[i][j];
+        }
+        mean /= end - start;
+
+        for j in start..<end {
+            var x = (time[i][j] - mean);
+            std += x * x;
+        }
+        std /= (end - start) - 1;
+        std = sqrt(std);
+
+        res[i] = std;
+    }
+    return res;
+}

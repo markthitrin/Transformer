@@ -110,10 +110,11 @@ int main() {
 
         for(int i = 0;i < trainingIteration;i++) {
             datasetTrain.get(encoderInput, decoderInput, targetOutput, srcSeq, tgtSeq);
+            Timer::RestartRecord();
             model.forward(encoderInput, decoderInput, output, srcSeq, tgtSeq);
             float loss = CrossEntropy(output, targetOutput, tgtSeq, gradient);
+            Timer::CheckPoint();
             model.backward(gradient, encoderInput, decoderInput, srcSeq, tgtSeq);
-            Timer::RestartRecord();
             model.updateParameter();
             Timer::CheckPoint();
             std::cout << "Iteration [" << i << " / " << trainingIteration << "]   loss : " << loss << std::endl; 
@@ -124,6 +125,12 @@ int main() {
     std::vector<double> record = Timer::GetTime();
     for(int q = 0;q < record.size();q++) {
         std::cout << record[q] << std::endl;
+    }
+
+    std::cout << "Time Recorded Std ======================\n\n";
+    std::vector<double> recordstd = Timer::GetTimeStd();
+    for(int q = 0;q < recordstd.size();q++) {
+        std::cout << recordstd[q] << std::endl;
     }
 
     {   // Evaluation Section

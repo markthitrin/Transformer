@@ -29,24 +29,23 @@ void AdamOpt(TensorView param, AdamOptimizer& opt) {
 
 float ComputCrossEntropy(TensorView logits, int target_token, TensorView grad) {
     float max_logit = logits[0];
+    float buffer[tgtVocab];
     for (int i = 1; i < tgtVocab; ++i) {
         max_logit = std::max(max_logit, logits[i]);
     }
 
     float sum_exp = 0.0f;
     for (int i = 0; i < tgtVocab; ++i) {
-        sum_exp += std::exp(logits[i] - max_logit);
+        buffer[i] = std::exp(logits[i] - max_logit);
+        sum_exp += buffer[i];
     }
 
     float loss = 0.0f;
     for (int i = 0; i < tgtVocab; ++i) {
-        float prob = std::exp(logits[i] - max_logit) / sum_exp;
-        grad[i] = prob;
-        if (i == target_token) {
-            loss = -std::log2(prob + 1e-9f);
-            grad[i] -= 1.0f;
-        }
+        grad[i] = buffer[i] / sum_exp;
     }
+    loss = -std::log2(buffer[target_token] + eps);
+    grad[target_token] -= 1.0f;
 
     return loss;
 }

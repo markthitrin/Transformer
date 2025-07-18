@@ -27,6 +27,7 @@ class PositionalEncoder {
         for i in 0..#batch {
             Plus(i * block, 0, i * block, block, input, mask, input);
         }
+        CheckPoint();
         dropout.forward(input, output);
     }
 
@@ -40,6 +41,7 @@ class PositionalEncoder {
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) {
         dropout.backward(outputGradient, inputGradient);
+        CheckPoint();
     }
 
     proc forwardTest() {

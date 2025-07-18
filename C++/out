@@ -1,37 +1,1278 @@
-Iteration [0 / 20]   loss : 17.0289
-Iteration [1 / 20]   loss : 16.8625
-Iteration [2 / 20]   loss : 17.683
-Iteration [3 / 20]   loss : 17.5531
-Iteration [4 / 20]   loss : 17.0546
-Iteration [5 / 20]   loss : 16.9722
-Iteration [6 / 20]   loss : 17.1644
-Iteration [7 / 20]   loss : 16.8257
-Iteration [8 / 20]   loss : 16.9763
-Iteration [9 / 20]   loss : 17.8189
-Iteration [10 / 20]   loss : 16.2503
-Iteration [11 / 20]   loss : 17.3594
-Iteration [12 / 20]   loss : 17.444
-Iteration [13 / 20]   loss : 16.5577
-Iteration [14 / 20]   loss : 16.8947
-Iteration [15 / 20]   loss : 16.605
-Iteration [16 / 20]   loss : 16.518
-Iteration [17 / 20]   loss : 16.891
-Iteration [18 / 20]   loss : 17.1906
-Iteration [19 / 20]   loss : 16.5787
+Iteration [0 / 500]   loss : 11.4847
+Iteration [1 / 500]   loss : 11.8191
+Iteration [2 / 500]   loss : 11.5337
+Iteration [3 / 500]   loss : 11.3673
+Iteration [4 / 500]   loss : 12.3782
+Iteration [5 / 500]   loss : 11.3281
+Iteration [6 / 500]   loss : 10.9111
+Iteration [7 / 500]   loss : 11.818
+Iteration [8 / 500]   loss : 11.7785
+Iteration [9 / 500]   loss : 11.658
+Iteration [10 / 500]   loss : 11.8317
+Iteration [11 / 500]   loss : 11.352
+Iteration [12 / 500]   loss : 11.5772
+Iteration [13 / 500]   loss : 10.4217
+Iteration [14 / 500]   loss : 11.4847
+Iteration [15 / 500]   loss : 11.3195
+Iteration [16 / 500]   loss : 11.1324
+Iteration [17 / 500]   loss : 10.8056
+Iteration [18 / 500]   loss : 10.761
+Iteration [19 / 500]   loss : 11.4744
+Iteration [20 / 500]   loss : 11.0691
+Iteration [21 / 500]   loss : 11.1036
+Iteration [22 / 500]   loss : 12.1584
+Iteration [23 / 500]   loss : 11.5277
+Iteration [24 / 500]   loss : 11.0357
+Iteration [25 / 500]   loss : 10.23
+Iteration [26 / 500]   loss : 10.3753
+Iteration [27 / 500]   loss : 10.4729
+Iteration [28 / 500]   loss : 10.6506
+Iteration [29 / 500]   loss : 10.622
+Iteration [30 / 500]   loss : 11.4404
+Iteration [31 / 500]   loss : 10.9761
+Iteration [32 / 500]   loss : 11.5418
+Iteration [33 / 500]   loss : 10.5792
+Iteration [34 / 500]   loss : 10.7771
+Iteration [35 / 500]   loss : 11.0868
+Iteration [36 / 500]   loss : 11.0293
+Iteration [37 / 500]   loss : 10.7558
+Iteration [38 / 500]   loss : 11.14
+Iteration [39 / 500]   loss : 10.9588
+Iteration [40 / 500]   loss : 11.0756
+Iteration [41 / 500]   loss : 10.7438
+Iteration [42 / 500]   loss : 11.5646
+Iteration [43 / 500]   loss : 10.7017
+Iteration [44 / 500]   loss : 10.4877
+Iteration [45 / 500]   loss : 10.3057
+Iteration [46 / 500]   loss : 11.395
+Iteration [47 / 500]   loss : 11.6537
+Iteration [48 / 500]   loss : 11.0119
+Iteration [49 / 500]   loss : 11.6833
+Iteration [50 / 500]   loss : 11.337
+Iteration [51 / 500]   loss : 11.1969
+Iteration [52 / 500]   loss : 10.8892
+Iteration [53 / 500]   loss : 10.8818
+Iteration [54 / 500]   loss : 11.2757
+Iteration [55 / 500]   loss : 11.6747
+Iteration [56 / 500]   loss : 11.0566
+Iteration [57 / 500]   loss : 11.3634
+Iteration [58 / 500]   loss : 10.9192
+Iteration [59 / 500]   loss : 10.4641
+Iteration [60 / 500]   loss : 11.7207
+Iteration [61 / 500]   loss : 10.9021
+Iteration [62 / 500]   loss : 10.37
+Iteration [63 / 500]   loss : 10.6146
+Iteration [64 / 500]   loss : 10.5498
+Iteration [65 / 500]   loss : 10.8371
+Iteration [66 / 500]   loss : 10.3397
+Iteration [67 / 500]   loss : 10.2461
+Iteration [68 / 500]   loss : 10.488
+Iteration [69 / 500]   loss : 9.73405
+Iteration [70 / 500]   loss : 11.2669
+Iteration [71 / 500]   loss : 10.6071
+Iteration [72 / 500]   loss : 10.4878
+Iteration [73 / 500]   loss : 10.8745
+Iteration [74 / 500]   loss : 9.62685
+Iteration [75 / 500]   loss : 9.9349
+Iteration [76 / 500]   loss : 10.5837
+Iteration [77 / 500]   loss : 10.7602
+Iteration [78 / 500]   loss : 11.1432
+Iteration [79 / 500]   loss : 10.3169
+Iteration [80 / 500]   loss : 10.5324
+Iteration [81 / 500]   loss : 11.4065
+Iteration [82 / 500]   loss : 10.7695
+Iteration [83 / 500]   loss : 9.94325
+Iteration [84 / 500]   loss : 10.4195
+Iteration [85 / 500]   loss : 11.114
+Iteration [86 / 500]   loss : 10.9028
+Iteration [87 / 500]   loss : 9.80716
+Iteration [88 / 500]   loss : 10.684
+Iteration [89 / 500]   loss : 10.3728
+Iteration [90 / 500]   loss : 10.6571
+Iteration [91 / 500]   loss : 10.2792
+Iteration [92 / 500]   loss : 10.0058
+Iteration [93 / 500]   loss : 12.0226
+Iteration [94 / 500]   loss : 11.3628
+Iteration [95 / 500]   loss : 10.539
+Iteration [96 / 500]   loss : 9.86384
+Iteration [97 / 500]   loss : 11.7211
+Iteration [98 / 500]   loss : 11.5776
+Iteration [99 / 500]   loss : 10.9778
+Iteration [100 / 500]   loss : 10.4332
+Iteration [101 / 500]   loss : 10.4576
+Iteration [102 / 500]   loss : 10.2104
+Iteration [103 / 500]   loss : 10.7332
+Iteration [104 / 500]   loss : 10.1284
+Iteration [105 / 500]   loss : 10.4465
+Iteration [106 / 500]   loss : 10.8295
+Iteration [107 / 500]   loss : 9.5071
+Iteration [108 / 500]   loss : 10.3064
+Iteration [109 / 500]   loss : 10.9499
+Iteration [110 / 500]   loss : 10.1774
+Iteration [111 / 500]   loss : 10.4595
+Iteration [112 / 500]   loss : 10.4497
+Iteration [113 / 500]   loss : 10.5206
+Iteration [114 / 500]   loss : 9.49634
+Iteration [115 / 500]   loss : 10.7323
+Iteration [116 / 500]   loss : 10.5898
+Iteration [117 / 500]   loss : 10.9669
+Iteration [118 / 500]   loss : 10.4915
+Iteration [119 / 500]   loss : 10.2836
+Iteration [120 / 500]   loss : 10.2207
+Iteration [121 / 500]   loss : 9.8692
+Iteration [122 / 500]   loss : 9.54741
+Iteration [123 / 500]   loss : 11.0184
+Iteration [124 / 500]   loss : 10.6765
+Iteration [125 / 500]   loss : 11.2343
+Iteration [126 / 500]   loss : 9.83723
+Iteration [127 / 500]   loss : 9.25324
+Iteration [128 / 500]   loss : 10.0914
+Iteration [129 / 500]   loss : 9.59074
+Iteration [130 / 500]   loss : 10.1286
+Iteration [131 / 500]   loss : 9.82002
+Iteration [132 / 500]   loss : 9.76951
+Iteration [133 / 500]   loss : 10.6676
+Iteration [134 / 500]   loss : 10.8943
+Iteration [135 / 500]   loss : 11.1274
+Iteration [136 / 500]   loss : 10.0845
+Iteration [137 / 500]   loss : 10.9521
+Iteration [138 / 500]   loss : 10.3044
+Iteration [139 / 500]   loss : 9.80462
+Iteration [140 / 500]   loss : 9.88972
+Iteration [141 / 500]   loss : 9.61368
+Iteration [142 / 500]   loss : 10.3752
+Iteration [143 / 500]   loss : 9.82738
+Iteration [144 / 500]   loss : 9.46483
+Iteration [145 / 500]   loss : 9.33715
+Iteration [146 / 500]   loss : 10.3696
+Iteration [147 / 500]   loss : 9.72048
+Iteration [148 / 500]   loss : 9.40145
+Iteration [149 / 500]   loss : 10.0396
+Iteration [150 / 500]   loss : 9.70239
+Iteration [151 / 500]   loss : 10.1863
+Iteration [152 / 500]   loss : 9.6819
+Iteration [153 / 500]   loss : 9.92285
+Iteration [154 / 500]   loss : 9.50006
+Iteration [155 / 500]   loss : 10.0162
+Iteration [156 / 500]   loss : 9.12376
+Iteration [157 / 500]   loss : 9.69152
+Iteration [158 / 500]   loss : 9.63563
+Iteration [159 / 500]   loss : 10.7139
+Iteration [160 / 500]   loss : 9.59281
+Iteration [161 / 500]   loss : 9.50553
+Iteration [162 / 500]   loss : 9.76177
+Iteration [163 / 500]   loss : 10.3775
+Iteration [164 / 500]   loss : 9.60025
+Iteration [165 / 500]   loss : 10.0137
+Iteration [166 / 500]   loss : 10.1274
+Iteration [167 / 500]   loss : 9.61759
+Iteration [168 / 500]   loss : 9.96176
+Iteration [169 / 500]   loss : 10.46
+Iteration [170 / 500]   loss : 10.176
+Iteration [171 / 500]   loss : 9.35675
+Iteration [172 / 500]   loss : 10.7462
+Iteration [173 / 500]   loss : 9.8284
+Iteration [174 / 500]   loss : 9.94605
+Iteration [175 / 500]   loss : 9.42297
+Iteration [176 / 500]   loss : 9.48036
+Iteration [177 / 500]   loss : 10.5556
+Iteration [178 / 500]   loss : 9.61753
+Iteration [179 / 500]   loss : 10.4657
+Iteration [180 / 500]   loss : 9.84675
+Iteration [181 / 500]   loss : 10.3649
+Iteration [182 / 500]   loss : 9.56523
+Iteration [183 / 500]   loss : 8.95374
+Iteration [184 / 500]   loss : 9.41208
+Iteration [185 / 500]   loss : 9.24495
+Iteration [186 / 500]   loss : 9.4671
+Iteration [187 / 500]   loss : 9.30062
+Iteration [188 / 500]   loss : 9.23468
+Iteration [189 / 500]   loss : 9.38849
+Iteration [190 / 500]   loss : 10.0993
+Iteration [191 / 500]   loss : 9.54453
+Iteration [192 / 500]   loss : 9.30081
+Iteration [193 / 500]   loss : 9.10615
+Iteration [194 / 500]   loss : 9.39604
+Iteration [195 / 500]   loss : 9.6049
+Iteration [196 / 500]   loss : 9.35475
+Iteration [197 / 500]   loss : 9.31241
+Iteration [198 / 500]   loss : 8.23938
+Iteration [199 / 500]   loss : 8.89624
+Iteration [200 / 500]   loss : 8.63176
+Iteration [201 / 500]   loss : 10.3853
+Iteration [202 / 500]   loss : 8.3365
+Iteration [203 / 500]   loss : 9.28939
+Iteration [204 / 500]   loss : 9.13218
+Iteration [205 / 500]   loss : 8.96599
+Iteration [206 / 500]   loss : 9.4294
+Iteration [207 / 500]   loss : 9.49437
+Iteration [208 / 500]   loss : 8.99436
+Iteration [209 / 500]   loss : 8.87546
+Iteration [210 / 500]   loss : 8.42921
+Iteration [211 / 500]   loss : 8.47589
+Iteration [212 / 500]   loss : 9.14111
+Iteration [213 / 500]   loss : 8.92963
+Iteration [214 / 500]   loss : 9.14142
+Iteration [215 / 500]   loss : 8.64899
+Iteration [216 / 500]   loss : 9.19991
+Iteration [217 / 500]   loss : 9.1254
+Iteration [218 / 500]   loss : 9.21755
+Iteration [219 / 500]   loss : 8.97368
+Iteration [220 / 500]   loss : 9.0535
+Iteration [221 / 500]   loss : 10.288
+Iteration [222 / 500]   loss : 8.78518
+Iteration [223 / 500]   loss : 9.31684
+Iteration [224 / 500]   loss : 9.7296
+Iteration [225 / 500]   loss : 9.01618
+Iteration [226 / 500]   loss : 9.05879
+Iteration [227 / 500]   loss : 9.92229
+Iteration [228 / 500]   loss : 9.84251
+Iteration [229 / 500]   loss : 9.0501
+Iteration [230 / 500]   loss : 9.15004
+Iteration [231 / 500]   loss : 9.93011
+Iteration [232 / 500]   loss : 9.74235
+Iteration [233 / 500]   loss : 9.02949
+Iteration [234 / 500]   loss : 7.82992
+Iteration [235 / 500]   loss : 9.33468
+Iteration [236 / 500]   loss : 9.01815
+Iteration [237 / 500]   loss : 8.92961
+Iteration [238 / 500]   loss : 8.8165
+Iteration [239 / 500]   loss : 9.51102
+Iteration [240 / 500]   loss : 9.46755
+Iteration [241 / 500]   loss : 8.77782
+Iteration [242 / 500]   loss : 8.01033
+Iteration [243 / 500]   loss : 8.66883
+Iteration [244 / 500]   loss : 9.01041
+Iteration [245 / 500]   loss : 9.83796
+Iteration [246 / 500]   loss : 10.3773
+Iteration [247 / 500]   loss : 8.64796
+Iteration [248 / 500]   loss : 8.39265
+Iteration [249 / 500]   loss : 8.3849
+Iteration [250 / 500]   loss : 8.55801
+Iteration [251 / 500]   loss : 9.30863
+Iteration [252 / 500]   loss : 8.69998
+Iteration [253 / 500]   loss : 8.27534
+Iteration [254 / 500]   loss : 8.19348
+Iteration [255 / 500]   loss : 9.18811
+Iteration [256 / 500]   loss : 9.10994
+Iteration [257 / 500]   loss : 7.89298
+Iteration [258 / 500]   loss : 8.59241
+Iteration [259 / 500]   loss : 9.50097
+Iteration [260 / 500]   loss : 9.1771
+Iteration [261 / 500]   loss : 10.2579
+Iteration [262 / 500]   loss : 8.41622
+Iteration [263 / 500]   loss : 8.27656
+Iteration [264 / 500]   loss : 8.39107
+Iteration [265 / 500]   loss : 9.62491
+Iteration [266 / 500]   loss : 8.97096
+Iteration [267 / 500]   loss : 8.33523
+Iteration [268 / 500]   loss : 8.92548
+Iteration [269 / 500]   loss : 8.70189
+Iteration [270 / 500]   loss : 8.72777
+Iteration [271 / 500]   loss : 8.97361
+Iteration [272 / 500]   loss : 7.89949
+Iteration [273 / 500]   loss : 9.22922
+Iteration [274 / 500]   loss : 9.73209
+Iteration [275 / 500]   loss : 9.28893
+Iteration [276 / 500]   loss : 8.09654
+Iteration [277 / 500]   loss : 8.76697
+Iteration [278 / 500]   loss : 8.6266
+Iteration [279 / 500]   loss : 7.97643
+Iteration [280 / 500]   loss : 8.25331
+Iteration [281 / 500]   loss : 9.18047
+Iteration [282 / 500]   loss : 8.3952
+Iteration [283 / 500]   loss : 9.56698
+Iteration [284 / 500]   loss : 8.62636
+Iteration [285 / 500]   loss : 9.46704
+Iteration [286 / 500]   loss : 9.76078
+Iteration [287 / 500]   loss : 9.79932
+Iteration [288 / 500]   loss : 9.1969
+Iteration [289 / 500]   loss : 9.66172
+Iteration [290 / 500]   loss : 9.15169
+Iteration [291 / 500]   loss : 8.93242
+Iteration [292 / 500]   loss : 8.68156
+Iteration [293 / 500]   loss : 8.48716
+Iteration [294 / 500]   loss : 8.08288
+Iteration [295 / 500]   loss : 8.11059
+Iteration [296 / 500]   loss : 8.12542
+Iteration [297 / 500]   loss : 8.78254
+Iteration [298 / 500]   loss : 8.68152
+Iteration [299 / 500]   loss : 7.75124
+Iteration [300 / 500]   loss : 8.20811
+Iteration [301 / 500]   loss : 8.60185
+Iteration [302 / 500]   loss : 7.88865
+Iteration [303 / 500]   loss : 8.71666
+Iteration [304 / 500]   loss : 7.71447
+Iteration [305 / 500]   loss : 8.01082
+Iteration [306 / 500]   loss : 8.2233
+Iteration [307 / 500]   loss : 8.60565
+Iteration [308 / 500]   loss : 8.39514
+Iteration [309 / 500]   loss : 8.57492
+Iteration [310 / 500]   loss : 8.29458
+Iteration [311 / 500]   loss : 9.00009
+Iteration [312 / 500]   loss : 8.18796
+Iteration [313 / 500]   loss : 9.15299
+Iteration [314 / 500]   loss : 8.25811
+Iteration [315 / 500]   loss : 8.04213
+Iteration [316 / 500]   loss : 8.57453
+Iteration [317 / 500]   loss : 8.27464
+Iteration [318 / 500]   loss : 7.57583
+Iteration [319 / 500]   loss : 8.13962
+Iteration [320 / 500]   loss : 8.29418
+Iteration [321 / 500]   loss : 8.33343
+Iteration [322 / 500]   loss : 7.52397
+Iteration [323 / 500]   loss : 7.91764
+Iteration [324 / 500]   loss : 7.75302
+Iteration [325 / 500]   loss : 7.50691
+Iteration [326 / 500]   loss : 7.08266
+Iteration [327 / 500]   loss : 7.70619
+Iteration [328 / 500]   loss : 7.21314
+Iteration [329 / 500]   loss : 8.18802
+Iteration [330 / 500]   loss : 6.9329
+Iteration [331 / 500]   loss : 8.51689
+Iteration [332 / 500]   loss : 7.55277
+Iteration [333 / 500]   loss : 10.1504
+Iteration [334 / 500]   loss : 7.21693
+Iteration [335 / 500]   loss : 7.8058
+Iteration [336 / 500]   loss : 8.30692
+Iteration [337 / 500]   loss : 7.48423
+Iteration [338 / 500]   loss : 8.26961
+Iteration [339 / 500]   loss : 8.06467
+Iteration [340 / 500]   loss : 7.86294
+Iteration [341 / 500]   loss : 7.2872
+Iteration [342 / 500]   loss : 7.70864
+Iteration [343 / 500]   loss : 7.64156
+Iteration [344 / 500]   loss : 6.82187
+Iteration [345 / 500]   loss : 7.34225
+Iteration [346 / 500]   loss : 7.97428
+Iteration [347 / 500]   loss : 8.01319
+Iteration [348 / 500]   loss : 7.40704
+Iteration [349 / 500]   loss : 7.41241
+Iteration [350 / 500]   loss : 7.00039
+Iteration [351 / 500]   loss : 8.58406
+Iteration [352 / 500]   loss : 7.71904
+Iteration [353 / 500]   loss : 7.14035
+Iteration [354 / 500]   loss : 7.8714
+Iteration [355 / 500]   loss : 7.36534
+Iteration [356 / 500]   loss : 8.60858
+Iteration [357 / 500]   loss : 8.18203
+Iteration [358 / 500]   loss : 7.78852
+Iteration [359 / 500]   loss : 8.57838
+Iteration [360 / 500]   loss : 8.4705
+Iteration [361 / 500]   loss : 8.67276
+Iteration [362 / 500]   loss : 7.78228
+Iteration [363 / 500]   loss : 7.97356
+Iteration [364 / 500]   loss : 8.60233
+Iteration [365 / 500]   loss : 7.8604
+Iteration [366 / 500]   loss : 8.30559
+Iteration [367 / 500]   loss : 8.52526
+Iteration [368 / 500]   loss : 8.00609
+Iteration [369 / 500]   loss : 7.18753
+Iteration [370 / 500]   loss : 8.85782
+Iteration [371 / 500]   loss : 8.26723
+Iteration [372 / 500]   loss : 7.73648
+Iteration [373 / 500]   loss : 9.34377
+Iteration [374 / 500]   loss : 9.37653
+Iteration [375 / 500]   loss : 7.76051
+Iteration [376 / 500]   loss : 7.70154
+Iteration [377 / 500]   loss : 8.21202
+Iteration [378 / 500]   loss : 7.70551
+Iteration [379 / 500]   loss : 9.16731
+Iteration [380 / 500]   loss : 8.45514
+Iteration [381 / 500]   loss : 7.63938
+Iteration [382 / 500]   loss : 7.64345
+Iteration [383 / 500]   loss : 7.18299
+Iteration [384 / 500]   loss : 7.18808
+Iteration [385 / 500]   loss : 7.23589
+Iteration [386 / 500]   loss : 7.31516
+Iteration [387 / 500]   loss : 8.70465
+Iteration [388 / 500]   loss : 6.9189
+Iteration [389 / 500]   loss : 8.05569
+Iteration [390 / 500]   loss : 7.55951
+Iteration [391 / 500]   loss : 7.06976
+Iteration [392 / 500]   loss : 7.36518
+Iteration [393 / 500]   loss : 7.71376
+Iteration [394 / 500]   loss : 6.67771
+Iteration [395 / 500]   loss : 6.93076
+Iteration [396 / 500]   loss : 6.94097
+Iteration [397 / 500]   loss : 6.6355
+Iteration [398 / 500]   loss : 8.51104
+Iteration [399 / 500]   loss : 8.14217
+Iteration [400 / 500]   loss : 7.66824
+Iteration [401 / 500]   loss : 7.72062
+Iteration [402 / 500]   loss : 7.55235
+Iteration [403 / 500]   loss : 7.88371
+Iteration [404 / 500]   loss : 8.56252
+Iteration [405 / 500]   loss : 7.50978
+Iteration [406 / 500]   loss : 8.73261
+Iteration [407 / 500]   loss : 8.22821
+Iteration [408 / 500]   loss : 7.72921
+Iteration [409 / 500]   loss : 6.71656
+Iteration [410 / 500]   loss : 8.98337
+Iteration [411 / 500]   loss : 7.54155
+Iteration [412 / 500]   loss : 10.4188
+Iteration [413 / 500]   loss : 7.32488
+Iteration [414 / 500]   loss : 7.78603
+Iteration [415 / 500]   loss : 8.02808
+Iteration [416 / 500]   loss : 7.62297
+Iteration [417 / 500]   loss : 8.53402
+Iteration [418 / 500]   loss : 7.51836
+Iteration [419 / 500]   loss : 7.96431
+Iteration [420 / 500]   loss : 7.55566
+Iteration [421 / 500]   loss : 7.42644
+Iteration [422 / 500]   loss : 8.01898
+Iteration [423 / 500]   loss : 8.2343
+Iteration [424 / 500]   loss : 8.47161
+Iteration [425 / 500]   loss : 8.38593
+Iteration [426 / 500]   loss : 7.732
+Iteration [427 / 500]   loss : 8.36437
+Iteration [428 / 500]   loss : 7.94157
+Iteration [429 / 500]   loss : 7.2514
+Iteration [430 / 500]   loss : 7.92959
+Iteration [431 / 500]   loss : 7.62575
+Iteration [432 / 500]   loss : 7.68294
+Iteration [433 / 500]   loss : 7.7915
+Iteration [434 / 500]   loss : 8.29052
+Iteration [435 / 500]   loss : 8.03049
+Iteration [436 / 500]   loss : 7.73054
+Iteration [437 / 500]   loss : 7.77868
+Iteration [438 / 500]   loss : 8.06046
+Iteration [439 / 500]   loss : 8.29697
+Iteration [440 / 500]   loss : 7.88264
+Iteration [441 / 500]   loss : 9.52392
+Iteration [442 / 500]   loss : 7.35412
+Iteration [443 / 500]   loss : 7.71007
+Iteration [444 / 500]   loss : 7.77992
+Iteration [445 / 500]   loss : 6.91225
+Iteration [446 / 500]   loss : 8.5447
+Iteration [447 / 500]   loss : 7.1393
+Iteration [448 / 500]   loss : 7.70566
+Iteration [449 / 500]   loss : 7.97535
+Iteration [450 / 500]   loss : 7.41921
+Iteration [451 / 500]   loss : 7.61162
+Iteration [452 / 500]   loss : 7.15224
+Iteration [453 / 500]   loss : 8.00243
+Iteration [454 / 500]   loss : 8.13098
+Iteration [455 / 500]   loss : 8.32504
+Iteration [456 / 500]   loss : 7.08633
+Iteration [457 / 500]   loss : 8.20484
+Iteration [458 / 500]   loss : 8.41222
+Iteration [459 / 500]   loss : 7.89132
+Iteration [460 / 500]   loss : 7.44092
+Iteration [461 / 500]   loss : 8.34153
+Iteration [462 / 500]   loss : 8.06187
+Iteration [463 / 500]   loss : 8.35822
+Iteration [464 / 500]   loss : 7.06323
+Iteration [465 / 500]   loss : 8.28156
+Iteration [466 / 500]   loss : 7.78148
+Iteration [467 / 500]   loss : 7.98157
+Iteration [468 / 500]   loss : 7.40824
+Iteration [469 / 500]   loss : 7.56061
+Iteration [470 / 500]   loss : 8.52127
+Iteration [471 / 500]   loss : 8.07557
+Iteration [472 / 500]   loss : 7.15104
+Iteration [473 / 500]   loss : 7.9361
+Iteration [474 / 500]   loss : 7.9582
+Iteration [475 / 500]   loss : 8.18091
+Iteration [476 / 500]   loss : 7.66957
+Iteration [477 / 500]   loss : 7.69717
+Iteration [478 / 500]   loss : 8.45426
+Iteration [479 / 500]   loss : 7.25327
+Iteration [480 / 500]   loss : 8.38579
+Iteration [481 / 500]   loss : 8.39214
+Iteration [482 / 500]   loss : 8.91607
+Iteration [483 / 500]   loss : 7.95065
+Iteration [484 / 500]   loss : 7.20514
+Iteration [485 / 500]   loss : 7.58645
+Iteration [486 / 500]   loss : 7.74273
+Iteration [487 / 500]   loss : 8.7503
+Iteration [488 / 500]   loss : 8.54326
+Iteration [489 / 500]   loss : 7.33552
+Iteration [490 / 500]   loss : 7.88584
+Iteration [491 / 500]   loss : 9.02248
+Iteration [492 / 500]   loss : 7.6989
+Iteration [493 / 500]   loss : 7.67931
+Iteration [494 / 500]   loss : 8.42152
+Iteration [495 / 500]   loss : 7.77337
+Iteration [496 / 500]   loss : 7.44267
+Iteration [497 / 500]   loss : 7.79255
+Iteration [498 / 500]   loss : 6.98194
+Iteration [499 / 500]   loss : 7.9701
 Time Recorded ==========================
 
-2943.44
+36.6423
+6.91603
+100.067
+50.4376
+4344.54
+1868.75
+4141.96
+1125.84
+86.7819
+38.7197
+807.075
+149.376
+790.401
+985.612
+88.9343
+47.583
+4313.41
+1825.09
+4100.57
+1083.55
+87.765
+45.6413
+840.184
+153.594
+780.129
+984.92
+87.6918
+48.6732
+4172.43
+1822.21
+4077.52
+1114.41
+87.1411
+45.9695
+809.83
+150.812
+768.974
+986.993
+87.8412
+49.9899
+4255.19
+1803.17
+4070.37
+1052.58
+86.1069
+38.996
+830.734
+153.301
+768.517
+983.148
+87.931
+53.246
+4110.07
+1833.81
+4038.35
+1070.45
+88.7895
+52.976
+831.792
+149.776
+864.483
+986.566
+87.1674
+36.0268
+4190.42
+2003.75
+4535.58
+1449.24
+96.6
+59.385
+855.614
+201.548
+879.687
+1005.18
+96.5809
+62.4835
+35.1111
+7.24489
+95.0855
+46.7697
+5391.91
+2125.25
+6055.98
+2216
+114.575
+84.8637
+8642.4
+5837.99
+4367.45
+1288.46
+93.074
+52.4572
+827.717
+160.809
+838.131
+1007.96
+90.1097
+52.4208
+4603.36
+1696.55
+4292.03
+1273.37
+89.1092
+42.0119
+4385.64
+5534.38
+4183.72
+1187.05
+87.4362
+41.302
+823.895
+155.688
+817.467
+882.751
+88.7347
+51.5493
+4285.29
+1646.21
+4144.97
+1149.3
+86.3009
+37.7792
+4175.2
+5526.39
+4089.43
+1160.04
+88.746
+46.4939
+857.842
+150.664
+775.068
+1014.85
+87.8713
+53.8308
+4128.47
+1577.12
+4065.73
+1134.47
+89.3615
+53.2534
+4162.64
+5520.27
+4110.08
+1115.62
+83.7223
+32.5091
+796.906
+148.395
+810.032
+882.035
+82.9365
+45.168
+4023.7
+1585.71
+4049.93
+1092.71
+89.3799
+56.446
+4087.64
+5525.49
+4041.58
+1148.42
+90.7671
+57.8386
+875.966
+155.364
+780.791
+999.677
+89.0438
+56.0041
+4022.01
+1629.34
+4058.73
+1198.73
+88.9767
+48.2047
+3923.72
+5519.24
+3979.27
+1109.68
+89.4815
+54.3847
+832.131
+157.146
+786.184
+881.921
+88.8079
+55.6075
+97607
+3527.15
+157324
+42.7803
+26.3253
+1749.01
+180.639
+219.018
+1651.59
+27.7253
+39.7497
+4531.05
+1750.32
+1469.06
+2653.05
+37.3935
+58.6191
+4409.62
+1783.7
+1447.31
+2763.38
+36.4365
+63.0147
+1963.97
+290.191
+232.417
+1631.24
+27.3014
+36.1549
+4399.15
+1657.01
+1486.22
+2684.1
+37.1375
+59.6162
+4568.46
+1786.31
+1417.09
+2770.76
+36.5194
+60.5199
+1886.71
+279.607
+233.317
+1640.39
+27.8962
+40.828
+4708.88
+1699.79
+1481.62
+2686.16
+36.7162
+59.868
+4428.59
+1783.09
+1429.18
+2769.06
+33.5319
+60.294
+1982.43
+258.32
+237.766
+1637.6
+26.9732
+41.1676
+4376.12
+1674.55
+1348.73
+2636.33
+38.0439
+61.1741
+4613.4
+1702.16
+1475.95
+2728.79
+35.6779
+56.7005
+1861.25
+277.109
+245.294
+1634.98
+26.3631
+40.6463
+4494.35
+1756.81
+1449.15
+2634.91
+36.6272
+61.3968
+4386.35
+1789.02
+1417.7
+2725.95
+35.1119
+61.766
+2003.33
+283.186
+240.596
+1628.34
+26.8446
+40.3092
+4535.74
+1636.37
+1437.46
+2653.37
+36.6157
+61.3992
+4366.97
+1622.03
+1321.11
+2673.27
+35.7205
+62.9026
+1.20003
+17.7455
+66.1329
+42.1964
+1836.34
+262.401
+226.669
+1633.32
+28.0536
+42.1169
+4563.73
+1628.94
+1311.85
+2663.33
+36.5472
+61.9419
+1843.94
+264.165
+252.055
+1635.78
+27.8658
+43.5057
+4584.01
+1779.87
+1397.47
+2681.34
+35.8031
+64.1991
+1862.94
+272.606
+248.192
+1628.8
+27.2422
+38.3862
+4607.53
+1676.01
+1363.53
+2672.33
+36.6683
+63.354
+1866.14
+290.377
+247.368
+1633.65
+26.8672
+39.3394
+4590.89
+1893.46
+1487.83
+2654.42
+36.3066
+61.0933
+1869.03
+289.525
+243.491
+1632.79
+26.9537
+43.2577
+4566.88
+1623.34
+1460.36
+2675.41
+36.3198
+60.4028
+1870.56
+274.693
+241.084
+1626.38
+25.6922
+39.1699
+4580.99
+1755.29
+1379.01
+2667.67
+37.3402
+59.7005
+1.21703
+25.9493
+2928.25
+Time Recorded Std ======================
+
+3.9159
+0.369681
+6.27913
+6.29924
+128.362
+121.087
+34.4064
+28.462
+3.85807
+2.3177
+10.4799
+5.65076
+14.4865
+6.43782
+2.32361
+1.92583
+60.5847
+118.228
+29.8737
+26.12
+3.59131
+3.12833
+9.32057
+4.96899
+10.901
+6.05958
+2.48794
+2.35641
+70.0035
+117.676
+28.2659
+20.9641
+3.21177
+2.30762
+8.7615
+5.0574
+10.5161
+6.30261
+2.40051
+2.24803
+66.2852
+121.271
+30.7393
+21.7565
+3.76563
+4.09574
+9.73644
+5.37414
+13.1363
+6.07165
+1.9989
+2.46713
+81.7009
+118.076
+34.5583
+29.0814
+3.16777
+4.02642
+11.1397
+4.34198
+15.0351
+5.41738
+2.22829
+2.25006
+454.358
+179.153
+178.543
+200.595
+8.87731
+15.5851
+59.5955
+54.2661
+135.969
+28.8936
+9.32543
+16.119
+8.53258
+1.05758
+8.95298
+12.7555
+1417.62
+540.832
+1096.09
+563.859
+28.7212
+43.3218
+2186.7
+384.058
+496.278
+248.922
+8.20677
+13.0291
+47.2409
+33.7635
+85.272
+14.161
+5.39639
+8.89922
+643.192
+192.982
+213.398
+84.2054
+4.61829
+5.77075
+272.801
+300.118
+77.0649
+55.9488
+3.99702
+3.22478
+11.3463
+9.40415
+18.753
+8.14616
+3.53426
+3.32524
+221.505
+150.001
+59.8074
+32.2682
+3.45653
+3.32318
+149.896
+299.771
+44.5178
+31.3664
+3.75115
+2.86293
+9.05734
+5.57332
+13.0115
+6.82398
+2.74701
+2.97808
+103.828
+146.927
+36.1422
+27.2687
+3.38223
+4.40316
+82.2323
+300.25
+33.6232
+18.2504
+2.71815
+2.06187
+9.30287
+5.46341
+11.8069
+6.86888
+2.71135
+2.72117
+118.363
+152.161
+34.0768
+39.4478
+4.82453
+4.29479
+143.945
+298.352
+46.472
+47.5498
+4.88953
+4.93571
+12.0623
+6.86534
+15.7924
+8.35174
+2.59798
+2.8877
+143.256
+154.462
+59.6379
+47.2468
+3.49363
+4.59674
+126.728
+294.495
+33.961
+43.5181
+4.54983
+4.9036
+11.6109
+6.56866
+15.0116
+6.93218
+2.24627
+2.55572
+1746.12
+1039.97
+3177.32
+2.0744
+1.20229
+25.7677
+6.9997
+7.54718
+18.9612
+1.12009
+2.03249
+99.2881
+40.3743
+34.044
+117.627
+2.73012
+3.96393
+76.0333
+28.1683
+35.5724
+80.254
+2.67291
+3.82334
+28.9414
+15.5261
+7.54784
+15.1034
+1.09839
+1.39604
+62.8323
+27.8303
+27.6449
+80.2691
+2.6408
+4.15907
+102.637
+68.9414
+67.6324
+212.685
+4.21337
+6.49774
+56.7087
+24.1814
+12.2606
+18.4436
+2.29814
+3.95858
+142.917
+73.9519
+58.5947
+106.475
+3.14996
+4.83297
+134.635
+67.0019
+57.7719
+115.689
+2.28882
+3.49813
+31.0801
+7.76249
+7.8382
+14.7629
+1.24707
+2.25971
+49.4033
+22.1458
+22.0341
+50.3074
+1.78241
+3.40376
+57.2416
+22.2205
+25.4625
+58.8132
+2.0897
+2.69327
+26.8684
+8.98917
+6.72176
+16.4187
+0.962194
+2.11895
+61.8792
+20.796
+22.2212
+53.208
+2.1215
+3.73586
+44.2722
+20.5423
+21.7859
+60.0091
+1.94244
+3.66642
+27.4778
+11.481
+6.85353
+14.9126
+1.01852
+2.12685
+66.2612
+22.0888
+22.7936
+49.6854
+1.79137
+3.21571
+41.2166
+24.0186
+28.1887
+64.5181
+1.54006
+2.77331
+0.233898
+2.86139
+4.74392
+2.32872
+25.578
+8.06459
+6.55645
+16.4875
+0.921232
+2.00988
+52.8205
+18.814
+22.7059
+59.007
+2.10004
+3.32633
+28.1187
+9.0534
+7.79874
+15.7165
+0.921302
+2.01247
+77.2723
+22.2405
+25.2466
+65.4396
+2.19873
+3.27618
+31.2006
+12.5084
+8.72742
+15.196
+1.31862
+2.02732
+67.8297
+24.9306
+23.4149
+65.005
+2.32124
+3.64246
+27.8243
+9.57981
+8.38754
+16.0035
+1.0323
+1.78236
+55.2733
+22.5324
+20.7364
+52.2347
+1.80435
+3.59117
+28.7679
+11.4
+6.50367
+15.7684
+0.751972
+2.42229
+77.8379
+25.3408
+26.0249
+68.6763
+1.85961
+3.6618
+26.474
+9.87878
+7.28283
+15.8443
+0.678737
+1.92896
+46.4049
+17.4502
+21.5562
+56.7411
+2.37036
+3.16459
+0.230353
+4.02015
+41.685
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-But it is impossible to hold with such tranquillity states constituted like that of France . 
+\" No . St . John , I will not marry you . I adhere to my resolution .\" 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Ma li stati ordinati come quello di Francia è impossibile possederli con tanta quiete . [EOS] 
+— No , Saint - 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , 
 
 
 
@@ -39,15 +1280,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-A picturesque track it was , by the way ; lying along the side of the beck and through the sweetest curves of the [UNK] : but that day I thought more of the letters , that might or might not be awaiting me at the little [UNK] whither I was bound , than of the charms of lea and water . 
+Why ? 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-La 
+Perché 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava 
+, 
 
 
 
@@ -55,15 +1296,15 @@ scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-No ; what the deuce would you call her for ? 
+' That is a fine thing !' said Shcherbatsky , laughing . ' I am only preparing to begin to live .' 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-No , perché destarla ? Che farebbe ? 
+— Ecco un bello scherzo ! — disse ridendo Šcerbackij . — Io mi sono 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava moltissimi scottava 
+, , , , , , , , , , , , , , , 
 
 
 
@@ -71,15 +1312,15 @@ scottava scottava scottava scottava scottava scottava moltissimi scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The noble bust , the sloping shoulders , the graceful neck , the dark eyes and black ringlets were all there ;-- but her face ? 
+You would not believe what enjoyment it was ! 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Il busto nobile , le spalle spioventi 
+Tu non puoi immaginare , che piacere ! [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , 
 
 
 
@@ -87,15 +1328,15 @@ scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-They say he was the sole support of a very large family . 
+Landau Bezzubov ... Why is he Bezzubov ?' 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Dicono che era lui solo a dar da 
+Landau è Bezzubov , perché è 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , 
 
 
 
@@ -103,15 +1344,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-He decided to go back to Petersburg and see his wife . 
+Hence it arose that those emperors were always overthrown who , either by birth or training , had no great authority , and most of them , especially those who came new to the principality , recognizing the difficulty of these two opposing humours , were inclined to give satisfaction to the soldiers , caring little about injuring the people . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Aleksej Aleksandrovic decise di andare a 
+Le quali cose feciono che quelli imperatori che , per natura o per arte , non aveano una grande reputazione , tale che con quella tenessino l ' uno e l ' altro in freno , sempre [UNK] ; e li più di loro , massime quelli che come uomini nuovi venivano 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -119,15 +1360,15 @@ scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I found the rules of the establishment were too strict , its course of study too severe for a child of her age : I took her home with me . 
+Harris and I would go down in the morning , and take the boat up to [UNK] , and George , who would not be able to get away from the City till the afternoon ( George goes to sleep at a bank from ten to four each day , except Saturdays , when they wake him up and put him outside at two ), would meet us there . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Il regolamento della pensione era troppo duro e gli studi troppo severi per una bimba di quell ' 
+Harris e io saremmo andati giù nella mattinata a condurre la barca a [UNK] , e Giorgio , che non avrebbe potuto uscir da Londra se non nel pomeriggio ( Giorgio va a dormire in una banca dalle dieci alle quattro , tutti i 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -135,15 +1376,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-And nothing honours a man more than to establish new laws and new ordinances when he himself was newly risen . 
+Most of all for your sake ,' he repeated , his face contorted as with pain , ' because I am convinced that a great deal of your irritability is due to our indefinite position .' 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Questo nasce , che li ordini antichi di essa non erano buoni e non 
+Soprattutto per te — egli replicò , facendo una smorfia quasi di dolore — perché sono sicuro che la maggior parte della tua irritazione [UNK] dalla indeterminatezza della situazione . [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -151,7 +1392,407 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-\" Doesn ' t she know ?\" I heard the woman whisper . 
+You are one of our very own !' said the Commander . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Tu hai radici più antiche di tutti noi — 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+My iron shroud contracted round me ; persuasion advanced with slow sure step . Shut my eyes as I would , these last words of his succeeded in making the way , which had seemed blocked up , comparatively clear . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Una veste di ferro mi cingeva , la persuasione 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+In such conversation an hour was soon gone : Bessie restored to me my bonnet , & c ., and , accompanied by her , I quitted the lodge for the hall . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Parlando così 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Even Reading , though it does its best to spoil and sully and make hideous as much of the river as it can reach , is good - natured enough to keep its ugly face a good deal out of sight . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Anche Reading , benchè si sforzi di guastare , d ’ [UNK] e 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Entering the gate and passing the shrubs , the [UNK] of a house rose to view , black , low , and rather long ; but the guiding light shone nowhere . All was obscurity . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] il cancello , vidi il 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+They heard a shrill whistle in the distance , and after the two seconds ' interval so familiar to sportsmen , another followed , and then a third , and after the third whistle came a cry . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Si udì un fischio lontano e , proprio all ’ intervallo regolare di due secondi così noto al cacciatore , 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+She had sent a man and a [UNK] to look for him and sat waiting . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Aveva mandato un domestico e una cameriera 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I did , and I could not quite comprehend it : it made me giddy . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Non potevo capire ancora : ero sbalordita . 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Besides , painful as were for a mother the fear of illness , and sorrow at the appearance of evil tendencies in her children , those children were already beginning to repay her care by affording her small joys . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Ma , a parte ciò , per quanto fossero penosi per la madre la paura delle malattie , le malattie stesse e il dolore suo nel constatare le cattive inclinazioni dei figli , questi stessi figliuoli già adesso , con tante piccole gioie , la 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Being pushed [UNK] to one side -- which was precisely what I wished -- he usurped my place , and proceeded to accompany himself : for he could play as well as sing . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Essendo stata spinta da parte senza cerimonie ( era appunto quel 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+CHAPTER IV 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+IV [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Having set to work again on his manuscript and read over what he had written , he was glad to find , that the work seemed worth doing . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Avendo ripreso in mano le proprie carte 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+[UNK] AS ANNA HAD [UNK] TO SEE HER [UNK] , and long as she had thought of and prepared herself for the interview , she had not at all expected that it would affect her so powerfully . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Per quanto Anna avesse fortemente desiderato l ’ incontro col figlio , per quanto da tempo ci avesse 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The gale still rising , seemed to my ear to [UNK] a mournful under - sound ; whether in the house or abroad I could not at first tell , but it recurred , doubtful yet doleful at every lull ; at last I made out it must be some dog howling at a distance . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+\ Sulle prime non potei rendermi conto 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Ere I had finished this reply , my soul began to expand , to exult , with the strangest sense of freedom , of triumph , I ever felt . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Quando ebbi cessato di parlare , il più strano sentimento di trionfo , che abbia mai provato , erasi impossessato di me . [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+I was glad to give her a sufficient sum to set her up in a good line of business , and so get decently rid of her . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+\ Fui ben contento di darle una somma [UNK] per aprire un negozio e per metterla sulla buona 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Knowing that he is a kind and generous man – that I am not worth his little finger – nevertheless I hate him ! 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Lo credi che , pur sapendo che egli è un uomo buono , eccellente , che io non valgo una 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' I do ,' Alice hastily replied ; ' at least -- at least I mean what I say -- that ' s the same thing , you know .' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Ecco , — riprese Alice in fretta ; — almeno intendo ciò che dico ... è lo stesso 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The boy , blushing and not answering , gently withdrew his hand from his uncle ' s grasp . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Il ragazzo , arrossendo senza rispondere , tirava fuori 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+A long grace was said and a hymn sung ; then a servant brought in some tea for the teachers , and the meal began . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Si cantò un inno , una donna portò il 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The boy went , and re - appeared five minutes afterwards , struggling with an antediluvian chunk of wood , that looked as though it had been recently dug out of somewhere , and dug out carelessly , so as to have been unnecessarily damaged in the process . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Il ragazzo corse , per [UNK] cinque minuti dopo con un ’ [UNK] cassa di 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+\" Mr . Rochester has a right to enjoy the society of his guests .\" 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Il signor Rochester ha 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' She is still the same and as attractive as ever . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Sempre la stessa e sempre così affascinante . 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Karenin entered the boudoir . 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+Aleksej Aleksandrovic passò nello studio di lei . [EOS] 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Not one ,' said Koznyshev . ' And you ?' 
+
+Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
+
+— Neppure uno — disse Sergej Ivanovic . 
+
+Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
+
+, , , , , , , , 
+
+
+
+
+
+English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+' Tell him to unharness ; and no one is to be admitted ,' he said in answer to the hall - porter ' s inquiry , accentuating with a certain pleasure the word admitted . It was a sign that he was in good spirits . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -159,7 +1800,7 @@ Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava 
+, 
 
 
 
@@ -167,15 +1808,15 @@ scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-This is why !' suddenly shouted Nicholas at the mention of the name . ' This is why . 
+' Really , I did not wish to distress you ,' said Varenka with a smile . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Ah , ecco perché ! — gridò ad un tratto Nikolaj 
+— Non volevo [UNK] , proprio no — 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , 
 
 
 
@@ -183,15 +1824,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I responded that it was merely a fancy head , and hurried it beneath the other sheets . 
+We did not want scenery . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Risposi che era 
+Non 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava 
+, 
 
 
 
@@ -199,15 +1840,15 @@ scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-You had better send word , sir , that you will be there in the morning .\" 
+We both turned round , and tried to go to sleep again , but we could not . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[UNK] dire che vi 
+Ci 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava 
+, 
 
 
 
@@ -215,15 +1856,15 @@ scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' There is ! 
+When ... 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— C ’ è , amico mio ! 
+Quando .... 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava 
+, , 
 
 
 
@@ -231,15 +1872,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-At the bottom of its one street there was a little shop with some cakes of bread in the window . 
+' Cheshire [UNK] ,' she began , rather timidly , as she did not at all know whether it would like the name : however , it only grinned a little wider . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-In fondo all ' unica strada del paesello 
+— Ghignagatto , — cominciò a parlargli con un poco di timidezza , perchè non sapeva se quel nome gli piacesse ; comunque egli fece un ghigno più 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -247,15 +1888,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-It was necessary to put in his place a fresh , up - to - date , practical , and quite new man , and to manage matters so as to extract from the rights granted to the Nobility ( not as nobles , but as an element of the Zemstvo ) all the advantages of self - government which could be obtained from them . 
+[UNK] . - [UNK] . - [UNK] . - OUR [UNK] . - MONTMORENCY IS [UNK] . - FIGHT BETWEEN MONTMORENCY AND THE TEA - [UNK] . - GEORGE ' S BANJO [UNK] . - MEET WITH [UNK] . - [UNK] IN THE WAY OF THE [UNK] [UNK] . - [UNK] TO [UNK] THE [UNK] . - HARRIS [UNK] SAD AFTER SUPPER . - GEORGE AND I [UNK] FOR A [UNK] . - RETURN [UNK] AND WET . - THERE IS A [UNK] [UNK] HARRIS . - HARRIS AND THE [UNK] , A [UNK] STORY . - HARRIS HAS A [UNK] NIGHT . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Bisognava mettere al suo posto un uomo nuovo , moderno , attivo 
+Wargrave . — [UNK] di cera . — Sonning . — Il nostro stufato . — Montmorency è sarcastico . — Battaglia fra Montmorency e il calderino del tè . — Gli [UNK] sul banjo di Giorgio . — [UNK] . — [UNK] sulla via del dilettante di musica . La cornamusa . — Harris dopo cena si sente triste . — Giorgio e io andiamo a passeggio . — Ritorniamo affamati e bagnati . — 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -263,15 +1904,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Four hands were immediately laid upon me , and I was borne upstairs . 
+And just now , when he knew her and loved her in the right way , he had been humiliated before her and had lost her for ever , leaving her nothing but a shameful memory of himself . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Quattro mani mi afferrarono e io 
+E proprio adesso , quando aveva imparato a conoscerla e l ’ aveva presa ad amare così come si deve amare , egli era umiliato davanti a lei , e 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -279,15 +1920,15 @@ scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-They are both going . 
+But why do such gentlemen come ?' he went on , indicating the venomous gentleman who had spoken at the Provincial table . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Vanno tutti e due 
+Ecco , questi signori perché ci vengono ? — egli disse , indicando quel signore velenoso che aveva parlato al tavolo del 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -295,15 +1936,15 @@ scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I am going .' 
+\" I wonder with what feelings you came to me to - night ,\" she said , when she had examined me a while . \" I wonder what thoughts are busy in your heart during all the hours you sit in yonder room with the fine people flitting before you like shapes in a magic - lantern : just as little sympathetic communion passing between you and them as if they were really mere shadows of human forms , and not the actual substance .\" 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Io vado 
+— Vorrei sapere con qual sentimento siete venuta a me , — mi disse dopo avermi esaminata , — vorrei sapere quali pensieri occupano la vostra mente nelle 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -311,15 +1952,15 @@ scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Oh , yes , you saved that Levin from unpleasantness .' 
+Looking intently at his face and hands , she remembered their reconciliation the day before and his passionate caresses in all their details . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Come ! Avete salvato quel Levin da 
+Guardando fisso lui , il suo viso , le sue mani , ricordò tutti i particolari della riconciliazione del giorno prima , e le carezze appassionate di lui 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -327,15 +1968,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We ate a hearty supper , George and I , and we should have had some toddy after it , if we could have found the whisky , but we could not . 
+\" But you heard an odd laugh ? You have heard that laugh before , I should think , or something like it ?\" 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[UNK] con ottimo appetito , Giorgio e io , e ci sarebbe piaciuto farci un ponce dopo , se avessimo trovato lo whisky , ma non 
+— Avete però 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , 
 
 
 
@@ -343,15 +1984,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Of course there was love too ; but the greater part was pride in his success . 
+Levin took it and began to put himself in position . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-S ’ intende , c ’ era anche l ’ amore , ma la parte maggiore era l ’ orgoglio del 
+Levin prese la falce e cominciò 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava moltissimi scottava scottava scottava moltissimi scottava scottava scottava moltissimi scottava moltissimi scottava moltissimi scottava scottava scottava moltissimi 
+, , , , , , 
 
 
 
@@ -359,15 +2000,15 @@ scottava scottava scottava scottava moltissimi scottava scottava scottava moltis
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I believed he was naturally a man of better tendencies , higher principles , and purer tastes than such as circumstances had developed , education instilled , or destiny encouraged . 
+He saw that she was saying what she forced herself to utter and not what she wished to say . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-La natura , almeno credo , avevagli dato tendenze migliori , principii più eletti , gusti più puri di quelli che le circostanze e la sorte incoraggiarono in lui . [EOS] 
+Egli sentiva che Anna diceva quello che s ’ era imposta di dire , non quello che avrebbe voluto dire . 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -375,15 +2016,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Try to build up anything without these conceptions ! 
+Oh yes , that fat one ; he is a great wit . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-E allora , 
+È un bello 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava 
+, , , 
 
 
 
@@ -391,15 +2032,15 @@ scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Only now and then the baby , continuing his business , lifted his long curved lashes and looked at his mother with moist eyes that seemed black in the dim light . 
+When I showed myself to the two hostages , it was with the captain , who told them I was the person the governor had ordered to look after them ; and that it was the governor ’ s pleasure they should not stir anywhere but by my direction ; that if they did , they would be fetched into the castle , and be laid in irons : so that as we never suffered them to see me as governor , I now appeared as another person , and spoke of the governor , the garrison , the castle , and the like , upon all occasions . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Solo di tanto in tanto , il bambino sollevava le lunghe ciglia ricurve , fissava la madre con gli occhi umidi 
+Aggiunse essere volontà di sua eccellenza che non andassero in verun luogo senza mia licenza ; che se lo avessero fatto , sarebbero stati condotti nel castello e messi in ceppi . Così dunque non mi essendo mai mostrato ad essi come governatore , 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava moltissimi scottava moltissimi 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -407,15 +2048,15 @@ scottava scottava scottava scottava moltissimi scottava scottava scottava scotta
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-She was first [UNK] with surprise , and then [UNK] with delight . \" Had I done these pictures ? 
+You are asking me the same things three times over .' 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Li avete 
+Per tre volte mi avete chiesto la stessa cosa . 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava 
+, , , , , , , , , , 
 
 
 
@@ -423,15 +2064,15 @@ scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-And without letting Levin finish explaining his idea , Metrov began expounding to him the peculiarity of his own teaching . 
+He knew that the only way of escape from men was to hide his wounds from them . He had unconsciously tried to do so for two days , and now felt himself unable to continue the unequal struggle . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-E , senza consentire a Levin di esporre a fondo 
+Sapeva che l ’ unico modo di salvarsi dagli uomini era nascondere loro le proprie ferite , e questo aveva cercato inconsciamente di fare per due giorni , ma adesso 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -439,15 +2080,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I must make a beginning . 
+It was evident that he flourished on [UNK] beef , [UNK] , and Burgundy . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-S ’ intende , la colpa non è sua . [EOS] 
+Si vedeva che gli aveva giovato 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava moltissimi moltissimi scottava scottava 
+, , , , , , 
 
 
 
@@ -455,15 +2096,15 @@ scottava scottava scottava scottava scottava scottava scottava moltissimi moltis
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I thought there were excellent materials in him ; though for the present they hung together somewhat spoiled and tangled . 
+' Well , what is perplexing me ?' Levin asked himself , feeling in advance that the solution of his doubts , though as yet unknown to him , was already in his soul . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Credo che [UNK] 
+“ Ebbene , cos ’ è che mi turba ?” si disse Levin , sentendo in precedenza che la soluzione del dubbio , pur 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -471,15 +2112,15 @@ scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-[UNK] , et late fines [UNK] [UNK] .\" 
+They said it made them feel quite faint . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[UNK] , et [UNK] [UNK] custode [UNK] . [EOS] 
+L ’ odore toglieva loro tutte le 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , 
 
 
 
@@ -487,15 +2128,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I dreaded being discovered and sent back ; for I _must_ see Helen ,-- I must embrace her before she died ,-- I must give her one last kiss , exchange with her one last word . 
+He has grown into a first - rate , prudent landlord , as I recognize ; in farming matters he is even stingy , but only in farming . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Passai sollecita per non essere scoperta dall ' infermiera , che mi avrebbe rimandata a letto e io 
+È diventato , così come lo conosco io , 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , 
 
 
 
@@ -503,15 +2144,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-She was trying to do what she had attempted ten times already during those three days , to sort out her own and her children ' s clothes to take to her mother ' s ; but she could not bring herself to do it , and said again as she had done after each previous attempt , that things could not remain as they were – that she must do something to punish and humiliate him , and to revenge herself if only for a small part of the pain he had caused her . 
+The stone was just broad enough to accommodate , comfortably , another girl and me , at that time my chosen comrade -- one Mary Ann Wilson ; a shrewd , observant personage , whose society I took pleasure in , partly because she was witty and original , and partly because she had a manner which set me at my ease . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Aveva tentato proprio allora di fare quello che aveva tentato già dieci volte in quei tre giorni : preparare la roba sua e dei bambini per trasportarla dalla madre , ma poi , di nuovo , non aveva saputo decidersi : eppure anche ora , come le altre volte , diceva a se stessa che così non poteva durare 
+Su quella pietra si 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava nascondiglio scottava scottava 
+, , , , 
 
 
 
@@ -519,15 +2160,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-\" Nonsense ! and what sort of an effect will the bequest have on you ? 
+The young men did not leave her in peace . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— È inutile . Rispondetemi : che effetto [UNK] su voi questo denaro ? 
+I giovani non la lasciavano in pace . [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , 
 
 
 
@@ -535,15 +2176,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-I drifted on for about a quarter of a mile , and then I came in sight of a fishing - punt moored in mid - stream , in which sat two old fishermen . 
+\" And you don ' t live at Gateshead ?\" 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Mi [UNK] così per circa un quarto di miglio , e poi arrivai 
+— Non siete più a 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , 
 
 
 
@@ -551,15 +2192,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-It ' s him .' 
+We passed a very pretty little hotel , with [UNK] and [UNK] over the porch ; but there was no honeysuckle about it , and , for some reason or other , I had got my mind fixed on honeysuckle , and I said : 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[UNK] 
+Arrivammo innanzi a un graziosissimo alberghetto , con [UNK] e piante rampicanti sul portico ; ma non v ’ erano piante di caprifoglio , e per chi sa qual ragione , io m ’ ero 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -567,15 +2208,15 @@ scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-They spent the day in labour , reading , and prayer ; and over all their lives there fell a silence as of death , for no one spoke . 
+I don ' t care for the fairy : you said it was mademoiselle you would take to the moon ?\" 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Passavano i giorni nel lavoro , nella lettura e nella preghiera ; e su tutta la loro 
+M ' importa poco della fata 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , 
 
 
 
@@ -583,15 +2224,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Having written for some time , Levin suddenly with particular vividness remembered Kitty , her refusal , and their last meeting . He rose and began to pace up and down the room . 
+Kitty said to her husband as soon as Koznyshev had risen . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Laska si coricò sotto la tavola , Agaf ’ ja 
+Eh ? — disse Kitty al marito , non appena 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava moltissimi moltissimi scottava scottava 
+, , , , , , , , , , 
 
 
 
@@ -599,15 +2240,15 @@ scottava scottava scottava scottava scottava scottava moltissimi moltissimi scot
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Had to match - board it all over first , of course . 
+' Why , there they are !' said the King triumphantly , pointing to the tarts on the table . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Naturalmente doveva essere [UNK] 
+— Già , esse son la , 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava 
+, , , , , , , 
 
 
 
@@ -615,15 +2256,15 @@ scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Let your boat of life be light , packed with only what you need - a homely home and simple pleasures , one or two friends , worth the name , someone to love and someone to love you , a cat , a dog , and a pipe or two , enough to eat and enough to wear , and a little more than enough to drink ; for thirst is a dangerous thing . 
+Had his affairs been in a bad way he would not have bought land at thirty - five roubles an acre , would not have married three of his sons and a nephew , and would not have twice rebuilt his homestead after fires , nor rebuilt it better each time . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Che la tua barchetta sia leggera , e porti soltanto ciò di 
+Se le cose fossero andate male , egli non avrebbe comprato a [UNK] rubli , non avrebbe dato moglie a tre suoi figliuoli e a un nipote , non avrebbe [UNK] due volte dopo gli [UNK] e tutto non sarebbe andato sempre di bene in meglio . [EOS] 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava moltissimi scottava scottava scottava scottava scottava moltissimi moltissimi scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -631,15 +2272,15 @@ scottava moltissimi scottava scottava scottava scottava scottava moltissimi molt
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Yes , that ' s true ,' answered Varenka with a smile , and involuntarily the direction of their stroll changed . 
+Then terrible thoughts racked my imagination about their having found out my boat , and that there were people here ; and that , if so , I should certainly have them come again in greater numbers and devour me ; that if it should happen that they should not find me , yet they would find my enclosure , destroy all my corn , and carry away all my flock of tame goats , and I should perish at last for mere want . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Già 
+Ma ben tosto quali terribili idee [UNK] la mia immaginazione quando pensai che potevano benissimo aver veduta la 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava 
+, , , , , , , , , , , , , , , , , , 
 
 
 
@@ -647,15 +2288,15 @@ scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-\" Very much .\" 
+' But for you , God only knows what would have happened ! 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— Molto 
+— Senza di te , Dio lo sa cosa sarebbe stato 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava 
+, , , , , , , , , , , 
 
 
 
@@ -663,15 +2304,15 @@ scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-They have a worth -- so I have always believed ; and if I cannot believe it now , it is because I am insane -- quite insane : with my veins running fire , and my heart beating faster than I can count its throbs . 
+' Alexis Alexandrovich , uncover his face ! I want to see him .' 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Hanno un valore , l ' ho sempre creduto e se ora non lo 
+Lo voglio 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , 
 
 
 
@@ -679,15 +2320,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Delightful ! O delightful !' he thought . 
+When Friday came to him I bade him speak to him , and tell him of his deliverance ; and pulling out my bottle , made him give the poor wretch a dram , which , with the news of his being delivered , revived him , and he sat up in the boat . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-“ Bene , molto bene !” si 
+Nel tempo stesso tratto a mano il fiaschetto di rum gli dissi di farne bere qualche sorso a quell ’ infelice . Questo 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -695,15 +2336,15 @@ scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Having then for the first time clearly understood that before every man , and before himself , there lay only suffering , death , and eternal oblivion , he had concluded that to live under such conditions was impossible ; that one must either explain life to oneself so that it does not seem to be an evil mockery by some sort of devil , or one must shoot oneself . 
+She had finished her breakfast , so I permitted her to give a specimen of her accomplishments . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Avendo allora , per la prima volta , capito chiaramente che per ogni uomo come lui non c ’ era niente , all ’ infuori della sofferenza , della morte , dell ’ oblio completo , aveva deciso che 
+E siccome aveva terminato di mangiare 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , 
 
 
 
@@ -711,15 +2352,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava moltissi
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Such impression did this make upon me , that after the storm was over I laid aside all my works , my building and [UNK] , and applied myself to make bags and boxes , to separate the powder , and to keep it a little and a little in a parcel , in the hope that , whatever might come , it might not all take fire at once ; and to keep it so apart that it should not be possible to make one part fire another . 
+He said they would do him for the whole week at two pounds five . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Tale impressione fu sì forte 
+Si trattava di 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava 
+, , , 
 
 
 
@@ -727,15 +2368,15 @@ scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-He remembered how he had kissed the hand and afterwards examined the [UNK] lines on the rosy palm . Again ' Lordvmercypons !' thought he , crossing himself , bowing , and watching the movements of the bowing deacon ' s flexible back . 
+Seeing that Vronsky did not turn round , he rose . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Non avevano nulla da dirsi , come sempre capitava in quel tempo , e lei , posta 
+Visto che Vronskij non gli dava retta , l 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , 
 
 
 
@@ -743,15 +2384,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-When she was undressed she went into the bedroom , but on her face not only was there not a trace of that animation which during her stay in Moscow had sparkled in her eyes and smile , but on the contrary the fire in her now seemed quenched or hidden somewhere very far away . 
+It is like madness ! 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[UNK] , Anna entrò in camera , ma sul suo volto non solo non c ’ era 
+Questa è una specie di 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava moltissimi scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , 
 
 
 
@@ -759,15 +2400,15 @@ scottava scottava scottava scottava scottava moltissimi scottava moltissimi scot
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The conversation touched on the new direction taken by art and the new [UNK] of the Bible by a French artist . 
+' Let him go to the devil !' 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Si venne a parlare della 
+— Che il diavolo se lo 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava 
+, , , , , , 
 
 
 
@@ -775,15 +2416,15 @@ scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Then Harris , who was sitting next the window , drew aside the curtain and looked out upon the street . 
+One unexpected sentence came from her lips after another , till I got involved in a web of [UNK] ; and wondered what unseen spirit had been sitting for weeks by my heart watching its workings and taking record of every pulse . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Allora Harris , ch ’ era seduto accanto alla finestra 
+Ella mi lanciava sentenze inattese , una dopo l ' altra , fino a che non mi aveva pienamente sbalordita . Mi chiedevo chi era quello spirito invisibile , che per alcuni giorni era 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -791,15 +2432,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Constantine Dmitrich Levin , Count Alexis [UNK] Vronsky .' 
+_June_ 18 .— [UNK] all day , and I stayed within . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Il conte Aleksej 
+18 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava 
+, 
 
 
 
@@ -807,15 +2448,15 @@ scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Will I not guard , and cherish , and solace her ? Is there not love in my heart , and constancy in my resolves ? 
+That kind master , who could not sleep now , was waiting with impatience for day . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Non vi è forse amore nel mio cuore e fermezza 
+Quel padrone pieno di bontà , non poteva dormire nell ' attesa del giorno [UNK] . 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , 
 
 
 
@@ -823,15 +2464,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-' Then what do you say to pyramids ? 
+Vronsky remained silent . His handsome face was serious but perfectly calm . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-— E allora , una carambola ? 
+Vronskij taceva e il suo 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava 
+, , , , , 
 
 
 
@@ -839,15 +2480,15 @@ scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-She must go away , must leave him – that was all she thought and felt . 
+When he left his brother - in - law ' s room Oblonsky was touched , but this feeling did not spoil his contentment at having successfully arranged the matter , for he was certain that Alexis Alexandrovich would not go back on his word . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Doveva andar via , doveva lasciarlo , pensava e sentiva solo questo . [EOS] 
+Quando Stepan Arkad ’ ic uscì dalla stanza del cognato , era commosso , ma questo non gl ’ impedì d ’ essere soddisfatto d ’ aver condotto a termine felicemente la faccenda , giacché era convinto che Aleksej Aleksandrovic non 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 
 
 
 
@@ -855,15 +2496,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-One morning she told me I was at liberty . 
+He had been to Spain , where he arranged [UNK] and became intimate with a Spanish woman who played the [UNK] . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Una 
+Era 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava 
+, 
 
 
 
@@ -871,15 +2512,15 @@ scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Levin counted the carts , and was pleased to see that sufficient manure was being brought . At sight of the meadows his thoughts turned to the hay harvest . 
+I have grown up among them from a child . Never mind , my dear , as long as you have good health and a clean conscience !' 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Levin li contò e fu contento pensando che così sarebbe stato portato 
+Basta aver la salute e la coscienza pulita 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
+, , , , , , , , 
 
 
 
@@ -887,415 +2528,15 @@ scottava scottava scottava scottava scottava scottava scottava scottava scottava
 
 English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-J . E . is requested to send references , name , address , and all particulars to the direction :-- \" Mrs . Fairfax , Thornfield , near Millcote , --- shire .\" 
+And , if you go for a bathe , they crowd round , and get in your way , and irritate you . 
 
 Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
 
-J . E ., [UNK] mandare il suo nome , 
+E , se fate un bagno , vi s ’ affollano intorno , 
 
 Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
 
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The most covetous , [UNK] [UNK] in the world would have been cured of the vice of [UNK] if he had been in my case ; for I possessed infinitely more than I knew what to do with . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Il più [UNK] ladro del mondo si sarebbe da vero corretto da questo brutto vizio se si fosse trovato 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' But I am still alive : what am I to do now ? 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-“ Eppure io sono vivo ancora . [EOS] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-\" The creature of an over - stimulated brain ; that is certain . I must be careful of you , my treasure : nerves like yours were not made for rough handling .\" 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Una creazione del vostro cervello esaltato ; bisogna che abbia molta cura di voi , 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava moltissimi moltissimi scottava moltissimi scottava scottava scottava scottava scottava moltissimi 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-On his way to the distant Province Karenin stopped three days in Moscow . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Di passaggio per governatorati lontani , Aleksej Aleksandrovic si fermò tre giorni a Mosca 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava moltissimi 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Yes , to tell you the truth , I don ' t like Veslovsky ' s manner ,' said Dolly , wishing to change the subject . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Sì , a dire la verità 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-If we should wish to retreat , how ought we to pursue ?\" And he would set forth to them , as he went , all the chances that could befall an army ; he would listen to their opinion and state his , confirming it with reasons , so that by these continual discussions there could never arise , in time of war , any unexpected circumstances that he could not deal with . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-come si potrebbe [UNK] , [UNK] li ordini , a trovarli ? se noi volessimo [UNK] , come aremmo a fare ? se loro si 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava moltissimi scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-They were entering when Oblonsky overtook them , and were talking about the weather . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Stavano per entrare , conversando del tempo , quando 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava moltissimi 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-There was the great four - post bed with amber hangings as of old ; there the toilet - table , the [UNK] , and the footstool , at which I had a hundred times been sentenced to kneel , to ask pardon for offences by me [UNK] . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Era già scuro e sulla tavola era stato posto un lume velato , che illuminava il letto a colonne , le cortine gialle , la toilette , la poltrona e il panchetto , dove mi ero dovuta [UNK] tante volte per chiedere scusa di colpe che non avevo commesse 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-He shall have me . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Egli avrà me . 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-( Many people lived by it , especially one very moral and musical family in which the daughters all played stringed instruments . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-( Molte persone ci mangiavano su , specialmente una famiglia molto per bene e amante della musica in cui tutte le 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The delicate white outer bark adhered to the [UNK] , and the light went out . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Lo strato sottile della corteccia bianca [UNK] al [UNK] e la fiamma si spegneva . [EOS] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' I have one !' said Anna , and unexpectedly following her tears , a sly , humorous smile puckered her lips . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-— Eppure ci sono — disse Anna a un tratto e , inaspettatamente , dopo le lacrime , un riso [UNK] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Harris proposed that we should have scrambled eggs for breakfast . He said he would cook them . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Harris propose 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-He did this quietly at first and without any fear of hindrance , for he held the minds of the barons of Castile occupied in thinking of the war and not anticipating any innovations ; thus they did not perceive that by these means he was acquiring power and authority over them . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Prima , e ' la fece ozioso , e sanza sospetto di essere impedito 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava moltissimi moltissimi scottava scottava scottava scottava scottava moltissimi moltissimi scottava scottava scottava moltissimi 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-But Kitty had not expected more from the quadrille , she waited with a clutch at her heart for the mazurka . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Ma Kitty non si 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-We were wet to the skin , and cold and miserable . We began to wonder whether there were only four islands or more , or whether we were near the islands at all , or whether we were anywhere within a mile of where we ought to be , or in the wrong part of the river altogether ; everything looked so strange and different in the darkness . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Cominciammo a domandarci se non vi fossero più di quattro isole o 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-' Thank Heaven she has refused him ,' thought the mother , and her face brightened into the usual smile with which she greeted her visitors on Thursday evenings . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-“ Grazie a Dio , ha detto di no ” pensò la madre , e 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Yes , a mean , horrid man ! 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Ma no ! è vile , disgustoso ! 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-And the celebrity explained his plan of a treatment with Soden Water , the chief reason for [UNK] this evidently being that it could do no harm . The family doctor listened attentively and respectfully to the end . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Il 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-When I colour , and when I shade before Miss Oliver , I do not pity myself . I scorn the weakness . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-\ Non mi lagno quando , in presenza della signorina Oliver , arrossisco e [UNK] ; disprezzo soltanto la mia debolezza ; è una 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-“ Why , sir ,” said I , “ will you go to sea no more ?” “ That is another case ,” said he ; “ it is my calling , and therefore my duty ; but as you made this voyage on trial , you see what a taste Heaven has given you of what you are to expect if you persist . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Egli era in compagnia di suo padre , al quale disse chi io fossi , e come avessi impreso questo viaggio soltanto per esperimento e con proposito di procedere molto più in là . Il capitano voltosi a me disse con accento grave e solenne : — « Il mio giovine , voi dovete lasciar da banda ogni pensiere di [UNK] in mare , e ravvisare in quanto vi è avvenuto un pieno e visibile contrassegno , che la vostra vocazione non e quella del navigante . — Perchè , signore ? gli chiesi 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava moltissimi scottava scottava moltissimi moltissimi scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-But I must go round to the office .' 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Si alzò stirandosi e sorridendo . [EOS] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Where I was , I yet knew not ; whether on the continent or on an island ; whether inhabited or not inhabited ; whether in danger of wild beasts or not . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Dove 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-And even worse than lost . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-Peggio che perduta . [EOS] 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava 
-
-
-
-
-
-English :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-To mow or reap the rye and oats , and cart them , to finish mowing the meadows , to re - plough the fallow land , to thresh the seed corn and sow the winter rye – all this seems simple and ordinary ; yet to get it all done , it is necessary that all the peasants , from the oldest to the youngest , should work unceasingly those three or four weeks , three times as hard as usual , living on kvas , onions , and black bread , threshing and carting the sheaves by night and sleeping not more than two or three hours out of the twenty - four . 
-
-Italian (target) ::::::::::::::::::::::::::::::::::::::::::::::::
-
-[UNK] e [UNK] la segala e l ’ avena e [UNK] , finire di falciare i prati , dividere a mezzo il maggese , [UNK] le sementi e seminare il grano autunnale , tutto questo sembra semplice e ordinario ; ma per giungere a questo bisogna che , dal grande al piccolo , tutta la gente di campagna lavori incessantemente , 
-
-Italian (predicted) :::::::::::::::::::::::::::::::::::::::::::::
-
-scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava scottava moltissimi scottava nascondiglio scottava scottava scottava scottava scottava 
+, , , , , , , , , , , , , 
 
 
 

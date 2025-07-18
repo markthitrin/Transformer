@@ -36,6 +36,32 @@ std::vector<double> Timer::GetTime() {
     return res;
 }
 
+std::vector<double> Timer::GetTimeStd() {
+    std::vector<double> res(maxI);
+    for(int i = 0;i < maxI;i++) {
+        std::sort(time[i].begin(), time[i].end());
+        int start = std::min(int(time[i].size() * 0.1), 20);
+        int end = std::max(int((time[i].size() * 9 + 9) / 10), int(time[i].size()) - 20);
+        double mean = 0.0;
+        double std = 0.0;
+        for(int j = start;j < end;j++) {
+            mean += time[i][j];
+        }
+        mean /= end - start;
+
+        for(int j = start;j < end;j++) {
+            double x = (time[i][j] - mean);
+            std += x * x;
+        }
+        std /= (end - start - 1);
+        std = std::sqrt(std);
+        
+        res[i] = std;
+    }
+    return res;
+}
+
+
 
 std::vector<double> Timer::time[timerSize];
 std::chrono::time_point<std::chrono::steady_clock> Timer::t0;

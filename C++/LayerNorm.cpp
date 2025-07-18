@@ -42,6 +42,7 @@ void LayerNorm::forward(TensorView input, TensorView output) {
             output[i * col + j] = alpha[j] * xHat[i * col + j] + bias[j];
         }
     }
+    Timer::CheckPoint();
 }
 
 void LayerNorm::predict(TensorView input, TensorView output) {
@@ -72,6 +73,7 @@ void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
             inputGradient[i * col + j] = invO * (outputGradient[i * col + j] - a - xHat[i * col + j] * b) * alpha[j];
         }
     }
+    Timer::CheckPoint();
 }
 
 void LayerNorm::loadParam(cnpy::npz_t npFile, std::string prefix) {

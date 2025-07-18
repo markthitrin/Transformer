@@ -78,6 +78,7 @@ void MultiheadAttention::process(
             case CROSS_PADDING: ApplyCrossPaddingMask(A.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], -1e9); break;
         }
     }
+    Timer::CheckPoint();
     if(train) {
         softmax.forward(A, As);
         dropout.forward(As, Ad);
@@ -95,6 +96,7 @@ void MultiheadAttention::process(
     for (int i = 0; i < batch; i++) {
         MatMulPlusATB(OT.sliceRow(i * dModel, dModel), WO, output.sliceRow(i * sequenceLength, sequenceLength));
     }
+    Timer::CheckPoint();
 }
 
 void MultiheadAttention::forward(
@@ -145,6 +147,7 @@ void MultiheadAttention::backward(
             Ad.sliceRow(i * sequenceLength, sequenceLength),
             VTGradient.sliceRow(i * dPerHead, dPerHead));
     }
+    Timer::CheckPoint();
     dropout.backward(AdGradient, AsGradient);
     softmax.backward(AsGradient, AGradient, As);
     for(int i = 0;i < batch * head;i++) {
@@ -176,6 +179,7 @@ void MultiheadAttention::backward(
         MatMulPlusATB(KTGradient.sliceRow(i * dModel, dModel), WK, inputGradientK.sliceRow(i * sequenceLength, sequenceLength));
         MatMulPlusATB(VTGradient.sliceRow(i * dModel, dModel), WV, inputGradientV.sliceRow(i * sequenceLength, sequenceLength));
     }
+    Timer::CheckPoint();
 }
 
 void MultiheadAttention::updateParameter() {

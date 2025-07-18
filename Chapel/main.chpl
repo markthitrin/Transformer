@@ -126,10 +126,11 @@ proc main() {
         writeln("Start Training");
         for i in 0..#trainingIteration {
             getData(srcTrain, tgtTrain, encoderInput, decoderInput, targetOutput, srcSeq, tgtSeq);
+            RestartRecord();
             model.forward(encoderInput, decoderInput, output, srcSeq, tgtSeq);
             var loss = CrossEntropy(output, targetOutput, tgtSeq, gradient);
-            model.backward(gradient, encoderInput, decoderInput, srcSeq, tgtSeq);
-            RestartRecord();
+            CheckPoint();
+            model.backward(gradient, encoderInput, decoderInput, srcSeq, tgtSeq);     
             model.updateParameter();
             CheckPoint();
             writeln("Iteration [", i, " / ", trainingIteration, "] loss : ", loss);
@@ -140,6 +141,12 @@ proc main() {
     var rec = GetTime();
     for i in rec.domain {
         writeln(rec[i]);
+    }
+
+    writeln("Time Recorded std ================================\n\n");
+    var recstd = GetTimeStd();
+    for i in recstd.domain {
+        writeln(recstd[i]);
     }
 
     {   // Evaluation Section 

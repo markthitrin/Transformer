@@ -29,6 +29,7 @@ class DropOut {
         for i in D {
             output[i] = input[i] * mask[i]:real(32) * corrector;
         }
+        CheckPoint();
 
         // Div(0, 0, domMask.size, input, 1.0 - dropoutRate, output);
     }
@@ -42,7 +43,7 @@ class DropOut {
         for i in D {
             inputGradient[i] = outputGradient[i] * mask[i]:real(32) * corrector;
         }
-        
+        CheckPoint();
 
         // Div(0, 0, domMask.size, outputGradient, 1.0 - dropoutRate, inputGradient);
     }
