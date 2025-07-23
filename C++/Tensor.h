@@ -154,7 +154,8 @@ inline void Tensor::loadNp(cnpy::npz_t npFile, std::string name) {
 
 
 inline void CopyPar(TensorView A, TensorView B) {
-    const int numT = getNumThreads(A.row, 32767 / A.col, 1, 2);
+    const int numT = getNumThreads(A.row, A.row * A.col / 8096, 1, 2);
+    if(verbose) std::cout << "Copy : " << A.row << ", " << A.col << " " << numT << std::endl;
     #pragma omp parallel num_threads(numT)
     {
         int tid = omp_get_thread_num();
@@ -169,7 +170,8 @@ inline void CopyPar(TensorView A, TensorView B) {
 }
 
 inline void SetPar(TensorView A, const float x) {
-    const int numT = getNumThreads(A.row, 32767 / A.col, 1, 1);
+    const int numT = getNumThreads(A.row, A.row * A.col / 8096, 1, 1);
+    if(verbose) std::cout << "Set : " << A.row << ", " << A.col << " " << numT << std::endl;
     #pragma omp parallel num_threads(numT)
     {
         int tid = omp_get_thread_num();
@@ -223,7 +225,8 @@ inline void Plus(TensorView A, TensorView B, TensorView C) {
 }
 
 inline void PlusPar(TensorView A, TensorView B, TensorView C) {
-    const int numT = getNumThreads(C.row * C.col, 16384, 2, 3);
+    const int numT = getNumThreads(C.row * C.col, C.row * C.col * 0.00084, 2, 3);
+    if(verbose) std::cout << "Plus : " << A.row << ", " << A.col << " " << numT << std::endl;
     #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] + B[i];
@@ -237,7 +240,8 @@ inline void Mul(TensorView A, TensorView B, TensorView C) {
 }
 
 inline void MulPar(TensorView A, TensorView B, TensorView C) {
-    const int numT = getNumThreads(C.row * C.col, 16384, 2, 3);
+    const int numT = getNumThreads(C.row * C.col, C.row * C.col * 0.00084, 2, 3);
+    if(verbose) std::cout << "Mul : " << C.row << ", " << C.col << " " << numT << std::endl;
     #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] * B[i];
@@ -251,7 +255,8 @@ inline void Mul(TensorView A, const float B, TensorView C) {
 }
 
 inline void MulPar(TensorView A, const float B, TensorView C) {
-    const int numT = getNumThreads(C.row * C.col, 16384, 2, 3);
+    const int numT = getNumThreads(C.row * C.col, C.row * C.col * 0.00084, 2, 3);
+    if(verbose) std::cout << "Mul : " << C.row << ", " << C.col << " " << numT << std::endl;
     #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] * B;
@@ -265,7 +270,8 @@ inline void Div(TensorView A, TensorView B, TensorView C) {
 }
 
 inline void DivPar(TensorView A, TensorView B, TensorView C) {
-    const int numT = getNumThreads(C.row * C.col, 16384, 12, 3);
+    const int numT = getNumThreads(C.row * C.col, C.row * C.col * 0.00084, 12, 3);
+    if(verbose) std::cout << "Div : " << C.row << ", " << C.col << " " << numT << std::endl;
     #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] / B[i];

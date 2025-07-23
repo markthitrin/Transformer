@@ -24,13 +24,15 @@
 static const int numPar = omp_get_max_threads();
 
 inline int getNumThreads(const int N, const float tus) {
-    return std::min(float(numPar), tus / 0.75f);
+    const float maxPar = std::min(numPar, N);
+    return std::max(std::min(maxPar, tus / 0.75f), 1.f);
 }
 
 inline int getNumThreads(const int N, const float tus, const float flop, const float mem) {
+    const float maxPar = std::min(numPar, N);
     constexpr float fmratio = 4.8; // on 64 thread
     const float maxNumThreadMemCap = flop / mem / fmratio * 64;
-    return std::min(std::min(float(numPar), tus / 0.75f), maxNumThreadMemCap);
+    return std::max(std::min(std::min(maxPar, tus / 0.75f), maxNumThreadMemCap), 1.f);
 }
 
 #include "Config.h"
