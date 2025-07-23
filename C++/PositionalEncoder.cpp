@@ -17,16 +17,18 @@ PositionalEncoder::PositionalEncoder() :
 }
 
 void PositionalEncoder::forward(TensorView input, TensorView output) {
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch;i++) {
-        Plus(input.sliceRow(i * sequenceLength, sequenceLength), positionEncode, input.sliceRow(i * sequenceLength, sequenceLength));
+        PlusPar(input.sliceRow(i * sequenceLength, sequenceLength), positionEncode, input.sliceRow(i * sequenceLength, sequenceLength));
     }
     Timer::CheckPoint();
     dropout.forward(input, output);
 }
 
 void PositionalEncoder::predict(TensorView input, TensorView output) {
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch;i++) {
-        Plus(input.sliceRow(i * sequenceLength, sequenceLength), positionEncode, output.sliceRow(i * sequenceLength, sequenceLength));
+        PlusPar(input.sliceRow(i * sequenceLength, sequenceLength), positionEncode, output.sliceRow(i * sequenceLength, sequenceLength));
     }
 }
 

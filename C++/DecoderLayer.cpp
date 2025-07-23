@@ -91,13 +91,13 @@ void DecoderLayer::backward(
     Plus(gradient3, inputGradient, inputGradient);
 }
 
-void DecoderLayer::updateParameter() {
-    norm1.updateParameter();
-    mulAtt1.updateParameter();
-    norm2.updateParameter();
-    mulAtt2.updateParameter();
-    norm3.updateParameter();
-    pff.updateParameter();
+void DecoderLayer::updateParameterTask() {
+    norm1.updateParameterTask();
+    mulAtt1.updateParameterTask();
+    norm2.updateParameterTask();
+    mulAtt2.updateParameterTask();
+    norm3.updateParameterTask();
+    pff.updateParameterTask();
 }
 
 void DecoderLayer::loadParam(cnpy::npz_t npFile, std::string prefix) {
@@ -166,7 +166,14 @@ void DecoderLayer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
     forward(input1, input2, output, srcSeq, tgtSeq);
     backward(outputGradient, inputGradient, inputGradient, input2, srcSeq, tgtSeq);
-    updateParameter();
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            updateParameterTask();
+            #pragma omp taskwait
+        }
+    }
 
     checkUpdatedParam(npFile, prefix);
 }

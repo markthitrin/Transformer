@@ -20,7 +20,7 @@ public:
 
 	void backward(TensorView outputGradient, TensorView inputGradient, const int srcSeq[batch]);
 
-	void updateParameter();
+	void updateParameterTask();
 
 	void loadParam(cnpy::npz_t npFile, std::string prefix);
 

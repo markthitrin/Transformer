@@ -21,7 +21,7 @@ public:
         TensorView outputGradient, TensorView inputGradient, TensorView encoderGradient, TensorView encoderOutput,
         const int srcSeq[batch], const int tgtSeq[batch]);
 
-	void updateParameter();
+	void updateParameterTask();
 
     void loadParam(cnpy::npz_t npFile, std::string prefix);
 

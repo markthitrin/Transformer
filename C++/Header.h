@@ -19,6 +19,9 @@
 #include <cfloat>
 #include <iomanip>
 #include <chrono>
+#include <omp.h>
+
+static const int numPar = omp_get_max_threads();
 
 #include "Config.h"
 

@@ -41,6 +41,7 @@ void Transformer::forward(
 
     tgtEmbed.forward(inputd, out3);
     tgtPos.forward(out3, out4);
+
     decoder.forward(out4, encoderOut, out5, srcSeq, tgtSeq);
     linear.forward(out5, output);
 }
@@ -75,12 +76,19 @@ void Transformer::backward(
 }
 
 void Transformer::updateParameter() {
-    srcEmbed.updateParameter();
-    encoder.updateParameter();
+    #pragma omp parallel
+    {
+        #pragma omp single 
+        {
+            srcEmbed.updateParameterTask();
+            encoder.updateParameterTask();
 
-    tgtEmbed.updateParameter();
-    decoder.updateParameter();
-    linear.updateParameter();
+            tgtEmbed.updateParameterTask();
+            decoder.updateParameterTask();
+            linear.updateParameterTask();
+            #pragma omp taskwait
+        }
+    }
 }
 
 void Transformer::loadParam(cnpy::npz_t npFile, std::string prefix) {
@@ -149,7 +157,14 @@ void Transformer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
     forward(inpute, inputd, output, srcSeq, tgtSeq);
     backward(outputGradient, inpute, inputd, srcSeq, tgtSeq);
-    updateParameter();
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            updateParameter();
+            #pragma omp taskwait
+        }
+    }
 
     checkUpdatedParam(npFile, prefix);
 }

@@ -41,9 +41,9 @@ void FeedForwardBlock::backward(TensorView outputGradient, TensorView inputGradi
     linear1.backward(gradient1, inputGradient, input);
 }
 
-void FeedForwardBlock::updateParameter() {
-    linear1.updateParameter();
-    linear2.updateParameter();
+void FeedForwardBlock::updateParameterTask() {
+    linear1.updateParameterTask();
+    linear2.updateParameterTask();
 }
 
 void FeedForwardBlock::loadParam(cnpy::npz_t npFile, std::string prefix) {
@@ -92,7 +92,14 @@ void FeedForwardBlock::backwardTest(cnpy::npz_t npFile, std::string prefix) {
     
     forward(input, output);
     backward(outputGradient, inputGradient, input);
-    updateParameter();
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            updateParameterTask();
+            #pragma omp taskwait
+        }
+    }
 
     checkUpdatedParam(npFile, prefix);
 }

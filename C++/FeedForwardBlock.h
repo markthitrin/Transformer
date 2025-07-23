@@ -19,7 +19,7 @@ public:
 
 	void backward(TensorView outputGradient, TensorView inputGradient, TensorView input);
 
-	void updateParameter();
+	void updateParameterTask();
 
 	void loadParam(cnpy::npz_t npFile, std::string prefix);
 

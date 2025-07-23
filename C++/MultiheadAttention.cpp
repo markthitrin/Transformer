@@ -50,27 +50,29 @@ void MultiheadAttention::process(
 
     const int dPerHead = dModel / head;
 
-    QT = 0;
-    KT = 0;
-    VT = 0;
-    A = 0;
-    As = 0;
-    Ad = 0;
-    OT = 0;
-    output = 0;
+    SetPar(QT, 0);
+    SetPar(KT, 0);
+    SetPar(VT, 0);
+    SetPar(A, 0);
+    SetPar(As, 0);
+    SetPar(Ad, 0);
+    SetPar(OT, 0);
+    SetPar(output, 0);
 
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch;i++) {
-        MatMulPlusABT(WQ, inputQ.sliceRow(i * sequenceLength, sequenceLength), QT.sliceRow(i * dModel, dModel));
-        MatMulPlusABT(WK, inputK.sliceRow(i * sequenceLength, sequenceLength), KT.sliceRow(i * dModel, dModel));
-        MatMulPlusABT(WV, inputV.sliceRow(i * sequenceLength, sequenceLength), VT.sliceRow(i * dModel, dModel));
+        MatMulPlusABTPar(WQ, inputQ.sliceRow(i * sequenceLength, sequenceLength), QT.sliceRow(i * dModel, dModel));
+        MatMulPlusABTPar(WK, inputK.sliceRow(i * sequenceLength, sequenceLength), KT.sliceRow(i * dModel, dModel));
+        MatMulPlusABTPar(WV, inputV.sliceRow(i * sequenceLength, sequenceLength), VT.sliceRow(i * dModel, dModel));
+        for(int j = 0;j < head;j++) {
+            MatMulPlusATBPar(
+			QT.sliceRow((i * head + j) * dPerHead, dPerHead), 
+			KT.sliceRow((i * head + j) * dPerHead, dPerHead), 
+			A.sliceRow((i * head + j) * sequenceLength,sequenceLength));
+        }
     }
-    for(int i = 0;i < batch * head;i++) {
-        MatMulPlusATB(
-			QT.sliceRow(i * dPerHead, dPerHead), 
-			KT.sliceRow(i * dPerHead, dPerHead), 
-			A.sliceRow(i * sequenceLength,sequenceLength));
-    }
-    Div(A, std::sqrt(float(dPerHead)), A);
+    DivPar(A, std::sqrt(float(dPerHead)), A);
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch * head;i++) {
         switch(maskType) {
             case LOOK_AHEAD : ApplyLookAheadMask(A.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], -1e9); break;
@@ -87,14 +89,15 @@ void MultiheadAttention::process(
         softmax.predict(A, As);
         dropout.predict(As, Ad);
     }
-    for (int i = 0; i < batch * head; i++) {
-        MatMulPlusABT(
-            VT.sliceRow(i * dPerHead, dPerHead), 
-            Ad.sliceRow(i * sequenceLength, sequenceLength), 
-            OT.sliceRow(i * dPerHead, dPerHead));
-    }
-    for (int i = 0; i < batch; i++) {
-        MatMulPlusATB(OT.sliceRow(i * dModel, dModel), WO, output.sliceRow(i * sequenceLength, sequenceLength));
+    #pragma omp parallel for schedule(static)
+    for(int i = 0;i < batch;i++) {
+        for(int j = 0;j < head;j++) {
+            MatMulPlusABTPar(
+                VT.sliceRow((i * head + j) * dPerHead, dPerHead), 
+                Ad.sliceRow((i * head + j) * sequenceLength, sequenceLength), 
+                OT.sliceRow((i * head + j) * dPerHead, dPerHead));
+        }
+        MatMulPlusATBPar(OT.sliceRow(i * dModel, dModel), WO, output.sliceRow(i * sequenceLength, sequenceLength));
     }
     Timer::CheckPoint();
 }
@@ -120,36 +123,47 @@ void MultiheadAttention::backward(
 
     const int dPerHead = dModel / head;
 
-    QTGradient = 0;
-    KTGradient = 0;
-    VTGradient = 0;
-    AGradient = 0;
-    AsGradient = 0;
-    AdGradient = 0;
-    OTGradient = 0;
-    inputGradientQ = 0;
+    
+    float* WQGrad = WQOpt.gradient.data;
+    float* WKGrad = WKOpt.gradient.data;
+    float* WVGrad = WVOpt.gradient.data;
+    float* WOGrad = WOOpt.gradient.data;
+
+    SetPar(QTGradient, 0);
+    SetPar(KTGradient, 0);
+    SetPar(VTGradient, 0);
+    SetPar(AGradient, 0);
+    SetPar(AsGradient, 0);
+    SetPar(AdGradient, 0);
+    SetPar(OTGradient, 0);
+    SetPar(inputGradientQ, 0);
     if(maskType != CROSS_PADDING) { // for decoder getting encoder layer
         inputGradientK = 0;
         inputGradientV = 0;
+        SetPar(inputGradientK, 0);
+        SetPar(inputGradientV, 0);
     }
 
-    for (int i = 0; i < batch; i++) {
+
+    #pragma omp parallel for schedule(static) reduction(+:WOGrad[:dModel*dModel])
+    for(int i = 0;i < batch;i++) {
         MatMulPlusAB(OT.sliceRow(i * dModel, dModel),outputGradient.sliceRow(i * sequenceLength, sequenceLength), WOOpt.gradient);
-        MatMulPlusABT(WO, outputGradient.sliceRow(i * sequenceLength, sequenceLength), OTGradient.sliceRow(i * dModel, dModel));
-    }
-    for (int i = 0; i < batch * head; i++) {
-        MatMulPlusATB(
-            OTGradient.sliceRow(i * dPerHead, dPerHead),
-            VT.sliceRow(i * dPerHead, dPerHead),
-            AdGradient.sliceRow(i * sequenceLength, sequenceLength));
-        MatMulPlusAB(
-            OTGradient.sliceRow(i * dPerHead, dPerHead),
-            Ad.sliceRow(i * sequenceLength, sequenceLength),
-            VTGradient.sliceRow(i * dPerHead, dPerHead));
+        MatMulPlusABTPar(WO, outputGradient.sliceRow(i * sequenceLength, sequenceLength), OTGradient.sliceRow(i * dModel, dModel));
+        for(int j = 0;j < head;j++) {
+            MatMulPlusATBPar(
+                OTGradient.sliceRow((i * head + j) * dPerHead, dPerHead),
+                VT.sliceRow((i * head + j) * dPerHead, dPerHead),
+                AdGradient.sliceRow((i * head + j) * sequenceLength, sequenceLength));
+            MatMulPlusABPar(
+                OTGradient.sliceRow((i * head + j) * dPerHead, dPerHead),
+                Ad.sliceRow((i * head + j) * sequenceLength, sequenceLength),
+                VTGradient.sliceRow((i * head + j) * dPerHead, dPerHead));
+        }
     }
     Timer::CheckPoint();
     dropout.backward(AdGradient, AsGradient);
     softmax.backward(AsGradient, AGradient, As);
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch * head;i++) {
         switch(maskType) {
             case LOOK_AHEAD : ApplyLookAheadMask(AGradient.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], 0); break;
@@ -157,23 +171,27 @@ void MultiheadAttention::backward(
             case CROSS_PADDING: ApplyCrossPaddingMask(AGradient.sliceRow(i * sequenceLength, sequenceLength), seq[i / head], 0); break;
         }
     }
-    Div(AGradient, std::sqrt(float(dPerHead)), AGradient);
-    
-    for (int i = 0; i < batch * head; i++) {
-        MatMulPlusAB(
-            QT.sliceRow(i * dPerHead, dPerHead),
-            AGradient.sliceRow(i * sequenceLength, sequenceLength),
-            KTGradient.sliceRow(i * dPerHead, dPerHead));
-        MatMulPlusABT(
-            KT.sliceRow(i * dPerHead, dPerHead),
-            AGradient.sliceRow(i * sequenceLength, sequenceLength),
-            QTGradient.sliceRow(i * dPerHead, dPerHead));
+    DivPar(AGradient, std::sqrt(float(dPerHead)), AGradient);
+    #pragma omp parallel for schedule(static)
+    for(int i = 0;i < batch;i++) {
+        for(int j = 0;j < head;j++) {
+            MatMulPlusABPar(
+                QT.sliceRow((i * head + j) * dPerHead, dPerHead),
+                AGradient.sliceRow((i * head + j) * sequenceLength, sequenceLength),
+                KTGradient.sliceRow((i * head + j) * dPerHead, dPerHead));
+            MatMulPlusABTPar(
+                KT.sliceRow((i * head + j) * dPerHead, dPerHead),
+                AGradient.sliceRow((i * head + j) * sequenceLength, sequenceLength),
+                QTGradient.sliceRow((i * head + j) * dPerHead, dPerHead));
+        }
     }
+    #pragma omp parallel for schedule(static) reduction(+:WQGrad[:dModel*dModel], +:WKGrad[:dModel*dModel], +:WVGrad[:dModel*dModel])
     for (int i = 0; i < batch; i++) {
         MatMulPlusAB(QTGradient.sliceRow(i * dModel, dModel), inputQ.sliceRow(i * sequenceLength, sequenceLength), WQOpt.gradient);
         MatMulPlusAB(KTGradient.sliceRow(i * dModel, dModel), inputK.sliceRow(i * sequenceLength, sequenceLength), WKOpt.gradient);
         MatMulPlusAB(VTGradient.sliceRow(i * dModel, dModel),  inputV.sliceRow(i * sequenceLength, sequenceLength), WVOpt.gradient);
     }
+    #pragma omp parallel for schedule(static)
     for (int i = 0;i < batch;i++) {
         MatMulPlusATB(QTGradient.sliceRow(i * dModel, dModel), WQ, inputGradientQ.sliceRow(i * sequenceLength, sequenceLength));
         MatMulPlusATB(KTGradient.sliceRow(i * dModel, dModel), WK, inputGradientK.sliceRow(i * sequenceLength, sequenceLength));
@@ -182,10 +200,14 @@ void MultiheadAttention::backward(
     Timer::CheckPoint();
 }
 
-void MultiheadAttention::updateParameter() {
+void MultiheadAttention::updateParameterTask() {
+    #pragma omp task
     AdamOpt(WQ, WQOpt);
+    #pragma omp task
     AdamOpt(WK, WKOpt);
+    #pragma omp task
     AdamOpt(WV, WVOpt);
+    #pragma omp task
     AdamOpt(WO, WOOpt);
 }
 
@@ -271,7 +293,13 @@ void MultiheadAttention::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
     forward(inputQ, inputK, inputV, output, LOOK_AHEAD, seq);
     backward(outputGradient, inputGradient, inputGradient, inputGradient, inputQ, inputK, inputV, output, LOOK_AHEAD, seq);
-    updateParameter();
-
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            updateParameterTask();
+            #pragma omp taskwait
+        }
+    }
     checkUpdatedParam(npFile, prefix);
 }

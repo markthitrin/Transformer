@@ -22,6 +22,7 @@ void LayerNorm::forward(TensorView input, TensorView output) {
     const int row =  output.row;
     const int col =  output.col;
 
+    #pragma omp parallel for schedule(static)
     for (int i = 0; i < row; i++) {
         float mean = 0.0f;
         for (int j = 0; j < col; j++) {
@@ -54,17 +55,20 @@ void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
     constexpr int col = dModel;
 
     const float invCol = 1.0f / col;
+    float* biasGrad = biasOpt.gradient.data;
+    float* alphaGrad = alphaOpt.gradient.data;
+    #pragma omp parallel for reduction(+:biasGrad[:dModel], alphaGrad[:dModel])
     for (int i = 0; i < row; i++) {
         const float invO = 1.0f / (std[i] + eps);
         float sumG = 0;
         float sumGXHat = 0;
         for (int j = 0; j < col; j++) {
             float gxH = outputGradient[i * col + j] * xHat[i * col + j];
-            alphaOpt.gradient[j] += gxH;
+            alphaGrad[j] += gxH;
             sumGXHat += gxH;
         }
         for (int j= 0;j< col;j++) {
-            biasOpt.gradient[j] += outputGradient[i * col + j];
+            biasGrad[j] += outputGradient[i * col + j];
             sumG += outputGradient[i * col + j];
         }
         float a = invCol * sumG;
@@ -75,6 +79,14 @@ void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
     }
     Timer::CheckPoint();
 }
+
+void LayerNorm::updateParameterTask() {
+    #pragma omp task
+    AdamOpt(alpha, alphaOpt);
+    #pragma omp task
+    AdamOpt(bias, biasOpt);
+}
+
 
 void LayerNorm::loadParam(cnpy::npz_t npFile, std::string prefix) {
     alpha.loadNp(npFile, prefix + ".alpha");
@@ -116,12 +128,15 @@ void LayerNorm::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
     forward(input, output);
     backward(outputGradient, inputGradient);
-    updateParameter();
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            updateParameterTask();
+            #pragma omp taskwait
+        }
+    }
 
     checkUpdatedParam(npFile, prefix);
 }
 
-void LayerNorm::updateParameter() {
-    AdamOpt(alpha, alphaOpt);
-    AdamOpt(bias, biasOpt);
-}

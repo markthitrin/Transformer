@@ -43,11 +43,11 @@ void Encoder::backward(TensorView outputGradient, TensorView inputGradient, cons
     layers[0].backward(gradient[0], inputGradient, srcSeq);
 }
 
-void Encoder::updateParameter() {
+void Encoder::updateParameterTask() {
     for(int i = 0;i < N;i++) {
-        layers[i].updateParameter();
+        layers[i].updateParameterTask();
     }
-    norm.updateParameter();
+    norm.updateParameterTask();
 }
 
 void Encoder::loadParam(cnpy::npz_t npFile, std::string prefix) {
@@ -102,7 +102,14 @@ void Encoder::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
     forward(input, output, seq);
     backward(outputGradient, inputGradient, seq);
-    updateParameter();
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            updateParameterTask();
+            #pragma omp taskwait
+        }
+    }
 
     checkUpdatedParam(npFile, prefix);
 }

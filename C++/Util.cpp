@@ -12,6 +12,10 @@ AdamOptimizer::AdamOptimizer(const int row, const int col) :
     gradient(row, col), accM(row, col), accV(row, col), t(1) {;}
 
 
+int getNumThreads(const int N, const int minChunk) {
+    return std::min(numPar, (N + minChunk - 1) / minChunk);
+}
+
 void AdamOpt(TensorView param, AdamOptimizer& opt) {
     const float learningRate = lr;
     const float PowBeta1 = (1.0f - std::pow(beta1,opt.t));
@@ -52,6 +56,7 @@ float ComputCrossEntropy(TensorView logits, int target_token, TensorView grad) {
 
 float _CrossEntropy(TensorView logits, const int* targetToken, int tgtSeq, TensorView grad) {
     float loss = 0.0f;
+    #pragma omp parallel for schedule(static) reduction(+:loss)
     for(int i = 0;i < tgtSeq;i++) {
         loss += ComputCrossEntropy(logits.sliceRow(i, 1), targetToken[i], grad.sliceRow(i, 1));
     }
@@ -60,6 +65,7 @@ float _CrossEntropy(TensorView logits, const int* targetToken, int tgtSeq, Tenso
 
 float CrossEntropy(TensorView logits, const int* target_token, const int* tgtSeq, TensorView grad) {
     float loss = 0.0f;
+    #pragma omp parallel for schedule(static) reduction(+:loss)
     for(int i = 0;i < batch;i++) {
         loss += _CrossEntropy(
             logits.sliceRow(i * sequenceLength, sequenceLength),

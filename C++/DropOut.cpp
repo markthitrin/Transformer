@@ -27,9 +27,11 @@ struct pcg_setseq_64_xsh_rr_32 {
         uint32_t rot = static_cast<uint32_t>(oldstate >> 59u);
         return (xorshifted >> rot) | (xorshifted << ((-rot) & 31));
     }
-} rng;
+};
 
-void GenerateDropoutMask(TensorView mask) {
+std::vector<pcg_setseq_64_xsh_rr_32> rng;
+
+void GenerateDropoutMask(TensorView mask, pcg_setseq_64_xsh_rr_32 rng) {
     // static thread_local uint32_t state = static_cast<uint32_t>(
     //     std::chrono::steady_clock::now().time_since_epoch().count() +
     //     reinterpret_cast<uintptr_t>(&state));
@@ -48,16 +50,32 @@ void GenerateDropoutMask(TensorView mask) {
     }
 }
 
+void GenerateDropoutMaskPar(TensorView mask) {
+    #pragma omp parallel num_threads(numPar)
+    {
+        int tid = omp_get_thread_num();
+        int nthreads = omp_get_num_threads();
 
-DropOut::DropOut(const int row, const int col) : mask(row, col) {;}
+        int chunk_size = (mask.row + nthreads - 1) / nthreads;
+        int start = tid * chunk_size;
+        int end = std::min(start + chunk_size, mask.row);
+        if(start < mask.row) {
+            GenerateDropoutMask(mask.sliceRow(start, end - start), tid);
+        }
+    }
+}
+
+DropOut::DropOut(const int row, const int col) : mask(row, col) {
+    rng.emplace_back(std::rand());
+}
 
 void DropOut::forward(TensorView input, TensorView output) {
-    GenerateDropoutMask(mask);
-    Mul(input, mask, output);
-    Div(output, (1.0f - dropoutRate), output);
+    GenerateDropoutMaskPar(mask);
+    MulPar(input, mask, output);
+    DivPar(output, (1.0f - dropoutRate), output);
     Timer::CheckPoint();
 
-    // Div(input, (1.0 - dropoutRate), output);
+    // DivPar(input, (1.0 - dropoutRate), output);
 }
 
 void DropOut::predict(TensorView input, TensorView output) {
@@ -65,9 +83,9 @@ void DropOut::predict(TensorView input, TensorView output) {
 }
 
 void DropOut::backward(TensorView outputGradient, TensorView inputGradient) {
-    Mul(outputGradient, mask, inputGradient);
-    Div(inputGradient, (1.0f - dropoutRate), inputGradient);
+    MulPar(outputGradient, mask, inputGradient);
+    DivPar(inputGradient, (1.0f - dropoutRate), inputGradient);
     Timer::CheckPoint();
 
-    // Div(outputGradient, (1.0 - dropoutRate), inputGradient);
+    // DivPar(outputGradient, (1.0 - dropoutRate), inputGradient);
 }

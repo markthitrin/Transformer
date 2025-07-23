@@ -14,10 +14,11 @@ Embedding::Embedding(const int numTokens) : table(numTokens, dModel), needUpdate
 }
 
 void Embedding::forward(const int input[batch * sequenceLength], TensorView output) {
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch * sequenceLength;i++) {
         output.sliceRow(i, 1) = table.sliceRow(input[i], 1);
     }
-    Mul(output, std::sqrt(dModel), output);
+    MulPar(output, std::sqrt(dModel), output);
     Timer::CheckPoint();
 }
 
@@ -26,7 +27,7 @@ void Embedding::predict(const int input[batch * sequenceLength], TensorView outp
 }
 
 void Embedding::backward(TensorView outputGradient, const int* input) {
-    Mul(outputGradient, std::sqrt(dModel), outputGradient);
+    MulPar(outputGradient, std::sqrt(dModel), outputGradient);
     for(int i = 0;i < batch * sequenceLength;i++) {
         needUpdate[input[i]] = true;
         tableOpt[input[i]].gradient += outputGradient.sliceRow(i, 1);
@@ -34,11 +35,14 @@ void Embedding::backward(TensorView outputGradient, const int* input) {
     Timer::CheckPoint();
 }
 
-void Embedding::updateParameter() {
+void Embedding::updateParameterTask() {
     for(int i = 0;i < tableOpt.size();i++) {
         if(needUpdate[i]) {
-            AdamOpt(table.sliceRow(i, 1), tableOpt[i]);
-            needUpdate[i] = false;
+            #pragma omp task firstprivate(i)
+            {
+                AdamOpt(table.sliceRow(i, 1), tableOpt[i]);
+                needUpdate[i] = false;
+            }
         }
     }
 }
@@ -82,7 +86,13 @@ void Embedding::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
     forward(input, output);
     backward(outputGradient, input);
-    updateParameter();
-
+    #pragma omp parallel
+    {
+        #pragma omp single 
+        {
+            updateParameterTask();
+            #pragma omp taskwait
+        }
+    }
     checkUpdatedParam(npFile, prefix);
 }

@@ -11,9 +11,10 @@ Softmax::Softmax() {
 void Softmax::forward(TensorView input, TensorView output) {
     const int row = output.row;
     const int col = output.col;
-    float buffer[sequenceLength];
+    
+    #pragma omp parallel for schedule(static)
     for (int i = 0; i < row; i++) {
-
+        float buffer[sequenceLength];
         float sumExp = 0.0;
         float maxValue = -FLT_MAX;
         for (int j = 0; j < col; j++) {
@@ -22,7 +23,7 @@ void Softmax::forward(TensorView input, TensorView output) {
 
         for (int j = 0; j < col; j++) {
             buffer[j] = input[i * col + j] - maxValue;
-            buffer[j] = std::expf(buffer[j]);
+            buffer[j] = expf(buffer[j]);
         }
 
         for(int j = 0;j < col;j++) {
@@ -43,6 +44,7 @@ void Softmax::predict(TensorView input, TensorView output) {
 void Softmax::backward(TensorView outputGradient, TensorView inputGradient, TensorView output) {
     const int row = inputGradient.row;
     const int col = inputGradient.col;
+    #pragma omp parallel for schedule(static)
     for (int i = 0; i < row; i++) {
         float sumGY = 0.0f;
 

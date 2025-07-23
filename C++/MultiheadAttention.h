@@ -34,7 +34,7 @@ public:
         TensorView inputQ, TensorView inputK, TensorView inputV, TensorView output,
         MaskType maskType, const int seq[batch]);
 
-	void updateParameter();
+	void updateParameterTask();
 
 	void loadParam(cnpy::npz_t npFile, std::string prefix);
 

@@ -154,6 +154,33 @@ inline void Tensor::loadNp(cnpy::npz_t npFile, std::string name) {
 
 
 
+inline void CopyPar(TensorView A, TensorView B) {
+    #pragma omp parallel num_threads(numPar)
+    {
+        int tid = omp_get_thread_num();
+        int nthreads = omp_get_num_threads();
+
+        int chunk_size = (A.row + nthreads - 1) / nthreads;
+        int start = tid * chunk_size;
+        int end = std::min(start + chunk_size, A.row);
+
+        B.sliceRow(start, end - start) = A.sliceRow(start, end - start);
+    }
+}
+
+inline void SetPar(TensorView A, const float x) {
+    #pragma omp parallel num_threads(numPar)
+    {
+        int tid = omp_get_thread_num();
+        int nthreads = omp_get_num_threads();
+
+        int chunk_size = (A.row + nthreads - 1) / nthreads;
+        int start = tid * chunk_size;
+        int end = std::min(start + chunk_size, A.row);
+
+        A.sliceRow(start, end - start) = x;
+    }
+}
 
 
 inline void XavierUniformInit(TensorView A) {
@@ -194,7 +221,21 @@ inline void Plus(TensorView A, TensorView B, TensorView C) {
     }
 }
 
+inline void PlusPar(TensorView A, TensorView B, TensorView C) {
+    #pragma omp parallel for schedule(static)
+    for(int i = 0;i < C.row * C.col;i++) {
+        C[i] = A[i] + B[i];
+    }
+}
+
 inline void Mul(TensorView A, TensorView B, TensorView C) {
+    for(int i = 0;i < C.row * C.col;i++) {
+        C[i] = A[i] * B[i];
+    }
+}
+
+inline void MulPar(TensorView A, TensorView B, TensorView C) {
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] * B[i];
     }
@@ -206,15 +247,35 @@ inline void Mul(TensorView A, const float B, TensorView C) {
     }
 }
 
+inline void MulPar(TensorView A, const float B, TensorView C) {
+    #pragma omp parallel for schedule(static)
+    for(int i = 0;i < C.row * C.col;i++) {
+        C[i] = A[i] * B;
+    }
+}
+
 inline void Div(TensorView A, TensorView B, TensorView C) {
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] / B[i];
     }
 }
 
+inline void DivPar(TensorView A, TensorView B, TensorView C) {
+    #pragma omp parallel for schedule(static)
+    for(int i = 0;i < C.row * C.col;i++) {
+        C[i] = A[i] / B[i];
+    }
+}
+
+
 inline void Div(TensorView A, const float B, TensorView C) {
     const float inv = 1.0f / B;
     Mul(A, inv, C);
+}
+
+inline void DivPar(TensorView A, const float B, TensorView C) {
+    const float inv = 1.0f / B;
+    MulPar(A, inv, C);
 }
 
 
@@ -230,6 +291,22 @@ inline void ApplyLookAheadMask(TensorView A, const int seq, const float x) {
         }
     }
 }
+
+inline void ApplyLookAheadMaskPar(TensorView A, const int seq, const float x) {
+    #pragma omp parallel for schedule(static)
+    for(int i = 0;i < seq;i++) {
+        for(int j = i + 1;j < sequenceLength;j++) {
+            A[i * sequenceLength + j] = x;
+        }
+    }
+    #pragma omp parallel for schedule(static)
+    for(int i = seq;i < sequenceLength;i++){
+        for(int j = 0;j < sequenceLength;j++) {
+            A[i * sequenceLength + j] = x;
+        }
+    }
+}
+
 inline void ApplyPaddingMask(TensorView A, const int seq, const float x) {
     for(int i= 0 ;i < seq;i++) {
         for(int j = seq;j < sequenceLength;j++) {
@@ -242,6 +319,22 @@ inline void ApplyPaddingMask(TensorView A, const int seq, const float x) {
         }
     }
 }
+
+inline void ApplyPaddingMaskPar(TensorView A, const int seq, const float x) {
+    #pragma omp parallel for schedule(static)
+    for(int i= 0 ;i < seq;i++) {
+        for(int j = seq;j < sequenceLength;j++) {
+            A[i * sequenceLength + j] = x;
+        }
+    }
+    #pragma omp parallel for schedule(static)
+    for(int i = seq;i < sequenceLength;i++) {
+        for(int j = 0;j < sequenceLength;j++) {
+            A[i * sequenceLength + j] = x;
+        }
+    }
+}
+
 inline void ApplyCrossPaddingMask(TensorView A, const int seq, const float x) {
     for(int i = 0;i < sequenceLength;i++) {
         for(int j = seq;j < sequenceLength;j++) {
@@ -250,6 +343,14 @@ inline void ApplyCrossPaddingMask(TensorView A, const int seq, const float x) {
     }
 }
 
+inline void ApplyCrossPaddingMaskPar(TensorView A, const int seq, const float x) {
+    #pragma omp parallel for schedule(static)
+    for(int i = 0;i < sequenceLength;i++) {
+        for(int j = seq;j < sequenceLength;j++) {
+            A[i * sequenceLength + j] = x;
+        }
+    }
+}
 
 inline void GetPositionalEncode(TensorView A) {
     for (int i = 0; i < sequenceLength; i++) {
@@ -262,11 +363,32 @@ inline void GetPositionalEncode(TensorView A) {
     }
 }
 
-
 inline void MatMulPlusAB(TensorView A, TensorView B, TensorView C) {
     const int d1 = C.row;
     const int d2 = A.col;
     const int d3 = C.col;
+    for(int ii = 0;ii < d1;ii += BLOCK_SIZE) {
+        for(int jj = 0;jj < d3;jj += BLOCK_SIZE) {
+            for(int kk = 0;kk < d2;kk += BLOCK_SIZE) {
+
+                for(int i = 0;(i < BLOCK_SIZE) & (ii + i < d1);i++) {
+                    for(int k = 0; (k < BLOCK_SIZE ) & (kk + k < d2);k++) {
+                        for(int j = 0;(j < BLOCK_SIZE) & (jj + j < d3);j++) {
+                            C[(ii + i) * d3 + (jj + j)] += A[(ii + i) * d2 + (kk + k)] * B[(kk + k) * d3 + (jj + j)];
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+inline void MatMulPlusABPar(TensorView A, TensorView B, TensorView C) {
+    const int d1 = C.row;
+    const int d2 = A.col;
+    const int d3 = C.col;
+    #pragma omp parallel for collapse(2) schedule(static)
     for(int ii = 0;ii < d1;ii += BLOCK_SIZE) {
         for(int jj = 0;jj < d3;jj += BLOCK_SIZE) {
             for(int kk = 0;kk < d2;kk += BLOCK_SIZE) {
@@ -305,6 +427,28 @@ inline void MatMulPlusATB(TensorView A, TensorView B, TensorView C) {
     }
 }
 
+inline void MatMulPlusATBPar(TensorView A, TensorView B, TensorView C) {
+    const int d1 = C.row;
+    const int d2 = A.row;
+    const int d3 = C.col;
+    // #pragma omp parallel for collapse(2) schedule(static)
+    for(int ii = 0;ii < d1;ii += BLOCK_SIZE) {
+        for(int jj = 0;jj < d3;jj += BLOCK_SIZE) {
+            for(int kk = 0;kk < d2;kk += BLOCK_SIZE) {
+                
+                for(int i = 0;(i < BLOCK_SIZE) & (ii + i < d1);i++) {
+                    for(int k = 0; (k < BLOCK_SIZE) & (kk + k < d2);k++) {
+                        for(int j = 0;(j < BLOCK_SIZE) & (jj + j < d3);j++) {
+                            C[(ii + i) * d3 + (jj + j)] += A[(kk + k) * d1 + (ii + i)] * B[(kk + k) * d3 + (jj + j)];
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
 inline void MatMulPlusABT(TensorView A, TensorView B, TensorView C) {
     Tensor BT(B.col, B.row);
     const int d2 = B.col;
@@ -320,5 +464,23 @@ inline void MatMulPlusABT(TensorView A, TensorView B, TensorView C) {
     }
     MatMulPlusAB(A, BT, C);
 }
+
+inline void MatMulPlusABTPar(TensorView A, TensorView B, TensorView C) {
+    Tensor BT(B.col, B.row);
+    const int d2 = B.col;
+    const int d3 = B.row;
+    #pragma omp parallel for collapse(2) schedule(static)
+    for(int ii = 0;ii < d2;ii += BLOCK_SIZE) {
+        for(int jj = 0;jj < d3;jj += BLOCK_SIZE) {
+            for(int i = 0;(i < BLOCK_SIZE) & (ii + i < d2);i++){
+                for(int j = 0;(j < BLOCK_SIZE) & (jj + j < d3);j++) {
+                    BT[(ii + i) * d3 + jj + j] = B[(jj + j) * d2 + ii + i];
+                }
+            }
+        }
+    }
+    MatMulPlusABPar(A, BT, C);
+}
+
 
 #endif

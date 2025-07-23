@@ -59,11 +59,11 @@ void EncoderLayer::backward(TensorView outputGradient, TensorView inputGradient,
     Plus(gradient3, inputGradient, inputGradient);
 }
 
-void EncoderLayer::updateParameter() {
-    norm1.updateParameter();
-    mulAtt.updateParameter();
-    norm2.updateParameter();
-    pff.updateParameter();
+void EncoderLayer::updateParameterTask() {
+    norm1.updateParameterTask();
+    mulAtt.updateParameterTask();
+    norm2.updateParameterTask();
+    pff.updateParameterTask();
 }
 
 void EncoderLayer::loadParam(cnpy::npz_t npFile, std::string prefix) {
@@ -114,7 +114,14 @@ void EncoderLayer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
     forward(input, output, seq);
     backward(outputGradient, inputGradient, seq);
-    updateParameter();
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            updateParameterTask();
+            #pragma omp taskwait
+        }
+    }
 
     checkUpdatedParam(npFile, prefix);
 }

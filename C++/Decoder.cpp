@@ -47,11 +47,11 @@ void Decoder::backward(
     layers[0].backward(gradient[0], encoderGradient, inputGradient, encoderOut, srcSeq, tgtSeq);
 }
 
-void Decoder::updateParameter() {
+void Decoder::updateParameterTask() {
     for(int i = 0;i < N;i++) {
-        layers[i].updateParameter();
+        layers[i].updateParameterTask();
     }
-    norm.updateParameter();
+    norm.updateParameterTask();
 }
 
 void Decoder::loadParam(cnpy::npz_t npFile, std::string prefix) {
@@ -110,7 +110,14 @@ void Decoder::backwardTest(cnpy::npz_t npFile, std::string prefix) {
 
     forward(input1, input2, output, srcSeq, tgtSeq);
     backward(outputGradient, inputGradient, inputGradient, input2, srcSeq, tgtSeq);
-    updateParameter();
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            updateParameterTask();
+            #pragma taskwait
+        }
+    }
 
     checkUpdatedParam(npFile, prefix);
 }
