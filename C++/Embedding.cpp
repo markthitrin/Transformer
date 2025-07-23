@@ -14,7 +14,8 @@ Embedding::Embedding(const int numTokens) : table(numTokens, dModel), needUpdate
 }
 
 void Embedding::forward(const int input[batch * sequenceLength], TensorView output) {
-    #pragma omp parallel for schedule(static)
+    const int numT = getNumThreads(batch * sequenceLength, 16384, 1, 1);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < batch * sequenceLength;i++) {
         output.sliceRow(i, 1) = table.sliceRow(input[i], 1);
     }

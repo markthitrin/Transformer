@@ -7,7 +7,8 @@
 ReLU::ReLU() {;}
 
 void ReLU::forward(TensorView input, TensorView output) {
-    #pragma omp parallel for schedule(static)
+    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * dFF * 0.00085, 1, 1);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < input.row * input.col;i++) {
         output[i] = input[i] >= 0 ? input[i] : 0;
     }
@@ -19,7 +20,8 @@ void ReLU::predict(TensorView input, TensorView output) {
 }
 
 void ReLU::backward(TensorView outputGradient, TensorView inputGradient, TensorView input) {
-    #pragma omp parallel for schedule(static)
+    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * dFF * 0.00085, 1, 1);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < outputGradient.row * outputGradient.col;i++) {
         outputGradient[i] = input[i] >= 0 ? outputGradient[i] : 0;
     }

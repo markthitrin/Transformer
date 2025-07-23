@@ -51,7 +51,8 @@ void GenerateDropoutMask(TensorView mask, pcg_setseq_64_xsh_rr_32 rng) {
 }
 
 void GenerateDropoutMaskPar(TensorView mask) {
-    #pragma omp parallel num_threads(numPar)
+    const int numT = getNumThreads(mask.row * mask.col, mask.row * mask.col * 0.0078, 10, 1);
+    #pragma omp parallel num_threads(numT)
     {
         int tid = omp_get_thread_num();
         int nthreads = omp_get_num_threads();

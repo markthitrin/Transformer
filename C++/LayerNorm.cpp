@@ -22,7 +22,8 @@ void LayerNorm::forward(TensorView input, TensorView output) {
     const int row =  output.row;
     const int col =  output.col;
 
-    #pragma omp parallel for schedule(static)
+    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * 0.0029, 12300, 2562);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for (int i = 0; i < row; i++) {
         float mean = 0.0f;
         for (int j = 0; j < col; j++) {
@@ -57,7 +58,8 @@ void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
     const float invCol = 1.0f / col;
     float* biasGrad = biasOpt.gradient.data;
     float* alphaGrad = alphaOpt.gradient.data;
-    #pragma omp parallel for reduction(+:biasGrad[:dModel], alphaGrad[:dModel])
+    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * 0.0029, 5646, 2714);
+    #pragma omp parallel for num_threads(numT) reduction(+:biasGrad[:dModel], alphaGrad[:dModel])
     for (int i = 0; i < row; i++) {
         const float invO = 1.0f / (std[i] + eps);
         float sumG = 0;

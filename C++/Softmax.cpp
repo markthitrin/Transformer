@@ -12,6 +12,7 @@ void Softmax::forward(TensorView input, TensorView output) {
     const int row = output.row;
     const int col = output.col;
     
+    const int numT = getNumThreads(batch * sequenceLength, 16834, 1, 1);
     #pragma omp parallel for schedule(static)
     for (int i = 0; i < row; i++) {
         float buffer[sequenceLength];

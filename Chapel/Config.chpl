@@ -17,7 +17,7 @@ config var epoch: int = 2;
 config var batch: int = 8;
 
 config param BLOCK_SIZE = 64;
-config param trainingIteration = 500;
+config param trainingIteration = 50;
 config param testingIteration = 10;
 
 

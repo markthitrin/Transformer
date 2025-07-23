@@ -16,9 +16,6 @@ public:
     int t;
 };
 
-
-int getNumThreads(const int minChunk);
-
 void AdamOpt(TensorView param, AdamOptimizer& opt);
 
 float CrossEntropy(TensorView logits, const int* target_token, const int* tgtSeq, TensorView grad);

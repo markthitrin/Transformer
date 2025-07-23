@@ -12,7 +12,7 @@ class Softmax {
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        for i in 0..#batch {
+        forall i in 0..#batch {
             var maxValue: real(32);
             var sumExp: real(32);
             MaxReduce(i*shape, shape, input, maxValue);
@@ -30,7 +30,7 @@ class Softmax {
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32),
         ref output: [D] real(32)) : void {
 
-        for i in 0..#batch {
+        forall i in 0..#batch {
             var sumGY: real(32);
             ProductPlusReduce(i * shape, i * shape, shape, outputGradient, output, sumGY);
             

@@ -174,7 +174,7 @@ def get_ds(config):
     return train_dataloader, val_dataloader, tokenizer_src, tokenizer_tgt
 
 def get_model(config, vocab_src_len, vocab_tgt_len):
-    model = build_transformer(vocab_src_len, vocab_tgt_len, config["seq"], config['seq'], d_model=config['d_model'])
+    model = build_transformer(vocab_src_len, vocab_tgt_len, config["seq"], config['seq'], d_model=config['d_model'], N=config['N'], h=config["head"], dropout=config["dropout"], d_ff=config["d_ff"])
     return model
 
 def train_model(config):

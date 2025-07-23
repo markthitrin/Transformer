@@ -13,7 +13,7 @@ proc GenerateDropoutMask(in size: int, ref mask: [] int, in dropoutRate : real(3
     //     mask[i] = rng.next(0, 65535);
     // }
     rng.fill(mask, 0, 65535);
-    for i in 0..#size {
+    forall i in 0..#size {
         mask[i] = if mask[i] > thresholdInt then 1 else 0;
     }
 }
@@ -26,7 +26,7 @@ class DropOut {
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         GenerateDropoutMask(domMask.size, mask, dropoutRate);
         var corrector: real(32) = 1.0 / (1.0 - dropoutRate);
-        for i in D {
+        forall i in D {
             output[i] = input[i] * mask[i]:real(32) * corrector;
         }
         CheckPoint();
@@ -40,7 +40,7 @@ class DropOut {
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
         var corrector: real(32) = (1.0 - dropoutRate);
-        for i in D {
+        forall i in D {
             inputGradient[i] = outputGradient[i] * mask[i]:real(32) * corrector;
         }
         CheckPoint();

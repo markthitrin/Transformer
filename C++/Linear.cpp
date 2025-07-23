@@ -12,7 +12,8 @@ Linear::Linear(const int in, const int out) :
 }
 
 void Linear::forward(TensorView input, TensorView output) {
-    #pragma omp parallel for schedule(static)
+    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * weight.col, 1, 2);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < batch * sequenceLength;i++) {
         output.sliceRow(i,1) = bias;
     }
@@ -27,9 +28,10 @@ void Linear::predict(TensorView input, TensorView output) {
 void Linear::backward(TensorView outputGradient, TensorView inputGradient, TensorView input) {
     inputGradient = 0;
     float* biasGrad = biasOpt.gradient.data;
-    #pragma omp parallel for reduction(+:biasGrad[:weight.col])
+    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * weight.col, 1, 2);
+    #pragma omp parallel for num_threads(numT) reduction(+:biasGrad[:weight.col])
     for(int i = 0;i < batch * sequenceLength;i++) {
-        PlusPar(biasOpt.gradient, outputGradient.sliceRow(i,1), biasOpt.gradient);
+        Plus(biasOpt.gradient, outputGradient.sliceRow(i,1), biasOpt.gradient);
     }
     MatMulPlusATBPar(input, outputGradient, weightOpt.gradient);
     MatMulPlusABTPar(outputGradient, weight, inputGradient);

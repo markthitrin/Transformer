@@ -93,11 +93,19 @@ proc Copy(in starta: int, in startb: int, in count: int, ref A: [] real(32), ref
     }
 }
 
+proc CopyPar(in starta: int, in startb: int, in count: int, ref A: [] real(32), ref B: [] real(32)) {
+    
+    forall i in 0..#count {
+        B[startb + i] = A[starta + i];
+    }
+}
+
 proc Set(in starta: int, in count:int, ref A: [] real(32), in x: real(32)) {
     for i in 0..#count {
         A[starta + i] = x;
     }
 }
+
 
 proc Plus(in starta: int, in startb: int, in startc: int, in count: int,
     ref A: [] real(32), ref B: [] real(32), ref C:[] real(32)) : void {
@@ -186,6 +194,89 @@ proc Exp(in starta: int, in startb: int, in count: int,
     for i in 0..#count {
         B[startb + i] = exp(A[starta + i] - maxValue);
     }
+}
+
+proc MatMulPlusABPar(in d1: int, in d2: int, in d3: int,
+    const ref A:[] real(32), const ref B:[] real(32), ref C:[] real(32)) : void {
+    
+    ref Ar = A.reindex(0..#(d1 * d2));
+    ref Br = B.reindex(0..#(d2 * d3));
+    ref Cr = C.reindex(0..#(d1 * d3));
+
+    forall ii in 0..<d1 by BLOCK_SIZE {
+        for jj in 0..<d3 by BLOCK_SIZE {
+            for kk in 0..<d2 by BLOCK_SIZE {
+                
+                var i = 0;
+                while (i < BLOCK_SIZE && ii + i < d1) {
+                    var k = 0;
+                    while(k < BLOCK_SIZE && kk + k < d2) {
+                        var j = 0;
+                        while(j < BLOCK_SIZE && jj + j < d3) {
+                            Cr[(ii + i) * d3 + (jj + j)] += Ar[(ii + i) * d2 + (kk + k)] * Br[(kk + k) * d3 + (jj + j)];
+                            j += 1;
+                        }
+                        k += 1;
+                    }
+                    i += 1;
+                }
+            }
+        }
+    } 
+}
+
+proc MatMulPlusATBPar(in d1: int, in d2: int, in d3: int,
+    ref A:[] real(32), ref B:[] real(32), ref C:[] real(32)) : void {
+
+    ref Ar = A.reindex(0..#(d1 * d2));
+    ref Br = B.reindex(0..#(d2 * d3));
+    ref Cr = C.reindex(0..#(d1 * d3));
+
+    forall ii in 0..<d1 by BLOCK_SIZE {
+        for jj in 0..<d3 by BLOCK_SIZE {
+            for kk in 0..<d2 by BLOCK_SIZE {
+                
+                var i = 0;
+                while ((i < BLOCK_SIZE) & (ii + i < d1)) {
+                    var k = 0;
+                    while((k < BLOCK_SIZE) & (kk + k < d2)) {
+                        var j = 0;
+                        while((j < BLOCK_SIZE) & (jj + j < d3)) {
+                            Cr[(ii + i) * d3 + (jj + j)] += Ar[(kk + k) * d1 + (ii + i)] * Br[(kk + k) * d3 + (jj + j)];
+                            j += 1;
+                        }
+                        k += 1;
+                    }
+                    i += 1;
+                }
+            }
+        }
+    } 
+}
+
+proc MatMulPlusABTPar(in d1: int, in d2: int, in d3: int,
+    ref A:[] real(32), ref B:[] real(32), ref C:[] real(32)) : void {
+
+    ref Ar = A.reindex(0..#(d1 * d2));
+    ref Br = B.reindex(0..#(d2 * d3));
+    ref Cr = C.reindex(0..#(d1 * d3));
+
+    var BT : [0..#(d2 * d3)] real(32);
+    forall ii in 0..<d2 by BLOCK_SIZE {
+        for jj in 0..<d3 by BLOCK_SIZE {
+            
+            var i = 0;
+            while(i < BLOCK_SIZE && ii + i < d2) {
+                var j = 0;
+                while(j < BLOCK_SIZE && jj + j < d3) {
+                    BT[(ii + i) * d3 + jj + j] = Br[(jj + j) * d2 + ii + i];
+                    j+=1;
+                }
+                i +=1;
+            }
+        }
+    }
+    MatMulPlusAB(d1, d2, d3, A, BT, C);
 }
 
 proc MatMulPlusAB(in d1: int, in d2: int, in d3: int,

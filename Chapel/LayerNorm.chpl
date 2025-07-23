@@ -20,7 +20,7 @@ class LayerNorm {
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        for i in 0..#(batch * sequenceLength) {
+        forall i in 0..#(batch * sequenceLength) {
             var mean: real(32);
             PlusReduce(i * dModel, dModel, input, mean);
             mean /= dModel;
@@ -41,7 +41,7 @@ class LayerNorm {
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
         var invD: real(32) = (1.0 / dModel):real(32);
-        for i in 0..#(batch * sequenceLength) {
+        forall i in 0..#(batch * sequenceLength) {
             var invStd: real(32) = (1.0 / std[i]): real(32);
             var sumG: real(32) = 0.0;
             var sumGXHat: real(32) = 0.0;

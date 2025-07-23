@@ -185,7 +185,7 @@ void MultiheadAttention::backward(
                 QTGradient.sliceRow((i * head + j) * dPerHead, dPerHead));
         }
     }
-    #pragma omp parallel for schedule(static) reduction(+:WQGrad[:dModel*dModel], +:WKGrad[:dModel*dModel], +:WVGrad[:dModel*dModel])
+    #pragma omp parallel for schedule(static) reduction(+:WQGrad[:dModel*dModel], WKGrad[:dModel*dModel], WVGrad[:dModel*dModel])
     for (int i = 0; i < batch; i++) {
         MatMulPlusAB(QTGradient.sliceRow(i * dModel, dModel), inputQ.sliceRow(i * sequenceLength, sequenceLength), WQOpt.gradient);
         MatMulPlusAB(KTGradient.sliceRow(i * dModel, dModel), inputK.sliceRow(i * sequenceLength, sequenceLength), WKOpt.gradient);

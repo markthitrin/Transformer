@@ -11,11 +11,6 @@ AdamOptimizer::AdamOptimizer(TensorView tv) :
 AdamOptimizer::AdamOptimizer(const int row, const int col) : 
     gradient(row, col), accM(row, col), accV(row, col), t(1) {;}
 
-
-int getNumThreads(const int N, const int minChunk) {
-    return std::min(numPar, (N + minChunk - 1) / minChunk);
-}
-
 void AdamOpt(TensorView param, AdamOptimizer& opt) {
     const float learningRate = lr;
     const float PowBeta1 = (1.0f - std::pow(beta1,opt.t));
