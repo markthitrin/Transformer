@@ -263,7 +263,7 @@ proc Mul(in starta: int, in startb, in startc: int, in count: int,
     }
 }
 
-proc MulPar(in starta: int, in startb, in startc: int, in count: int,
+proc MulPar(in starta: int, in startb: int, in startc: int, in count: int,
     ref A: [] real(32), in B: [] real(32), ref C:[] real(32)) : void {
     forall i in BalancePar(0, count, (count * 0.00084):real(32), 2, 2) {
         C[startc + i] = A[starta + i] * B[startb + i];
