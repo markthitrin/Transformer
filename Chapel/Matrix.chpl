@@ -309,7 +309,7 @@ iter MatMulPar(in d1: int, in d3: int, param tag: iterKind.standalone) {
         var start = chunkSize * t;
         var end = min(start + chunkSize, numI * numJ);
         for ij in start..<end {
-            yield (ij / numJ, ij % numJ);
+            yield ((ij / numJ) * BLOCK_SIZE, (ij % numJ) * BLOCK_SIZE);
         }
     }
 }
@@ -376,8 +376,8 @@ proc MatMulPlusABTPar(in d1: int, in d2: int, in d3: int,
     ref Cr = C.reindex(0..#(d1 * d3));
 
     var BT : [0..#(d2 * d3)] real(32);
-    forall (ii,jj) in MatMulPar(d1,d2) {
-            
+    forall (ii,jj) in MatMulPar(d3,d2) {
+
             var i = 0;
             while(i < BLOCK_SIZE && ii + i < d2) {
                 var j = 0;
@@ -388,7 +388,7 @@ proc MatMulPlusABTPar(in d1: int, in d2: int, in d3: int,
                 i +=1;
             }
     }
-    MatMulPlusAB(d1, d2, d3, A, BT, C);
+    MatMulPlusABPar(d1, d2, d3, A, BT, C);
 }
 
 proc MatMulPlusAB(in d1: int, in d2: int, in d3: int,

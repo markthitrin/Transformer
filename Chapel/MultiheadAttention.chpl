@@ -63,7 +63,7 @@ class MultiheadAttention {
                 MatMulPlusATBPar(sequenceLength, dPerHead, sequenceLength, QT[(j * blockPerHead)..#blockPerHead], KT[(j * blockPerHead)..#blockPerHead], A[(j * blockAtt)..#blockAtt]);
             }
         }
-        DivPar(0, 0, domAtt.size, A, sqrt(dPerHead):real(32), A);
+        DivPar(0, 0, batch * head * sequenceLength * sequenceLength, A, sqrt(dPerHead):real(32), A);
         forall i in 0..#(batch * head) {
             select maskType {
                 when MaskType.LOOK_AHEAD do ApplyLookAheadMask(i * blockAtt, A, seq[i / head], -1e9);

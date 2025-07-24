@@ -57,10 +57,12 @@ class EncoderLayer {
     }
 
     proc updateParameterTask() {
-        norm1.updateParameterTask();
-        mulAtt.updateParameterTask();
-        norm2.updateParameterTask();
-        pff.updateParameterTask();
+        cobegin {
+            norm1.updateParameterTask();
+            mulAtt.updateParameterTask();
+            norm2.updateParameterTask();
+            pff.updateParameterTask();
+        }
     }
 
     proc loadParam() {
@@ -88,12 +90,10 @@ class EncoderLayer {
     }
 
     proc checkUpdateParam() {
-        cobegin {
-            norm1.checkUpdateParam();
-            mulAtt.checkUpdateParam();
-            norm2.checkUpdateParam();
-            pff.checkUpdateParam();
-        }
+        norm1.checkUpdateParam();
+        mulAtt.checkUpdateParam();
+        norm2.checkUpdateParam();
+        pff.checkUpdateParam();
     }
 
     proc backwardTest() {

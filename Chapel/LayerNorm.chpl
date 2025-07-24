@@ -41,17 +41,20 @@ class LayerNorm {
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
         var invD: real(32) = (1.0 / dModel):real(32);
-        forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * dModel * 0.0029):real(32), 5646, 2714) {
+        ref alphaGrad = alphaOpt.gradient;
+        ref biasGrad = biasOpt.gradient;
+        forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * dModel * 0.0029):real(32), 5646, 2714)
+            with (+ reduce alphaGrad, + reduce biasGrad) {
             var invStd: real(32) = (1.0 / std[i]): real(32);
             var sumG: real(32) = 0.0;
             var sumGXHat: real(32) = 0.0;
             for j in 0..#dModel {
                 var gxH = outputGradient[i * dModel + j] * xHat[i * dModel + j];
-                alphaOpt.gradient[j] += gxH;
+                alphaGrad[j] += gxH;
                 sumGXHat += gxH;
             }
             for j in 0..#dModel {
-                biasOpt.gradient[j] += outputGradient[i * dModel + j];
+                biasGrad[j] += outputGradient[i * dModel + j];
                 sumG += outputGradient[i * dModel + j];
             }
             var a: real(32) = sumG * invD;

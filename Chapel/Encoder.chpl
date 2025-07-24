@@ -43,12 +43,10 @@ class Encoder {
     }
 
     proc updateParameterTask() {
-        cobegin {
-            coforall i in 0..#N {
-                layers[i]!.updateParameterTask();
-            }
-            norm.updateParameterTask();
+        for i in 0..#N {
+            layers[i]!.updateParameterTask();
         }
+        norm.updateParameterTask();
     }
 
     proc loadParam() {

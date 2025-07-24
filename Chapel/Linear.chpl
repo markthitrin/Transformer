@@ -39,11 +39,14 @@ class Linear {
         var inD = weight.domain.size / bias.domain.size;
         var batch = Do.size / outD;
         inputGradient = 0;
-        forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * outD):real(32), 1, 2) {
-            Plus(0, i * outD, 0, outD, biasOpt.gradient, outputGradient, biasOpt.gradient);
+        var temp: [0..#outD] real(32);
+        forall i in BalancePar(0, batch, (batch * outD):real(32), 1, 2)
+            with (+ reduce temp) {
+            Plus(0, i * outD, 0, outD, temp, outputGradient, temp);
         }
+        Plus(0, 0, 0, outD, biasOpt.gradient, temp, biasOpt.gradient);
         MatMulPlusATBPar(inD, batch, outD, input, outputGradient, weightOpt.gradient);
-        MatMulPlusABTPar(batch, outD, inD, outputGradient, weight, inputGradient);
+        MatMulPlusABT(batch, outD, inD, outputGradient, weight, inputGradient);
         CheckPoint();
     }
 
