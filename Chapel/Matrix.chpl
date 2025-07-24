@@ -3,6 +3,7 @@ use IO;
 use Math;
 use Random;
 use Time;
+use Util;
 
 var file = open(paramFileName, ioMode.r);
 var fileReader = file.reader();
@@ -95,13 +96,19 @@ proc Copy(in starta: int, in startb: int, in count: int, ref A: [] real(32), ref
 
 proc CopyPar(in starta: int, in startb: int, in count: int, ref A: [] real(32), ref B: [] real(32)) {
     
-    forall i in 0..#count {
+    forall i in BalancePar(0, count, count / 8096, 1, 2) {
         B[startb + i] = A[starta + i];
     }
 }
 
 proc Set(in starta: int, in count:int, ref A: [] real(32), in x: real(32)) {
     for i in 0..#count {
+        A[starta + i] = x;
+    }
+}
+
+proc SetPar(in starta: int, in count:int, ref A: [] real(32), in x: real(32)) {
+    forall i in BalancePar(0, count, count / 8096, 1, 1) {
         A[starta + i] = x;
     }
 }
@@ -114,6 +121,13 @@ proc Plus(in starta: int, in startb: int, in startc: int, in count: int,
     }
 }
 
+proc PlusPar(in starta: int, in startb: int, in startc: int, in count: int,
+    ref A: [] real(32), ref B: [] real(32), ref C:[] real(32)) : void {
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 2, 3) {
+        C[startc + i] = A[starta + i] + B[startb + i];
+    }
+}
+
 proc PlusProductInplace(in starta: int, in startb: int, in startc: int, in count: int,
     ref A: [] real(32), ref B: [] real(32), ref C: [] real(32)) : void {
     for i in 0..#count {
@@ -121,9 +135,23 @@ proc PlusProductInplace(in starta: int, in startb: int, in startc: int, in count
     }
 }
 
+proc PlusProductInplacePar(in starta: int, in startb: int, in startc: int, in count: int,
+    ref A: [] real(32), ref B: [] real(32), ref C: [] real(32)) : void {
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 2, 3) {
+        A[starta + i] += B[startb + i] * C[startc + i];
+    }
+}
+
 proc PlusProductInplace(in starta: int, in startb: int, in count: int,
     ref A: [] real(32), ref B: [] real(32), in C: real(32)) : void {
     for i in 0..#count {
+        A[starta + i] += B[startb + i] * C;
+    }
+}
+
+proc PlusProductInplacePar(in starta: int, in startb: int, in count: int,
+    ref A: [] real(32), ref B: [] real(32), in C: real(32)) : void {
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 2, 2) {
         A[starta + i] += B[startb + i] * C;
     }
 }
@@ -136,10 +164,26 @@ proc PlusReduce(in starta: int, in count: int,
     }
 }
 
+proc PlusReducePar(in starta: int, in count: int,
+    ref A: [] real(32), out output: real(32)) : void {
+    output = 0.0;
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 1, 1) {
+        output += A[starta + i];
+    }
+}
+
 proc MaxReduce(in starta: int, in count: int,
     ref A: [] real(32), out output: real(32)) : void {
     output = -inf;
     for i in 0..#count {
+        output = max(A[starta + i], output);
+    }
+}
+
+proc MaxReducePar(in starta: int, in count: int,
+    ref A: [] real(32), out output: real(32)) : void {
+    output = -inf;
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 2, 1) {
         output = max(A[starta + i], output);
     }
 }
@@ -152,10 +196,26 @@ proc ProductPlusReduce(in starta: int, in startb: int, in count: int,
     }
 }
 
+proc ProductPlusReducePar(in starta: int, in startb: int, in count: int,
+    ref A: [] real(32), ref B: [] real(32), out output: real(32)) : void {
+    output = 0.0;
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 2, 1) {
+        output += A[starta + i] * B[startb + i];
+    }
+}
+
 proc ExpPlusReduce(in starta: int, in count: int,
     ref A: [] real(32), in maxValue, out output: real(32)) : void {
     output = 0.0;
     for i in 0..#count {
+        output += exp(A[starta + i] - maxValue);
+    }
+}
+
+proc ExpPlusReducePar(in starta: int, in count: int,
+    ref A: [] real(32), in maxValue, out output: real(32)) : void {
+    output = 0.0;
+    forall i in BalancePar(0, count, count * 0.0084, 10, 1) {
         output += exp(A[starta + i] - maxValue);
     }
 }
@@ -171,6 +231,17 @@ proc StdReduce(in starta: int, in count: int,
     output = sqrt(output);
 }
 
+proc StdReducePar(in starta: int, in count: int,
+    ref A: [] real(32), in mean: real(32), out output: real(32)) : void {
+    output = 0.0;
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 3, 1) {
+        var x: real(32) = A[starta + i] - mean;
+        output += x * x;
+    }
+    output /= count - 1;
+    output = sqrt(output);
+}
+
 proc Mul(in starta: int, in startb, in count: int,
     ref A: [] real(32), in x: real(32), ref B:[] real(32)) : void {
     for i in 0..#count {
@@ -178,10 +249,24 @@ proc Mul(in starta: int, in startb, in count: int,
     }
 }
 
-proc Mul(in starta: int, in startb: int, in count: int,
+proc MulPar(in starta: int, in startb, in count: int,
     ref A: [] real(32), in x: real(32), ref B:[] real(32)) : void {
-    for i in 0..#count {
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 2, 2) {
         B[startb + i] = A[starta + i] * x;
+    }
+}
+
+proc Mul(in starta: int, in startb, in startc: int, in count: int,
+    ref A: [] real(32), in B: [] real(32), ref C:[] real(32)) : void {
+    for i in 0..#count {
+        C[startc + i] = A[starta + i] * B[startb + i];
+    }
+}
+
+proc MulPar(in starta: int, in startb, in startc: int, in count: int,
+    ref A: [] real(32), in B: [] real(32), ref C:[] real(32)) : void {
+    forall i in BalancePar(0, count, (count * 0.00084):real(32), 2, 2) {
+        C[startc + i] = A[starta + i] * B[startb + i];
     }
 }
 
@@ -189,10 +274,43 @@ proc Div(in starta: int, in startb: int, in count:int, ref A: [?D] real(32), in 
     Mul(starta, startb, count, A, 1.0 / x, B);
 }
 
+proc DivPar(in starta: int, in startb: int, in count:int, ref A: [?D] real(32), in x: real(32), ref B:[D] real(32)) : void {
+    MulPar(starta, startb, count, A, 1.0 / x, B);
+}
+
 proc Exp(in starta: int, in startb: int, in count: int,
     ref A: [] real(32), in maxValue: real(32), ref B:[] real(32)) : void {
     for i in 0..#count {
         B[startb + i] = exp(A[starta + i] - maxValue);
+    }
+}
+
+proc ExpPar(in starta: int, in startb: int, in count: int,
+    ref A: [] real(32), in maxValue: real(32), ref B:[] real(32)) : void {
+    forall i in BalancePar(0, count, count * 0.0084, 10, 1) {
+        B[startb + i] = exp(A[starta + i] - maxValue);
+    }
+}
+
+iter MatMulPar(in d1: int, in d3: int) {
+    for ii in 0..<d1 by BLOCK_SIZE {
+        for jj in 0..<d3 by BLOCK_SIZE {
+            yield (ii, jj);
+        }
+    }
+}
+
+iter MatMulPar(in d1: int, in d3: int, param tag: iterKind.standalone) {
+    var numI = (d1 + BLOCK_SIZE - 1) / BLOCK_SIZE;
+    var numJ = (d3 + BLOCK_SIZE - 1) / BLOCK_SIZE;
+    var maxPar = min(numI * numJ, numPar);
+    var chunkSize = (numI * numJ + numPar - 1) / maxPar;
+    coforall t in 0..#maxPar {
+        var start = chunkSize * t;
+        var end = min(start + chunkSize, numI * numJ);
+        for ij in start..<end {
+            yield (ij / numJ, ij % numJ);
+        }
     }
 }
 
@@ -203,8 +321,7 @@ proc MatMulPlusABPar(in d1: int, in d2: int, in d3: int,
     ref Br = B.reindex(0..#(d2 * d3));
     ref Cr = C.reindex(0..#(d1 * d3));
 
-    forall ii in 0..<d1 by BLOCK_SIZE {
-        for jj in 0..<d3 by BLOCK_SIZE {
+    forall (ii,jj) in MatMulPar(d1,d3) {
             for kk in 0..<d2 by BLOCK_SIZE {
                 
                 var i = 0;
@@ -221,8 +338,7 @@ proc MatMulPlusABPar(in d1: int, in d2: int, in d3: int,
                     i += 1;
                 }
             }
-        }
-    } 
+    }
 }
 
 proc MatMulPlusATBPar(in d1: int, in d2: int, in d3: int,
@@ -232,8 +348,7 @@ proc MatMulPlusATBPar(in d1: int, in d2: int, in d3: int,
     ref Br = B.reindex(0..#(d2 * d3));
     ref Cr = C.reindex(0..#(d1 * d3));
 
-    forall ii in 0..<d1 by BLOCK_SIZE {
-        for jj in 0..<d3 by BLOCK_SIZE {
+    forall (ii,jj) in MatMulPar(d1,d3) {
             for kk in 0..<d2 by BLOCK_SIZE {
                 
                 var i = 0;
@@ -250,7 +365,6 @@ proc MatMulPlusATBPar(in d1: int, in d2: int, in d3: int,
                     i += 1;
                 }
             }
-        }
     } 
 }
 
@@ -262,8 +376,7 @@ proc MatMulPlusABTPar(in d1: int, in d2: int, in d3: int,
     ref Cr = C.reindex(0..#(d1 * d3));
 
     var BT : [0..#(d2 * d3)] real(32);
-    forall ii in 0..<d2 by BLOCK_SIZE {
-        for jj in 0..<d3 by BLOCK_SIZE {
+    forall (ii,jj) in MatMulPar(d1,d2) {
             
             var i = 0;
             while(i < BLOCK_SIZE && ii + i < d2) {
@@ -274,7 +387,6 @@ proc MatMulPlusABTPar(in d1: int, in d2: int, in d3: int,
                 }
                 i +=1;
             }
-        }
     }
     MatMulPlusAB(d1, d2, d3, A, BT, C);
 }

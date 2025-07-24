@@ -51,7 +51,7 @@ float ComputCrossEntropy(TensorView logits, int target_token, TensorView grad) {
 
 float _CrossEntropy(TensorView logits, const int* targetToken, int tgtSeq, TensorView grad) {
     float loss = 0.0f;
-    #pragma omp parallel for num_threads(16) schedule(static) reduction(+:loss)
+    #pragma omp parallel for num_threads(9) schedule(static) reduction(+:loss)
     for(int i = 0;i < tgtSeq;i++) {
         loss += ComputCrossEntropy(logits.sliceRow(i, 1), targetToken[i], grad.sliceRow(i, 1));
     }

@@ -6,19 +6,19 @@ config var eps: real(32) = 1e-9;
 
 config var dModel: int = 32; // 512
 config var head: int = 8; // 8
-config var sequenceLength: int = 128;
+config var sequenceLength: int = 35;
 config var dFF: int = 256; // 256
 config var dropoutRate: real(32) = 0.1;
 config var N: int = 6;
-config var srcVocab: int = 15700; // 15700
-config var tgtVocab: int = 22470; // 22470
+config var srcVocab: int = 6; // 15700
+config var tgtVocab: int = 6; // 22470
 
 config var epoch: int = 2;
 config var batch: int = 8;
 
 config param BLOCK_SIZE = 64;
-config param trainingIteration = 50;
+config param trainingIteration = 25;
 config param testingIteration = 10;
 
 
-config param paramFileName = "../C++/Param/Transformer.param";
+config param paramFileName = "../C++/Param/MultiheadAttention.param";

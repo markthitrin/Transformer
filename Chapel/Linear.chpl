@@ -20,10 +20,10 @@ class Linear {
         var outD = bias.domain.size;
         var inD = weight.domain.size / bias.domain.size;
         var batch = Do.size / outD;
-        for i in 0..#batch {
+        forall i in BalancePar(0,batch, (batch * outD * 0.0005):real(32), 1, 2) {
             Copy(0, i * outD, outD, bias, output);
         }
-        MatMulPlusAB(batch, inD, outD, input, weight, output);
+        MatMulPlusABPar(batch, inD, outD, input, weight, output);
         CheckPoint();
     }
 
@@ -39,17 +39,19 @@ class Linear {
         var inD = weight.domain.size / bias.domain.size;
         var batch = Do.size / outD;
         inputGradient = 0;
-        for i in 0..#batch {
+        forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * outD):real(32), 1, 2) {
             Plus(0, i * outD, 0, outD, biasOpt.gradient, outputGradient, biasOpt.gradient);
         }
-        MatMulPlusATB(inD, batch, outD, input, outputGradient, weightOpt.gradient);
-        MatMulPlusABT(batch, outD, inD, outputGradient, weight, inputGradient);
+        MatMulPlusATBPar(inD, batch, outD, input, outputGradient, weightOpt.gradient);
+        MatMulPlusABTPar(batch, outD, inD, outputGradient, weight, inputGradient);
         CheckPoint();
     }
 
-    proc updateParameter() {
-        AdamOpt(weight, weightOpt);
-        AdamOpt(bias, biasOpt);
+    proc updateParameterTask() {
+        cobegin {
+            AdamOpt(weight, weightOpt);
+            AdamOpt(bias, biasOpt);
+        }
     }
 
     proc checkUpdateParam() {

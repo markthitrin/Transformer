@@ -56,11 +56,11 @@ class EncoderLayer {
         Plus(0, 0, 0, batch * sequenceLength * dModel, gradient3, inputGradient, inputGradient);
     }
 
-    proc updateParameter() {
-        norm1.updateParameter();
-        mulAtt.updateParameter();
-        norm2.updateParameter();
-        pff.updateParameter();
+    proc updateParameterTask() {
+        norm1.updateParameterTask();
+        mulAtt.updateParameterTask();
+        norm2.updateParameterTask();
+        pff.updateParameterTask();
     }
 
     proc loadParam() {
@@ -88,10 +88,12 @@ class EncoderLayer {
     }
 
     proc checkUpdateParam() {
-        norm1.checkUpdateParam();
-        mulAtt.checkUpdateParam();
-        norm2.checkUpdateParam();
-        pff.checkUpdateParam();
+        cobegin {
+            norm1.checkUpdateParam();
+            mulAtt.checkUpdateParam();
+            norm2.checkUpdateParam();
+            pff.checkUpdateParam();
+        }
     }
 
     proc backwardTest() {
@@ -111,7 +113,7 @@ class EncoderLayer {
 
         forward(input, output, seq);
         backward(outputGradient, inputGradient, seq);
-        updateParameter();
+        updateParameterTask();
 
         checkUpdateParam();
     }

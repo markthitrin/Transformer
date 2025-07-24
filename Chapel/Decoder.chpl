@@ -50,11 +50,13 @@ class Decoder {
         layers[0]!.backward(gradienti[0], encoderGradient, inputGradient, encoderOut, srcSeq, tgtSeq);
     }
 
-    proc updateParameter() {
-        for i in 0..#N {
-            layers[i]!.updateParameter();
+    proc updateParameterTask() {
+        cobegin {
+            coforall i in 0..#N {
+                layers[i]!.updateParameterTask();
+            }
+            norm.updateParameterTask();
         }
-        norm.updateParameter();
     }
 
     proc loadParam() {
@@ -114,7 +116,7 @@ class Decoder {
 
         forward(input1, input2, output, srcSeq, tgtSeq);
         backward(outputGradient, inputGradient, inputGradient, input2, srcSeq, tgtSeq);
-        updateParameter();
+        updateParameterTask();
 
         checkUpdateParam();
     }

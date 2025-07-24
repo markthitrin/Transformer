@@ -83,13 +83,15 @@ class DecoderLayer {
         Plus(0, 0, 0, batch * sequenceLength * dModel, gradient3, inputGradient, inputGradient);
     }
 
-    proc updateParameter() {
-        norm1.updateParameter();
-        mulAtt1.updateParameter();
-        norm2.updateParameter();
-        mulAtt2.updateParameter();
-        norm3.updateParameter();
-        pff.updateParameter();
+    proc updateParameterTask() {
+        cobegin {
+            norm1.updateParameterTask();
+            mulAtt1.updateParameterTask();
+            norm2.updateParameterTask();
+            mulAtt2.updateParameterTask();
+            norm3.updateParameterTask();
+            pff.updateParameterTask();
+        }
     }
 
     proc loadParam() {
@@ -152,7 +154,7 @@ class DecoderLayer {
 
         forward(input1, input2, output, srcSeq, tgtSeq);
         backward(outputGradient, inputGradient, inputGradient, input2, srcSeq, tgtSeq);
-        updateParameter();
+        updateParameterTask();
 
         checkUpdateParam();
     }

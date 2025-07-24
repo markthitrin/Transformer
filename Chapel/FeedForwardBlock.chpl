@@ -40,9 +40,11 @@ class FeedForwardBlock {
         linear1.backward(gradient1, inputGradient, input);
     }
 
-    proc updateParameter() {
-        linear1.updateParameter();
-        linear2.updateParameter();
+    proc updateParameterTask() {
+        cobegin {
+            linear1.updateParameterTask();
+            linear2.updateParameterTask();
+        }
     }
 
     proc loadParam() {
@@ -95,7 +97,7 @@ class FeedForwardBlock {
 
         forward(input, output);
         backward(outputGradient, inputGradient, input);
-        updateParameter();
+        updateParameterTask();
 
         checkUpdateParam();
     }

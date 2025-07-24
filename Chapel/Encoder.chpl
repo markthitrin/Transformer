@@ -42,11 +42,13 @@ class Encoder {
         layers[0]!.backward(gradienti[0], inputGradient, srcSeq);
     }
 
-    proc updateParameter() {
-        for i in 0..#N {
-            layers[i]!.updateParameter();
+    proc updateParameterTask() {
+        cobegin {
+            coforall i in 0..#N {
+                layers[i]!.updateParameterTask();
+            }
+            norm.updateParameterTask();
         }
-        norm.updateParameter();
     }
 
     proc loadParam() {
@@ -97,7 +99,7 @@ class Encoder {
 
         forward(input, output, seq);
         backward(outputGradient, inputGradient, seq);
-        updateParameter();
+        updateParameterTask();
 
         checkUpdateParam();
     }

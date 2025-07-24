@@ -24,8 +24,8 @@ class PositionalEncoder {
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         var block = sequenceLength * dModel;
-        for i in 0..#batch {
-            Plus(i * block, 0, i * block, block, input, mask, input);
+        forall i in 0..#batch {
+            PlusPar(i * block, 0, i * block, block, input, mask, input);
         }
         CheckPoint();
         dropout.forward(input, output);
@@ -33,8 +33,8 @@ class PositionalEncoder {
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
         var block = sequenceLength * dModel;
-        for i in 0..#batch {
-            Plus(i * block, 0, i * block, block, input, mask, input);
+        forall i in 0..#batch {
+            PlusPar(i * block, 0, i * block, block, input, mask, input);
         }
         dropout.predict(input, output);
     }

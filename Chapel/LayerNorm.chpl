@@ -20,7 +20,7 @@ class LayerNorm {
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        forall i in 0..#(batch * sequenceLength) {
+        forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * dModel * 0.0029):real(32), 12300, 2562) {
             var mean: real(32);
             PlusReduce(i * dModel, dModel, input, mean);
             mean /= dModel;
@@ -41,7 +41,7 @@ class LayerNorm {
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
         var invD: real(32) = (1.0 / dModel):real(32);
-        forall i in 0..#(batch * sequenceLength) {
+        forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * dModel * 0.0029):real(32), 5646, 2714) {
             var invStd: real(32) = (1.0 / std[i]): real(32);
             var sumG: real(32) = 0.0;
             var sumGXHat: real(32) = 0.0;
@@ -64,9 +64,11 @@ class LayerNorm {
         CheckPoint();
     }
 
-    proc updateParameter() {
-        AdamOpt(alpha, alphaOpt);
-        AdamOpt(bias, biasOpt);
+    proc updateParameterTask() {
+        cobegin {
+            AdamOpt(alpha, alphaOpt);
+            AdamOpt(bias, biasOpt);
+        }
     }
 
     proc loadParam() {
@@ -111,7 +113,7 @@ class LayerNorm {
 
         forward(input, output);
         backward(outputGradient, inputGradient);
-        updateParameter();
+        updateParameterTask();
 
         checkUpdateParam();
     }

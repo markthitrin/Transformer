@@ -65,7 +65,7 @@ void MultiheadAttention::process(
         MatMulPlusABTPar(WK, inputK.sliceRow(i * sequenceLength, sequenceLength), KT.sliceRow(i * dModel, dModel));
         MatMulPlusABTPar(WV, inputV.sliceRow(i * sequenceLength, sequenceLength), VT.sliceRow(i * dModel, dModel));
     }
-    #pragma omp parallel for num_threads(4) schedule(static)
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch;i++) {
         for(int j = 0;j < head;j++) {
             MatMulPlusATBPar(
@@ -92,7 +92,7 @@ void MultiheadAttention::process(
         softmax.predict(A, As);
         dropout.predict(As, Ad);
     }
-    #pragma omp parallel for num_threads(4) schedule(static)
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch;i++) {
         for(int j = 0;j < head;j++) {
             MatMulPlusABTPar(
@@ -143,8 +143,6 @@ void MultiheadAttention::backward(
     SetPar(OTGradient, 0);
     SetPar(inputGradientQ, 0);
     if(maskType != CROSS_PADDING) { // for decoder getting encoder layer
-        inputGradientK = 0;
-        inputGradientV = 0;
         SetPar(inputGradientK, 0);
         SetPar(inputGradientV, 0);
     }
@@ -153,7 +151,7 @@ void MultiheadAttention::backward(
         MatMulPlusABPar(OT.sliceRow(i * dModel, dModel),outputGradient.sliceRow(i * sequenceLength, sequenceLength), WOOpt.gradient);
         MatMulPlusABTPar(WO, outputGradient.sliceRow(i * sequenceLength, sequenceLength), OTGradient.sliceRow(i * dModel, dModel));
     }
-    #pragma omp parallel for num_threads(4) schedule(static)
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch;i++) {
         for(int j = 0;j < head;j++) {
             MatMulPlusATBPar(
@@ -178,7 +176,7 @@ void MultiheadAttention::backward(
         }
     }
     DivPar(AGradient, std::sqrt(float(dPerHead)), AGradient);
-    #pragma omp parallel for num_threads(4) schedule(static)
+    #pragma omp parallel for schedule(static)
     for(int i = 0;i < batch;i++) {
         for(int j = 0;j < head;j++) {
             MatMulPlusABPar(

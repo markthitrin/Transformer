@@ -18,10 +18,10 @@ class Embedding {
     }
 
     proc forward(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
-        forall i in 0..#(batch * sequenceLength) {
+        forall i in BalancePar(0, batch * sequenceLength, 16384, 1, 2) {
             Copy(input[i] * dModel, i * dModel, dModel, table, output);
         }
-        Mul(0, 0, batch * sequenceLength * dModel, output, sqrt(dModel):real(32), output);
+        MulPar(0, 0, batch * sequenceLength * dModel, output, sqrt(dModel):real(32), output);
         CheckPoint();
     }
 
@@ -30,8 +30,8 @@ class Embedding {
     }
 
     proc backward(ref outputGradient: [?Do] real(32), ref input: [?Di] int) : void {
-        Mul(0, 0, batch * sequenceLength * dModel, outputGradient, sqrt(dModel):real(32), outputGradient);
-        forall i in 0..#(batch * sequenceLength) {
+        MulPar(0, 0, batch * sequenceLength * dModel, outputGradient, sqrt(dModel):real(32), outputGradient);
+        for i in 0..#(batch * sequenceLength) {
             needUpdate[input[i]] = true;
             Plus(0, i*dModel, 0, dModel,
                 tableOpt[input[i]].gradient,
@@ -41,9 +41,9 @@ class Embedding {
         CheckPoint();
     }
 
-    proc updateParameter() {
+    proc updateParameterTask() {
         for i in domTableOpt {
-            if needUpdate[i] {
+            if needUpdate[i] { // consider put parallel< how?
                 AdamOpt(table[(i * dModel)..#dModel], tableOpt[i]);
                 needUpdate[i] = false;
             }
@@ -87,7 +87,7 @@ class Embedding {
 
         forward(input, output);
         backward(outputGradient, input);
-        updateParameter();
+        updateParameterTask();
 
         checkUpdateParam();
     }

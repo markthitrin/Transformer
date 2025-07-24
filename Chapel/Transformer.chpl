@@ -66,12 +66,14 @@ class Transformer {
     }
 
     proc updateParameter() {
-        srcEmbed.updateParameter();
-        encoder.updateParameter();
+        cobegin{
+            srcEmbed.updateParameterTask();
+            encoder.updateParameterTask();
 
-        tgtEmbed.updateParameter();
-        decoder.updateParameter();
-        linear.updateParameter();
+            tgtEmbed.updateParameterTask();
+            decoder.updateParameterTask();
+            linear.updateParameterTask();
+        }
         
     }
 

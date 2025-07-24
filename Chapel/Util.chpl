@@ -2,6 +2,53 @@ use Config;
 use Math;
 use Timer;
 
+var numPar = here.maxTaskPar;
+
+proc getNumThreads(in count :int, in tus :real(32), in flop :real(32), in mem : real(32)): int {
+    const maxPar = min(numPar, count);
+    const fmratio = 4.8; // on 64 thread
+    const maxNumThreadMemCap = flop / mem / fmratio * 64;
+    return max(min(min(maxPar, tus / 0.75), maxNumThreadMemCap), 1.0:real(32)):int;
+}
+
+iter BalancePar(in start: int, in count: int,
+    in tus :real(32), in flop :real(32), in mem :real(32)) {
+    for i in start..#count {
+        yield i;
+    }
+}
+
+iter BalancePar(in start: int, in count :int,
+    in tus :real(32), in flop :real(32), in mem :real(32), param tag: iterKind.standalone) {
+    const numT = getNumThreads(count, tus, flop, mem);
+    const chunkSize = (count + numT - 1) / numT;
+    coforall t in 0..#numT {
+        const s = start + chunkSize * t;
+        const e = min(start + chunkSize * (t + 1),start + count);
+        for i in s..<e {
+            yield i;
+        }
+    }
+}
+
+iter Par(in start: int, in count: int, in numPar: int) {
+    for i in start..#count {
+        yield i;
+    }
+}
+
+iter Par(in start: int, in count: int, in numPar: int, param tag: iterKind.standalone) {
+    const numT = numPar;
+    const block = (count + numT - 1) / numT;
+    coforall t in 0..#numT {
+        const s = start + block * t;
+        const e = min(start + block * (t + 1),start + count);
+        for i in s..<e {
+            yield i;
+        }
+    }
+}
+
 record AdamOptimizer {
     proc init(ref parameter: [?D] real(32)) {
         dom = D;
@@ -61,7 +108,7 @@ proc ComputeCrossEntropy(in start: int, in count: int, ref logits: [] real(32), 
 
 proc _CrossEntropy(in start: int, in startToken: int, ref logits: [] real(32), ref targetToken: [] int, in tgtSeq: int, ref grad: [] real(32)) {
     var loss = 0.0;
-    for i in 0..#tgtSeq {
+    forall i in 0..#tgtSeq with (+ reduce loss) {
         loss += ComputeCrossEntropy(
             start + i * tgtVocab,
             tgtVocab,
@@ -74,7 +121,7 @@ proc _CrossEntropy(in start: int, in startToken: int, ref logits: [] real(32), r
 
 proc CrossEntropy(ref logits: [] real(32), ref targetToken: [] int, ref tgtSeq: [] int, ref grad: [] real(32)) {
     var loss = 0.0;
-    for i in 0..#batch {
+    forall i in 0..#batch with (+ reduce loss) {
         loss += _CrossEntropy(
             sequenceLength * tgtVocab * i,
             i * sequenceLength,
