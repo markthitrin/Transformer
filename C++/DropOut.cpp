@@ -72,12 +72,12 @@ DropOut::DropOut(const int row, const int col) : mask(row, col) {
 }
 
 void DropOut::forward(TensorView input, TensorView output) {
-    GenerateDropoutMaskPar(mask);
-    MulPar(input, mask, output);
-    DivPar(output, (1.0f - dropoutRate), output);
-    Timer::CheckPoint();
+    // GenerateDropoutMaskPar(mask);
+    // MulPar(input, mask, output);
+    // DivPar(output, (1.0f - dropoutRate), output);
+    // Timer::CheckPoint();
 
-    // DivPar(input, (1.0 - dropoutRate), output);
+    DivPar(input, (1.0 - dropoutRate), output);
 }
 
 void DropOut::predict(TensorView input, TensorView output) {
@@ -85,9 +85,9 @@ void DropOut::predict(TensorView input, TensorView output) {
 }
 
 void DropOut::backward(TensorView outputGradient, TensorView inputGradient) {
-    MulPar(outputGradient, mask, inputGradient);
-    DivPar(inputGradient, (1.0f - dropoutRate), inputGradient);
-    Timer::CheckPoint();
+    // MulPar(outputGradient, mask, inputGradient);
+    // DivPar(inputGradient, (1.0f - dropoutRate), inputGradient);
+    // Timer::CheckPoint();
 
-    // DivPar(outputGradient, (1.0 - dropoutRate), inputGradient);
+    DivPar(outputGradient, (1.0 - dropoutRate), inputGradient);
 }

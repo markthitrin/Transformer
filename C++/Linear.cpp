@@ -32,9 +32,11 @@ void Linear::backward(TensorView outputGradient, TensorView inputGradient, Tenso
     float* biasGrad = biasOpt.gradient.data;
     const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * weight.col, 1, 2);
     if(verbose) std::cout << "LayerNorm : " << outputGradient.row << ", " << outputGradient.col << " " << numT << std::endl;
-    #pragma omp parallel for num_threads(numT) reduction(+:biasGrad[:weight.col])
+    #pragma omp parallel for num_threads(numT) reduction(+:biasGrad[:outD])
     for(int i = 0;i < batch * sequenceLength;i++) {
-        Plus(TensorView(biasGrad, 1, outD), outputGradient.sliceRow(i,1), TensorView(biasGrad, 1, outD));
+        for(int j = 0;j < outD;j++) {
+            biasGrad[j] += outputGradient[i * outD + j];
+        }
     }
     MatMulPlusATBPar(input, outputGradient, weightOpt.gradient);
     MatMulPlusABTPar(outputGradient, weight, inputGradient);
