@@ -24,14 +24,14 @@ class DropOut {
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        GenerateDropoutMask(domMask.size, mask, dropoutRate);
-        var corrector: real(32) = 1.0 / (1.0 - dropoutRate);
-        for i in D {
-            output[i] = input[i] * mask[i]:real(32) * corrector;
-        }
-        CheckPoint();
+        // GenerateDropoutMask(domMask.size, mask, dropoutRate);
+        // var corrector: real(32) = 1.0 / (1.0 - dropoutRate);
+        // for i in D {
+        //     output[i] = input[i] * mask[i]:real(32) * corrector;
+        // }
+        // CheckPoint();
 
-        // Div(0, 0, domMask.size, input, 1.0 - dropoutRate, output);
+        Div(0, 0, domMask.size, input, 1.0 - dropoutRate, output);
     }
 
     proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
@@ -39,13 +39,13 @@ class DropOut {
     }
 
     proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
-        var corrector: real(32) = (1.0 - dropoutRate);
-        for i in D {
-            inputGradient[i] = outputGradient[i] * mask[i]:real(32) * corrector;
-        }
-        CheckPoint();
+        // var corrector: real(32) = (1.0 - dropoutRate);
+        // for i in D {
+        //     inputGradient[i] = outputGradient[i] * mask[i]:real(32) * corrector;
+        // }
+        // CheckPoint();
 
-        // Div(0, 0, domMask.size, outputGradient, 1.0 - dropoutRate, inputGradient);
+        Div(0, 0, domMask.size, outputGradient, 1.0 - dropoutRate, inputGradient);
     }
 
     var domMask: domain(1);
