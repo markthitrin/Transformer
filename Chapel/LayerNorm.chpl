@@ -20,6 +20,7 @@ class LayerNorm {
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+
         forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * dModel * 0.0029):real(32), 12300, 2562) {
             var mean: real(32);
             PlusReduce(i * dModel, dModel, input, mean);

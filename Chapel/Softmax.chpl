@@ -12,7 +12,7 @@ class Softmax {
     }
 
     proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        forall i in BalancePar(0, batch, (batch * 0.017):real(32), 10, 1) {
+        forall i in 0..#batch {
             var buffer: [domB] real(32);
             var maxValue: real(32);
             var sumExp: real(32);

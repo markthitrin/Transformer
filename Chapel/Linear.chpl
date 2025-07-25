@@ -46,7 +46,7 @@ class Linear {
         }
         Plus(0, 0, 0, outD, biasOpt.gradient, temp, biasOpt.gradient);
         MatMulPlusATBPar(inD, batch, outD, input, outputGradient, weightOpt.gradient);
-        MatMulPlusABT(batch, outD, inD, outputGradient, weight, inputGradient);
+        MatMulPlusABTPar(batch, outD, inD, outputGradient, weight, inputGradient);
         CheckPoint();
     }
 
