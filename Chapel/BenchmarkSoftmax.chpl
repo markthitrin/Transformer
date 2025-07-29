@@ -4,7 +4,7 @@ use Util;
 use Matrix;
 use Time;
 
-param iterationTest = 20;
+param iterationTest = 1;
 param stdTest = 100;
 var t:stopwatch;
 

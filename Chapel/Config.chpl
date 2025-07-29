@@ -10,8 +10,8 @@ config var sequenceLength: int = 256;
 config var dFF: int = 2048; // 256
 config var dropoutRate: real(32) = 0.1;
 config var N: int = 6;
-config var srcVocab: int = 128; // 15700
-config var tgtVocab: int = 128; // 22470
+config var srcVocab: int = 15700; // 15700
+config var tgtVocab: int = 22470; // 22470
 
 config var epoch: int = 2;
 config var batch: int = 8;
