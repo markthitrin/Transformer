@@ -19,7 +19,7 @@ class Linear {
     proc forward(ref input: [] real(32), ref output: [] real(32)) {
         var outD = bias.domain.size;
         var inD = weight.domain.size / bias.domain.size;
-        forall i in 0..#(batch * sequenceLength) {
+        forall i in Par(0, batch * sequenceLength, 24) {
             Copy(0, i * outD, outD, bias, output);
         }
         MatMulPlusABPar(batch * sequenceLength, inD, outD, input, weight, output);
@@ -35,7 +35,7 @@ class Linear {
         var inD = weight.domain.size / bias.domain.size;
         SetPar(0, batch * sequenceLength * inD, inputGradient, 0.0);
         var temp: [0..#outD] real(32);
-        forall i in Par(0, batch * sequenceLength, 8) with (+ reduce temp) {
+        forall i in Par(0, batch * sequenceLength, 24) with (+ reduce temp) {
             Plus(0, i * outD, 0, outD, temp, outputGradient, temp);
         }
         Plus(0, 0, 0, outD, biasOpt.gradient, temp, biasOpt.gradient);

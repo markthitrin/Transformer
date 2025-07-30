@@ -81,7 +81,7 @@ proc ComputeCrossEntropy(in start: int, in count: int, ref logits: [] real(32), 
 
 proc _CrossEntropy(in start: int, in startToken: int, ref logits: [] real(32), ref targetToken: [] int, in tgtSeq: int, ref grad: [] real(32)) {
     var loss = 0.0;
-    forall i in 0..#tgtSeq with (+ reduce loss) {
+    forall i in Par(0, tgtSeq, 9) with (+ reduce loss) {
         loss += ComputeCrossEntropy(
             start + i * tgtVocab,
             tgtVocab,

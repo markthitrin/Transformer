@@ -10,7 +10,7 @@ class Softmax {
     }
 
     proc forward(ref input: [] real(32), ref output: [] real(32)) : void {
-        forall i in 0..#(batch * head * sequenceLength) {
+        forall i in Par(0, batch * head * sequenceLength, 68) {
             var maxValue: real(32);
             var sumExp: real(32);
 
@@ -27,7 +27,7 @@ class Softmax {
     }
 
     proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32), ref output: [] real(32)) : void {
-        forall i in 0..#(batch * head * sequenceLength) {
+        forall i in Par(0, batch * head * sequenceLength, 68) {
             var sumGY: real(32);
             ProductPlusReduce(i * sequenceLength, i * sequenceLength, sequenceLength, outputGradient, output, sumGY);
             

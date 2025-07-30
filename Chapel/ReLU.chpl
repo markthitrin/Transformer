@@ -9,7 +9,7 @@ class ReLU {
     }
 
     proc forward(ref input: [] real(32), ref output: [] real(32)) : void {
-        forall i in Par(0, batch * sequenceLength * dFF, 8) {
+        forall i in Par(0, batch * sequenceLength * dFF, 24) {
             output[i] = if input[i] >= 0 then input[i] else 0.0:real(32);
         }
         CheckPoint();
@@ -20,7 +20,7 @@ class ReLU {
     }
 
     proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32), ref input: [] real(32)) : void {
-        forall i in Par(0, batch * sequenceLength * dFF, 8) {
+        forall i in Par(0, batch * sequenceLength * dFF, 24) {
             outputGradient[i] = if input[i] >= 0 then outputGradient[i] else 0.0:real(32);
         }
         CopyPar(0,0,batch * sequenceLength * dFF,outputGradient,inputGradient);

@@ -173,13 +173,3 @@ proc main() {
         }
     }
 }
-
-/*
-$CHPL_HOME/modules/standard/Random.chpl:879: internal error: RES-VIS-ONS-0424 chpl version 2.4.0
-Note: This source location is a guess.
-
-Internal errors indicate a bug in the Chapel compiler,
-and we're sorry for the hassle.  We would appreciate your reporting this bug --
-please see https://chapel-lang.org/bugs.html for instructions.  In the meantime,
-the filename + line number above may be useful in working around the issue.
-*/

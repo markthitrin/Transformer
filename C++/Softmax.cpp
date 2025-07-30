@@ -9,7 +9,8 @@ Softmax::Softmax() {
 }
 
 void Softmax::forward(TensorView input, TensorView output) {
-    #pragma omp parallel for num_threads(numPar) schedule(static)
+    const int numT  = std::min(numPar, 68);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for (int i = 0; i < batch * head * sequenceLength; i++) {
         float buffer[sequenceLength];
         float sumExp = 0.0;
@@ -31,7 +32,7 @@ void Softmax::forward(TensorView input, TensorView output) {
             output[i * sequenceLength + j] = buffer[j] / sumExp;
         }
     }   
-    // Timer::CheckPoint();
+    Timer::CheckPoint();
 }
 
 void Softmax::predict(TensorView input, TensorView output) {
@@ -39,7 +40,8 @@ void Softmax::predict(TensorView input, TensorView output) {
 }
 
 void Softmax::backward(TensorView outputGradient, TensorView inputGradient, TensorView output) {
-    #pragma omp parallel for schedule(static)
+    const int numT = std::min(numPar, 68);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for (int i = 0; i < batch * head * sequenceLength; i++) {
         float sumGY = 0.0f;
 
@@ -51,5 +53,5 @@ void Softmax::backward(TensorView outputGradient, TensorView inputGradient, Tens
             inputGradient[i * sequenceLength + j] = output[i * sequenceLength + j] * (outputGradient[i * sequenceLength + j] - sumGY);
         }
     }
-    // Timer::CheckPoint();
+    Timer::CheckPoint();
 }

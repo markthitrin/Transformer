@@ -13,7 +13,8 @@ Linear::Linear(const int inD, const int outD) :
 }
 
 void Linear::forward(TensorView input, TensorView output) {
-    #pragma omp parallel for num_threads(8) schedule(static)
+    const int numT = std::min(numPar, 24);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < batch * sequenceLength;i++) {
         output.sliceRow(i,1) = bias;
     }
@@ -29,7 +30,8 @@ void Linear::backward(TensorView outputGradient, TensorView inputGradient, Tenso
     const int outD = bias.col;
     float* biasGrad = biasOpt.gradient.data;
     SetPar(inputGradient, 0.0f);
-    #pragma omp parallel for num_threads(8) reduction(+:biasGrad[:outD])
+    const int numT = std::min(numPar, 24);
+    #pragma omp parallel for num_threads(numT) reduction(+:biasGrad[:outD])
     for(int i = 0;i < batch * sequenceLength;i++) {
         for(int j = 0;j < outD;j++) {
             biasGrad[j] += outputGradient[i * outD + j];

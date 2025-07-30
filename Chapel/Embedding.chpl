@@ -17,7 +17,7 @@ class Embedding {
     }
 
     proc forward(ref input: [] int, ref output: [] real(32)) : void {
-        forall i in Par(0, batch * sequenceLength, 4) {
+        forall i in Par(0, batch * sequenceLength, 24) {
             Copy(input[i] * dModel, i * dModel, dModel, table, output);
         }
         MulPar(0, 0, batch * sequenceLength * dModel, output, sqrt(dModel):real(32), output);

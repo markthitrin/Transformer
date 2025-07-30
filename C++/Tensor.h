@@ -155,7 +155,8 @@ inline void Tensor::loadNp(cnpy::npz_t npFile, std::string name) {
 
 
 inline void CopyPar(TensorView A, TensorView B) {
-    #pragma omp parallel num_threads(8)
+    const int numT = std::min(numPar, 24);
+    #pragma omp parallel num_threads(numT)
     {
         int tid = omp_get_thread_num();
         int nthreads = omp_get_num_threads();
@@ -169,7 +170,8 @@ inline void CopyPar(TensorView A, TensorView B) {
 }
 
 inline void SetPar(TensorView A, const float x) {
-    #pragma omp parallel num_threads(8)
+    const int numT = std::min(numPar, 24);
+    #pragma omp parallel num_threads(numT)
     {
         int tid = omp_get_thread_num();
         int nthreads = omp_get_num_threads();
@@ -222,7 +224,8 @@ inline void Plus(TensorView A, TensorView B, TensorView C) {
 }
 
 inline void PlusPar(TensorView A, TensorView B, TensorView C) {
-    #pragma omp parallel for num_threads(8) schedule(static)
+    const int numT = std::min(numPar, 24);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] + B[i];
     }
@@ -235,7 +238,8 @@ inline void Mul(TensorView A, TensorView B, TensorView C) {
 }
 
 inline void MulPar(TensorView A, TensorView B, TensorView C) {
-    #pragma omp parallel for num_threads(8) schedule(static)
+    const int numT = std::min(numPar, 24);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] * B[i];
     }
@@ -248,7 +252,8 @@ inline void Mul(TensorView A, const float B, TensorView C) {
 }
 
 inline void MulPar(TensorView A, const float B, TensorView C) {
-    #pragma omp parallel for num_threads(8) schedule(static)
+    const int numT = std::min(numPar, 24);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] * B;
     }
@@ -261,7 +266,8 @@ inline void Div(TensorView A, TensorView B, TensorView C) {
 }
 
 inline void DivPar(TensorView A, TensorView B, TensorView C) {
-    #pragma omp parallel for num_threads(8) schedule(static)
+    const int numT = std::min(numPar, 24);
+    #pragma omp parallel for num_threads(numT) schedule(static)
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] / B[i];
     }

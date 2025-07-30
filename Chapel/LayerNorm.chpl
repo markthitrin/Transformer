@@ -21,7 +21,7 @@ class LayerNorm {
 
     proc forward(ref input: [] real(32), ref output: [] real(32)) : void {
 
-        forall i in Par(0, batch * sequenceLength, 64) {
+        forall i in Par(0, batch * sequenceLength, 52) {
             var mean: real(32);
             PlusReduce(i * dModel, dModel, input, mean);
             mean /= dModel;
@@ -45,7 +45,7 @@ class LayerNorm {
         ref alphaGrad = alphaOpt.gradient;
         ref biasGrad = biasOpt.gradient;
 
-        forall i in Par(0, batch * sequenceLength, 64)
+        forall i in Par(0, batch * sequenceLength, 52)
             with (+ reduce alphaGrad, + reduce biasGrad) {
             var invStd: real(32) = (1.0 / std[i]): real(32);
             var sumG: real(32) = 0.0;

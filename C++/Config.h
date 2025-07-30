@@ -7,19 +7,19 @@ static constexpr float beta1 = 0.9;
 static constexpr float beta2 = 0.999;
 static constexpr float eps = 1e-9;
 
-static constexpr int dModel = 32; // 512
+static constexpr int dModel = 512; // 512
 static constexpr int head = 8; // 8
-static constexpr int dFF = 256; // 256
+static constexpr int dFF = 2048; // 256
 static constexpr float dropoutRate = 0.1;
 static constexpr int N = 6;
 
 static constexpr int batch = 8;
-static constexpr int srcVocab = 128; // 15700
-static constexpr int tgtVocab = 128; // 22470
-static constexpr int sequenceLength = 35;
+static constexpr int srcVocab = 15700; // 15700
+static constexpr int tgtVocab = 22470; // 22470
+static constexpr int sequenceLength = 256;
 
-static constexpr int trainingIteration = 25;
-static constexpr int testingIteration = 10;
+static constexpr int trainingIteration = 40;
+static constexpr int testingIteration = 1;
 
 static constexpr float trainingRatio = 0.7;
 
