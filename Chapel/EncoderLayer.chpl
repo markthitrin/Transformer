@@ -1,12 +1,11 @@
-use Util;
-use Math;
 use Config;
-use LayerNorm;
-use MultiheadAttention;
 use DropOut;
 use FeedForwardBlock;
-use Matrix;
+use LayerNorm;
+use Tensor;
+use MultiheadAttention;
 use Timer;
+use Util;
 
 class EncoderLayer {
     proc init() {
@@ -20,7 +19,7 @@ class EncoderLayer {
         domOG = {0..#(batch * sequenceLength * dModel)};
     }
 
-    proc forward(ref input: [?Di] real(32), ref output: [?Do] real(32), ref srcSeq: [?Ds] int) : void {
+    proc forward(ref input: [] real(32), ref output: [] real(32), ref srcSeq: [] int) : void {
         norm1.forward(input, out1);
         mulAtt.forward(out1, out1, out1, out2, MaskType.PADDING, srcSeq);
         dropout1.forward(out2, out3);
@@ -32,7 +31,7 @@ class EncoderLayer {
         Plus(0, 0, 0, batch * sequenceLength * dModel, out3, output, output);
     }
 
-    proc predict(ref input: [?Di] real(32), ref output: [?Do] real(32), ref srcSeq: [?Ds] int) : void {
+    proc predict(ref input: [] real(32), ref output: [] real(32), ref srcSeq: [] int) : void {
         norm1.predict(input, out1);
         mulAtt.predict(out1, out1, out1, out2, MaskType.PADDING, srcSeq);
         dropout1.predict(out2, out3);
@@ -44,7 +43,7 @@ class EncoderLayer {
         Plus(0, 0, 0, batch * sequenceLength * dModel, out3, output, output);
     }
 
-    proc backward(ref outputGradient: [?Do] real(32), ref inputGradient: [?Di] real(32), ref srcSeq: [?Ds] int) : void {
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32), ref srcSeq: [] int) : void {
         dropout2.backward(outputGradient, gradient5);
         pff.backward(gradient5, gradient4, out4);
         norm2.backward(gradient4, gradient3);
@@ -56,7 +55,7 @@ class EncoderLayer {
         Plus(0, 0, 0, batch * sequenceLength * dModel, gradient3, inputGradient, inputGradient);
     }
 
-    proc updateParameterTask() {
+    proc updateParameterTask() : void {
         cobegin {
             norm1.updateParameterTask();
             mulAtt.updateParameterTask();

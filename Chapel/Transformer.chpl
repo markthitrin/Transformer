@@ -1,10 +1,10 @@
 use Config;
 use Decoder;
-use Encoder;
 use Embedding;
-use PositionalEncoder;
+use Encoder;
 use Linear;
-use Matrix;
+use Tensor;
+use PositionalEncoder;
 use Timer;
 
 class Transformer {
@@ -22,8 +22,8 @@ class Transformer {
     }
 
     proc forward(
-        ref inpute: [?Di] int, ref inputd: [Di] int, ref output: [?D] real(32),
-        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) {
+        ref inpute: [] int, ref inputd: [] int, ref output: [] real(32),
+        ref srcSeq: [] int, ref tgtSeq: [] int) : void {
 
         srcEmbed.forward(inpute, out1);
         srcPos.forward(out1, out2);
@@ -36,8 +36,8 @@ class Transformer {
     }
 
     proc predict(
-        ref inpute: [?Di] int, ref inputd: [Di] int, ref output: [?D] real(32),
-        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) {
+        ref inpute: [] int, ref inputd: [] int, ref output: [] real(32),
+        ref srcSeq: [] int, ref tgtSeq: [] int) : void {
 
         srcEmbed.predict(inpute, out1);
         srcPos.predict(out1, out2);
@@ -50,9 +50,9 @@ class Transformer {
     }
 
     proc backward(
-        ref outputGradient: [?D] real(32),
-        ref inpute: [?Di] int, ref inputd: [Di] int,
-        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) {
+        ref outputGradient: [] real(32),
+        ref inpute: [] int, ref inputd: [] int,
+        ref srcSeq: [] int, ref tgtSeq: [] int) : void {
 
         linear.backward(outputGradient, gradient5, out5);
         decoder.backward(gradient5, gradient4, encoderGradient, encoderOut, srcSeq, tgtSeq);
@@ -65,7 +65,7 @@ class Transformer {
         srcEmbed.backward(gradient1, inpute);
     }
 
-    proc updateParameter() {
+    proc updateParameter() : void {
         cobegin{
             srcEmbed.updateParameterTask();
             encoder.updateParameterTask();
@@ -165,7 +165,7 @@ class Transformer {
 }
 
 // Test code
-// var model = new Transformer();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();
+var model = new Transformer();
+model.loadParam();
+for i in 0..4 do model.forwardTest();
+for i in 0..4 do model.backwardTest();

@@ -1,11 +1,12 @@
-#include "Header.h"
-#include "Tensor.h"
-#include "LayerNorm.h"
-#include "Linear.h"
-#include "MultiheadAttention.h"
+#include "Config.h"
 #include "DropOut.h"
-#include "Util.h"
 #include "EncoderLayer.h"
+#include "Header.h"
+#include "FeedForwardBlock.h"
+#include "LayerNorm.h"
+#include "MultiheadAttention.h"
+#include "Tensor.h"
+#include "Util.h"
 
 EncoderLayer::EncoderLayer() :
     dropout1(batch * sequenceLength, dModel),

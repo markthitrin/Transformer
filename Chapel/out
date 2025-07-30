@@ -1,17 +1,17 @@
-Test result [forward] : 4.85023e-07
+Test result [forward] : 4.78213e-07
 
-Test result [forward] : 4.32967e-07
+Test result [forward] : 4.3632e-07
 
-Test result [forward] : 4.85769e-07
+Test result [forward] : 4.86098e-07
 
-Test result [forward] : 4.27596e-07
+Test result [forward] : 4.40404e-07
 
-Test result [forward] : 4.60918e-07
+Test result [forward] : 4.6081e-07
 
 Check =========================================
 Test result [backward alpha] : 0.0
 
-Test result [backward bias] : 3.87672e-10
+Test result [backward bias] : 3.89036e-10
 
 Test result [backward wQ] : 9.70827e-07
 		-0.0342358 :: -0.0340362	(123)
@@ -20,20 +20,20 @@ Test result [backward wQ] : 9.70827e-07
 		-0.0966649 :: -0.096864	(822)
 		0.085465 :: 0.0852655	(880)
 
-Test result [backward wK] : 3.9772e-07
+Test result [backward wK] : 3.97729e-07
 		0.189954 :: 0.19015	(274)
 		-0.0980414 :: -0.0978418	(978)
 
 Test result [backward wV] : 7.44862e-10
 
-Test result [backward wO] : 1.96072e-07
+Test result [backward wO] : 1.96076e-07
 		-0.244236 :: -0.244436	(402)
 
 Test result [backward alpha] : 0.0
 
 Test result [backward bias] : 9.26548e-10
 
-Test result [backward w1] : 6.51836e-07
+Test result [backward w1] : 6.51841e-07
 		-0.0750001 :: -0.0748004	(95)
 		0.0298478 :: 0.0297089	(161)
 		-0.0939836 :: -0.0937843	(534)
@@ -41,9 +41,9 @@ Test result [backward w1] : 6.51836e-07
 		-0.0659686 :: -0.066168	(895)
 		0.0143801 :: 0.0141803	(1289)
 
-Test result [backward b1] : 9.1386e-09
+Test result [backward b1] : 9.15315e-09
 
-Test result [backward w2] : 4.46664e-07
+Test result [backward w2] : 4.46668e-07
 		0.136411 :: 0.136211	(1284)
 		-0.0616191 :: -0.0618177	(1835)
 		-0.0520929 :: -0.0522923	(2479)
@@ -55,7 +55,7 @@ Test result [backward b2] : 8.51287e-10
 
 Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 9.9385e-10
+Test result [backward bias] : 9.94532e-10
 
 Test result [backward wQ] : 1.33372e-06
 		0.186443 :: 0.186295	(748)
@@ -65,7 +65,7 @@ Test result [backward wQ] : 1.33372e-06
 		0.286507 :: 0.286308	(929)
 		-0.286048 :: -0.286247	(970)
 
-Test result [backward wK] : 1.54899e-06
+Test result [backward wK] : 1.54891e-06
 		-0.0560648 :: -0.0562635	(110)
 		-0.119528 :: -0.119727	(160)
 		-0.201302 :: -0.201104	(202)
@@ -73,13 +73,13 @@ Test result [backward wK] : 1.54899e-06
 		0.23742 :: 0.237592	(591)
 		0.139238 :: 0.139039	(711)
 
-Test result [backward wV] : 4.58479e-08
+Test result [backward wV] : 4.68087e-08
 
 Test result [backward wO] : 5.00364e-09
 
 Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 2.01021e-09
+Test result [backward bias] : 2.01044e-09
 
 Test result [backward w1] : 2.23139e-07
 		0.0589541 :: 0.0591503	(163)
@@ -89,10 +89,10 @@ Test result [backward w1] : 2.23139e-07
 		0.0705687 :: 0.0703693	(5733)
 		0.138227 :: 0.138028	(6547)
 
-Test result [backward b1] : 7.90925e-07
+Test result [backward b1] : 7.9094e-07
 		0.100803 :: 0.100603	(147)
 
-Test result [backward w2] : 2.97352e-07
+Test result [backward w2] : 2.97357e-07
 		-0.0940835 :: -0.0942167	(2037)
 		-0.0466237 :: -0.046443	(2662)
 		-0.0478509 :: -0.0480496	(2984)
@@ -105,7 +105,7 @@ Test result [backward b2] : 1.46974e-09
 Test result [backward alpha] : 6.25104e-06
 		1.0001 :: 0.9999	(11)
 
-Test result [backward bias] : 1.03637e-09
+Test result [backward bias] : 1.03591e-09
 
 Test result [backward wQ] : 2.31153e-07
 		-0.233736 :: -0.233541	(17)
@@ -114,19 +114,19 @@ Test result [backward wK] : 4.38674e-07
 		-0.0201495 :: -0.0199512	(951)
 		-0.102097 :: -0.102295	(956)
 
-Test result [backward wV] : 7.90006e-07
+Test result [backward wV] : 7.90009e-07
 		0.0452747 :: 0.0450748	(300)
 		-0.175512 :: -0.175312	(301)
 		0.0672722 :: 0.0670723	(308)
 		-0.149075 :: -0.148875	(313)
 
-Test result [backward wO] : 1.91272e-09
+Test result [backward wO] : 1.91638e-09
 
 Test result [backward alpha] : 1.86265e-09
 
-Test result [backward bias] : 2.45063e-09
+Test result [backward bias] : 2.452e-09
 
-Test result [backward w1] : 3.52856e-07
+Test result [backward w1] : 3.52857e-07
 		0.000853898 :: 0.000993878	(474)
 		-0.00805492 :: -0.00785899	(686)
 		0.102561 :: 0.102759	(1187)
@@ -134,10 +134,10 @@ Test result [backward w1] : 3.52856e-07
 		-0.0408791 :: -0.0410788	(4101)
 		0.0186509 :: 0.0184511	(4493)
 
-Test result [backward b1] : 7.95841e-07
+Test result [backward b1] : 7.95856e-07
 		0.047358 :: 0.0471588	(141)
 
-Test result [backward w2] : 4.52551e-07
+Test result [backward w2] : 4.52558e-07
 		0.0877226 :: 0.0875235	(2225)
 		-0.0769568 :: -0.0767569	(2715)
 		0.101903 :: 0.102103	(3611)
@@ -149,9 +149,9 @@ Test result [backward b2] : 1.1496e-09
 
 Test result [backward alpha] : 0.0
 
-Test result [backward bias] : 9.72477e-10
+Test result [backward bias] : 9.74751e-10
 
-Test result [backward wQ] : 4.56878e-08
+Test result [backward wQ] : 4.56957e-08
 
 Test result [backward wK] : 4.20392e-07
 		-0.0782065 :: -0.0780124	(263)
@@ -170,9 +170,9 @@ Test result [backward wO] : 1.56267e-06
 
 Test result [backward alpha] : 2.98023e-08
 
-Test result [backward bias] : 2.43699e-09
+Test result [backward bias] : 2.43881e-09
 
-Test result [backward w1] : 4.05086e-07
+Test result [backward w1] : 4.05146e-07
 		0.114317 :: 0.114122	(471)
 		-0.0596822 :: -0.059881	(967)
 		0.00832316 :: 0.00851101	(1569)
@@ -180,9 +180,9 @@ Test result [backward w1] : 4.05086e-07
 		-0.126386 :: -0.126186	(3348)
 		0.129849 :: 0.12966	(3390)
 
-Test result [backward b1] : 3.07984e-08
+Test result [backward b1] : 3.07987e-08
 
-Test result [backward w2] : 6.05536e-07
+Test result [backward w2] : 6.05537e-07
 		-0.0660699 :: -0.066263	(52)
 		0.0287122 :: 0.0289119	(1063)
 		-0.0454407 :: -0.0452422	(1650)
@@ -194,11 +194,11 @@ Test result [backward b2] : 2.00453e-09
 
 Test result [backward alpha] : 1.86265e-09
 
-Test result [backward bias] : 1.40449e-09
+Test result [backward bias] : 1.40494e-09
 
-Test result [backward wQ] : 1.90843e-07
+Test result [backward wQ] : 1.90844e-07
 
-Test result [backward wK] : 4.82071e-07
+Test result [backward wK] : 4.82075e-07
 		0.151621 :: 0.151441	(383)
 		-0.187327 :: -0.187523	(472)
 
@@ -215,7 +215,7 @@ Test result [backward wO] : 1.99719e-07
 
 Test result [backward alpha] : 1.30385e-08
 
-Test result [backward bias] : 4.8185e-09
+Test result [backward bias] : 4.81828e-09
 
 Test result [backward w1] : 3.91211e-07
 		-0.129975 :: -0.130174	(1259)
@@ -227,7 +227,7 @@ Test result [backward w1] : 3.91211e-07
 
 Test result [backward b1] : 2.13244e-08
 
-Test result [backward w2] : 3.32335e-07
+Test result [backward w2] : 3.32334e-07
 		-0.0246506 :: -0.0247529	(2430)
 		-0.0041044 :: -0.00396672	(3984)
 		-0.0423209 :: -0.0421949	(5170)
@@ -239,16 +239,16 @@ Test result [backward b2] : 2.12822e-09
 
 Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 1.1712e-09
+Test result [backward bias] : 1.17302e-09
 
-Test result [backward wQ] : 4.30197e-07
+Test result [backward wQ] : 4.30192e-07
 		-0.284881 :: -0.285078	(983)
 
-Test result [backward wK] : 1.99436e-07
+Test result [backward wK] : 1.99446e-07
 
-Test result [backward wV] : 3.57271e-09
+Test result [backward wV] : 3.5725e-09
 
-Test result [backward wO] : 3.63642e-09
+Test result [backward wO] : 3.64176e-09
 
 Test result [backward alpha] : 1.86265e-09
 
@@ -262,9 +262,9 @@ Test result [backward w1] : 2.61833e-07
 		0.0818592 :: 0.0816596	(4445)
 		0.031087 :: 0.0309152	(7168)
 
-Test result [backward b1] : 2.40966e-08
+Test result [backward b1] : 2.40971e-08
 
-Test result [backward w2] : 3.23539e-07
+Test result [backward w2] : 3.23533e-07
 		0.0505067 :: 0.0506896	(787)
 		0.0428711 :: 0.0430665	(1522)
 		-0.0364526 :: -0.0362599	(3187)
@@ -274,11 +274,11 @@ Test result [backward b2] : 1.41881e-09
 
 Test result [backward alpha] : 1.86265e-09
 
-Test result [backward bias] : 1.95769e-10
+Test result [backward bias] : 1.96678e-10
 
 Test result [backward alpha] : 0.0
 
-Test result [backward bias] : 5.42514e-10
+Test result [backward bias] : 5.45015e-10
 
 Test result [backward wQ] : 0.0
 
@@ -287,28 +287,28 @@ Test result [backward wK] : 0.0
 Test result [backward wV] : 1.97098e-07
 		-0.0251143 :: -0.0253141	(900)
 
-Test result [backward wO] : 1.98908e-07
+Test result [backward wO] : 1.98912e-07
 		0.0288972 :: 0.0290957	(393)
 
-Test result [backward alpha] : 6.49877e-06
+Test result [backward alpha] : 6.49504e-06
 		1.0001 :: 0.999906	(29)
 
-Test result [backward bias] : 5.72652e-08
+Test result [backward bias] : 5.72663e-08
 
-Test result [backward wQ] : 1.42021e-07
+Test result [backward wQ] : 1.42025e-07
 
-Test result [backward wK] : 3.75868e-07
+Test result [backward wK] : 3.75861e-07
 		-0.0132028 :: -0.0133879	(20)
 
-Test result [backward wV] : 6.7829e-09
+Test result [backward wV] : 6.77927e-09
 
-Test result [backward wO] : 1.14983e-09
+Test result [backward wO] : 1.15358e-09
 
 Test result [backward alpha] : 7.45058e-09
 
-Test result [backward bias] : 1.8747e-09
+Test result [backward bias] : 1.87583e-09
 
-Test result [backward w1] : 3.0541e-07
+Test result [backward w1] : 3.05475e-07
 		-0.0262275 :: -0.026427	(1147)
 		0.0517133 :: 0.051526	(1295)
 		0.138481 :: 0.13868	(1915)
@@ -316,9 +316,9 @@ Test result [backward w1] : 3.0541e-07
 		-0.0925396 :: -0.0923409	(2425)
 		-0.0331902 :: -0.0329905	(2683)
 
-Test result [backward b1] : 2.68489e-08
+Test result [backward b1] : 2.6849e-08
 
-Test result [backward w2] : 2.5091e-07
+Test result [backward w2] : 2.50911e-07
 		-0.010128 :: -0.00999873	(4514)
 		0.0141804 :: 0.0139857	(5252)
 		-0.0988201 :: -0.0986244	(5470)
@@ -329,35 +329,35 @@ Test result [backward b2] : 2.7685e-09
 
 Test result [backward alpha] : 5.58794e-09
 
-Test result [backward bias] : 1.34196e-09
+Test result [backward bias] : 1.34264e-09
 
 Test result [backward wQ] : 0.0
 
 Test result [backward wK] : 0.0
 
-Test result [backward wV] : 5.58836e-09
+Test result [backward wV] : 5.592e-09
 
-Test result [backward wO] : 3.77348e-09
+Test result [backward wO] : 3.77351e-09
 
 Test result [backward alpha] : 6.14673e-08
 
-Test result [backward bias] : 2.08036e-08
+Test result [backward bias] : 2.08045e-08
 
-Test result [backward wQ] : 3.34235e-07
+Test result [backward wQ] : 3.34207e-07
 		0.188237 :: 0.188056	(488)
 
-Test result [backward wK] : 1.73637e-07
+Test result [backward wK] : 1.73642e-07
 
-Test result [backward wV] : 1.99279e-07
+Test result [backward wV] : 1.99272e-07
 		0.25237 :: 0.252171	(786)
 
-Test result [backward wO] : 5.03434e-09
+Test result [backward wO] : 5.0089e-09
 
 Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 1.6837e-09
+Test result [backward bias] : 1.68666e-09
 
-Test result [backward w1] : 5.78293e-07
+Test result [backward w1] : 5.78294e-07
 		-0.0306935 :: -0.0308914	(16)
 		0.137536 :: 0.137731	(158)
 		-0.0480849 :: -0.0482808	(407)
@@ -369,7 +369,7 @@ Test result [backward b1] : 1.55434e-06
 		0.00060708 :: 0.000801735	(8)
 		-0.0931144 :: -0.0929187	(98)
 
-Test result [backward w2] : 2.73291e-07
+Test result [backward w2] : 2.73297e-07
 		-0.0400856 :: -0.0399669	(5332)
 		-0.0471695 :: -0.0470063	(6334)
 		0.135248 :: 0.135409	(7060)
@@ -378,15 +378,15 @@ Test result [backward b2] : 1.06229e-09
 
 Test result [backward alpha] : 1.86265e-09
 
-Test result [backward bias] : 1.04137e-09
+Test result [backward bias] : 1.0441e-09
 
 Test result [backward wQ] : 0.0
 
 Test result [backward wK] : 0.0
 
-Test result [backward wV] : 2.78444e-09
+Test result [backward wV] : 2.78443e-09
 
-Test result [backward wO] : 1.98879e-07
+Test result [backward wO] : 1.98875e-07
 		0.272034 :: 0.272232	(922)
 
 Test result [backward alpha] : 9.12696e-08
@@ -398,30 +398,30 @@ Test result [backward wQ] : 3.88432e-07
 		-0.292452 :: -0.292569	(239)
 		-0.144407 :: -0.144529	(688)
 
-Test result [backward wK] : 3.66247e-07
+Test result [backward wK] : 3.66245e-07
 		0.113729 :: 0.11354	(798)
 
-Test result [backward wV] : 1.7373e-08
+Test result [backward wV] : 1.73693e-08
 
-Test result [backward wO] : 3.90577e-07
+Test result [backward wO] : 3.90579e-07
 		-0.301849 :: -0.30204	(215)
 		-0.136655 :: -0.136455	(659)
 
 Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 1.53796e-09
+Test result [backward bias] : 1.53864e-09
 
-Test result [backward w1] : 2.83915e-07
+Test result [backward w1] : 2.83927e-07
 		0.11181 :: 0.111612	(608)
 		-0.0496203 :: -0.0497559	(1447)
 		-0.129871 :: -0.129682	(1585)
-		-0.0464035 :: -0.0465268	(4076)
+		-0.0464034 :: -0.0465268	(4076)
 		0.132396 :: 0.132592	(5028)
 		-0.0495141 :: -0.0493147	(5942)
 
-Test result [backward b1] : 5.90055e-08
+Test result [backward b1] : 5.90044e-08
 
-Test result [backward w2] : 8.88755e-07
+Test result [backward w2] : 8.88756e-07
 		0.061339 :: 0.0611391	(73)
 		0.0814088 :: 0.0812165	(937)
 		-0.0836262 :: -0.0838261	(1065)
@@ -429,65 +429,65 @@ Test result [backward w2] : 8.88755e-07
 		0.0108271 :: 0.0106273	(1801)
 		0.0964175 :: 0.0966114	(2004)
 
-Test result [backward b2] : 3.74598e-09
+Test result [backward b2] : 3.74553e-09
 
 Test result [backward alpha] : 7.45058e-09
 
-Test result [backward bias] : 2.45655e-09
+Test result [backward bias] : 2.45927e-09
 
 Test result [backward wQ] : 0.0
 
 Test result [backward wK] : 0.0
 
-Test result [backward wV] : 4.54779e-09
+Test result [backward wV] : 4.54418e-09
 
-Test result [backward wO] : 2.01034e-07
+Test result [backward wO] : 2.01038e-07
 		0.13967 :: 0.139868	(243)
 
 Test result [backward alpha] : 9.68575e-08
 
 Test result [backward bias] : 2.95415e-08
 
-Test result [backward wQ] : 5.22038e-07
+Test result [backward wQ] : 5.22045e-07
 		-0.0462172 :: -0.0463925	(20)
 		-0.265256 :: -0.265065	(560)
 
 Test result [backward wK] : 1.90751e-07
 
-Test result [backward wV] : 6.67089e-09
+Test result [backward wV] : 6.67112e-09
 
-Test result [backward wO] : 2.06861e-07
+Test result [backward wO] : 2.06863e-07
 		0.295925 :: 0.295732	(573)
 
 Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 5.90876e-09
+Test result [backward bias] : 5.9099e-09
 
-Test result [backward w1] : 2.92233e-07
+Test result [backward w1] : 2.9224e-07
 		0.109928 :: 0.109802	(655)
 		-0.0384698 :: -0.0382833	(3983)
 		0.0194208 :: 0.0192245	(5502)
 		-0.0393487 :: -0.0395334	(7708)
 
-Test result [backward b1] : 7.80168e-07
+Test result [backward b1] : 7.80228e-07
 		0.175055 :: 0.175241	(143)
 
-Test result [backward w2] : 5.05793e-07
+Test result [backward w2] : 5.05791e-07
 		-0.0631811 :: -0.0630468	(669)
 
 Test result [backward b2] : 2.32831e-09
 
 Test result [backward alpha] : 0.0
 
-Test result [backward bias] : 8.44921e-10
+Test result [backward bias] : 8.4674e-10
 
 Test result [backward wQ] : 0.0
 
 Test result [backward wK] : 0.0
 
-Test result [backward wV] : 5.05713e-09
+Test result [backward wV] : 5.06463e-09
 
-Test result [backward wO] : 7.75665e-07
+Test result [backward wO] : 7.75643e-07
 		0.0302403 :: 0.0304399	(416)
 		0.0613561 :: 0.061164	(512)
 		0.0169396 :: 0.0171391	(916)
@@ -495,21 +495,21 @@ Test result [backward wO] : 7.75665e-07
 
 Test result [backward alpha] : 8.56817e-08
 
-Test result [backward bias] : 2.67619e-08
+Test result [backward bias] : 2.67632e-08
 
-Test result [backward wQ] : 1.13366e-06
+Test result [backward wQ] : 1.13362e-06
 		-0.125786 :: -0.125977	(213)
 		-0.108148 :: -0.108332	(218)
 		-0.227724 :: -0.227917	(223)
 		-0.0756547 :: -0.075825	(684)
 		0.241168 :: 0.241325	(716)
 
-Test result [backward wK] : 4.35005e-07
+Test result [backward wK] : 4.35013e-07
 		0.247115 :: 0.247254	(683)
 
-Test result [backward wV] : 1.00719e-08
+Test result [backward wV] : 1.00827e-08
 
-Test result [backward wO] : 1.36021e-06
+Test result [backward wO] : 1.36022e-06
 		-0.281003 :: -0.281202	(20)
 		-0.217787 :: -0.217986	(96)
 		0.297935 :: 0.297735	(264)
@@ -519,9 +519,9 @@ Test result [backward wO] : 1.36021e-06
 
 Test result [backward alpha] : 1.11759e-08
 
-Test result [backward bias] : 2.62344e-09
+Test result [backward bias] : 2.62457e-09
 
-Test result [backward w1] : 4.55934e-07
+Test result [backward w1] : 4.55937e-07
 		0.13551 :: 0.135683	(557)
 		0.106467 :: 0.106314	(1294)
 		0.12697 :: 0.126834	(4812)
@@ -531,48 +531,48 @@ Test result [backward w1] : 4.55934e-07
 
 Test result [backward b1] : 1.61651e-07
 
-Test result [backward w2] : 5.93545e-07
+Test result [backward w2] : 5.93548e-07
 		-0.106891 :: -0.106984	(5120)
 
 Test result [backward b2] : 1.81353e-09
 
 Test result [backward alpha] : 3.72529e-09
 
-Test result [backward bias] : 9.73159e-10
+Test result [backward bias] : 9.72932e-10
 
 Test result [backward wQ] : 0.0
 
 Test result [backward wK] : 0.0
 
-Test result [backward wV] : 4.3141e-09
+Test result [backward wV] : 4.31774e-09
 
-Test result [backward wO] : 3.9891e-07
+Test result [backward wO] : 3.98906e-07
 		-0.0578874 :: -0.0576891	(837)
 		-0.283446 :: -0.283645	(965)
 
 Test result [backward alpha] : 1.30385e-07
 
-Test result [backward bias] : 5.70753e-08
+Test result [backward bias] : 5.70769e-08
 
 Test result [backward wQ] : 7.54258e-07
 		0.263463 :: 0.263292	(47)
 		0.174845 :: 0.175022	(535)
 		0.241548 :: 0.241746	(833)
 
-Test result [backward wK] : 7.36934e-07
+Test result [backward wK] : 7.36912e-07
 		-0.19306 :: -0.193254	(800)
 
 Test result [backward wV] : 5.11361e-09
 
-Test result [backward wO] : 4.15466e-07
+Test result [backward wO] : 4.15459e-07
 		0.140553 :: 0.140752	(116)
 		0.291612 :: 0.291413	(517)
 
 Test result [backward alpha] : 7.45058e-09
 
-Test result [backward bias] : 3.06386e-09
+Test result [backward bias] : 3.065e-09
 
-Test result [backward w1] : 2.90259e-07
+Test result [backward w1] : 2.90263e-07
 		0.00885191 :: 0.00865206	(2605)
 		0.0545449 :: 0.0543497	(3177)
 		-0.0346036 :: -0.0347386	(4640)
@@ -580,7 +580,7 @@ Test result [backward w1] : 2.90259e-07
 		-0.0737439 :: -0.0739437	(7213)
 		-0.12 :: -0.120199	(7725)
 
-Test result [backward b1] : 4.56992e-08
+Test result [backward b1] : 4.56847e-08
 
 Test result [backward w2] : 7.4718e-07
 		-0.0639523 :: -0.0637577	(7200)
@@ -589,9 +589,9 @@ Test result [backward b2] : 2.44836e-09
 
 Test result [backward alpha] : 1.04308e-07
 
-Test result [backward bias] : 3.61092e-09
+Test result [backward bias] : 3.6116e-09
 
-Test result [backward table] : 6.9052e-07
+Test result [backward table] : 6.90522e-07
 		0.0766051 :: 0.0768048	(627)
 		0.106545 :: 0.106346	(654)
 		0.0648356 :: 0.0650351	(1177)
@@ -607,2535 +607,548 @@ Test result [backward table] : 5.14732e-07
 		-0.0937686 :: -0.0939667	(2294)
 		0.146608 :: 0.146802	(2748)
 
-Test result [backward weight] : 4.2667e-10
+Test result [backward weight] : 4.26677e-10
 
-Test result [backward bias] : 4.77485e-12
+Test result [backward bias] : 4.54747e-12
 
 Check =========================================
-Test result [backward alpha] : 3.33413e-07
+Test result [backward alpha] : 2.36556e-07
 
-Test result [backward bias] : 4.40383e-07
+Test result [backward bias] : 3.2024e-07
 
-Test result [backward wQ] : 1.8605e-06
-		-0.0341679 :: -0.0339574	(123)
+Test result [backward wQ] : 1.78973e-06
+		-0.0341676 :: -0.0339574	(123)
 		0.120018 :: 0.119838	(240)
-		0.132542 :: 0.132338	(754)
-		-0.0967386 :: -0.0969389	(822)
-		0.0853915 :: 0.085186	(880)
+		0.132541 :: 0.132338	(754)
+		-0.096739 :: -0.0969389	(822)
+		0.0853911 :: 0.085186	(880)
 
-Test result [backward wK] : 1.10735e-06
+Test result [backward wK] : 1.02375e-06
 		0.189879 :: 0.190076	(274)
-		-0.0981173 :: -0.0979151	(978)
+		-0.0981177 :: -0.0979151	(978)
 
-Test result [backward wV] : 3.58979e-07
+Test result [backward wV] : 2.66007e-07
 
-Test result [backward wO] : 5.99355e-07
+Test result [backward wO] : 5.05073e-07
 		-0.24431 :: -0.244511	(402)
 
-Test result [backward alpha] : 6.6869e-07
+Test result [backward alpha] : 5.69969e-07
 
-Test result [backward bias] : 3.41218e-07
+Test result [backward bias] : 2.58401e-07
 
-Test result [backward w1] : 1.46766e-06
-		-0.0749273 :: -0.0747225	(95)
-		0.0299225 :: 0.0297833	(161)
-		-0.0940596 :: -0.0938566	(534)
-		-0.0906725 :: -0.0904594	(549)
-		-0.066042 :: -0.0662427	(895)
-		0.0143104 :: 0.0140968	(1289)
+Test result [backward w1] : 1.3658e-06
+		-0.0749269 :: -0.0747225	(95)
+		0.0299228 :: 0.0297833	(161)
+		-0.09406 :: -0.0938566	(534)
+		-0.0906722 :: -0.0904594	(549)
+		-0.0660423 :: -0.0662427	(895)
+		0.0143101 :: 0.0140968	(1289)
 
-Test result [backward b1] : 8.2379e-07
+Test result [backward b1] : 7.25437e-07
 
-Test result [backward w2] : 9.66053e-07
-		0.136486 :: 0.136284	(1284)
-		-0.0615439 :: -0.0617439	(1835)
-		-0.0520154 :: -0.0522195	(2479)
-		-0.00206511 :: -0.00186201	(2900)
-		0.0807774 :: 0.0809613	(3259)
-		-0.113021 :: -0.113224	(4111)
+Test result [backward w2] : 8.69814e-07
+		0.136487 :: 0.136284	(1284)
+		-0.0615435 :: -0.0617439	(1835)
+		-0.0520151 :: -0.0522195	(2479)
+		-0.00206548 :: -0.00186201	(2900)
+		0.0807778 :: 0.0809613	(3259)
+		-0.11302 :: -0.113224	(4111)
 
-Test result [backward b2] : 5.23964e-07
+Test result [backward b2] : 4.46649e-07
 
-Test result [backward alpha] : 1.39326e-06
+Test result [backward alpha] : 1.36532e-06
 
-Test result [backward bias] : 8.51236e-07
+Test result [backward bias] : 7.89257e-07
 
-Test result [backward wQ] : 2.14568e-06
+Test result [backward wQ] : 2.02931e-06
 		0.186369 :: 0.186221	(748)
-		-0.135285 :: -0.135065	(852)
-		-0.227787 :: -0.227998	(855)
+		-0.135286 :: -0.135065	(852)
+		-0.227786 :: -0.227998	(855)
 		0.267664 :: 0.267454	(857)
 		0.286433 :: 0.286233	(929)
-		-0.285968 :: -0.286181	(970)
+		-0.285967 :: -0.286181	(970)
 
-Test result [backward wK] : 2.20451e-06
-		-0.0559908 :: -0.0561893	(110)
+Test result [backward wK] : 2.10916e-06
+		-0.0559904 :: -0.0561893	(110)
 		-0.1196 :: -0.119802	(160)
-		-0.201377 :: -0.201178	(202)
-		-0.118463 :: -0.11866	(321)
+		-0.201378 :: -0.201178	(202)
+		-0.118462 :: -0.11866	(321)
 		0.237346 :: 0.237519	(591)
 		0.139165 :: 0.138964	(711)
 
-Test result [backward wV] : 4.83961e-07
+Test result [backward wV] : 3.44313e-07
 
-Test result [backward wO] : 3.607e-07
+Test result [backward wO] : 2.38305e-07
 
-Test result [backward alpha] : 2.06754e-07
+Test result [backward alpha] : 1.2666e-07
 
-Test result [backward bias] : 3.25803e-07
+Test result [backward bias] : 2.74342e-07
 
-Test result [backward w1] : 8.3523e-07
+Test result [backward w1] : 7.34846e-07
 		0.0589747 :: 0.0592267	(163)
-		0.034528 :: 0.0348681	(650)
-		-0.0966957 :: -0.0964843	(1104)
-		0.0368159 :: 0.0366105	(1417)
-		0.0704949 :: 0.0702936	(5733)
-		0.0444214 :: 0.0445386	(6392)
+		0.0345283 :: 0.0348681	(650)
+		-0.0966954 :: -0.0964843	(1104)
+		0.0368163 :: 0.0366105	(1417)
+		0.0704945 :: 0.0702936	(5733)
+		0.0444217 :: 0.0445386	(6392)
 
-Test result [backward b1] : 1.46369e-06
-		0.10073 :: 0.100527	(147)
+Test result [backward b1] : 1.36819e-06
+		0.100729 :: 0.100527	(147)
 
-Test result [backward w2] : 6.1527e-07
-		-0.0940085 :: -0.0941425	(2037)
-		-0.0465503 :: -0.0463653	(2662)
-		-0.0479206 :: -0.0481266	(2984)
-		0.0886028 :: 0.0888064	(4283)
-		-0.0420795 :: -0.0418748	(5307)
-		-0.0144252 :: -0.0146247	(5677)
+Test result [backward w2] : 5.16378e-07
+		-0.0940082 :: -0.0941425	(2037)
+		-0.0465499 :: -0.0463653	(2662)
+		-0.047921 :: -0.0481266	(2984)
+		0.0886031 :: 0.0888064	(4283)
+		-0.0420792 :: -0.0418748	(5307)
+		-0.0144256 :: -0.0146247	(5677)
 
-Test result [backward b2] : 1.25823e-07
+Test result [backward b2] : 6.82558e-08
 
-Test result [backward alpha] : 6.70739e-06
+Test result [backward alpha] : 6.61984e-06
 		1.00003 :: 0.99982	(11)
 
-Test result [backward bias] : 2.63348e-06
+Test result [backward bias] : 2.60115e-06
 
-Test result [backward wQ] : 6.68088e-07
+Test result [backward wQ] : 5.64684e-07
 		-0.233721 :: -0.233445	(17)
 
-Test result [backward wK] : 8.28598e-07
-		-0.0200777 :: -0.0198756	(951)
+Test result [backward wK] : 7.09747e-07
+		-0.0200773 :: -0.0198756	(951)
 		-0.102021 :: -0.102222	(956)
 
-Test result [backward wV] : 1.23538e-06
-		0.0453507 :: 0.0451483	(300)
+Test result [backward wV] : 1.1497e-06
+		0.045351 :: 0.0451483	(300)
 		-0.175589 :: -0.175386	(301)
-		0.067349 :: 0.0671456	(308)
-		-0.149153 :: -0.14895	(313)
+		0.0673494 :: 0.0671456	(308)
+		-0.149154 :: -0.14895	(313)
 
-Test result [backward wO] : 2.19023e-07
+Test result [backward wO] : 1.39742e-07
 
-Test result [backward alpha] : 1.67638e-07
+Test result [backward alpha] : 9.31323e-08
 
-Test result [backward bias] : 2.68503e-07
+Test result [backward bias] : 2.51118e-07
 
-Test result [backward w1] : 7.78457e-07
-		0.000915891 :: 0.00106814	(474)
-		-0.00813496 :: -0.0079333	(686)
+Test result [backward w1] : 6.81065e-07
+		0.000916172 :: 0.00106814	(474)
+		-0.00813533 :: -0.0079333	(686)
 		0.102486 :: 0.102685	(1187)
-		0.0631204 :: 0.0629251	(1841)
-		-0.0409524 :: -0.0411717	(4101)
-		0.0187276 :: 0.018524	(4493)
+		0.06312 :: 0.0629251	(1841)
+		-0.0409527 :: -0.0411717	(4101)
+		0.0187279 :: 0.018524	(4493)
 
-Test result [backward b1] : 1.113e-06
-		0.0474368 :: 0.0472329	(141)
+Test result [backward b1] : 1.02767e-06
+		0.0474371 :: 0.0472329	(141)
 
-Test result [backward w2] : 1.03878e-06
-		0.0877992 :: 0.0875955	(2225)
-		-0.076889 :: -0.0766764	(2715)
-		0.101975 :: 0.102183	(3611)
-		-0.0331563 :: -0.0329576	(3867)
-		0.0357979 :: 0.0355895	(4925)
+Test result [backward w2] : 9.54978e-07
+		0.0877996 :: 0.0875955	(2225)
+		-0.0768887 :: -0.0766764	(2715)
+		0.101976 :: 0.102183	(3611)
+		-0.0331559 :: -0.0329576	(3867)
+		0.0357975 :: 0.0355895	(4925)
 		-0.137815 :: -0.137629	(5819)
 
-Test result [backward b2] : 4.38653e-07
+Test result [backward b2] : 3.87598e-07
 
-Test result [backward alpha] : 3.81842e-07
+Test result [backward alpha] : 3.05474e-07
 
-Test result [backward bias] : 6.39225e-08
+Test result [backward bias] : 3.7553e-08
 
-Test result [backward wQ] : 4.08594e-07
+Test result [backward wQ] : 2.9967e-07
 
-Test result [backward wK] : 7.54328e-07
-		-0.0781331 :: -0.0779377	(263)
+Test result [backward wK] : 6.3229e-07
+		-0.0781328 :: -0.0779377	(263)
 		0.297409 :: 0.297235	(405)
 
-Test result [backward wV] : 7.05234e-07
-		-0.237756 :: -0.237957	(957)
+Test result [backward wV] : 6.3733e-07
+		-0.237755 :: -0.237957	(957)
 
-Test result [backward wO] : 2.00513e-06
-		0.0464703 :: 0.0466715	(114)
-		-0.1293 :: -0.129101	(227)
+Test result [backward wO] : 1.97422e-06
+		0.04647 :: 0.0466715	(114)
+		-0.129299 :: -0.129101	(227)
 		-0.299776 :: -0.299977	(284)
-		-0.206562 :: -0.206358	(508)
-		-0.0440001 :: -0.0442015	(530)
-		-0.00550919 :: -0.00530801	(594)
+		-0.206563 :: -0.206358	(508)
+		-0.0439998 :: -0.0442015	(530)
+		-0.00550955 :: -0.00530801	(594)
 
-Test result [backward alpha] : 4.06057e-07
+Test result [backward alpha] : 3.37139e-07
 
-Test result [backward bias] : 2.57921e-07
+Test result [backward bias] : 2.27983e-07
 
-Test result [backward w1] : 8.16155e-07
+Test result [backward w1] : 7.25254e-07
 		0.114244 :: 0.114047	(471)
-		-0.0596047 :: -0.0598085	(967)
-		0.00824738 :: 0.00843694	(1569)
-		0.0606006 :: 0.0605008	(2391)
-		-0.12648 :: -0.126214	(3348)
-		0.129924 :: 0.129734	(3390)
+		-0.0596043 :: -0.0598085	(967)
+		0.00824702 :: 0.00843694	(1569)
+		0.0606002 :: 0.0605008	(2391)
+		-0.126481 :: -0.126214	(3348)
+		0.129925 :: 0.129734	(3390)
 
-Test result [backward b1] : 5.43721e-07
+Test result [backward b1] : 4.64863e-07
 
-Test result [backward w2] : 1.05688e-06
-		-0.0661394 :: -0.0663398	(52)
-		0.028632 :: 0.0288429	(1063)
-		-0.0455162 :: -0.045316	(1650)
+Test result [backward w2] : 9.87273e-07
+		-0.0661397 :: -0.0663398	(52)
+		0.0286316 :: 0.0288429	(1063)
+		-0.0455165 :: -0.045316	(1650)
 		0.122294 :: 0.122194	(2033)
-		0.0699624 :: 0.0701744	(2183)
-		-0.0123518 :: -0.0125527	(4993)
+		0.069962 :: 0.0701744	(2183)
+		-0.012352 :: -0.0125527	(4993)
 
-Test result [backward b2] : 7.43566e-08
+Test result [backward b2] : 4.92655e-08
 
-Test result [backward alpha] : 6.18398e-07
+Test result [backward alpha] : 5.64381e-07
 
-Test result [backward bias] : 4.19278e-07
+Test result [backward bias] : 4.13477e-07
 
-Test result [backward wQ] : 5.22616e-07
+Test result [backward wQ] : 4.52233e-07
 
-Test result [backward wK] : 8.62091e-07
+Test result [backward wK] : 7.78406e-07
 		0.151696 :: 0.151515	(383)
 		-0.187252 :: -0.187452	(472)
 
-Test result [backward wV] : 1.66587e-06
-		0.0472312 :: 0.0474325	(54)
+Test result [backward wV] : 1.60306e-06
+		0.0472309 :: 0.0474325	(54)
 		0.217071 :: 0.217275	(56)
-		0.133684 :: 0.133886	(170)
+		0.133683 :: 0.133886	(170)
 		-0.196275 :: -0.196477	(173)
-		0.304083 :: 0.304286	(184)
+		0.304082 :: 0.304286	(184)
 		-0.151342 :: -0.151544	(185)
 
-Test result [backward wO] : 3.95218e-07
-		0.0813189 :: 0.0811184	(158)
+Test result [backward wO] : 3.12713e-07
+		0.0813192 :: 0.0811184	(158)
 
-Test result [backward alpha] : 1.00397e-06
+Test result [backward alpha] : 9.07108e-07
 
-Test result [backward bias] : 3.43828e-07
+Test result [backward bias] : 2.83475e-07
 
-Test result [backward w1] : 7.54509e-07
-		-0.129897 :: -0.130102	(1259)
-		-0.0456907 :: -0.0458932	(2739)
-		-0.0282902 :: -0.0284918	(3339)
-		-0.0172907 :: -0.0174849	(3642)
+Test result [backward w1] : 6.85423e-07
+		-0.129896 :: -0.130102	(1259)
+		-0.0456903 :: -0.0458932	(2739)
+		-0.0282898 :: -0.0284918	(3339)
+		-0.017291 :: -0.0174849	(3642)
 		0.12401 :: 0.124232	(3742)
 		-0.122539 :: -0.122338	(5834)
 
-Test result [backward b1] : 2.83797e-07
+Test result [backward b1] : 2.24177e-07
 
-Test result [backward w2] : 8.1966e-07
-		0.0192075 :: 0.0191173	(2300)
-		-0.0247121 :: -0.0248172	(2430)
-		-0.00416406 :: -0.00394156	(3984)
-		-0.0423972 :: -0.0422531	(5170)
-		-0.0405889 :: -0.040791	(5399)
-		0.0217072 :: 0.0219009	(7056)
+Test result [backward w2] : 7.54774e-07
+		-0.0247123 :: -0.0248172	(2430)
+		-0.0041638 :: -0.00394156	(3984)
+		-0.0423976 :: -0.0422531	(5170)
+		-0.0405893 :: -0.040791	(5399)
+		0.0217074 :: 0.0219009	(7056)
+		-0.00272715 :: -0.0024808	(7417)
 
-Test result [backward b2] : 7.62484e-08
+Test result [backward b2] : 5.65742e-08
 
-Test result [backward alpha] : 1.67638e-07
+Test result [backward alpha] : 8.19564e-08
 
-Test result [backward bias] : 1.03858e-07
+Test result [backward bias] : 3.85539e-08
 
-Test result [backward wQ] : 7.53366e-07
-		-0.284954 :: -0.285153	(983)
+Test result [backward wQ] : 6.98355e-07
+		-0.284955 :: -0.285153	(983)
 
-Test result [backward wK] : 5.25907e-07
+Test result [backward wK] : 4.41451e-07
 
-Test result [backward wV] : 1.29853e-07
+Test result [backward wV] : 5.93331e-08
 
-Test result [backward wO] : 1.57235e-07
-
-Test result [backward alpha] : 3.61353e-07
-
-Test result [backward bias] : 2.95453e-07
-
-Test result [backward w1] : 6.34298e-07
-		-0.0779595 :: -0.0781575	(287)
-		0.0764921 :: 0.076291	(938)
-		0.121296 :: 0.121496	(962)
-		0.126422 :: 0.126223	(3614)
-		0.0818713 :: 0.081561	(4445)
-		0.0310156 :: 0.0308408	(7168)
-
-Test result [backward b1] : 3.1099e-07
-
-Test result [backward w2] : 6.0461e-07
-		0.0504322 :: 0.0506171	(787)
-		0.042797 :: 0.0429924	(1522)
-		-0.0365351 :: -0.0363291	(3187)
-		-0.0416777 :: -0.0415271	(7248)
-
-Test result [backward b2] : 6.19475e-08
-
-Test result [backward alpha] : 1.32248e-07
-
-Test result [backward bias] : 5.4898e-08
+Test result [backward wO] : 7.59287e-08
 
 Test result [backward alpha] : 2.34693e-07
 
-Test result [backward bias] : 1.72195e-07
+Test result [backward bias] : 2.12843e-07
 
-Test result [backward wQ] : 6.19559e-07
-		0.100738 :: 0.100881	(507)
-		-0.181803 :: -0.181948	(671)
+Test result [backward w1] : 5.42151e-07
+		-0.0779599 :: -0.0781575	(287)
+		0.0764918 :: 0.076291	(938)
+		0.121297 :: 0.121496	(962)
+		0.126421 :: 0.126223	(3614)
+		0.0818713 :: 0.081561	(4445)
+		0.0310153 :: 0.0308408	(7168)
 
-Test result [backward wK] : 4.85734e-07
+Test result [backward b1] : 2.35415e-07
+
+Test result [backward w2] : 5.13422e-07
+		0.0504318 :: 0.0506171	(787)
+		0.0427966 :: 0.0429924	(1522)
+		-0.0365354 :: -0.0363291	(3187)
+		-0.0416781 :: -0.0415271	(7248)
+
+Test result [backward b2] : 2.05982e-08
+
+Test result [backward alpha] : 5.96046e-08
+
+Test result [backward bias] : 1.64041e-08
+
+Test result [backward alpha] : 1.58325e-07
+
+Test result [backward bias] : 1.09737e-07
+
+Test result [backward wQ] : 3.1621e-07
+		0.100737 :: 0.100881	(507)
+		-0.181802 :: -0.181948	(671)
+
+Test result [backward wK] : 1.95119e-07
 		-0.250785 :: -0.250932	(777)
 
-Test result [backward wV] : 5.22885e-07
-		-0.0251876 :: -0.02539	(900)
+Test result [backward wV] : 4.35365e-07
+		-0.025188 :: -0.02539	(900)
 
-Test result [backward wO] : 4.61701e-07
-		0.0288229 :: 0.0290214	(393)
+Test result [backward wO] : 3.36769e-07
+		0.0288226 :: 0.0290214	(393)
 
-Test result [backward alpha] : 6.72415e-06
+Test result [backward alpha] : 6.64592e-06
 		1.00003 :: 0.999831	(29)
 
-Test result [backward bias] : 3.56512e-07
+Test result [backward bias] : 2.24926e-07
 
-Test result [backward wQ] : 4.60382e-07
+Test result [backward wQ] : 3.51664e-07
 
-Test result [backward wK] : 6.63114e-07
-		-0.0132766 :: -0.0134624	(20)
+Test result [backward wK] : 5.5934e-07
+		-0.013277 :: -0.0134624	(20)
 
-Test result [backward wV] : 1.40989e-07
+Test result [backward wV] : 7.03043e-08
 
-Test result [backward wO] : 2.05567e-07
+Test result [backward wO] : 1.17253e-07
 
-Test result [backward alpha] : 3.27826e-07
+Test result [backward alpha] : 2.32831e-07
 
-Test result [backward bias] : 2.71413e-07
+Test result [backward bias] : 2.02776e-07
 
-Test result [backward w1] : 6.93485e-07
-		-0.0261533 :: -0.0263531	(1147)
-		0.0516393 :: 0.0514516	(1295)
+Test result [backward w1] : 5.78982e-07
+		-0.0261529 :: -0.0263531	(1147)
+		0.0516389 :: 0.0514516	(1295)
 		0.138555 :: 0.138755	(1915)
-		-0.0370587 :: -0.0368678	(2416)
-		-0.092467 :: -0.0922665	(2425)
-		-0.0332663 :: -0.0330623	(2683)
+		-0.0370591 :: -0.0368678	(2416)
+		-0.0924667 :: -0.0922665	(2425)
+		-0.0332666 :: -0.0330623	(2683)
 
-Test result [backward b1] : 3.89354e-07
+Test result [backward b1] : 2.81336e-07
 
-Test result [backward w2] : 6.40106e-07
+Test result [backward w2] : 5.40668e-07
 		0.0833516 :: 0.0832068	(3076)
-		-0.010054 :: -0.00992433	(4514)
-		0.0142681 :: 0.0140563	(5252)
-		-0.0988946 :: -0.0986975	(5470)
-		-0.0593671 :: -0.0595537	(6340)
-		-0.0597634 :: -0.0599647	(6916)
+		-0.0100536 :: -0.00992433	(4514)
+		0.0142685 :: 0.0140563	(5252)
+		-0.0988949 :: -0.0986975	(5470)
+		-0.0593667 :: -0.0595537	(6340)
+		-0.0597637 :: -0.0599647	(6916)
 
-Test result [backward b2] : 3.65937e-07
+Test result [backward b2] : 3.22456e-07
 
-Test result [backward alpha] : 3.50177e-07
+Test result [backward alpha] : 2.58908e-07
 
-Test result [backward bias] : 2.72925e-07
+Test result [backward bias] : 2.26529e-07
 
-Test result [backward wQ] : 7.61071e-07
+Test result [backward wQ] : 5.70078e-07
 		0.229839 :: 0.229693	(444)
-		0.0958842 :: 0.0960221	(607)
-		0.174881 :: 0.174739	(862)
+		0.0958838 :: 0.0960221	(607)
+		0.174882 :: 0.174739	(862)
 
-Test result [backward wK] : 7.90356e-07
+Test result [backward wK] : 6.05154e-07
 		0.144458 :: 0.144334	(431)
 		-0.232024 :: -0.231877	(773)
-		0.0344855 :: 0.0343389	(780)
+		0.0344859 :: 0.0343389	(780)
 
-Test result [backward wV] : 2.0528e-07
+Test result [backward wV] : 1.17314e-07
 
-Test result [backward wO] : 2.57155e-07
+Test result [backward wO] : 1.12149e-07
 
-Test result [backward alpha] : 3.31551e-07
+Test result [backward alpha] : 1.71363e-07
 
-Test result [backward bias] : 2.30195e-07
+Test result [backward bias] : 1.43305e-07
 
-Test result [backward wQ] : 5.63417e-07
-		0.188311 :: 0.188126	(488)
+Test result [backward wQ] : 4.56875e-07
+		0.188312 :: 0.188126	(488)
 
-Test result [backward wK] : 4.57246e-07
+Test result [backward wK] : 3.66854e-07
 
-Test result [backward wV] : 3.72815e-07
+Test result [backward wV] : 2.90877e-07
 		0.252297 :: 0.252096	(786)
 
-Test result [backward wO] : 1.77902e-07
+Test result [backward wO] : 8.36461e-08
 
-Test result [backward alpha] : 3.01749e-07
+Test result [backward alpha] : 1.80677e-07
 
-Test result [backward bias] : 1.76614e-07
+Test result [backward bias] : 6.29525e-08
 
-Test result [backward w1] : 1.03688e-06
-		-0.0306191 :: -0.0308171	(16)
+Test result [backward w1] : 9.14113e-07
+		-0.0306188 :: -0.0308171	(16)
 		0.13761 :: 0.137806	(158)
-		-0.047987 :: -0.0483617	(407)
+		-0.0479872 :: -0.0483617	(407)
 		-0.108489 :: -0.108689	(528)
-		-0.0496162 :: -0.0498135	(610)
-		0.115081 :: 0.114881	(688)
+		-0.0496166 :: -0.0498135	(610)
+		0.11508 :: 0.114881	(688)
 
-Test result [backward b1] : 1.97041e-06
-		0.000525493 :: 0.000740306	(8)
-		-0.0930405 :: -0.0928441	(98)
+Test result [backward b1] : 1.86459e-06
+		0.000525114 :: 0.000740306	(8)
+		-0.0930402 :: -0.0928441	(98)
 
-Test result [backward w2] : 5.85429e-07
-		-0.0401597 :: -0.0400411	(5332)
-		-0.0470966 :: -0.0469319	(6334)
-		0.135309 :: 0.135483	(7060)
+Test result [backward w2] : 4.88061e-07
+		-0.0401601 :: -0.0400411	(5332)
+		-0.0470963 :: -0.0469319	(6334)
+		0.13531 :: 0.135483	(7060)
 
-Test result [backward b2] : 6.72298e-08
-
-Test result [backward alpha] : 3.33413e-07
-
-Test result [backward bias] : 2.09082e-07
-
-Test result [backward wQ] : 8.64952e-07
-		0.00519343 :: 0.0053063	(147)
-		0.107134 :: 0.107011	(334)
-		-0.253885 :: -0.254029	(452)
-		0.0728991 :: 0.0727565	(644)
-
-Test result [backward wK] : 4.21733e-07
-
-Test result [backward wV] : 2.90795e-07
-
-Test result [backward wO] : 6.51842e-07
-		0.272108 :: 0.272307	(922)
-
-Test result [backward alpha] : 3.33413e-07
-
-Test result [backward bias] : 6.39723e-06
-		-2.71288e-05 :: 0.000171333	(23)
-
-Test result [backward wQ] : 6.55455e-07
-		-0.292377 :: -0.292495	(239)
-		-0.14448 :: -0.144603	(688)
-
-Test result [backward wK] : 6.42987e-07
-		0.113804 :: 0.113575	(798)
-
-Test result [backward wV] : 2.5928e-07
-
-Test result [backward wO] : 8.04245e-07
-		-0.301919 :: -0.302114	(215)
-		-0.136583 :: -0.136377	(659)
+Test result [backward b2] : 1.86847e-08
 
 Test result [backward alpha] : 2.29105e-07
 
-Test result [backward bias] : 1.74124e-07
+Test result [backward bias] : 1.33656e-07
 
-Test result [backward w1] : 6.27502e-07
+Test result [backward wQ] : 7.09614e-07
+		0.00519308 :: 0.0053063	(147)
+		0.107134 :: 0.107011	(334)
+		-0.253885 :: -0.254029	(452)
+		0.0728995 :: 0.0727565	(644)
+
+Test result [backward wK] : 2.68113e-07
+
+Test result [backward wV] : 1.69215e-07
+
+Test result [backward wO] : 5.2791e-07
+		0.272108 :: 0.272307	(922)
+
+Test result [backward alpha] : 1.69501e-07
+
+Test result [backward bias] : 6.27443e-06
+		-2.67826e-05 :: 0.000171333	(23)
+
+Test result [backward wQ] : 5.50569e-07
+		-0.292377 :: -0.292495	(239)
+		-0.14448 :: -0.144603	(688)
+
+Test result [backward wK] : 5.5055e-07
+		0.113804 :: 0.113575	(798)
+
+Test result [backward wV] : 1.80967e-07
+
+Test result [backward wO] : 7.08655e-07
+		-0.301919 :: -0.302114	(215)
+		-0.136583 :: -0.136377	(659)
+
+Test result [backward alpha] : 1.04308e-07
+
+Test result [backward bias] : 7.55125e-08
+
+Test result [backward w1] : 5.15058e-07
 		0.111736 :: 0.111537	(608)
-		-0.0495463 :: -0.0496815	(1447)
+		-0.0495459 :: -0.0496815	(1447)
 		-0.129945 :: -0.129756	(1585)
-		-0.0464775 :: -0.0466014	(4076)
+		-0.0464778 :: -0.0466014	(4076)
 		0.132301 :: 0.132549	(5028)
-		-0.0494419 :: -0.0492385	(5942)
+		-0.0494415 :: -0.0492385	(5942)
 
-Test result [backward b1] : 2.67499e-07
+Test result [backward b1] : 1.75713e-07
 
-Test result [backward w2] : 1.4645e-06
-		0.0614166 :: 0.0611768	(73)
-		0.081484 :: 0.0812741	(937)
-		-0.0835441 :: -0.0837538	(1065)
-		-0.00396374 :: -0.00422698	(1513)
-		0.0109028 :: 0.0106836	(1801)
-		0.0964898 :: 0.0966892	(2004)
+Test result [backward w2] : 1.37675e-06
+		0.0614169 :: 0.0611768	(73)
+		0.0814843 :: 0.0812741	(937)
+		-0.0835438 :: -0.0837538	(1065)
+		-0.00396376 :: -0.00422698	(1513)
+		0.0109032 :: 0.0106836	(1801)
+		0.0964902 :: 0.0966892	(2004)
 
-Test result [backward b2] : 2.79948e-07
+Test result [backward b2] : 2.61649e-07
 
-Test result [backward alpha] : 3.59491e-07
+Test result [backward alpha] : 2.34693e-07
 
-Test result [backward bias] : 8.2671e-07
+Test result [backward bias] : 8.16259e-07
 
-Test result [backward wQ] : 3.38595e-07
+Test result [backward wQ] : 2.15686e-07
 
-Test result [backward wK] : 3.36467e-07
+Test result [backward wK] : 2.10504e-07
 
-Test result [backward wV] : 2.21523e-07
+Test result [backward wV] : 8.90635e-08
 
-Test result [backward wO] : 5.12593e-07
+Test result [backward wO] : 3.9708e-07
 		0.139595 :: 0.139795	(243)
 
-Test result [backward alpha] : 2.55182e-07
+Test result [backward alpha] : 1.67638e-07
 
-Test result [backward bias] : 2.17094e-07
+Test result [backward bias] : 1.03829e-07
 
-Test result [backward wQ] : 7.21657e-07
-		-0.0462907 :: -0.046467	(20)
-		-0.265182 :: -0.264991	(560)
+Test result [backward wQ] : 6.22816e-07
+		-0.0462911 :: -0.046467	(20)
+		-0.265181 :: -0.264991	(560)
 
-Test result [backward wK] : 4.24361e-07
+Test result [backward wK] : 3.25089e-07
 
-Test result [backward wV] : 1.07498e-07
+Test result [backward wV] : 3.5461e-08
 
-Test result [backward wO] : 4.04978e-07
+Test result [backward wO] : 3.31582e-07
 		0.296003 :: 0.295806	(573)
 
-Test result [backward alpha] : 2.14204e-07
+Test result [backward alpha] : 1.45286e-07
 
-Test result [backward bias] : 1.8853e-07
+Test result [backward bias] : 1.26712e-07
 
-Test result [backward w1] : 5.92416e-07
+Test result [backward w1] : 5.04919e-07
 		0.109927 :: 0.109729	(655)
-		0.0519811 :: 0.0520748	(3348)
-		-0.0385445 :: -0.0383545	(3983)
-		0.0194949 :: 0.0192988	(5502)
-		-0.0392745 :: -0.0394592	(7708)
+		0.0519812 :: 0.0520748	(3348)
+		-0.0385449 :: -0.0383545	(3983)
+		0.0194953 :: 0.0192988	(5502)
+		-0.0392742 :: -0.0394592	(7708)
 
-Test result [backward b1] : 1.0028e-06
-		0.175128 :: 0.175327	(143)
+Test result [backward b1] : 9.24512e-07
+		0.175129 :: 0.175327	(143)
 
-Test result [backward w2] : 8.30703e-07
-		-0.0632472 :: -0.0630279	(669)
+Test result [backward w2] : 7.64792e-07
+		-0.0632469 :: -0.0630279	(669)
 
-Test result [backward b2] : 8.75225e-08
+Test result [backward b2] : 6.34755e-08
 
-Test result [backward alpha] : 1.35973e-07
+Test result [backward alpha] : 6.33299e-08
 
-Test result [backward bias] : 6.75559e-08
+Test result [backward bias] : 3.26559e-08
 
-Test result [backward wQ] : 7.78533e-07
+Test result [backward wQ] : 7.89178e-07
 
-Test result [backward wK] : 5.29277e-07
+Test result [backward wK] : 4.93951e-07
 
-Test result [backward wV] : 2.50734e-07
+Test result [backward wV] : 1.91532e-07
 
-Test result [backward wO] : 1.28488e-06
-		0.0301651 :: 0.0303661	(416)
-		0.0614302 :: 0.0612371	(512)
-		0.0170109 :: 0.0172145	(916)
-		0.253982 :: 0.254181	(936)
+Test result [backward wO] : 1.21078e-06
+		0.0301648 :: 0.0303661	(416)
+		0.0614305 :: 0.0612371	(512)
+		0.0170113 :: 0.0172145	(916)
+		0.253981 :: 0.254181	(936)
 
-Test result [backward alpha] : 2.42144e-07
+Test result [backward alpha] : 1.45286e-07
 
-Test result [backward bias] : 2.38399e-07
+Test result [backward bias] : 1.32289e-07
 
-Test result [backward wQ] : 1.7531e-06
+Test result [backward wQ] : 1.65211e-06
 		-0.125987 :: -0.126138	(193)
 		-0.125711 :: -0.125904	(213)
 		-0.10822 :: -0.108408	(218)
 		-0.227792 :: -0.227996	(223)
-		-0.0757281 :: -0.0759001	(684)
+		-0.0757285 :: -0.0759001	(684)
 		0.241094 :: 0.241251	(716)
 
-Test result [backward wK] : 7.02623e-07
-		0.247188 :: 0.247328	(683)
+Test result [backward wK] : 6.21995e-07
+		0.247189 :: 0.247328	(683)
 
-Test result [backward wV] : 2.99307e-07
+Test result [backward wV] : 2.3367e-07
 
-Test result [backward wO] : 1.7811e-06
+Test result [backward wO] : 1.73647e-06
 		-0.280925 :: -0.281131	(20)
-		-0.217712 :: -0.217912	(96)
+		-0.217711 :: -0.217912	(96)
 		0.29801 :: 0.297805	(264)
-		-0.0545018 :: -0.0543043	(404)
-		0.278992 :: 0.278791	(532)
-		0.0821026 :: 0.0823078	(660)
+		-0.0545022 :: -0.0543043	(404)
+		0.278993 :: 0.278791	(532)
+		0.0821023 :: 0.0823078	(660)
 
-Test result [backward alpha] : 2.38419e-07
+Test result [backward alpha] : 9.49949e-08
 
-Test result [backward bias] : 5.65411e-07
+Test result [backward bias] : 5.03117e-07
 
-Test result [backward w1] : 9.63404e-07
-		0.135436 :: 0.135609	(557)
+Test result [backward w1] : 8.62999e-07
+		0.135435 :: 0.135609	(557)
 		0.106393 :: 0.10624	(1294)
-		0.127051 :: 0.12688	(4812)
-		-0.0313808 :: -0.0315652	(5165)
-		-0.0476697 :: -0.0478366	(5390)
-		0.125573 :: 0.125479	(5716)
-
-Test result [backward b1] : 5.51347e-07
-
-Test result [backward w2] : 1.01078e-06
-		-0.106817 :: -0.10691	(5120)
-
-Test result [backward b2] : 3.99832e-08
-
-Test result [backward alpha] : 1.99303e-07
-
-Test result [backward bias] : 6.52249e-08
-
-Test result [backward wQ] : 6.78655e-07
-
-Test result [backward wK] : 7.1995e-07
-
-Test result [backward wV] : 3.01622e-07
-
-Test result [backward wO] : 7.71334e-07
-		-0.0579803 :: -0.0577455	(837)
-		-0.283369 :: -0.283573	(965)
-
-Test result [backward alpha] : 3.31551e-07
-
-Test result [backward bias] : 3.55438e-07
-
-Test result [backward wQ] : 1.05803e-06
-		0.263542 :: 0.263353	(47)
-		0.174918 :: 0.175096	(535)
-		0.241474 :: 0.241673	(833)
-
-Test result [backward wK] : 1.01096e-06
-		-0.192984 :: -0.19318	(800)
-
-Test result [backward wV] : 1.12061e-07
-
-Test result [backward wO] : 8.69778e-07
-		0.140476 :: 0.140678	(116)
-		0.291542 :: 0.291314	(517)
-
-Test result [backward alpha] : 3.96743e-07
-
-Test result [backward bias] : 2.23246e-07
-
-Test result [backward w1] : 6.19934e-07
-		0.00893058 :: 0.00872373	(2605)
-		0.0544745 :: 0.0542676	(3177)
-		-0.0346769 :: -0.0348128	(4640)
-		0.0587159 :: 0.0586061	(6985)
-		-0.0736674 :: -0.0738765	(7213)
-		-0.119925 :: -0.120125	(7725)
-
-Test result [backward b1] : 2.62132e-07
-
-Test result [backward w2] : 1.33501e-06
-		0.0310604 :: 0.0311753	(4404)
-		-0.0638784 :: -0.0636824	(7200)
-
-Test result [backward b2] : 1.16765e-07
-
-Test result [backward alpha] : 2.6077e-07
-
-Test result [backward bias] : 3.30674e-08
-
-Test result [backward table] : 1.07074e-05
-		0.0765211 :: 0.0768948	(627)
-		0.10662 :: 0.106421	(654)
-		0.0647683 :: 0.0651017	(1177)
-		-0.149416 :: -0.149202	(1364)
-		-0.038425 :: -0.0382214	(1549)
-		-0.0276625 :: -0.0274413	(1568)
-
-Test result [backward table] : 9.38962e-06
-		-0.0961608 :: -0.095954	(831)
-		0.0876311 :: 0.0874325	(1206)
-		-0.141261 :: -0.141061	(1340)
-		-0.148 :: -0.148205	(2051)
-		0.167394 :: 0.167221	(2179)
-		-0.0936934 :: -0.0938925	(2294)
-
-Test result [backward weight] : 1.34247e-07
-
-Test result [backward bias] : 9.54969e-12
-
-Check =========================================
-Test result [backward alpha] : 1.02259e-06
-
-Test result [backward bias] : 7.67115e-07
-
-Test result [backward wQ] : 2.70429e-06
-		-0.0341146 :: -0.0338913	(123)
-		0.120094 :: 0.119915	(240)
-		0.132457 :: 0.13225	(754)
-		-0.0968088 :: -0.0970113	(822)
-		0.0853085 :: 0.0850987	(880)
-
-Test result [backward wK] : 1.80443e-06
-		0.189795 :: 0.189992	(274)
-		-0.098158 :: -0.0979492	(978)
-
-Test result [backward wV] : 7.18142e-07
-
-Test result [backward wO] : 1.04687e-06
-		-0.244332 :: -0.244537	(402)
-
-Test result [backward alpha] : 9.77889e-07
-
-Test result [backward bias] : 7.33335e-07
-
-Test result [backward w1] : 2.16454e-06
-		-0.0749767 :: -0.0747685	(95)
-		0.0300044 :: 0.0298656	(161)
-		-0.0941334 :: -0.0939304	(534)
-		-0.0905954 :: -0.0903768	(549)
-		-0.0661259 :: -0.0663276	(895)
-		0.0142395 :: 0.0140229	(1289)
-
-Test result [backward b1] : 1.42472e-06
-
-Test result [backward w2] : 1.47887e-06
-		0.136568 :: 0.136365	(1284)
-		-0.0614839 :: -0.0616874	(1835)
-		-0.0519395 :: -0.0521444	(2479)
-		-0.00215242 :: -0.00194723	(2900)
-		0.0807269 :: 0.0809092	(3259)
-		-0.11294 :: -0.113145	(4111)
-
-Test result [backward b2] : 8.61939e-07
-
-Test result [backward alpha] : 2.61329e-06
-
-Test result [backward bias] : 1.43779e-06
-
-Test result [backward wQ] : 2.9453e-06
-		0.186288 :: 0.18614	(748)
-		-0.135355 :: -0.135094	(852)
-		-0.227789 :: -0.228019	(855)
-		0.267752 :: 0.267537	(857)
-		0.286351 :: 0.28615	(929)
-		-0.286021 :: -0.286238	(970)
-
-Test result [backward wK] : 2.84497e-06
-		-0.0559343 :: -0.0561333	(110)
-		-0.11968 :: -0.119884	(160)
-		-0.20139 :: -0.201189	(202)
-		-0.11845 :: -0.118652	(321)
-		0.237263 :: 0.237436	(591)
-		0.139086 :: 0.138885	(711)
-
-Test result [backward wV] : 8.90136e-07
-
-Test result [backward wO] : 6.8128e-07
-
-Test result [backward alpha] : 6.46338e-07
-
-Test result [backward bias] : 8.38816e-07
-
-Test result [backward w1] : 1.37313e-06
-		0.0589125 :: 0.0591685	(163)
-		0.034461 :: 0.03481	(650)
-		-0.0966359 :: -0.0964099	(1104)
-		0.0369019 :: 0.0366941	(1417)
-		0.0704121 :: 0.0702097	(5733)
-		0.0444674 :: 0.0446108	(6392)
-
-Test result [backward b1] : 2.13026e-06
-		0.10065 :: 0.100445	(147)
-
-Test result [backward w2] : 9.48615e-07
-		-0.0939256 :: -0.0940593	(2037)
-		-0.0465722 :: -0.0463775	(2662)
-		-0.0479963 :: -0.0482048	(2984)
-		0.0886583 :: 0.0888638	(4283)
-		-0.0420001 :: -0.0417921	(5307)
-		-0.0145091 :: -0.0147092	(5677)
-
-Test result [backward b2] : 2.50162e-07
-
-Test result [backward alpha] : 7.12276e-06
-		1.00007 :: 0.999849	(11)
-
-Test result [backward bias] : 3.00148e-06
-		0.000235603 :: 0.000145478	(11)
-
-Test result [backward wQ] : 1.06255e-06
-		-0.233784 :: -0.233495	(17)
-
-Test result [backward wK] : 1.19193e-06
-		-0.0199933 :: -0.019789	(951)
-		-0.101943 :: -0.102145	(956)
-
-Test result [backward wV] : 1.66903e-06
-		0.045429 :: 0.045224	(300)
-		-0.175667 :: -0.175461	(301)
-		0.0674312 :: 0.0672247	(308)
-		-0.149235 :: -0.149028	(313)
-
-Test result [backward wO] : 5.36437e-07
-
-Test result [backward alpha] : 2.73809e-07
-
-Test result [backward bias] : 4.77607e-07
-
-Test result [backward w1] : 1.17708e-06
-		0.000981568 :: 0.00113477	(474)
-		-0.00821438 :: -0.0080115	(686)
-		0.102401 :: 0.1026	(1187)
-		0.0630369 :: 0.0628412	(1841)
-		-0.0408964 :: -0.0411169	(4101)
-		0.0188143 :: 0.0186091	(4493)
-
-Test result [backward b1] : 1.47113e-06
-		0.0475232 :: 0.0473175	(141)
-
-Test result [backward w2] : 1.55924e-06
-		0.0878822 :: 0.0876751	(2225)
-		-0.0769277 :: -0.0767076	(2715)
-		0.101987 :: 0.102204	(3611)
-		-0.0330814 :: -0.0328804	(3867)
-		0.0357189 :: 0.0355054	(4925)
-		-0.137733 :: -0.137544	(5819)
-
-Test result [backward b2] : 7.43988e-07
-
-Test result [backward alpha] : 6.48201e-07
-
-Test result [backward bias] : 2.36052e-07
-
-Test result [backward wQ] : 6.3257e-07
-
-Test result [backward wK] : 1.04209e-06
-		-0.0780555 :: -0.0778592	(263)
-		0.297379 :: 0.297204	(405)
-
-Test result [backward wV] : 1.1329e-06
-		-0.237672 :: -0.237874	(957)
-
-Test result [backward wO] : 2.48404e-06
-		0.0463845 :: 0.0465862	(114)
-		-0.129309 :: -0.12911	(227)
-		-0.299692 :: -0.299894	(284)
-		-0.206646 :: -0.20644	(508)
-		-0.0439141 :: -0.044116	(530)
-		-0.00559493 :: -0.00539328	(594)
-
-Test result [backward alpha] : 7.52509e-07
-
-Test result [backward bias] : 5.7365e-07
-
-Test result [backward w1] : 1.18001e-06
-		0.114161 :: 0.113963	(471)
-		-0.0595269 :: -0.059732	(967)
-		0.008169 :: 0.00835839	(1569)
-		0.0605432 :: 0.0604435	(2391)
-		-0.126576 :: -0.126273	(3348)
-		0.130005 :: 0.129814	(3390)
-
-Test result [backward b1] : 9.78983e-07
-		-0.0283909 :: -0.0282849	(116)
-
-Test result [backward w2] : 1.39947e-06
-		-0.0660991 :: -0.0663027	(52)
-		0.0285573 :: 0.0287701	(1063)
-		-0.0456024 :: -0.0454017	(1650)
-		0.122328 :: 0.122189	(2033)
-		0.0698757 :: 0.0700935	(2183)
-		-0.0123169 :: -0.01257	(4993)
-
-Test result [backward b2] : 1.80753e-07
-
-Test result [backward alpha] : 1.43051e-06
-
-Test result [backward bias] : 6.00773e-07
-
-Test result [backward wQ] : 7.99961e-07
-
-Test result [backward wK] : 1.20687e-06
-		0.151782 :: 0.151601	(383)
-		-0.187195 :: -0.1874	(472)
-
-Test result [backward wV] : 2.03872e-06
-		0.0471452 :: 0.0473472	(54)
-		0.216985 :: 0.21719	(56)
-		0.133598 :: 0.133801	(170)
-		-0.19619 :: -0.196393	(173)
-		0.303998 :: 0.304203	(184)
-		-0.151257 :: -0.151459	(185)
-
-Test result [backward wO] : 6.51978e-07
-		0.0812631 :: 0.0810619	(158)
-
-Test result [backward alpha] : 1.38208e-06
-
-Test result [backward bias] : 5.57712e-07
-
-Test result [backward w1] : 1.0399e-06
-		-0.129813 :: -0.13002	(1259)
-		-0.045607 :: -0.0458105	(2739)
-		-0.0282046 :: -0.0284068	(3339)
-		-0.0173305 :: -0.017525	(3642)
-		0.123935 :: 0.124161	(3742)
-		-0.122472 :: -0.122268	(5834)
-
-Test result [backward b1] : 5.1423e-07
-
-Test result [backward w2] : 1.15177e-06
-		0.0191817 :: 0.0190818	(2300)
-		-0.0247596 :: -0.0248654	(2430)
-		-0.00881703 :: -0.00891002	(2743)
-		-0.00420921 :: -0.0039245	(3984)
-		-0.0424617 :: -0.0423178	(5170)
-		-0.0406067 :: -0.0408111	(5399)
-
-Test result [backward b2] : 1.71291e-07
-
-Test result [backward alpha] : 3.48315e-07
-
-Test result [backward bias] : 2.96478e-07
-
-Test result [backward wQ] : 1.04238e-06
-		-0.284983 :: -0.285183	(983)
-
-Test result [backward wK] : 8.34174e-07
-
-Test result [backward wV] : 2.76769e-07
-
-Test result [backward wO] : 3.74193e-07
-
-Test result [backward alpha] : 6.92904e-07
-
-Test result [backward bias] : 5.99233e-07
-
-Test result [backward w1] : 9.44052e-07
-		-0.0780355 :: -0.0782341	(287)
-		0.0764264 :: 0.0762248	(938)
-		0.12137 :: 0.121571	(962)
-		0.126374 :: 0.126173	(3614)
-		0.0819347 :: 0.0816217	(4445)
-		0.0309728 :: 0.0307912	(7168)
-
-Test result [backward b1] : 5.65722e-07
-
-Test result [backward w2] : 8.81525e-07
-		0.0503594 :: 0.0505454	(787)
-		0.0427135 :: 0.0429088	(1522)
-		-0.036623 :: -0.0364099	(3187)
-		-0.0416782 :: -0.041516	(7248)
-
-Test result [backward b2] : 1.48197e-07
-
-Test result [backward alpha] : 2.84985e-07
-
-Test result [backward bias] : 1.44219e-07
-
-Test result [backward alpha] : 4.37722e-07
-
-Test result [backward bias] : 2.35958e-07
-
-Test result [backward wQ] : 9.60398e-07
-		0.100674 :: 0.100817	(507)
-		-0.181737 :: -0.181887	(671)
-
-Test result [backward wK] : 8.67801e-07
-		-0.250849 :: -0.250996	(777)
-
-Test result [backward wV] : 8.60372e-07
-		-0.0252722 :: -0.0254763	(900)
-
-Test result [backward wO] : 6.79985e-07
-		0.0287472 :: 0.028946	(393)
-
-Test result [backward alpha] : 6.90855e-06
-		1.00002 :: 0.999821	(29)
-
-Test result [backward bias] : 4.95654e-07
-
-Test result [backward wQ] : 7.2711e-07
-
-Test result [backward wK] : 9.59774e-07
-		-0.0133561 :: -0.0135425	(20)
-
-Test result [backward wV] : 2.39162e-07
-
-Test result [backward wO] : 3.54636e-07
-
-Test result [backward alpha] : 5.84871e-07
-
-Test result [backward bias] : 4.38965e-07
-
-Test result [backward w1] : 1.05528e-06
-		0.0588162 :: 0.058718	(789)
-		-0.0260678 :: -0.0262675	(1147)
-		0.0515538 :: 0.0513657	(1295)
-		0.138622 :: 0.138822	(1915)
-		-0.037129 :: -0.0369369	(2416)
-		-0.0924332 :: -0.0922312	(2425)
-
-Test result [backward b1] : 6.711e-07
-
-Test result [backward w2] : 1.05613e-06
-		0.0435179 :: 0.043425	(100)
-		0.0832928 :: 0.0831422	(3076)
-		-0.00996889 :: -0.00983895	(4514)
-		0.014208 :: 0.0139938	(5252)
-		-0.0989442 :: -0.0987457	(5470)
-		-0.0866175 :: -0.0867364	(6112)
-
-Test result [backward b2] : 6.26231e-07
-
-Test result [backward alpha] : 6.53788e-07
-
-Test result [backward bias] : 4.59464e-07
-
-Test result [backward wQ] : 1.22669e-06
-		0.229776 :: 0.229628	(444)
-		0.0958194 :: 0.0959584	(607)
-		0.174946 :: 0.174802	(862)
-
-Test result [backward wK] : 1.28558e-06
-		0.144396 :: 0.14427	(431)
-		-0.23209 :: -0.231938	(773)
-		0.0344245 :: 0.0342725	(780)
-
-Test result [backward wV] : 4.71662e-07
-
-Test result [backward wO] : 5.33083e-07
-
-Test result [backward alpha] : 5.66244e-07
-
-Test result [backward bias] : 3.66533e-07
-
-Test result [backward wQ] : 8.27116e-07
-		0.18838 :: 0.188195	(488)
-
-Test result [backward wK] : 7.1518e-07
-
-Test result [backward wV] : 6.67492e-07
-		0.252275 :: 0.25207	(786)
-
-Test result [backward wO] : 2.97738e-07
-
-Test result [backward alpha] : 6.55651e-07
-
-Test result [backward bias] : 2.89691e-07
-
-Test result [backward w1] : 1.44051e-06
-		-0.030582 :: -0.0307804	(16)
-		0.137695 :: 0.137893	(158)
-		-0.0480283 :: -0.0484301	(407)
-		-0.108571 :: -0.108772	(528)
-		-0.049646 :: -0.0498456	(610)
-		0.115041 :: 0.11484	(688)
-
-Test result [backward b1] : 2.281e-06
-		0.000585962 :: 0.000801982	(8)
-		-0.0929961 :: -0.0927982	(98)
-
-Test result [backward w2] : 8.7853e-07
-		-0.0402437 :: -0.040125	(5332)
-		-0.0471472 :: -0.0469809	(6334)
-		0.135377 :: 0.13555	(7060)
-
-Test result [backward b2] : 1.40484e-07
-
-Test result [backward alpha] : 6.0536e-07
-
-Test result [backward bias] : 3.94969e-07
-
-Test result [backward wQ] : 1.25225e-06
-		0.00512914 :: 0.00524271	(147)
-		0.107071 :: 0.106947	(334)
-		-0.253821 :: -0.253966	(452)
-		0.072844 :: 0.0726868	(644)
-
-Test result [backward wK] : 8.19577e-07
-
-Test result [backward wV] : 6.16877e-07
-
-Test result [backward wO] : 1.0322e-06
-		0.272191 :: 0.272391	(922)
-
-Test result [backward alpha] : 6.25849e-07
-
-Test result [backward bias] : 6.63994e-06
-		5.20984e-05 :: 0.000253338	(23)
-
-Test result [backward wQ] : 9.28788e-07
-		-0.292293 :: -0.292411	(239)
-		-0.144493 :: -0.144616	(688)
-
-Test result [backward wK] : 9.30424e-07
-		0.113885 :: 0.113629	(798)
-
-Test result [backward wV] : 4.78584e-07
-
-Test result [backward wO] : 1.16559e-06
-		-0.302 :: -0.302198	(215)
-		-0.136599 :: -0.136388	(659)
-
-Test result [backward alpha] : 4.1537e-07
-
-Test result [backward bias] : 3.79268e-07
-
-Test result [backward w1] : 9.74443e-07
-		0.111671 :: 0.111469	(608)
-		-0.0494637 :: -0.0495986	(1447)
-		-0.129978 :: -0.129788	(1585)
-		-0.0465628 :: -0.0466872	(4076)
-		0.132358 :: 0.132611	(5028)
-		-0.0493773 :: -0.0491707	(5942)
-
-Test result [backward b1] : 5.43268e-07
-
-Test result [backward w2] : 1.8876e-06
-		0.0614894 :: 0.0612444	(73)
-		0.0815538 :: 0.081343	(937)
-		-0.0834632 :: -0.0836758	(1065)
-		-0.00390255 :: -0.00417177	(1513)
-		0.0109754 :: 0.0107534	(1801)
-		0.0965522 :: 0.0967547	(2004)
-
-Test result [backward b2] : 6.55425e-07
-
-Test result [backward alpha] : 6.38887e-07
-
-Test result [backward bias] : 1.03525e-06
-
-Test result [backward wQ] : 6.3532e-07
-
-Test result [backward wK] : 6.64319e-07
-
-Test result [backward wV] : 4.87076e-07
-
-Test result [backward wO] : 7.64087e-07
-		0.139531 :: 0.139731	(243)
-
-Test result [backward alpha] : 4.67524e-07
-
-Test result [backward bias] : 3.85645e-07
-
-Test result [backward wQ] : 9.40388e-07
-		-0.0462896 :: -0.0464669	(20)
-		-0.265097 :: -0.264905	(560)
-
-Test result [backward wK] : 6.70825e-07
-
-Test result [backward wV] : 2.51421e-07
-
-Test result [backward wO] : 6.24301e-07
-		0.29608 :: 0.295883	(573)
-
-Test result [backward alpha] : 4.1537e-07
-
-Test result [backward bias] : 3.53048e-07
-
-Test result [backward w1] : 8.96206e-07
-		0.0486278 :: 0.0485307	(3)
-		-0.117833 :: -0.117723	(259)
-		0.109991 :: 0.10979	(655)
-		-0.0951022 :: -0.0952099	(3077)
-		0.0519499 :: 0.0520701	(3348)
-		-0.0386244 :: -0.0384333	(3983)
-
-Test result [backward b1] : 1.24777e-06
-		0.175069 :: 0.17527	(143)
-
-Test result [backward w2] : 1.18316e-06
-		-0.0631593 :: -0.0630562	(172)
-		-0.00310677 :: -0.00300808	(190)
-		-0.0157516 :: -0.0158536	(668)
-		-0.0632983 :: -0.0630154	(669)
-
-Test result [backward b2] : 2.54979e-07
-
-Test result [backward alpha] : 3.46452e-07
-
-Test result [backward bias] : 1.8999e-07
-
-Test result [backward wQ] : 1.07227e-06
-
-Test result [backward wK] : 7.64555e-07
-
-Test result [backward wV] : 5.19024e-07
-
-Test result [backward wO] : 1.70244e-06
-		0.0300955 :: 0.0302985	(416)
-		0.0615048 :: 0.0613105	(512)
-		0.017095 :: 0.017301	(916)
-		0.253898 :: 0.2541	(936)
-
-Test result [backward alpha] : 4.5076e-07
-
-Test result [backward bias] : 4.44958e-07
-
-Test result [backward wQ] : 2.24246e-06
-		-0.126045 :: -0.126203	(193)
-		-0.125632 :: -0.125827	(213)
-		-0.108296 :: -0.108486	(218)
-		-0.227775 :: -0.227987	(223)
-		-0.0756732 :: -0.0758449	(684)
-		0.241009 :: 0.241166	(716)
-
-Test result [backward wK] : 9.28564e-07
-		0.247128 :: 0.247267	(683)
-
-Test result [backward wV] : 4.86681e-07
-
-Test result [backward wO] : 2.13019e-06
-		-0.280844 :: -0.281052	(20)
-		-0.217641 :: -0.217843	(96)
-		0.298095 :: 0.297889	(264)
-		-0.0545841 :: -0.0543838	(404)
-		0.279079 :: 0.278876	(532)
-		0.0820157 :: 0.0822237	(660)
-
-Test result [backward alpha] : 5.02914e-07
-
-Test result [backward bias] : 7.57637e-07
-
-Test result [backward w1] : 1.39631e-06
-		-0.0118151 :: -0.011927	(84)
-		0.135355 :: 0.135528	(557)
-		0.106321 :: 0.106167	(1294)
-		0.102968 :: 0.102853	(1364)
-		-0.128325 :: -0.128436	(1876)
-		0.0418334 :: 0.0417288	(3924)
-
-Test result [backward b1] : 8.88135e-07
-
-Test result [backward w2] : 1.41727e-06
-		0.0986652 :: 0.0987727	(4755)
-		-0.106742 :: -0.106835	(5120)
-		0.131547 :: 0.131638	(5227)
-		-0.124666 :: -0.124761	(5746)
-
-Test result [backward b2] : 1.19375e-07
-
-Test result [backward alpha] : 4.37722e-07
-
-Test result [backward bias] : 2.24913e-07
-
-Test result [backward wQ] : 9.98134e-07
-
-Test result [backward wK] : 1.00639e-06
-
-Test result [backward wV] : 7.77569e-07
-
-Test result [backward wO] : 1.21573e-06
-		-0.0580487 :: -0.0578105	(837)
-		-0.283288 :: -0.283495	(965)
-
-Test result [backward alpha] : 5.60656e-07
-
-Test result [backward bias] : 7.20618e-07
-
-Test result [backward wQ] : 1.36425e-06
-		0.263484 :: 0.263294	(47)
-		0.174983 :: 0.175162	(535)
-		0.241405 :: 0.241605	(833)
-
-Test result [backward wK] : 1.29965e-06
-		-0.192932 :: -0.193129	(800)
-
-Test result [backward wV] : 2.67066e-07
-
-Test result [backward wO] : 1.20461e-06
-		0.14039 :: 0.140593	(116)
-		0.291604 :: 0.29137	(517)
-
-Test result [backward alpha] : 6.48201e-07
-
-Test result [backward bias] : 4.28415e-07
-
-Test result [backward w1] : 9.29805e-07
-		0.00901316 :: 0.00880393	(2605)
-		0.0545335 :: 0.054328	(3177)
-		-0.0146606 :: -0.0147737	(3690)
-		-0.0346769 :: -0.0348157	(4640)
-		0.0586347 :: 0.0585254	(6985)
-		-0.0735894 :: -0.0738009	(7213)
-
-Test result [backward b1] : 5.08398e-07
-
-Test result [backward w2] : 1.91919e-06
-		-0.100373 :: -0.100262	(992)
-		-0.103071 :: -0.103161	(1007)
-		-0.0257419 :: -0.0258332	(1311)
-		0.0310141 :: 0.0312137	(4404)
-		-0.0638768 :: -0.0636776	(7200)
-		-0.0700699 :: -0.0701778	(7744)
-
-Test result [backward b2] : 3.25683e-07
-
-Test result [backward alpha] : 4.20958e-07
-
-Test result [backward bias] : 9.01218e-08
-
-Test result [backward table] : 1.58366e-05
-		0.0765791 :: 0.0769628	(627)
-		0.106705 :: 0.106505	(654)
-		0.0647017 :: 0.0650388	(1177)
-		-0.149418 :: -0.149194	(1364)
-		-0.0384522 :: -0.0382494	(1549)
-		-0.0275951 :: -0.0273732	(1568)
-
-Test result [backward table] : 1.52814e-05
-		-0.0961978 :: -0.0959851	(831)
-		0.0875701 :: 0.0873716	(1206)
-		-0.141208 :: -0.141008	(1340)
-		-0.147914 :: -0.148122	(2051)
-		0.167322 :: 0.167155	(2179)
-		-0.0936183 :: -0.0938182	(2294)
-
-Test result [backward weight] : 2.70996e-07
-
-Test result [backward bias] : 1.40972e-11
-
-Check =========================================
-Test result [backward alpha] : 1.68569e-06
-
-Test result [backward bias] : 1.18975e-06
-
-Test result [backward wQ] : 3.35402e-06
-		-0.0341707 :: -0.0339477	(123)
-		0.120179 :: 0.12	(240)
-		0.132383 :: 0.132175	(754)
-		-0.0968042 :: -0.0970066	(822)
-		0.0853506 :: 0.0851385	(880)
-
-Test result [backward wK] : 2.35825e-06
-		0.189716 :: 0.189913	(274)
-		-0.098224 :: -0.0980136	(978)
-
-Test result [backward wV] : 1.13997e-06
-
-Test result [backward wO] : 1.50074e-06
-		-0.244286 :: -0.244491	(402)
-
-Test result [backward alpha] : 1.38767e-06
-
-Test result [backward bias] : 1.06612e-06
-
-Test result [backward w1] : 2.72157e-06
-		-0.0750254 :: -0.0748129	(95)
-		0.0300929 :: 0.0299546	(161)
-		-0.0942072 :: -0.0940047	(534)
-		-0.0905109 :: -0.0902888	(549)
-		-0.0662118 :: -0.0664146	(895)
-		0.0141598 :: 0.0139409	(1289)
-
-Test result [backward b1] : 1.95168e-06
-
-Test result [backward w2] : 1.97662e-06
-		0.136618 :: 0.136416	(1284)
-		0.137879 :: 0.13799	(1482)
-		-0.0614093 :: -0.0616136	(1835)
-		-0.051856 :: -0.0520613	(2479)
-		-0.00223757 :: -0.00203168	(2900)
-		0.0806822 :: 0.0808633	(3259)
-
-Test result [backward b2] : 1.27875e-06
-
-Test result [backward alpha] : 3.38815e-06
-
-Test result [backward bias] : 2.15739e-06
-
-Test result [backward wQ] : 3.48947e-06
-		0.18624 :: 0.186092	(748)
-		-0.135312 :: -0.135041	(852)
-		-0.227736 :: -0.227972	(855)
-		0.267749 :: 0.267526	(857)
-		0.286273 :: 0.286071	(929)
-		-0.286041 :: -0.286263	(970)
-
-Test result [backward wK] : 3.29357e-06
-		-0.0558652 :: -0.0560644	(110)
-		-0.119755 :: -0.11996	(160)
-		-0.201362 :: -0.20116	(202)
-		-0.118392 :: -0.118594	(321)
-		0.237195 :: 0.237368	(591)
-		0.139036 :: 0.138834	(711)
-
-Test result [backward wV] : 1.22982e-06
-
-Test result [backward wO] : 1.00856e-06
-
-Test result [backward alpha] : 1.25542e-06
-
-Test result [backward bias] : 1.55908e-06
-
-Test result [backward w1] : 1.94357e-06
-		-0.0545095 :: -0.0546249	(75)
-		0.0588531 :: 0.0591111	(163)
-		0.0345145 :: 0.0348651	(650)
-		-0.0965948 :: -0.0963557	(1104)
-		0.0369591 :: 0.0367484	(1417)
-		0.0516191 :: 0.0517345	(5707)
-
-Test result [backward b1] : 2.58988e-06
-		0.100565 :: 0.100358	(147)
-
-Test result [backward w2] : 1.29152e-06
-		-0.0938512 :: -0.0939839	(2037)
-		-0.0466312 :: -0.0464363	(2662)
-		-0.0480808 :: -0.0482912	(2984)
-		0.0887225 :: 0.0889293	(4283)
-		-0.0419176 :: -0.0417084	(5307)
-		-0.0145983 :: -0.014799	(5677)
-
-Test result [backward b2] : 5.39472e-07
-
-Test result [backward alpha] : 7.49715e-06
-		1.00013 :: 0.999904	(11)
-
-Test result [backward bias] : 3.28122e-06
-		0.000311133 :: 0.000218658	(11)
-
-Test result [backward wQ] : 1.38442e-06
-		-0.233729 :: -0.233438	(17)
-
-Test result [backward wK] : 1.4784e-06
-		-0.0199437 :: -0.0197378	(951)
-		-0.101862 :: -0.102064	(956)
-
-Test result [backward wV] : 2.11171e-06
-		0.0455088 :: 0.045302	(300)
-		-0.175741 :: -0.175532	(301)
-		0.0674859 :: 0.0672754	(308)
-		-0.149287 :: -0.149074	(313)
-
-Test result [backward wO] : 7.82577e-07
-
-Test result [backward alpha] : 5.30854e-07
-
-Test result [backward bias] : 8.43547e-07
-
-Test result [backward w1] : 1.5585e-06
-		0.0503377 :: 0.0504385	(421)
-		0.00105498 :: 0.00120917	(474)
-		-0.00829664 :: -0.00809382	(686)
-		0.102438 :: 0.102638	(1187)
-		0.0630714 :: 0.0628767	(1841)
-		-0.0408237 :: -0.041044	(4101)
-
-Test result [backward b1] : 1.79894e-06
-		0.0476144 :: 0.0474079	(141)
-
-Test result [backward w2] : 1.93085e-06
-		0.0879407 :: 0.0877302	(2225)
-		-0.076992 :: -0.0767684	(2715)
-		0.101997 :: 0.102223	(3611)
-		-0.0330953 :: -0.0328949	(3867)
-		0.0357111 :: 0.0354928	(4925)
-		-0.137662 :: -0.137472	(5819)
-
-Test result [backward b2] : 1.00187e-06
-
-Test result [backward alpha] : 9.10833e-07
-
-Test result [backward bias] : 4.3749e-07
-
-Test result [backward wQ] : 8.78562e-07
-
-Test result [backward wK] : 1.30519e-06
-		-0.0779708 :: -0.0777738	(263)
-		0.297416 :: 0.297241	(405)
-
-Test result [backward wV] : 1.54023e-06
-		-0.237667 :: -0.237872	(957)
-
-Test result [backward wO] : 3.03217e-06
-		0.046313 :: 0.0465143	(114)
-		-0.129255 :: -0.129055	(227)
-		-0.299604 :: -0.299806	(284)
-		-0.206732 :: -0.206525	(508)
-		-0.0438431 :: -0.044046	(530)
-		-0.00566595 :: -0.00546323	(594)
-
-Test result [backward alpha] : 9.94653e-07
-
-Test result [backward bias] : 8.1722e-07
-
-Test result [backward w1] : 1.56042e-06
-		0.114101 :: 0.113901	(471)
-		-0.0594728 :: -0.0596794	(967)
-		0.00808477 :: 0.00827397	(1569)
-		0.0605978 :: 0.0604988	(2391)
-		-0.126619 :: -0.126259	(3348)
-		0.13007 :: 0.129878	(3390)
-
-Test result [backward b1] : 1.31492e-06
-		-0.0284534 :: -0.0283407	(116)
-
-Test result [backward w2] : 1.75773e-06
-		-0.0661535 :: -0.0663583	(52)
-		0.0284821 :: 0.0286949	(1063)
-		-0.0456926 :: -0.0454918	(1650)
-		0.122354 :: 0.122185	(2033)
-		0.0698126 :: 0.0700302	(2183)
-		-0.0122892 :: -0.0125829	(4993)
-
-Test result [backward b2] : 4.35095e-07
-
-Test result [backward alpha] : 1.98931e-06
-
-Test result [backward bias] : 7.00796e-07
-
-Test result [backward wQ] : 1.08591e-06
-
-Test result [backward wK] : 1.59984e-06
-		0.151845 :: 0.151664	(383)
-		-0.187131 :: -0.187336	(472)
-
-Test result [backward wV] : 2.50093e-06
-		0.0470544 :: 0.0472564	(54)
-		0.217016 :: 0.217223	(56)
-		0.133515 :: 0.13372	(170)
-		-0.19612 :: -0.196325	(173)
-		0.303908 :: 0.304114	(184)
-		-0.151184 :: -0.15139	(185)
-
-Test result [backward wO] : 1.02749e-06
-		0.0813052 :: 0.0811046	(158)
-
-Test result [backward alpha] : 1.54786e-06
-
-Test result [backward bias] : 7.33385e-07
-
-Test result [backward w1] : 1.39107e-06
-		-0.129736 :: -0.129945	(1259)
-		-0.045529 :: -0.0457334	(2739)
-		-0.0281157 :: -0.0283184	(3339)
-		-0.0173633 :: -0.0175578	(3642)
-		0.123851 :: 0.124079	(3742)
-		-0.122514 :: -0.122311	(5834)
-
-Test result [backward b1] : 8.23099e-07
-
-Test result [backward w2] : 1.50624e-06
-		0.134251 :: 0.134366	(1680)
-		0.019124 :: 0.0190232	(2300)
-		-0.0247987 :: -0.0249038	(2430)
-		-0.0087597 :: -0.00885198	(2743)
-		-0.143091 :: -0.142996	(3857)
-		-0.00424557 :: -0.00391184	(3984)
-
-Test result [backward b2] : 3.47978e-07
-
-Test result [backward alpha] : 6.72415e-07
-
-Test result [backward bias] : 6.95819e-07
-
-Test result [backward wQ] : 1.3215e-06
-		-0.284985 :: -0.285187	(983)
-
-Test result [backward wK] : 1.12275e-06
-
-Test result [backward wV] : 6.32665e-07
-
-Test result [backward wO] : 6.61306e-07
-
-Test result [backward alpha] : 1.06543e-06
-
-Test result [backward bias] : 1.04876e-06
-
-Test result [backward w1] : 1.30466e-06
-		-0.078112 :: -0.0783116	(287)
-		0.0764362 :: 0.0762353	(938)
-		0.121343 :: 0.121542	(962)
-		0.126316 :: 0.126114	(3614)
-		0.0820114 :: 0.0816978	(4445)
-		0.0309791 :: 0.0307912	(7168)
-
-Test result [backward b1] : 9.8022e-07
-
-Test result [backward w2] : 1.22892e-06
-		0.0502877 :: 0.0504738	(787)
-		0.0426272 :: 0.0428222	(1522)
-		-0.0366953 :: -0.0364761	(3187)
-		0.142247 :: 0.142357	(7152)
-		-0.0416786 :: -0.0415069	(7248)
-
-Test result [backward b2] : 4.12649e-07
-
-Test result [backward alpha] : 5.68107e-07
-
-Test result [backward bias] : 3.92565e-07
-
-Test result [backward alpha] : 7.37607e-07
-
-Test result [backward bias] : 3.35125e-07
-
-Test result [backward wQ] : 1.1998e-06
-		0.100615 :: 0.100758	(507)
-		-0.18167 :: -0.181818	(671)
-
-Test result [backward wK] : 1.15824e-06
-		-0.250871 :: -0.251018	(777)
-
-Test result [backward wV] : 1.22721e-06
-		-0.0252892 :: -0.0254941	(900)
-
-Test result [backward wO] : 9.60342e-07
-		0.0287303 :: 0.0289294	(393)
-
-Test result [backward alpha] : 7.0855e-06
-		1.00006 :: 0.999868	(29)
-
-Test result [backward bias] : 5.65924e-07
-
-Test result [backward wQ] : 9.98889e-07
-
-Test result [backward wK] : 1.27572e-06
-		-0.0134359 :: -0.0136224	(20)
-
-Test result [backward wV] : 4.64079e-07
-
-Test result [backward wO] : 6.12016e-07
-
-Test result [backward alpha] : 9.07108e-07
-
-Test result [backward bias] : 7.35014e-07
-
-Test result [backward w1] : 1.44532e-06
-		0.0588735 :: 0.0587761	(789)
-		-0.0259825 :: -0.0261825	(1147)
-		0.0514662 :: 0.0512778	(1295)
-		0.138698 :: 0.1389	(1915)
-		-0.0371986 :: -0.0370072	(2416)
-		-0.0924736 :: -0.0922713	(2425)
-
-Test result [backward b1] : 1.07114e-06
-
-Test result [backward w2] : 1.54613e-06
-		-0.107388 :: -0.107296	(64)
-		0.0435832 :: 0.0434837	(100)
-		0.0832306 :: 0.0830755	(3076)
-		-0.00989865 :: -0.00976878	(4514)
-		0.0141578 :: 0.0139417	(5252)
-		-0.0990127 :: -0.0988139	(5470)
-
-Test result [backward b2] : 1.06875e-06
-
-Test result [backward alpha] : 9.94653e-07
-
-Test result [backward bias] : 8.05474e-07
-
-Test result [backward wQ] : 1.61803e-06
-		0.229709 :: 0.22956	(444)
-		0.0957424 :: 0.0958813	(607)
-		0.175023 :: 0.174878	(862)
-
-Test result [backward wK] : 1.69693e-06
-		0.144382 :: 0.144253	(431)
-		-0.23206 :: -0.231904	(773)
-		0.0343547 :: 0.0341985	(780)
-
-Test result [backward wV] : 8.2889e-07
-
-Test result [backward wO] : 8.22775e-07
-
-Test result [backward alpha] : 8.04663e-07
-
-Test result [backward bias] : 6.39937e-07
-
-Test result [backward wQ] : 1.1875e-06
-		0.188347 :: 0.188161	(488)
-
-Test result [backward wK] : 1.05889e-06
-
-Test result [backward wV] : 1.02634e-06
-		0.252252 :: 0.252045	(786)
-
-Test result [backward wO] : 6.289e-07
-
-Test result [backward alpha] : 8.90344e-07
-
-Test result [backward bias] : 4.78914e-07
-
-Test result [backward w1] : 1.79397e-06
-		-0.0305489 :: -0.0307477	(16)
-		0.137766 :: 0.137965	(158)
-		-0.0479944 :: -0.0484003	(407)
-		-0.108651 :: -0.108852	(528)
-		-0.049661 :: -0.0498621	(610)
-		0.115029 :: 0.114827	(688)
-
-Test result [backward b1] : 2.60146e-06
-		0.000661595 :: 0.000878954	(8)
-		-0.0929616 :: -0.092763	(98)
-
-Test result [backward w2] : 1.18165e-06
-		-0.0403181 :: -0.040199	(5332)
-		-0.0472171 :: -0.0470504	(6334)
-		0.135342 :: 0.135525	(7060)
-
-Test result [backward b2] : 2.89932e-07
-
-Test result [backward alpha] : 9.70438e-07
-
-Test result [backward bias] : 7.40559e-07
-
-Test result [backward wQ] : 1.45872e-06
-		0.00509682 :: 0.00521224	(147)
-		0.106996 :: 0.106871	(334)
-		-0.253749 :: -0.253894	(452)
-		0.072776 :: 0.0726163	(644)
-
-Test result [backward wK] : 1.12528e-06
-
-Test result [backward wV] : 8.973e-07
-
-Test result [backward wO] : 1.39014e-06
-		0.272272 :: 0.272472	(922)
-
-Test result [backward alpha] : 8.79169e-07
-
-Test result [backward bias] : 6.97999e-06
-		6.97581e-05 :: 0.000275209	(23)
-
-Test result [backward wQ] : 1.25601e-06
-		-0.292211 :: -0.292328	(239)
-		-0.144492 :: -0.144616	(688)
-
-Test result [backward wK] : 1.24044e-06
-		0.113946 :: 0.113689	(798)
-
-Test result [backward wV] : 7.81639e-07
-
-Test result [backward wO] : 1.51491e-06
-		-0.30206 :: -0.302258	(215)
-		-0.136647 :: -0.136433	(659)
-
-Test result [backward alpha] : 5.90459e-07
-
-Test result [backward bias] : 5.58097e-07
-
-Test result [backward w1] : 1.35314e-06
-		0.111725 :: 0.111523	(608)
-		-0.0493779 :: -0.0495121	(1447)
-		-0.130015 :: -0.129825	(1585)
-		0.102069 :: 0.101956	(1915)
-		-0.0466254 :: -0.0467495	(4076)
-		0.132406 :: 0.132662	(5028)
-
-Test result [backward b1] : 8.9181e-07
-
-Test result [backward w2] : 2.37629e-06
-		0.0615692 :: 0.0613223	(73)
-		0.0816253 :: 0.0814147	(937)
-		-0.0833832 :: -0.0835965	(1065)
-		-0.00383516 :: -0.00410483	(1513)
-		0.0110495 :: 0.0108273	(1801)
-		0.0964956 :: 0.0966973	(2004)
-
-Test result [backward b2] : 9.51144e-07
-
-Test result [backward alpha] : 9.48086e-07
-
-Test result [backward bias] : 1.2368e-06
-
-Test result [backward wQ] : 8.54817e-07
-
-Test result [backward wK] : 8.90087e-07
-
-Test result [backward wV] : 8.28858e-07
-
-Test result [backward wO] : 1.08247e-06
-		0.139571 :: 0.139773	(243)
-
-Test result [backward alpha] : 6.59376e-07
-
-Test result [backward bias] : 6.46963e-07
-
-Test result [backward wQ] : 1.22125e-06
-		-0.046259 :: -0.046437	(20)
-		-0.265022 :: -0.26483	(560)
-
-Test result [backward wK] : 8.89644e-07
-
-Test result [backward wV] : 5.78706e-07
-
-Test result [backward wO] : 9.20881e-07
-		0.296152 :: 0.295956	(573)
-
-Test result [backward alpha] : 8.41916e-07
-
-Test result [backward bias] : 7.37432e-07
-
-Test result [backward w1] : 1.28179e-06
-		0.0485706 :: 0.0484731	(3)
-		-0.117775 :: -0.117665	(259)
-		0.110066 :: 0.109865	(655)
-		-0.0950449 :: -0.0951521	(3077)
-		0.0520072 :: 0.0521281	(3348)
-		-0.0387098 :: -0.038518	(3983)
-
-Test result [backward b1] : 1.59995e-06
-		0.174994 :: 0.175195	(143)
-
-Test result [backward w2] : 1.60302e-06
-		-0.0631073 :: -0.0630123	(172)
-		-0.0390879 :: -0.0389959	(186)
-		-0.0031654 :: -0.00306241	(190)
-		-0.0156938 :: -0.0157957	(668)
-		-0.0633563 :: -0.0630732	(669)
-
-Test result [backward b2] : 4.56224e-07
-
-Test result [backward alpha] : 6.98492e-07
-
-Test result [backward bias] : 4.25594e-07
-
-Test result [backward wQ] : 1.26669e-06
-
-Test result [backward wK] : 9.3129e-07
-
-Test result [backward wV] : 8.71167e-07
-
-Test result [backward wO] : 2.10402e-06
-		0.0300212 :: 0.0302258	(416)
-		0.0615797 :: 0.0613856	(512)
-		0.0170703 :: 0.0172759	(916)
-		0.253898 :: 0.254105	(936)
-
-Test result [backward alpha] : 6.57514e-07
-
-Test result [backward bias] : 6.39189e-07
-
-Test result [backward wQ] : 2.49367e-06
-		-0.126046 :: -0.126207	(193)
-		-0.125563 :: -0.125757	(213)
-		-0.108366 :: -0.108557	(218)
-		-0.227717 :: -0.227929	(223)
-		-0.0756068 :: -0.0757776	(684)
-		0.24092 :: 0.241076	(716)
-
-Test result [backward wK] : 1.16079e-06
-		0.247053 :: 0.247191	(683)
-
-Test result [backward wV] : 8.3833e-07
-
-Test result [backward wO] : 2.55499e-06
-		-0.28077 :: -0.280979	(20)
-		-0.217622 :: -0.217827	(96)
-		0.29815 :: 0.297941	(264)
-		-0.0545302 :: -0.0543289	(404)
-		0.279169 :: 0.278966	(532)
-		0.0820199 :: 0.0822307	(660)
-
-Test result [backward alpha] : 7.00355e-07
-
-Test result [backward bias] : 9.03429e-07
-
-Test result [backward w1] : 1.83283e-06
-		-0.0117794 :: -0.0119154	(84)
-		0.114554 :: 0.114463	(101)
-		0.135281 :: 0.135454	(557)
-		-0.0718697 :: -0.071767	(852)
-		0.106242 :: 0.106088	(1294)
-		0.103003 :: 0.102863	(1364)
-
-Test result [backward b1] : 1.28774e-06
-
-Test result [backward w2] : 1.82199e-06
-		-0.0364495 :: -0.0365516	(2713)
-		0.0986079 :: 0.0987154	(4755)
-		-0.106679 :: -0.106771	(5120)
-		0.131511 :: 0.131623	(5227)
-		-0.124608 :: -0.124702	(5746)
-
-Test result [backward b2] : 3.6794e-07
-
-Test result [backward alpha] : 7.26432e-07
-
-Test result [backward bias] : 5.83888e-07
-
-Test result [backward wQ] : 1.19049e-06
-
-Test result [backward wK] : 1.21269e-06
-
-Test result [backward wV] : 1.16408e-06
-
-Test result [backward wO] : 1.6241e-06
-		-0.0581116 :: -0.0578739	(837)
-		-0.283221 :: -0.283427	(965)
-
-Test result [backward alpha] : 7.50646e-07
-
-Test result [backward bias] : 9.45226e-07
-
-Test result [backward wQ] : 1.58201e-06
-		0.263414 :: 0.263223	(47)
-		0.175052 :: 0.17523	(535)
-		0.241326 :: 0.241527	(833)
-
-Test result [backward wK] : 1.60039e-06
-		-0.192889 :: -0.193088	(800)
-
-Test result [backward wV] : 5.96621e-07
-
-Test result [backward wO] : 1.51908e-06
-		0.140347 :: 0.140552	(116)
-		0.291671 :: 0.291437	(517)
-
-Test result [backward alpha] : 9.35048e-07
-
-Test result [backward bias] : 6.34763e-07
-
-Test result [backward w1] : 1.31917e-06
-		0.00909569 :: 0.00888468	(2605)
-		0.0545966 :: 0.054392	(3177)
-		-0.0146033 :: -0.0147159	(3690)
-		-0.0347215 :: -0.0348614	(4640)
-		0.0586886 :: 0.0585802	(6985)
-		-0.0735083 :: -0.0737204	(7213)
-
-Test result [backward b1] : 8.699e-07
-
-Test result [backward w2] : 2.42263e-06
-		-0.100317 :: -0.100205	(992)
-		-0.0256843 :: -0.0257749	(1311)
-		0.0856632 :: 0.0857754	(1989)
-		0.0265023 :: 0.0266056	(3232)
-		0.0309771 :: 0.0312437	(4404)
-		-0.0639153 :: -0.0637137	(7200)
-
-Test result [backward b2] : 7.01089e-07
-
-Test result [backward alpha] : 6.16536e-07
-
-Test result [backward bias] : 1.81637e-07
-
-Test result [backward table] : 2.22036e-05
-		0.0766269 :: 0.0770185	(627)
-		0.106758 :: 0.106557	(654)
-		0.0646468 :: 0.0649872	(1177)
-		-0.149418 :: -0.149188	(1364)
-		-0.0385135 :: -0.0383117	(1549)
-		-0.0275951 :: -0.0273173	(1568)
-
-Test result [backward table] : 2.01971e-05
-		-0.0962295 :: -0.0960104	(831)
-		0.0874964 :: 0.0872981	(1206)
-		-0.141166 :: -0.140966	(1340)
-		-0.186547 :: -0.186662	(1952)
-		0.0639496 :: 0.0638569	(1953)
-		0.106306 :: 0.106192	(1954)
-
-Test result [backward weight] : 4.31728e-07
-
-Test result [backward bias] : 1.86446e-11
-
-Check =========================================
-Test result [backward alpha] : 2.28733e-06
-
-Test result [backward bias] : 1.59399e-06
-
-Test result [backward wQ] : 3.8938e-06
-		-0.0342423 :: -0.0340201	(123)
-		0.120186 :: 0.120008	(240)
-		0.132348 :: 0.132139	(754)
-		-0.0968531 :: -0.0970562	(822)
-		0.0853867 :: 0.0851724	(880)
-
-Test result [backward wK] : 2.81583e-06
-		0.18965 :: 0.189848	(274)
-		-0.0983004 :: -0.0980892	(978)
-
-Test result [backward wV] : 1.59992e-06
-
-Test result [backward wO] : 2.02408e-06
-		-0.244284 :: -0.244489	(402)
-
-Test result [backward alpha] : 1.86265e-06
-
-Test result [backward bias] : 1.45161e-06
-
-Test result [backward w1] : 3.25535e-06
-		-0.075093 :: -0.0748789	(95)
-		0.0301851 :: 0.0300474	(161)
-		-0.073765 :: -0.0738559	(223)
-		-0.0942894 :: -0.0940876	(534)
-		-0.0904932 :: -0.0902654	(549)
-		-0.0662837 :: -0.0664871	(895)
-
-Test result [backward b1] : 2.45264e-06
-
-Test result [backward w2] : 2.56541e-06
-		0.136598 :: 0.136395	(1284)
-		0.137832 :: 0.137946	(1482)
-		-0.0613444 :: -0.0615479	(1835)
-		-0.0517673 :: -0.0519724	(2479)
-		-0.00231873 :: -0.00211207	(2900)
-		0.0806199 :: 0.0807996	(3259)
-
-Test result [backward b2] : 1.73159e-06
-
-Test result [backward alpha] : 4.14997e-06
-
-Test result [backward bias] : 2.59414e-06
-
-Test result [backward wQ] : 3.95566e-06
-		0.186226 :: 0.186078	(748)
-		-0.135334 :: -0.135059	(852)
-		-0.227705 :: -0.227945	(855)
-		0.267787 :: 0.267562	(857)
-		0.286209 :: 0.286007	(929)
-		-0.286047 :: -0.286274	(970)
-
-Test result [backward wK] : 3.7294e-06
-		-0.0558223 :: -0.0560219	(110)
-		-0.119827 :: -0.120034	(160)
-		-0.201385 :: -0.201182	(202)
-		-0.118322 :: -0.118522	(321)
-		0.237169 :: 0.237342	(591)
-		0.138992 :: 0.138789	(711)
-
-Test result [backward wV] : 1.6249e-06
-
-Test result [backward wO] : 1.45939e-06
-
-Test result [backward alpha] : 1.83471e-06
-
-Test result [backward bias] : 2.33031e-06
-
-Test result [backward w1] : 2.58164e-06
-		-0.054561 :: -0.0546889	(75)
-		0.0587876 :: 0.059047	(163)
-		0.0345833 :: 0.0349357	(650)
-		-0.0965664 :: -0.0963158	(1104)
-		0.0370028 :: 0.036789	(1417)
-		0.0516706 :: 0.0518021	(5707)
-
-Test result [backward b1] : 3.27017e-06
-		0.100504 :: 0.100295	(147)
-
-Test result [backward w2] : 1.79602e-06
-		-0.093775 :: -0.0939064	(2037)
-		-0.046703 :: -0.0465082	(2662)
-		-0.0481685 :: -0.0483809	(2984)
-		0.0887439 :: 0.0889478	(4283)
-		-0.0419309 :: -0.0417215	(5307)
-		-0.0146768 :: -0.0148775	(5677)
-
-Test result [backward b2] : 1.02196e-06
-
-Test result [backward alpha] : 8.05967e-06
-		1.0002 :: 0.999974	(11)
-
-Test result [backward bias] : 3.60644e-06
-		0.000393332 :: 0.000300173	(11)
-
-Test result [backward wQ] : 1.76402e-06
-		-0.233725 :: -0.233434	(17)
-
-Test result [backward wK] : 1.86078e-06
-		-0.0198788 :: -0.0196726	(951)
-		-0.101777 :: -0.101979	(956)
-
-Test result [backward wV] : 2.72212e-06
-		0.0455615 :: 0.0453519	(300)
-		-0.1758 :: -0.175587	(301)
-		0.0675275 :: 0.0673118	(308)
-		-0.1493 :: -0.14908	(313)
-
-Test result [backward wO] : 1.20529e-06
-
-Test result [backward alpha] : 1.01328e-06
-
-Test result [backward bias] : 1.28876e-06
-
-Test result [backward w1] : 2.0455e-06
-		0.0502836 :: 0.0503842	(421)
-		0.0011089 :: 0.00126313	(474)
-		-0.0083825 :: -0.00818031	(686)
-		0.102461 :: 0.102663	(1187)
-		0.0631316 :: 0.0629383	(1841)
-		-0.0407422 :: -0.0409618	(4101)
-
-Test result [backward b1] : 2.26593e-06
-		0.0477081 :: 0.0475012	(141)
-
-Test result [backward w2] : 2.45312e-06
-		0.0880061 :: 0.087793	(2225)
-		-0.0770577 :: -0.0768344	(2715)
-		0.101971 :: 0.102204	(3611)
-		-0.0331498 :: -0.0329505	(3867)
-		0.0356582 :: 0.0354377	(4925)
-		-0.137598 :: -0.137406	(5819)
-
-Test result [backward b2] : 1.37002e-06
-
-Test result [backward alpha] : 1.3411e-06
-
-Test result [backward bias] : 6.58537e-07
-
-Test result [backward wQ] : 1.17371e-06
-
-Test result [backward wK] : 1.68865e-06
-		-0.0778832 :: -0.0776856	(263)
-		0.297467 :: 0.297292	(405)
-
-Test result [backward wV] : 2.08215e-06
-		-0.237669 :: -0.237877	(957)
-
-Test result [backward wO] : 3.70426e-06
-		0.0462439 :: 0.0464447	(114)
-		-0.129189 :: -0.128989	(227)
-		-0.299513 :: -0.299716	(284)
-		-0.206822 :: -0.206615	(508)
-		-0.043779 :: -0.0439826	(530)
-		-0.00573088 :: -0.00552705	(594)
-
-Test result [backward alpha] : 1.31503e-06
-
-Test result [backward bias] : 1.30872e-06
-
-Test result [backward w1] : 2.45495e-06
-		0.0398978 :: 0.039993	(237)
-		0.114038 :: 0.113838	(471)
-		-0.0587361 :: -0.0588362	(493)
-		-0.0745825 :: -0.07448	(749)
-		-0.0594433 :: -0.0596515	(967)
-		0.0684622 :: 0.0685647	(1005)
-
-Test result [backward b1] : 2.25223e-06
-		-0.0285288 :: -0.0284123	(116)
-		-0.0259883 :: -0.0258889	(237)
-
-Test result [backward w2] : 2.3374e-06
-		-0.0661534 :: -0.0663584	(52)
-		0.0283989 :: 0.0286114	(1063)
-		-0.045786 :: -0.0455853	(1650)
-		0.122407 :: 0.122225	(2033)
-		0.069739 :: 0.0699563	(2183)
-		-0.0122665 :: -0.0125929	(4993)
-
-Test result [backward b2] : 1.03601e-06
-
-Test result [backward alpha] : 2.69897e-06
-
-Test result [backward bias] : 8.80568e-07
-
-Test result [backward wQ] : 1.43818e-06
-
-Test result [backward wK] : 2.09908e-06
-		0.151857 :: 0.151676	(383)
-		-0.187082 :: -0.187288	(472)
-
-Test result [backward wV] : 3.19299e-06
-		0.0469615 :: 0.047163	(54)
-		0.217073 :: 0.217282	(56)
-		0.133435 :: 0.133642	(170)
-		-0.196058 :: -0.196268	(173)
-		0.303842 :: 0.304043	(184)
-		-0.151127 :: -0.151339	(185)
-
-Test result [backward wO] : 1.60344e-06
-		0.0813656 :: 0.0811658	(158)
-
-Test result [backward alpha] : 2.02283e-06
-
-Test result [backward bias] : 1.20636e-06
-
-Test result [backward w1] : 1.90066e-06
-		-0.12968 :: -0.129891	(1259)
-		-0.0454655 :: -0.0456708	(2739)
-		-0.0280338 :: -0.0282374	(3339)
-		-0.0173941 :: -0.0175885	(3642)
-		0.123762 :: 0.12399	(3742)
-		-0.122579 :: -0.122377	(5834)
-
-Test result [backward b1] : 1.28665e-06
-
-Test result [backward w2] : 2.01186e-06
-		0.134197 :: 0.134312	(1680)
-		-0.0412435 :: -0.0411533	(1968)
-		0.0190601 :: 0.0189584	(2300)
-		-0.0247458 :: -0.0248503	(2430)
-		-0.00868735 :: -0.00877867	(2743)
-		-0.143122 :: -0.143011	(3857)
-
-Test result [backward b2] : 7.6894e-07
-
-Test result [backward alpha] : 1.20699e-06
-
-Test result [backward bias] : 1.2136e-06
-
-Test result [backward wQ] : 1.70657e-06
-		-0.284945 :: -0.285148	(983)
-
-Test result [backward wK] : 1.50567e-06
-
-Test result [backward wV] : 1.27179e-06
-
-Test result [backward wO] : 1.13407e-06
-
-Test result [backward alpha] : 1.44728e-06
-
-Test result [backward bias] : 1.50605e-06
-
-Test result [backward w1] : 1.82851e-06
-		-0.0781961 :: -0.0783968	(287)
-		0.0764679 :: 0.0762679	(938)
-		0.121301 :: 0.121499	(962)
-		0.126303 :: 0.126101	(3614)
-		0.0820955 :: 0.081782	(4445)
-		0.0310286 :: 0.0308387	(7168)
-
-Test result [backward b1] : 1.49528e-06
-
-Test result [backward w2] : 1.73264e-06
-		0.0502088 :: 0.0503944	(787)
-		0.0425445 :: 0.0427394	(1522)
-		-0.0367567 :: -0.036532	(3187)
-		0.142199 :: 0.142401	(7152)
-		-0.0416789 :: -0.0414993	(7248)
-
-Test result [backward b2] : 7.93931e-07
-
-Test result [backward alpha] : 1.03191e-06
-
-Test result [backward bias] : 8.28508e-07
-
-Test result [backward alpha] : 1.3113e-06
-
-Test result [backward bias] : 8.14254e-07
-
-Test result [backward wQ] : 1.54358e-06
-		0.100548 :: 0.100691	(507)
-		-0.181709 :: -0.181857	(671)
-
-Test result [backward wK] : 1.49222e-06
-		-0.25092 :: -0.251068	(777)
-
-Test result [backward wV] : 1.60261e-06
-		-0.0253013 :: -0.0255056	(900)
-
-Test result [backward wO] : 1.3851e-06
-		0.0287214 :: 0.0289207	(393)
-
-Test result [backward alpha] : 7.35186e-06
-		1.00012 :: 0.99993	(29)
-
-Test result [backward bias] : 8.31029e-07
-
-Test result [backward wQ] : 1.30639e-06
-
-Test result [backward wK] : 1.65481e-06
-		-0.0135081 :: -0.013694	(20)
-
-Test result [backward wV] : 9.23448e-07
-
-Test result [backward wO] : 1.07649e-06
-
-Test result [backward alpha] : 1.41375e-06
-
-Test result [backward bias] : 1.11928e-06
-
-Test result [backward w1] : 1.98929e-06
-		0.0589273 :: 0.0588304	(789)
-		-0.0258973 :: -0.0260976	(1147)
-		0.0513807 :: 0.0511924	(1295)
-		0.13876 :: 0.138962	(1915)
-		-0.0372741 :: -0.0370839	(2416)
-		-0.092537 :: -0.0923354	(2425)
-
-Test result [backward b1] : 1.60504e-06
-
-Test result [backward w2] : 2.19708e-06
-		-0.107421 :: -0.107307	(64)
-		-0.0427385 :: -0.0426334	(66)
-		-0.138727 :: -0.138629	(79)
-		0.0231569 :: 0.02325	(94)
-		0.043653 :: 0.0435523	(100)
-		0.0832664 :: 0.0831096	(3076)
-
-Test result [backward b2] : 1.67334e-06
-
-Test result [backward alpha] : 1.39326e-06
-
-Test result [backward bias] : 1.20999e-06
-
-Test result [backward wQ] : 2.05021e-06
-		0.229635 :: 0.229484	(444)
-		0.0957144 :: 0.0958538	(607)
-		0.175107 :: 0.174962	(862)
-
-Test result [backward wK] : 2.17449e-06
-		0.144389 :: 0.14426	(431)
-		-0.232036 :: -0.231873	(773)
-		0.0342787 :: 0.0341205	(780)
-
-Test result [backward wV] : 1.34687e-06
-
-Test result [backward wO] : 1.36757e-06
-
-Test result [backward alpha] : 1.16229e-06
-
-Test result [backward bias] : 1.11565e-06
-
-Test result [backward wQ] : 1.63521e-06
-		0.188314 :: 0.188127	(488)
-
-Test result [backward wK] : 1.46244e-06
-
-Test result [backward wV] : 1.57315e-06
-		0.252196 :: 0.251987	(786)
-
-Test result [backward wO] : 1.19096e-06
-
-Test result [backward alpha] : 1.24983e-06
-
-Test result [backward bias] : 1.00187e-06
-
-Test result [backward w1] : 2.30307e-06
-		-0.0305357 :: -0.0307342	(16)
-		0.137843 :: 0.138042	(158)
-		-0.0479337 :: -0.0483402	(407)
-		-0.108724 :: -0.108924	(528)
-		-0.0496568 :: -0.0498594	(610)
-		0.11504 :: 0.114838	(688)
-
-Test result [backward b1] : 3.05572e-06
-		0.000718432 :: 0.000936202	(8)
-		-0.0929427 :: -0.0927436	(98)
-
-Test result [backward w2] : 1.70091e-06
-		-0.0404004 :: -0.0402812	(5332)
-		-0.0472884 :: -0.0471213	(6334)
-		0.1353 :: 0.135492	(7060)
-
-Test result [backward b2] : 6.53716e-07
-
-Test result [backward alpha] : 1.49198e-06
-
-Test result [backward bias] : 1.23843e-06
-
-Test result [backward wQ] : 1.73077e-06
-		0.00510527 :: 0.00522295	(147)
-		0.106915 :: 0.106788	(334)
-		-0.253694 :: -0.25384	(452)
-		0.0727595 :: 0.0726033	(644)
-
-Test result [backward wK] : 1.4918e-06
-
-Test result [backward wV] : 1.29886e-06
-
-Test result [backward wO] : 1.82276e-06
-		0.27233 :: 0.272529	(922)
-
-Test result [backward alpha] : 1.22003e-06
-
-Test result [backward bias] : 7.41379e-06
-		0.000125341 :: 0.000332723	(23)
-
-Test result [backward wQ] : 1.58776e-06
-		-0.292125 :: -0.292242	(239)
-		-0.144521 :: -0.144645	(688)
-
-Test result [backward wK] : 1.58076e-06
-		0.11402 :: 0.113764	(798)
-
-Test result [backward wV] : 1.25029e-06
-
-Test result [backward wO] : 2.02773e-06
-		-0.302131 :: -0.302331	(215)
-		-0.136689 :: -0.136474	(659)
-
-Test result [backward alpha] : 8.97795e-07
-
-Test result [backward bias] : 9.82729e-07
-
-Test result [backward w1] : 1.86401e-06
-		0.111795 :: 0.111594	(608)
-		-0.0492885 :: -0.0494218	(1447)
-		-0.130055 :: -0.129865	(1585)
-		0.102017 :: 0.101901	(1915)
-		-0.0467001 :: -0.0468241	(4076)
-		0.132446 :: 0.132704	(5028)
-
-Test result [backward b1] : 1.4029e-06
-
-Test result [backward w2] : 2.93026e-06
-		0.0616553 :: 0.0614077	(73)
-		0.0816932 :: 0.0814836	(937)
-		-0.0832983 :: -0.0835115	(1065)
-		-0.00376246 :: -0.0040315	(1513)
-		0.0111293 :: 0.0109076	(1801)
-		0.0964286 :: 0.0966295	(2004)
-
-Test result [backward b2] : 1.36412e-06
-
-Test result [backward alpha] : 1.4361e-06
-
-Test result [backward bias] : 1.54715e-06
-
-Test result [backward wQ] : 1.12087e-06
-
-Test result [backward wK] : 1.15288e-06
-
-Test result [backward wV] : 1.43008e-06
-
-Test result [backward wO] : 1.65756e-06
-		0.139632 :: 0.139836	(243)
-
-Test result [backward alpha] : 9.0152e-07
-
-Test result [backward bias] : 8.72476e-07
-
-Test result [backward wQ] : 1.55049e-06
-		-0.0462056 :: -0.0463839	(20)
-		-0.264949 :: -0.264757	(560)
-
-Test result [backward wK] : 1.25254e-06
-
-Test result [backward wV] : 1.2093e-06
-
-Test result [backward wO] : 1.39662e-06
-		0.296232 :: 0.296036	(573)
-
-Test result [backward alpha] : 1.49012e-06
-
-Test result [backward bias] : 1.33219e-06
-
-Test result [backward w1] : 1.85597e-06
-		0.0486209 :: 0.0485244	(3)
-		-0.117715 :: -0.117604	(259)
-		0.110142 :: 0.10994	(655)
-		-0.0949738 :: -0.09508	(3077)
-		0.0520558 :: 0.0521771	(3348)
-		-0.0387934 :: -0.0386009	(3983)
-
-Test result [backward b1] : 2.12626e-06
-		0.174918 :: 0.17512	(143)
-
-Test result [backward w2] : 2.28208e-06
-		-0.0630471 :: -0.0629533	(172)
-		-0.039147 :: -0.0390545	(186)
-		-0.00323452 :: -0.00312969	(190)
-		-0.0156447 :: -0.0157469	(668)
-		-0.0634056 :: -0.063122	(669)
-
-Test result [backward b2] : 7.85942e-07
-
-Test result [backward alpha] : 1.27964e-06
-
-Test result [backward bias] : 8.23338e-07
-
-Test result [backward wQ] : 1.48858e-06
-
-Test result [backward wK] : 1.20755e-06
-
-Test result [backward wV] : 1.43716e-06
-
-Test result [backward wO] : 2.55509e-06
-		0.0299398 :: 0.0301448	(416)
-		0.0616621 :: 0.0614688	(512)
-		0.017013 :: 0.0172176	(916)
-		0.253853 :: 0.254061	(936)
-
-Test result [backward alpha] : 9.70438e-07
-
-Test result [backward bias] : 1.0246e-06
-
-Test result [backward wQ] : 2.8195e-06
-		-0.126064 :: -0.126227	(193)
-		-0.125517 :: -0.12571	(213)
-		-0.108446 :: -0.108638	(218)
-		-0.227644 :: -0.227856	(223)
-		-0.0755368 :: -0.0757069	(684)
-		0.240854 :: 0.24101	(716)
-
-Test result [backward wK] : 1.54085e-06
-		0.247004 :: 0.247142	(683)
-
-Test result [backward wV] : 1.42408e-06
-
-Test result [backward wO] : 3.08037e-06
-		-0.28069 :: -0.280898	(20)
-		-0.217576 :: -0.217781	(96)
-		0.29822 :: 0.29801	(264)
-		-0.0544604 :: -0.054258	(404)
-		0.279253 :: 0.279051	(532)
-		0.0820605 :: 0.0822735	(660)
-
-Test result [backward alpha] : 1.14553e-06
-
-Test result [backward bias] : 1.11407e-06
-
-Test result [backward w1] : 2.37175e-06
-		-0.0117497 :: -0.0119063	(84)
-		0.114608 :: 0.114518	(101)
-		0.135213 :: 0.135386	(557)
-		-0.0719029 :: -0.0717824	(852)
-		0.0503602 :: 0.0502669	(984)
-		0.106173 :: 0.106018	(1294)
-
-Test result [backward b1] : 1.80942e-06
-		-0.168248 :: -0.168343	(84)
-
-Test result [backward w2] : 2.3611e-06
-		-0.0364365 :: -0.0365496	(2713)
-		0.0985593 :: 0.0986671	(4755)
-		-0.0784856 :: -0.0783878	(4887)
-		-0.106605 :: -0.106697	(5120)
-		0.131457 :: 0.131569	(5227)
-		-0.124546 :: -0.124641	(5746)
-
-Test result [backward b2] : 6.83207e-07
-
-Test result [backward alpha] : 1.31689e-06
-
-Test result [backward bias] : 1.19573e-06
-
-Test result [backward wQ] : 1.41288e-06
-
-Test result [backward wK] : 1.50618e-06
-
-Test result [backward wV] : 1.70226e-06
-
-Test result [backward wO] : 2.14598e-06
-		-0.0581866 :: -0.0579496	(837)
-		-0.283142 :: -0.283347	(965)
-
-Test result [backward alpha] : 1.08406e-06
-
-Test result [backward bias] : 1.07207e-06
-
-Test result [backward wQ] : 1.91664e-06
-		0.263459 :: 0.263269	(47)
-		0.175111 :: 0.17529	(535)
-		0.24125 :: 0.241451	(833)
-
-Test result [backward wK] : 1.95039e-06
-		-0.192829 :: -0.193027	(800)
-
-Test result [backward wV] : 1.14749e-06
-
-Test result [backward wO] : 1.97733e-06
-		0.140391 :: 0.140598	(116)
-		0.291748 :: 0.291514	(517)
-
-Test result [backward alpha] : 1.38022e-06
-
-Test result [backward bias] : 9.1733e-07
-
-Test result [backward w1] : 1.86243e-06
-		0.00918375 :: 0.00897199	(2605)
-		0.054671 :: 0.0544676	(3177)
-		-0.0145546 :: -0.014667	(3690)
-		-0.0347568 :: -0.0348973	(4640)
-		0.0587272 :: 0.0586191	(6985)
-		-0.0734211 :: -0.0736333	(7213)
-
-Test result [backward b1] : 1.43125e-06
-
-Test result [backward w2] : 3.08313e-06
-		-0.100262 :: -0.10015	(992)
-		-0.102968 :: -0.10306	(1007)
-		0.136359 :: 0.136259	(1247)
-		0.0857137 :: 0.0858254	(1989)
-		0.0264452 :: 0.026549	(3232)
-		0.0309466 :: 0.0312679	(4404)
-
-Test result [backward b2] : 1.20961e-06
-
-Test result [backward alpha] : 1.0021e-06
-
-Test result [backward bias] : 3.19949e-07
-
-Test result [backward table] : 2.72464e-05
-		0.0446496 :: 0.0447496	(384)
-		0.117684 :: 0.11758	(385)
-		0.14215 :: 0.142038	(386)
-		0.108739 :: 0.108641	(387)
-		-0.105746 :: -0.105854	(388)
-		-0.0895813 :: -0.0896867	(390)
-
-Test result [backward table] : 2.75491e-05
-		-0.0962131 :: -0.0959879	(831)
-		0.125122 :: 0.125016	(896)
-		-0.131827 :: -0.131932	(897)
-		-0.0500571 :: -0.0501589	(898)
-		-0.0244783 :: -0.0243777	(900)
-		-0.0822845 :: -0.0821809	(901)
-
-Test result [backward weight] : 7.88236e-07
-
-Test result [backward bias] : 2.31921e-11
-
+		0.127052 :: 0.12688	(4812)
+		-0.0313804 :: -0.0315652	(5165)
+		-0.0476694 :: -0.0478366	(5390)
+		0.125572 :: 0.125479	(5716)
+
+Test result [backward b1] : 4.71967e-07
+
+Test result [backward w2] : 9.47937e-07
+		-0.106816 :: -0.1069

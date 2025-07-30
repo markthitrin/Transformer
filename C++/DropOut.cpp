@@ -1,11 +1,12 @@
+#include "Config.h"
+#include "DropOut.h"
 #include "Header.h"
 #include "Tensor.h"
-#include "DropOut.h"
 #include "Timer.h"
 
 struct pcg_setseq_64_xsh_rr_32 {
     uint64_t state;
-    uint64_t inc;  // Must be odd
+    uint64_t inc;
 
     pcg_setseq_64_xsh_rr_32(uint64_t seed = 0x853c49e6748fea9bULL,
                              uint64_t seq  = 0xda3e39cb94b95bdbULL)
@@ -51,9 +52,7 @@ void GenerateDropoutMask(TensorView mask, pcg_setseq_64_xsh_rr_32 rng) {
 }
 
 void GenerateDropoutMaskPar(TensorView mask) {
-    const int numT = getNumThreads(mask.row * mask.col, mask.row * mask.col * 0.0078, 10, 1);
-    if(verbose) std::cout << "DropOut : " << mask.row << ", " << mask.col << " " << numT << std::endl;
-    #pragma omp parallel num_threads(numT)
+    #pragma omp parallel num_threads(64)
     {
         int tid = omp_get_thread_num();
         int nthreads = omp_get_num_threads();

@@ -1,10 +1,7 @@
-use Util;
-use Math;
 use Config;
-use Matrix;
 use EncoderLayer;
 use LayerNorm;
-use Timer;
+use Tensor;
 
 class Encoder {
     proc init() {
@@ -18,7 +15,7 @@ class Encoder {
         domOG = {0..#(batch * sequenceLength * dModel)};
     }
 
-    proc forward(ref input: [?D] real(32), ref output: [D] real(32), ref srcSeq: [?Ds] int) : void {
+    proc forward(ref input: [] real(32), ref output: [] real(32), ref srcSeq: [] int) : void {
         layers[0]!.forward(input, outi[0], srcSeq);
         for i in 1..<N {
             layers[i]!.forward(outi[i - 1], outi[i], srcSeq);
@@ -26,7 +23,7 @@ class Encoder {
         norm.forward(outi[N - 1], output);
     }
 
-    proc predict(ref input: [?D] real(32), ref output: [D] real(32), ref srcSeq: [?Ds] int) : void {
+    proc predict(ref input: [] real(32), ref output: [] real(32), ref srcSeq: [] int) : void {
         layers[0]!.predict(input, outi[0], srcSeq);
         for i in 1..<N {
             layers[i]!.predict(outi[i - 1], outi[i], srcSeq);
@@ -34,7 +31,7 @@ class Encoder {
         norm.predict(outi[N - 1], output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref srcSeq: [?Ds] int) : void {
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32), ref srcSeq: [] int) : void {
         norm.backward(outputGradient, gradienti[N - 1]);
         for i in 1..(N - 1) by -1 {
             layers[i]!.backward(gradienti[i], gradienti[i - 1], srcSeq);
@@ -42,7 +39,7 @@ class Encoder {
         layers[0]!.backward(gradienti[0], inputGradient, srcSeq);
     }
 
-    proc updateParameterTask() {
+    proc updateParameterTask() : void {
         for i in 0..#N {
             layers[i]!.updateParameterTask();
         }

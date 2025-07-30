@@ -1,12 +1,11 @@
-#include "Header.h"
-#include "Tensor.h"
-#include "LayerNorm.h"
-#include "Linear.h"
-#include "MultiheadAttention.h"
+#include "Config.h"
+#include "DecoderLayer.h"
 #include "DropOut.h"
 #include "FeedForwardBlock.h"
-#include "Util.h"
-#include "DecoderLayer.h"
+#include "Header.h"
+#include "LayerNorm.h"
+#include "MultiheadAttention.h"
+#include "Tensor.h"
 
 DecoderLayer::DecoderLayer():
     dropout1(batch * sequenceLength, dModel),

@@ -1,29 +1,29 @@
 use Config;
-use Util;
-use Matrix;
+use Tensor;
 use Timer;
+use Util;
 
 class ReLU {
     proc init() {
         domMask = {0..#(batch * sequenceLength * dFF)};
     }
 
-    proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
-        forall i in BalancePar(0, D.size, (batch * sequenceLength * dFF * 0.00085):real(32), 1, 1) {
+    proc forward(ref input: [] real(32), ref output: [] real(32)) : void {
+        forall i in Par(0, batch * sequenceLength * dFF, 8) {
             output[i] = if input[i] >= 0 then input[i] else 0.0:real(32);
         }
         CheckPoint();
     }   
 
-    proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc predict(ref input: [] real(32), ref output: [] real(32)) : void {
         forward(input, output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref input: [D] real(32)) : void {
-        forall i in BalancePar(0, D.size, (batch * sequenceLength * dFF * 0.00085):real(32), 1, 1) {
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32), ref input: [] real(32)) : void {
+        forall i in Par(0, batch * sequenceLength * dFF, 8) {
             outputGradient[i] = if input[i] >= 0 then outputGradient[i] else 0.0:real(32);
         }
-        CopyPar(0,0,D.size,outputGradient,inputGradient);
+        CopyPar(0,0,batch * sequenceLength * dFF,outputGradient,inputGradient);
         CheckPoint();
     }
 

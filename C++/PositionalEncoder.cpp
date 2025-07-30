@@ -1,12 +1,10 @@
-
-
-#include "Header.h"
-#include "Tensor.h"
-#include "Util.h"
-#include "cnpy.h"
+#include "Config.h"
 #include "DropOut.h"
+#include "Header.h"
 #include "PositionalEncoder.h"
+#include "Tensor.h"
 #include "Timer.h"
+#include "Util.h"
 
 PositionalEncoder::PositionalEncoder() :
     dropout(batch * sequenceLength, dModel),

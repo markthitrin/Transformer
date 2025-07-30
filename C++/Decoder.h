@@ -13,9 +13,13 @@ class Decoder {
 public:
 	Decoder();
 
-	void forward(TensorView input, TensorView encoderOutput, TensorView output, const int srcSeq[batch], const int tgtSeq[batch]);
+	void forward(
+		TensorView input, TensorView encoderOutput, TensorView output,
+		const int srcSeq[batch], const int tgtSeq[batch]);
 
-	void predict(TensorView input, TensorView encoderOutput, TensorView output, const int srcSeq[batch], const int tgtSeq[batch]);
+	void predict(
+		TensorView input, TensorView encoderOutput, TensorView output,
+		const int srcSeq[batch], const int tgtSeq[batch]);
 
 	void backward(
         TensorView outputGradient, TensorView inputGradient, TensorView encoderGradient, TensorView encoderOutput,
@@ -34,7 +38,7 @@ public:
     DecoderLayer layers[N];
     LayerNorm norm;
 
-    std::vector<Tensor> out;
+    std::vector<Tensor> outi;
 	
     std::vector<Tensor> gradient;
 };

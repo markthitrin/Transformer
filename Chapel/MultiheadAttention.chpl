@@ -1,10 +1,10 @@
-use Util;
-use Math;
 use Config;
-use Softmax;
-use Matrix;
 use DropOut;
+use Math;
+use Tensor;
+use Softmax;
 use Timer;
+use Util;
 
 enum MaskType {
     LOOK_AHEAD,
@@ -14,7 +14,7 @@ enum MaskType {
 
 class MultiheadAttention {
     proc init() {
-        softmax = new Softmax(batch * head * sequenceLength, sequenceLength);
+        softmax = new Softmax();
         dropout = new DropOut(batch * head * sequenceLength * sequenceLength);
 
         domW = {0..#(dModel * dModel)};
@@ -36,8 +36,9 @@ class MultiheadAttention {
         domAtt = {0..#(batch * head * sequenceLength * sequenceLength)};
     }
 
-    proc process(ref inputQ: [?D] real(32), ref inputK: [D] real(32), ref inputV: [D] real(32), ref output: [D] real(32),
-        maskType: MaskType, in seq: [?Ds] int, in train: bool) : void {
+    proc process(
+        ref inputQ: [] real(32), ref inputK: [] real(32), ref inputV: [] real(32), ref output: [] real(32),
+        maskType: MaskType, in seq: [] int, in train: bool) : void {
         
         var dPerHead: int = dModel / head;
         var block: int = dModel * sequenceLength;
@@ -91,21 +92,24 @@ class MultiheadAttention {
         CheckPoint();
     }
 
-    proc forward(ref inputQ: [?D] real(32), ref inputK: [D] real(32), ref inputV: [D] real(32), ref output: [D] real(32),
+    proc forward(
+        ref inputQ: [] real(32), ref inputK: [] real(32), ref inputV: [] real(32), ref output: [] real(32),
         maskType: MaskType, in seq: [?Ds] int) : void {
         
         process(inputQ, inputK, inputV, output, maskType, seq, true);
     }
 
-    proc predict(ref inputQ: [?D] real(32), ref inputK: [D] real(32), ref inputV: [D] real(32), ref output: [D] real(32),
+    proc predict(
+        ref inputQ: [] real(32), ref inputK: [] real(32), ref inputV: [] real(32), ref output: [] real(32),
         maskType: MaskType, in seq: [?Ds] int) : void {
         
         process(inputQ, inputK, inputV, output, maskType, seq, false);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradientQ: [D] real(32), ref inputGradientK: [D] real(32), ref inputGradientV: [D] real(32),
-        ref inputQ: [D] real(32), ref inputK: [D] real(32), ref inputV: [D] real(32), ref output: [D] real(32),
-        maskType: MaskType, in seq: [?Ds] int) {
+    proc backward(
+        ref outputGradient: [] real(32), ref inputGradientQ: [] real(32), ref inputGradientK: [] real(32), ref inputGradientV: [] real(32),
+        ref inputQ: [] real(32), ref inputK: [] real(32), ref inputV: [] real(32), ref output: [] real(32),
+        maskType: MaskType, in seq: [] int) : void {
         
         var dPerHead: int = dModel / head;
         var block: int = dModel * sequenceLength;
@@ -120,7 +124,7 @@ class MultiheadAttention {
         SetPar(0, batch * head * sequenceLength * sequenceLength, AdGradient, 0.0);
         SetPar(0, batch * dModel * sequenceLength, OTGradient, 0.0);
         SetPar(0, batch * sequenceLength * dModel, inputGradientQ, 0.0);
-        if maskType != MaskType.CROSS_PADDING { // for decoder getting encoder layer
+        if maskType != MaskType.CROSS_PADDING { // For cross attention layer
             SetPar(0, batch * sequenceLength * dModel, inputGradientK, 0.0);
             SetPar(0, batch * sequenceLength * dModel, inputGradientV, 0.0);
         }
@@ -165,7 +169,7 @@ class MultiheadAttention {
         CheckPoint();
     }
 
-    proc updateParameterTask() {
+    proc updateParameterTask() : void {
         cobegin {
             AdamOpt(WQ, WQOpt);
             AdamOpt(WK, WKOpt);

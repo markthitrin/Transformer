@@ -1,8 +1,8 @@
 #include "Header.h"
-#include "Tensor.h"
-#include "Util.h"
 #include "LayerNorm.h"
+#include "Tensor.h"
 #include "Timer.h"
+#include "Util.h"
 
 LayerNorm::LayerNorm() : 
     alpha(1, dModel),
@@ -19,30 +19,25 @@ LayerNorm::LayerNorm() :
 }
 
 void LayerNorm::forward(TensorView input, TensorView output) {
-    const int row =  output.row;
-    const int col =  output.col;
-
-    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * dModel * 0.0029, 12300, 2562);
-    if(verbose) std::cout << "LayerNorm : " << output.row << ", " << output.col << " " << numT << std::endl;
-    #pragma omp parallel for num_threads(numT) schedule(static)
-    for (int i = 0; i < row; i++) {
+    #pragma omp parallel for num_threads(64) schedule(static)
+    for (int i = 0; i < batch  * sequenceLength; i++) {
         float mean = 0.0f;
-        for (int j = 0; j < col; j++) {
-            mean += input[i * col + j];
+        for (int j = 0; j < dModel; j++) {
+            mean += input[i * dModel + j];
         }
-        mean /= col;
+        mean /= dModel;
 
         std[i] = 0;
-        for (int j = 0; j < col; j++) {
-            const float x = (input[i * col + j] - mean);
+        for (int j = 0; j < dModel; j++) {
+            const float x = (input[i * dModel + j] - mean);
             std[i] += x * x;
         }
-        std[i] /= (col - 1);
+        std[i] /= (dModel - 1);
         std[i] = std::sqrt(std[i]);
 
-        for (int j = 0; j < col; j++) {
-            xHat[i * col + j] = (input[i * col + j] - mean) / (std[i] + eps);
-            output[i * col + j] = alpha[j] * xHat[i * col + j] + bias[j];
+        for (int j = 0; j < dModel; j++) {
+            xHat[i * dModel + j] = (input[i * dModel + j] - mean) / (std[i] + eps);
+            output[i * dModel + j] = alpha[j] * xHat[i * dModel + j] + bias[j];
         }
     }
     Timer::CheckPoint();
@@ -53,31 +48,28 @@ void LayerNorm::predict(TensorView input, TensorView output) {
 }
 
 void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
-    constexpr int row = batch * sequenceLength;
-    constexpr int col = dModel;
-
-    const float invCol = 1.0f / col;
+    const float invDModel = 1.0f / dModel;
     float* biasGrad = biasOpt.gradient.data;
     float* alphaGrad = alphaOpt.gradient.data;
-    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * dModel * 0.0029, 5646, 2714);
-    #pragma omp parallel for num_threads(numT) reduction(+:biasGrad[:dModel], alphaGrad[:dModel])
-    for (int i = 0; i < row; i++) {
+    
+    #pragma omp parallel for num_threads(64) reduction(+:biasGrad[:dModel], alphaGrad[:dModel])
+    for (int i = 0; i < batch * sequenceLength; i++) {
         const float invO = 1.0f / (std[i] + eps);
         float sumG = 0;
         float sumGXHat = 0;
-        for (int j = 0; j < col; j++) {
-            float gxH = outputGradient[i * col + j] * xHat[i * col + j];
+        for (int j = 0; j < dModel; j++) {
+            float gxH = outputGradient[i * dModel + j] * xHat[i * dModel + j];
             alphaGrad[j] += gxH;
             sumGXHat += gxH;
         }
-        for (int j= 0;j< col;j++) {
-            biasGrad[j] += outputGradient[i * col + j];
-            sumG += outputGradient[i * col + j];
+        for (int j= 0;j< dModel;j++) {
+            biasGrad[j] += outputGradient[i * dModel + j];
+            sumG += outputGradient[i * dModel + j];
         }
-        float a = invCol * sumG;
-        float b = invCol * sumGXHat;
-        for (int j = 0; j < col; j++) {
-            inputGradient[i * col + j] = invO * (outputGradient[i * col + j] - a - xHat[i * col + j] * b) * alpha[j];
+        float a = invDModel * sumG;
+        float b = invDModel * sumGXHat;
+        for (int j = 0; j < dModel; j++) {
+            inputGradient[i * dModel + j] = invO * (outputGradient[i * dModel + j] - a - xHat[i * dModel + j] * b) * alpha[j];
         }
     }
     Timer::CheckPoint();

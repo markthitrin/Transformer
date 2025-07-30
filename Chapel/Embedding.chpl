@@ -1,9 +1,8 @@
-use Util;
-use Math;
-use Matrix;
 use Config;
-use CTypes;
+use Math;
+use Tensor;
 use Timer;
+use Util;
 
 class Embedding {
 
@@ -17,19 +16,19 @@ class Embedding {
         UniformInit(table, 0.1);
     }
 
-    proc forward(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
-        forall i in BalancePar(0, batch * sequenceLength, 16384, 1, 2) {
+    proc forward(ref input: [] int, ref output: [] real(32)) : void {
+        forall i in Par(0, batch * sequenceLength, 4) {
             Copy(input[i] * dModel, i * dModel, dModel, table, output);
         }
         MulPar(0, 0, batch * sequenceLength * dModel, output, sqrt(dModel):real(32), output);
         CheckPoint();
     }
 
-    proc predict(ref input: [?Di] int, ref output: [?Do] real(32)) : void {
+    proc predict(ref input: [] int, ref output: [] real(32)) : void {
         forward(input, output);
     }
 
-    proc backward(ref outputGradient: [?Do] real(32), ref input: [?Di] int) : void {
+    proc backward(ref outputGradient: [] real(32), ref input: [] int) : void {
         MulPar(0, 0, batch * sequenceLength * dModel, outputGradient, sqrt(dModel):real(32), outputGradient);
         for i in 0..#(batch * sequenceLength) {
             needUpdate[input[i]] = true;
@@ -41,9 +40,9 @@ class Embedding {
         CheckPoint();
     }
 
-    proc updateParameterTask() {
+    proc updateParameterTask() : void {
         for i in domTableOpt {
-            if needUpdate[i] { // consider put parallel< how?
+            if needUpdate[i] {
                 AdamOpt(table[(i * dModel)..#dModel], tableOpt[i]);
                 needUpdate[i] = false;
             }

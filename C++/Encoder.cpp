@@ -1,37 +1,34 @@
-#include "Header.h"
-#include "Tensor.h"
-#include "EncoderLayer.h"
-#include "Softmax.h"
-#include "Embedding.h"
-#include "Linear.h"
-#include "LayerNorm.h"
-#include "Util.h"
+#include "Config.h"
 #include "Encoder.h"
+#include "EncoderLayer.h"
+#include "Header.h"
+#include "LayerNorm.h"
+#include "Tensor.h"
 
 Encoder::Encoder() {
-    out.reserve(N);
+    outi.reserve(N);
     gradient.reserve(N);
     for(int i = 0;i < N;i++) {
-        out.emplace_back(batch * sequenceLength, dModel);
+        outi.emplace_back(batch * sequenceLength, dModel);
         gradient.emplace_back(batch * sequenceLength, dModel);
     }
 }
 
 
 void Encoder::forward(TensorView input, TensorView output, const int srcSeq[batch]) {
-    layers[0].forward(input, out[0], srcSeq);
+    layers[0].forward(input, outi[0], srcSeq);
     for(int i = 1;i < N;i++) {
-        layers[i].forward(out[i - 1], out[i], srcSeq);
+        layers[i].forward(outi[i - 1], outi[i], srcSeq);
     }
-    norm.forward(out[N - 1], output);
+    norm.forward(outi[N - 1], output);
 }
 
 void Encoder::predict(TensorView input, TensorView output, const int srcSeq[batch]) {
-    layers[0].predict(input, out[0], srcSeq);
+    layers[0].predict(input, outi[0], srcSeq);
     for(int i = 1;i < N;i++) {
-        layers[i].predict(out[i - 1], out[i], srcSeq);
+        layers[i].predict(outi[i - 1], outi[i], srcSeq);
     }
-    norm.predict(out[N - 1], output);
+    norm.predict(outi[N - 1], output);
 }
 
 

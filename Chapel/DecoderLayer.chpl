@@ -1,12 +1,11 @@
-use Util;
-use Math;
 use Config;
-use LayerNorm;
-use MultiheadAttention;
 use DropOut;
 use FeedForwardBlock;
-use Matrix;
-use Timer;
+use LayerNorm;
+use Math;
+use Tensor;
+use MultiheadAttention;
+use Util;
 
 class DecoderLayer {
     proc init() {
@@ -24,8 +23,8 @@ class DecoderLayer {
     }
 
     proc forward(
-        ref input: [?D] real(32), ref encoderOut:[D] real(32), ref output: [D] real(32),
-        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
+        ref input: [] real(32), ref encoderOut:[] real(32), ref output: [] real(32),
+        ref srcSeq: [] int, ref tgtSeq: [] int) : void {
             
         norm1.forward(input, out1);
         mulAtt1.forward(out1, out1, out1, out2, MaskType.LOOK_AHEAD, tgtSeq);
@@ -44,8 +43,8 @@ class DecoderLayer {
     }
 
     proc predict(
-        ref input: [?D] real(32), ref encoderOut:[D] real(32), ref output: [D] real(32),
-        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
+        ref input: [] real(32), ref encoderOut: [] real(32), ref output: [] real(32),
+        ref srcSeq: [] int, ref tgtSeq: [] int) : void {
             
         norm1.predict(input, out1);
         mulAtt1.predict(out1, out1, out1, out2, MaskType.LOOK_AHEAD, tgtSeq);
@@ -64,8 +63,8 @@ class DecoderLayer {
     }
 
     proc backward(
-        ref outputGradient: [?D] real(32), ref encoderGradient: [D] real(32), ref inputGradient: [D] real(32),
-        ref encoderOut: [D] real(32), ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
+        ref outputGradient: [] real(32), ref encoderGradient: [] real(32), ref inputGradient: [] real(32),
+        ref encoderOut: [] real(32), ref srcSeq: [] int, ref tgtSeq: [] int) : void {
 
         dropout3.backward(outputGradient, gradient8);
         pff.backward(gradient8, gradient7, out7);

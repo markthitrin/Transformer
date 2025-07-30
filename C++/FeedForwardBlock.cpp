@@ -1,11 +1,12 @@
-#include "Header.h"
-#include "Tensor.h"
-#include "Linear.h"
-#include "ReLU.h"
-#include "Util.h"
-#include "LayerNorm.h"
+#include "Config.h"
 #include "DropOut.h"
 #include "FeedForwardBlock.h"
+#include "Header.h"
+#include "LayerNorm.h"
+#include "Linear.h"
+#include "ReLU.h"
+#include "Tensor.h"
+#include "Util.h"
 
 FeedForwardBlock::FeedForwardBlock() :
     linear1(dModel, dFF),

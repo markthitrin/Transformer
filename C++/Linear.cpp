@@ -1,20 +1,19 @@
+#include "Config.h"
 #include "Header.h"
-#include "Tensor.h"
-#include "Util.h"
 #include "Linear.h"
+#include "Tensor.h"
 #include "Timer.h"
+#include "Util.h"
 
-Linear::Linear(const int in, const int out) : 
-    weight(in, out), bias(1, out), weightOpt(in, out), biasOpt(1, out) {
+Linear::Linear(const int inD, const int outD) : 
+    weight(inD, outD), bias(1, outD), weightOpt(inD, outD), biasOpt(1, outD) {
         
     HeNormalInit(weight);
     HeNormalInit(bias);
 }
 
 void Linear::forward(TensorView input, TensorView output) {
-    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * weight.col * 0.0005, 1, 2);
-    if(verbose) std::cout << "Linear : " << output.row << ", " << output.col << " " << numT << std::endl;
-    #pragma omp parallel for num_threads(numT) schedule(static)
+    #pragma omp parallel for num_threads(8) schedule(static)
     for(int i = 0;i < batch * sequenceLength;i++) {
         output.sliceRow(i,1) = bias;
     }
@@ -27,12 +26,10 @@ void Linear::predict(TensorView input, TensorView output) {
 }
 
 void Linear::backward(TensorView outputGradient, TensorView inputGradient, TensorView input) {
-    inputGradient = 0;
     const int outD = bias.col;
     float* biasGrad = biasOpt.gradient.data;
-    const int numT = getNumThreads(batch * sequenceLength, batch * sequenceLength * weight.col, 1, 2);
-    if(verbose) std::cout << "LayerNorm : " << outputGradient.row << ", " << outputGradient.col << " " << numT << std::endl;
-    #pragma omp parallel for num_threads(numT) reduction(+:biasGrad[:outD])
+    SetPar(inputGradient, 0.0f);
+    #pragma omp parallel for num_threads(8) reduction(+:biasGrad[:outD])
     for(int i = 0;i < batch * sequenceLength;i++) {
         for(int j = 0;j < outD;j++) {
             biasGrad[j] += outputGradient[i * outD + j];

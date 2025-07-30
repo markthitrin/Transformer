@@ -7,7 +7,7 @@
 
 class Linear {
 public:
-	Linear(const int in, const int out);
+	Linear(const int inD, const int outD);
 
     void forward(TensorView input, TensorView output);
 

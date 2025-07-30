@@ -4,45 +4,18 @@ use Timer;
 
 var numPar = here.maxTaskPar;
 
-proc getNumThreads(in count :int, in tus :real(32), in flop :real(32), in mem : real(32)): int {
-    const maxPar = min(numPar, count);
-    const fmratio = 4.8; // on 64 thread
-    const maxNumThreadMemCap = flop / mem / fmratio * 64;
-    return max(min(min(maxPar, tus / 0.75), maxNumThreadMemCap), 1.0:real(32)):int;
-}
-
-iter BalancePar(in start: int, in count: int,
-    in tus :real(32), in flop :real(32), in mem :real(32)) {
+iter Par(in start: int, in count: int, in numT: int) {
     for i in start..#count {
         yield i;
     }
 }
 
-iter BalancePar(in start: int, in count :int,
-    in tus :real(32), in flop :real(32), in mem :real(32), param tag: iterKind.standalone) {
-    const numT = getNumThreads(count, tus, flop, mem);
+iter Par(in start: int, in count: int, in numT: int, param tag: iterKind.standalone) {
+    numT = min(numT, numPar);
     const chunkSize = (count + numT - 1) / numT;
     coforall t in 0..#numT {
         const s = start + chunkSize * t;
         const e = min(start + chunkSize * (t + 1),start + count);
-        for i in s..<e {
-            yield i;
-        }
-    }
-}
-
-iter Par(in start: int, in count: int, in numPar: int) {
-    for i in start..#count {
-        yield i;
-    }
-}
-
-iter Par(in start: int, in count: int, in numPar: int, param tag: iterKind.standalone) {
-    const numT = numPar;
-    const block = (count + numT - 1) / numT;
-    coforall t in 0..#numT {
-        const s = start + block * t;
-        const e = min(start + block * (t + 1),start + count);
         for i in s..<e {
             yield i;
         }

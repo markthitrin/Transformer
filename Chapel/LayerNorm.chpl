@@ -1,7 +1,7 @@
-use Util;
-use Matrix;
 use Config;
+use Tensor;
 use Timer;
+use Util;
 
 class LayerNorm {
 
@@ -19,9 +19,9 @@ class LayerNorm {
         std = 0;
     }
 
-    proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc forward(ref input: [] real(32), ref output: [] real(32)) : void {
 
-        forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * dModel * 0.0029):real(32), 12300, 2562) {
+        forall i in Par(0, batch * sequenceLength, 64) {
             var mean: real(32);
             PlusReduce(i * dModel, dModel, input, mean);
             mean /= dModel;
@@ -36,15 +36,16 @@ class LayerNorm {
         CheckPoint();
     }
 
-    proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc predict(ref input: [] real(32), ref output: [] real(32)) : void {
         forward(input, output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32)) : void {
         var invD: real(32) = (1.0 / dModel):real(32);
         ref alphaGrad = alphaOpt.gradient;
         ref biasGrad = biasOpt.gradient;
-        forall i in BalancePar(0, batch * sequenceLength, (batch * sequenceLength * dModel * 0.0029):real(32), 5646, 2714)
+
+        forall i in Par(0, batch * sequenceLength, 64)
             with (+ reduce alphaGrad, + reduce biasGrad) {
             var invStd: real(32) = (1.0 / std[i]): real(32);
             var sumG: real(32) = 0.0;

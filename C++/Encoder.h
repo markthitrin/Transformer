@@ -32,7 +32,7 @@ public:
     EncoderLayer layers[N];
     LayerNorm norm;
 
-    std::vector<Tensor> out;
+    std::vector<Tensor> outi;
 	
     std::vector<Tensor> gradient;
 };

@@ -1,11 +1,11 @@
-
-#include "Header.h"
-#include "Tensor.h"
-#include "Util.h"
-#include "Softmax.h"
+#include "Config.h"
 #include "DropOut.h"
+#include "Header.h"
 #include "MultiheadAttention.h"
+#include "Softmax.h"
+#include "Tensor.h"
 #include "Timer.h"
+#include "Util.h"
 
 
 MultiheadAttention::MultiheadAttention() :
@@ -46,10 +46,9 @@ MultiheadAttention::MultiheadAttention() :
 
 void MultiheadAttention::process(
     TensorView inputQ, TensorView inputK, TensorView inputV, TensorView output,
-    MaskType maskType, const  int seq[batch], bool train) {
+    MaskType maskType, const int seq[batch], bool train) {
 
     const int dPerHead = dModel / head;
-
 
     SetPar(QT, 0);
     SetPar(KT, 0);
@@ -127,7 +126,6 @@ void MultiheadAttention::backward(
     MaskType maskType, const int seq[batch]) {
 
     const int dPerHead = dModel / head;
-
     
     float* WQGrad = WQOpt.gradient.data;
     float* WKGrad = WKOpt.gradient.data;
@@ -142,7 +140,7 @@ void MultiheadAttention::backward(
     SetPar(AdGradient, 0);
     SetPar(OTGradient, 0);
     SetPar(inputGradientQ, 0);
-    if(maskType != CROSS_PADDING) { // for decoder getting encoder layer
+    if(maskType != CROSS_PADDING) { // For cross attention layer
         SetPar(inputGradientK, 0);
         SetPar(inputGradientV, 0);
     }

@@ -1,10 +1,9 @@
-use Util;
-use Math;
 use Config;
-use Matrix;
 use DecoderLayer;
 use LayerNorm;
+use Tensor;
 use Timer;
+use Util;
 
 class Decoder {
 
@@ -20,8 +19,9 @@ class Decoder {
     }
 
     proc forward(
-        ref input: [?D] real(32), ref encoderOut:[D] real(32), ref output: [D] real(32),
-        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
+        ref input: [] real(32), ref encoderOut: [] real(32), ref output: [] real(32),
+        ref srcSeq: [] int, ref tgtSeq: [] int) : void {
+
         layers[0]!.forward(input, encoderOut, outi[0], srcSeq, tgtSeq);
         for i in 1..<N {
             layers[i]!.forward(outi[i - 1], encoderOut, outi[i], srcSeq, tgtSeq);
@@ -30,8 +30,9 @@ class Decoder {
     }
 
     proc predict(
-        ref input: [?D] real(32), ref encoderOut:[D] real(32), ref output: [D] real(32),
-        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
+        ref input: [] real(32), ref encoderOut:[] real(32), ref output: [] real(32),
+        ref srcSeq: [] int, ref tgtSeq: [] int) : void {
+
         layers[0]!.predict(input, encoderOut, outi[0], srcSeq, tgtSeq);
         for i in 1..<N {
             layers[i]!.predict(outi[i - 1], encoderOut, outi[i], srcSeq, tgtSeq);
@@ -40,9 +41,10 @@ class Decoder {
     }
 
     proc backward(
-        ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32), ref encoderGradient: [D] real(32), ref encoderOut: [D] real(32),
-        ref srcSeq: [?Ds] int, ref tgtSeq: [Ds] int) : void {
-        Set(0, encoderGradient.domain.size, encoderGradient, 0.0); // need manually reset;
+        ref outputGradient: [] real(32), ref inputGradient: [] real(32), ref encoderGradient: [] real(32), ref encoderOut: [] real(32),
+        ref srcSeq: [] int, ref tgtSeq: [] int) : void {
+        
+        Set(0, encoderGradient.domain.size, encoderGradient, 0.0); // need to be set manually
         norm.backward(outputGradient, gradienti[N - 1]);
         for i in 1..(N - 1) by -1 {
             layers[i]!.backward(gradienti[i], encoderGradient, gradienti[i - 1], encoderOut, srcSeq, tgtSeq);
@@ -50,7 +52,7 @@ class Decoder {
         layers[0]!.backward(gradienti[0], encoderGradient, inputGradient, encoderOut, srcSeq, tgtSeq);
     }
 
-    proc updateParameterTask() {
+    proc updateParameterTask() : void {
         cobegin {
             coforall i in 0..#N {
                 layers[i]!.updateParameterTask();

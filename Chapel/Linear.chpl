@@ -1,6 +1,6 @@
 use Util;
 use Config;
-use Matrix;
+use Tensor;
 use Timer;
 
 class Linear {
@@ -16,41 +16,35 @@ class Linear {
         biasOpt = new AdamOptimizer(bias);
     }
 
-    proc forward(ref input: [?Di] real(32), ref output: [?Do] real(32)) {
+    proc forward(ref input: [] real(32), ref output: [] real(32)) {
         var outD = bias.domain.size;
         var inD = weight.domain.size / bias.domain.size;
-        var batch = Do.size / outD;
-        forall i in BalancePar(0,batch, (batch * outD * 0.0005):real(32), 1, 2) {
+        forall i in 0..#(batch * sequenceLength) {
             Copy(0, i * outD, outD, bias, output);
         }
-        MatMulPlusABPar(batch, inD, outD, input, weight, output);
+        MatMulPlusABPar(batch * sequenceLength, inD, outD, input, weight, output);
         CheckPoint();
     }
 
-    proc predict(ref input: [?Di] real(32), ref output: [?Do] real(32)) {
+    proc predict(ref input: [] real(32), ref output: [] real(32)) {
         forward(input, output);
     }
 
-    proc backward(
-        ref outputGradient: [?Do] real(32), ref inputGradient: [?Di] real(32),
-        ref input:[Di] real(32)) {
-
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32), ref input: [] real(32)) {
         var outD = bias.domain.size;
         var inD = weight.domain.size / bias.domain.size;
-        var batch = Do.size / outD;
-        inputGradient = 0;
+        SetPar(0, batch * sequenceLength * inD, inputGradient, 0.0);
         var temp: [0..#outD] real(32);
-        forall i in BalancePar(0, batch, (batch * outD):real(32), 1, 2)
-            with (+ reduce temp) {
+        forall i in Par(0, batch * sequenceLength, 8) with (+ reduce temp) {
             Plus(0, i * outD, 0, outD, temp, outputGradient, temp);
         }
         Plus(0, 0, 0, outD, biasOpt.gradient, temp, biasOpt.gradient);
-        MatMulPlusATBPar(inD, batch, outD, input, outputGradient, weightOpt.gradient);
-        MatMulPlusABTPar(batch, outD, inD, outputGradient, weight, inputGradient);
+        MatMulPlusATBPar(inD, batch * sequenceLength, outD, input, outputGradient, weightOpt.gradient);
+        MatMulPlusABTPar(batch * sequenceLength, outD, inD, outputGradient, weight, inputGradient);
         CheckPoint();
     }
 
-    proc updateParameterTask() {
+    proc updateParameterTask() : void {
         cobegin {
             AdamOpt(weight, weightOpt);
             AdamOpt(bias, biasOpt);
