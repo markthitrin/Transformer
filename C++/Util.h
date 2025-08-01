@@ -22,8 +22,4 @@ float CrossEntropy(TensorView logits, const int* target_token, const int* tgtSeq
 
 float fast_logf(float x);
 
-void PrintTestResult(std::string text, TensorView A, TensorView B);
-
-void PrintTestResultT(std::string text, TensorView A, TensorView B);
-
 #endif

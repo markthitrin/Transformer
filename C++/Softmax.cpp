@@ -4,9 +4,7 @@
 #include "Softmax.h"
 #include "Timer.h"
 
-Softmax::Softmax() {
-
-}
+Softmax::Softmax() {;}
 
 void Softmax::forward(TensorView input, TensorView output) {
     const int numT  = std::min(numPar, 68);

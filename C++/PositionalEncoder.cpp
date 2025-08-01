@@ -34,16 +34,3 @@ void PositionalEncoder::backward(TensorView outputGradient, TensorView inputGrad
     dropout.backward(outputGradient, inputGradient);
     Timer::CheckPoint();
 }
-
-void PositionalEncoder::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(batch * sequenceLength, dModel);
-    Tensor input(batch * sequenceLength, dModel);
-    Tensor output(batch * sequenceLength, dModel);
-
-    input.loadNp(npFile, prefix + ".input");
-    target.loadNp(npFile, prefix + ".output");
-
-    forward(input, output);
-
-    PrintTestResult("forward " + prefix, output, target);
-}

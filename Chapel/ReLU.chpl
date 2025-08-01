@@ -4,6 +4,7 @@ use Timer;
 use Util;
 
 class ReLU {
+    
     proc init() {
         domMask = {0..#(batch * sequenceLength * dFF)};
     }

@@ -27,14 +27,6 @@ public:
 
 	void updateParameterTask();
 
-    void loadParam(cnpy::npz_t npFile, std::string prefix);
-
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
-
-	void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
-	void backwardTest(cnpy::npz_t npFile, std::string prefix);
-
     DecoderLayer layers[N];
     LayerNorm norm;
 

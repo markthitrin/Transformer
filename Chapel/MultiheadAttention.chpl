@@ -13,6 +13,7 @@ enum MaskType {
 }
 
 class MultiheadAttention {
+    
     proc init() {
         softmax = new Softmax();
         dropout = new DropOut(batch * head * sequenceLength * sequenceLength);
@@ -178,80 +179,6 @@ class MultiheadAttention {
         }
     }
 
-    proc loadParam() {
-        loadM(WQ);
-        loadM(WK);
-        loadM(WV);
-        loadM(WO);
-    }
-
-    proc forwardTest() {
-        var inputQ: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputK: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputV: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#1] real(32);
-        var seq: [0..#batch] int;
-
-        loadM(inputQ);
-        loadM(inputK);
-        loadM(inputV);
-        loadM(npdLoader);
-        loadM(target);
-        for i in 0..#batch do seq[i] = npdLoader[0]:int;
-
-        forward(inputQ, inputK, inputV, output, MaskType.LOOK_AHEAD, seq);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        var WQUpdated: [0..#(dModel * dModel)] real(32);
-        var WKUpdated: [0..#(dModel * dModel)] real(32);
-        var WVUpdated: [0..#(dModel * dModel)] real(32);
-        var WOUpdated: [0..#(dModel * dModel)] real(32);
-
-        loadM(WQUpdated);
-        loadM(WKUpdated);
-        loadM(WVUpdated);
-        loadM(WOUpdated);
-        
-        PrintTestResult("backward wQ", WQ, WQUpdated);
-        PrintTestResult("backward wK", WK, WKUpdated);
-        PrintTestResult("backward wV", WV, WVUpdated);
-        PrintTestResult("backward wO", WO, WOUpdated);
-    }
-
-    proc backwardTest() {
-        var inputQ: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputK: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputV: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#1] real(32);
-        var seq: [0..#batch] int;
-        
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(inputQ);
-        loadM(inputK);
-        loadM(inputV);
-        loadM(npdLoader);
-        for i in 0..#batch do seq[i] = npdLoader[0]:int;
-
-        forward(inputQ, inputK, inputV, output, MaskType.LOOK_AHEAD, seq);
-        backward(
-            outputGradient, inputGradient, inputGradient, inputGradient,
-            inputQ, inputK, inputV, output,
-            MaskType.LOOK_AHEAD, seq);
-        updateParameterTask();
-
-        checkUpdateParam();
-    }
-
     var softmax: owned Softmax;
     var dropout: owned DropOut;
 
@@ -284,9 +211,3 @@ class MultiheadAttention {
     var AdGradient: [domAtt] real(32);
     var OTGradient: [domO] real(32);
 }
-
-// Test code
-// var model = new MultiheadAttention();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

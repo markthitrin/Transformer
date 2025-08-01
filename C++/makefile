@@ -18,13 +18,14 @@ SRCS = \
 	MultiheadAttention.cpp \
 	Softmax.cpp \
 	DropOut.cpp \
-	Tensor.cpp \
 	Util.cpp \
 	Data.cpp \
 	Timer.cpp \
 	main.cpp
 
+OBJDIR = build
 OBJS = $(SRCS:.cpp=.o)
+OBJS := $(addprefix $(OBJDIR)/,$(OBJS))
 
 TARGET = main
 
@@ -33,8 +34,9 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-%.o: %.cpp
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(OBJDIR) $(TARGET)

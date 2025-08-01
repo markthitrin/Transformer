@@ -61,8 +61,6 @@ std::vector<double> Timer::GetTimeStd() {
     return res;
 }
 
-
-
 std::vector<double> Timer::time[timerSize];
 std::chrono::time_point<std::chrono::steady_clock> Timer::t0;
 int Timer::i;

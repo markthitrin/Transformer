@@ -5,24 +5,6 @@ use Random;
 use Time;
 use Util;
 
-var file = open(paramFileName, ioMode.r);
-var fileReader = file.reader();
-proc loadM(ref A:[?D] real(32)) {
-    for i in D {
-        var x: real(32);
-        fileReader.read(x);
-        A[i] = x;
-    }
-}
-proc loadM(ref A:[?D] int) {
-    for i in D {
-        var x: int;
-        fileReader.read(x);
-        A[i] = x;
-    }
-}
-
-
 var rng = new randomStream(eltType=real(32));
 
 proc sampleNormal (in mu: real(32), in sigma: real(32)) : real(32) {
@@ -471,23 +453,4 @@ proc MatMulPlusABT(in d1: int, in d2: int, in d3: int,
         }
     }
     MatMulPlusAB(d1, d2, d3, A, BT, C);
-}
-
-proc PrintTestResult(text: string, ref A: [?D] real(32), ref B:[D] real(32)) {
-    var sum = 0.0;
-    for i in D {
-        sum += abs(A[i] - B[i]);
-    }
-    sum /= D.size;
-    writeln("Test result [", text, "] : ", sum);
-
-    var count = 0;
-    for i in D do
-        if abs(A[i] - B[i]) >= 0.00009 {
-            writeln("\t\t", A[i], " :: ", B[i], "\t(", i, ")");
-            count += 1;
-            if count >= 6 then break;
-        }
-
-    writeln();
 }

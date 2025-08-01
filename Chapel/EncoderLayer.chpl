@@ -8,6 +8,7 @@ use Timer;
 use Util;
 
 class EncoderLayer {
+    
     proc init() {
         norm1 = new LayerNorm();
         mulAtt = new MultiheadAttention();
@@ -64,59 +65,6 @@ class EncoderLayer {
         }
     }
 
-    proc loadParam() {
-        norm1.loadParam();
-        mulAtt.loadParam();
-        norm2.loadParam();
-        pff.loadParam();
-    }
-
-    proc forwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#1] real(32);
-        var seq: [0..#batch] int;
-
-        loadM(input);
-        loadM(target);
-        loadM(npdLoader);
-        for i in 0..#batch do seq[i] = npdLoader[0]:int;
-
-        forward(input, output, seq);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        norm1.checkUpdateParam();
-        mulAtt.checkUpdateParam();
-        norm2.checkUpdateParam();
-        pff.checkUpdateParam();
-    }
-
-    proc backwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#1] real(32);
-        var seq: [0..#batch] int;
-        
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(input);
-        loadM(npdLoader);
-        for i in 0..#batch do seq[i] = npdLoader[0]:int;
-
-        forward(input, output, seq);
-        backward(outputGradient, inputGradient, seq);
-        updateParameterTask();
-
-        checkUpdateParam();
-    }
-
     var norm1: owned LayerNorm;
     var mulAtt: owned MultiheadAttention;
     var dropout1: owned DropOut;
@@ -136,9 +84,3 @@ class EncoderLayer {
     var gradient4: [domOG] real(32);
     var gradient5: [domOG] real(32);
 }
-
-// Test code
-// var model = new EncoderLayer();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

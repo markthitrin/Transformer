@@ -51,17 +51,6 @@ class Linear {
         }
     }
 
-    proc checkUpdateParam() {
-        var weightUpdated: [weight.domain] real(32);
-        var biasUpdated: [bias.domain] real(32);
-
-        loadM(weightUpdated);
-        loadM(biasUpdated);
-
-        PrintTestResult("backward weight", weight, weightUpdated);
-        PrintTestResult("backward bias", bias, biasUpdated);
-    }
-
     var domWeight: domain(1);
     var domBias: domain(1);
     var weight: [domWeight] real(32);

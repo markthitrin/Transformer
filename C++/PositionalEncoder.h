@@ -17,8 +17,6 @@ public:
 
     void backward(TensorView outputGradient, TensorView inputGradient);
 
-    void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
     DropOut dropout;
 
 	Tensor positionEncode;

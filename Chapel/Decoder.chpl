@@ -60,68 +60,6 @@ class Decoder {
             norm.updateParameterTask();
         }
     }
-
-    proc loadParam() {
-        for i in 0..#N {
-            layers[i]!.loadParam();
-        }
-        norm.loadParam();
-    }
-
-    proc forwardTest() {
-        var input1: [0..#(batch * sequenceLength * dModel)] real(32);
-        var input2: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#2] real(32);
-        var srcSeq: [0..#batch] int;
-        var tgtSeq: [0..#batch] int;
-
-        loadM(input1);
-        loadM(input2);
-        loadM(target);
-        loadM(npdLoader);
-        for i in 0..#batch do srcSeq[i] = npdLoader[0]:int;
-        for i in 0..#batch do tgtSeq[i] = npdLoader[1]:int;
-
-        forward(input1, input2, output, srcSeq, tgtSeq);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        for i in 0..#N {
-            layers[i]!.checkUpdateParam();
-        }
-        norm.checkUpdateParam();
-    }
-
-    proc backwardTest() {
-        var input1: [0..#(batch * sequenceLength * dModel)] real(32);
-        var input2: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#2] real(32);
-        var srcSeq: [0..#batch] int;
-        var tgtSeq: [0..#batch] int;
-        
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(input1);
-        loadM(input2);
-        loadM(target);
-        loadM(npdLoader);
-        for i in 0..#batch do srcSeq[i] = npdLoader[0]:int;
-        for i in 0..#batch do tgtSeq[i] = npdLoader[1]:int;
-
-        forward(input1, input2, output, srcSeq, tgtSeq);
-        backward(outputGradient, inputGradient, inputGradient, input2, srcSeq, tgtSeq);
-        updateParameterTask();
-
-        checkUpdateParam();
-    }
     
     var domLayers: domain(1);
     var layers: [domLayers] owned DecoderLayer?;
@@ -131,9 +69,3 @@ class Decoder {
     var outi: [domLayers][domOG] real(32);
     var gradienti: [domLayers][domOG] real(32);
 }
-
-// Test code
-// var model = new Decoder();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

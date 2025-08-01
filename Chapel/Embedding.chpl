@@ -49,48 +49,6 @@ class Embedding {
         }
     }
 
-    proc loadParam() {
-        loadM(table);
-    }
-
-    proc forwardTest() {
-        var input: [0..#(batch * sequenceLength)] int;
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-
-        loadM(input);
-        loadM(target);
-
-        forward(input, output);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        var tableUpdated: [domTable] real(32);
-
-        loadM(tableUpdated);
-
-        PrintTestResult("backward table", table, tableUpdated);
-    }
-
-    proc backwardTest() {
-        var input: [0..#(batch * sequenceLength)] int;
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..(batch * sequenceLength * dModel)] real(32);
-
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(input);
-
-        forward(input, output);
-        backward(outputGradient, input);
-        updateParameterTask();
-
-        checkUpdateParam();
-    }
-
     var domTable: domain(1);
     var table: [domTable] real(32);
     
@@ -98,11 +56,3 @@ class Embedding {
     var needUpdate: [domTableOpt] bool;
     var tableOpt: [domTableOpt] AdamOptimizer;
 }
-
-
-// Test code
-
-// var model = new Embedding(srcVocab);
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

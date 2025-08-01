@@ -75,53 +75,6 @@ class LayerNorm {
             AdamOpt(bias, biasOpt);
         }
     }
-
-    proc loadParam() {
-        loadM(alpha);
-        loadM(bias);
-    }
-
-    proc forwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-
-        loadM(input);
-        loadM(target);
-
-        forward(input, output);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        var alphaUpdated: [domGB] real(32);
-        var biasUpdated: [domGB] real(32);
-
-        loadM(alphaUpdated);
-        loadM(biasUpdated);
-
-        PrintTestResult("backward alpha", alpha, alphaUpdated);
-        PrintTestResult("backward bias", bias, biasUpdated);
-    }
-
-    proc backwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..(batch * sequenceLength * dModel)] real(32);
-        var inputGradient: [0..(batch * sequenceLength * dModel)] real(32);
-
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(input);
-
-        forward(input, output);
-        backward(outputGradient, inputGradient);
-        updateParameterTask();
-
-        checkUpdateParam();
-    }
     
     var domGB: domain(1);
     var alpha: [domGB] real(32);
@@ -135,9 +88,3 @@ class LayerNorm {
     var xHat: [domXHat] real(32);
     var std: [domStd] real(32);
 }
-
-// Test code
-// var model = new LayerNorm();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

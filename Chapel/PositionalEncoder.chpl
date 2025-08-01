@@ -44,25 +44,8 @@ class PositionalEncoder {
         CheckPoint();
     }
 
-    proc forwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-
-        loadM(input);
-        loadM(target);
-
-        forward(input, output);
-
-        PrintTestResult("forward", output, target);
-    }
-
     var dropout: owned DropOut;
 
     var domMask: domain(1);
     var mask: [domMask] real(32);
 }
-
-// Test code
-// var model = new PositionalEncoder();
-// for i in 0..4 do model.forwardTest();

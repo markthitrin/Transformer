@@ -77,70 +77,6 @@ class Transformer {
         
     }
 
-    proc loadParam() {
-        encoder.loadParam();
-        decoder.loadParam();
-        srcEmbed.loadParam();
-        tgtEmbed.loadParam();
-        loadM(linear.weight);
-        loadM(linear.bias);
-    }
-
-    proc forwardTest() {
-        var inputEncoder: [0..#(batch * sequenceLength)] int;
-        var inputDecoder: [0..#(batch * sequenceLength)] int;
-        var output: [0..#(batch * sequenceLength * tgtVocab)] real(32);
-        var target: [0..#(batch * sequenceLength * tgtVocab)] real(32);
-        var npdLoader: [0..#2] real(32);
-        var srcSeq: [0..#batch] int;
-        var tgtSeq: [0..#batch] int;
-
-        loadM(inputEncoder);
-        loadM(inputDecoder);
-        loadM(target);
-        loadM(npdLoader);
-        for i in 0..#batch do srcSeq[i] = npdLoader[0]:int;
-        for i in 0..#batch do tgtSeq[i] = npdLoader[1]:int;
-
-        forward(inputEncoder, inputDecoder, output, srcSeq, tgtSeq);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        writeln("Check =========================================");
-        encoder.checkUpdateParam();
-        decoder.checkUpdateParam();
-        srcEmbed.checkUpdateParam();
-        tgtEmbed.checkUpdateParam();
-        linear.checkUpdateParam();
-    }
-
-    proc backwardTest() {
-        var inputEncoder: [0..#(batch * sequenceLength)] int;
-        var inputDecoder: [0..#(batch * sequenceLength)] int;
-        var output: [0..#(batch * sequenceLength * tgtVocab)] real(32);
-        var target: [0..#(batch * sequenceLength * tgtVocab)] real(32);
-        var outputGradient: [0..#(batch * sequenceLength * tgtVocab)] real(32);
-        var npdLoader: [0..#2] real(32);
-        var srcSeq: [0..#batch] int;
-        var tgtSeq: [0..#batch] int;
-        
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(inputEncoder);
-        loadM(inputDecoder);
-        loadM(npdLoader);
-        for i in 0..#batch do srcSeq[i] = npdLoader[0]:int;
-        for i in 0..#batch do tgtSeq[i] = npdLoader[1]:int;
-
-        forward(inputEncoder, inputDecoder, output, srcSeq, tgtSeq);
-        backward(outputGradient, inputEncoder, inputDecoder, srcSeq, tgtSeq);
-        updateParameter();
-
-        checkUpdateParam();
-    }
-
     var srcEmbed: owned Embedding;
     var tgtEmbed: owned Embedding;
     var srcPos: owned PositionalEncoder;
@@ -163,9 +99,3 @@ class Transformer {
     var gradient4: [domOG] real(32);
     var gradient5: [domOG] real(32);
 }
-
-// Test code
-// var model = new Transformer();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

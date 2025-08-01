@@ -8,6 +8,7 @@ use MultiheadAttention;
 use Util;
 
 class DecoderLayer {
+    
     proc init() {
         norm1 = new LayerNorm();
         mulAtt1 = new MultiheadAttention();
@@ -93,71 +94,6 @@ class DecoderLayer {
         }
     }
 
-    proc loadParam() {
-        norm1.loadParam();
-        mulAtt1.loadParam();
-        norm2.loadParam();
-        mulAtt2.loadParam();
-        norm3.loadParam();
-        pff.loadParam();
-    }
-
-    proc forwardTest() {
-        var input1: [0..#(batch * sequenceLength * dModel)] real(32);
-        var input2: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#2] real(32);
-        var srcSeq: [0..#batch] int;
-        var tgtSeq: [0..#batch] int;
-
-        loadM(input1);
-        loadM(input2);
-        loadM(target);
-        loadM(npdLoader);
-        for i in 0..#batch do srcSeq[i] = npdLoader[0]:int;
-        for i in 0..#batch do tgtSeq[i] = npdLoader[1]:int;
-
-        forward(input1, input2, output, srcSeq, tgtSeq);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        norm1.checkUpdateParam();
-        mulAtt1.checkUpdateParam();
-        norm2.checkUpdateParam();
-        mulAtt2.checkUpdateParam();
-        norm3.checkUpdateParam();
-        pff.checkUpdateParam();
-    }
-
-    proc backwardTest() {
-        var input1: [0..#(batch * sequenceLength * dModel)] real(32);
-        var input2: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#2] real(32);
-        var srcSeq: [0..#batch] int;
-        var tgtSeq: [0..#batch] int;
-        
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(input1);
-        loadM(input2);
-        loadM(npdLoader);
-        for i in 0..#batch do srcSeq[i] = npdLoader[0]:int;
-        for i in 0..#batch do tgtSeq[i] = npdLoader[1]:int;
-
-        forward(input1, input2, output, srcSeq, tgtSeq);
-        backward(outputGradient, inputGradient, inputGradient, input2, srcSeq, tgtSeq);
-        updateParameterTask();
-
-        checkUpdateParam();
-    }
-
     var norm1: owned LayerNorm;
     var mulAtt1: owned MultiheadAttention;
     var dropout1: owned DropOut;
@@ -186,9 +122,3 @@ class DecoderLayer {
     var gradient7: [domOG] real(32);
     var gradient8: [domOG] real(32);
 }
-
-// Test code
-// var model = new DecoderLayer();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

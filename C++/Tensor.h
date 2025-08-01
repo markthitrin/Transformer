@@ -41,8 +41,6 @@ public:
     inline Tensor& operator+=(const TensorView other);
     inline TensorView sliceRow(int r0,int r);
 
-    inline void loadNp(cnpy::npz_t npFile, std::string name);
-
     float* data;
     int row;
     int col;
@@ -135,19 +133,6 @@ inline Tensor& Tensor::operator+=(const TensorView other) {
 
 inline TensorView Tensor::sliceRow(int r0,int r) {
     return TensorView(data + r0 * col, r, col);
-}
-
-inline void Tensor::loadNp(cnpy::npz_t npFile, std::string name) {
-    static std::ofstream paramOutFile("../Param/out");
-    cnpy::NpyArray arr = npFile[name];
-    std::memcpy(data, arr.data<float>(), sizeof(float) * row * col);
-    for(int i = 0;i < row;i++) {
-        for(int j = 0;j < col;j++) {
-            paramOutFile << std::setprecision(9) << data[i * col + j] << " ";
-        }
-        paramOutFile << std::setprecision(9) <<  std::endl;
-    }
-    paramOutFile << std::setprecision(9) << std::endl;
 }
 
 

@@ -8,6 +8,7 @@ use Timer;
 use Util;
 
 class FeedForwardBlock {
+
     proc init() {
         linear1 = new Linear(dModel, dFF);
         relu = new ReLU();
@@ -45,61 +46,6 @@ class FeedForwardBlock {
         }
     }
 
-    proc loadParam() {
-        loadM(linear1.weight);
-        loadM(linear1.bias);
-        loadM(linear2.weight);
-        loadM(linear2.bias);
-    }
-
-    proc forwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-
-        loadM(input);
-        loadM(target);
-
-        forward(input, output);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        var w1Updated: [linear1.weight.domain] real(32);
-        var b1Updated: [linear1.bias.domain] real(32);
-        var w2Updated: [linear2.weight.domain] real(32);
-        var b2Updated: [linear2.bias.domain] real(32);
-
-        loadM(w1Updated);
-        loadM(b1Updated);
-        loadM(w2Updated);
-        loadM(b2Updated);
-        
-        PrintTestResult("backward w1", linear1.weight, w1Updated);
-        PrintTestResult("backward b1", linear1.bias, b1Updated);
-        PrintTestResult("backward w2", linear2.weight, w2Updated);
-        PrintTestResult("backward b2", linear2.bias, b2Updated);
-    }
-
-    proc backwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(input);
-
-        forward(input, output);
-        backward(outputGradient, inputGradient, input);
-        updateParameterTask();
-
-        checkUpdateParam();
-    }
-
     var linear1: owned Linear;
     var relu: owned ReLU;
     var dropout: owned DropOut;
@@ -113,9 +59,3 @@ class FeedForwardBlock {
     var gradient2: [domOG] real(32);
     var gradient3: [domOG] real(32);
 }
-
-// Test code
-// var model = new FeedForwardBlock();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

@@ -5,6 +5,7 @@ use Tensor;
 use Timer;
 
 class Softmax {
+    
     proc init() {
         domB = {0..#(batch * head * sequenceLength * sequenceLength)};
     }
