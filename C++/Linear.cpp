@@ -1,3 +1,4 @@
+#include "Config.h"
 #include "Header.h"
 #include "Tensor.h"
 #include "Util.h"
@@ -36,15 +37,4 @@ void Linear::backward(TensorView outputGradient, TensorView inputGradient, Tenso
 void Linear::updateParameter() {
     AdamOpt(weight, weightOpt);
     AdamOpt(bias, biasOpt);
-}
-
-void Linear::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    Tensor weightUpdated(weight.row, weight.col);
-    Tensor biasUpdated(1, weight.col);
-
-    weightUpdated.loadNp(npFile, prefix + ".updated_weight");
-    biasUpdated.loadNp(npFile, prefix + ".updated_bias");
-
-    PrintTestResult("backward " + prefix + ".weight", weight, weightUpdated);
-    PrintTestResult("backward " + prefix + ".bias", bias, biasUpdated);
 }

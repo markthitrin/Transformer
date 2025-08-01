@@ -1,9 +1,9 @@
-use Data;
-use Transformer;
 use Config;
-use Util;
+use Data;
 use IO;
 use Timer;
+use Transformer;
+use Util;
 
 proc readDataFile(ref dataDomain: domain(2), ref src: [dataDomain] int, ref tgt: [dataDomain] int) {
     var file = open("opus_books_tokenized.txt", ioMode.r);

@@ -1,12 +1,10 @@
-
-
-#include "Header.h"
-#include "Tensor.h"
-#include "Util.h"
-#include "cnpy.h"
+#include "Config.h"
 #include "DropOut.h"
+#include "Header.h"
 #include "PositionalEncoder.h"
+#include "Tensor.h"
 #include "Timer.h"
+#include "Util.h"
 
 PositionalEncoder::PositionalEncoder() :
     dropout(batch * sequenceLength, dModel),
@@ -33,17 +31,4 @@ void PositionalEncoder::predict(TensorView input, TensorView output) {
 void PositionalEncoder::backward(TensorView outputGradient, TensorView inputGradient) {
     dropout.backward(outputGradient, inputGradient);
     Timer::CheckPoint();
-}
-
-void PositionalEncoder::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(batch * sequenceLength, dModel);
-    Tensor input(batch * sequenceLength, dModel);
-    Tensor output(batch * sequenceLength, dModel);
-
-    input.loadNp(npFile, prefix + ".input");
-    target.loadNp(npFile, prefix + ".output");
-
-    forward(input, output);
-
-    PrintTestResult("forward " + prefix, output, target);
 }

@@ -19,4 +19,4 @@ public:
     Tensor mask;
 };
 
-#endif // !DROP_OUT
+#endif

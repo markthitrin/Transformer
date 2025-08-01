@@ -1,13 +1,14 @@
 #ifndef DECODER_LAYER
 #define DECODER_LAYER
 
+#include "Config.h"
+#include "DropOut.h"
+#include "FeedForwardBlock.h"
 #include "Header.h"
-#include "Tensor.h"
 #include "LayerNorm.h"
 #include "Linear.h"
 #include "MultiheadAttention.h"
-#include "DropOut.h"
-#include "FeedForwardBlock.h"
+#include "Tensor.h"
 #include "Util.h"
 
 class DecoderLayer {
@@ -27,14 +28,6 @@ public:
         TensorView encoderOutput, const int srcSeq[batch], const int tgtSeq[batch]);
 
     void updateParameter();
-
-    void loadParam(cnpy::npz_t npFile, std::string prefix);
-
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
-
-	void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
-	void backwardTest(cnpy::npz_t npFile, std::string prefix);
 
 	LayerNorm norm1;
 	MultiheadAttention mulAtt1;

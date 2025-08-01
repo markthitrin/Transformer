@@ -1,3 +1,4 @@
+#include "Config.h"
 #include "Header.h"
 #include "Tensor.h"
 #include "Util.h"
@@ -74,51 +75,6 @@ void LayerNorm::backward(TensorView outputGradient, TensorView inputGradient) {
         }
     }
     Timer::CheckPoint();
-}
-
-void LayerNorm::loadParam(cnpy::npz_t npFile, std::string prefix) {
-    alpha.loadNp(npFile, prefix + ".alpha");
-    bias.loadNp(npFile, prefix + ".bias");
-}
-
-void LayerNorm::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    Tensor alphaUpdated(1, dModel);
-    Tensor biasUpdated(1, dModel);
-    alphaUpdated.loadNp(npFile, prefix + ".updated_alpha");
-    biasUpdated.loadNp(npFile, prefix + ".updated_bias");
-
-    PrintTestResult("backward " + prefix + ".alpha", alpha, alphaUpdated);
-    PrintTestResult("backward " + prefix + ".bias", bias, biasUpdated);
-}
-
-
-void LayerNorm::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(batch * sequenceLength, dModel);
-    Tensor input(batch * sequenceLength, dModel);
-    Tensor output(batch * sequenceLength, dModel);
-
-    input.loadNp(npFile, prefix + ".input");
-    target.loadNp(npFile, prefix + ".output");
-
-    forward(input, output);
-
-    PrintTestResult("forward", output, target);
-}
-
-void LayerNorm::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor outputGradient(batch * sequenceLength, dModel);
-    Tensor inputGradient(batch * sequenceLength, dModel);
-    Tensor input(batch * sequenceLength, dModel);
-    Tensor output(batch * sequenceLength, dModel);
-    outputGradient = 1.0f / outputGradient.row / outputGradient.col;
-
-    input.loadNp(npFile, prefix + ".input");
-
-    forward(input, output);
-    backward(outputGradient, inputGradient);
-    updateParameter();
-
-    checkUpdatedParam(npFile, prefix);
 }
 
 void LayerNorm::updateParameter() {

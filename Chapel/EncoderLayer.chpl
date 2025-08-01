@@ -1,14 +1,15 @@
-use Util;
-use Math;
 use Config;
-use LayerNorm;
-use MultiheadAttention;
 use DropOut;
 use FeedForwardBlock;
-use Matrix;
+use LayerNorm;
+use Math;
+use MultiheadAttention;
+use Tensor;
 use Timer;
+use Util;
 
 class EncoderLayer {
+
     proc init() {
         norm1 = new LayerNorm();
         mulAtt = new MultiheadAttention();
@@ -20,7 +21,7 @@ class EncoderLayer {
         domOG = {0..#(batch * sequenceLength * dModel)};
     }
 
-    proc forward(ref input: [?Di] real(32), ref output: [?Do] real(32), ref srcSeq: [?Ds] int) : void {
+    proc forward(ref input: [] real(32), ref output: [] real(32), ref srcSeq: [] int) : void {
         norm1.forward(input, out1);
         mulAtt.forward(out1, out1, out1, out2, MaskType.PADDING, srcSeq);
         dropout1.forward(out2, out3);
@@ -32,7 +33,7 @@ class EncoderLayer {
         Plus(0, 0, 0, batch * sequenceLength * dModel, out3, output, output);
     }
 
-    proc predict(ref input: [?Di] real(32), ref output: [?Do] real(32), ref srcSeq: [?Ds] int) : void {
+    proc predict(ref input: [] real(32), ref output: [] real(32), ref srcSeq: [] int) : void {
         norm1.predict(input, out1);
         mulAtt.predict(out1, out1, out1, out2, MaskType.PADDING, srcSeq);
         dropout1.predict(out2, out3);
@@ -44,7 +45,7 @@ class EncoderLayer {
         Plus(0, 0, 0, batch * sequenceLength * dModel, out3, output, output);
     }
 
-    proc backward(ref outputGradient: [?Do] real(32), ref inputGradient: [?Di] real(32), ref srcSeq: [?Ds] int) : void {
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32), ref srcSeq: [] int) : void {
         dropout2.backward(outputGradient, gradient5);
         pff.backward(gradient5, gradient4, out4);
         norm2.backward(gradient4, gradient3);
@@ -61,59 +62,6 @@ class EncoderLayer {
         mulAtt.updateParameter();
         norm2.updateParameter();
         pff.updateParameter();
-    }
-
-    proc loadParam() {
-        norm1.loadParam();
-        mulAtt.loadParam();
-        norm2.loadParam();
-        pff.loadParam();
-    }
-
-    proc forwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#1] real(32);
-        var seq: [0..#batch] int;
-
-        loadM(input);
-        loadM(target);
-        loadM(npdLoader);
-        for i in 0..#batch do seq[i] = npdLoader[0]:int;
-
-        forward(input, output, seq);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        norm1.checkUpdateParam();
-        mulAtt.checkUpdateParam();
-        norm2.checkUpdateParam();
-        pff.checkUpdateParam();
-    }
-
-    proc backwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var inputGradient: [0..#(batch * sequenceLength * dModel)] real(32);
-        var npdLoader: [0..#1] real(32);
-        var seq: [0..#batch] int;
-        
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(input);
-        loadM(npdLoader);
-        for i in 0..#batch do seq[i] = npdLoader[0]:int;
-
-        forward(input, output, seq);
-        backward(outputGradient, inputGradient, seq);
-        updateParameter();
-
-        checkUpdateParam();
     }
 
     var norm1: owned LayerNorm;
@@ -135,9 +83,3 @@ class EncoderLayer {
     var gradient4: [domOG] real(32);
     var gradient5: [domOG] real(32);
 }
-
-// Test code
-// var model = new EncoderLayer();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

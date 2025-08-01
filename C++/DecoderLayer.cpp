@@ -1,12 +1,13 @@
+#include "Config.h"
+#include "DecoderLayer.h"
+#include "DropOut.h"
+#include "FeedForwardBlock.h"
 #include "Header.h"
-#include "Tensor.h"
 #include "LayerNorm.h"
 #include "Linear.h"
 #include "MultiheadAttention.h"
-#include "DropOut.h"
-#include "FeedForwardBlock.h"
+#include "Tensor.h"
 #include "Util.h"
-#include "DecoderLayer.h"
 
 DecoderLayer::DecoderLayer():
     dropout1(batch * sequenceLength, dModel),
@@ -98,75 +99,4 @@ void DecoderLayer::updateParameter() {
     mulAtt2.updateParameter();
     norm3.updateParameter();
     pff.updateParameter();
-}
-
-void DecoderLayer::loadParam(cnpy::npz_t npFile, std::string prefix) {
-    norm1.loadParam(npFile, prefix + ".sub1.layerNorm");
-    mulAtt1.loadParam(npFile, prefix + ".sub1.sublayer");
-    norm2.loadParam(npFile, prefix + ".sub2.layerNorm");
-    mulAtt2.loadParam(npFile, prefix + ".sub2.sublayer");
-    norm3.loadParam(npFile, prefix + ".sub3.layerNorm");
-    pff.loadParam(npFile,prefix + ".sub3.sublayer");
-}
-
-void DecoderLayer::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    norm1.checkUpdatedParam(npFile, prefix + ".sub1.layerNorm");
-    mulAtt1.checkUpdatedParam(npFile, prefix + ".sub1.sublayer");
-    norm2.checkUpdatedParam(npFile, prefix + ".sub2.layerNorm");
-    mulAtt2.checkUpdatedParam(npFile, prefix + ".sub2.sublayer");
-    norm3.checkUpdatedParam(npFile, prefix + ".sub3.layerNorm");
-    pff.checkUpdatedParam(npFile, prefix + ".sub3.sublayer");
-}
-
-void DecoderLayer::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(batch * sequenceLength, dModel);
-    Tensor target1(batch * sequenceLength, dModel);
-    Tensor target2(batch * sequenceLength, dModel);
-    Tensor input1(batch * sequenceLength, dModel);
-    Tensor input2(batch * sequenceLength, dModel);
-    Tensor output(batch * sequenceLength, dModel);
-    Tensor npdLoad(1,2);
-    int srcSeq[batch];
-    int tgtSeq[batch];
-
-    input1.loadNp(npFile, prefix + ".input1");
-    input2.loadNp(npFile, prefix + ".input2");
-    target.loadNp(npFile, prefix + ".output");
-    // target1.loadNp(npFile, prefix + ".output1");
-    // target2.loadNp(npFile, prefix + ".output2");
-    npdLoad.loadNp(npFile, prefix + ".npd");
-    for(int i = 0;i < batch;i++) srcSeq[i] = npdLoad[0];
-    for(int i = 0;i < batch;i++) tgtSeq[i] = npdLoad[1];
-
-    forward(input1, input2, output, srcSeq, tgtSeq);
-
-    PrintTestResult("forward", output, target);
-    // PrintTestResult("forward", out3, target1);
-    // PrintTestResult("forward", out6, target2);
-}
-
-void DecoderLayer::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-    Tensor target(batch * sequenceLength, dModel);
-    Tensor input1(batch * sequenceLength, dModel);
-    Tensor input2(batch * sequenceLength, dModel);
-    Tensor output(batch * sequenceLength, dModel);
-    Tensor outputGradient(batch * sequenceLength, dModel);
-    Tensor inputGradient(batch * sequenceLength, dModel);
-    Tensor npdLoad(1,2);
-    int srcSeq[batch];
-    int tgtSeq[batch];
-
-    outputGradient = 1.0f / outputGradient.row / outputGradient.col;
-
-    input1.loadNp(npFile, prefix + ".input1");
-    input2.loadNp(npFile, prefix + ".input2");
-    npdLoad.loadNp(npFile, prefix + ".npd");
-    for(int i = 0;i < batch;i++) srcSeq[i] = npdLoad[0];
-    for(int i = 0;i < batch;i++) tgtSeq[i] = npdLoad[1];
-
-    forward(input1, input2, output, srcSeq, tgtSeq);
-    backward(outputGradient, inputGradient, inputGradient, input2, srcSeq, tgtSeq);
-    updateParameter();
-
-    checkUpdatedParam(npFile, prefix);
 }

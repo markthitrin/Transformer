@@ -1,12 +1,10 @@
+#include "Config.h"
 #include "Header.h"
-#include "Tensor.h"
 #include "Softmax.h"
+#include "Tensor.h"
 #include "Timer.h"
-#include <immintrin.h>
 
-Softmax::Softmax() {
-
-}
+Softmax::Softmax() {;}
 
 void Softmax::forward(TensorView input, TensorView output) {
     const int row = output.row;

@@ -4,7 +4,6 @@
 #include "Header.h"
 #include "Tensor.h"
 #include "Util.h"
-#include "cnpy.h"
 #include "DropOut.h"
 
 class PositionalEncoder {
@@ -16,8 +15,6 @@ public:
     void predict(TensorView input, TensorView output);
 
     void backward(TensorView outputGradient, TensorView inputGradient);
-
-    void forwardTest(cnpy::npz_t npFile, std::string prefix);
 
     DropOut dropout;
 

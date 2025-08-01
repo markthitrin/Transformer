@@ -1,7 +1,7 @@
-use Util;
-use Matrix;
 use Config;
+use Tensor;
 use Timer;
+use Util;
 
 class LayerNorm {
 
@@ -19,7 +19,7 @@ class LayerNorm {
         std = 0;
     }
 
-    proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc forward(ref input: [] real(32), ref output: [] real(32)) : void {
         for i in 0..#(batch * sequenceLength) {
             var mean: real(32);
             PlusReduce(i * dModel, dModel, input, mean);
@@ -35,11 +35,11 @@ class LayerNorm {
         CheckPoint();
     }
 
-    proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc predict(ref input: [] real(32), ref output: [] real(32)) : void {
         forward(input, output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) : void {
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32)) : void {
         var invD: real(32) = (1.0 / dModel):real(32);
         for i in 0..#(batch * sequenceLength) {
             var invStd: real(32) = (1.0 / std[i]): real(32);
@@ -69,53 +69,6 @@ class LayerNorm {
         AdamOpt(bias, biasOpt);
     }
 
-    proc loadParam() {
-        loadM(alpha);
-        loadM(bias);
-    }
-
-    proc forwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-
-        loadM(input);
-        loadM(target);
-
-        forward(input, output);
-
-        PrintTestResult("forward", output, target);
-    }
-
-    proc checkUpdateParam() {
-        var alphaUpdated: [domGB] real(32);
-        var biasUpdated: [domGB] real(32);
-
-        loadM(alphaUpdated);
-        loadM(biasUpdated);
-
-        PrintTestResult("backward alpha", alpha, alphaUpdated);
-        PrintTestResult("backward bias", bias, biasUpdated);
-    }
-
-    proc backwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-        var outputGradient: [0..(batch * sequenceLength * dModel)] real(32);
-        var inputGradient: [0..(batch * sequenceLength * dModel)] real(32);
-
-        outputGradient = (1.0 / outputGradient.domain.size):real(32);
-
-        loadM(input);
-
-        forward(input, output);
-        backward(outputGradient, inputGradient);
-        updateParameter();
-
-        checkUpdateParam();
-    }
-    
     var domGB: domain(1);
     var alpha: [domGB] real(32);
     var bias: [domGB] real(32);
@@ -128,9 +81,3 @@ class LayerNorm {
     var xHat: [domXHat] real(32);
     var std: [domStd] real(32);
 }
-
-// Test code
-// var model = new LayerNorm();
-// model.loadParam();
-// for i in 0..4 do model.forwardTest();
-// for i in 0..4 do model.backwardTest();

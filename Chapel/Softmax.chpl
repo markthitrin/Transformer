@@ -1,9 +1,10 @@
 use Util;
 use Math;
-use Matrix;
+use Tensor;
 use Timer;
 
 class Softmax {
+
     proc init(in batch: int, in shape: int) {
         this.batch = batch;
         this.shape = shape;
@@ -11,7 +12,7 @@ class Softmax {
         domB = {0..#shape};
     }
 
-    proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc forward(ref input: [] real(32), ref output: [] real(32)) : void {
         for i in 0..#batch {
             var maxValue: real(32);
             var sumExp: real(32);
@@ -23,12 +24,12 @@ class Softmax {
         CheckPoint();
     }
 
-    proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc predict(ref input: [] real(32), ref output: [] real(32)) : void {
         forward(input, output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32),
-        ref output: [D] real(32)) : void {
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32),
+        ref output: [] real(32)) : void {
 
         for i in 0..#batch {
             var sumGY: real(32);

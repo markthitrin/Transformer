@@ -1,6 +1,6 @@
+#include "Config.h"
 #include "Header.h"
 #include "ReLU.h"
-#include "Config.h"
 #include "ReLU.h"
 #include "Timer.h"
 

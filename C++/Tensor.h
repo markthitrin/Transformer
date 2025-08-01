@@ -1,11 +1,10 @@
 #ifndef TENSOR
 #define TENSOR
 
+#include "Config.h"
 #include "Header.h"
-#include "cnpy.h"
 
 class Tensor;
-
 
 class TensorView {
 public:
@@ -41,12 +40,13 @@ public:
     inline Tensor& operator+=(const TensorView other);
     inline TensorView sliceRow(int r0,int r);
 
-    inline void loadNp(cnpy::npz_t npFile, std::string name);
-
     float* data;
     int row;
     int col;
 };
+
+
+
 
 
 inline TensorView::TensorView() : data(nullptr), row(0), col(0) {}
@@ -93,10 +93,6 @@ inline TensorView TensorView::sliceRow(int r0,int r) {
 
 
 
-
-
-
-
 inline Tensor::Tensor() : data(nullptr) {;}
 inline Tensor::Tensor(const int row, const int col) : row(row), col(col) {
     data = new float[row * col];
@@ -137,21 +133,6 @@ inline TensorView Tensor::sliceRow(int r0,int r) {
     return TensorView(data + r0 * col, r, col);
 }
 
-inline void Tensor::loadNp(cnpy::npz_t npFile, std::string name) {
-    static std::ofstream paramOutFile("../Param/out");
-    cnpy::NpyArray arr = npFile[name];
-    std::memcpy(data, arr.data<float>(), sizeof(float) * row * col);
-    for(int i = 0;i < row;i++) {
-        for(int j = 0;j < col;j++) {
-            paramOutFile << std::setprecision(9) << data[i * col + j] << " ";
-        }
-        paramOutFile << std::setprecision(9) <<  std::endl;
-    }
-    paramOutFile << std::setprecision(9) << std::endl;
-}
-
-
-
 
 
 
@@ -188,6 +169,8 @@ inline void HeNormalInit(TensorView A) {
     }
 }
 
+
+
 inline void Plus(TensorView A, TensorView B, TensorView C) {
     for(int i = 0;i < C.row * C.col;i++) {
         C[i] = A[i] + B[i];
@@ -216,7 +199,6 @@ inline void Div(TensorView A, const float B, TensorView C) {
     const float inv = 1.0f / B;
     Mul(A, inv, C);
 }
-
 
 inline void ApplyLookAheadMask(TensorView A, const int seq, const float x) {
     for(int i = 0;i < seq;i++) {
@@ -250,7 +232,6 @@ inline void ApplyCrossPaddingMask(TensorView A, const int seq, const float x) {
     }
 }
 
-
 inline void GetPositionalEncode(TensorView A) {
     for (int i = 0; i < sequenceLength; i++) {
         for (int j = 0; j < dModel; j += 2) {
@@ -261,6 +242,8 @@ inline void GetPositionalEncode(TensorView A) {
         }
     }
 }
+
+
 
 
 inline void MatMulPlusAB(TensorView A, TensorView B, TensorView C) {

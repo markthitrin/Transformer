@@ -1,8 +1,8 @@
 use Util;
 use Math;
 use Config;
-use Matrix;
 use DropOut;
+use Tensor;
 use Timer;
 
 class PositionalEncoder {
@@ -22,7 +22,7 @@ class PositionalEncoder {
         }
     }
 
-    proc forward(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc forward(ref input: [] real(32), ref output: [] real(32)) : void {
         var block = sequenceLength * dModel;
         for i in 0..#batch {
             Plus(i * block, 0, i * block, block, input, mask, input);
@@ -31,7 +31,7 @@ class PositionalEncoder {
         dropout.forward(input, output);
     }
 
-    proc predict(ref input: [?D] real(32), ref output: [D] real(32)) : void {
+    proc predict(ref input: [] real(32), ref output: [] real(32)) : void {
         var block = sequenceLength * dModel;
         for i in 0..#batch {
             Plus(i * block, 0, i * block, block, input, mask, input);
@@ -39,22 +39,9 @@ class PositionalEncoder {
         dropout.predict(input, output);
     }
 
-    proc backward(ref outputGradient: [?D] real(32), ref inputGradient: [D] real(32)) {
+    proc backward(ref outputGradient: [] real(32), ref inputGradient: [] real(32)) {
         dropout.backward(outputGradient, inputGradient);
         CheckPoint();
-    }
-
-    proc forwardTest() {
-        var input: [0..#(batch * sequenceLength * dModel)] real(32);
-        var output: [0..#(batch * sequenceLength * dModel)] real(32);
-        var target: [0..#(batch * sequenceLength * dModel)] real(32);
-
-        loadM(input);
-        loadM(target);
-
-        forward(input, output);
-
-        PrintTestResult("forward", output, target);
     }
 
     var dropout: owned DropOut;
@@ -62,7 +49,3 @@ class PositionalEncoder {
     var domMask: domain(1);
     var mask: [domMask] real(32);
 }
-
-// Test code
-// var model = new PositionalEncoder();
-// for i in 0..4 do model.forwardTest();

@@ -1,12 +1,13 @@
 #ifndef DECODER
 #define DECODER
 
-#include "Header.h"
-#include "Tensor.h"
+#include "Config.h"
 #include "DecoderLayer.h"
-#include "Softmax.h"
 #include "Embedding.h"
+#include "Header.h"
 #include "Linear.h"
+#include "Softmax.h"
+#include "Tensor.h"
 #include "Util.h"
 
 class Decoder {
@@ -22,14 +23,6 @@ public:
         const int srcSeq[batch], const int tgtSeq[batch]);
 
 	void updateParameter();
-
-    void loadParam(cnpy::npz_t npFile, std::string prefix);
-
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
-
-	void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
-	void backwardTest(cnpy::npz_t npFile, std::string prefix);
 
     DecoderLayer layers[N];
     LayerNorm norm;

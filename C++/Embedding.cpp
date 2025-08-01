@@ -1,8 +1,9 @@
+#include "Config.h"
+#include "Embedding.h"
 #include "Header.h"
 #include "Tensor.h"
-#include "Util.h"
-#include "Embedding.h"
 #include "Timer.h"
+#include "Util.h"
 
 Embedding::Embedding(const int numTokens) : table(numTokens, dModel), needUpdate(numTokens, false) {
     tableOpt.reserve(numTokens);
@@ -41,48 +42,4 @@ void Embedding::updateParameter() {
             needUpdate[i] = false;
         }
     }
-}
-
-void Embedding::loadParam(cnpy::npz_t npFile, std::string prefix) {
-    table.loadNp(npFile, prefix + ".weight");
-}
-
-void Embedding::forwardTest(cnpy::npz_t npFile, std::string prefix) {
-    int input[batch * sequenceLength];
-    Tensor output(batch * sequenceLength, dModel);
-    Tensor target(batch * sequenceLength, dModel);
-    Tensor inputLoader(1, batch * sequenceLength);
-
-    inputLoader.loadNp(npFile, prefix + ".input");
-    for(int i = 0;i < batch * sequenceLength;i++) input[i] = inputLoader[i];
-    target.loadNp(npFile, prefix + ".output");
-
-    forward(input, output);
-
-    PrintTestResult("forward", output, target);
-}
-
-void Embedding::checkUpdatedParam(cnpy::npz_t npFile, std::string prefix) {
-    Tensor tableUpdated(srcVocab, dModel);
-
-    tableUpdated.loadNp(npFile, prefix + ".updated_weights");
-
-    PrintTestResult("backward table", table, tableUpdated);
-}
-
-void Embedding::backwardTest(cnpy::npz_t npFile, std::string prefix) {
-    int input[batch * sequenceLength];
-    Tensor inputLoader(1, batch * sequenceLength);
-    Tensor outputGradient(batch * sequenceLength, dModel);
-    Tensor output(batch * sequenceLength, dModel);
-
-    outputGradient = 1.0f / outputGradient.row / outputGradient.col;
-    inputLoader.loadNp(npFile, prefix + ".input");
-    for(int i = 0;i < batch * sequenceLength;i++) input[i] = inputLoader[i];
-
-    forward(input, output);
-    backward(outputGradient, input);
-    updateParameter();
-
-    checkUpdatedParam(npFile, prefix);
 }

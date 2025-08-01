@@ -1,7 +1,8 @@
-#include "Header.h"
-#include "Transformer.h"
+#include "Config.h"
 #include "Data.h"
+#include "Header.h"
 #include "Timer.h"
+#include "Transformer.h"
 
 void readDataFile(std::vector<std::vector<int>>& src, std::vector<std::vector<int>>& tgt) {
     std::ifstream file("opus_books_tokenized.txt");

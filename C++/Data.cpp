@@ -1,6 +1,7 @@
+#include "Config.h"
+#include "Data.h"
 #include "Header.h"
 #include "Tensor.h"
-#include "Data.h"
 
 Data::Data(std::vector<std::vector<int>>&& srcTokens, std::vector<std::vector<int>>&& tgtToken) 
     : srcTokens(srcTokens), tgtToken(tgtToken) {}
@@ -14,7 +15,6 @@ void Data::get(int* inpute, int* inputd, int* target, int* seqSrq, int* tgtSeq) 
             --i;
             continue;
         }
-        
 
         for(int j = 0;j < srclen;j++) {
             inpute[j] = srcTokens[pos][j];

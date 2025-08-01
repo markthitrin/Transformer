@@ -1,13 +1,14 @@
 #ifndef ENCODER_LAYER
 #define ENCODER_LAYER
 
+#include "Config.h"
+#include "DropOut.h"
+#include "FeedForwardBlock.h"
 #include "Header.h"
-#include "Tensor.h"
 #include "LayerNorm.h"
 #include "Linear.h"
 #include "MultiheadAttention.h"
-#include "DropOut.h"
-#include "FeedForwardBlock.h"
+#include "Tensor.h"
 #include "Util.h"
 
 class EncoderLayer {
@@ -21,14 +22,6 @@ public:
 	void backward(TensorView outputGradient, TensorView inputGradient, const int srcSeq[batch]);
 
 	void updateParameter();
-
-	void loadParam(cnpy::npz_t npFile, std::string prefix);
-
-	void checkUpdatedParam(cnpy::npz_t npFile, std::string prefix);
-
-	void forwardTest(cnpy::npz_t npFile, std::string prefix);
-
-	void backwardTest(cnpy::npz_t npFile, std::string prefix);
 
 	LayerNorm norm1;
 	MultiheadAttention mulAtt;
@@ -50,4 +43,4 @@ public:
 	Tensor gradient5;
 };
 
-#endif // !ENCODER_LAYER
+#endif
