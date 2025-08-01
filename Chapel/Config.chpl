@@ -21,5 +21,3 @@ config param testingIteration = 1;
 config param trainingRatio = 0.7;
 
 config param BLOCK_SIZE = 64;
-
-config param paramFileName = "../C++/Param/Transformer.param";
