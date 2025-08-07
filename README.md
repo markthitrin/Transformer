@@ -21,13 +21,14 @@ cd ./cuda
 make -j
 ```
 **python**
-For Pytorch A (orignal implementation from [GitHub](https://github.com/markthitrin/Transformer.git))
+For Pytorch A (orignal implementation from [GitHub](https://github.com/ES7/Transformer-from-Scratch))
 ```bash
 cd ./python/Transformer-from-Scratch
 python ./train.py
 ```
-For Pytorch B (orignal implementation from [GitHub](https://github.com/markthitrin/Transformer.git) with transformerBlock replaced by `torch.nn.transformer`)
+For Pytorch B (orignal implementation from [GitHub](https://github.com/ES7/Transformer-from-Scratch) with transformerBlock replaced by `torch.nn.transformer`)
 ```bash
 cd ./python/Pytorch
 python ./train.py
 ```
+
