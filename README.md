@@ -1,7 +1,7 @@
 # Transformer From Scractch (Single Thread)
 You are currently on the single thread branch. To see the whole project please visit master branch. This branch contain the single thread imlpementation of C++, Chapel, both 2 version of the Python.
 ## Build and Run
-Every models configuration is set in the config file. The architecture is based on the paper [Attention Is All You Need] (https://arxiv.org/abs/1706.03762). The configuration parameter are the following for every model.
+Every models configuration is set in the config file. The architecture is based on the paper [Attention Is All You Need](https://arxiv.org/abs/1706.03762). The configuration parameter are the following for every model.
 - dModel :  the number of features in the encoder/decoder inputs 
 - sequenceLength : the maximum sequence length of both input and ouput
 - dFF : the dimension of the feedforward network model
@@ -12,6 +12,7 @@ Every models configuration is set in the config file. The architecture is based 
 - batch_size : size of batch
 - dropout : probability of dropping out in dropout later.
 To build each model
+- trainingIteration : number of iteration to traing on the problem.
 ### C++
 0. Please make sure clang is avaliable on your machine
 1. change working directory to C++
@@ -61,3 +62,4 @@ python ./train.py
 
 ## Result
 The program should continuely train the model and consistently output the current iteration number. After the model complete its should be list of time of each layer in the model following with model testing result. You can view my running result at [Sheet](https://docs.google.com/spreadsheets/d/1aHkE9Ckl0-waxVwu-f4dIJ0peM6jIUQv3IU1-bFa0p0/edit?usp=sharing)
+
