@@ -4,9 +4,6 @@ use Math;
 use Random;
 use Time;
 
-var file = open(paramFileName, ioMode.r);
-var fileReader = file.reader();
-
 var rng = new randomStream(eltType=real(32));
 
 proc sampleNormal (in mu: real(32), in sigma: real(32)) : real(32) {

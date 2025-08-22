@@ -71,6 +71,10 @@ class Timer:
 
 timer = Timer()
 
+def BackwardTimerCheckpoint(grad) :
+    timer.checkpoint()
+    return grad
+
 class InputEmbeddings(nn.Module):
     def __init__(self, d_model: int, vocab_size: int):
         super().__init__()
@@ -113,10 +117,12 @@ class PositionalEncoding(nn.Module):
         self.register_buffer('pe', pe)
 
     def forward(self, x):
-        x = x + (self.pe[:, :x.shape[1], :]).requires_grad_(False) # (batch, seq, d_model)
+        x2 = x + (self.pe[:, :x.shape[1], :]).requires_grad_(False) # (batch, seq, d_model)
+        x.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
-        y = self.dropout(x)
+        y = self.dropout(x2)
+        x2.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         return y
@@ -139,6 +145,7 @@ class LayerNormalization(nn.Module):
         # # eps is to prevent dividing by zero or when std is very small
         # y = self.alpha * (x - mean) / (std + self.eps) + self.bias
         y = self.layer(x)
+        x.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         return y
@@ -154,15 +161,19 @@ class FeedForwardBlock(nn.Module):
     def forward(self, x):
         # (batch, seq, d_model) --> (batch, seq, d_ff) --> (batch, seq, d_model)
         y1 = self.linear_1(x)
+        x.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         y2 = torch.relu(y1)
+        y1.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         y3 = self.dropout(y2)
+        y2.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         y4 = self.linear_2(y3)
+        y3.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         return y4
@@ -194,20 +205,26 @@ class MultiHeadAttentionBlock(nn.Module):
             attention_scores.masked_fill_(mask == 0, -1e9)
         timer.checkpoint()
         
-        
-        attention_scores = attention_scores.softmax(dim=-1) # (batch, h, seq, seq) # Apply softmax
+        attention_scores_s = attention_scores.softmax(dim=-1) # (batch, h, seq, seq) # Apply softmax
+        attention_scores.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         if dropout is not None:
-            attention_scores = dropout(attention_scores)
-            timer.checkpoint()  
+            attention_scores_d = dropout(attention_scores_s)
+            attention_scores_s.register_hook(BackwardTimerCheckpoint)
+
+            timer.checkpoint()
+        else : attention_scores_d = attention_scores_s
         
         # (batch, h, seq, seq) --> (batch, h, seq, d_k)
         # return attention scores which can be used for visualization
-        return (attention_scores @ value), attention_scores
+        y = (attention_scores_d @ value)
+        attention_scores_d.register_hook(BackwardTimerCheckpoint)
+        return y, attention_scores_d
 
-    def forward(self, q, k, v, mask):
+    def forward(self, q, k, v, mask) :
         query = self.w_q(q) # (batch, seq, d_model) --> (batch, seq, d_model)
+        q.register_hook(BackwardTimerCheckpoint)
         key = self.w_k(k) # (batch, seq, d_model) --> (batch, seq, d_model)
         value = self.w_v(v) # (batch, seq, d_model) --> (batch, seq, d_model)
 
@@ -240,6 +257,7 @@ class ResidualConnection(nn.Module):
     def forward(self, x, sublayer):
         y2 = sublayer(self.norm(x))
         y3 = self.dropout(y2)
+        y2.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         return x + y3
@@ -307,6 +325,7 @@ class ProjectionLayer(nn.Module):
     def forward(self, x) -> None:
         # (batch, seq, d_model) --> (batch, seq, vocab_size)
         y = self.proj(x)
+        x.register_hook(BackwardTimerCheckpoint)
         timer.checkpoint()
         
         return y
@@ -327,7 +346,9 @@ class Transformer(nn.Module):
         # (batch, seq, d_model)
         src = self.src_embed(src)
         src = self.src_pos(src)
-        return self.encoder(src, src_mask)
+        res = self.encoder(src, src_mask)
+        res.register_hook(BackwardTimerCheckpoint) # decoder's embedding backward timer
+        return res
     
     def decode(self, encoder_output: torch.Tensor, src_mask: torch.Tensor, tgt: torch.Tensor, tgt_mask: torch.Tensor):
         # (batch, seq, d_model)

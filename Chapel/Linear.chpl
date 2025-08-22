@@ -38,7 +38,7 @@ class Linear {
 
         var outD = bias.domain.size;
         var inD = weight.domain.size / bias.domain.size;
-        var batch = inputGradient.domain.size / outD;
+        var batch = outputGradient.domain.size / outD;
         inputGradient = 0;
         for i in 0..#batch {
             Plus(0, i * outD, 0, outD, biasOpt.gradient, outputGradient, biasOpt.gradient);

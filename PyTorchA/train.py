@@ -257,9 +257,8 @@ def train_model(config):
             writer.flush()
 
             # Backpropagate the loss
-            
             loss.backward()
-            timer.checkpoint()
+            timer.checkpoint() # Encoder's embedding backward timer
             # Update the weights
             optimizer.step()
             optimizer.zero_grad(set_to_none=True)
